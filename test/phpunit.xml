@@ -1,0 +1,28 @@
+<phpunit 
+		backupGlobals="false" 
+		backupStaticAttributes="true" 
+		colors="true" 
+		syntaxCheck="false"
+		bootstrap="bootstrap.php"
+		stopOnFailure="true" 
+		coverage-html="./reports" >
+	<testsuite name="AllTest">
+		<file>install/installTest.php</file>		
+	</testsuite>
+	
+	<listeners>
+		<listener class="XiTestListener" file="./system/XiTestListener.php" />
+	</listeners>
+	
+	<!--<filter>
+	  <whitelist>
+	    <directory suffix=".php">../components/com_xiec</directory>
+	    <directory suffix=".php">../administrator/components/com_xiec</directory>
+	    <exclude>
+	    	<file>../components/com_xiec/xiec.php</file>
+    	</exclude>
+	    
+	  </whitelist>
+	</filter>-->
+
+</phpunit>

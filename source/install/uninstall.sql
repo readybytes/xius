@@ -1,0 +1,1 @@
+SELECT * `#__users`;
