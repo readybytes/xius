@@ -227,12 +227,12 @@
 			<formatter type="report" outfile="${dir.report}/zend.phpcs.txt"  usefile="true"/>
 		</phpcodesniffer>
 
-		<phpcpd haltonerror="false">
+		<!--<phpcpd haltonerror="false">
 		   <fileset dir="${dir.tmp}" id="filestocpd">
 		     <include name="**/*.php" />
 		   </fileset>
 		   <formatter type="pmd" outfile="${dir.report}/cpd-report.xml"/>
-		 </phpcpd>
+		 </phpcpd>-->
 		
 		<exec command="phploc   ${dir.tmp} > ${dir.report}/loc.source.txt " escape="false" />
 		<exec command="phploc   --count-tests ${dir.root}/test > ${dir.report}/loc.test.txt " escape="false" />

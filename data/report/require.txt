@@ -1,0 +1,6 @@
+../packages/tmp/site/includes.php:15:require_once dirname(__FILE__).DS.'defines.php'	;
+../packages/tmp/site/includes.php:18:require_once XIEC_PATH_HELPER .DS.'loader.php'	;
+../packages/tmp/site/xius.php:10:require_once  dirname(__FILE__).DS.'includes'.DS.'includes.php';
+../packages/tmp/site/xius.php:32://in this case they must include the file, where class is defined
+../packages/tmp/admin/includes.php:15:require_once dirname(__FILE__).DS.'defines.php'	;
+../packages/tmp/admin/includes.php:18:require_once XIEC_PATH_HELPER .DS.'loader.php'	;
