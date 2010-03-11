@@ -9,30 +9,20 @@
 defined('_JEXEC') or die();
 
 // If file is already included
-if(defined('XIEC_DEFINE'))
+if(defined('XIUS_DEFINE'))
 	return;
 
-define('XIEC_PATH_COMPONENT_SITE', dirname(dirname(__FILE__)));
-
-//required for testing
-if(!defined('JPATH_COMPONENT'))
-define( 'JPATH_COMPONENT',	XIEC_PATH_COMPONENT_SITE);
-		
-//all folder paths
-define('XIEC_PATH_TABLE',		XIEC_PATH_COMPONENT_SITE.DS.'tables');
-define('XIEC_PATH_MODEL',		XIEC_PATH_COMPONENT_SITE.DS.'models');
-define('XIEC_PATH_CONTROLLER',	XIEC_PATH_COMPONENT_SITE.DS.'controllers');
-define('XIEC_PATH_VIEW',		XIEC_PATH_COMPONENT_SITE.DS.'views');
-define('XIEC_PATH_LIBRARY',		XIEC_PATH_COMPONENT_SITE.DS.'libraries');
-define('XIEC_PATH_HELPER',		XIEC_PATH_COMPONENT_SITE.DS.'helpers');
-define('XIEC_PATH_INCLUDE',		XIEC_PATH_COMPONENT_SITE.DS.'includes');
-define('XIEC_PATH_MEDIA',		XIEC_PATH_COMPONENT_SITE.DS.'media');
+define('XIUS_DEFINE','XIUS_DEFINE');
 
 //names which will not vary
-define('XIEC_COMPONENT_NAME','com_xiec');
+define('XIUS_COMPONENT_NAME','com_xius');
+	
+//all folder paths
+define('XIUS_COMPONENT_PATH_SITE',	JPATH_ROOT.DS.'components'.DS.XIUS_COMPONENT_NAME);
+define('XIUS_COMPONENT_PATH_ADMIN',	JPATH_ADMINISTRATOR.DS.'components'.DS.XIUS_COMPONENT_NAME);
+define('XIUS_PATH_TABLE',		XIUS_COMPONENT_PATH_ADMIN.DS.'tables');
+define('XIUS_PATH_MODEL',		XIUS_COMPONENT_PATH_ADMIN.DS.'models');
+define('XIUS_PATH_LIBRARY',		XIUS_COMPONENT_PATH_ADMIN.DS.'libraries');
+define('XIUS_PATH_HELPER',		XIUS_COMPONENT_PATH_ADMIN.DS.'helpers');
+define('XIUS_PATH_ASSET',		XIUS_COMPONENT_PATH_ADMIN.DS.'assets');
 
-//regarding states
-define('XI_STATE_BOUND_LOWER',	'bound.lower');
-define('XI_STATE_BOUND_UPPER',	'bound.upper');
-define('XI_STATE_LIKE',			'like');
-define('XI_STATE_EQUAL',		'equal');

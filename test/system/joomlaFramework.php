@@ -21,6 +21,3 @@ require_once JPATH_BASE .DS.'libraries'.DS.'joomla'.DS.'factory.php';
 // Initalize frontend framework
 $mainframe =& JFactory::getApplication('site');
 $mainframe->initialise();
-
-// include files specific to our components
-require_once JPATH_ROOT.DS.'components'.DS.'com_xiec'.DS.'includes'.DS.'includes.php';

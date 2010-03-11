@@ -27,7 +27,7 @@
 			</fileset>
 			 <filterchain>
 				<replacetokens>
-				    <token key="local.repository.location" 	value="${dir.root}"/>
+				    <token key="local.repository.location" 	value="${project.basedir}/../"/>
 				</replacetokens>
 			</filterchain>
 		</reflexive>
