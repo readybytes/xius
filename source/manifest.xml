@@ -39,6 +39,10 @@
 			<folder>views</folder>
 			<folder>assets</folder>
 		</files>
+		
+		<files>
+			<folder>install</folder>
+		</files>
 
 		<languages>
 			<language tag="en-GB">languages/admin/en-GB.com_xius.ini</language>
@@ -47,4 +51,17 @@
 	
 	<installfile>install/install.php</installfile>
 	<uninstallfile>install/uninstall.php</uninstallfile>
+
+	 <install>
+                <sql>
+                        <file driver="mysql" charset="utf8">install/install.sql</file>
+                </sql>
+        </install>
+
+	 <uninstall>
+                <sql>
+                        <file driver="mysql" charset="utf8">install/uninstall.sql</file>
+                </sql>
+        </uninstall>
+
 </install>

@@ -1,1 +1,1 @@
-SELECT * `#__users`;
+

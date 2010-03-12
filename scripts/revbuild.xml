@@ -25,6 +25,17 @@
                         tofile="${target}/source/manifest.xml" 
          />
 
+    <!-- move install directory again into install folder --> 
+	<!-- first copy -->
+	<copy todir="${target}/source/install">
+			<fileset dir="${target}/source/admin/install">
+				<include name="**/*.*" />
+			</fileset>
+        </copy>
+
+	<!-- delete admin installer -->
+	<delete dir="${target}/source/admin/install" />
+
         <copy todir="${target}/source/site">
 			<fileset dir="${source}/components/com_xius">
 				<include name="**/*.*" />
