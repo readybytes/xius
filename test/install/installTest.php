@@ -26,8 +26,8 @@ class InstallTest extends XiSelTestCase
     $this->waitPageLoad("30000");
       
 	// add profiletype-one
-    $this->type("install_package", XIUS_PKG);
-    $this->click("//form[@name='adminForm']/table[1]/tbody/tr[2]/td[2]/input[2]");
+    $this->type("install_url", XIUS_PKG);
+    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
     $this->waitPageLoad();
     $this->assertTrue($this->isTextPresent("Install Component Success"));
   }

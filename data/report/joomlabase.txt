@@ -1,0 +1,3 @@
+../packages/tmp/site/includes.php:20:$lang =& JFactory::getLanguage();
+../packages/tmp/admin/includes.php:26:JTable::addIncludePath(XIUS_PATH_TABLE);
+../packages/tmp/admin/includes.php:30:$lang =& JFactory::getLanguage();

@@ -1,35 +1,50 @@
 
 FILE: /vobs/xius/trunk/packages/tmp/site/includes.php
 --------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
+FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
- 9 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  9 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 12 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 21 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: /vobs/xius/trunk/packages/tmp/site/xius.php
 --------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
   8 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 21 | ERROR | Operator == prohibited; use === instead
+ 20 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 29 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/includes.php
 --------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
+FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
- 9 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  9 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 12 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 31 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/defines.php
 --------------------------------------------------------------------------------
-FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
+FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
   9 | ERROR | Logical operator "or" is prohibited; use "||" instead
  12 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 18 | ERROR | Operator ! prohibited; use === FALSE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/xius.php
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
+--------------------------------------------------------------------------------
+  8 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 20 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 26 | ERROR | String concat is not required here; use a single string instead
+ 29 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
