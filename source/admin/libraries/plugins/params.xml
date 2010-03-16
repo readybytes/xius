@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+		<param name="isSearchable" type="radio" default="1" label="IS INFORMATION CAN BE USED AS SEARCHABLE FOR YOUR SITE MEMBERS" description="IS INFORMATION CAN BE USED AS SEARCHABLE FOR YOUR SITE MEMBERS.DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="isVisible" type="radio" default="1" label="IS INFORMATION AVAILABLE FOR DISPLAY ON MINI PROFILE" description="IS INFORMATION AVAILABLE FOR DISPLAY ON MINI PROFILE.DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="isSortable" type="radio" default="1" label="IS INFORMATION CAN BE USED AS SORTABLE FOR YOUR SITE MEMBERS" description="IS INFORMATION CAN BE USED AS SORTABLE FOR YOUR SITE MEMBERS.DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+</config>
