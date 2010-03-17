@@ -13,5 +13,6 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="template" type="text" default="" label="TEMPLATE" description="TEMPLATE.DESC" />
 	</params>
 </config>

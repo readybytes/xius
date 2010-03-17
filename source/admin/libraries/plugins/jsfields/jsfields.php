@@ -23,7 +23,7 @@ class JsFields extends XiusBase
 	
 	
 	/*return label + input box html */
-	public function renderPluginSearchableHtml()
+	public function renderSearchableHtml()
 	{
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
@@ -37,6 +37,30 @@ class JsFields extends XiusBase
 		$fieldHtml = jsfieldshelper::getFieldsHTML($field[0]);
 		
 		return $this->generateSearchHtml($field[0]->name,$fieldHtml);
+	}
+	
+	
+	/*@ return plugin different - 2 type which can exist
+	 * Eq :- for JSFields ( Gender , city , state etc ) exist
+	 * It will return key with display name 
+	 */ 
+	public function getAvailableInfo()
+	{
+		if(!$this->isAllRequirementSatisfy())
+			return false;
+			 
+		$jsFields = jsfieldshelper::getJomsocialFields();
+		
+		if(empty($jsFields))
+			return false;
+
+		$pluginsInfo = array();
+			
+		foreach($jsFields as $f){
+			$pluginsInfo[$f->id] = $f->name;
+		}
+		
+		return $pluginsInfo;
 	}
 	
 }

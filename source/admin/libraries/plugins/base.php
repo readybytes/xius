@@ -10,6 +10,7 @@ abstract class XiusBase extends JObject
 	protected $params;
 	
 	/*plugin will provide entry for this */
+	/*key = unique name for understanding of plugin */
 	protected $key;
 	protected $pluginParams;
 	
@@ -82,7 +83,7 @@ abstract class XiusBase extends JObject
 		if($id) {
 			$filter = array();
 			$filter['id'] = $id;
-			$info = XiusFactory::getInfo($filter);
+			$info = XiusLibrariesInfo::getInfo($filter);
 			if($info)
 				$this->bind($info[0]);
 		}
@@ -131,13 +132,6 @@ abstract class XiusBase extends JObject
 		return true;
 	}
 	
-	/*XITODO : move in utils */	
-	public function getValueFromParams($paramName,$what,$default='')
-	{
-		$paramName->get($what,$default);
-	}
-	
-	
 	/*public function getisdoAble($what,$default=false)
 	{
 		$isAble = $this->getValueFromParams($this->params,$what,$default);
@@ -147,20 +141,20 @@ abstract class XiusBase extends JObject
 	
 	public function isSearchable()
 	{
-		$isSearchable = $this->getValueFromParams($this->params,'isSearchable',false);
+		$isSearchable = getValueFromXiusParams($this->params,'isSearchable',false);
 		return $isSearchable;
 	}
 	
 	public function isVisible()
 	{
-		$isVisible = $this->getValueFromParams($this->params,'isVisible',false);
+		$isVisible = getValueFromXiusParams($this->params,'isVisible',false);
 		return $isVisible;
 	}
 	
 	
 	public function isSortable()
 	{
-		$isSortable = $this->getValueFromParams($this->params,'isSortable',false);
+		$isSortable = getValueFromXiusParams($this->params,'isSortable',false);
 		return $isSortable;
 	}
 	
@@ -184,18 +178,98 @@ abstract class XiusBase extends JObject
 	/*this function is defined for front-end
 	 * return label + input box html
 	 */
-	public function renderPluginSearchableHtml()
+	public function renderSearchableHtml()
 	{
-		return $this->generateSearchHtml();
+		/*We expect here that every plugin should have view 
+		 * for display inteface .We will include view file
+		 * and directly call function for displaying html
+		 */
+		/*XITODO : move view code in separate function */
+		$lowercase = strtolower($this->pluginType);
+		
+		$basePath = dirname(__CLASS__).DS.$lowercase;
+		$viewPath = $basePath.DS.'views'.'view.html.php';
+		
+		if(!JFile::exists($viewPath))
+			return $this->generateSearchHtml();
+			
+		require_once $viewPath;
+		
+		/*view class name = plugin class name with View*/
+		$viewClass = $this->pluginType.'View';
+		$view = new $viewClass();
+		
+		$view->searchHtml();
 	}
 	
 
-	public function renderPluginSortableHtml()
+	public function renderSortableHtml()
 	{
 		$html = $this->labelName;
 		return $html;
 	}
 	
+	/*XITODO : function will decide which user can search
+	 *  sort etc from which info 
+	 *  will be helpful for PROFILETYPE layouts etc at later
+	 *  break in 2 function : accessible according to core
+	 *  2 : according to plugin 
+	 */
+	public function isAccessible($userid,$what='search')
+	{
+		return true;
+	}
+
+	
+	/*get column name , returns a unique name for the given plugin*/
+	public function getCacheColumnName()
+	{
+		return $this->key;
+	}
+	
+	
+	/*fn return exact parameter details that will store
+	 * in that field
+	 */ 
+	public function getCacheColumns()
+	{
+		$details[] = array();
+		$details[0]['type'] = 'varchar(250)';
+		$details[0]['default'] = '';
+		$details[0]['columnname'] = $this->pluginType.$this->getQueryColumn();
+		return $details;
+	}
+	
+	
+	/*function return column name with value
+	 * that should meet in that column
+	 */
+	public function addSearchToQuery(XiusQuery &$query,$value)
+	{
+		/*XITODO : modify query according to search criteia */
+		return true;
+	}
+	
+	
+	/*function will format data if any plugin required , they will override it 
+	 * it will help to search data in table according to exist
+	 * means how data can be find in table
+	 * Eq :- profiletype ( format value = $ptypeid ) 
+	 */
+	protected function formatValue($value)
+	{
+		return $value;
+	}
+	
+	
+	/*@ return plugin different - 2 type which can exist
+	 * Eq :- for JSFields ( Gender , city , state etc ) exist
+	 * It will return key with display name 
+	 */ 
+	public function getAvailableInfo()
+	{
+		return false;
+	}
 	
 	public function getMe()
 	{
