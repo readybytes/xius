@@ -111,8 +111,8 @@ abstract class XiusBase extends JObject
 
 		if(is_object( $from )) {
 			//convert to array
-			$from = $from->toArray();
-			//$from = (array) ($from);
+			//$from = $from->toArray();
+			$from = (array) ($from);
 		}
 		
 		if (!is_array( $ignore )) {

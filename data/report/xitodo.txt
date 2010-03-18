@@ -1,9 +1,10 @@
 ../packages/tmp/admin/helpers/utils.php:6:/*XITODO : move into class */
 ../packages/tmp/admin/libraries/cache.php:28:		/*XITODO : use foreach with column details , it should be array of array */
 ../packages/tmp/admin/libraries/cache.php:30:			/*XITODO : set some error */
-../packages/tmp/admin/libraries/factory.php:31:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/factory.php:9:	/*XITODO : Put debug mode in function rather then passing it everywhere */
+../packages/tmp/admin/libraries/factory.php:32:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/base.php:187:		/*XITODO : move view code in separate function */
-../packages/tmp/admin/libraries/plugins/base.php:212:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:249:		/*XITODO : modify query according to search criteia */
+../packages/tmp/admin/libraries/plugins/base.php:189:		/*XITODO : move view code in separate function */
+../packages/tmp/admin/libraries/plugins/base.php:214:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:251:		/*XITODO : modify query according to search criteia */
 ../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:27:			/*XITODO : return false , function does not exist over view */		
