@@ -9,7 +9,7 @@ class XiusFactoryTest extends XiUnitTestCase
 
 	function testGetPluginInstance()
 	{
-		$instance = XiusFactory::getPluginInstance('JsFields',false);
+		$instance = XiusFactory::getPluginInstance('JsFields');
 		//print_r($instance);
 		$this->assertEquals("JsFields",$instance->getMe());
 	}

@@ -14,37 +14,42 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		 * b'coz joomla file system does not load
 		 */
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'jsfields.php';
-		$instance = new JsFields(0);
+		$instance = new JsFields();
 		
 		$info = $instance->getAvailableInfo();
 		
-		$requiredInfo = array();
+		if(!isComponentExist('com_community'))
+			$this->assertFalse($info);
+		else {
 		
-		$requiredInfo[2] 	= 'Gender';
-    	$requiredInfo[3] 	= 'Birthday';
-    	$requiredInfo[4] 	= 'Hometown';
-	    $requiredInfo[5] 	= 'About me';
-	    $requiredInfo[7] 	= 'Mobile phone';
-	    $requiredInfo[8] 	= 'Land phone';
-	    $requiredInfo[9] 	= 'Address';
-	    $requiredInfo[10]	= 'State';
-	    $requiredInfo[11] 	= 'City / Town';
-	    $requiredInfo[12] 	= 'Country';
-	    $requiredInfo[13] 	= 'Website';
-	    $requiredInfo[15] 	= 'College / University';
-	    $requiredInfo[16] 	= 'Graduation Year';
-	    
-		$this->assertEquals($requiredInfo,$info);
+			$requiredInfo = array();
+			
+			$requiredInfo[2] 	= 'Gender';
+	    	$requiredInfo[3] 	= 'Birthday';
+	    	$requiredInfo[4] 	= 'Hometown';
+		    $requiredInfo[5] 	= 'About me';
+		    $requiredInfo[7] 	= 'Mobile phone';
+		    $requiredInfo[8] 	= 'Land phone';
+		    $requiredInfo[9] 	= 'Address';
+		    $requiredInfo[10]	= 'State';
+		    $requiredInfo[11] 	= 'City / Town';
+		    $requiredInfo[12] 	= 'Country';
+		    $requiredInfo[13] 	= 'Website';
+		    $requiredInfo[15] 	= 'College / University';
+		    $requiredInfo[16] 	= 'Graduation Year';
+		    
+			$this->assertEquals($requiredInfo,$info);
+		}
 	}
 	
 	
 	/**
 	 * @dataProvider pluginClassProvider
 	 */
-	function testToArray($compareArray,$className,$debugMode)
+	function testToArray($compareArray,$className)
 	{
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
-		$instance = new $className($debugMode);
+		$instance = new $className();
 		$instanceArray = $instance->toArray();
 		
 		foreach($compareArray as $k => $v) {
@@ -56,7 +61,6 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	public function pluginClassProvider()
 	{
 		$pluginClass1 = 'JsFields';
-		$debugMode = false;
 		
 		$compareArray1 = array();
 		
@@ -69,10 +73,10 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$compareArray1['pluginType']	=	$pluginClass1;
 		$compareArray1['oredring']		=	0;
 		$compareArray1['published']		=	1;
-		$compareArray1['debugMode']		= 	false;
+		//$compareArray1['debugMode']		= 	false;
 		
 		return array(
-			array($compareArray1,$pluginClass1,$debugMode)
+			array($compareArray1,$pluginClass1)
 		);
 	}
 	
@@ -80,7 +84,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	/**
 	 * @dataProvider BindDataProvider
 	 */
-	function testBind($from,$className,$debugMode)
+	function testBind($from,$className)
 	{
 		if(is_object($from))
 			$from = (array) $from;
@@ -88,34 +92,38 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$this->assertTrue(is_array($from),"from is not an array");
 		
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
-		$instance = new $className($debugMode);
+		$instance = new $className();
+		
+		//$ignoreArray = array('debugMode','params','pluginParams');
+		
 		$this->assertTrue($instance->bind($from),"Bind is not successfull");
 		
 		$instanceArray = $instance->toArray();
-		$this->assertEquals($from,$instanceArray);
+		
+		$conditions=array('checkAccFirst' => true , 'checkAccSecond' => false , 'bothEqual' => false);
+		$this->compareArray($from,$instanceArray,$conditions);
 	}
 	
 	
 	public function BindDataProvider()
 	{
 		$pluginClass1 = 'JsFields';
-		$debugMode = false;
 		
 		$bindArray1 = array();
 		
 		$paramsxmlpath = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'params.xml';
 		$bindArray1['id']			=	0 ;
-		$bindArray1['labelName']	=	'';
-		$bindArray1['params']		=	new JParameter('',$paramsxmlpath);
+		$bindArray1['labelName']	=	'hello';
+		//$bindArray1['params']		=	new JParameter('',$paramsxmlpath);
 		$bindArray1['key']			=	'';
-		$bindArray1['pluginParams']	=	new JParameter('','');
+		//$bindArray1['pluginParams']	=	new JParameter('','');
 		$bindArray1['pluginType']	=	$pluginClass1;
 		$bindArray1['oredring']		=	0;
-		$bindArray1['published']		=	1;
-		$bindArray1['debugMode']		= 	false;
+		$bindArray1['published']	=	1;
+		//$bindArray1['debugMode']	= 	false;
 		
 		return array(
-			array($bindArray1,$pluginClass1,$debugMode)
+			array($bindArray1,$pluginClass1)
 		);
 	}
 	
@@ -123,21 +131,24 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	/**
 	 * @dataProvider getSatisfy
 	 */
-	function testIsAllRequirementSatisfy($className,$debugMode,$result=true)
+	function testIsAllRequirementSatisfy($className,$result=true)
 	{
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
-		$instance = new $className($debugMode);
-		$this->assertEquals($result,$instance->isAllRequirementSatisfy(),"All Requirement should be satisfy = $result");
+		$instance = new $className();
+		
+		if(!isComponentExist('com_community'))
+			$this->assertFalse($instance->isAllRequirementSatisfy());
+		else 
+			$this->assertEquals($result,$instance->isAllRequirementSatisfy(),"All Requirement should be satisfy = $result");
 	}
 	
 	public function getSatisfy()
 	{
 		$pluginClass1 = 'JsFields';
-		$debugMode1 = false;
 		$result = true;
 		
 		return array(
-			array($pluginClass1,$debugMode1,$result)
+			array($pluginClass1,$result)
 		);
 	}
 	

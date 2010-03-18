@@ -8,9 +8,9 @@ require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'lib
 class JsFields extends XiusBase
 {
 
-	function __construct($debugMode)
+	function __construct()
 	{
-		parent::__construct(__CLASS__,$debugMode);
+		parent::__construct(__CLASS__);
 	}
 	
 	
@@ -23,11 +23,14 @@ class JsFields extends XiusBase
 	
 	
 	/*return label + input box html */
-	public function renderSearchableHtml()
+	/*public function renderSearchableHtml()
 	{
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
-		 */
+		 
+		if(!$this->isAllRequirementSatisfy())
+			return false;
+			
 		$filter = array();
 		$filter['id'] = $this->key;
 		$field = jsfieldshelper::getJomsocialFields($filter);
@@ -37,7 +40,7 @@ class JsFields extends XiusBase
 		$fieldHtml = jsfieldshelper::getFieldsHTML($field[0]);
 		
 		return $this->generateSearchHtml($field[0]->name,$fieldHtml);
-	}
+	}*/
 	
 	
 	/*@ return plugin different - 2 type which can exist

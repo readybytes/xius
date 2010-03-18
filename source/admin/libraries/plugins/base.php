@@ -20,7 +20,7 @@ abstract class XiusBase extends JObject
 	protected $published	=	1;
 	protected $debugMode	= 	false;
 	
-	function __construct($className,$debugMode=false)
+	function __construct($className)
 	{		
 		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
 		//XITODO: add default.ini
@@ -33,7 +33,7 @@ abstract class XiusBase extends JObject
 		if(!$this->pluginParams)
 			$this->pluginParams	= new JParameter('','');
 			
-		$this->debugMode = $debugMode;
+		$this->debugMode = XiusFactory::getDebugMode();
 		$this->key		 = '';
 		$this->id		 = 0;
 	}
@@ -80,7 +80,7 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	/*function load($id)
+	function load($id)
 	{
 		if($id) {
 			$filter = array();
@@ -89,7 +89,7 @@ abstract class XiusBase extends JObject
 			if($info)
 				$this->bind($info[0]);
 		}
-	}*/
+	}
 	
 	/* function will return array of all value */
 	function toArray()
@@ -182,6 +182,20 @@ abstract class XiusBase extends JObject
 	 */
 	public function renderSearchableHtml()
 	{
+		if(!$this->isAllRequirementSatisfy())
+			return false;
+			
+		$view = $this->getViewName();
+		if(false === $view)
+			return $this->generateSearchHtml();
+		
+		if(false === $view->searchHtml($this))
+			return $this->generateSearchHtml();
+	}
+	
+	
+	protected function getViewName()
+	{
 		/*We expect here that every plugin should have view 
 		 * for display inteface .We will include view file
 		 * and directly call function for displaying html
@@ -193,15 +207,14 @@ abstract class XiusBase extends JObject
 		$viewPath = $basePath.DS.'views'.'view.html.php';
 		
 		if(!JFile::exists($viewPath))
-			return $this->generateSearchHtml();
+			return false;
 			
 		require_once $viewPath;
 		
 		/*view class name = plugin class name with View*/
 		$viewClass = $this->pluginType.'View';
 		$view = new $viewClass();
-		
-		$view->searchHtml();
+		return $view;
 	}
 	
 

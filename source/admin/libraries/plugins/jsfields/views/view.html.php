@@ -3,7 +3,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 
 class JsFieldsView extends XiusBaseView 
 {
@@ -13,23 +13,24 @@ class JsFieldsView extends XiusBaseView
 		parent::__construct(__FILE__);
 	}
 	
-	function searchHtml()
+	function searchHtml($calleObject)
 	{
+		if(!$calleObject->isAllRequirementSatisfy())
+			return false;
+			
 		$this->setLayout('search');
 		
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
 		 */
 		$filter = array();
-		$filter['id'] = $this->key;
+		$filter['id'] = $calleObject->get('key');
 		$field = jsfieldshelper::getJomsocialFields($filter);
-		if(!$field) {
-			/*XITODO : return false , function does not exist over view */		
-			return parent::renderPluginSearchableHtml();
-		}
+		if(!$field) 		
+			return false;		
 			
 		$fieldHtml = jsfieldshelper::getFieldsHTML($field[0]);
-		
+		//print_r($fieldHtml);
 		$this->assign('fieldHtml',$fieldHtml);
 		$this->display();
 	}

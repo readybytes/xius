@@ -25,7 +25,26 @@ class jsfieldshelper
 		$sql .= " ORDER BY `ordering`";
 			
 		$db->setQuery($sql);
-		$fields = $db->loadObjectList();
+		$result = $db->loadObjectList();
+		
+		$fields = array();
+		
+		for($i = 0; $i < count($result); $i++)
+		{
+			// Re-arrange options to be an array by splitting them into an array
+			if(isset($result[$i]->options) && $result[$i]->options != '')
+			{
+				$options	= $result[$i]->options;
+				$options	= explode("\n", $options);
+
+				array_walk($options, array( 'JString' , 'trim' ) );
+				
+				$result[$i]->options	= $options;
+				
+			}
+
+			$fields[$i] = $result[$i];
+		}
 	    	
 		return $fields;
 	}
@@ -42,16 +61,20 @@ class jsfieldshelper
 		$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
 		$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
 		
+		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		
-		$fieldHTML = array();
+		$fieldHTML = '';
+		//isset($result[$i]['options']) && $result[$i]['options'] != '')
+		/*if(isset($fieldInfo->options) && $fieldInfo->options != '')
+			$options	= explode("\n", $options);*/
 		
 		if($fieldInfo->type == 'date') {
-			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$detail->id.'" style="width:125px; margin-right:4px" value="" />';
-			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$detail->id.'\', \'y-mm-dd\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
+			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.'" style="width:125px; margin-right:4px" value="" />';
+			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.'\', \'y-mm-dd\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 		}
 		else
-			$fieldInfo = CProfileLibrary::getFieldHTML($fieldInfo);
+			$fieldHTML = CProfileLibrary::getFieldHTML($fieldInfo);
 		
 		
 		return $fieldHTML;

@@ -195,19 +195,19 @@ FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/factory.php
 FOUND 7 ERROR(S) AND 1 WARNING(S) AFFECTING 7 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
- 10 | WARNING | The method parameter $id is never used
- 16 | ERROR   | Operator ! prohibited; use === FALSE instead
- 27 | ERROR   | Operator ! prohibited; use === FALSE instead
- 36 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 36 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 51 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 55 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  8 | WARNING | The method parameter $id is never used
+ 14 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 25 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 34 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 34 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 49 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 53 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/plugins/base.php
 --------------------------------------------------------------------------------
-FOUND 20 ERROR(S) AND 4 WARNING(S) AFFECTING 21 LINE(S)
+FOUND 24 ERROR(S) AND 4 WARNING(S) AFFECTING 25 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   23 | ERROR   | No scope modifier specified for function "__construct"
@@ -217,6 +217,9 @@ FOUND 20 ERROR(S) AND 4 WARNING(S) AFFECTING 21 LINE(S)
   44 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
   77 | ERROR   | No scope modifier specified for function
      |         | "isAllRequirementSatisfy"
+  83 | ERROR   | No scope modifier specified for function "load"
+  85 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  89 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
   95 | ERROR   | No scope modifier specified for function "toArray"
  103 | ERROR   | No scope modifier specified for function "bind"
  105 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
@@ -228,54 +231,61 @@ FOUND 20 ERROR(S) AND 4 WARNING(S) AFFECTING 21 LINE(S)
  126 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  167 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  172 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 193 | ERROR   | String concat is not required here; use a single string
+ 185 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 207 | ERROR   | String concat is not required here; use a single string
      |         | instead
- 195 | ERROR   | Operator ! prohibited; use === FALSE instead
- 220 | WARNING | The method parameter $userid is never used
- 220 | WARNING | The method parameter $what is never used
- 249 | WARNING | The method parameter $query is never used
- 249 | WARNING | The method parameter $value is never used
+ 209 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 233 | WARNING | The method parameter $userid is never used
+ 233 | WARNING | The method parameter $what is never used
+ 262 | WARNING | The method parameter $query is never used
+ 262 | WARNING | The method parameter $value is never used
 --------------------------------------------------------------------------------
 
 
 FILE: ...s/xius/trunk/packages/tmp/admin/libraries/plugins/jsfields/jsfields.php
 --------------------------------------------------------------------------------
-FOUND 8 ERROR(S) AND 0 WARNING(S) AFFECTING 8 LINE(S)
+FOUND 7 ERROR(S) AND 0 WARNING(S) AFFECTING 7 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  11 | ERROR | No scope modifier specified for function "__construct"
  17 | ERROR | No scope modifier specified for function
     |       | "isAllRequirementSatisfy"
  20 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 34 | ERROR | Operator ! prohibited; use === FALSE instead
- 49 | ERROR | Operator ! prohibited; use === FALSE instead
- 54 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 60 | ERROR | Operator != prohibited; use !== instead
+ 52 | ERROR | Operator ! prohibited; use === FALSE instead
+ 57 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 63 | ERROR | Operator != prohibited; use !== instead
 --------------------------------------------------------------------------------
 
 
 FILE: .../trunk/packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php
 --------------------------------------------------------------------------------
-FOUND 7 ERROR(S) AND 0 WARNING(S) AFFECTING 7 LINE(S)
+FOUND 11 ERROR(S) AND 0 WARNING(S) AFFECTING 10 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
   9 | ERROR | No scope modifier specified for function "getJomsocialFields"
  15 | ERROR | Operator ! prohibited; use === FALSE instead
  22 | ERROR | Operator ! prohibited; use === FALSE instead
- 37 | ERROR | No scope modifier specified for function "getFieldsHTML"
- 49 | ERROR | Operator == prohibited; use === instead
- 61 | ERROR | No scope modifier specified for function "isJomsocialExist"
+ 32 | ERROR | The use of count() inside a loop condition is not allowed. Assign
+    |       | the return value of count() to a variable and use the variable in
+    |       | the loop condition instead.
+ 35 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 35 | ERROR | Operator != prohibited; use !== instead
+ 40 | ERROR | Expected 0 spaces between "'JString'" and comma; 1 found
+ 56 | ERROR | No scope modifier specified for function "getFieldsHTML"
+ 72 | ERROR | Operator == prohibited; use === instead
+ 84 | ERROR | No scope modifier specified for function "isJomsocialExist"
 --------------------------------------------------------------------------------
 
 
 FILE: ...trunk/packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php
 --------------------------------------------------------------------------------
-FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  11 | ERROR | No scope modifier specified for function "__construct"
  16 | ERROR | No scope modifier specified for function "searchHtml"
- 26 | ERROR | Operator ! prohibited; use === FALSE instead
+ 18 | ERROR | Operator ! prohibited; use === FALSE instead
+ 29 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 

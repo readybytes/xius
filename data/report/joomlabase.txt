@@ -6,7 +6,7 @@
 ../packages/tmp/admin/libraries/cache.php:13:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/info.php:11:		$db			=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:11:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:39:		$document	=& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:58:		$document	=& JFactory::getDocument();
 ../packages/tmp/admin/models/info.php:18:		global $mainframe;
 ../packages/tmp/admin/models/info.php:24:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
 ../packages/tmp/admin/models/info.php:25:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_Xius.limitstart', 'limitstart', 0, 'int' );
