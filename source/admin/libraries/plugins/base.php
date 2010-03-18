@@ -20,20 +20,22 @@ abstract class XiusBase extends JObject
 	protected $published	=	1;
 	protected $debugMode	= 	false;
 	
-	function __construct($className,$id=0,$debugMode=false)
+	function __construct($className,$debugMode=false)
 	{		
 		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
 		//XITODO: add default.ini
 		if(JFile::exists($paramsxmlpath))
 			$this->params = new JParameter('',$paramsxmlpath);
 			
-		$this->plugintype 	= $className;
+		$this->pluginType 	= $className;
 		
 		//if already defined by child class do not create it.
 		if(!$this->pluginParams)
 			$this->pluginParams	= new JParameter('','');
 			
 		$this->debugMode = $debugMode;
+		$this->key		 = '';
+		$this->id		 = 0;
 	}
 	
 	
@@ -90,12 +92,11 @@ abstract class XiusBase extends JObject
 	}*/
 	
 	/* function will return array of all value */
-	function toArray($obj='')
+	function toArray()
 	{
-		if(!$obj)
-			$obj = $this;
-			
-		return $data = (array) ($obj);
+		return $this->getProperties();
+		/*$array =  (array) ($this);
+		return $array;*/
 	}
 	
 	
@@ -110,7 +111,8 @@ abstract class XiusBase extends JObject
 
 		if(is_object( $from )) {
 			//convert to array
-			$from = $this->toArray($from);
+			$from = $from->toArray();
+			//$from = (array) ($from);
 		}
 		
 		if (!is_array( $ignore )) {

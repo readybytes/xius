@@ -1,8 +1,9 @@
 ../packages/tmp/site/includes.php:20:$lang =& JFactory::getLanguage();
 ../packages/tmp/admin/includes.php:28:JTable::addIncludePath(XIUS_PATH_TABLE);
-../packages/tmp/admin/includes.php:39:$lang =& JFactory::getLanguage();
+../packages/tmp/admin/includes.php:42:$lang =& JFactory::getLanguage();
 ../packages/tmp/admin/tables/info.php:5:class XiusTableInfo extends JTable
 ../packages/tmp/admin/tables/info.php:43:	 * Overrides Joomla's JTable store method so that we can define proper values
+../packages/tmp/admin/libraries/cache.php:13:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/info.php:11:		$db			=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:11:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:39:		$document	=& JFactory::getDocument();

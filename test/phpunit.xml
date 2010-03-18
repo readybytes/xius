@@ -7,7 +7,9 @@
 		stopOnFailure="true" 
 		coverage-html="./reports" >
 	<testsuite name="AllTest">
-		<file>install/installTest.php</file>		
+		<file>install/installTest.php</file>
+		<file>test/unit/com/admin/libraries/factory.php</file>
+		<file>test/unit/com/admin/libraries/pluginbase.php</file>		
 	</testsuite>
 	
 	<listeners>

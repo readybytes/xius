@@ -3,7 +3,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 
 class JsFields extends XiusBase
 {
@@ -57,7 +57,8 @@ class JsFields extends XiusBase
 		$pluginsInfo = array();
 			
 		foreach($jsFields as $f){
-			$pluginsInfo[$f->id] = $f->name;
+			if($f->type != 'group')
+				$pluginsInfo[$f->id] = $f->name;
 		}
 		
 		return $pluginsInfo;
