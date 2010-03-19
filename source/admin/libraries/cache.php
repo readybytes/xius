@@ -5,15 +5,23 @@ defined('_JEXEC') or die('Restricted access');
 class XiusCache
 {
 	
+	var $_tableName;
 	var $createQuery;
 	var $insertQuery;
 	
 	function __construct()
 	{
+		$this->_tableName = '#__xius_cache';
+		
 		$db =& JFactory::getDBO();
 		$this->createQuery = 'CREATE TABLE IF NOT EXISTS '
-						.$db->nameQuote('#__xius_cache').' '
-						.'`userid` int(11) NOT NULL';
+						.$db->nameQuote($this->_tableName).' '
+						.'`userid` int(21) NOT NULL';
+	}
+	
+	function getTableName()
+	{
+		return $this->_tableName;
 	}
 	
 	function createTable()

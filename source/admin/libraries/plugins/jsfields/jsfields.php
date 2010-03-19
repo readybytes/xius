@@ -67,4 +67,32 @@ class JsFields extends XiusBase
 		return $pluginsInfo;
 	}
 	
+
+	public function addSearchToQuery(XiusQuery &$query,$value)
+	{
+		if(!is_array($value)) {
+			$columns = $this->getCacheColumns();
+			if(!$columns)
+				return false;
+
+			if(is_array($columns)) {
+				foreach($columns as $c){
+					$query->select($c['columnname']);
+					$conditions =  $c['columnname']."=".$this->formatValue($value);
+					$query->where($conditions);
+					return true;
+				}
+			}
+			else{
+				$query->select($columns['columnname']);
+				$conditions =  $columns['columnname']."=".$this->formatValue($value);
+				$query->where($conditions);
+				return true;
+			}
+			
+			return false;
+		}
+		
+	}
+	
 }

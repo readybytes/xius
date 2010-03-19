@@ -58,7 +58,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	}
 	
 	
-	public function pluginClassProvider()
+	public static function pluginClassProvider()
 	{
 		$pluginClass1 = 'JsFields';
 		
@@ -105,7 +105,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	}
 	
 	
-	public function BindDataProvider()
+	public static function BindDataProvider()
 	{
 		$pluginClass1 = 'JsFields';
 		
@@ -142,7 +142,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 			$this->assertEquals($result,$instance->isAllRequirementSatisfy(),"All Requirement should be satisfy = $result");
 	}
 	
-	public function getSatisfy()
+	public static function getSatisfy()
 	{
 		$pluginClass1 = 'JsFields';
 		$result = true;

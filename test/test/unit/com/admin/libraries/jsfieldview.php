@@ -21,6 +21,7 @@ class XiusJsfieldViewTest extends XiUnitTestCase
 	
 	function testSearchHtml()
 	{
+		/*XITODO : Test case is not complete , apply some assertion */
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'jsfields.php';
 		$instance = new JsFields();
 		$instance->load(2);

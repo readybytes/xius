@@ -75,7 +75,7 @@ class XiusQuery
 
 	/** @var object The select element */
 	protected $_select = null;
-
+	
 	/** @var object The delete element */
 	protected $_delete = null;
 
@@ -186,6 +186,7 @@ class XiusQuery
 		return $this;
 	}
 
+	
 	/**
 	 * @param	mixed	A string or an array of field names
 	 */
@@ -416,6 +417,48 @@ class XiusQuery
 				break;
 		}
 
+		return $query;
+	}
+}
+
+
+class XiusCreateTable extends JObject
+{
+	protected $_tableName;
+	protected $_query;
+	
+	function __construct($tableName)
+	{
+		if(empty($tableName))
+			return false;
+			
+		$db = JFactory::getDBO();
+		$this->_tableName	= 	$tableName;
+		$this->_query		=	'CREATE TABLE IF NOT EXIST '
+								.$db->nameQuote($this->_tableName).' '
+								.'`userid` int(21) NOT NULL`';
+	}
+	
+	
+	function appendColumns($columns)
+	{
+		if(empty($columns))
+			return false;
+		
+		foreach($columns as $c) {
+			
+			if(!empty($this->_query))
+				$this->_query .= ',';
+			
+			$this->_query .= $c;
+		}	
+		
+		return true;
+	}
+	
+	function __toString()
+	{
+		$query .= (string) $this->_query;
 		return $query;
 	}
 }

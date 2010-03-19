@@ -249,20 +249,72 @@ abstract class XiusBase extends JObject
 	public function getCacheColumns()
 	{
 		$details[] = array();
-		$details[0]['type'] = 'varchar(250)';
-		$details[0]['default'] = '';
-		$details[0]['columnname'] = $this->pluginType.$this->getQueryColumn();
+		$details[0]['columnname'] = $this->pluginType.$this->getCacheColumnName();
+		$details[0]['specs'] = 'varchar(250) NOT NULL';
+		//$details[0]['default'] = '';
 		return $details;
 	}
 	
 	
-	/*function return column name with value
-	 * that should meet in that column
-	 */
+	function appendCreateQuery(XiusCreateTable &$createQuery)
+	{
+		$db = JFactory::getDBO();
+		$columns = $this->getCacheColumns();
+		
+		if(empty($columns))
+			return false;
+
+		$columnDeatils = array();
+		$i = 0;
+		foreach($columns as $c){
+			if(isset($c['columnname']) && !empty($c['columnname']))
+				$columnDeatils[$i] .= $db->nameQuote($c['columnname']);
+			else
+				$columnDeatils[$i] .= $db->nameQuote($this->pluginType.$this->getCacheColumnName());
+		
+			if(isset($c['specs']) && !empty($c['specs']))
+				$columnDeatils[$i] .= ' '.$db->nameQuote($c['specs']);
+			else
+				$columnDeatils[$i] .= ' varchar(250) ';
+				
+			$i++;
+		}
+		
+		$createQuery->appendColumns($columnDeatils);
+		
+	}
+	
+	
+	/*function update query	 */
 	public function addSearchToQuery(XiusQuery &$query,$value)
 	{
-		/*XITODO : modify query according to search criteia */
-		return true;
+		/*it's handling query only for single value
+		 * if column needs multiple comparision then they should handle
+		 */
+		if(!is_array($value)) {
+			$columns = $this->getCacheColumns();
+			if(!$columns)
+				return false;
+
+			if(is_array($columns)) {
+				foreach($columns as $c){
+					$query->select($c['columnname']);
+					$conditions =  $c['columnname']."=".$this->formatValue($value);
+					$query->where($conditions);
+					return true;
+				}
+			}
+			else{
+				$query->select($columns['columnname']);
+				$conditions =  $columns['columnname']."=".$this->formatValue($value);
+				$query->where($conditions);
+				return true;
+			}
+			
+			return false;
+		}
+		
+		
 	}
 	
 	

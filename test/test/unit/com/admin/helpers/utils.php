@@ -17,7 +17,7 @@ class XiusUtilsTest extends XiUnitTestCase
 	}
 	
 	
-	public function componentNameProvider()
+	public static function componentNameProvider()
 	{
 		return array(
 			array('com_contact',true,true),
@@ -36,7 +36,7 @@ class XiusUtilsTest extends XiUnitTestCase
 	}
 	
 	
-	public function paramProvider()
+	public static function paramProvider()
 	{
 		$params1 = new JParameter('','');
 		$what1 = 'what1';
