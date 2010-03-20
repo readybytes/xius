@@ -36,5 +36,12 @@ class XiusUserSearchTest extends XiUnitTestCase
 		echo $query;
 	}
 	
+	function testBuildInsertUserdataQuery()
+	{
+		/*XITODO : Test case is not complete , apply some assertion */
+		$query = XiusLibrariesUserSearch::buildInsertUserdataQuery();
+		echo $query;
+	}
+	
 }
 ?>

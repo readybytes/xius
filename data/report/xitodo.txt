@@ -1,9 +1,12 @@
 ../packages/tmp/admin/helpers/utils.php:6:/*XITODO : move into class */
-../packages/tmp/admin/libraries/cache.php:28:		/*XITODO : use foreach with column details , it should be array of array */
-../packages/tmp/admin/libraries/cache.php:30:			/*XITODO : set some error */
+../packages/tmp/admin/libraries/cache.php:36:		/*XITODO : use foreach with column details , it should be array of array */
+../packages/tmp/admin/libraries/cache.php:38:			/*XITODO : set some error */
+../packages/tmp/admin/libraries/usersearch.php:19:		/*XITODO : provide join operator and sorting condition
+../packages/tmp/admin/libraries/usersearch.php:72:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:95:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:115:		/*XITODO : Bound result set starting from some users
 ../packages/tmp/admin/libraries/factory.php:30:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:65:		/*XITODO : get parameter from configuration*
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
 ../packages/tmp/admin/libraries/plugins/base.php:203:		/*XITODO : move view code in separate function */
 ../packages/tmp/admin/libraries/plugins/base.php:227:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:264:		/*XITODO : modify query according to search criteia */

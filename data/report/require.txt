@@ -6,9 +6,10 @@
 ../packages/tmp/admin/includes.php:34:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'factory.php';
 ../packages/tmp/admin/includes.php:35:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'query.php';
 ../packages/tmp/admin/includes.php:36:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'cache.php';
-../packages/tmp/admin/includes.php:37:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'info.php';
-../packages/tmp/admin/includes.php:38:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'base.php';
-../packages/tmp/admin/includes.php:39:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'baseview.php';
+../packages/tmp/admin/includes.php:37:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'usersearch.php';
+../packages/tmp/admin/includes.php:38:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'info.php';
+../packages/tmp/admin/includes.php:39:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'base.php';
+../packages/tmp/admin/includes.php:40:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'baseview.php';
 ../packages/tmp/admin/xius.php:10:require_once  dirname(__FILE__).DS.'includes.php';
 ../packages/tmp/admin/xius.php:21:	require_once( $path );
 ../packages/tmp/admin/libraries/factory.php:20:		require_once $pluginPath;

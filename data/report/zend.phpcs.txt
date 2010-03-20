@@ -42,7 +42,7 @@ FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
   9 | ERROR | Logical operator "or" is prohibited; use "||" instead
  12 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 43 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 44 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -96,20 +96,48 @@ FOUND 21 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/cache.php
 --------------------------------------------------------------------------------
-FOUND 12 ERROR(S) AND 0 WARNING(S) AFFECTING 11 LINE(S)
+FOUND 15 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
 --------------------------------------------------------------------------------
   3 | ERROR | Logical operator "or" is prohibited; use "||" instead
-  8 | ERROR | Scope modifier not specified for member variable "$createQuery"
-  9 | ERROR | Scope modifier not specified for member variable "$insertQuery"
- 11 | ERROR | No scope modifier specified for function "__construct"
- 16 | ERROR | String concat is not required here; use a single string instead
- 19 | ERROR | No scope modifier specified for function "createTable"
- 22 | ERROR | No scope modifier specified for function "insertIntoTable"
- 26 | ERROR | No scope modifier specified for function "buildColumn"
- 29 | ERROR | Operator ! prohibited; use === FALSE instead
- 29 | ERROR | Empty IF statement detected
- 33 | ERROR | Operator ! prohibited; use === FALSE instead
- 38 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  8 | ERROR | Public member variable "_tableName" must not contain a leading
+    |       | underscore
+  8 | ERROR | Scope modifier not specified for member variable "$_tableName"
+  9 | ERROR | Scope modifier not specified for member variable "$createQuery"
+ 10 | ERROR | Scope modifier not specified for member variable "$insertQuery"
+ 12 | ERROR | No scope modifier specified for function "__construct"
+ 19 | ERROR | String concat is not required here; use a single string instead
+ 22 | ERROR | No scope modifier specified for function "getTableName"
+ 27 | ERROR | No scope modifier specified for function "createTable"
+ 30 | ERROR | No scope modifier specified for function "insertIntoTable"
+ 34 | ERROR | No scope modifier specified for function "buildColumn"
+ 37 | ERROR | Operator ! prohibited; use === FALSE instead
+ 37 | ERROR | Empty IF statement detected
+ 41 | ERROR | Operator ! prohibited; use === FALSE instead
+ 46 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php
+--------------------------------------------------------------------------------
+FOUND 15 ERROR(S) AND 0 WARNING(S) AFFECTING 15 LINE(S)
+--------------------------------------------------------------------------------
+   5 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  11 | ERROR | No scope modifier specified for function "getUsers"
+  17 | ERROR | No scope modifier specified for function "buildQuery"
+  25 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  32 | ERROR | Operator ! prohibited; use === FALSE instead
+  46 | ERROR | No scope modifier specified for function
+     |       | "buildQueryForSingleInfo"
+  57 | ERROR | No scope modifier specified for function "collectParamstoSearch"
+  63 | ERROR | No scope modifier specified for function "getAllInfo"
+  70 | ERROR | No scope modifier specified for function "createTableQuery"
+  75 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  81 | ERROR | Operator == prohibited; use === instead
+  93 | ERROR | No scope modifier specified for function
+     |       | "buildInsertUserdataQuery"
+  98 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 125 | ERROR | No scope modifier specified for function "getMembersCount"
+ 132 | ERROR | No scope modifier specified for function "getListMembers"
 --------------------------------------------------------------------------------
 
 
@@ -125,7 +153,7 @@ FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/query.php
 --------------------------------------------------------------------------------
-FOUND 41 ERROR(S) AND 2 WARNING(S) AFFECTING 35 LINE(S)
+FOUND 50 ERROR(S) AND 2 WARNING(S) AFFECTING 44 LINE(S)
 --------------------------------------------------------------------------------
    8 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   20 | ERROR   | Protected member variable "_name" must not contain a leading
@@ -163,30 +191,42 @@ FOUND 41 ERROR(S) AND 2 WARNING(S) AFFECTING 35 LINE(S)
      |         | refactoring the function
  180 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  180 | ERROR   | The use of function is_null() is forbidden
- 224 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 224 | ERROR   | The use of function is_null() is forbidden
- 239 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 239 | ERROR   | The use of function is_null() is forbidden
- 293 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 293 | ERROR   | The use of function is_null() is forbidden
- 309 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 309 | ERROR   | The use of function is_null() is forbidden
- 324 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 324 | ERROR   | The use of function is_null() is forbidden
- 339 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 339 | ERROR   | The use of function is_null() is forbidden
- 354 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 354 | ERROR   | The use of function is_null() is forbidden
- 366 | WARNING | Function's cyclomatic complexity (14) exceeds 10; consider
+ 225 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 225 | ERROR   | The use of function is_null() is forbidden
+ 240 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 240 | ERROR   | The use of function is_null() is forbidden
+ 294 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 294 | ERROR   | The use of function is_null() is forbidden
+ 310 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 310 | ERROR   | The use of function is_null() is forbidden
+ 325 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 325 | ERROR   | The use of function is_null() is forbidden
+ 340 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 340 | ERROR   | The use of function is_null() is forbidden
+ 355 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 355 | ERROR   | The use of function is_null() is forbidden
+ 367 | WARNING | Function's cyclomatic complexity (14) exceeds 10; consider
      |         | refactoring the function
- 374 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 380 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 383 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 386 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 389 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 397 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 405 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 413 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 375 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 381 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 384 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 387 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 390 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 398 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 406 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 414 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 427 | ERROR   | Protected member variable "_tableName" must not contain a
+     |         | leading underscore
+ 428 | ERROR   | Protected member variable "_query" must not contain a leading
+     |         | underscore
+ 430 | ERROR   | No scope modifier specified for function "__construct"
+ 432 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 439 | ERROR   | String concat is not required here; use a single string
+     |         | instead
+ 443 | ERROR   | No scope modifier specified for function "appendColumns"
+ 445 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 450 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 459 | ERROR   | No scope modifier specified for function "__toString"
 --------------------------------------------------------------------------------
 
 
@@ -207,7 +247,7 @@ FOUND 7 ERROR(S) AND 1 WARNING(S) AFFECTING 7 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/plugins/base.php
 --------------------------------------------------------------------------------
-FOUND 24 ERROR(S) AND 4 WARNING(S) AFFECTING 25 LINE(S)
+FOUND 35 ERROR(S) AND 2 WARNING(S) AFFECTING 33 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   23 | ERROR   | No scope modifier specified for function "__construct"
@@ -237,14 +277,24 @@ FOUND 24 ERROR(S) AND 4 WARNING(S) AFFECTING 25 LINE(S)
  209 | ERROR   | Operator ! prohibited; use === FALSE instead
  233 | WARNING | The method parameter $userid is never used
  233 | WARNING | The method parameter $what is never used
- 262 | WARNING | The method parameter $query is never used
- 262 | WARNING | The method parameter $value is never used
+ 259 | ERROR   | No scope modifier specified for function "getUserData"
+ 265 | ERROR   | String concat is not required here; use a single string
+     |         | instead
+ 274 | ERROR   | No scope modifier specified for function "appendCreateQuery"
+ 279 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 285 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 285 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 290 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 290 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 309 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 311 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 314 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: ...s/xius/trunk/packages/tmp/admin/libraries/plugins/jsfields/jsfields.php
 --------------------------------------------------------------------------------
-FOUND 7 ERROR(S) AND 0 WARNING(S) AFFECTING 7 LINE(S)
+FOUND 10 ERROR(S) AND 0 WARNING(S) AFFECTING 10 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  11 | ERROR | No scope modifier specified for function "__construct"
@@ -254,6 +304,9 @@ FOUND 7 ERROR(S) AND 0 WARNING(S) AFFECTING 7 LINE(S)
  52 | ERROR | Operator ! prohibited; use === FALSE instead
  57 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
  63 | ERROR | Operator != prohibited; use !== instead
+ 73 | ERROR | Operator ! prohibited; use === FALSE instead
+ 75 | ERROR | Operator ! prohibited; use === FALSE instead
+ 78 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 

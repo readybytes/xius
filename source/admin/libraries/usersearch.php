@@ -16,6 +16,9 @@ class XiusLibrariesUserSearch
 	
 	function buildQuery($params)
 	{
+		/*XITODO : provide join operator and sorting condition
+		 * provide conditional operator also
+		 * */
 		$db = JFactory::getDBO();
 		$query = new XiusQuery();
 		
@@ -66,6 +69,7 @@ class XiusLibrariesUserSearch
 	
 	function createTableQuery()
 	{
+		/*XITODO : pass info through parameter */
 		$info = self::getAllInfo();
 		
 		if(empty($info))
@@ -84,6 +88,38 @@ class XiusLibrariesUserSearch
 		
 		return $createQuery->__toString();
 	}
+	
+	
+	function buildInsertUserdataQuery()
+	{
+		/*XITODO : pass info through parameter */
+		$info = self::getAllInfo();
+		
+		if(empty($info))
+			return false;
+
+		$cache = new XiusCache();
+		
+		$query = new XiusQuery();
+		
+		foreach($info as $i){
+			$instance = XiusFactory::getPluginInstanceFromId($i->id);
+			$instance->getUserData($query);
+		}
+		
+		$query->select('juser.*');
+		$query->from('#__users as juser');
+		$query->where('juser.`id` > 2000');
+		
+		$str = $query->__toString();
+		/*XITODO : Bound result set starting from some users
+		 * Limit should be configurables
+		 */
+		$str .= 'LIMIT 10';
+		return $str;
+		//return $query;
+	}
+	
 	
 	
 	function getMembersCount($listid)
