@@ -108,14 +108,14 @@ class XiusLibrariesUserSearch
 		}
 		
 		$query->select('juser.*');
-		$query->from('#__users as juser');
+		$query->from('`#__users` as juser');
 		$query->where('juser.`id` > 2000');
 		
 		$str = $query->__toString();
 		/*XITODO : Bound result set starting from some users
-		 * Limit should be configurables
+		 * Limit should be configurable
 		 */
-		$str .= 'LIMIT 10';
+		$str .= ' LIMIT 10';
 		return $str;
 		//return $query;
 	}

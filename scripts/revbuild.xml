@@ -8,11 +8,11 @@
         <target name="copy_to_svn" description="copy target">
                 
                 <copy   file="${source}/language/en-GB/en-GB.com_xius.ini" 
-                        tofile="${target}/languages/site/en-GB.com_xius.ini" 
+                        tofile="${target}/source/languages/site/en-GB.com_xius.ini" 
                          />
 
                 <copy   file="${source}/administrator/language/en-GB/en-GB.com_xius.ini" 
-                        tofile="${target}/languages/admin/en-GB.com_xius.ini" 
+                        tofile="${target}/source/languages/admin/en-GB.com_xius.ini" 
                          />
 
 		<copy todir="${target}/source/admin">

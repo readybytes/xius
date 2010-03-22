@@ -259,9 +259,9 @@ abstract class XiusBase extends JObject
 	function getUserData(XiusQuery &$query)
 	{
 		$query->select('juser.*');
-		$query->from('#__users as juser');
+		$query->from('`#__users` as juser');
 		$query->select($this->pluginType.'fv'.$this->key.'.value as '.$this->pluginType.'fv'.$this->key);
-		$query->leftJoin('#__community_fields_values as '.$this->pluginType.'fv'.$this->key.' ON ( '.$this->pluginType.'fv'.$this->key.'.`user_id` = juser.`id`'
+		$query->leftJoin('`#__community_fields_values` as '.$this->pluginType.'fv'.$this->key.' ON ( '.$this->pluginType.'fv'.$this->key.'.`user_id` = juser.`id`'
 				.' AND '.$this->pluginType.'fv'.$this->key.'.`field_id` = '.$this->key.')');
 		/*$query->select($this->pluginType.'fv.value as '.$this->pluginType.$this->key);
 		$query->from('#__community_fields_values as '.$this->pluginType.'fv');*/
