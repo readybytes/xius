@@ -14,11 +14,11 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		 * b'coz joomla file system does not load
 		 */
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'jsfields.php';
-		$instance = new JsFields();
+		$instance = new Jsfields();
 		
 		$info = $instance->getAvailableInfo();
 		
-		if(!isComponentExist('com_community'))
+		if(!XiusHelpersUtils::isComponentExist('com_community'))
 			$this->assertFalse($info);
 		else {
 		
@@ -60,7 +60,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	
 	public static function pluginClassProvider()
 	{
-		$pluginClass1 = 'JsFields';
+		$pluginClass1 = 'Jsfields';
 		
 		$compareArray1 = array();
 		
@@ -107,7 +107,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	
 	public static function BindDataProvider()
 	{
-		$pluginClass1 = 'JsFields';
+		$pluginClass1 = 'Jsfields';
 		
 		$bindArray1 = array();
 		
@@ -136,7 +136,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
 		$instance = new $className();
 		
-		if(!isComponentExist('com_community'))
+		if(!XiusHelpersUtils::isComponentExist('com_community'))
 			$this->assertFalse($instance->isAllRequirementSatisfy());
 		else 
 			$this->assertEquals($result,$instance->isAllRequirementSatisfy(),"All Requirement should be satisfy = $result");
@@ -144,7 +144,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	
 	public static function getSatisfy()
 	{
-		$pluginClass1 = 'JsFields';
+		$pluginClass1 = 'Jsfields';
 		$result = true;
 		
 		return array(

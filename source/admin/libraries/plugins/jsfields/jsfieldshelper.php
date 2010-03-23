@@ -3,7 +3,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class jsfieldshelper
+class Jsfieldshelper
 {
 
 	function getJomsocialFields($filter = '')

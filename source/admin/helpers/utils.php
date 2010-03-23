@@ -3,28 +3,43 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-/*XITODO : move into class */
-function isComponentExist($comName,$bothReq=false)
+class XiusHelpersUtils
 {
-	$frontcompath = JPATH_ROOT.DS.'components'.DS.$comName;
-	$admincompath = JPATH_ADMINISTRATOR.DS.'components'.DS.$comName;
-	
-	if($bothReq) {
-		if(JFolder::exists($frontcompath) && JFolder::exists($admincompath))
-			return true;
+	function isComponentExist($comName,$bothReq=false)
+	{
+		$frontcompath = JPATH_ROOT.DS.'components'.DS.$comName;
+		$admincompath = JPATH_ADMINISTRATOR.DS.'components'.DS.$comName;
 		
+		if($bothReq) {
+			if(JFolder::exists($frontcompath) && JFolder::exists($admincompath))
+				return true;
+			
+			return false;
+		}
+		
+		if(JFolder::exists($frontcompath) || JFolder::exists($admincompath))
+			return true;
+			
 		return false;
 	}
 	
-	if(JFolder::exists($frontcompath) || JFolder::exists($admincompath))
-		return true;
+	
+	function getValueFromXiusParams($paramName,$what,$default='')
+	{
+			return $paramName->get($what,$default);
+	}
+	
+	
+	function isTableExist($tableName)
+	{
+		global $mainframe;
+	
+		$tables	= array();
 		
-	return false;
+		$database = &JFactory::getDBO();
+		$tables	= $database->getTableList();
+	
+		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
+	}
+	
 }
-
-
-function getValueFromXiusParams($paramName,$what,$default='')
-{
-		return $paramName->get($what,$default);
-}
-

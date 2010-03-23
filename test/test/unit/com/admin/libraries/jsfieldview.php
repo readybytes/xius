@@ -10,7 +10,7 @@ class XiusJsfieldViewTest extends XiUnitTestCase
 	function testViewObject()
 	{
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'views' . DS . 'view.html.php';
-		$viewClass = new JsFieldsView();
+		$viewClass = new JsfieldsView();
 		
 		//echo "layout = ".$viewClass->getLayout()." template = ".$viewClass->_template;
 		$this->assertEquals('search',$viewClass->getLayout(),"layout is not search , we get ".$viewClass->getLayout());
@@ -23,10 +23,10 @@ class XiusJsfieldViewTest extends XiUnitTestCase
 	{
 		/*XITODO : Test case is not complete , apply some assertion */
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'jsfields.php';
-		$instance = new JsFields();
+		$instance = new Jsfields();
 		$instance->load(2);
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'views' . DS . 'view.html.php';
-		$viewClass = new JsFieldsView();
+		$viewClass = new JsfieldsView();
 		echo $viewClass->searchHtml($instance);
 	}
 	

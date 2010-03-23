@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 
-class JsFields extends XiusBase
+class Jsfields extends XiusBase
 {
 
 	function __construct()
@@ -17,7 +17,7 @@ class JsFields extends XiusBase
 	function isAllRequirementSatisfy()
 	{
 		/*it will return false if community component does not exist */
-		$isExist = isComponentExist('com_community',true) ? true : false;
+		$isExist = XiusHelpersUtils::isComponentExist('com_community',true) ? true : false;
 		return $isExist;
 	}
 	
@@ -93,6 +93,21 @@ class JsFields extends XiusBase
 			return false;
 		}
 		
+	}
+	
+	
+	function getUserData(XiusQuery &$query)
+	{
+		$query->select('juser.*');
+		$query->from('`#__users` as juser');
+		$query->select(strtolower($this->pluginType).'fv'.$this->key.'.value as '.strtolower($this->pluginType).'fv'.$this->key);
+		$query->leftJoin('`#__community_fields_values` as '.strtolower($this->pluginType).'fv'.$this->key.' ON ( '.strtolower($this->pluginType).'fv'.$this->key.'.`user_id` = juser.`id`'
+				.' AND '.strtolower($this->pluginType).'fv'.$this->key.'.`field_id` = '.$this->key.')');
+		/*$query->select($this->pluginType.'fv.value as '.$this->pluginType.$this->key);
+		$query->from('#__community_fields_values as '.$this->pluginType.'fv');*/
+		//$query->leftJoin('`#__users` ON ')
+		//$query->leftJoin('`#__community_fields` as '.$this->pluginType.'f ON ('.$this->pluginType.'f.field_id = '.$this->key.' AND )');
+		//$query->leftJoin('`#__users` as '.$this->pluginType.'u ON ('.$this->pluginType.'u.field_id = '.$this->key.')');
 	}
 	
 }

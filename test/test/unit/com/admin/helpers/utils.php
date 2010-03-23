@@ -13,7 +13,7 @@ class XiusUtilsTest extends XiUnitTestCase
 	 */
 	function testIsComponentExist($comName,$checkBoth,$result)
 	{
-		$this->assertEquals($result,isComponentExist($comName,$checkBoth),"component $comName for checkBoth = $checkBoth  should be $result");	
+		$this->assertEquals($result,XiusHelpersUtils::isComponentExist($comName,$checkBoth),"component $comName for checkBoth = $checkBoth  should be $result");	
 	}
 	
 	
@@ -32,7 +32,7 @@ class XiusUtilsTest extends XiUnitTestCase
 	 */
 	function testGetValueFromXiusParams($paramName,$what,$default,$result)
 	{
-		$this->assertEquals($result,getValueFromXiusParams($paramName,$what,$default));
+		$this->assertEquals($result,XiusHelpersUtils::getValueFromXiusParams($paramName,$what,$default));
 	}
 	
 	

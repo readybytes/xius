@@ -3,9 +3,9 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
 
-class JsfieldsView extends XiusBaseView 
+class JoomlaView extends XiusBaseView 
 {
 	
 	function __construct()
@@ -22,14 +22,12 @@ class JsfieldsView extends XiusBaseView
 		
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
-		 */
-		$filter = array();
-		$filter['id'] = $calleObject->get('key');
-		$field = jsfieldshelper::getJomsocialFields($filter);
-		if(!$field) 		
-			return false;		
+		 */	
 			
-		$fieldHtml = jsfieldshelper::getFieldsHTML($field[0]);
+		$fieldHtml = Joomlahelper::getFieldsHTML($calleObject->get('key'));
+		
+		if(false == $fieldHtml)
+			return false;
 		//print_r($fieldHtml);
 		$this->assign('fieldHtml',$fieldHtml);
 		$this->display();

@@ -11,7 +11,7 @@ class XiusFactoryTest extends XiUnitTestCase
 	{
 		$instance = XiusFactory::getPluginInstance('JsFields');
 		//print_r($instance);
-		$this->assertEquals("JsFields",$instance->getMe());
+		$this->assertEquals("Jsfields",$instance->getMe());
 	}
 	
 	function testGetPluginInstanceFromId()
@@ -24,21 +24,21 @@ class XiusFactoryTest extends XiUnitTestCase
 		$test[0]['info']['id'] 			= 1;
 		$test[0]['info']['key'] 		= 2;
 		$test[0]['info']['labelName'] 	= 'Gender';
-		$test[0]['info']['pluginType']	= 'JsFields';
+		$test[0]['info']['pluginType']	= 'Jsfields';
 		
 		$test[1]['id'] 					= 2;
 		$test[1]['info'] 				= array();
 		$test[1]['info']['id']			= 2;
 		$test[1]['info']['key']			= 11;
 		$test[1]['info']['labelName'] 	= 'City';
-		$test[1]['info']['pluginType'] 	= 'JsFields';
+		$test[1]['info']['pluginType'] 	= 'Jsfields';
 		
 		$test[2]['id'] 					= 3;
 		$test[2]['info'] 				= array();
 		$test[2]['info']['id'] 			= 3;
 		$test[2]['info']['key'] 		= 12;
 		$test[2]['info']['labelName'] 	= 'Country';
-		$test[2]['info']['pluginType'] 	= 'JsFields';
+		$test[2]['info']['pluginType'] 	= 'Jsfields';
 		
 		/*foreach($test as $t) {
 			$instance = XiusFactory::getPluginInstanceFromId($t['id']);
@@ -53,7 +53,7 @@ class XiusFactoryTest extends XiUnitTestCase
 		
 		foreach($test as $t) {
 			$instance = XiusFactory::getPluginInstanceFromId($t['id']);
-			$this->assertEquals($instance->getMe(),"JsFields");
+			$this->assertEquals($instance->getMe(),"Jsfields");
 			$property = $instance->getProperties();
 			$conditions=array('checkAccFirst' => true , 'checkAccSecond' => false , 'bothEqual' => false);
 			$this->compareArray($t['info'],$property,$conditions);
@@ -61,7 +61,7 @@ class XiusFactoryTest extends XiUnitTestCase
 		
 		foreach($testId as $t){
 			$instance = XiusFactory::getPluginInstanceFromId($t);
-			$this->assertEquals("JsFields",$instance->getMe());
+			$this->assertEquals("Jsfields",$instance->getMe());
 		}
 			
 	}

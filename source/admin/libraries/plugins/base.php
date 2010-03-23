@@ -100,7 +100,7 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	function bind($from, $ignore=array('debugMode'))
+	function bind($from, $ignore=array('debugMode','pluginType'))
 	{
 		$fromArray = (is_object($from) || is_array($from)) ? true : false;
 		
@@ -143,20 +143,20 @@ abstract class XiusBase extends JObject
 	
 	public function isSearchable()
 	{
-		$isSearchable = getValueFromXiusParams($this->params,'isSearchable',false);
+		$isSearchable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isSearchable',false);
 		return $isSearchable;
 	}
 	
 	public function isVisible()
 	{
-		$isVisible = getValueFromXiusParams($this->params,'isVisible',false);
+		$isVisible = XiusHelpersUtils::getValueFromXiusParams($this->params,'isVisible',false);
 		return $isVisible;
 	}
 	
 	
 	public function isSortable()
 	{
-		$isSortable = getValueFromXiusParams($this->params,'isSortable',false);
+		$isSortable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isSortable',false);
 		return $isSortable;
 	}
 	
@@ -260,14 +260,6 @@ abstract class XiusBase extends JObject
 	{
 		$query->select('juser.*');
 		$query->from('`#__users` as juser');
-		$query->select($this->pluginType.'fv'.$this->key.'.value as '.$this->pluginType.'fv'.$this->key);
-		$query->leftJoin('`#__community_fields_values` as '.$this->pluginType.'fv'.$this->key.' ON ( '.$this->pluginType.'fv'.$this->key.'.`user_id` = juser.`id`'
-				.' AND '.$this->pluginType.'fv'.$this->key.'.`field_id` = '.$this->key.')');
-		/*$query->select($this->pluginType.'fv.value as '.$this->pluginType.$this->key);
-		$query->from('#__community_fields_values as '.$this->pluginType.'fv');*/
-		//$query->leftJoin('`#__users` ON ')
-		//$query->leftJoin('`#__community_fields` as '.$this->pluginType.'f ON ('.$this->pluginType.'f.field_id = '.$this->key.' AND )');
-		//$query->leftJoin('`#__users` as '.$this->pluginType.'u ON ('.$this->pluginType.'u.field_id = '.$this->key.')');
 	}
 	
 	
