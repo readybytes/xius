@@ -1,4 +1,7 @@
 ../packages/tmp/site/includes.php:20:$lang =& JFactory::getLanguage();
+../packages/tmp/admin/helpers/utils.php:35:		global $mainframe;
+../packages/tmp/admin/helpers/utils.php:39:		$database = &JFactory::getDBO();
+../packages/tmp/admin/helpers/utils.php:42:		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 ../packages/tmp/admin/includes.php:28:JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/admin/includes.php:43:$lang =& JFactory::getLanguage();
 ../packages/tmp/admin/tables/info.php:5:class XiusTableInfo extends JTable
@@ -7,7 +10,11 @@
 ../packages/tmp/admin/libraries/usersearch.php:22:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/info.php:11:		$db			=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/query.php:435:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:276:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:11:		$db	=& JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:13:		$userTable = new JTable('#__users','id', $db);
+../packages/tmp/admin/libraries/plugins/base.php:268:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/cbuilder/cbuilderhelper.php:11:		$db	=& JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/cbuilder/cbuilderhelper.php:13:		$userTable = new JTable('#__users','id', $db);
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:11:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:58:		$document	=& JFactory::getDocument();
 ../packages/tmp/admin/models/info.php:18:		global $mainframe;
