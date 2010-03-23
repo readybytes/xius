@@ -20,19 +20,17 @@ class Cbuilder extends XiusBase
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 			 
-		$fields = joomlahelper::getJoomlaFields();
+		$fields = Cbuilderhelper::getCBFields();
 		
 		if(empty($fields))
 			return false;
-
+		//print_r(var_export($fields));	
 		$pluginsInfo = array();
 			
-		foreach($fields as $k => $v){
-			if($k == 'params' || $k == 'password')
-				continue;
-				
-			$pluginsInfo[$k] = JText::_($k);
+		foreach($fields as $f){
+			$pluginsInfo[$f->fieldid] = $f->name;
 		}
+		
 		return $pluginsInfo;
 	}
 	

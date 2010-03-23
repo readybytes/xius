@@ -22,19 +22,10 @@ class Joomlahelper
 		return $allColumns['#__users'];
 	}
 	
-	function getFieldsHTML($columnName)
+	
+	function getFieldsHTML($name)
 	{
-		$field = Joomlahelper::getJoomlaFields($filter);
 		
-		if(!$field) 		
-			return false;	
-			
-		if($field[$columnName] == 'datetime')
-			return "select date ";//XITODO : write select date html ( b/w time also)
-		else
-			return false;
-
-		return false;
 	}
 	
 }

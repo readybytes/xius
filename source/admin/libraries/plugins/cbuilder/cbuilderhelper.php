@@ -1,40 +1,34 @@
 <?php
 
 // no direct access
-//defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access');
 
 class Cbuilderhelper
 {
 
-	function getJoomlaFields($filter = '')
+	function getCBFields($filter = '')
 	{
 		$db	=& JFactory::getDBO();
-			
-		$userTable = new JTable('#__users','id', $db);
-		$allColumns = $userTable->_db->getTableFields('#__users');
 		
-		if(empty($allColumns))
-			return false;
-			
-		if(empty($allColumns['#__users']))
-			return false;
+		$query = "SELECT cbf.* "
+		. "FROM ".$db->nameQuote('#__comprofiler_fields')." AS cbf";
 		
-		return $allColumns['#__users'];
+		$db->setQuery($query);
+		$fields = $db->loadObjectList();
+		
+		return $fields;
 	}
 	
 	function getFieldsHTML($columnName)
 	{
-		$field = joomlahelper::getJoomlaFields($filter);
+		$fields = Cbuilderhelper::getCBFields();
+		//print_r(var_export($fields));
+	}
+	
+	
+	function filterFields(&$fields)
+	{
 		
-		if(!$field) 		
-			return false;	
-			
-		if($field[$columnName] == 'datetime')
-			return "select date ";//XITODO : write select date html ( b/w time also)
-		else
-			return false;
-
-		return false;
 	}
 	
 }

@@ -12,6 +12,7 @@
 		<file>test/unit/com/admin/libraries/pluginbase.php</file>
 		<file>test/unit/com/admin/libraries/jsfieldview.php</file>
 		<file>test/unit/com/admin/libraries/joomla.php</file>
+		<file>test/unit/com/admin/libraries/cbuilder.php</file>
 		<file>test/unit/com/admin/libraries/usersearch.php</file>
 		<file>test/unit/com/admin/helpers/utils.php</file>		
 	</testsuite>
