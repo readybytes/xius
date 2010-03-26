@@ -60,6 +60,17 @@ class XiusFactory
 	}
 	
 	
+	public function getErrorObject()
+	{
+		static $object;
+		if(isset($object))
+			return $object;
+			
+		$object = new XiusError();
+		return $object;
+	}
+	
+	
 	public function getDebugMode()
 	{
 		/*XITODO : get parameter from configuration*

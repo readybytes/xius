@@ -424,8 +424,8 @@ class XiusQuery
 
 class XiusCreateTable extends JObject
 {
-	protected $_tableName;
-	protected $_query;
+	public $_tableName;
+	public $_query;
 	
 	function __construct($tableName)
 	{
@@ -434,9 +434,15 @@ class XiusCreateTable extends JObject
 			
 		$db = JFactory::getDBO();
 		$this->_tableName	= 	$tableName;
-		$this->_query		=	'CREATE TABLE IF NOT EXIST '
-								.$db->nameQuote($this->_tableName).' '
-								.'`userid` int(21) NOT NULL`';
+		$this->_query		=	'CREATE TABLE IF NOT EXISTS '
+								.$db->nameQuote($this->_tableName).' ( '
+								.'`userid` int(21) NOT NULL';
+	}
+	
+	
+	function finalizeQuery()
+	{
+		$this->_query .= ' )';
 	}
 	
 	

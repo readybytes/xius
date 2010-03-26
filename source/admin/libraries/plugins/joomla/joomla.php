@@ -47,14 +47,14 @@ class Joomla extends XiusBase
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					$query->select($c['columnname']);
-					$conditions =  $c['columnname']."=".$this->formatValue($value);
+					$conditions =  $c['columnname']."='".$this->formatValue($value)."'";
 					$query->where($conditions);
 					return true;
 				}
 			}
 			else{
 				$query->select($columns['columnname']);
-				$conditions =  $columns['columnname']."=".$this->formatValue($value);
+				$conditions =  $columns['columnname']."='".$this->formatValue($value)."'";
 				$query->where($conditions);
 				return true;
 			}
@@ -69,8 +69,9 @@ class Joomla extends XiusBase
 	 */
 	function getUserData(XiusQuery &$query)
 	{
-		$query->select('juser.*');
-		$query->from('`#__users` as juser');
+		$query->select('joomlauser'.$this->getCacheColumnName().'.'.$this->getCacheColumnName().' as '.strtolower($this->pluginType).$this->getCacheColumnName());
+		
+		$query->leftJoin('`#__users` as joomlauser'.$this->getCacheColumnName().' ON ( joomlauser'.$this->getCacheColumnName().'.`id` = juser.`id` )' );
 	}
 	
 }

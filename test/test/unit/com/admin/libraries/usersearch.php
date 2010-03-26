@@ -7,13 +7,15 @@ class XiusUserSearchTest extends XiUnitTestCase
 		return dirname(__FILE__).'/sql/'.__CLASS__;
 	}
 
-	/**
-	 * @dataProvider searchParamProvider
-	 */
-	function testBuildQuery($params)
+	
+	function testBuildQuery()
 	{
 		/*XITODO : Test case is not complete , apply some assertion */
-		$query = XiusLibrariesUserSearch::buildQuery($params);
+		$params1 = array();
+		$params1[1] = 'Male';
+		//$params1[3] = 'India';//city
+		$params1[7] = array('Checkbox1','Checkbox11');//city
+		$query = XiusLibrariesUserSearch::buildQuery($params1);
 		echo $query;
 	}
 	
@@ -22,7 +24,8 @@ class XiusUserSearchTest extends XiUnitTestCase
 	{
 		$params1 = array();
 		$params1[1] = 'Male';
-		$params1[2] = 'Bhilwara';//city
+		//$params1[3] = 'India';//city
+		$params1[7] = array('Checkbox1','Checkbox11'');//city
 		return array(
 			array($params1)
 		);
@@ -31,16 +34,40 @@ class XiusUserSearchTest extends XiUnitTestCase
 	
 	function testCreateTableQuery()
 	{
+		$db = JFactory::getDBO();
+		
 		/*XITODO : Test case is not complete , apply some assertion */
 		$query = XiusLibrariesUserSearch::createTableQuery();
+		$db->setQuery($query);
+		$db->query();
 		echo $query;
 	}
 	
 	function testBuildInsertUserdataQuery()
 	{
 		/*XITODO : Test case is not complete , apply some assertion */
+		
 		$query = XiusLibrariesUserSearch::buildInsertUserdataQuery();
 		echo $query;
+	}
+	
+	
+	function testInsertUserData()
+	{
+		/*XITODO : Test case is not complete , apply some assertion */
+		$db = JFactory::getDBO();
+		
+		$query = XiusLibrariesUserSearch::createTableQuery();
+		$db->setQuery($query);
+		//echo $query;
+		if(!$db->query())
+			echo $db->getErrorMsg();
+		
+		$collectUserDataQuery = XiusLibrariesUserSearch::buildInsertUserdataQuery();
+		
+		$isSuccess = XiusLibrariesUserSearch::insertUserData($collectUserDataQuery);
+		
+		
 	}
 	
 }

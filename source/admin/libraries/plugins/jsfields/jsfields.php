@@ -70,22 +70,22 @@ class Jsfields extends XiusBase
 
 	public function addSearchToQuery(XiusQuery &$query,$value)
 	{
-		if(!is_array($value)) {
-			$columns = $this->getCacheColumns();
-			if(!$columns)
-				return false;
+		$columns = $this->getCacheColumns();
+		if(!$columns)
+			return false;
 
+		if(!is_array($value)){
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					$query->select($c['columnname']);
-					$conditions =  $c['columnname']."=".$this->formatValue($value);
+					$conditions =  $c['columnname']."='".$this->formatValue($value)."'";
 					$query->where($conditions);
 					return true;
 				}
 			}
 			else{
 				$query->select($columns['columnname']);
-				$conditions =  $columns['columnname']."=".$this->formatValue($value);
+				$conditions =  $columns['columnname']."='".$this->formatValue($value)."'";
 				$query->where($conditions);
 				return true;
 			}
@@ -93,21 +93,76 @@ class Jsfields extends XiusBase
 			return false;
 		}
 		
+		if(is_array($value)){
+			
+			if(is_array($columns)) {
+				foreach($columns as $c){
+					$conditions = '';
+					$count = 0;
+					foreach($value as $v){
+						$conditions .= $count ? ' AND ' : ' ( ';
+						$conditions .= ''.$c['columnname']." LIKE '%".$this->formatValue($v)."%'";
+						$count++;
+						//$query->where($conditions);
+					}
+					
+					$conditions .= ' ) ';
+					$query->select($c['columnname']);
+					$query->where($conditions,'OR');
+				}
+				
+				return true;
+				
+			}
+				else{
+					$query->select($columns['columnname']);
+					$conditions = '';
+					$count = 0;
+					foreach($value as $v){
+						$conditions .= $count ? ' AND ' : ' ( ';
+						$conditions .=  $columns['columnname']." LIKE '%".$this->formatValue($v)."%'";
+						$count++;
+						//$query->where($conditions,'OR');
+					}
+					$query->where($conditions,'OR');
+					return true;
+				}
+			
+			return false;
+		}		
+		return false;		
 	}
 	
 	
 	function getUserData(XiusQuery &$query)
 	{
-		$query->select('juser.*');
+		$query->select('juser.`id` as userid');
 		$query->from('`#__users` as juser');
-		$query->select(strtolower($this->pluginType).'fv'.$this->key.'.value as '.strtolower($this->pluginType).'fv'.$this->key);
-		$query->leftJoin('`#__community_fields_values` as '.strtolower($this->pluginType).'fv'.$this->key.' ON ( '.strtolower($this->pluginType).'fv'.$this->key.'.`user_id` = juser.`id`'
-				.' AND '.strtolower($this->pluginType).'fv'.$this->key.'.`field_id` = '.$this->key.')');
+		$query->select(strtolower($this->pluginType).$this->key.'.value as '.strtolower($this->pluginType).$this->key);
+		$query->leftJoin('`#__community_fields_values` as '.strtolower($this->pluginType).$this->key.' ON ( '.strtolower($this->pluginType).$this->key.'.`user_id` = juser.`id`'
+				.' AND '.strtolower($this->pluginType).$this->key.'.`field_id` = '.$this->key.')');
 		/*$query->select($this->pluginType.'fv.value as '.$this->pluginType.$this->key);
 		$query->from('#__community_fields_values as '.$this->pluginType.'fv');*/
 		//$query->leftJoin('`#__users` ON ')
 		//$query->leftJoin('`#__community_fields` as '.$this->pluginType.'f ON ('.$this->pluginType.'f.field_id = '.$this->key.' AND )');
 		//$query->leftJoin('`#__users` as '.$this->pluginType.'u ON ('.$this->pluginType.'u.field_id = '.$this->key.')');
+	}
+	
+	function formatValue($value)
+	{
+		return $value;
+		$filter = array();
+		$filter['id'] = $this->key;
+		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+		
+		if(empty($fieldInfo) && is_array($value)) {
+			$formatvalue = implode(',',$value);
+			return $formatvalue;
+		}
+		
+		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
+		return $formatvalue;
 	}
 	
 }

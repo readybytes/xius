@@ -15,9 +15,10 @@ class XiusCache
 		
 		$db =& JFactory::getDBO();
 		$this->createQuery = 'CREATE TABLE IF NOT EXISTS '
-						.$db->nameQuote($this->_tableName).' '
+						.$db->nameQuote($this->_tableName).' ( '
 						.'`userid` int(21) NOT NULL';
 	}
+	
 	
 	function getTableName()
 	{

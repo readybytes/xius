@@ -200,7 +200,6 @@ abstract class XiusBase extends JObject
 		 * for display inteface .We will include view file
 		 * and directly call function for displaying html
 		 */
-		/*XITODO : move view code in separate function */
 		$lowercase = strtolower($this->pluginType);
 		
 		$basePath = dirname(__CLASS__).DS.$lowercase;
@@ -237,7 +236,7 @@ abstract class XiusBase extends JObject
 
 	
 	/*get column name , returns a unique name for the given plugin*/
-	public function getCacheColumnName()
+	protected function getCacheColumnName()
 	{
 		return $this->key;
 	}
@@ -249,7 +248,7 @@ abstract class XiusBase extends JObject
 	public function getCacheColumns()
 	{
 		$details[] = array();
-		$details[0]['columnname'] = $this->pluginType.$this->getCacheColumnName();
+		$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
 		$details[0]['specs'] = 'varchar(250) NOT NULL';
 		//$details[0]['default'] = '';
 		return $details;
@@ -258,7 +257,7 @@ abstract class XiusBase extends JObject
 	
 	function getUserData(XiusQuery &$query)
 	{
-		$query->select('juser.*');
+		$query->select('juser.`id` as userid');
 		$query->from('`#__users` as juser');
 	}
 	
@@ -277,7 +276,7 @@ abstract class XiusBase extends JObject
 			if(isset($c['columnname']) && !empty($c['columnname']))
 				$columnDeatils[$i] .= $db->nameQuote($c['columnname']);
 			else
-				$columnDeatils[$i] .= $db->nameQuote($this->pluginType.$this->getCacheColumnName());
+				$columnDeatils[$i] .= $db->nameQuote(strtolower($this->pluginType).$this->getCacheColumnName());
 		
 			if(isset($c['specs']) && !empty($c['specs']))
 				$columnDeatils[$i] .= ' '.$c['specs'];
@@ -306,14 +305,14 @@ abstract class XiusBase extends JObject
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					$query->select($c['columnname']);
-					$conditions =  $c['columnname']."=".$this->formatValue($value);
+					$conditions =  $c['columnname']."='".$this->formatValue($value)."'";
 					$query->where($conditions);
 					return true;
 				}
 			}
 			else{
 				$query->select($columns['columnname']);
-				$conditions =  $columns['columnname']."=".$this->formatValue($value);
+				$conditions =  $columns['columnname']."='".$this->formatValue($value)."'";
 				$query->where($conditions);
 				return true;
 			}

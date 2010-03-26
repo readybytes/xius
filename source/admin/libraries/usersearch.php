@@ -32,6 +32,7 @@ class XiusLibrariesUserSearch
 		if(!empty($tableName)) {
 			$query->select('userid');
 			$query->from($db->nameQuote($tableName));
+			//$query->where(true,'AND');
 		}
 			
 		foreach($params as $k => $v){
@@ -86,6 +87,8 @@ class XiusLibrariesUserSearch
 			$instance->appendCreateQuery($createQuery);
 		}
 		
+		$createQuery->finalizeQuery();
+		
 		return $createQuery->__toString();
 	}
 	
@@ -107,9 +110,11 @@ class XiusLibrariesUserSearch
 			$instance->getUserData($query);
 		}
 		
-		$query->select('juser.*');
+		$query->select('juser.`id` as userid');
 		$query->from('`#__users` as juser');
-		$query->where('juser.`id` > 2000');
+		//$query->where('juser.`id` < 2000');
+		
+		return $query;
 		
 		$str = $query->__toString();
 		/*XITODO : Bound result set starting from some users
@@ -118,6 +123,29 @@ class XiusLibrariesUserSearch
 		$str .= ' LIMIT 10';
 		return $str;
 		//return $query;
+	}
+	
+	
+	
+	function insertUserData(XiusQuery $userInfo)
+	{
+		
+		$table = new XiusCache();
+		$tableName = $table->getTableName();
+
+		$insertQuery = 'INSERT INTO `'.$tableName.'` ( ';
+		$insertQuery .= $userInfo->__toString();
+		$insertQuery .= ' )';
+		
+		$db =& JFactory::getDBO();
+		$db->setQuery($insertQuery);
+		if(!$db->query()) {
+			$error = XiusFactory::getErrorObject();
+			$error->setError($db->ErrorMsg());
+			return false;
+		}
+		
+		return true;
 	}
 	
 	
