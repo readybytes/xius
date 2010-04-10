@@ -22,7 +22,7 @@ class XiusModelInfo extends JModel
 
 		// Get the pagination request variables
 		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-		$limitstart	= $mainframe->getUserStateFromRequest( 'com_Xius.limitstart', 'limitstart', 0, 'int' );
+		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius.limitstart', 'limitstart', 0, 'int' );
 
 		// In case limit has been changed, adjust limitstart accordingly
 		$limitstart = ($limit != 0 ? (floor($limitstart / $limit) * $limit) : 0);
@@ -63,7 +63,7 @@ class XiusModelInfo extends JModel
 
 		// Get the limit / limitstart
 		$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-		$limitstart	= $mainframe->getUserStateFromRequest('com_Xiuslimitstart', 'limitstart', 0, 'int');
+		$limitstart	= $mainframe->getUserStateFromRequest('com_xiuslimitstart', 'limitstart', 0, 'int');
 
 		// In case limit has been changed, adjust limitstart accordingly
 		$limitstart	= ($limit != 0) ? ($limitstart / $limit ) * $limit : 0;
@@ -79,7 +79,8 @@ class XiusModelInfo extends JModel
 		$this->_pagination	= new JPagination( $total , $limitstart , $limit );
 
 		$query	= 'SELECT * FROM ' 
-				. $db->nameQuote( '#__xipt_aclrules' );
+				. $db->nameQuote( '#__xius_info' )
+				. ' ORDER BY '. $db->nameQuote('ordering');
 		$db->setQuery( $query , $this->_pagination->limitstart , $this->_pagination->limit );		
 		$info	= $db->loadObjectList();
 		

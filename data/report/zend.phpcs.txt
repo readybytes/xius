@@ -127,20 +127,20 @@ FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
   17 | ERROR | No scope modifier specified for function "buildQuery"
   25 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
   32 | ERROR | Operator ! prohibited; use === FALSE instead
-  46 | ERROR | No scope modifier specified for function
+  47 | ERROR | No scope modifier specified for function
      |       | "buildQueryForSingleInfo"
-  57 | ERROR | No scope modifier specified for function "collectParamstoSearch"
-  63 | ERROR | No scope modifier specified for function "getAllInfo"
-  70 | ERROR | No scope modifier specified for function "createTableQuery"
-  75 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  81 | ERROR | Operator == prohibited; use === instead
-  95 | ERROR | No scope modifier specified for function
+  58 | ERROR | No scope modifier specified for function "collectParamstoSearch"
+  64 | ERROR | No scope modifier specified for function "getAllInfo"
+  71 | ERROR | No scope modifier specified for function "createTableQuery"
+  76 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  82 | ERROR | Operator == prohibited; use === instead
+  96 | ERROR | No scope modifier specified for function
      |       | "buildInsertUserdataQuery"
- 100 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 129 | ERROR | No scope modifier specified for function "insertUserData"
- 141 | ERROR | Operator ! prohibited; use === FALSE instead
- 152 | ERROR | No scope modifier specified for function "getMembersCount"
- 159 | ERROR | No scope modifier specified for function "getListMembers"
+ 101 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 130 | ERROR | No scope modifier specified for function "insertUserData"
+ 142 | ERROR | Operator ! prohibited; use === FALSE instead
+ 153 | ERROR | No scope modifier specified for function "getMembersCount"
+ 160 | ERROR | No scope modifier specified for function "getListMembers"
 --------------------------------------------------------------------------------
 
 
@@ -390,7 +390,7 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 
 FILE: ...s/xius/trunk/packages/tmp/admin/libraries/plugins/jsfields/jsfields.php
 --------------------------------------------------------------------------------
-FOUND 14 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
+FOUND 19 ERROR(S) AND 0 WARNING(S) AFFECTING 18 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR | Logical operator "or" is prohibited; use "||" instead
   11 | ERROR | No scope modifier specified for function "__construct"
@@ -401,12 +401,17 @@ FOUND 14 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
   57 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
   63 | ERROR | Operator != prohibited; use !== instead
   74 | ERROR | Operator ! prohibited; use === FALSE instead
-  77 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  96 | ERROR | No scope modifier specified for function "getUserData"
- 102 | ERROR | String concat is not required here; use a single string instead
- 110 | ERROR | No scope modifier specified for function "formatValue"
- 116 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 116 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  77 | ERROR | Operator ! prohibited; use === FALSE instead
+  78 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  96 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  98 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 103 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 122 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 137 | ERROR | No scope modifier specified for function "getUserData"
+ 143 | ERROR | String concat is not required here; use a single string instead
+ 151 | ERROR | No scope modifier specified for function "formatValue"
+ 158 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 158 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 

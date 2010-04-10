@@ -161,6 +161,59 @@ abstract class XiusBase extends JObject
 	}
 	
 	
+	/*function will display listing of plugins */
+	function renderRawData()
+	{
+		$pluginsInfo = $this->getAvailableInfo();
+		if(!$pluginsInfo)
+			return false;
+
+		$html = "<select id = '$this->pluginType rawdata' name = '$this->pluginType rawdata' >";
+		foreach($pluginsInfo as $k => $v){
+			$html .= "<option value='$k'>".JText::_($v)."</option>"; 
+		}
+		
+		$html .= "</select>";
+		
+		return $html;
+	}
+	
+	
+	public function getHtml(&$paramsHtml,&$plguinParamsHtml)
+	{
+		//Imp : Function will always call core field html
+		$paramsHtml = $this->getParamsHtml();
+		$plguinParamsHtml = $this->getPluginParamsHtml();
+	}
+	
+	
+	public function getPluginParamsHtml()
+	{
+		$plguinParamsHtml = $this->pluginParams->render('pluginparams');
+		
+		if($plguinParamsHtml)
+			return $plguinParamsHtml;
+		
+		$plguinParamsHtml = "<div style=\"text-align: center; padding: 5px; \">".JText::_('There are no parameters for this item')."</div>";
+		
+		return $plguinParamsHtml;
+	}
+	
+	
+	final public function getParamsHtml()
+	{
+		$paramsHtml = $this->params->render('params');
+		
+		if($paramsHtml)
+			return $paramsHtml;
+		
+		$paramsHtml = "<div style=\"text-align: center; padding: 5px; \">".JText::_('There are no parameters for this item')."</div>";
+		
+		return $paramsHtml;
+	}
+	
+	
+	
 	protected function generateSearchHtml($label='',$inputHtml='')
 	{
 		$html = array();

@@ -25,7 +25,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$params1 = array();
 		$params1[1] = 'Male';
 		//$params1[3] = 'India';//city
-		$params1[7] = array('Checkbox1','Checkbox11'');//city
+		$params1[7] = array('Checkbox1','Checkbox11');//city
 		return array(
 			array($params1)
 		);

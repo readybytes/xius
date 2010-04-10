@@ -9,8 +9,11 @@ defined('_JEXEC') or die();
 
 require_once  dirname(__FILE__).DS.'includes.php';
 
+if(JRequest::getCmd('view') == '') {
+	            JRequest::setVar('view', 'info');
+}
 //now decide what to do
-$view	= JRequest::getCmd('view', 		'dashboard');
+$view	= JRequest::getCmd('view', 		'info');
 $task 	= JRequest::getCmd('task', 		'display');
 $format	= JRequest::getCmd('format',	'html');
 

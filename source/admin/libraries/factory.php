@@ -5,6 +5,22 @@ defined('_JEXEC') or die('Restricted access');
 
 class XiusFactory
 {	
+	
+	function &getModel( $name = '')
+	{
+		static $modelInstances = null;
+		
+		if(!isset($modelInstances[$name]))
+		{
+			include_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'
+							.DS.'models'.DS. JString::strtolower( $name ) .'.php');
+			$classname = 'XiusModel'.$name;
+			$modelInstances[$name] =& new $classname;
+		}
+		
+		return $modelInstances[$name];
+	}
+	
 	public function getPluginInstance($pluginName,$id=0,$bindArray = '',$isBindRequired = false)
 	{
 		$pluginClassName = $pluginName;
@@ -76,6 +92,17 @@ class XiusFactory
 		/*XITODO : get parameter from configuration*
 		 */
 		return false;
+	}
+	
+	
+	public function getAvailablePlugins()
+	{
+		$pluginsPath	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' ;
+	
+		jimport( 'joomla.filesystem.folder' );
+		$plugins = array();
+		$plugins = JFolder::folders($pluginsPath);
+		return $plugins;
 	}
 	
 	

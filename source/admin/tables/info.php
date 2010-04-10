@@ -13,7 +13,7 @@ class XiusTableInfo extends JTable
 	var $pluginParams	= 	'' ;
 	
 	var $pluginType		= 	'' ;
-	var $oredring		=	0 ;
+	var $ordering		=	0 ;
 	var $published		=	1 ;
 	
 	function __construct(&$db)

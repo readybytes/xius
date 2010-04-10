@@ -1,9 +1,9 @@
 ../packages/tmp/admin/libraries/cache.php:37:		/*XITODO : use foreach with column details , it should be array of array */
 ../packages/tmp/admin/libraries/cache.php:39:			/*XITODO : set some error */
 ../packages/tmp/admin/libraries/usersearch.php:19:		/*XITODO : provide join operator and sorting condition
-../packages/tmp/admin/libraries/usersearch.php:72:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:97:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:119:		/*XITODO : Bound result set starting from some users
+../packages/tmp/admin/libraries/usersearch.php:73:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:98:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:120:		/*XITODO : Bound result set starting from some users
 ../packages/tmp/admin/libraries/factory.php:30:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:76:		/*XITODO : get parameter from configuration*
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
