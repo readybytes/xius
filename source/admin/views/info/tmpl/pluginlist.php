@@ -19,8 +19,18 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 			<td>
 				<div>
 				<?php
-					if(!empty($this->rawDataHtml))
-						echo $this->rawDataHtml;
+					if(!empty($this->plugins)){?>
+						<select id="plugin" name="plugin">
+						<?php 
+						foreach($this->plugins as $p){?>
+					    	<option value = "<?php echo $p;?>"><?php echo JText::_($p);?></option>
+					    <?php 
+						}
+					    ?>
+						
+						</select>
+						<?php 
+					}
 				?>
 				</div>
 			</td>
@@ -33,11 +43,9 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 <div style="float:left; margin-left: 320px">
 	<input type="submit" name="infonext" value="<?php echo JText::_('NEXT');?>"/>
 </div>	
-	<input type="hidden" name="plugin" value="<?php echo $this->plugin;?>" />
-	
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="<?php echo JRequest::getCmd( 'view' , 'info' );?>" />
 	<input type="hidden" name="id" value="" />
-	<input type="hidden" name="task" value="renderinfo" />
+	<input type="hidden" name="task" value="add" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>

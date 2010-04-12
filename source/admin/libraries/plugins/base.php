@@ -160,6 +160,16 @@ abstract class XiusBase extends JObject
 		return $isSortable;
 	}
 	
+	/*override function if child class is displaying 
+	 * fields html with not in select box and any other method
+	 */
+	function formatPostForGeneratingInfo($postData)
+	{
+		if(isset($postData['rawdata'])){
+			$this->key = $postData['rawdata'];
+		}
+	}
+	
 	
 	/*function will display listing of plugins */
 	function renderRawData()
@@ -168,7 +178,7 @@ abstract class XiusBase extends JObject
 		if(!$pluginsInfo)
 			return false;
 
-		$html = "<select id = '$this->pluginType rawdata' name = '$this->pluginType rawdata' >";
+		$html = "<select id = 'rawdata' name = 'rawdata' >";
 		foreach($pluginsInfo as $k => $v){
 			$html .= "<option value='$k'>".JText::_($v)."</option>"; 
 		}
@@ -177,6 +187,27 @@ abstract class XiusBase extends JObject
 		
 		return $html;
 	}
+	
+	
+	/*this function is defined for front-end
+	 * return label + input box html
+	 */
+	public function renderRawDataHtml()
+	{
+		if(!$this->isAllRequirementSatisfy())
+			return false;
+			
+		$view = $this->getViewName();
+		if(false === $view)
+			return $this->renderRawData();
+		
+		$html = $view->rawDataHtml($this);
+		if($html)
+			return $html;
+			
+		return $this->renderRawData();
+	}
+	
 	
 	
 	public function getHtml(&$paramsHtml,&$plguinParamsHtml)
@@ -255,8 +286,8 @@ abstract class XiusBase extends JObject
 		 */
 		$lowercase = strtolower($this->pluginType);
 		
-		$basePath = dirname(__CLASS__).DS.$lowercase;
-		$viewPath = $basePath.DS.'views'.'view.html.php';
+		$basePath = dirname(__file__).DS.$lowercase;
+		$viewPath = $basePath.DS.'views'.DS.'view.html.php';
 		
 		if(!JFile::exists($viewPath))
 			return false;
@@ -327,9 +358,9 @@ abstract class XiusBase extends JObject
 		$i = 0;
 		foreach($columns as $c){
 			if(isset($c['columnname']) && !empty($c['columnname']))
-				$columnDeatils[$i] .= $db->nameQuote($c['columnname']);
+				$columnDeatils[$i] = $db->nameQuote($c['columnname']);
 			else
-				$columnDeatils[$i] .= $db->nameQuote(strtolower($this->pluginType).$this->getCacheColumnName());
+				$columnDeatils[$i] = $db->nameQuote(strtolower($this->pluginType).$this->getCacheColumnName());
 		
 			if(isset($c['specs']) && !empty($c['specs']))
 				$columnDeatils[$i] .= ' '.$c['specs'];
@@ -374,6 +405,17 @@ abstract class XiusBase extends JObject
 		}
 		
 		
+	}
+	
+	
+	function collectParamsFromPost(&$key,&$pluginParams,$postdata)
+	{
+		assert($postdata['pluginParams']);
+		$registry	=& JRegistry::getInstance( 'xius' );
+		$registry->loadArray($postdata['pluginParams'],'xius_pluginParams');
+		$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
+		$key = $postdata['key'];
+		return true;
 	}
 	
 	

@@ -74,4 +74,15 @@ class Joomla extends XiusBase
 		$query->leftJoin('`#__users` as joomlauser'.$this->getCacheColumnName().' ON ( joomlauser'.$this->getCacheColumnName().'.`id` = juser.`id` )' );
 	}
 	
+	
+	function getInfoName()
+	{
+		//$filter = array();
+		$filter = $this->key;
+		$fieldInfo = Joomlahelper::getJoomlaFields($filter);
+		
+		if(!empty($fieldInfo))
+			return $fieldInfo;
+	}
+	
 }

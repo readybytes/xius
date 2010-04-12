@@ -4,7 +4,11 @@
 ../packages/tmp/admin/libraries/usersearch.php:73:		/*XITODO : pass info through parameter */
 ../packages/tmp/admin/libraries/usersearch.php:98:		/*XITODO : pass info through parameter */
 ../packages/tmp/admin/libraries/usersearch.php:120:		/*XITODO : Bound result set starting from some users
-../packages/tmp/admin/libraries/factory.php:30:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/admin/libraries/factory.php:76:		/*XITODO : get parameter from configuration*
+../packages/tmp/admin/libraries/factory.php:46:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/factory.php:92:		/*XITODO : get parameter from configuration*
+../packages/tmp/admin/libraries/plugins/joomla/views/view.html.php:49:		/*XITODO : unset already exist info */
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/base.php:226:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:310:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:51:		/*XITODO : unset already exist info */
+../packages/tmp/admin/models/info.php:97:		/*XITODO : check key should not be added already*/
+../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

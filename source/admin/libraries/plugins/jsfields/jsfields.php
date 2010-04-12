@@ -150,8 +150,9 @@ class Jsfields extends XiusBase
 	
 	function formatValue($value)
 	{
+		//print_r(var_export($value));
 		return $value;
-		$filter = array();
+		/*$filter = array();
 		$filter['id'] = $this->key;
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
 		
@@ -162,7 +163,20 @@ class Jsfields extends XiusBase
 		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
-		return $formatvalue;
+		return $formatvalue;*/
 	}
+	
+	
+	/*this function should call after setting key */
+	function getInfoName()
+	{
+		$filter = array();
+		$filter['id'] = $this->key;
+		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+		
+		if(!empty($fieldInfo))
+			return $fieldInfo[0]->name;
+	}
+	
 	
 }

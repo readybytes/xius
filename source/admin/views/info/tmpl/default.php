@@ -67,7 +67,7 @@ function submitbutton( action )
 			</td>
 			<td>
 				<span class="editlinktip" title="<?php echo $info->labelName; ?>" id="labelname<?php echo $info->id;?>">
-					<?php $link = JRoute::_('index.php?option=com_xipt&view=aclrules&task=edit&editId='.$info->id, false); ?>
+					<?php $link = JRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$info->id, false); ?>
 						<A HREF="<?php echo $link; ?>"><?php echo $info->labelName; ?></A>
 				</span>
 			</td>

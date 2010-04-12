@@ -23,6 +23,8 @@ class XiusControllerInfo extends JController
  
     function add()
 	{
+		$plugin = JRequest::getVar('plugin', 0 ) ;
+		
 		$viewName	= JRequest::getCmd( 'view' , 'info' );
 		
 		// Get the document object
@@ -33,11 +35,14 @@ class XiusControllerInfo extends JController
 		
 		$view		=& $this->getView( $viewName , $viewType );
 		
-		$layout		= JRequest::getCmd( 'layout' , 'info.add' );
+		if(!$plugin)
+			$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );
+		else 
+			$layout		= JRequest::getCmd( 'layout' , 'info.add' );
 			
 		$view->setLayout( $layout );
 
-		echo $view->add();
+		echo $view->add($plugin);
 	}
 	
 	
@@ -57,9 +62,9 @@ class XiusControllerInfo extends JController
 		$view		=& $this->getView( $viewName , $viewType );
 		
 		if(!$plugin && !$id) {
-			$layout		= JRequest::getCmd( 'layout' , 'info.add' );
+			$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );
 			$view->setLayout( $layout );
-			echo $view->add();
+			echo $view->add($plugin);
 			return;
 		}
 		
@@ -70,9 +75,9 @@ class XiusControllerInfo extends JController
 			
 			$pluginObject = XiusFactory::getPluginInstanceFromId($id);
 			if(!$pluginObject) {
-				$layout		= JRequest::getCmd( 'layout' , 'info.add' );
+				$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );
 				$view->setLayout( $layout );
-				echo $view->add();
+				echo $view->add($plugin);
 				return;
 			}
 			$data = $pluginObject->toArray();
@@ -85,7 +90,7 @@ class XiusControllerInfo extends JController
 		
 		$layout		= JRequest::getCmd( 'layout' , 'info.edit' );
 		$view->setLayout( $layout );
-		echo $view->renderinfo($data);
+		echo $view->renderinfo($pluginObject,$data);
 	}
 	
 	
@@ -107,46 +112,48 @@ class XiusControllerInfo extends JController
 		
 		jimport('joomla.filesystem.file');
 
-		$aclTable	=& JTable::getInstance( 'aclrules' , 'XiPTTable' );
-		$aclTable->load($post['id']);
+		$infoTable	=& JTable::getInstance( 'info' , 'XiusTable' );
+		$infoTable->load($post['id']);
 				
 		$data = array();
 		
-		$registry	=& JRegistry::getInstance( 'xipt' );
-		$registry->loadArray($post['coreparams'],'xipt_coreparams');
+		$registry	=& JRegistry::getInstance( 'xius' );
+		$registry->loadArray($post['params'],'xius_params');
 		// Get the complete INI string
-		$data['coreparams']	= $registry->toString('INI' , 'xipt_coreparams' );
+		$data['params']	= $registry->toString('INI' , 'xius_params' );
 		
 		$data['id'] 			= $post['id'];
-		$data['aclname'] 		= $post['aclname'];
-		$data['rulename']	 	= $post['rulename'];
+		$data['pluginType'] 	= $post['pluginType'];
+		$data['labelName'] 		= $post['labelName'];
 		$data['published'] 		= $post['published'];
 		
 		unset($post['id']);
-		unset($post['rulename']);
-		unset($post['aclname']);
+		unset($post['labelName']);
 		unset($post['published']);
-		unset($post['coreparams']);
+		unset($post['params']);
 		
-		$aclObject = aclFactory::getAclObject($data['aclname']);
-		$data['aclparams'] = $aclObject->collectParamsFromPost($post);
-		
-		
-		$aclTable->bind($data);
-		$data = array();
-		// Save it
-		if(! ($data['id'] = $aclTable->store()) )
-			$data['msg'] = JText::_('ERROR IN SAVING RULE');
-		else
-			$data['msg'] = JText::_('RULE SAVED');	
+		$plgObject = XiusFactory::getPluginInstance($data['pluginType']);
 
-		return $data;
+		$isGotPluginData = $plgObject->collectParamsFromPost($data['key'],$data['plguinParams'],$post);
+		
+		$storedInfo = array();
+		
+		$iModel	= XiusFactory::getModel( 'info' );
+		$storedInfo['id'] = $iModel->save($data);
+		
+		
+		if(!$storedInfo['id'])
+			$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
+		else
+			$storedInfo['msg'] = JText::_('INFO SAVED');	
+
+		return $storedInfo;
 	}
 	
 	function save()
 	{
 		$data = $this->processSave();
-		$link = JRoute::_('index.php?option=com_xipt&view=aclrules', false);
+		$link = JRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe	=& JFactory::getApplication();
 		$mainframe->redirect($link, $data['msg']);		
 		
@@ -155,7 +162,7 @@ class XiusControllerInfo extends JController
 	function apply()
 	{
 		$data = $this->processSave();
-		$link = JRoute::_('index.php?option=com_xipt&view=aclrules&task=renderacl&editId='.$data['id'], false);
+		$link = JRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
 		$mainframe	=& JFactory::getApplication();
 		$mainframe->redirect($link, $data['msg']);				
 	}	

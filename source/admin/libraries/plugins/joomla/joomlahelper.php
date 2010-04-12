@@ -18,7 +18,10 @@ class Joomlahelper
 			
 		if(empty($allColumns['#__users']))
 			return false;
-		
+			
+		if(!empty($filter))
+			return $filter;
+			
 		return $allColumns['#__users'];
 	}
 	

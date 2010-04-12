@@ -25,47 +25,56 @@ class XiusViewInfo extends JView
     }
 	
 
-    function add($tpl = null)
+    function add($plugin,$tpl = null)
 	{
 		$plugins = XiusFactory::getAvailablePlugins();
-		/*XITODO : render all plugins individual fields 
-		 * Take care , what if f particular field ifo is already created
-		 * Eq :- never create info for Gender Twice etc.*/
 		
-		$rawDataHtml = array();
-		if($plugins){
-			foreach($plugins as $p){
-				/*call plugin field render function */
-				$pluginObject = XiusFactory::getPluginInstance($p);
-				if($pluginObject){
-					$html = $pluginObject->renderRawData();
-					
-					if($html)
-						$rawDataHtml[$p] = $html; 
-				}
+		if($plugin) {
+		
+			/*XITODO : render all plugins individual fields 
+			 * Take care , what if f particular field ifo is already created
+			 * Eq :- never create info for Gender Twice etc.*/
+			
+			$rawDataHtml = '';
+			if($plugins){
+					/*call plugin field render function */
+					$pluginObject = XiusFactory::getPluginInstance($plugin);
+					if($pluginObject)
+						$rawDataHtml = $pluginObject->renderRawDataHtml();
 			}
+			
+			$this->assign( 'rawDataHtml' , $rawDataHtml );
+			$this->assign( 'plugin' , $plugin );
 		}
 		
 		$this->assign( 'plugins' , $plugins );
-		$this->assign( 'rawDataHtml' , $rawDataHtml );
 		parent::display($tpl);
 	}
 	
 	
-	function renderinfo($data,$tpl = null)
+	function renderinfo($pluginObject,$data,$tpl = null)
 	{
-		$coreParamsHtml = '';
-		$aclParamsHtml = '';
+		$paramsHtml = '';
+		$pluginParamsHtml = '';
 		
-		//call htmlrender fn
-		$aclObject = aclFactory::getAclObject($data['aclname']);
+		$postData = JRequest::get('post');
 		
-		$aclObject->bind($data);
-		$aclObject->getHtml($coreParamsHtml,$aclParamsHtml);
+		$pluginObject->formatPostForGeneratingInfo($postData);
 		
-		$this->assignRef('coreParamsHtml',		$coreParamsHtml);
-		$this->assignRef('aclParamsHtml',		$aclParamsHtml);
-		$this->assign('aclruleInfo',$data);
+		$pluginObject->getHtml($paramsHtml,$pluginParamsHtml);
+		
+		$this->assignRef('paramsHtml',		$paramsHtml);
+		$this->assignRef('pluginParamsHtml',		$pluginParamsHtml);
+		
+		$infoName = $pluginObject->getInfoName();
+		$pluginArray = $pluginObject->toArray();
+		
+		if(empty($pluginArray['labelName']))
+			$pluginArray['labelName'] = $infoName;
+		
+		$this->assign('pluginArray',		$pluginArray);
+		$this->assign('info',$data);
+		$this->assign('infoName',$infoName);
 		parent::display($tpl);
 	}
 	

@@ -87,6 +87,20 @@ class XiusModelInfo extends JModel
 		return $info;
 	}
 	
+	
+	
+	function save($data)
+	{
+		$infoTable	=& JTable::getInstance( 'info' , 'XiusTable' );
+		$infoTable->load($data['id']);
+		
+		/*XITODO : check key should not be added already*/
+		$infoTable->bind($data);
+		// Save it
+		return $infoTable->store();
+	}
+	
+	
 	function updatePublish($id,$value)
 	{
 		$db 	=& JFactory::getDBO();
