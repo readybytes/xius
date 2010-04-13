@@ -61,9 +61,9 @@ class XiusLibrariesUserSearch
 	}
 	
 	
-	function getAllInfo()
+	function getAllInfo($filter = '',$join = 'AND')
 	{
-		$info = XiusLibrariesInfo::getInfo();
+		$info = XiusLibrariesInfo::getInfo($filter,$join);
 		return $info;
 	}
 	

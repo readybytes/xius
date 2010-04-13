@@ -94,16 +94,4 @@ class XiusFactory
 		return false;
 	}
 	
-	
-	public function getAvailablePlugins()
-	{
-		$pluginsPath	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' ;
-	
-		jimport( 'joomla.filesystem.folder' );
-		$plugins = array();
-		$plugins = JFolder::folders($pluginsPath);
-		return $plugins;
-	}
-	
-	
 }

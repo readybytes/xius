@@ -22,7 +22,8 @@ class XiusLibrariesInfo
 		}
 
 		$query = 'SELECT * FROM '.$db->nameQuote('#__xius_info')
-				.$filterSql;
+				.$filterSql
+				.' ORDER BY '.$db->nameQuote('ordering');
 				
 		$db->setQuery($query);
 		$info = $db->loadObjectList();
@@ -30,15 +31,4 @@ class XiusLibrariesInfo
 		return $info;
 	}
 	
-	
-	
-	public function getAllPlugins()
-	{
-		$path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins';
-	
-		jimport( 'joomla.filesystem.folder' );
-		$plugins = array();
-		$plugins = JFolder::folders($path);
-		return $plugins;
-	}	
 }

@@ -71,7 +71,7 @@ FOUND 34 ERROR(S) AND 0 WARNING(S) AFFECTING 33 LINE(S)
   74 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
   77 | ERROR | Operator ! prohibited; use === FALSE instead
   85 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  97 | ERROR | No scope modifier specified for function "processSave"
+  97 | ERROR | No scope modifier specified for function "_processSave"
  103 | ERROR | Operator == prohibited; use === instead
  145 | ERROR | Operator ! prohibited; use === FALSE instead
  153 | ERROR | No scope modifier specified for function "save"
@@ -80,24 +80,56 @@ FOUND 34 ERROR(S) AND 0 WARNING(S) AFFECTING 33 LINE(S)
  172 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
  174 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 183 | ERROR | Operator ! prohibited; use === FALSE instead
- 188 | ERROR | Operator ! prohibited; use === FALSE instead
- 207 | ERROR | No scope modifier specified for function "publish"
- 209 | ERROR | Use of the "global" keyword is forbidden; use
+ 187 | ERROR | Operator ! prohibited; use === FALSE instead
+ 192 | ERROR | Operator ! prohibited; use === FALSE instead
+ 211 | ERROR | No scope modifier specified for function "publish"
+ 213 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 211 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 216 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 231 | ERROR | No scope modifier specified for function "unpublish"
- 233 | ERROR | Use of the "global" keyword is forbidden; use
+ 215 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 220 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 235 | ERROR | No scope modifier specified for function "unpublish"
+ 237 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 235 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 240 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 257 | ERROR | No scope modifier specified for function "saveOrder"
- 259 | ERROR | Use of the "global" keyword is forbidden; use
+ 239 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 244 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 261 | ERROR | No scope modifier specified for function "saveOrder"
+ 263 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 262 | ERROR | Operator == prohibited; use === instead
- 267 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 275 | ERROR | Operator ! prohibited; use === FALSE instead
+ 266 | ERROR | Operator == prohibited; use === instead
+ 271 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 279 | ERROR | Operator ! prohibited; use === FALSE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/controllers/list.php
+--------------------------------------------------------------------------------
+FOUND 21 ERROR(S) AND 0 WARNING(S) AFFECTING 21 LINE(S)
+--------------------------------------------------------------------------------
+   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  13 | ERROR | No scope modifier specified for function "__construct"
+  22 | ERROR | No scope modifier specified for function "display"
+  28 | ERROR | No scope modifier specified for function "remove"
+  30 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+  32 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  39 | ERROR | Operator ! prohibited; use === FALSE instead
+  48 | ERROR | Operator ! prohibited; use === FALSE instead
+  69 | ERROR | No scope modifier specified for function "publish"
+  71 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+  73 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  78 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  92 | ERROR | No scope modifier specified for function "unpublish"
+  94 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+  96 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 101 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 117 | ERROR | No scope modifier specified for function "saveOrder"
+ 119 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+ 122 | ERROR | Operator == prohibited; use === instead
+ 127 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 135 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -115,7 +147,7 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/tables/info.php
 --------------------------------------------------------------------------------
-FOUND 21 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
+FOUND 22 ERROR(S) AND 0 WARNING(S) AFFECTING 14 LINE(S)
 --------------------------------------------------------------------------------
   3 | ERROR | Logical operator "or" is prohibited; use "||" instead
   8 | ERROR | Scope modifier not specified for member variable "$id"
@@ -138,6 +170,73 @@ FOUND 21 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
  33 | ERROR | No scope modifier specified for function "load"
  36 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
  48 | ERROR | No scope modifier specified for function "store"
+ 51 | ERROR | Operator == prohibited; use === instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/tables/conditions.php
+--------------------------------------------------------------------------------
+FOUND 25 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
+--------------------------------------------------------------------------------
+   7 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  26 | ERROR | Scope modifier not specified for member variable "$id"
+  26 | ERROR | Assignments must be the first block of code on a line
+  27 | ERROR | Scope modifier not specified for member variable "$name"
+  27 | ERROR | Assignments must be the first block of code on a line
+  28 | ERROR | Scope modifier not specified for member variable "$listid"
+  28 | ERROR | Assignments must be the first block of code on a line
+  29 | ERROR | Scope modifier not specified for member variable "$fieldid"
+  29 | ERROR | Assignments must be the first block of code on a line
+  30 | ERROR | Scope modifier not specified for member variable "$operator"
+  30 | ERROR | Assignments must be the first block of code on a line
+  31 | ERROR | Scope modifier not specified for member variable "$value"
+  31 | ERROR | Assignments must be the first block of code on a line
+  32 | ERROR | Scope modifier not specified for member variable
+     |       | "$combinecondition"
+  32 | ERROR | Assignments must be the first block of code on a line
+  33 | ERROR | Scope modifier not specified for member variable "$published"
+  33 | ERROR | Assignments must be the first block of code on a line
+  41 | ERROR | No scope modifier specified for function "__construct"
+  45 | ERROR | No scope modifier specified for function "load"
+  47 | ERROR | Operator == prohibited; use === instead
+  64 | ERROR | No scope modifier specified for function "delete"
+  75 | ERROR | No scope modifier specified for function "store"
+  86 | ERROR | No scope modifier specified for function "bind"
+ 112 | ERROR | No scope modifier specified for function "check"
+ 113 | ERROR | Operator == prohibited; use === instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/tables/list.php
+--------------------------------------------------------------------------------
+FOUND 26 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
+--------------------------------------------------------------------------------
+  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 18 | ERROR | Scope modifier not specified for member variable "$id"
+ 18 | ERROR | Assignments must be the first block of code on a line
+ 19 | ERROR | Scope modifier not specified for member variable "$owner"
+ 19 | ERROR | Assignments must be the first block of code on a line
+ 20 | ERROR | Scope modifier not specified for member variable "$name"
+ 20 | ERROR | Assignments must be the first block of code on a line
+ 21 | ERROR | Scope modifier not specified for member variable "$visibleinfo"
+ 21 | ERROR | Assignments must be the first block of code on a line
+ 22 | ERROR | Scope modifier not specified for member variable "$sortinfo"
+ 22 | ERROR | Assignments must be the first block of code on a line
+ 23 | ERROR | Scope modifier not specified for member variable "$join"
+ 23 | ERROR | Assignments must be the first block of code on a line
+ 24 | ERROR | Scope modifier not specified for member variable "$published"
+ 24 | ERROR | Assignments must be the first block of code on a line
+ 25 | ERROR | Scope modifier not specified for member variable "$ordering"
+ 25 | ERROR | Assignments must be the first block of code on a line
+ 26 | ERROR | Scope modifier not specified for member variable "$description"
+ 26 | ERROR | Assignments must be the first block of code on a line
+ 28 | ERROR | No scope modifier specified for function "__construct"
+ 33 | ERROR | No scope modifier specified for function "load"
+ 35 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 57 | ERROR | No scope modifier specified for function "store"
+ 62 | ERROR | Operator == prohibited; use === instead
+ 76 | ERROR | No scope modifier specified for function "delete"
+ 85 | ERROR | No scope modifier specified for function "bind"
 --------------------------------------------------------------------------------
 
 
@@ -340,17 +439,13 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 
 FILE: ...s/trunk/packages/tmp/admin/libraries/plugins/joomla/views/view.html.php
 --------------------------------------------------------------------------------
-FOUND 8 ERROR(S) AND 0 WARNING(S) AFFECTING 8 LINE(S)
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  11 | ERROR | No scope modifier specified for function "__construct"
  16 | ERROR | No scope modifier specified for function "searchHtml"
  18 | ERROR | Operator ! prohibited; use === FALSE instead
  29 | ERROR | Operator == prohibited; use === instead
- 37 | ERROR | No scope modifier specified for function "rawDataHtml"
- 39 | ERROR | Operator ! prohibited; use === FALSE instead
- 54 | ERROR | Use of ob_end_flush() is not allowed; use ob_get_contents() and
-    |       | ob_end_clean() instead
 --------------------------------------------------------------------------------
 
 
@@ -467,17 +562,13 @@ FOUND 11 ERROR(S) AND 0 WARNING(S) AFFECTING 10 LINE(S)
 
 FILE: ...trunk/packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php
 --------------------------------------------------------------------------------
-FOUND 8 ERROR(S) AND 0 WARNING(S) AFFECTING 8 LINE(S)
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  11 | ERROR | No scope modifier specified for function "__construct"
  16 | ERROR | No scope modifier specified for function "searchHtml"
  18 | ERROR | Operator ! prohibited; use === FALSE instead
  29 | ERROR | Operator ! prohibited; use === FALSE instead
- 39 | ERROR | No scope modifier specified for function "rawDataHtml"
- 41 | ERROR | Operator ! prohibited; use === FALSE instead
- 56 | ERROR | Use of ob_end_flush() is not allowed; use ob_get_contents() and
-    |       | ob_end_clean() instead
 --------------------------------------------------------------------------------
 
 
@@ -492,10 +583,14 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/plugins/baseview.php
 --------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  12 | ERROR | No scope modifier specified for function "__construct"
+ 21 | ERROR | No scope modifier specified for function "rawDataHtml"
+ 23 | ERROR | Operator ! prohibited; use === FALSE instead
+ 38 | ERROR | Use of ob_end_flush() is not allowed; use ob_get_contents() and
+    |       | ob_end_clean() instead
 --------------------------------------------------------------------------------
 
 
@@ -523,6 +618,50 @@ FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 16 LINE(S)
  108 | ERROR | String concat is not required here; use a single string instead
  109 | ERROR | String concat is not required here; use a single string instead
  111 | ERROR | Operator ! prohibited; use === FALSE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/models/list.php
+--------------------------------------------------------------------------------
+FOUND 32 ERROR(S) AND 0 WARNING(S) AFFECTING 29 LINE(S)
+--------------------------------------------------------------------------------
+   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  11 | ERROR | Public member variable "_pagination" must not contain a leading
+     |       | underscore
+  11 | ERROR | Scope modifier not specified for member variable "$_pagination"
+  13 | ERROR | No scope modifier specified for function "__construct"
+  15 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+  22 | ERROR | Operator != prohibited; use !== instead
+  29 | ERROR | No scope modifier specified for function "getPagination"
+  31 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+  32 | ERROR | Operator == prohibited; use === instead
+  39 | ERROR | Operator != prohibited; use !== instead
+  60 | ERROR | No scope modifier specified for function "getLists"
+  63 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  63 | ERROR | Operator == prohibited; use === instead
+  63 | ERROR | Operator == prohibited; use === instead
+  71 | ERROR | Operator ! prohibited; use === FALSE instead
+  75 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  86 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  97 | ERROR | No scope modifier specified for function "getList"
+ 108 | ERROR | No scope modifier specified for function "getConditions"
+ 111 | ERROR | String concat is not required here; use a single string instead
+ 113 | ERROR | String concat is not required here; use a single string instead
+ 121 | ERROR | No scope modifier specified for function "updatePublish"
+ 123 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+ 126 | ERROR | String concat is not required here; use a single string instead
+ 127 | ERROR | String concat is not required here; use a single string instead
+ 130 | ERROR | Operator ! prohibited; use === FALSE instead
+ 143 | ERROR | No scope modifier specified for function "store"
+ 152 | ERROR | Operator ! prohibited; use === FALSE instead
+ 158 | ERROR | Operator ! prohibited; use === FALSE instead
+ 167 | ERROR | No scope modifier specified for function "removeConditions"
+ 169 | ERROR | Use of the "global" keyword is forbidden; use
+     |       | "$GLOBALS['mainframe']" instead
+ 176 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -577,5 +716,27 @@ FILE: /vobs/xius/trunk/packages/tmp/admin/views/info/tmpl/info.edit.php
 FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
 --------------------------------------------------------------------------------
  1 | ERROR | Logical operator "or" is prohibited; use "||" instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/views/list/view.html.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
+--------------------------------------------------------------------------------
+  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 11 | ERROR | No scope modifier specified for function "display"
+ 32 | ERROR | No scope modifier specified for function "setToolBar"
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/views/list/tmpl/default.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 56 | ERROR | Operator ! prohibited; use === FALSE instead
+ 71 | ERROR | Assignments must be the first block of code on a line
+ 77 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 78 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 

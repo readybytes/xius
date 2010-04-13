@@ -27,7 +27,7 @@ class XiusViewInfo extends JView
 
     function add($plugin,$tpl = null)
 	{
-		$plugins = XiusFactory::getAvailablePlugins();
+		$plugins = XiusHelpersUtils::getAvailablePlugins();
 		
 		if($plugin) {
 		

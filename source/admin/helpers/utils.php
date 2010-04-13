@@ -41,5 +41,16 @@ class XiusHelpersUtils
 	
 		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 	}
+
+
+	public function getAvailablePlugins()
+	{
+		$path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins';
+	
+		jimport( 'joomla.filesystem.folder' );
+		$plugins = array();
+		$plugins = JFolder::folders($path);
+		return $plugins;
+	}	
 	
 }

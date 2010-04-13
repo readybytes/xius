@@ -94,7 +94,7 @@ class XiusControllerInfo extends JController
 	}
 	
 	
-	function processSave()
+	function _processSave()
 	{
 		//save aclparam and core param in individual columns
 		// Test if this is really a post request
@@ -152,7 +152,7 @@ class XiusControllerInfo extends JController
 	
 	function save()
 	{
-		$data = $this->processSave();
+		$data = $this->_processSave();
 		$link = JRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe	=& JFactory::getApplication();
 		$mainframe->redirect($link, $data['msg']);		
@@ -161,7 +161,7 @@ class XiusControllerInfo extends JController
 	
 	function apply()
 	{
-		$data = $this->processSave();
+		$data = $this->_processSave();
 		$link = JRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
 		$mainframe	=& JFactory::getApplication();
 		$mainframe->redirect($link, $data['msg']);				

@@ -1,3 +1,4 @@
+../packages/tmp/admin/controllers/info.php:184:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/libraries/cache.php:37:		/*XITODO : use foreach with column details , it should be array of array */
 ../packages/tmp/admin/libraries/cache.php:39:			/*XITODO : set some error */
 ../packages/tmp/admin/libraries/usersearch.php:19:		/*XITODO : provide join operator and sorting condition
@@ -6,9 +7,8 @@
 ../packages/tmp/admin/libraries/usersearch.php:120:		/*XITODO : Bound result set starting from some users
 ../packages/tmp/admin/libraries/factory.php:46:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:92:		/*XITODO : get parameter from configuration*
-../packages/tmp/admin/libraries/plugins/joomla/views/view.html.php:49:		/*XITODO : unset already exist info */
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
 ../packages/tmp/admin/libraries/plugins/base.php:310:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:51:		/*XITODO : unset already exist info */
+../packages/tmp/admin/libraries/plugins/baseview.php:33:		/*XITODO : unset already exist info */
 ../packages/tmp/admin/models/info.php:97:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

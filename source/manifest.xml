@@ -24,8 +24,12 @@
 	</languages>
 	
 	<administration>
-		<menu img="">JoomlaXi User Search</menu>
-
+		<menu link="option=com_xius" img="">JoomlaXi User Search</menu>
+		<submenu>
+			<menu view="cpanel">Control Panel</menu>
+			<menu view="info">Information</menu>
+			<menu view="list">List</menu>
+		</submenu>
 		<files folder="admin">
 			<file>xius.php</file>
 			<file>includes.php</file>
