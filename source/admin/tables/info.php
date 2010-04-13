@@ -47,6 +47,15 @@ class XiusTableInfo extends JTable
 	 **/
 	function store( )
 	{
+		$db		=& $this->getDBO();
+		if( $this->id == 0 )
+ 		{
+ 			$query	= 'SELECT COUNT(' . $db->nameQuote('ordering') . ') FROM ' . $db->nameQuote('#__xius_info');
+				
+ 			$db->setQuery( $query );
+ 			$this->ordering	= $db->loadResult() + 1;
+			//print_r("ordering is ".$this->ordering);
+ 		}
  		parent::store();
  		return $this->id;
 	}

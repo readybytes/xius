@@ -33,27 +33,4 @@ class JoomlaView extends XiusBaseView
 		$this->display();
 	}
 	
-
-	function rawDataHtml($calleObject)
-	{
-		if(!$calleObject->isAllRequirementSatisfy())
-			return false;
-			
-		$this->setLayout('rawdata');
-		
-		/*In $this->key , I will store field id for my understanding
-		 * so i can easily get properties of info
-		 */
-		
-		$info = $calleObject->getAvailableInfo();
-		/*XITODO : unset already exist info */
-		
-		$this->assign('info',$info);
-		ob_start();
-		$this->display();
-		ob_end_flush();
-		$contents = ob_get_contents();
-		ob_clean();
-		return $contents;
-	}
 }

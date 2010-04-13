@@ -178,8 +178,12 @@ class XiusControllerInfo extends JController
 		//$post['id'] = (int) $cid[0];
 		$count	= count($ids);
 		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$row	=& JTable::getInstance( 'aclrules' , 'XiPTTable' );
+		$row	=& JTable::getInstance( 'info' , 'XiusTable' );
 		$i = 1;
+		
+		/*XITODO : check if info is used anywhere,
+		 * if true , then don't delete it
+		 */
 		if(!empty($ids))
 		{
 			foreach( $ids as $id )
@@ -188,8 +192,8 @@ class XiusControllerInfo extends JController
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$message	= JText::_('ERROR IN REMOVING RULE');
-					$mainframe->redirect( 'index.php?option=com_xipt&view=aclrules' , $message);
+					$message	= JText::_('ERROR IN REMOVING INFO');
+					$mainframe->redirect( 'index.php?option=com_xius&view=info' , $message);
 					exit;
 				}
 				$i++;
@@ -198,8 +202,8 @@ class XiusControllerInfo extends JController
 				
 		$cache = & JFactory::getCache('com_content');
 		$cache->clean();
-		$message	= $count.' '.JText::_('RULE REMOVED');		
-		$link = JRoute::_('index.php?option=com_xipt&view=aclrules', false);
+		$message	= $count.' '.JText::_('INFO REMOVED');		
+		$link = JRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $message);
 	}
 	
