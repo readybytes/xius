@@ -12,7 +12,7 @@ class XiusViewInfo extends JView
 	{
 		$iModel	= XiusFactory::getModel( 'info' );
 		
-		$allInfo		=& $iModel->getInfo();
+		$allInfo		=& $iModel->getAllInfo();
 		$pagination	=& $iModel->getPagination();
 		
 		$this->setToolbar();

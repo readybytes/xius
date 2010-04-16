@@ -15,7 +15,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 	<?php echo JText::_($this->infoName);?>
 </div>
 
-<form action="index.php" method="post" name="adminForm">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <div>
 <div class="col width-40" style="width:40%; float:left;">
 	<fieldset class="adminform">

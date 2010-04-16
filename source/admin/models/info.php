@@ -36,57 +36,84 @@ class XiusModelInfo extends JModel
 	 *
 	 * @return object	JPagination object	 	 
 	 **/	 	
+
 	function &getPagination()
 	{
-		if ($this->_pagination == null)
-			$this->getInfo();
+		global $mainframe;
+		if ($this->_pagination == null){
+
+			// Get the limit / limitstart
+			$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
+			$limitstart	= $mainframe->getUserStateFromRequest('com_xiuslimitstart', 'limitstart', 0, 'int');
+	
+			// In case limit has been changed, adjust limitstart accordingly
+			$limitstart	= ($limit != 0) ? ($limitstart / $limit ) * $limit : 0;
+			
+			$db			=& JFactory::getDBO();
+			
+			// Get the total number of records for pagination
+			$query	= 'SELECT COUNT(*) FROM ' . $db->nameQuote( '#__xius_info' );
+			$db->setQuery( $query );
+			$total	= $db->loadResult();
+			
+			jimport('joomla.html.pagination');
 		
+			// Get the pagination object
+			$this->_pagination	= new JPagination( $total , $limitstart , $limit );
+			
+		}
+			
 		return $this->_pagination;
 	}
 	
-	/**
-	 * Returns the Fields
-	 *
-	 * @return object	JParameter object
-	 **/
-	function &getInfo()
+	
+	
+	function getAllInfo($filter = '',$join = 'AND',$reqPagination = true,$limitStart=0 , $limit=0)
 	{
-		global $mainframe;
-
-		static $info;
-		
-		if( isset( $info ) )
-			return $info;
-
+		$this->getPagination();
+		if($reqPagination && $limitStart == 0 && $limit == 0){
+			$limitStart = $this->_pagination->limitstart;
+			$limit = $this->_pagination->limit;
+		}
 		// Initialize variables
 		$db			=& JFactory::getDBO();
 
-		// Get the limit / limitstart
-		$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-		$limitstart	= $mainframe->getUserStateFromRequest('com_xiuslimitstart', 'limitstart', 0, 'int');
-
-		// In case limit has been changed, adjust limitstart accordingly
-		$limitstart	= ($limit != 0) ? ($limitstart / $limit ) * $limit : 0;
-
-		// Get the total number of records for pagination
-		$query	= 'SELECT COUNT(*) FROM ' . $db->nameQuote( '#__xius_info' );
-		$db->setQuery( $query );
-		$total	= $db->loadResult();
-
-		jimport('joomla.html.pagination');
+		$filterSql = ''; 
+		if(!empty($filter)){
+			$filterSql = ' WHERE ';
+			$counter = 0;
+			foreach($filter as $name => $info) {
+				$filterSql .= $counter ? ' '.$join.' ' : '';
+				$filterSql .= $db->nameQuote($name).'='.$db->Quote($info);
+				$counter++;
+			}
+		}
 		
-		// Get the pagination object
-		$this->_pagination	= new JPagination( $total , $limitstart , $limit );
-
-		$query	= 'SELECT * FROM ' 
-				. $db->nameQuote( '#__xius_info' )
+		$query	= ' SELECT * FROM ' 
+				. $db->nameQuote('#__xius_info')
+				.$filterSql
 				. ' ORDER BY '. $db->nameQuote('ordering');
-		$db->setQuery( $query , $this->_pagination->limitstart , $this->_pagination->limit );		
-		$info	= $db->loadObjectList();
+
+		if($reqPagination)
+			$db->setQuery( $query , $limitStart , $limit );
+		else
+			$db->setQuery($query);
+			
+		$allInfo	= $db->loadObjectList();
 		
-		return $info;
+		return $allInfo;
 	}
 	
+	
+	function getInfo($id = 0)
+	{
+			
+		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
+		$row	=& JTable::getInstance( 'info', 'XiusTable' );
+		
+		$row->load($id);
+		return $row;
+	}
 	
 	
 	function save($data)

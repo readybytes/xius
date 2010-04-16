@@ -10,7 +10,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 </div>
 <div id="error-notice" style="color: red; font-weight:700;"></div>
 <div style="clear: both;"></div>
-<form action="<?php echo JURI::base();?>index.php?option=com_xius" method="post" name="adminForm" id="adminForm" >
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
 <table cellspacing="0" class="admintable" border="0" width="100%">
 	<tbody>
 		<tr>

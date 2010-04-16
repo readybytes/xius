@@ -28,7 +28,7 @@ class Joomlahelper
 	
 	function getFieldsHTML($name)
 	{
-		
+		return false;
 	}
 	
 }

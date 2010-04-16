@@ -6,29 +6,11 @@ defined('_JEXEC') or die('Restricted access');
 class XiusLibrariesInfo
 {
 	
-	public function getInfo($filter='',$join='AND')
+	public function getInfo($filter = '',$join = 'AND',$reqPagination = false,$limitStart=0 , $limit=0)
 	{
-		$db			=& JFactory::getDBO();
-		
-		$filterSql = ''; 
-		if(!empty($filter)){
-			$filterSql = ' WHERE ';
-			$counter = 0;
-			foreach($filter as $name => $info) {
-				$filterSql .= $counter ? ' '.$join.' ' : '';
-				$filterSql .= $db->nameQuote($name).'='.$db->Quote($info);
-				$counter++;
-			}
-		}
-
-		$query = 'SELECT * FROM '.$db->nameQuote('#__xius_info')
-				.$filterSql
-				.' ORDER BY '.$db->nameQuote('ordering');
-				
-		$db->setQuery($query);
-		$info = $db->loadObjectList();
-		
-		return $info;
+		$iModel	= XiusFactory::getModel( 'info' );	
+		$allInfo		=& $iModel->getAllInfo($filter,$join,$reqPagination,$limitStart, $limit);
+		return $allInfo;
 	}
 	
 }

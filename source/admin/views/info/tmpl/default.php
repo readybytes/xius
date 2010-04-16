@@ -24,7 +24,7 @@ function submitbutton( action )
 }
 </script>
 
-<form action="<?php echo JURI::base();?>index.php" method="post" name="adminForm">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <table class="adminlist" cellspacing="1">
 	<thead>
 		<tr class="title">

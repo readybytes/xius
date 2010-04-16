@@ -245,20 +245,13 @@ abstract class XiusBase extends JObject
 	
 	
 	
-	protected function generateSearchHtml($label='',$inputHtml='')
+	protected function generateSearchHtml()
 	{
-		$html = array();
-		if(empty($label))
-			$label = $this->labelName;
-
-		$html['label'] = $label;
-			
-		if(empty($inputHtml))
-			$inputHtml = '<input type="text" name="'.$this->key.'" id="'.$this->key.'" />';
+		$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="info"/>';
+		$inputHtml = '<input type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
+		$htmlwithInfoId = $infoIdHtml . $inputHtml;
 		
-		$html['inputHtml'] = $inputHtml;
-		
-		return $html;
+		return $htmlwithInfoId;
 	}
 	
 	/*this function is defined for front-end
@@ -273,8 +266,14 @@ abstract class XiusBase extends JObject
 		if(false === $view)
 			return $this->generateSearchHtml();
 		
-		if(false === $view->searchHtml($this))
-			return $this->generateSearchHtml();
+		$html = $view->searchHtml($this);
+		if(!empty($html)){
+			$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="info"/>';
+			$htmlwithInfoId = $infoIdHtml . $html;
+			return $htmlwithInfoId;
+		}
+
+		return $this->generateSearchHtml();
 	}
 	
 	
