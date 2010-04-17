@@ -3,30 +3,7 @@ defined('_JEXEC') or die('Restricted access');
 
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
-		
 ?>
-
-<script type="text/javascript" language="javascript">
-/**
- * This function needs to be here because, Joomla toolbar calls it
- **/ 
-function submitbutton( action )
-{
-	switch( action )
-	{
-		case 'removeList':
-			if( !confirm( '<?php echo JText::_('Are you sure you want to delete this List?'); ?>' ) )
-			{
-				break;
-			}
-		case 'publish':
-		case 'unpublish':
-		default:
-			submitform( action );
-	}
-}
-</script>
-
 
 <form action="<?php echo JURI::base();?>index.php" method="post" name="form" id="form">
 <table>
@@ -34,7 +11,7 @@ function submitbutton( action )
 		<?php
 		$count = 0;
 		$i  = 0;
-		
+		//XITODO : Add message if no fields to show
 		if(!empty($this->infohtml))
 		foreach($this->infohtml as $data)
 		{

@@ -14,6 +14,7 @@ if(defined('XIUS_ADMIN_INCLUDES'))
 
 define('XIUS_ADMIN_INCLUDES','XIUS_ADMIN_INCLUDES');
 
+//XITODO : add autoloading, do not just includes
 //include basic required files
 jimport('joomla.utilities.string');
 jimport( 'joomla.filesystem.files' );
@@ -36,6 +37,7 @@ require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'lib
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'query.php';
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'cache.php';
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'usersearch.php';
+require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'pluginhandler.php';
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'info.php';
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'base.php';
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'baseview.php';

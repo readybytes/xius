@@ -134,19 +134,42 @@ class XiusControllerInfo extends JController
 		
 		$plgObject = XiusFactory::getPluginInstance($data['pluginType']);
 
-		$isGotPluginData = $plgObject->collectParamsFromPost($data['key'],$data['plguinParams'],$post);
+		$isGotPluginData = $plgObject->collectParamsFromPost($data['key'],$data['pluginParams'],$post);
 		
 		$storedInfo = array();
 		
-		$iModel	= XiusFactory::getModel( 'info' );
-		$storedInfo['id'] = $iModel->save($data);
-		
-		
-		if(!$storedInfo['id'])
-			$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
-		else
-			$storedInfo['msg'] = JText::_('INFO SAVED');	
+		$id = XiusLibrariesInfo::infoExist($data)
+		if($id && $data['id'] == 0){
+			$storedInfo['id'] = $id;
+			$storedInfo['msg'] = JText::_('INFO ALREADY EXIST');
+			$infoTable->load($id);
+			$data = (array) $infoTable;
+		}
+		else{
+			$iModel	= XiusFactory::getModel( 'info' );
+			$storedInfo['id'] = $iModel->save($data);
+			
+			
+			if(!$storedInfo['id'])
+				$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
+			else
+				$storedInfo['msg'] = JText::_('INFO SAVED');
+		}	
 
+		$data['id'] = $storedInfo['id'];
+		
+		$info = array();
+		$info['id'] = $storedInfo['id'];
+		$info['data'] = $data;
+		/*fork trigger */
+		
+		JPluginHelper::importPlugin( 'system' );
+		
+		$dispatcher =& JDispatcher::getInstance();
+		
+		
+		$results = $dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
+			
 		return $storedInfo;
 	}
 	
@@ -282,6 +305,5 @@ class XiusControllerInfo extends JController
 			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
 		}
 	}
-	
 	
 }

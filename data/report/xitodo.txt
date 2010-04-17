@@ -1,14 +1,23 @@
-../packages/tmp/admin/controllers/info.php:184:		/*XITODO : check if info is used anywhere,
+../packages/tmp/site/controllers/search.php:16:		/*XITODO : Add icon for mailing , printing ,and pdf document
+../packages/tmp/site/controllers/search.php:20:		/*XITODO : Collect all info here
+../packages/tmp/site/controllers/search.php:41:		/*XITODO : pass only searchable information 
+../packages/tmp/site/views/search/tmpl/searchpanel.php:14:		//XITODO : Add message if no fields to show
+../packages/tmp/admin/helpers/utils.php:59:		/*XITODO : get parameter from configuration*
+../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
+../packages/tmp/admin/controllers/info.php:207:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/libraries/cache.php:37:		/*XITODO : use foreach with column details , it should be array of array */
 ../packages/tmp/admin/libraries/cache.php:39:			/*XITODO : set some error */
 ../packages/tmp/admin/libraries/usersearch.php:19:		/*XITODO : provide join operator and sorting condition
-../packages/tmp/admin/libraries/usersearch.php:73:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:98:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:120:		/*XITODO : Bound result set starting from some users
+../packages/tmp/admin/libraries/usersearch.php:40:			/*XITODO : Pass operator */
+../packages/tmp/admin/libraries/usersearch.php:51:		/*XITODO : if unable to find any column
+../packages/tmp/admin/libraries/usersearch.php:86:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:138:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:163:		/*XITODO : Bound result set starting from some users
+../packages/tmp/admin/libraries/usersearch.php:198:		/*XITODO : update xius_cache table with new info id
+../packages/tmp/admin/libraries/usersearch.php:233:		/*XITODO : break insert user data query into parts
 ../packages/tmp/admin/libraries/factory.php:46:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/admin/libraries/factory.php:92:		/*XITODO : get parameter from configuration*
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/base.php:310:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:309:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/baseview.php:33:		/*XITODO : unset already exist info */
-../packages/tmp/admin/models/info.php:97:		/*XITODO : check key should not be added already*/
+../packages/tmp/admin/models/info.php:124:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

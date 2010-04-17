@@ -13,4 +13,17 @@ class XiusLibrariesInfo
 		return $allInfo;
 	}
 	
+	
+	public function infoExist($data)
+	{
+		$filter = array();
+		$filter['key'] = $data['key'];
+		$filter['pluginType'] = $data['pluginType'];
+		$info = self::getInfo($filter);
+		if(empty($info))
+			return false;
+		
+		return $info[0]->id;
+	}
+	
 }

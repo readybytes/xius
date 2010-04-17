@@ -9,15 +9,16 @@ defined('_JEXEC') or die();
 
 require_once  dirname(__FILE__).DS.'includes.php';
 
-if(JRequest::getCmd('view') == '') {
-	            JRequest::setVar('view', 'info');
-}
+if(JRequest::getCmd('view') == '') 
+	JRequest::setVar('view', 'info');
+	
+
 //now decide what to do
 $view	= JRequest::getCmd('view', 		'info');
 $task 	= JRequest::getCmd('task', 		'display');
 $format	= JRequest::getCmd('format',	'html');
 
-$path		= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.strtolower($view).'.php';
+$path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.strtolower($view).'.php';
 
 // Test if the controller really exists
 if(file_exists($path))

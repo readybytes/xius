@@ -14,7 +14,7 @@ class XiusLibrariesUserSearch
 	}
 	
 	
-	function buildQuery($params)
+	function buildQuery($params,$join='AND',$sort='userid')
 	{
 		/*XITODO : provide join operator and sorting condition
 		 * provide conditional operator also
@@ -31,27 +31,40 @@ class XiusLibrariesUserSearch
 		
 		if(!empty($tableName)) {
 			$query->select('userid');
+			$query->select($sort);
 			$query->from($db->nameQuote($tableName));
 			//$query->where(true,'AND');
 		}
 			
 		foreach($params as $k => $v){
-			self::buildQueryForSingleInfo($query,$k,$v);
+			/*XITODO : Pass operator */
+			self::buildQueryForSingleInfo($query,$k,$v,'=',$join);
 		}
 		
+		$strQuery = $query->__toString();
+		
+		if(empty($strQuery))
+			return false;
+			
+		$strQuery .= 'SORT BY '.$db->nameQuote($sort); 
+		
+		/*XITODO : if unable to find any column
+		 * then create table and retrive table
+		 */
+		return $strQuery;
 		return $query->__toString();
 		
 	}
 	
 	
-	function buildQueryForSingleInfo(XiusQuery &$query,$infoId,$value)
+	function buildQueryForSingleInfo(XiusQuery &$query,$infoId,$value,$operator='=',$join='AND')
 	{
 		/*value can be array or single , depends on plugin 
 		 * and we will store data only store data ( as value ) 
 		 * only according to plugin , so they will get data as they want
 		 */
 		$instance = XiusFactory::getPluginInstanceFromId($infoId);
-		return $instance->addSearchToQuery($query,$value);
+		return $instance->addSearchToQuery($query,$value,$operator,$join);
 	}
 	
 	
@@ -93,6 +106,33 @@ class XiusLibrariesUserSearch
 	}
 	
 	
+	function add_column($name, $specstr, $tname)
+	{
+		$db		=& JFactory::getDBO();
+		$query	= 	'SHOW COLUMNS FROM ' 
+					. $db->nameQuote($tname)
+					. ' LIKE \'%'.$name.'%\' ';
+		$db->setQuery( $query );
+		$columns	= $db->loadObjectList();
+		if($db->getErrorNum())
+		{
+			JError::raiseError( 500, $db->stderr());
+			return false;
+		}
+	
+		if($columns==NULL || $columns[0] == NULL)
+		{
+			$query =' ALTER TABLE '. $db->nameQuote($tname) 
+					. ' ADD COLUMN ' . $db->nameQuote($name)
+					. ' ' . $specstr;
+			$db->setQuery( $query );
+			$db->query();
+			return true;
+		}
+		return false;
+	}
+	
+	
 	function buildInsertUserdataQuery()
 	{
 		/*XITODO : pass info through parameter */
@@ -106,7 +146,10 @@ class XiusLibrariesUserSearch
 		$query = new XiusQuery();
 		
 		foreach($info as $i){
-			$instance = XiusFactory::getPluginInstanceFromId($i->id);
+			if(is_array($i))
+				$instance = XiusFactory::getPluginInstanceFromId($i['id']);
+			else if(is_object($i))
+				$instance = XiusFactory::getPluginInstanceFromId($i->id);
 			$instance->getUserData($query);
 		}
 		
@@ -149,27 +192,82 @@ class XiusLibrariesUserSearch
 	}
 	
 	
-	
-	function getMembersCount($listid)
+	function updateCache()
 	{
-		$lModel = JSULFactory::getModel('List');
-		$totalUsers = $lModel->getMembersCount($listid);
-		return $totalUsers;
-	}
-	
-	function getListMembers($listid, $limitStart, $limit, $sortBy, $sortDir)
-	{
-		$cusers = array();
-		$lModel = JSULFactory::getModel('List');
-		$result = $lModel->getListMembers($listid, $limit, $limitStart, $sortBy, $sortDir);
-		// return only limited members
-		foreach($result as $r)
-		{			
-			$cusers[]  =& CFactory::getUser($r->id );
+		$db =& JFactory::getDBO();
+		/*XITODO : update xius_cache table with new info id
+		 * We can only add column also without creating whole table
+		 */
+		/*First Drop table */
+		$dropQuery = 'DROP TABLE IF EXISTS '.$db->nameQuote('#__xius_cache');
+		$db->setQuery($dropQuery);
+		if(!$db->query()) {
+			$error = XiusFactory::getErrorObject();
+			$error->setError($db->ErrorMsg());
+			return false;
 		}	
-				
-		return 	$cusers;
+		
+		$query = XiusLibrariesUserSearch::createTableQuery();
+		$db->setQuery($query);
+		if(!$db->query()) {
+			$error = XiusFactory::getErrorObject();
+			$error->setError($db->ErrorMsg());
+			return false;
+		}
+		
+		/*Add column */
+		/*$instance = XiusFactory::getPluginInstanceFromId($data['id']);
+		$columns = $instance->getCacheColumns();
+		
+		$cache = new XiusCache();
+			
+		if(empty($columns))
+			return;
+			
+		foreach($columns as $c){
+			XiusLibrariesUserSearch::add_column($c['columnname'],$c['specs'],$cache->_tableName);
+		}
+		
+		$info = array();
+		$info[0] = $data['data'];*/
+		/*XITODO : break insert user data query into parts
+		 * provide limit
+		 */
+		$getDataQuery = XiusLibrariesUserSearch::buildInsertUserdataQuery();
+		
+		$insertDataQuery = XiusLibrariesUserSearch::insertUserData($getDataQuery);
+		$db->setQuery($insertDataQuery);
+		
+		if(!$db->query()) {
+			$error = XiusFactory::getErrorObject();
+			$error->setError($db->ErrorMsg());
+			return false;
+		}
 	}
-
+	
+	
+	
+	function getMiniProfileDisplayFields($userid,$allInfo=array())
+	{
+		$displayFields = array();
+		$filter = array();
+		$filter['published'] = true;
+		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
+		
+		if(!empty($allInfo)){
+			$count = 0;
+			foreach($allInfo as $info){
+				$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+				if($plgInstance->isVisible()){
+					if($plgInstance->isAllRequirementSatisfy()){
+						$displayFields[$info->labelName] = $plgInstance->getMiniProfileDisplay($userid,'#__xius_cache');
+					}
+				}
+			}
+		}
+		
+		return $displayFields;
+	}
+	
 	
 }

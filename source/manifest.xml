@@ -48,6 +48,10 @@
 			<folder>install</folder>
 		</files>
 
+		<files>
+			<folder>xius_system</folder>
+		</files>
+
 		<languages>
 			<language tag="en-GB">languages/admin/en-GB.com_xius.ini</language>
 		</languages>
@@ -68,4 +72,7 @@
                 </sql>
         </uninstall>
 
+	<plugins>
+		<plugin plugin="xius_system" publish="true" group="system" />
+	</plugins>
 </install>

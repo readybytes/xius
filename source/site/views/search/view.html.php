@@ -28,8 +28,7 @@ class XiusViewSearch extends JView
 					/*
 					 *replace name and id in input html 
 					 */
-					
-					
+
 					$infohtml[$count]['html'] = $inputHtml;
 					
 					$count++;

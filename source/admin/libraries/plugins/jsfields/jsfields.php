@@ -68,7 +68,7 @@ class Jsfields extends XiusBase
 	}
 	
 
-	public function addSearchToQuery(XiusQuery &$query,$value)
+	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
 		$columns = $this->getCacheColumns();
 		if(!$columns)
@@ -77,16 +77,16 @@ class Jsfields extends XiusBase
 		if(!is_array($value)){
 			if(is_array($columns)) {
 				foreach($columns as $c){
-					$query->select($c['columnname']);
-					$conditions =  $c['columnname']."='".$this->formatValue($value)."'";
-					$query->where($conditions);
+					//$query->select($c['columnname']);
+					$conditions =  $c['columnname'].$operator."'".$this->formatValue($value)."'";
+					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
-				$query->select($columns['columnname']);
-				$conditions =  $columns['columnname']."='".$this->formatValue($value)."'";
-				$query->where($conditions);
+				//$query->select($columns['columnname']);
+				$conditions =  $columns['columnname'].$operator."'".$this->formatValue($value)."'";
+				$query->where($conditions,$join);
 				return true;
 			}
 			
@@ -107,7 +107,7 @@ class Jsfields extends XiusBase
 					}
 					
 					$conditions .= ' ) ';
-					$query->select($c['columnname']);
+					//$query->select($c['columnname']);
 					$query->where($conditions,'OR');
 				}
 				
@@ -115,7 +115,7 @@ class Jsfields extends XiusBase
 				
 			}
 				else{
-					$query->select($columns['columnname']);
+					//$query->select($columns['columnname']);
 					$conditions = '';
 					$count = 0;
 					foreach($value as $v){
@@ -176,6 +176,23 @@ class Jsfields extends XiusBase
 		
 		if(!empty($fieldInfo))
 			return $fieldInfo[0]->name;
+	}
+	
+	
+	/*Function will format data in display form on mini profile	 */
+	protected function _getFormatData($value)
+	{
+		$filter = array();
+		$filter['id'] = $this->key;
+		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+		
+		if(empty($fieldInfo) && is_array($value)) {
+			$formatvalue = implode(',',$value);
+			return $formatvalue;
+		}
+		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+		$formatvalue = CProfileLibrary::getFieldData($fieldInfo[0]->type,$value);
+		return $formatvalue;
 	}
 	
 	

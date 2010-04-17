@@ -9,13 +9,108 @@ FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /vobs/xius/trunk/packages/tmp/site/xius.php
+FILE: /vobs/xius/trunk/packages/tmp/site/controllers/search.php
 --------------------------------------------------------------------------------
 FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
+  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+  9 | ERROR | No scope modifier specified for function "display"
+ 14 | ERROR | No scope modifier specified for function "showsearchpanel"
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/site/xius.php
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
+--------------------------------------------------------------------------------
   8 | ERROR | Logical operator "or" is prohibited; use "||" instead
  20 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 29 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 28 | ERROR | String concat is not required here; use a single string instead
+ 31 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/site/views/search/view.pdf.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 11 | ERROR | No scope modifier specified for function "showsearchpanel"
+ 14 | ERROR | Operator ! prohibited; use === FALSE instead
+ 19 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 44 | ERROR | No scope modifier specified for function "_replaceText"
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/site/views/search/view.html.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 11 | ERROR | No scope modifier specified for function "showsearchpanel"
+ 14 | ERROR | Operator ! prohibited; use === FALSE instead
+ 19 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 43 | ERROR | No scope modifier specified for function "_replaceText"
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/site/views/search/tmpl/default.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 33 | ERROR | Operator ! prohibited; use === FALSE instead
+ 48 | ERROR | Assignments must be the first block of code on a line
+ 54 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 55 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/site/views/search/tmpl/searchpanel.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 15 | ERROR | Operator ! prohibited; use === FALSE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/install/install.php
+--------------------------------------------------------------------------------
+FOUND 10 ERROR(S) AND 2 WARNING(S) AFFECTING 9 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+  4 | WARNING | Consider putting global function "com_install" in a static
+    |         | class
+  4 | ERROR   | Function name "com_install" is not in camel caps format
+  6 | ERROR   | Operator == prohibited; use === instead
+ 15 | WARNING | Consider putting global function "installPlugin" in a static
+    |         | class
+ 26 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 26 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 32 | ERROR   | Operator == prohibited; use === instead
+ 45 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 45 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 57 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 63 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/xius_system/xius_system.php
+--------------------------------------------------------------------------------
+FOUND 9 ERROR(S) AND 0 WARNING(S) AFFECTING 6 LINE(S)
+--------------------------------------------------------------------------------
+  5 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 10 | ERROR | Operator ! prohibited; use === FALSE instead
+ 15 | ERROR | Public member variable "_debugMode" must not contain a leading
+    |       | underscore
+ 15 | ERROR | Scope modifier not specified for member variable "$_debugMode"
+ 15 | ERROR | Assignments must be the first block of code on a line
+ 17 | ERROR | PHP4 style constructors are not allowed; use "__construct()"
+    |       | instead
+ 17 | ERROR | No scope modifier specified for function "plgSystemxius_system"
+ 24 | ERROR | No scope modifier specified for function "onUsInfoUpdated"
+ 27 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -43,7 +138,7 @@ FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 --------------------------------------------------------------------------------
   9 | ERROR | Logical operator "or" is prohibited; use "||" instead
  12 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 45 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 47 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -58,7 +153,7 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/controllers/info.php
 --------------------------------------------------------------------------------
-FOUND 34 ERROR(S) AND 0 WARNING(S) AFFECTING 33 LINE(S)
+FOUND 36 ERROR(S) AND 0 WARNING(S) AFFECTING 34 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR | Logical operator "or" is prohibited; use "||" instead
    9 | ERROR | No scope modifier specified for function "__construct"
@@ -73,31 +168,33 @@ FOUND 34 ERROR(S) AND 0 WARNING(S) AFFECTING 33 LINE(S)
   85 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
   97 | ERROR | No scope modifier specified for function "_processSave"
  103 | ERROR | Operator == prohibited; use === instead
- 145 | ERROR | Operator ! prohibited; use === FALSE instead
- 153 | ERROR | No scope modifier specified for function "save"
- 162 | ERROR | No scope modifier specified for function "apply"
- 170 | ERROR | No scope modifier specified for function "remove"
- 172 | ERROR | Use of the "global" keyword is forbidden; use
+ 142 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 142 | ERROR | Operator == prohibited; use === instead
+ 153 | ERROR | Operator ! prohibited; use === FALSE instead
+ 176 | ERROR | No scope modifier specified for function "save"
+ 185 | ERROR | No scope modifier specified for function "apply"
+ 193 | ERROR | No scope modifier specified for function "remove"
+ 195 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 174 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 187 | ERROR | Operator ! prohibited; use === FALSE instead
- 192 | ERROR | Operator ! prohibited; use === FALSE instead
- 211 | ERROR | No scope modifier specified for function "publish"
- 213 | ERROR | Use of the "global" keyword is forbidden; use
+ 197 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 210 | ERROR | Operator ! prohibited; use === FALSE instead
+ 215 | ERROR | Operator ! prohibited; use === FALSE instead
+ 234 | ERROR | No scope modifier specified for function "publish"
+ 236 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 215 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 220 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 235 | ERROR | No scope modifier specified for function "unpublish"
- 237 | ERROR | Use of the "global" keyword is forbidden; use
+ 238 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 243 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 258 | ERROR | No scope modifier specified for function "unpublish"
+ 260 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 239 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 244 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 261 | ERROR | No scope modifier specified for function "saveOrder"
- 263 | ERROR | Use of the "global" keyword is forbidden; use
+ 262 | ERROR | Logical operator "or" is prohibited; use "||" instead
+ 267 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 284 | ERROR | No scope modifier specified for function "saveOrder"
+ 286 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
- 266 | ERROR | Operator == prohibited; use === instead
- 271 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 279 | ERROR | Operator ! prohibited; use === FALSE instead
+ 289 | ERROR | Operator == prohibited; use === instead
+ 294 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 302 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -139,9 +236,9 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
   8 | ERROR | Logical operator "or" is prohibited; use "||" instead
  12 | ERROR | Operator == prohibited; use === instead
- 23 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 29 | ERROR | String concat is not required here; use a single string instead
- 32 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 24 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 30 | ERROR | String concat is not required here; use a single string instead
+ 33 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -265,27 +362,46 @@ FOUND 15 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php
 --------------------------------------------------------------------------------
-FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
+FOUND 34 ERROR(S) AND 0 WARNING(S) AFFECTING 32 LINE(S)
 --------------------------------------------------------------------------------
    5 | ERROR | Logical operator "or" is prohibited; use "||" instead
   11 | ERROR | No scope modifier specified for function "getUsers"
   17 | ERROR | No scope modifier specified for function "buildQuery"
   25 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
   32 | ERROR | Operator ! prohibited; use === FALSE instead
-  47 | ERROR | No scope modifier specified for function
+  46 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  60 | ERROR | No scope modifier specified for function
      |       | "buildQueryForSingleInfo"
-  58 | ERROR | No scope modifier specified for function "collectParamstoSearch"
-  64 | ERROR | No scope modifier specified for function "getAllInfo"
-  71 | ERROR | No scope modifier specified for function "createTableQuery"
-  76 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  82 | ERROR | Operator == prohibited; use === instead
-  96 | ERROR | No scope modifier specified for function
+  71 | ERROR | No scope modifier specified for function "collectParamstoSearch"
+  77 | ERROR | No scope modifier specified for function "getAllInfo"
+  84 | ERROR | No scope modifier specified for function "createTableQuery"
+  89 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  95 | ERROR | Operator == prohibited; use === instead
+ 109 | ERROR | Method name "XiusLibrariesUserSearch::add_column" is not in
+     |       | camel caps format
+ 109 | ERROR | No scope modifier specified for function "add_column"
+ 117 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 123 | ERROR | Operator == prohibited; use === instead
+ 123 | ERROR | Operator == prohibited; use === instead
+ 136 | ERROR | No scope modifier specified for function
      |       | "buildInsertUserdataQuery"
- 101 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 130 | ERROR | No scope modifier specified for function "insertUserData"
- 142 | ERROR | Operator ! prohibited; use === FALSE instead
- 153 | ERROR | No scope modifier specified for function "getMembersCount"
- 160 | ERROR | No scope modifier specified for function "getListMembers"
+ 141 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 149 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 151 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 173 | ERROR | No scope modifier specified for function "insertUserData"
+ 185 | ERROR | Operator ! prohibited; use === FALSE instead
+ 195 | ERROR | No scope modifier specified for function "updateCache"
+ 204 | ERROR | Operator ! prohibited; use === FALSE instead
+ 210 | ERROR | Must use "self::" for local static member reference
+ 212 | ERROR | Operator ! prohibited; use === FALSE instead
+ 236 | ERROR | Must use "self::" for local static member reference
+ 238 | ERROR | Must use "self::" for local static member reference
+ 241 | ERROR | Operator ! prohibited; use === FALSE instead
+ 250 | ERROR | No scope modifier specified for function
+     |       | "getMiniProfileDisplayFields"
+ 257 | ERROR | Operator ! prohibited; use === FALSE instead
+ 261 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 262 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -300,11 +416,10 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/info.php
 --------------------------------------------------------------------------------
-FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
+FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 14 | ERROR | Operator ! prohibited; use === FALSE instead
- 18 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 23 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -390,7 +505,7 @@ FOUND 51 ERROR(S) AND 2 WARNING(S) AFFECTING 45 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/factory.php
 --------------------------------------------------------------------------------
-FOUND 10 ERROR(S) AND 1 WARNING(S) AFFECTING 10 LINE(S)
+FOUND 12 ERROR(S) AND 1 WARNING(S) AFFECTING 12 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   9 | ERROR   | No scope modifier specified for function "getModel"
@@ -402,7 +517,10 @@ FOUND 10 ERROR(S) AND 1 WARNING(S) AFFECTING 10 LINE(S)
  50 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  65 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  69 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 82 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 79 | ERROR   | No scope modifier specified for function
+    |         | "getLibraryPluginHandler"
+ 83 | ERROR   | Operator == prohibited; use === instead
+ 93 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -427,13 +545,14 @@ FOUND 12 ERROR(S) AND 0 WARNING(S) AFFECTING 11 LINE(S)
 
 FILE: ...xius/trunk/packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php
 --------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+FOUND 5 ERROR(S) AND 1 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
-  9 | ERROR | No scope modifier specified for function "getJoomlaFields"
- 16 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 19 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 22 | ERROR | Operator ! prohibited; use === FALSE instead
- 29 | ERROR | No scope modifier specified for function "getFieldsHTML"
+  9 | ERROR   | No scope modifier specified for function "getJoomlaFields"
+ 16 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 19 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 22 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 29 | WARNING | The method parameter $name is never used
+ 29 | ERROR   | No scope modifier specified for function "getFieldsHTML"
 --------------------------------------------------------------------------------
 
 
@@ -460,7 +579,7 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/plugins/base.php
 --------------------------------------------------------------------------------
-FOUND 43 ERROR(S) AND 2 WARNING(S) AFFECTING 40 LINE(S)
+FOUND 54 ERROR(S) AND 2 WARNING(S) AFFECTING 48 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   23 | ERROR   | No scope modifier specified for function "__construct"
@@ -492,30 +611,43 @@ FOUND 43 ERROR(S) AND 2 WARNING(S) AFFECTING 40 LINE(S)
  205 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  225 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  238 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 251 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 256 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 269 | ERROR   | Operator ! prohibited; use === FALSE instead
- 292 | ERROR   | Operator ! prohibited; use === FALSE instead
- 316 | WARNING | The method parameter $userid is never used
- 316 | WARNING | The method parameter $what is never used
- 342 | ERROR   | No scope modifier specified for function "getUserData"
- 349 | ERROR   | No scope modifier specified for function "appendCreateQuery"
- 354 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 360 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 360 | ERROR   | Operator ! prohibited; use === FALSE instead
- 365 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 365 | ERROR   | Operator ! prohibited; use === FALSE instead
- 384 | ERROR   | Operator ! prohibited; use === FALSE instead
- 386 | ERROR   | Operator ! prohibited; use === FALSE instead
- 389 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 411 | ERROR   | No scope modifier specified for function
+ 262 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 270 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 291 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 315 | WARNING | The method parameter $userid is never used
+ 315 | WARNING | The method parameter $what is never used
+ 341 | ERROR   | No scope modifier specified for function "getUserData"
+ 348 | ERROR   | No scope modifier specified for function "appendCreateQuery"
+ 353 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 359 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 359 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 364 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 364 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 383 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 385 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 388 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 410 | ERROR   | No scope modifier specified for function
      |         | "collectParamsFromPost"
+ 412 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 412 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 448 | ERROR   | No scope modifier specified for function "removeExistingInfo"
+ 450 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 450 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 454 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 462 | ERROR   | No scope modifier specified for function
+     |         | "getMiniProfileDisplay"
+ 465 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 471 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 471 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 489 | ERROR   | Protected method name "XiusBase::_getFormatData" must not be
+     |         | prefixed with an underscore
+ 491 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: ...s/xius/trunk/packages/tmp/admin/libraries/plugins/jsfields/jsfields.php
 --------------------------------------------------------------------------------
-FOUND 19 ERROR(S) AND 0 WARNING(S) AFFECTING 19 LINE(S)
+FOUND 22 ERROR(S) AND 0 WARNING(S) AFFECTING 21 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR | Logical operator "or" is prohibited; use "||" instead
   11 | ERROR | No scope modifier specified for function "__construct"
@@ -537,6 +669,10 @@ FOUND 19 ERROR(S) AND 0 WARNING(S) AFFECTING 19 LINE(S)
  151 | ERROR | No scope modifier specified for function "formatValue"
  171 | ERROR | No scope modifier specified for function "getInfoName"
  177 | ERROR | Operator ! prohibited; use === FALSE instead
+ 183 | ERROR | Protected method name "Jsfields::_getFormatData" must not be
+     |       | prefixed with an underscore
+ 189 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 189 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -562,13 +698,15 @@ FOUND 11 ERROR(S) AND 0 WARNING(S) AFFECTING 10 LINE(S)
 
 FILE: ...trunk/packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php
 --------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+FOUND 6 ERROR(S) AND 0 WARNING(S) AFFECTING 6 LINE(S)
 --------------------------------------------------------------------------------
   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
  11 | ERROR | No scope modifier specified for function "__construct"
  16 | ERROR | No scope modifier specified for function "searchHtml"
  18 | ERROR | Operator ! prohibited; use === FALSE instead
  29 | ERROR | Operator ! prohibited; use === FALSE instead
+ 37 | ERROR | Use of ob_end_flush() is not allowed; use ob_get_contents() and
+    |       | ob_end_clean() instead
 --------------------------------------------------------------------------------
 
 
@@ -589,14 +727,148 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
  12 | ERROR | No scope modifier specified for function "__construct"
  21 | ERROR | No scope modifier specified for function "rawDataHtml"
  23 | ERROR | Operator ! prohibited; use === FALSE instead
- 38 | ERROR | Use of ob_end_flush() is not allowed; use ob_get_contents() and
+ 40 | ERROR | Use of ob_end_flush() is not allowed; use ob_get_contents() and
     |       | ob_end_clean() instead
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/pluginhandler.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 1 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+  5 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+ 11 | WARNING | The method parameter $data is never used
+ 11 | ERROR   | No scope modifier specified for function "onUsInfoUpdated"
+--------------------------------------------------------------------------------
+
+
+FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/dscinstaller.php
+--------------------------------------------------------------------------------
+FOUND 92 ERROR(S) AND 1 WARNING(S) AFFECTING 70 LINE(S)
+--------------------------------------------------------------------------------
+   4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+  15 | ERROR   | Operator ! prohibited; use === FALSE instead
+  36 | ERROR   | Public member variable "_extensionsPath" must not contain a
+     |         | leading underscore
+  36 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_extensionsPath"
+  36 | ERROR   | Assignments must be the first block of code on a line
+  43 | ERROR   | Public member variable "_saveParameters" must not contain a
+     |         | leading underscore
+  43 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_saveParameters"
+  43 | ERROR   | Assignments must be the first block of code on a line
+  50 | ERROR   | Public member variable "_preventUninstallScript" must not
+     |         | contain a leading underscore
+  50 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_preventUninstallScript"
+  50 | ERROR   | Assignments must be the first block of code on a line
+  57 | ERROR   | Public member variable "_keepLocalCopy" must not contain a
+     |         | leading underscore
+  57 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_keepLocalCopy"
+  57 | ERROR   | Assignments must be the first block of code on a line
+  64 | ERROR   | Public member variable "_doNotPublishList" must not contain a
+     |         | leading underscore
+  64 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_doNotPublishList"
+  64 | ERROR   | Assignments must be the first block of code on a line
+  71 | ERROR   | Scope modifier not specified for member variable "$msg"
+  71 | ERROR   | Assignments must be the first block of code on a line
+  78 | ERROR   | Public member variable "_db" must not contain a leading
+     |         | underscore
+  78 | ERROR   | Scope modifier not specified for member variable "$_db"
+  78 | ERROR   | Assignments must be the first block of code on a line
+  85 | ERROR   | Public member variable "_packageFiles" must not contain a
+     |         | leading underscore
+  85 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_packageFiles"
+  85 | ERROR   | Assignments must be the first block of code on a line
+  92 | ERROR   | Public member variable "_installedExtensions" must not contain
+     |         | a leading underscore
+  92 | ERROR   | Scope modifier not specified for member variable
+     |         | "$_installedExtensions"
+  92 | ERROR   | Assignments must be the first block of code on a line
+  98 | ERROR   | No scope modifier specified for function "__construct"
+ 111 | ERROR   | No scope modifier specified for function "installExtensions"
+ 113 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 113 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 123 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 136 | ERROR   | Operator != prohibited; use !== instead
+ 152 | ERROR   | No scope modifier specified for function
+     |         | "setupExtensionsInstall"
+ 154 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 166 | ERROR   | No scope modifier specified for function "_findExtensionFiles"
+ 168 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 193 | ERROR   | No scope modifier specified for function
+     |         | "createVirtualPackage"
+ 232 | ERROR   | Operator == prohibited; use === instead
+ 234 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 250 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 250 | ERROR   | Assignments must be the first block of code on a line
+ 265 | WARNING | Function's cyclomatic complexity (14) exceeds 10; consider
+     |         | refactoring the function
+ 265 | ERROR   | No scope modifier specified for function "installExtension"
+ 289 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 289 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 297 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 309 | ERROR   | Operator != prohibited; use !== instead
+ 314 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 314 | ERROR   | Operator == prohibited; use === instead
+ 324 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 332 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 338 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 345 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 351 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 360 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 374 | ERROR   | No scope modifier specified for function
+     |         | "_addInstalledExtension"
+ 384 | ERROR   | No scope modifier specified for function
+     |         | "getManifestInformation"
+ 393 | ERROR   | Operator == prohibited; use === instead
+ 408 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 408 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 411 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 434 | ERROR   | No scope modifier specified for function
+     |         | "checkIfInstalledAlready"
+ 450 | ERROR   | Operator != prohibited; use !== instead
+ 452 | ERROR   | Variable "extension_id" is not in valid camel caps format
+ 455 | ERROR   | Variable "extension_id" is not in valid camel caps format
+ 458 | ERROR   | Variable "extension_id" is not in valid camel caps format
+ 471 | ERROR   | No scope modifier specified for function "saveParameters"
+ 487 | ERROR   | Operator != prohibited; use !== instead
+ 503 | ERROR   | No scope modifier specified for function "restoreParameters"
+ 519 | ERROR   | Operator != prohibited; use !== instead
+ 531 | ERROR   | No scope modifier specified for function
+     |         | "preventCustomUninstall"
+ 549 | ERROR   | No scope modifier specified for function "publishExtension"
+ 553 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 559 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 565 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 573 | ERROR   | Operator != prohibited; use !== instead
+ 585 | ERROR   | No scope modifier specified for function "_formatMessage"
+ 586 | ERROR   | The use of function sizeof() is forbidden; use count() instead
+ 605 | ERROR   | No scope modifier specified for function "getMessage"
+ 616 | ERROR   | No scope modifier specified for function "setExtensionsPath"
+ 627 | ERROR   | No scope modifier specified for function "getExtensionsPath"
+ 629 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 643 | ERROR   | No scope modifier specified for function "setSaveParameters"
+ 654 | ERROR   | No scope modifier specified for function "getSaveParameters"
+ 666 | ERROR   | No scope modifier specified for function
+     |         | "setPreventUninstallScript"
+ 677 | ERROR   | No scope modifier specified for function
+     |         | "getPreventUninstallScript"
+ 689 | ERROR   | No scope modifier specified for function "setKeepLocalCopy"
+ 700 | ERROR   | No scope modifier specified for function "getKeepLocalCopy"
+ 712 | ERROR   | No scope modifier specified for function "setDoNotPublishList"
+ 723 | ERROR   | No scope modifier specified for function "getDoNotPublishList"
+ 725 | ERROR   | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/models/info.php
 --------------------------------------------------------------------------------
-FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 16 LINE(S)
+FOUND 23 ERROR(S) AND 0 WARNING(S) AFFECTING 20 LINE(S)
 --------------------------------------------------------------------------------
    3 | ERROR | Logical operator "or" is prohibited; use "||" instead
   12 | ERROR | Public member variable "_pagination" must not contain a leading
@@ -606,18 +878,24 @@ FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 16 LINE(S)
   18 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
   28 | ERROR | Operator != prohibited; use !== instead
-  39 | ERROR | No scope modifier specified for function "getPagination"
-  41 | ERROR | Operator == prohibited; use === instead
-  52 | ERROR | No scope modifier specified for function "getInfo"
-  54 | ERROR | Use of the "global" keyword is forbidden; use
+  40 | ERROR | No scope modifier specified for function "getPagination"
+  42 | ERROR | Use of the "global" keyword is forbidden; use
      |       | "$GLOBALS['mainframe']" instead
-  58 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  69 | ERROR | Operator != prohibited; use !== instead
-  92 | ERROR | No scope modifier specified for function "save"
- 104 | ERROR | No scope modifier specified for function "updatePublish"
- 108 | ERROR | String concat is not required here; use a single string instead
- 109 | ERROR | String concat is not required here; use a single string instead
- 111 | ERROR | Operator ! prohibited; use === FALSE instead
+  43 | ERROR | Operator == prohibited; use === instead
+  50 | ERROR | Operator != prohibited; use !== instead
+  71 | ERROR | No scope modifier specified for function "getAllInfo"
+  74 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  74 | ERROR | Operator == prohibited; use === instead
+  74 | ERROR | Operator == prohibited; use === instead
+  82 | ERROR | Operator ! prohibited; use === FALSE instead
+  86 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  97 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 108 | ERROR | No scope modifier specified for function "getInfo"
+ 119 | ERROR | No scope modifier specified for function "save"
+ 131 | ERROR | No scope modifier specified for function "updatePublish"
+ 135 | ERROR | String concat is not required here; use a single string instead
+ 136 | ERROR | String concat is not required here; use a single string instead
+ 138 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 

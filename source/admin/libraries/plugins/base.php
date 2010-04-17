@@ -33,7 +33,7 @@ abstract class XiusBase extends JObject
 		if(!$this->pluginParams)
 			$this->pluginParams	= new JParameter('','');
 			
-		$this->debugMode = XiusFactory::getDebugMode();
+		$this->debugMode = XiusHelpersUtils::getDebugMode();
 		$this->key		 = '';
 		$this->id		 = 0;
 	}
@@ -375,28 +375,28 @@ abstract class XiusBase extends JObject
 	
 	
 	/*function update query	 */
-	public function addSearchToQuery(XiusQuery &$query,$value)
+	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
 		/*it's handling query only for single value
 		 * if column needs multiple comparision then they should handle
 		 */
 		if(!is_array($value)) {
 			$columns = $this->getCacheColumns();
-			if(!$columns)
+			if(empty($columns))
 				return false;
 
 			if(is_array($columns)) {
 				foreach($columns as $c){
-					$query->select($c['columnname']);
-					$conditions =  $c['columnname']."='".$this->formatValue($value)."'";
-					$query->where($conditions);
+					//$query->select($c['columnname']);
+					$conditions =  $c['columnname'].$operator."'".$this->formatValue($value)."'";
+					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
-				$query->select($columns['columnname']);
-				$conditions =  $columns['columnname']."='".$this->formatValue($value)."'";
-				$query->where($conditions);
+				//$query->select($columns['columnname']);
+				$conditions =  $columns['columnname'].$operator."'".$this->formatValue($value)."'";
+				$query->where($conditions,$join);
 				return true;
 			}
 			
@@ -409,10 +409,11 @@ abstract class XiusBase extends JObject
 	
 	function collectParamsFromPost(&$key,&$pluginParams,$postdata)
 	{
-		assert($postdata['pluginParams']);
-		$registry	=& JRegistry::getInstance( 'xius' );
-		$registry->loadArray($postdata['pluginParams'],'xius_pluginParams');
-		$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
+		if(isset($postdata['pluginParams']) && $postdata['pluginParams']){
+			$registry	=& JRegistry::getInstance( 'xius' );
+			$registry->loadArray($postdata['pluginParams'],'xius_pluginParams');
+			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
+		}
 		$key = $postdata['key'];
 		return true;
 	}
@@ -442,5 +443,56 @@ abstract class XiusBase extends JObject
 	{
 		$name =  get_class($this);
 		return $name;
+	}
+	
+	function removeExistingInfo(&$info,$availableInfo)
+	{
+		if(empty($info) || empty($availableInfo))
+			return true;
+
+		foreach($availableInfo as $ai){
+			if(array_key_exists($ai->key,$info))
+				unset($info[$ai->key]);
+		}
+		
+		return true;
+	}
+	
+	
+	function getMiniProfileDisplay($userid,$tname='#__xius_cache',$utname='userid')
+	{
+		$columns = $this->getCacheColumns();
+		if(empty($columns))
+			return false;
+
+		$db =& JFactory::getDBO();
+		
+		foreach($columns as $c){
+			if(isset($c['columnname']) && !empty($c['columnname']))
+				$cname = $db->nameQuote($c['columnname']);
+			else
+				$cname = $db->nameQuote(strtolower($this->pluginType).$this->getCacheColumnName());
+		}
+		
+		$query = 'SELECT '.$cname
+				.' FROM '.$db->nameQuote($tname)
+				.' WHERE '.$db->nameQuote($utname).'='.$db->Quote($userid);
+		$db->setQuery($query);
+		$result = $db->loadResult();
+		
+		$value = $this->_getFormatData($result);
+		return $value; 
+	}
+	
+	
+	/*Available for converting raw data into format data*/
+	protected function _getFormatData($value)
+	{
+		if(is_array($value)) {
+			$formatvalue = implode(',',$value);
+			return $formatvalue;
+		}
+		
+		return $value; 
 	}
 }

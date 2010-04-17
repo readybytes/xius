@@ -11,10 +11,12 @@ class XiusControllerSearch extends JController
 		$this->showsearchpanel();
 	}
 	
-	
-	
 	function showsearchpanel()
 	{
+		/*XITODO : Add icon for mailing , printing ,and pdf document
+		 * for pdf :- &format=pdf&tmpl=component use it
+		 * for print :- &print=1&tmpl=component
+		 */
 		/*XITODO : Collect all info here
 		 * ask admin , how many no's of info
 		 * he want's to display at a time , and add more links.
@@ -32,11 +34,8 @@ class XiusControllerSearch extends JController
 
 		// Get the view type
 		$viewType	= $document->getType();
-		
 		$view		=& $this->getView( $viewName , $viewType );
-		
 		$layout		= JRequest::getCmd( 'layout' , 'searchpanel' );
-			
 		$view->setLayout( $layout );
 
 		/*XITODO : pass only searchable information 

@@ -76,6 +76,17 @@ class XiusFactory
 	}
 	
 	
+ 	function getLibraryPluginHandler()
+    {
+        static $instance =null;
+        
+        if($instance==null)
+            $instance = new XiusLibrariesPluginhandler();
+        
+        return $instance;
+    }
+	
+	
 	public function getErrorObject()
 	{
 		static $object;
@@ -84,14 +95,6 @@ class XiusFactory
 			
 		$object = new XiusError();
 		return $object;
-	}
-	
-	
-	public function getDebugMode()
-	{
-		/*XITODO : get parameter from configuration*
-		 */
-		return false;
 	}
 	
 }

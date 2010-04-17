@@ -53,4 +53,19 @@ class XiusHelpersUtils
 		return $plugins;
 	}	
 	
+	
+	public function getDebugMode()
+	{
+		/*XITODO : get parameter from configuration*
+		 */
+		return false;
+	}
+	
+	
+	public function getDisplayInformationCount()
+	{
+		/*-1 means display all information ,from configuration*/
+		return ALL;
+	}
+	
 }

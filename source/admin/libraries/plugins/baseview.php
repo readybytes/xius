@@ -18,7 +18,7 @@ class XiusBaseView extends JView
 		parent::__construct($config);
 	}
 	
-	function rawDataHtml($calleObject)
+	function rawDataHtml(XiusBase $calleObject)
 	{
 		if(!$calleObject->isAllRequirementSatisfy())
 			return false;
@@ -31,6 +31,8 @@ class XiusBaseView extends JView
 		
 		$info = $calleObject->getAvailableInfo();
 		/*XITODO : unset already exist info */
+		$availableInfo = XiusLibrariesInfo::getInfo();
+		$calleObject->removeExistingInfo($info,$availableInfo);
 		
 		$this->assign('info',$info);
 		ob_start();

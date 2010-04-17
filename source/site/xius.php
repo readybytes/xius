@@ -14,7 +14,7 @@ $view	= JRequest::getCmd('view', 		'search');
 $task 	= JRequest::getCmd('task', 		'display');
 $format	= JRequest::getCmd('format',	'html');
 
-$path		= JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.strtolower($view).'.php';
+$path		= JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.JString::strtolower($view).'.php';
 
 // Test if the controller really exists
 if(file_exists($path))

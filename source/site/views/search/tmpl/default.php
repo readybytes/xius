@@ -5,29 +5,6 @@ JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 		
 ?>
-
-<script type="text/javascript" language="javascript">
-/**
- * This function needs to be here because, Joomla toolbar calls it
- **/ 
-function submitbutton( action )
-{
-	switch( action )
-	{
-		case 'removeList':
-			if( !confirm( '<?php echo JText::_('Are you sure you want to delete this List?'); ?>' ) )
-			{
-				break;
-			}
-		case 'publish':
-		case 'unpublish':
-		default:
-			submitform( action );
-	}
-}
-</script>
-
-
 <form action="<?php echo JURI::base();?>index.php" method="post" name="adminForm" id="adminForm">
 <table class="adminlist" cellspacing="1">
 	<thead>

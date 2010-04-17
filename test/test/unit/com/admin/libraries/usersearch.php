@@ -7,6 +7,11 @@ class XiusUserSearchTest extends XiUnitTestCase
 		return dirname(__FILE__).'/sql/'.__CLASS__;
 	}
 
+	function testGetMiniProfileDisplayFields()
+	{
+		$value = XiusLibrariesUserSearch::getMiniProfileDisplayFields(64,'#__xius_cache');
+		print_r(var_export($value));
+	}
 	
 	function testBuildQuery()
 	{
@@ -69,6 +74,8 @@ class XiusUserSearchTest extends XiUnitTestCase
 		
 		
 	}
+	
+	
 	
 }
 ?>

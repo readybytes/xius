@@ -464,6 +464,7 @@ class XiusCreateTable extends JObject
 	
 	function __toString()
 	{
+		$query = '';
 		$query .= (string) $this->_query;
 		return $query;
 	}
