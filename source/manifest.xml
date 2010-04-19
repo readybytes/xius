@@ -17,6 +17,7 @@
 		<file>index.html</file>
 		<folder>controllers</folder>
 		<folder>views</folder>
+		<folder>models</folder>
 	</files>
 
 	<languages>

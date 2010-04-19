@@ -1,32 +1,34 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-
+$css = JURI::base().'administrator/components/com_xius/assets/sp.css';
+$document =& JFactory::getDocument();
+$document->addStyleSheet($css);
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
+		
 ?>
 
 <form action="<?php echo JURI::base();?>index.php" method="post" name="form" id="form">
-<table>
-	
+<div class="box"><div class="head"><p><b>Search : </b></p></div>
 		<?php
 		$count = 0;
 		$i  = 0;
-		//XITODO : Add message if no fields to show
+		
 		if(!empty($this->infohtml))
 		foreach($this->infohtml as $data)
 		{
-			?>
-			<tr>
-				<td><?php echo $data['label'];?></td>
-				<td><?php echo $data['html'];?></td>
-			</tr>
-			<?php 
+			?> <div class="ul">
+				<div class="tag"><?php echo $data['label'];?></div>
+				<div class="input"><?php echo $data['html'];?></div>
+				</div>		
+		<?php 
 		}
 		?>
-</table>
+		<div class="sub"><input type="submit" id="search" name="search" value="Search" /></div>
+	</div>
 
 <div class="clr"></div>
-	<input type="submit" id="search" name="search" value="Search"/>
+	
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="search" />
 	<input type="hidden" name="boxchecked" value="0" />

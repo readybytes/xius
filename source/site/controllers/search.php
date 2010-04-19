@@ -11,6 +11,8 @@ class XiusControllerSearch extends JController
 		$this->showsearchpanel();
 	}
 	
+	
+	
 	function showsearchpanel()
 	{
 		/*XITODO : Add icon for mailing , printing ,and pdf document

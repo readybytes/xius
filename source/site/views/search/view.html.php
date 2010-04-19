@@ -10,6 +10,8 @@ class XiusViewSearch extends JView
 {
 	function showsearchpanel($allInfo)
 	{
+		/*XITODO : not include file here */
+		require_once(JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
 		$infohtml = array();
 		if(!empty($allInfo)){
 			$count = 0;
@@ -36,6 +38,12 @@ class XiusViewSearch extends JView
 			}
 		}
 		
+
+		$model =& XiusFactory::getModel('search','site');
+		$items =& $model->getData();      
+        $pagination =& $model->getPagination();
+		$this->assignRef('items', $items);
+		$this->assignRef('pagination', $pagination);
 		$this->assign( 'infohtml' , $infohtml );
 		parent::display();
 	}

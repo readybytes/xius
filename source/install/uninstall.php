@@ -19,3 +19,4 @@ function disable_plugin($pluginname)
 	if(!$db->query())
 		return false;
 	return true;
+}

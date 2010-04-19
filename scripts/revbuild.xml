@@ -19,11 +19,11 @@
 			<fileset dir="${source}/administrator/components/com_xius">
 				<include name="**/*.*" />
 			</fileset>
-        	</copy>
+        </copy>
         
 		<move file="${target}/source/admin/manifest.xml" 
                         tofile="${target}/source/manifest.xml" 
-         	/>
+         />
 		
 		<!-- Copy plguin files again into folder -->
 		<copy   file="${source}/plugins/system/xius_system.php" 

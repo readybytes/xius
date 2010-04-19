@@ -6,14 +6,30 @@ defined('_JEXEC') or die('Restricted access');
 class XiusFactory
 {	
 	
-	function &getModel( $name = '')
+	function &getModel( $name ,$location='admin')
 	{
 		static $modelInstances = null;
 		
 		if(!isset($modelInstances[$name]))
 		{
-			include_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'
-							.DS.'models'.DS. JString::strtolower( $name ) .'.php');
+			if($location === 'admin'){
+				$modelAdminFile = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
+				if(!JFile::exists($modelAdminFile))
+					JError::raiseError(sprintf(JText::_('Not able to open file %s),$name);
+				
+				include_once($modelAdminFile);
+			}
+			else if($location === 'site'){	
+
+				$modelSiteFile = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
+				if(!JFile::exists($modelSiteFile))
+					JError::raiseError(sprintf(JText::_('Not able to open file %s),$name);
+				
+				include_once($modelSiteFile);
+			}
+			else
+				assert(0);
+							
 			$classname = 'XiusModel'.$name;
 			$modelInstances[$name] =& new $classname;
 		}

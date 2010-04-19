@@ -1,7 +1,3 @@
-../packages/tmp/site/includes.php:17:require_once  JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
-../packages/tmp/site/xius.php:10:require_once  dirname(__FILE__).DS.'includes.php';
-../packages/tmp/site/xius.php:21:	require_once( $path );
-../packages/tmp/xius_system/xius_system.php:30:		require_once $incldePath;
 ../packages/tmp/admin/includes.php:24:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'defines.php';
 ../packages/tmp/admin/includes.php:32:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'utils.php';
 ../packages/tmp/admin/includes.php:35:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'factory.php';
@@ -13,18 +9,25 @@
 ../packages/tmp/admin/includes.php:41:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'info.php';
 ../packages/tmp/admin/includes.php:42:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'base.php';
 ../packages/tmp/admin/includes.php:43:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'baseview.php';
-../packages/tmp/admin/xius.php:10:require_once  dirname(__FILE__).DS.'includes.php';
-../packages/tmp/admin/xius.php:25:	require_once( $path );
-../packages/tmp/admin/libraries/factory.php:15:			include_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'
-../packages/tmp/admin/libraries/factory.php:36:		require_once $pluginPath;
-../packages/tmp/admin/libraries/plugins/joomla/joomla.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
-../packages/tmp/admin/libraries/plugins/joomla/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
+../packages/tmp/admin/libraries/factory.php:16:				include_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'
+../packages/tmp/admin/libraries/factory.php:20:				include_once( JPATH_ROOT.DS.'components'.DS.'com_xius'
+../packages/tmp/admin/libraries/factory.php:45:		require_once $pluginPath;
 ../packages/tmp/admin/libraries/plugins/base.php:58:		require_once $path;
 ../packages/tmp/admin/libraries/plugins/base.php:283:		 * for display inteface .We will include view file
 ../packages/tmp/admin/libraries/plugins/base.php:294:		require_once $viewPath;
+../packages/tmp/admin/libraries/plugins/joomla/joomla.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
+../packages/tmp/admin/libraries/plugins/joomla/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:164:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:193:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:64:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:65:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+../packages/tmp/admin/xius.php:10:require_once  dirname(__FILE__).DS.'includes.php';
+../packages/tmp/admin/xius.php:25:	require_once( $path );
+../packages/tmp/site/includes.php:17:require_once  JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
+../packages/tmp/site/views/search/view.html.php:13:		/*XITODO : not include file here */
+../packages/tmp/site/views/search/view.html.php:14:		require_once(JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+../packages/tmp/site/xius.php:10:require_once  dirname(__FILE__).DS.'includes.php';
+../packages/tmp/site/xius.php:21:	require_once( $path );
+../packages/tmp/xius_system/xius_system.php:30:		require_once $incldePath;

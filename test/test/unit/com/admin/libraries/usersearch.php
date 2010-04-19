@@ -75,7 +75,5 @@ class XiusUserSearchTest extends XiUnitTestCase
 		
 	}
 	
-	
-	
 }
 ?>

@@ -1,1 +1,20 @@
-sh: phploc: not found
+phploc 1.2.0 by Sebastian Bergmann.
+
+Directories:                                4
+Files:                                     16
+
+Lines of Code (LOC):                     1204
+Comment Lines of Code (CLOC):             169
+Non-Comment Lines of Code (NCLOC):       1035
+
+Interfaces:                                 0
+Abstract Classes:                           0
+Classes:                                    2
+Non-Static Methods:                        19
+Static Methods:                             6
+Functions:                                  0
+Constants:                                 21
+Class constants:                            0
+
+Test classes:                              10
+Test methods:                              49
