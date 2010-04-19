@@ -70,6 +70,7 @@ class Jsfields extends XiusBase
 
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
+		$db = JFactory::getDBO();
 		$columns = $this->getCacheColumns();
 		if(!$columns)
 			return false;
@@ -78,14 +79,14 @@ class Jsfields extends XiusBase
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					//$query->select($c['columnname']);
-					$conditions =  $c['columnname'].$operator."'".$this->formatValue($value)."'";
+					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
 					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
 				//$query->select($columns['columnname']);
-				$conditions =  $columns['columnname'].$operator."'".$this->formatValue($value)."'";
+				$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
 				$query->where($conditions,$join);
 				return true;
 			}
@@ -101,7 +102,7 @@ class Jsfields extends XiusBase
 					$count = 0;
 					foreach($value as $v){
 						$conditions .= $count ? ' AND ' : ' ( ';
-						$conditions .= ''.$c['columnname']." LIKE '%".$this->formatValue($v)."%'";
+						$conditions .= ''.$db->nameQuote($c['columnname'])." LIKE '%".$this->formatValue($v)."%'";
 						$count++;
 						//$query->where($conditions);
 					}
@@ -120,7 +121,7 @@ class Jsfields extends XiusBase
 					$count = 0;
 					foreach($value as $v){
 						$conditions .= $count ? ' AND ' : ' ( ';
-						$conditions .=  $columns['columnname']." LIKE '%".$this->formatValue($v)."%'";
+						$conditions .=  $db->nameQuote($columns['columnname'])." LIKE '%".$this->formatValue($v)."%'";
 						$count++;
 						//$query->where($conditions,'OR');
 					}

@@ -30,8 +30,8 @@ class XiusLibrariesUserSearch
 		$tableName = $cache->getTableName();
 		
 		if(!empty($tableName)) {
-			$query->select('userid');
-			$query->select($sort);
+			$query->select($db->nameQuote('userid'));
+			//$query->select($db->nameQuote($sort));
 			$query->from($db->nameQuote($tableName));
 			//$query->where(true,'AND');
 		}
@@ -46,7 +46,7 @@ class XiusLibrariesUserSearch
 		if(empty($strQuery))
 			return false;
 			
-		$strQuery .= 'SORT BY '.$db->nameQuote($sort); 
+		$strQuery .= ' ORDER BY '.$db->nameQuote($sort); 
 		
 		/*XITODO : if unable to find any column
 		 * then create table and retrive table

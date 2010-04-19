@@ -115,4 +115,4 @@
 ../packages/tmp/site/models/search.php:17:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/controllers/search.php:6:class XiusControllerSearch extends JController
 ../packages/tmp/site/controllers/search.php:35:		$document	=& JFactory::getDocument();
-../packages/tmp/install/uninstall.php:10:	$db			=& JFactory::getDBO();		
+../packages/tmp/install/uninstall.php:13:	$db			=& JFactory::getDBO();		

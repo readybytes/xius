@@ -39,6 +39,7 @@ class Joomla extends XiusBase
 
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
+		$db = JFactory::getDBO();
 		if(!is_array($value)) {
 			$columns = $this->getCacheColumns();
 			if(!$columns)
@@ -47,14 +48,14 @@ class Joomla extends XiusBase
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					//$query->select($c['columnname']);
-					$conditions =  $c['columnname'].$operator."'".$this->formatValue($value)."'";
+					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
 					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
 				//$query->select($columns['columnname']);
-				$conditions =  $columns['columnname'].$operator."'".$this->formatValue($value)."'";
+				$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
 				$query->where($conditions,$join);
 				return true;
 			}

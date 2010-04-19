@@ -247,7 +247,7 @@ abstract class XiusBase extends JObject
 	
 	protected function generateSearchHtml()
 	{
-		$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="info"/>';
+		$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="'.$this->id.'"/>';
 		$inputHtml = '<input type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
 		$htmlwithInfoId = $infoIdHtml . $inputHtml;
 		
@@ -268,7 +268,7 @@ abstract class XiusBase extends JObject
 		
 		$html = $view->searchHtml($this);
 		if(!empty($html)){
-			$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="info"/>';
+			$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="'.$this->id.'"/>';
 			$htmlwithInfoId = $infoIdHtml . $html;
 			return $htmlwithInfoId;
 		}
@@ -380,6 +380,9 @@ abstract class XiusBase extends JObject
 		/*it's handling query only for single value
 		 * if column needs multiple comparision then they should handle
 		 */
+		
+		$db = JFactory::getDBO();
+		
 		if(!is_array($value)) {
 			$columns = $this->getCacheColumns();
 			if(empty($columns))
@@ -388,14 +391,14 @@ abstract class XiusBase extends JObject
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					//$query->select($c['columnname']);
-					$conditions =  $c['columnname'].$operator."'".$this->formatValue($value)."'";
+					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
 					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
 				//$query->select($columns['columnname']);
-				$conditions =  $columns['columnname'].$operator."'".$this->formatValue($value)."'";
+				$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
 				$query->where($conditions,$join);
 				return true;
 			}

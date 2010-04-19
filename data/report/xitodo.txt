@@ -1,6 +1,6 @@
 ../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/helpers/utils.php:59:		/*XITODO : get parameter from configuration*
-../packages/tmp/admin/libraries/factory.php:55:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/factory.php:62:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/plugins/baseview.php:33:		/*XITODO : unset already exist info */
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
 ../packages/tmp/admin/libraries/plugins/base.php:309:	/*XITODO : function will decide which user can search

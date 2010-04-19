@@ -27,7 +27,13 @@ class XiusControllerSearch extends JController
 		 */
 		$filter = array();
 		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,5);
+		
+		$count = XiusHelpersUtils::getDisplayInformationCount();
+		
+		if($count === XIUS_ALL || $count === 0)
+			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		else
+			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,$count);
 		
 		$viewName	= JRequest::getCmd( 'view' , 'search' );
 		
@@ -46,5 +52,6 @@ class XiusControllerSearch extends JController
 		echo $view->showsearchpanel($allInfo);
 		
 	}
+	
 	
 }

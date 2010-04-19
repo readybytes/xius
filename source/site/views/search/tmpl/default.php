@@ -1,7 +1,7 @@
 <?php
 
 /*XITODO : pass variable for color */
-$css = JURI::base().'administrator/components/com_xius/assets/front/blue.css';
+$css = JURI::base().'administrator/components/com_xius/assets/css/front/blue.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 include('sorting.php');

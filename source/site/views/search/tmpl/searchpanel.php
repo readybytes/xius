@@ -1,6 +1,6 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-$css = JURI::base().'administrator/components/com_xius/assets/sp.css';
+$css = JURI::base().'administrator/components/com_xius/assets/css/front/sp.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 JHTML::_('behavior.tooltip', '.hasTip');

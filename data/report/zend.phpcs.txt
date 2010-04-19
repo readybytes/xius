@@ -275,22 +275,24 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/factory.php
 --------------------------------------------------------------------------------
-FOUND 12 ERROR(S) AND 1 WARNING(S) AFFECTING 12 LINE(S)
+FOUND 14 ERROR(S) AND 1 WARNING(S) AFFECTING 14 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
    9 | ERROR   | No scope modifier specified for function "getModel"
   13 | ERROR   | Operator ! prohibited; use === FALSE instead
-  33 | WARNING | The method parameter $id is never used
-  39 | ERROR   | Operator ! prohibited; use === FALSE instead
-  50 | ERROR   | Operator ! prohibited; use === FALSE instead
-  59 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
-  59 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
-  74 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
-  78 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
-  88 | ERROR   | No scope modifier specified for function
+  17 | ERROR   | Operator ! prohibited; use === FALSE instead
+  25 | ERROR   | Operator ! prohibited; use === FALSE instead
+  40 | WARNING | The method parameter $id is never used
+  46 | ERROR   | Operator ! prohibited; use === FALSE instead
+  57 | ERROR   | Operator ! prohibited; use === FALSE instead
+  66 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  66 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  81 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  85 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  95 | ERROR   | No scope modifier specified for function
      |         | "getLibraryPluginHandler"
-  92 | ERROR   | Operator == prohibited; use === instead
- 102 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  99 | ERROR   | Operator == prohibited; use === instead
+ 109 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -1009,35 +1011,37 @@ FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/install/install.php
 --------------------------------------------------------------------------------
-FOUND 9 ERROR(S) AND 2 WARNING(S) AFFECTING 8 LINE(S)
+FOUND 10 ERROR(S) AND 2 WARNING(S) AFFECTING 9 LINE(S)
 --------------------------------------------------------------------------------
-  2 | WARNING | Consider putting global function "com_install" in a static
+  2 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+  4 | WARNING | Consider putting global function "com_install" in a static
     |         | class
-  2 | ERROR   | Function name "com_install" is not in camel caps format
-  4 | ERROR   | Operator == prohibited; use === instead
- 13 | WARNING | Consider putting global function "installPlugin" in a static
+  4 | ERROR   | Function name "com_install" is not in camel caps format
+  6 | ERROR   | Operator == prohibited; use === instead
+ 15 | WARNING | Consider putting global function "installPlugin" in a static
     |         | class
- 24 | ERROR   | Operator ! prohibited; use === FALSE instead
- 24 | ERROR   | Operator ! prohibited; use === FALSE instead
- 30 | ERROR   | Operator == prohibited; use === instead
- 43 | ERROR   | Operator ! prohibited; use === FALSE instead
- 43 | ERROR   | Operator ! prohibited; use === FALSE instead
- 55 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 61 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 26 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 26 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 32 | ERROR   | Operator == prohibited; use === instead
+ 45 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 45 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 57 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 63 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
 FILE: /vobs/xius/trunk/packages/tmp/install/uninstall.php
 --------------------------------------------------------------------------------
-FOUND 3 ERROR(S) AND 2 WARNING(S) AFFECTING 3 LINE(S)
+FOUND 4 ERROR(S) AND 2 WARNING(S) AFFECTING 4 LINE(S)
 --------------------------------------------------------------------------------
-  2 | WARNING | Consider putting global function "com_uninstall" in a static
+  3 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+  5 | WARNING | Consider putting global function "com_uninstall" in a static
     |         | class
-  2 | ERROR   | Function name "com_uninstall" is not in camel caps format
-  8 | WARNING | Consider putting global function "disable_plugin" in a static
+  5 | ERROR   | Function name "com_uninstall" is not in camel caps format
+ 11 | WARNING | Consider putting global function "disable_plugin" in a static
     |         | class
-  8 | ERROR   | Function name "disable_plugin" is not in camel caps format
- 16 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 11 | ERROR   | Function name "disable_plugin" is not in camel caps format
+ 19 | ERROR   | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
