@@ -30,7 +30,7 @@ class XiusModelSearch extends JModel
         if (empty($this->_data)) {
 			/*XITODO : Add params1 as argument ,not build here*/
             $params1[1] = 'Male';
-			$query = XiusLibrariesUserSearch::buildQuery($params1);
+			$query = XiusLibrariesUsersearch::buildQuery($params1);
             $this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit')); 
         }
         return $this->_data;
@@ -42,7 +42,7 @@ class XiusModelSearch extends JModel
         if (empty($this->_total)) {
 			/*XITODO : Add params1 as argument ,not build here*/
             $params1[1] = 'Male';
-			$query = XiusLibrariesUserSearch::buildQuery($params1);
+			$query = XiusLibrariesUsersearch::buildQuery($params1);
             $this->_total = $this->_getListCount($query);    
         }
         return $this->_total;

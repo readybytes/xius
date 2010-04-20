@@ -1,20 +1,15 @@
 <?php
 
-/**
-* @copyright	Copyright (C) 2009 - 2009 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
-* @license		GNU/GPL, see LICENSE.php
-* @contact		shyam@joomlaxi.com
-*/
 defined('_JEXEC') or die();
 
 require_once  dirname(__FILE__).DS.'includes.php';
 
 if(JRequest::getCmd('view') == '') 
-	JRequest::setVar('view', 'info');
+	JRequest::setVar('view', 'cpanel');
 	
 
 //now decide what to do
-$view	= JRequest::getCmd('view', 		'info');
+$view	= JRequest::getCmd('view', 		'cpanel');
 $task 	= JRequest::getCmd('task', 		'display');
 $format	= JRequest::getCmd('format',	'html');
 

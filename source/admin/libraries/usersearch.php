@@ -5,7 +5,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 
-class XiusLibrariesUserSearch
+class XiusLibrariesUsersearch
 {
 	
 	function getUsers()
@@ -14,10 +14,11 @@ class XiusLibrariesUserSearch
 	}
 	
 	
-	function buildQuery($params,$join='AND',$sort='userid')
+	function buildQuery($params,$join='AND',$sort='userid',$dir='ASC')
 	{
 		/*XITODO : provide join operator and sorting condition
 		 * provide conditional operator also
+		 * provide direction also
 		 * */
 		$db = JFactory::getDBO();
 		$query = new XiusQuery();
@@ -46,7 +47,7 @@ class XiusLibrariesUserSearch
 		if(empty($strQuery))
 			return false;
 			
-		$strQuery .= ' ORDER BY '.$db->nameQuote($sort); 
+		$strQuery .= ' ORDER BY '.$db->nameQuote($sort).' AS '.$dir; 
 		
 		/*XITODO : if unable to find any column
 		 * then create table and retrive table
@@ -249,6 +250,9 @@ class XiusLibrariesUserSearch
 	
 	function getMiniProfileDisplayFields($userid,$allInfo=array())
 	{
+		/*XITODO : pass info
+		 * for admin display all fields , discard publish checking
+		 */
 		$displayFields = array();
 		$filter = array();
 		$filter['published'] = true;

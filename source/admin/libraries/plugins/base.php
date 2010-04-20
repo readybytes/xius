@@ -45,31 +45,6 @@ abstract class XiusBase extends JObject
 			$this->$what = $value;
 	}
 	
-	/*public static function getInstance($pluginname,$id=0)
-	{
-		$path	= dirname(__FILE__). DS . $pluginname . DS . $pluginname.'.php';
-		jimport( 'joomla.filesystem.file' );
-		if(!JFile::exists($path))
-		{
-			JError::raiseError(400,JText::_("INVALID PLUGIN FILE"));
-			return false;
-		}
-
-		require_once $path;
-			
-		//$instance will comtain all plugin object according to info
-		//Every info will have different object
-		static $instances = array();
-		if(!isset($instances[$pluginname]))
-				$instances[$pluginname] = new $pluginname(0);
-		
-		/* load id when it's not 0
-		 * load 0 is handeled by load fn it's time for relaxation
-		 */
-		/*
-		$instances[$pluginname] = $instances[$pluginname]->load($id);	
-		return $instances[$pluginname];	
-	}*/
 	
 	/*if it returns false means we can't access it's object
 	 * it will not behave as expected
@@ -189,9 +164,6 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	/*this function is defined for front-end
-	 * return label + input box html
-	 */
 	public function renderRawDataHtml()
 	{
 		if(!$this->isAllRequirementSatisfy())
@@ -209,7 +181,9 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	
+	/*backend usage fn
+	 * fn will render plugin and core param html
+	 */
 	public function getHtml(&$paramsHtml,&$plguinParamsHtml)
 	{
 		//Imp : Function will always call core field html
@@ -275,6 +249,15 @@ abstract class XiusBase extends JObject
 
 		return $this->generateSearchHtml();
 	}
+
+	
+	
+	public function renderSortableHtml()
+	{
+		$html = $this->labelName;
+		return $html;
+	}
+	
 	
 	
 	protected function getViewName()
@@ -300,11 +283,6 @@ abstract class XiusBase extends JObject
 	}
 	
 
-	public function renderSortableHtml()
-	{
-		$html = $this->labelName;
-		return $html;
-	}
 	
 	/*XITODO : function will decide which user can search
 	 *  sort etc from which info 

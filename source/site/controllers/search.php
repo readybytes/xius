@@ -24,6 +24,7 @@ class XiusControllerSearch extends JController
 		 * he want's to display at a time , and add more links.
 		 * never assume anything
 		 * show only searchable information
+		 * for admin non-published info should be visible
 		 */
 		$filter = array();
 		$filter['published'] = true;

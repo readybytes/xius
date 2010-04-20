@@ -9,7 +9,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 
 	function testGetMiniProfileDisplayFields()
 	{
-		$value = XiusLibrariesUserSearch::getMiniProfileDisplayFields(64,'#__xius_cache');
+		$value = XiusLibrariesUsersearch::getMiniProfileDisplayFields(64,'#__xius_cache');
 		print_r(var_export($value));
 	}
 	
@@ -20,7 +20,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$params1[1] = 'Male';
 		//$params1[3] = 'India';//city
 		$params1[7] = array('Checkbox1','Checkbox11');//city
-		$query = XiusLibrariesUserSearch::buildQuery($params1);
+		$query = XiusLibrariesUsersearch::buildQuery($params1);
 		echo $query;
 	}
 	
@@ -42,7 +42,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$db = JFactory::getDBO();
 		
 		/*XITODO : Test case is not complete , apply some assertion */
-		$query = XiusLibrariesUserSearch::createTableQuery();
+		$query = XiusLibrariesUsersearch::createTableQuery();
 		$db->setQuery($query);
 		$db->query();
 		echo $query;
@@ -52,7 +52,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	{
 		/*XITODO : Test case is not complete , apply some assertion */
 		
-		$query = XiusLibrariesUserSearch::buildInsertUserdataQuery();
+		$query = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		echo $query;
 	}
 	
@@ -68,9 +68,9 @@ class XiusUserSearchTest extends XiUnitTestCase
 		if(!$db->query())
 			echo $db->getErrorMsg();
 		
-		$collectUserDataQuery = XiusLibrariesUserSearch::buildInsertUserdataQuery();
+		$collectUserDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		
-		$isSuccess = XiusLibrariesUserSearch::insertUserData($collectUserDataQuery);
+		$isSuccess = XiusLibrariesUsersearch::insertUserData($collectUserDataQuery);
 		
 		
 	}
