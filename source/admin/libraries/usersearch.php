@@ -31,10 +31,9 @@ class XiusLibrariesUsersearch
 			JError::raiseError(JText::_('NO TABLE TO SEARCH'));
 			
 		if(!empty($tableName)) {
-			$query->select($db->nameQuote('userid'));
-			//$query->select($db->nameQuote($sort));
+			//$query->select($db->nameQuote('userid'));
+			$query->select('*');
 			$query->from($db->nameQuote($tableName));
-			//$query->where(true,'AND');
 		}
 		
 		/*if no parameter to search then return all users
@@ -42,26 +41,24 @@ class XiusLibrariesUsersearch
 		 * XITODO : add block condition
 		 *  */
 		if(empty($params))
-			return $query->__toString();
+			$query->order($db->nameQuote($sort).' '.$dir);
+		else{
+			foreach($params as $p)
+				self::buildQueryForSingleInfo($query,$p['infoid'],$p['value'],$p['operator'],$join);
 			
-		foreach($params as $p){
-			/*XITODO : Pass operator */
-			self::buildQueryForSingleInfo($query,$p['infoid'],$p['value'],$p['operator'],$join);
+			$query->order($db->nameQuote($sort).' '.$dir);
 		}
+		
+		/*Trigger event */
+		$dispatcher =& JDispatcher::getInstance();
+		$results = $dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$query ) );
 		
 		$strQuery = $query->__toString();
 		
 		if(empty($strQuery))
 			return false;
-			
-		$strQuery .= ' ORDER BY '.$db->nameQuote($sort).' AS '.$dir; 
-		
-		/*XITODO : if unable to find any column
-		 * then create table and retrive table
-		 */
+				
 		return $strQuery;
-		return $query->__toString();
-		
 	}
 	
 	
@@ -72,6 +69,10 @@ class XiusLibrariesUsersearch
 		 * only according to plugin , so they will get data as they want
 		 */
 		$instance = XiusFactory::getPluginInstanceFromId($infoId);
+		
+		if(!$instance)
+			return;
+			
 		return $instance->addSearchToQuery($query,$value,$operator,$join);
 	}
 	
@@ -82,6 +83,17 @@ class XiusLibrariesUsersearch
 		$searchdata = $mySess->get('searchdata',false,'XIUS');
 		
 		return $searchdata;
+	}
+	
+	
+	function collectSortParams()
+	{
+		$mySess =& JFactory::getSession();
+		$sortInfo = array();
+		$sortInfo['sort'] = $mySess->get('sort',false,'XIUS');
+		$sortInfo['dir'] = $mySess->get('dir',false,'XIUS');
+		
+		return $sortInfo;
 	}
 	
 	
@@ -100,6 +112,7 @@ class XiusLibrariesUsersearch
 		if(empty($info))
 			return false;
 
+		/*XITODO : move create table query code to cache class*/
 		$cache = new XiusCache();
 		$createQuery = new XiusCreateTable($cache->_tableName);
 			
@@ -108,6 +121,9 @@ class XiusLibrariesUsersearch
 			
 		foreach($info as $i){
 			$instance = XiusFactory::getPluginInstanceFromId($i->id);
+			if(!$instance)
+				continue;
+				
 			$instance->appendCreateQuery($createQuery);
 		}
 		
@@ -161,6 +177,10 @@ class XiusLibrariesUsersearch
 				$instance = XiusFactory::getPluginInstanceFromId($i['id']);
 			else if(is_object($i))
 				$instance = XiusFactory::getPluginInstanceFromId($i->id);
+				
+			if(!$instance)
+				continue;
+				
 			$instance->getUserData($query);
 		}
 		
@@ -218,7 +238,7 @@ class XiusLibrariesUsersearch
 			return false;
 		}	
 		
-		$query = XiusLibrariesUserSearch::createTableQuery();
+		$query = XiusLibrariesUsersearch::createTableQuery();
 		$db->setQuery($query);
 		if(!$db->query()) {
 			$error = XiusFactory::getErrorObject();
@@ -268,19 +288,60 @@ class XiusLibrariesUsersearch
 		$filter['published'] = true;
 		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
 		
-		if(!empty($allInfo)){
-			$count = 0;
-			foreach($allInfo as $info){
-				$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
-				if($plgInstance->isVisible()){
-					if($plgInstance->isAllRequirementSatisfy()){
-						$displayFields[$info->labelName] = $plgInstance->getMiniProfileDisplay($userid,'#__xius_cache');
-					}
-				}
-			}
+		if(empty($allInfo))
+			return $displayFields;
+			
+		$count = 0;
+		foreach($allInfo as $info){
+			$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+			
+			if(!$plgInstance)
+				continue;
+				
+			if(!$plgInstance->isAllRequirementSatisfy())
+				continue;
+				
+			if(!$plgInstance->isVisible())
+				continue;
+					
+			$displayFields[$info->labelName] = $plgInstance->getMiniProfileDisplay($userid,'#__xius_cache');
 		}
 		
 		return $displayFields;
+	}
+	
+	
+	function getSortableFields($allInfo=array())
+	{
+		/*XITODO : pass info
+		 * for admin display all fields , discard publish checking
+		 */
+		$sortableFields = array();
+		/*$filter = array();
+		$filter['published'] = true;
+		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');*/
+		
+		if(empty($allInfo))
+			return $sortableFields;
+		$count = 0;
+		foreach($allInfo as $info){
+			$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+			
+			if(!$plgInstance)
+				continue;
+				
+			if(!$plgInstance->isAllRequirementSatisfy())
+				continue;
+				
+			if(!$plgInstance->isSortable())
+				continue;
+				
+			$sortableFields[$count] = $plgInstance->renderSortableHtml();
+					
+			$count++;
+		}
+		
+		return $sortableFields;
 	}
 	
 	

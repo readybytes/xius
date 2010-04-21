@@ -163,11 +163,9 @@ class XiusControllerInfo extends JController
 		$info['data'] = $data;
 		/*fork trigger */
 		
-		JPluginHelper::importPlugin( 'system' );
+		//JPluginHelper::importPlugin( 'system' );
 		
 		$dispatcher =& JDispatcher::getInstance();
-		
-		
 		$results = $dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
 			
 		return $storedInfo;

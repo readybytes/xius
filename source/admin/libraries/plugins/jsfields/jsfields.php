@@ -181,10 +181,11 @@ class Jsfields extends XiusBase
 	
 	
 	/*Function will format data in display form on mini profile	 */
-	protected function _getFormatData($value)
+	public function _getFormatData($value)
 	{
 		$filter = array();
 		$filter['id'] = $this->key;
+		/*XITODO : Cache jomsocial fields */
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
 		
 		if(empty($fieldInfo) && is_array($value)) {

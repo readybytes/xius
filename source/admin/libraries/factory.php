@@ -54,8 +54,13 @@ class XiusFactory
 		//$instance will comtain all plugin object according to info
 		//Every info will have different object
 		static $instances = array();
-		if(!isset($instances[$pluginName]))
-				$instances[$pluginName] = new $pluginClassName();
+		if(isset($instances[$pluginName])){
+			/*Clean object first */
+			$instances[$pluginName]->cleanObject();
+		}
+		else
+			$instances[$pluginName] = new $pluginClassName();
+		
 		
 		/* load id when it's not 0
 		 * load 0 is handeled by load fn so it's time for relaxation*/

@@ -256,7 +256,9 @@ abstract class XiusBase extends JObject
 	
 	public function renderSortableHtml()
 	{
-		$html = $this->labelName;
+		$html = array();
+		$html['key'] = $this->id;
+		$html['value'] = $this->labelName;
 		return $html;
 	}
 	
@@ -469,7 +471,7 @@ abstract class XiusBase extends JObject
 	
 	
 	/*Available for converting raw data into format data*/
-	protected function _getFormatData($value)
+	public function _getFormatData($value)
 	{
 		if(is_array($value)) {
 			$formatvalue = implode(',',$value);
@@ -477,5 +479,23 @@ abstract class XiusBase extends JObject
 		}
 		
 		return $value; 
+	}
+	
+	/*every constructed object should be clean 
+	 * before giving another to access old data
+	 */
+	public function cleanObject()
+	{
+		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
+		//XITODO: add default.ini
+		if(JFile::exists($paramsxmlpath))
+			$this->params = new JParameter('',$paramsxmlpath);
+			
+		//if already defined by child class do not create it.
+		if(!$this->pluginParams)
+			$this->pluginParams	= new JParameter('','');
+			
+		$this->key		 = '';
+		$this->id		 = 0;
 	}
 }

@@ -25,11 +25,16 @@ class XiusModelSearch extends JModel
 	}
 	
 	/*XITODO : Rename fn to getUsers */
-	function getData($params)
+	function getData($params,$join='AND',$sort='userid',$dir='ASC')
 	{
+		//Check table existance 
+		if(!XiusHelpersUtils::isTableExist('xius_cache'))
+			XiusLibrariesUsersearch::updateCache();
         // if data hasn't already been obtained, load it
         if (empty($this->_data)) {
-        	$query = XiusLibrariesUsersearch::buildQuery($params);            
+        	$query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);
+        	/*global $mainframe;
+        	$mainframe->enqueueMessage($query,false);*/        
             $this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
             /*XITODO : Add error message */
             if($this->_db->_cursor === false) {
@@ -49,11 +54,8 @@ class XiusModelSearch extends JModel
   	{
         // Load the content if it doesn't already exist
         if (empty($this->_total)) {
-			/*XITODO : Add params1 as argument ,not build here*/
-//            $params = XiusLibrariesUsersearch::collectParamstoSearch();
 			$query = XiusLibrariesUserSearch::buildQuery($params);
-//        	$params1[1] = 'Male';
-//			$query = XiusLibrariesUsersearch::buildQuery($params1);
+
             $this->_total = $this->_getListCount($query);    
         }
         return $this->_total;

@@ -43,7 +43,18 @@ XiusLoader::addAutoLoadFile('XiusCreateTable', XIUS_PATH_LIBRARY.DS.'query.php')
 XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');
 
+/*community files */
+XiusLoader::addAutoLoadFile('CFactory', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CAssets', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CConfig', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CApplications', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CUser', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CRoute', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
+
 /*Load Langauge file*/
 $lang =& JFactory::getLanguage();
-if($lang)
+if($lang){
 	$lang->load( 'com_xius' );
+	$lang->load( 'com_community' );
+}

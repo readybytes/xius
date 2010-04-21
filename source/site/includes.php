@@ -18,5 +18,7 @@ require_once  JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'in
 
 /*Load Langauge file*/
 $lang =& JFactory::getLanguage();
-if($lang)
+if($lang){
 	$lang->load( 'com_xius' );
+	$lang->load( 'com_community' );
+}

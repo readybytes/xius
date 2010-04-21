@@ -62,6 +62,7 @@ class XiusControllerSearch extends JController
 			$infoid = 0;
 			$count = 0;
 			$post = JRequest::get('POST');
+			//XITODO : create fields name xiusinfo_
 			foreach($post as $key => $value){
 				if(JString::stristr($key,'info_')){
 					if($infoid && $infoid == $value)
