@@ -1,50 +1,39 @@
 @CHARSET "UTF-8";
-.box{
+.xius_box{
 	border:1px solid black;	
 	width:600px;
 	margin-left:20px;
 }
 
-.box .head{
+.xius_box .head{
 	background:#C53B1C;
 	height:25px;
 	width:100%;
 	color:white;
 }
 
-.box .head p{
+.xius_box .head p{
 margin-left:5px;
 margin-top:0px;
 }
 
-.box .sub{
+.xius_box .sub{
 width:50px;
 height:25px;
 margin-left:35px;
 }
 
-.box .ul{
+.xius_box .ul{
 	margin-left:35px;
 	list-style-type:none;
 	width:400px;
 	}
-.box .ul .tag{
-}
-.box .ul .input{
-}
-
-.box .ul li{
-	padding-left: 30px;
-
-background-color: transparent;
-
-background-image: none;
-
-background-repeat: no-repeat;
-
-background-attachment: scroll;
-
-background-position: 18px 8px;
-
-line-height: 180%;
+#searcha
+{
+margin-top:0px;
+margin-right: 0px;
+height: 20px;
+overflow-x: hidden;
+overflow-y: hidden;
+text-align: right;
 }

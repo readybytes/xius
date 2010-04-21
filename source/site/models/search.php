@@ -24,37 +24,48 @@ class XiusModelSearch extends JModel
         $this->setState('limitstart', $limitstart);
 	}
 	
-	function getData()
+	/*XITODO : Rename fn to getUsers */
+	function getData($params)
 	{
         // if data hasn't already been obtained, load it
         if (empty($this->_data)) {
-			/*XITODO : Add params1 as argument ,not build here*/
-            $params1[1] = 'Male';
-			$query = XiusLibrariesUsersearch::buildQuery($params1);
-            $this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit')); 
+        	$query = XiusLibrariesUsersearch::buildQuery($params);            
+            $this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+            /*XITODO : Add error message */
+            if($this->_db->_cursor === false) {
+            	if($this->_db->_errorNum == 1146){
+            		/*this error represents cache table does not exist
+            		 * create it and again call build query
+            		 */		
+            		XiusLibrariesUsersearch::updateCache();
+            		$this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+            	}
+            }
         }
         return $this->_data;
   	}
   	
-  	function getTotal()
+  	function getTotal($params)
   	{
         // Load the content if it doesn't already exist
         if (empty($this->_total)) {
 			/*XITODO : Add params1 as argument ,not build here*/
-            $params1[1] = 'Male';
-			$query = XiusLibrariesUsersearch::buildQuery($params1);
+//            $params = XiusLibrariesUsersearch::collectParamstoSearch();
+			$query = XiusLibrariesUserSearch::buildQuery($params);
+//        	$params1[1] = 'Male';
+//			$query = XiusLibrariesUsersearch::buildQuery($params1);
             $this->_total = $this->_getListCount($query);    
         }
         return $this->_total;
   	}
   	
   	
-  	function getPagination()
+  	function getPagination($params)
   	{
         // Load the content if it doesn't already exist
         if (empty($this->_pagination)) {
             jimport('joomla.html.pagination');
-            $this->_pagination = new JPagination($this->getTotal(), $this->getState('limitstart'), $this->getState('limit') );
+            $this->_pagination = new JPagination($this->getTotal($params), $this->getState('limitstart'), $this->getState('limit') );
         }
         return $this->_pagination;
   	}

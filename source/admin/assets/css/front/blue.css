@@ -53,18 +53,27 @@ margin:0px;
 
 .ul1 .main .left img{
 border-right:1px solid #26A3CF;
-width:75px;
-height:75px;
+width:100px;
+height:100px;
 
 }
 
 .ul1 .main .right{
-margin-left:100px;
+margin-left:120px;
 float:left;
-padding:0px;
-margin-top:-70px;
-width:500px;
+padding:2px;
+margin-top:-95px;
+width:400px;
+height:98px;
+border:1px solid red;
 }
+.right .label{
+border:1px solid red;
+}
+.right .value{;
+border:1px solid red;
+}
+
 
 .ul1 .main .right hr{
 width:100%;

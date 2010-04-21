@@ -54,5 +54,52 @@ class XiusControllerSearch extends JController
 		
 	}
 	
+	function basicsearch()
+	{
+		
+		if(JRequest::getVar('search', '', 'POST') != ''){
+			$searchdata = array();
+			$infoid = 0;
+			$count = 0;
+			$post = JRequest::get('POST');
+			foreach($post as $key => $value){
+				if(JString::stristr($key,'info_')){
+					if($infoid && $infoid == $value)
+						$infoid = 0;
+					else
+						$infoid = $value;
+					
+					continue;
+				}
+				
+				if(empty($value))
+					continue;
+				
+				if($infoid){
+					$searchdata[$count]['infoid'] = $infoid;
+					$searchdata[$count]['value'] = $value;
+					$searchdata[$count]['operator'] = XIUS_EQUAL;
+					$count++;
+				}
+	
+			}	
+	
+			$mySess =& JFactory::getSession();
+			$mySess->set('searchdata',$searchdata,'XIUS');
+		}
+	
+		$viewName	= JRequest::getCmd( 'view' , 'search' );
+		// Get the document object
+		$document	=& JFactory::getDocument();
+
+		// Get the view type
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , $viewType );
+		$layout		= JRequest::getCmd( 'layout' , 'basicsearch' );
+		$view->setLayout( $layout );
+		
+        $view->basicsearch();
+	}
+	
 	
 }

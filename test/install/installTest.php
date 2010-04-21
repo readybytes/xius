@@ -23,7 +23,7 @@ class InstallTest extends XiSelTestCase
     
     // go to installation
     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
-    $this->waitPageLoad("30000");
+    $this->waitPageLoad();
       
 	// add profiletype-one
     $this->type("install_url", XIUS_PKG);

@@ -8,8 +8,8 @@ jimport('joomla.html.pane');
 		
 ?>
 
-<form action="<?php echo JURI::base();?>index.php" method="post" name="form" id="form">
-<div class="box"><div class="head"><p><b>Search : </b></p></div>
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=search&task=basicsearch" method="post" name="form" id="form">
+<div class="xius_box"><div class="head"><p><b>Search : </b></p></div>
 		<?php
 		$count = 0;
 		$i  = 0;
@@ -24,15 +24,15 @@ jimport('joomla.html.pane');
 		<?php 
 		}
 		?>
-		<div class="sub"><input type="submit" id="search" name="search" value="Search" /></div>
+				<br />
 	</div>
 
 <div class="clr"></div>
-	
+	<div id="searcha"><input type="submit" id="search" name="search" value="Search" /></div>
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="search" />
 	<input type="hidden" name="boxchecked" value="0" />
-	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="task" value="basicsearch" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
 

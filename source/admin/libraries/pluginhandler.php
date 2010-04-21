@@ -10,6 +10,6 @@ class XiusLibrariesPluginhandler
 	
 	function onUsInfoUpdated($data)
 	{
-		return XiusLibrariesUserSearch::updateCache();
+		return XiusLibrariesUsersearch::updateCache();
 	}
 }

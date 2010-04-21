@@ -27,3 +27,7 @@ define('XIUS_PATH_HELPER',		XIUS_COMPONENT_PATH_ADMIN.DS.'helpers');
 define('XIUS_PATH_ASSET',		XIUS_COMPONENT_PATH_ADMIN.DS.'assets');
 
 define('XIUS_ALL',-1);
+
+define('XIUS_EQUAL','=');
+define('XIUS_LT','<');
+define('XIUS_GT','>');

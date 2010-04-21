@@ -221,9 +221,10 @@ abstract class XiusBase extends JObject
 	
 	protected function generateSearchHtml()
 	{
-		$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="'.$this->id.'"/>';
+		$infoIdStartHtml = '<input type = "hidden" name="info_'.$this->id.'1" id="info_'.$this->id.'1" value="'.$this->id.'"/>';
 		$inputHtml = '<input type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
-		$htmlwithInfoId = $infoIdHtml . $inputHtml;
+		$infoIdEndHtml = '<input type = "hidden" name="info_'.$this->id.'2" id="info_'.$this->id.'2" value="'.$this->id.'"/>';
+		$htmlwithInfoId = $infoIdStartHtml . $inputHtml . $infoIdEndHtml;
 		
 		return $htmlwithInfoId;
 	}
@@ -242,8 +243,9 @@ abstract class XiusBase extends JObject
 		
 		$html = $view->searchHtml($this);
 		if(!empty($html)){
-			$infoIdHtml = '<input type = "hidden" name="info_'.$this->id.'" id="info_'.$this->id.'" value="'.$this->id.'"/>';
-			$htmlwithInfoId = $infoIdHtml . $html;
+			$infoIdStartHtml = '<input type = "hidden" name="info_'.$this->id.'1" id="info_'.$this->id.'1" value="'.$this->id.'"/>';
+			$infoIdEndHtml = '<input type = "hidden" name="info_'.$this->id.'2" id="info_'.$this->id.'2" value="'.$this->id.'"/>';
+			$htmlwithInfoId = $infoIdStartHtml . $html . $infoIdEndHtml;
 			return $htmlwithInfoId;
 		}
 

@@ -23,23 +23,30 @@ class XiusLibrariesUsersearch
 		$db = JFactory::getDBO();
 		$query = new XiusQuery();
 		
-		if(empty($params))
-			return $query;
-
 		$cache = new XiusCache();
 	
 		$tableName = $cache->getTableName();
 		
+		if(empty($tableName))
+			JError::raiseError(JText::_('NO TABLE TO SEARCH'));
+			
 		if(!empty($tableName)) {
 			$query->select($db->nameQuote('userid'));
 			//$query->select($db->nameQuote($sort));
 			$query->from($db->nameQuote($tableName));
 			//$query->where(true,'AND');
 		}
+		
+		/*if no parameter to search then return all users
+		 * without any condition
+		 * XITODO : add block condition
+		 *  */
+		if(empty($params))
+			return $query->__toString();
 			
-		foreach($params as $k => $v){
+		foreach($params as $p){
 			/*XITODO : Pass operator */
-			self::buildQueryForSingleInfo($query,$k,$v,'=',$join);
+			self::buildQueryForSingleInfo($query,$p['infoid'],$p['value'],$p['operator'],$join);
 		}
 		
 		$strQuery = $query->__toString();
@@ -58,7 +65,7 @@ class XiusLibrariesUsersearch
 	}
 	
 	
-	function buildQueryForSingleInfo(XiusQuery &$query,$infoId,$value,$operator='=',$join='AND')
+	function buildQueryForSingleInfo(XiusQuery &$query,$infoId,$value,$operator=XIUS_EQUAL,$join='AND')
 	{
 		/*value can be array or single , depends on plugin 
 		 * and we will store data only store data ( as value ) 
@@ -71,7 +78,10 @@ class XiusLibrariesUsersearch
 	
 	function collectParamstoSearch()
 	{
+		$mySess =& JFactory::getSession();
+		$searchdata = $mySess->get('searchdata',false,'XIUS');
 		
+		return $searchdata;
 	}
 	
 	
