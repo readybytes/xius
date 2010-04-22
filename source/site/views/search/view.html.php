@@ -86,6 +86,7 @@ class XiusViewSearch extends JView
 		$model =& XiusFactory::getModel('search','site');
 		$users =& $model->getData($params,'AND',$sort,$sortInfo['dir']);      
         $pagination =& $model->getPagination($params);
+        $total =& $model->getTotal($params);
         
         $userprofile = array();
         
@@ -136,7 +137,8 @@ class XiusViewSearch extends JView
 		$this->assignRef('userprofile', $userprofile);
 		$this->assignRef('sortableFields', $sortableFields);
 		$this->assignRef('pagination', $pagination);
-		
+		$this->assign('total', $total);
+
 		/*XITODO : get select sort and direction form session
 		 * pass this to template
 		 */

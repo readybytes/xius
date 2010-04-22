@@ -5,8 +5,8 @@
 $css = JURI::base().'administrator/components/com_xius/assets/css/front/blue.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
-include('toolbar.php');
 include('sorting.php');
+include('toolbar.php');
 include('userlisting.php');
 include('pagination.php');
 ?>	
