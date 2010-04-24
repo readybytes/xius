@@ -109,7 +109,7 @@ class Jsfields extends XiusBase
 					
 					$conditions .= ' ) ';
 					//$query->select($c['columnname']);
-					$query->where($conditions,'OR');
+					$query->where($conditions,$join);
 				}
 				
 				return true;
@@ -125,7 +125,7 @@ class Jsfields extends XiusBase
 						$count++;
 						//$query->where($conditions,'OR');
 					}
-					$query->where($conditions,'OR');
+					$query->where($conditions,$join);
 					return true;
 				}
 			
@@ -160,12 +160,17 @@ class Jsfields extends XiusBase
 		if(empty($fieldInfo))
 			return $value;
 		
-		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+		if($fieldInfo[0]->type == 'checkbox' || $fieldInfo[0]->type == 'list')
+			return $value;
+
+
 		if($fieldInfo[0]->type == 'date')
 		{
 			//$values = array();
 			$value = split('-',$value);
 		}
+
+		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
 		return $formatvalue;
 	}

@@ -71,7 +71,7 @@ class XiusLibrariesUsersearch
 	function setDataInSession($what,$value,$namespace='XIUS')
 	{
 		$mySess =& JFactory::getSession();
-		$mySess->set('searchdata',$searchdata,$namespace);
+		$mySess->set($what,$value,$namespace);
 		return true;
 	}
 	
@@ -79,7 +79,7 @@ class XiusLibrariesUsersearch
 	function getDataFromSession($what,$default=false,$namespace='XIUS')
 	{
 		$mySess =& JFactory::getSession();
-		$params = $mySess->get($what,false,$namespace);
+		$params = $mySess->get($what,$default,$namespace);
 		
 		return $params;
 	}
