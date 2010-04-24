@@ -4,8 +4,9 @@ jimport( 'joomla.application.component.model' );
 class XiusModelSearch extends JModel
 {
 	
-	var $_total = null;
-	var $_pagination = null;
+	protected $_total = null;
+	protected $_pagination = null;
+	protected $_users = null;
 	
 	function __construct()
 	{
@@ -25,50 +26,53 @@ class XiusModelSearch extends JModel
 	}
 	
 	/*XITODO : Rename fn to getUsers */
-	function getData($params,$join='AND',$sort='userid',$dir='ASC')
+	function getUsers($params,$join='AND',$sort='userid',$dir='ASC')
 	{
-		//Check table existance 
+		if($this->_users)
+			return $this->_users;
+		
+		//Check table existance
+		/*XITODO : get table name from cache object */ 
 		if(!XiusHelpersUtils::isTableExist('xius_cache'))
 			XiusLibrariesUsersearch::updateCache();
-        // if data hasn't already been obtained, load it
-        if (empty($this->_data)) {
-        	$query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);
-        	/*global $mainframe;
-        	$mainframe->enqueueMessage($query,false);*/        
-            $this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
-            /*XITODO : Add error message */
-            if($this->_db->_cursor === false) {
-            	if($this->_db->_errorNum == 1146){
-            		/*this error represents cache table does not exist
-            		 * create it and again call build query
-            		 */		
-            		XiusLibrariesUsersearch::updateCache();
-            		$this->_data = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
-            	}
-            }
+			
+        $query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);        
+        $this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        /*XITODO : Add error message */
+        if($this->_db->_cursor === false) {
+          if($this->_db->_errorNum == 1146){
+            /*this error represents cache table does not exist
+             * create it and again call build query
+             */		
+            XiusLibrariesUsersearch::updateCache();
+            $this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+          }
         }
-        return $this->_data;
+        
+        return $this->_users;
   	}
   	
   	function getTotal($params)
   	{
-        // Load the content if it doesn't already exist
-        if (empty($this->_total)) {
-			$query = XiusLibrariesUserSearch::buildQuery($params);
+        if ($this->_total)
+        	return $this->_total;
+        	
+		$query = XiusLibrariesUsersearch::buildQuery($params);
 
-            $this->_total = $this->_getListCount($query);    
-        }
-        return $this->_total;
+        $this->_total = $this->_getListCount($query);    
+
+       	return $this->_total;
   	}
   	
   	
   	function getPagination($params)
   	{
-        // Load the content if it doesn't already exist
-        if (empty($this->_pagination)) {
-            jimport('joomla.html.pagination');
-            $this->_pagination = new JPagination($this->getTotal($params), $this->getState('limitstart'), $this->getState('limit') );
-        }
+        if ($this->_pagination)
+        	return $this->_pagination;
+        	
+        jimport('joomla.html.pagination');
+        $this->_pagination = new JPagination($this->getTotal($params), $this->getState('limitstart'), $this->getState('limit') );
+        
         return $this->_pagination;
   	}
   	

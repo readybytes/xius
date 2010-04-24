@@ -56,15 +56,40 @@ class XiusControllerSearch extends JController
 	
 	function basicsearch()
 	{
+		/*XITODO : collect join parameter
+		 * and set in session
+		 */
+		if(JRequest::getVar('xiusdelinfo', '', 'POST') != ''){
+			$params = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
+			$delInfoId = JRequest::getVar('xiusdelinfo', 0, 'POST');
+			if($delInfoId){
+				if(!empty($params)){
+		        	foreach($params as $key => $p){
+		        		if(!array_key_exists('infoid',$p))
+		        			continue;
+		        			
+		        		if($p['infoid'] == $delInfoId)
+		        			unset($params[$key]);
+		        	}
+		        }
+			}
+			XiusLibrariesUsersearch::setDataInSession('searchdata',$params,'XIUS');
+		}
 		
-		if(JRequest::getVar('search', '', 'POST') != ''){
+		if(JRequest::getVar('xiussort', '', 'POST') != ''){
+			$sort = JRequest::getVar('xiussort', 'userid', 'POST');
+			$dir = JRequest::getVar('xiussortdir', 'ASC', 'POST');
+			
+			XiusLibrariesUsersearch::setDataInSession('sort',$sort,'XIUS');
+			XiusLibrariesUsersearch::setDataInSession('dir',$dir,'XIUS');
+		}
+		if(JRequest::getVar('xiussearch', '', 'POST') != ''){
 			$searchdata = array();
 			$infoid = 0;
 			$count = 0;
 			$post = JRequest::get('POST');
-			//XITODO : create fields name xiusinfo_
 			foreach($post as $key => $value){
-				if(JString::stristr($key,'info_')){
+				if(JString::stristr($key,'xiusinfo_')){
 					if($infoid && $infoid == $value)
 						$infoid = 0;
 					else
@@ -85,15 +110,11 @@ class XiusControllerSearch extends JController
 	
 			}	
 	
-			$mySess =& JFactory::getSession();
-			$mySess->set('searchdata',$searchdata,'XIUS');
+			XiusLibrariesUsersearch::setDataInSession('searchdata',$searchdata,'XIUS');
 		}
 	
 		$viewName	= JRequest::getCmd( 'view' , 'search' );
-		// Get the document object
 		$document	=& JFactory::getDocument();
-
-		// Get the view type
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		$layout		= JRequest::getCmd( 'layout' , 'basicsearch' );

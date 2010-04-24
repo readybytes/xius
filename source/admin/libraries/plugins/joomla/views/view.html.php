@@ -24,13 +24,18 @@ class JoomlaView extends XiusBaseView
 		 * so i can easily get properties of info
 		 */	
 			
-		$fieldHtml = Joomlahelper::getFieldsHTML($calleObject->get('key'));
+		$fieldHtml = Joomlahelper::getFieldsHTML($calleObject);
 		
 		if(false == $fieldHtml)
 			return false;
-		//print_r($fieldHtml);
+		
 		$this->assign('fieldHtml',$fieldHtml);
+		ob_start();
 		$this->display();
+		ob_end_flush();
+		$contents = ob_get_contents();
+		ob_clean();
+		return $contents;
 	}
 	
 }

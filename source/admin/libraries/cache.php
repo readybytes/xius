@@ -4,19 +4,21 @@ defined('_JEXEC') or die('Restricted access');
 
 class XiusCache
 {
+	var $db				= null;
+	var $_tableName		= null;
+	var $createQuery	= null;
+	var $insertQuery	= null;
+	var $error 			= null;
 	
-	var $_tableName;
-	var $createQuery;
-	var $insertQuery;
 	
 	function __construct()
 	{
 		$this->_tableName = '#__xius_cache';
 		
-		$db =& JFactory::getDBO();
-		$this->createQuery = 'CREATE TABLE IF NOT EXISTS '
-						.$db->nameQuote($this->_tableName).' ( '
-						.'`userid` int(21) NOT NULL';
+		$this->db =& JFactory::getDBO();
+		$this->error = XiusFactory::getErrorObject();
+		
+		$this->insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
 	}
 	
 	
@@ -25,28 +27,84 @@ class XiusCache
 		return $this->_tableName;
 	}
 	
-	function createTable()
-	{}
-
-	function insertIntoTable()
-	{}
-	
-	
-	function buildColumn(&$cloumnDetails)
+	function createTable($droptableReq = true)
 	{
-		/*XITODO : use foreach with column details , it should be array of array */
-		if(!in_array('columnname',$cloumnDetails)) {
-			/*XITODO : set some error */
+		if($droptableReq)
+			$this->dropTable();
+			
+		if(empty($this->createQuery))
+			$this->buildCreateTableQuery();
+			
+		$this->db->setQuery($this->createQuery->__toString());
+		if($this->db->query())
+			return true;
+			
+		$this->error->setError($this->db->ErrorMsg());
+		return false;
+	}
+
+	function insertIntoTable(XiusQuery $query)
+	{
+		$this->insertQuery	.= $query->__toString();
+		$this->insertQuery .= ' )';
+		
+		/*XITODO : Bound result set starting from some users
+		 * Limit should be configurable
+		 */
+		/*$str .= ' LIMIT 10'*/
+		
+		$this->db->setQuery($this->insertQuery);
+		
+		if($this->db->query())
+			return true;
+			
+		$this->error->setError($this->db->ErrorMsg());
+		return false;
+	}
+	
+	
+	function dropTable()
+	{
+		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->nameQuote($this->_tableName);
+		$this->db->setQuery($dropQuery);
+		
+		if($this->db->query())
+			return true;
+			
+		$this->error->setError($this->db->ErrorMsg());
+		return false;
+	}
+	
+	
+	/*XITODO : Modify fn to check that column name
+	 * should be unique
+	 */
+	function buildCreateTableQuery($info = null)
+	{
+		if($info == null)
+			$info = XiusLibrariesUsersearch::getAllInfo();
+		
+		if(empty($info))
+			return false;
+
+		$this->createQuery = new XiusCreateTable($this->_tableName);
+		
+		$columns = array();
+		$columns[0] = $this->db->nameQuote('userid').' int(21) NOT NULL';
+		
+		$this->createQuery->appendColumns($columns);
+		
+		foreach($info as $i){
+			$instance = XiusFactory::getPluginInstanceFromId($i->id);
+			if(!$instance)
+				continue;
+				
+			$instance->appendCreateQuery($this->createQuery);
 		}
 		
-		if(!in_array('type',$cloumnDetails))
-			$cloumnDetails['type'] = 'varchar(250)';
-					
-		$this->createQuery .= ' , `'.$cloumnDetails['columnname'].'` '.$cloumnDetails['type'];
+		$this->createQuery->finalizeQuery();
 		
-		if(in_array('default',$cloumnDetails))
-			$this->createQuery .=  ' default '.$cloumnDetails['default'];
-		
+		return $this->createQuery->__toString();
 	}
 	
 }

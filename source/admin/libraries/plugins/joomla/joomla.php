@@ -45,6 +45,9 @@ class Joomla extends XiusBase
 			if(!$columns)
 				return false;
 
+			/*XITODO : think about registration date search
+			 * till now it's not supporting date feature
+			 */
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					//$query->select($c['columnname']);
@@ -70,6 +73,9 @@ class Joomla extends XiusBase
 	 */
 	function getUserData(XiusQuery &$query)
 	{
+		$query->select('juser.`id` as userid');
+		$query->from('`#__users` as juser');
+		
 		$query->select('joomlauser'.$this->getCacheColumnName().'.'.$this->getCacheColumnName().' as '.strtolower($this->pluginType).$this->getCacheColumnName());
 		
 		$query->leftJoin('`#__users` as joomlauser'.$this->getCacheColumnName().' ON ( joomlauser'.$this->getCacheColumnName().'.`id` = juser.`id` )' );
@@ -85,5 +91,29 @@ class Joomla extends XiusBase
 		if(!empty($fieldInfo))
 			return $fieldInfo;
 	}
+	
+	
+	public function getCacheColumns()
+	{
+		if($this->key != 'registerDate')
+			return parent::getCacheColumns();
+		
+		$details[] = array();
+		$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
+		$details[0]['specs'] = 'datetime NOT NULL';
+		return $details;
+	}
+	
+	
+	/*function formatValue($value)
+	{
+		if($this->key == 'registerDate')
+		{
+			//$values = array();
+			$value = split('-',$value);
+		}
+		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
+		return $formatvalue;
+	}*/
 	
 }

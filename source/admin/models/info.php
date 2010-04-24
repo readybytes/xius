@@ -67,7 +67,7 @@ class XiusModelInfo extends JModel
 	}
 	
 	
-	
+	/*XITODO : Cache function for same filter */
 	function getAllInfo($filter = '',$join = 'AND',$reqPagination = true,$limitStart=0 , $limit=0)
 	{
 		$this->getPagination();

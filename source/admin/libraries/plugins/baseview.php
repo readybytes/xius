@@ -46,12 +46,9 @@ class XiusBaseView extends JView
 	
 	function searchHtml($calleObject)
 	{
-		$infoIdStartHtml = '<input type = "hidden" name="info_'.$calleObject->get('id').'1" id="info_'.$calleObject->get('id').'1" value="'.$calleObject->get('id').'"/>';
-		$infoIdEndHtml = '<input type = "hidden" name="info_'.$calleObject->get('id').'2" id="info_'.$calleObject->get('id').'2" value="'.$calleObject->get('id').'"/>';
 		$inputHtml = '<input type="text" name="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" id="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" />';
-		$htmlwithInfoId = $infoIdStartHtml . $inputHtml . $infoIdEndHtml;
 		
-		return $htmlwithInfoId;
+		return $inputHtml;
 	}
 	
 	

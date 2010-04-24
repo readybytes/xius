@@ -426,6 +426,7 @@ class XiusCreateTable extends JObject
 {
 	public $_tableName;
 	public $_query;
+	private $_count;
 	
 	function __construct($tableName)
 	{
@@ -435,8 +436,9 @@ class XiusCreateTable extends JObject
 		$db = JFactory::getDBO();
 		$this->_tableName	= 	$tableName;
 		$this->_query		=	'CREATE TABLE IF NOT EXISTS '
-								.$db->nameQuote($this->_tableName).' ( '
-								.'`userid` int(21) NOT NULL';
+								.$db->nameQuote($this->_tableName).' ( ';
+								
+		$this->_count = 0;
 	}
 	
 	
@@ -453,10 +455,11 @@ class XiusCreateTable extends JObject
 		
 		foreach($columns as $c) {
 			
-			if(!empty($this->_query))
+			if($this->_count)
 				$this->_query .= ',';
 			
 			$this->_query .= $c;
+			$this->_count = $this->_count + 1;
 		}	
 		
 		return true;

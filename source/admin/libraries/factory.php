@@ -118,4 +118,14 @@ class XiusFactory
 		return $object;
 	}
 	
+	public function getCacheObject()
+	{
+		static $object;
+		if(isset($object))
+			return $object;
+			
+		$object = new XiusCache();
+		return $object;
+	}
+	
 }

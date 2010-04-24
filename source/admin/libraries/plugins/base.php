@@ -221,9 +221,9 @@ abstract class XiusBase extends JObject
 	
 	protected function generateSearchHtml()
 	{
-		$infoIdStartHtml = '<input type = "hidden" name="info_'.$this->id.'1" id="info_'.$this->id.'1" value="'.$this->id.'"/>';
+		$infoIdStartHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'1" id="xiusinfo_'.$this->id.'1" value="'.$this->id.'"/>';
 		$inputHtml = '<input type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
-		$infoIdEndHtml = '<input type = "hidden" name="info_'.$this->id.'2" id="info_'.$this->id.'2" value="'.$this->id.'"/>';
+		$infoIdEndHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'2" id="xiusinfo_'.$this->id.'2" value="'.$this->id.'"/>';
 		$htmlwithInfoId = $infoIdStartHtml . $inputHtml . $infoIdEndHtml;
 		
 		return $htmlwithInfoId;
@@ -243,8 +243,8 @@ abstract class XiusBase extends JObject
 		
 		$html = $view->searchHtml($this);
 		if(!empty($html)){
-			$infoIdStartHtml = '<input type = "hidden" name="info_'.$this->id.'1" id="info_'.$this->id.'1" value="'.$this->id.'"/>';
-			$infoIdEndHtml = '<input type = "hidden" name="info_'.$this->id.'2" id="info_'.$this->id.'2" value="'.$this->id.'"/>';
+			$infoIdStartHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'1" id="xiusinfo_'.$this->id.'1" value="'.$this->id.'"/>';
+			$infoIdEndHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'2" id="xiusinfo_'.$this->id.'2" value="'.$this->id.'"/>';
 			$htmlwithInfoId = $infoIdStartHtml . $html . $infoIdEndHtml;
 			return $htmlwithInfoId;
 		}
@@ -444,8 +444,11 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	function getMiniProfileDisplay($userid,$tname='#__xius_cache',$utname='userid')
+	function getMiniProfileDisplay($userid)
 	{
+		$cache = XiusFactory::getCacheObject();
+		$tname = $cache->getTableName();
+		$utname = 'userid';
 		$columns = $this->getCacheColumns();
 		if(empty($columns))
 			return false;
@@ -486,6 +489,9 @@ abstract class XiusBase extends JObject
 	 */
 	public function cleanObject()
 	{
+		/*XITODO : never initialize params again
+		 * only clean values
+		 */ 
 		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
 		//XITODO: add default.ini
 		if(JFile::exists($paramsxmlpath))

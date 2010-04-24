@@ -55,19 +55,8 @@ class XiusViewSearch extends JView
 	
 	function basicsearch()
 	{
-		$mySess =& JFactory::getSession();
-	
-        /*XITODO : get sort params to set in session */
-		$mySess->set('sort',1,'XIUS');
-		$mySess->set('dir','DESC','XIUS');
-		
-		/*XITODO : not include file here
-		* Include community language file also
-		 */
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
-		$params = XiusLibrariesUserSearch::collectParamstoSearch();
-		
-		$sortInfo = XiusLibrariesUserSearch::collectSortParams();
+		$params = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
+		$sortInfo = XiusLibrariesUsersearch::collectSortParams();
 		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortInfo['sort']);
 		
 		if(!$plgSortInstance)
@@ -83,8 +72,9 @@ class XiusViewSearch extends JView
 			}
 		}
 		
+		$join = XiusLibrariesUsersearch::getDataFromSession('join','AND');
 		$model =& XiusFactory::getModel('search','site');
-		$users =& $model->getData($params,'AND',$sort,$sortInfo['dir']);      
+		$users =& $model->getUsers($params,$join,$sort,$sortInfo['dir']);      
         $pagination =& $model->getPagination($params);
         $total =& $model->getTotal($params);
         
@@ -133,16 +123,54 @@ class XiusViewSearch extends JView
 			}
         }
 		
+        $availableInfo = $allInfo;
+        $appliedInfo = array();
+        /*convert search param into display data
+         * creating applied info ( search parameter )
+         */
+        if(!empty($params)){
+        	foreach($params as $p){
+        		if(!array_key_exists('infoid',$p))
+        			continue;
+        			
+        		$plgInstance = XiusFactory::getPluginInstanceFromId($p['infoid']);
+				if(!$plgInstance)
+					continue;
+				
+					/*unset applied info */
+				foreach($availableInfo as $k => $info){
+					if($info->id == $p['infoid'])
+						unset($availableInfo[$k]);
+				}
+				$appliedData = array();
+				$appliedData['label'] = $plgInstance->get('labelName');
+				$appliedData['value'] = $p['value'];
+				$appliedData['infoid'] = $p['infoid'];
+				
+				$appliedInfo[] = $appliedData;
+        	}
+        }
+        
+        
+        /*XITODO : arrange available info
+         * representation array
+         */
+	 	if(!empty($availableInfo)){
+        	foreach($availableInfo as $ai){	
+        		$plgInstance = XiusFactory::getPluginInstanceFromId($ai->id);
+				if(!$plgInstance)
+					continue;
+        	}
+        }
+        
 		$this->assignRef('users', $users);
 		$this->assignRef('userprofile', $userprofile);
 		$this->assignRef('sortableFields', $sortableFields);
 		$this->assignRef('pagination', $pagination);
 		$this->assign('total', $total);
+		$this->assign('appliedInfo', $appliedInfo);
+		$this->assign('availableInfo', $availableInfo);
 
-		/*XITODO : get select sort and direction form session
-		 * pass this to template
-		 */
-		$sortInfo = XiusLibrariesUserSearch::collectSortParams();
 		$this->assign('sort', $sortInfo['sort']);
 		$this->assign('dir', $sortInfo['dir']);
 		parent::display();

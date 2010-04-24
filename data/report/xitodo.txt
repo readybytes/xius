@@ -1,30 +1,33 @@
 ../packages/tmp/site/controllers/search.php:18:		/*XITODO : Add icon for mailing , printing ,and pdf document
 ../packages/tmp/site/controllers/search.php:22:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/search.php:50:		/*XITODO : pass only searchable information 
-../packages/tmp/site/models/search.php:27:	/*XITODO : Rename fn to getUsers */
-../packages/tmp/site/models/search.php:34:            /*XITODO : Add error message */
-../packages/tmp/site/models/search.php:52:			/*XITODO : Add params1 as argument ,not build here*/
-../packages/tmp/site/views/search/view.html.php:51:		/*XITODO : not include file here
+../packages/tmp/site/controllers/search.php:59:		/*XITODO : collect join parameter
+../packages/tmp/site/models/search.php:28:	/*XITODO : Rename fn to getUsers */
+../packages/tmp/site/models/search.php:35:		/*XITODO : get table name from cache object */ 
+../packages/tmp/site/models/search.php:41:        /*XITODO : Add error message */
+../packages/tmp/site/views/search/view.html.php:155:        /*XITODO : arrange available info
 ../packages/tmp/site/views/search/tmpl/default.php:3:/*XITODO : pass variable for color */
 ../packages/tmp/site/views/search/tmpl/basicsearch.php:4:/*XITODO : pass variable for color */
 ../packages/tmp/admin/helpers/utils.php:59:		/*XITODO : get parameter from configuration*
 ../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
-../packages/tmp/admin/controllers/info.php:207:		/*XITODO : check if info is used anywhere,
-../packages/tmp/admin/libraries/cache.php:37:		/*XITODO : use foreach with column details , it should be array of array */
-../packages/tmp/admin/libraries/cache.php:39:			/*XITODO : set some error */
-../packages/tmp/admin/libraries/usersearch.php:19:		/*XITODO : provide join operator and sorting condition
-../packages/tmp/admin/libraries/usersearch.php:42:		 * XITODO : add block condition
-../packages/tmp/admin/libraries/usersearch.php:48:			/*XITODO : Pass operator */
-../packages/tmp/admin/libraries/usersearch.php:59:		/*XITODO : if unable to find any column
-../packages/tmp/admin/libraries/usersearch.php:97:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:149:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:174:		/*XITODO : Bound result set starting from some users
-../packages/tmp/admin/libraries/usersearch.php:209:		/*XITODO : update xius_cache table with new info id
-../packages/tmp/admin/libraries/usersearch.php:244:		/*XITODO : break insert user data query into parts
-../packages/tmp/admin/libraries/usersearch.php:263:		/*XITODO : pass info
-../packages/tmp/admin/libraries/factory.php:62:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/controllers/info.php:205:		/*XITODO : check if info is used anywhere,
+../packages/tmp/admin/libraries/cache.php:51:		/*XITODO : Bound result set starting from some users
+../packages/tmp/admin/libraries/cache.php:79:	/*XITODO : Modify fn to check that column name
+../packages/tmp/admin/libraries/usersearch.php:12:		/*XITODO : provide join operator and sorting condition
+../packages/tmp/admin/libraries/usersearch.php:32:		 * XITODO : add block condition
+../packages/tmp/admin/libraries/usersearch.php:116:		/*XITODO : pass info through parameter */
+../packages/tmp/admin/libraries/usersearch.php:159:		/*XITODO : update xius_cache table with new info id
+../packages/tmp/admin/libraries/usersearch.php:166:		/*XITODO : break insert user data query into parts
+../packages/tmp/admin/libraries/usersearch.php:179:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:216:		/*XITODO : pass info
+../packages/tmp/admin/libraries/factory.php:67:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/plugins/joomla/joomla.php:48:			/*XITODO : think about registration date search
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/base.php:289:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:291:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:492:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/base.php:496:		//XITODO: add default.ini
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:191:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/plugins/baseview.php:33:		/*XITODO : unset already exist info */
+../packages/tmp/admin/models/info.php:70:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:124:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

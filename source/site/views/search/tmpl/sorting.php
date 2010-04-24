@@ -4,7 +4,7 @@
 		if(empty($this->sortableFields))
 			echo "I m in sorting";
 		else{
-			$html = '<select id="sort" name="sort"/>';
+			$html = '<select id="xiussort" name="xiussort" onchange="document.basicSearchForm.submit();" />';
 			foreach($this->sortableFields as $sfields){
 				$selected = '';
 				if($this->sort == $sfields['key'])
@@ -23,7 +23,7 @@
 			else if($this->dir == 'DESC')
 				$descselected = ' selected=true ';
 				
-			$dirhtml = '<select id="dir" name="dir"/>';
+			$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="document.basicSearchForm.submit();"/>';
 			$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
 			$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
 			$dirhtml .= '</select>';

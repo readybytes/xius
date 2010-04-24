@@ -69,9 +69,12 @@ class Jsfieldshelper
 		/*if(isset($fieldInfo->options) && $fieldInfo->options != '')
 			$options	= explode("\n", $options);*/
 		
+		/*IMP : if change date field data into y-mm-dd ,
+		 * then take care of jsfields formatValue function also
+		 */
 		if($fieldInfo->type == 'date') {
 			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.'" style="width:125px; margin-right:4px" value="" />';
-			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.'\', \'y-mm-dd\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
+			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 		}
 		else
 			$fieldHTML = CProfileLibrary::getFieldHTML($fieldInfo);

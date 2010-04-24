@@ -6,14 +6,7 @@ defined('_JEXEC') or die('Restricted access');
 
 
 class XiusLibrariesUsersearch
-{
-	
-	function getUsers()
-	{
-		
-	}
-	
-	
+{	
 	function buildQuery($params,$join='AND',$sort='userid',$dir='ASC')
 	{
 		/*XITODO : provide join operator and sorting condition
@@ -21,10 +14,8 @@ class XiusLibrariesUsersearch
 		 * provide direction also
 		 * */
 		$db = JFactory::getDBO();
-		$query = new XiusQuery();
-		
-		$cache = new XiusCache();
-	
+		$query = new XiusQuery();		
+		$cache = XiusFactory::getCacheObject();
 		$tableName = $cache->getTableName();
 		
 		if(empty($tableName))
@@ -77,12 +68,20 @@ class XiusLibrariesUsersearch
 	}
 	
 	
-	function collectParamstoSearch()
+	function setDataInSession($what,$value,$namespace='XIUS')
 	{
 		$mySess =& JFactory::getSession();
-		$searchdata = $mySess->get('searchdata',false,'XIUS');
+		$mySess->set('searchdata',$searchdata,$namespace);
+		return true;
+	}
+	
+	
+	function getDataFromSession($what,$default=false,$namespace='XIUS')
+	{
+		$mySess =& JFactory::getSession();
+		$params = $mySess->get($what,false,$namespace);
 		
-		return $searchdata;
+		return $params;
 	}
 	
 	
@@ -106,57 +105,9 @@ class XiusLibrariesUsersearch
 	
 	function createTableQuery()
 	{
-		/*XITODO : pass info through parameter */
 		$info = self::getAllInfo();
-		
-		if(empty($info))
-			return false;
-
-		/*XITODO : move create table query code to cache class*/
-		$cache = new XiusCache();
-		$createQuery = new XiusCreateTable($cache->_tableName);
-			
-		if(false == $createQuery)
-			return false;
-			
-		foreach($info as $i){
-			$instance = XiusFactory::getPluginInstanceFromId($i->id);
-			if(!$instance)
-				continue;
-				
-			$instance->appendCreateQuery($createQuery);
-		}
-		
-		$createQuery->finalizeQuery();
-		
-		return $createQuery->__toString();
-	}
-	
-	
-	function add_column($name, $specstr, $tname)
-	{
-		$db		=& JFactory::getDBO();
-		$query	= 	'SHOW COLUMNS FROM ' 
-					. $db->nameQuote($tname)
-					. ' LIKE \'%'.$name.'%\' ';
-		$db->setQuery( $query );
-		$columns	= $db->loadObjectList();
-		if($db->getErrorNum())
-		{
-			JError::raiseError( 500, $db->stderr());
-			return false;
-		}
-	
-		if($columns==NULL || $columns[0] == NULL)
-		{
-			$query =' ALTER TABLE '. $db->nameQuote($tname) 
-					. ' ADD COLUMN ' . $db->nameQuote($name)
-					. ' ' . $specstr;
-			$db->setQuery( $query );
-			$db->query();
-			return true;
-		}
-		return false;
+		$cache = XiusFactory::getCacheObject();
+		return $cache->buildCreateTableQuery($info);
 	}
 	
 	
@@ -168,9 +119,15 @@ class XiusLibrariesUsersearch
 		if(empty($info))
 			return false;
 
-		$cache = new XiusCache();
-		
 		$query = new XiusQuery();
+		
+		/*This should always be on top
+		 * else joomlausername data will be added first
+		 * and it will overrite userid
+		 */
+		$query->select('juser.`id` as userid');
+		$query->from('`#__users` as juser');
+		//$query->where('juser.`id` < 2000');
 		
 		foreach($info as $i){
 			if(is_array($i))
@@ -184,42 +141,15 @@ class XiusLibrariesUsersearch
 			$instance->getUserData($query);
 		}
 		
-		$query->select('juser.`id` as userid');
-		$query->from('`#__users` as juser');
-		//$query->where('juser.`id` < 2000');
-		
 		return $query;
-		
-		$str = $query->__toString();
-		/*XITODO : Bound result set starting from some users
-		 * Limit should be configurable
-		 */
-		$str .= ' LIMIT 10';
-		return $str;
-		//return $query;
 	}
 	
 	
 	
 	function insertUserData(XiusQuery $userInfo)
 	{
-		
-		$table = new XiusCache();
-		$tableName = $table->getTableName();
-
-		$insertQuery = 'INSERT INTO `'.$tableName.'` ( ';
-		$insertQuery .= $userInfo->__toString();
-		$insertQuery .= ' )';
-		
-		$db =& JFactory::getDBO();
-		$db->setQuery($insertQuery);
-		if(!$db->query()) {
-			$error = XiusFactory::getErrorObject();
-			$error->setError($db->ErrorMsg());
-			return false;
-		}
-		
-		return true;
+		$cache = XiusFactory::getCacheObject();
+		return $cache->insertIntoTable($userInfo);
 	}
 	
 	
@@ -229,69 +159,39 @@ class XiusLibrariesUsersearch
 		/*XITODO : update xius_cache table with new info id
 		 * We can only add column also without creating whole table
 		 */
-		/*First Drop table */
-		$dropQuery = 'DROP TABLE IF EXISTS '.$db->nameQuote('#__xius_cache');
-		$db->setQuery($dropQuery);
-		if(!$db->query()) {
-			$error = XiusFactory::getErrorObject();
-			$error->setError($db->ErrorMsg());
+		$cache = XiusFactory::getCacheObject();
+		if(!$cache->createTable())
 			return false;
-		}	
-		
-		$query = XiusLibrariesUsersearch::createTableQuery();
-		$db->setQuery($query);
-		if(!$db->query()) {
-			$error = XiusFactory::getErrorObject();
-			$error->setError($db->ErrorMsg());
-			return false;
-		}
-		
-		/*Add column */
-		/*$instance = XiusFactory::getPluginInstanceFromId($data['id']);
-		$columns = $instance->getCacheColumns();
-		
-		$cache = new XiusCache();
-			
-		if(empty($columns))
-			return;
-			
-		foreach($columns as $c){
-			XiusLibrariesUserSearch::add_column($c['columnname'],$c['specs'],$cache->_tableName);
-		}
-		
-		$info = array();
-		$info[0] = $data['data'];*/
+
 		/*XITODO : break insert user data query into parts
-		 * provide limit
+		 * provide limit , for huge amount of users say 1,00,000
+		 * then in first rount process 1000 users then again 1000 etc.
 		 */
-		$getDataQuery = XiusLibrariesUserSearch::buildInsertUserdataQuery();
+		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		
-		$insertDataQuery = XiusLibrariesUserSearch::insertUserData($getDataQuery);
-		$db->setQuery($insertDataQuery);
-		
-		if(!$db->query()) {
-			$error = XiusFactory::getErrorObject();
-			$error->setError($db->ErrorMsg());
-			return false;
-		}
+		return $cache->insertIntoTable($getDataQuery);
 	}
 	
 	
 	
-	function getMiniProfileDisplayFields($userid,$allInfo=array())
+	function getMiniProfileDisplayFields($userid,$allInfo=null)
 	{
 		/*XITODO : pass info
 		 * for admin display all fields , discard publish checking
 		 */
 		$displayFields = array();
-		$filter = array();
-		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
+		
+		if($allInfo == null){
+			$filter = array();
+			$filter['published'] = true;
+			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
+		}
 		
 		if(empty($allInfo))
 			return $displayFields;
 			
 		$count = 0;
+		$cache = XiusFactory::getCacheObject();
 		foreach($allInfo as $info){
 			$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
 			
@@ -304,25 +204,28 @@ class XiusLibrariesUsersearch
 			if(!$plgInstance->isVisible())
 				continue;
 					
-			$displayFields[$info->labelName] = $plgInstance->getMiniProfileDisplay($userid,'#__xius_cache');
+			$displayFields[$info->labelName] = $plgInstance->getMiniProfileDisplay($userid,$cache->getTableName());
 		}
 		
 		return $displayFields;
 	}
 	
 	
-	function getSortableFields($allInfo=array())
+	function getSortableFields($allInfo=null)
 	{
 		/*XITODO : pass info
 		 * for admin display all fields , discard publish checking
 		 */
 		$sortableFields = array();
-		/*$filter = array();
-		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');*/
+		if($allInfo == null){
+			$filter = array();
+			$filter['published'] = true;
+			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
+		}
 		
 		if(empty($allInfo))
 			return $sortableFields;
+			
 		$count = 0;
 		foreach($allInfo as $info){
 			$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);

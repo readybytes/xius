@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `#__xius_info` (
 
 
 
-CREATE TABLE IF NOT EXISTS `#__xius_lists` (
+CREATE TABLE IF NOT EXISTS `#__xius_list` (
   `id` int(11) NOT NULL auto_increment,
   `owner` int(21) NOT NULL,
   `name` text NOT NULL,

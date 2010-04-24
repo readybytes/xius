@@ -9,7 +9,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 
 	function testGetMiniProfileDisplayFields()
 	{
-		$value = XiusLibrariesUsersearch::getMiniProfileDisplayFields(64,'#__xius_cache');
+		$value = XiusLibrariesUsersearch::getMiniProfileDisplayFields(64);
 		print_r(var_export($value));
 	}
 	

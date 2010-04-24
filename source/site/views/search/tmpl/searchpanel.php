@@ -28,7 +28,7 @@ jimport('joomla.html.pane');
 	</div>
 
 <div class="clr"></div>
-	<div id="searcha"><input type="submit" id="search" name="search" value="Search" /></div>
+	<div id="searcha"><input type="submit" id="xiussearch" name="xiussearch" value="Search" /></div>
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="search" />
 	<input type="hidden" name="boxchecked" value="0" />
