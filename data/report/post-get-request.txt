@@ -1,0 +1,2 @@
+egrep: ../packages/tmp/admin/assets/images/greenheader: No such file or directory
+egrep: copy.gif: No such file or directory

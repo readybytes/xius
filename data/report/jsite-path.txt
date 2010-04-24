@@ -1,0 +1,2 @@
+grep: ../packages/tmp/admin/assets/images/greenheader: No such file or directory
+grep: copy.gif: No such file or directory

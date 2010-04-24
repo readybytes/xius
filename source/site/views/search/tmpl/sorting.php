@@ -1,5 +1,5 @@
 <div class="sort">
-	
+<div class="selectbox">	
 	<?php 
 		if(empty($this->sortableFields))
 			echo "I m in sorting";
@@ -33,4 +33,5 @@
 		
 		
 	?>
+</div>	
 </div>

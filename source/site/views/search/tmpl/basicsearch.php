@@ -7,8 +7,8 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 include('appliedinfo.php');
 include('availableinfo.php');
-include('sorting.php');
 include('toolbar.php');
+include('sorting.php');
 include('userlisting.php');
 include('pagination.php');
 ?>	
