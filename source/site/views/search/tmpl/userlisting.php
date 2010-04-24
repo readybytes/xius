@@ -28,7 +28,7 @@
 			?><div class="submainbox">
 			<div class="subleftbox">
 				
-			<img src="<?php echo $cuser->getThumbAvatar();?>" />
+			<a href=""><img src="<?php echo $cuser->getThumbAvatar();?>" /></a>
 			</div>
 			
 			<div class="subrightbox"><div class="lsubrightbox"><?php //echo $u->userid;
@@ -45,7 +45,7 @@
 						} 
 					}
 	 			}
-				?></div><div style="float:right;width:29%;">
+				?></div><div style="float:right;width:29%;margin-top:4px;">
 			<span style="text-align: right"><?php 
 						if($cuser->isOnline())
 						{
@@ -64,11 +64,12 @@
 			</div>
 			</div>
 			<div class="clr"></div>	
-			<div class="viewprofile">View Profile</div>				
+			<div class="viewprofile"><a href="">View Profile</a></div>				
 				
 					
 		</div>	
 	<?php }?>
 	 
 </div>
+
 

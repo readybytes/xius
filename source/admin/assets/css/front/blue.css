@@ -24,14 +24,19 @@
 }
 
 .subleftbox{
-width: 15%;
 float:left;
 margin:10px;
+border:1px solid black;
+background-color: #DDECF3;
 }
+.subleftbox a
+{
 
+}	
 .subleftbox img
 {
 width:67px;
+margin:3px;
 height: 67px;
 top:40%;
 }
@@ -81,7 +86,7 @@ background-repeat:no-repeat;
 .lsubrightbox
 {
 float:left;
-margin-top:0px;
+margin-top:2px;
 padding-top:0px;
 width:70%;
 }
@@ -96,5 +101,6 @@ margin-left: 10px;
 margin-bottom: 10px;
 border:1px solid #D8DFEA;
 }
+
 
 

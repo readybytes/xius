@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2010-04-24T10:34:45" pdepend="0.9.11" ahh="0.823529411765" andc="0.0975609756098" calls="788" ccn="567" ccn2="601" cloc="882" clsa="1" clsc="40" eloc="2954" fanout="245" leafs="33" loc="4826" maxDIT="2" ncloc="3944" noc="41" nof="4" noi="0" nom="214" nop="3" roots="6">
+<metrics generated="2010-04-24T10:39:32" pdepend="0.9.11" ahh="0.823529411765" andc="0.0975609756098" calls="788" ccn="567" ccn2="601" cloc="882" clsa="1" clsc="40" eloc="2954" fanout="245" leafs="33" loc="4826" maxDIT="2" ncloc="3944" noc="41" nof="4" noi="0" nom="214" nop="3" roots="6">
   <files>
     <file name="/vobs/xius/trunk/source/admin/controllers/cpanel.php" cloc="1" eloc="23" loc="33" ncloc="32"/>
     <file name="/vobs/xius/trunk/source/admin/controllers/info.php" cloc="24" eloc="211" loc="308" ncloc="284"/>
