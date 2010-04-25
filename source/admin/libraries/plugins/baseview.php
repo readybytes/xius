@@ -30,7 +30,7 @@ class XiusBaseView extends JView
 		 */
 		
 		$info = $calleObject->getAvailableInfo();
-		/*XITODO : unset already exist info */
+		/*unset already exist info */
 		$availableInfo = XiusLibrariesInfo::getInfo();
 		$calleObject->removeExistingInfo($info,$availableInfo);
 		

@@ -2,7 +2,6 @@
 ../packages/tmp/site/controllers/search.php:22:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/search.php:50:		/*XITODO : pass only searchable information 
 ../packages/tmp/site/controllers/search.php:59:		/*XITODO : collect join parameter
-../packages/tmp/site/models/search.php:28:	/*XITODO : Rename fn to getUsers */
 ../packages/tmp/site/models/search.php:35:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/search.php:41:        /*XITODO : Add error message */
 ../packages/tmp/site/views/search/view.html.php:155:        /*XITODO : arrange available info
@@ -24,10 +23,9 @@
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:48:			/*XITODO : think about registration date search
 ../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
 ../packages/tmp/admin/libraries/plugins/base.php:291:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:492:		/*XITODO : never initialize params again
-../packages/tmp/admin/libraries/plugins/base.php:496:		//XITODO: add default.ini
+../packages/tmp/admin/libraries/plugins/base.php:493:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/base.php:497:		//XITODO: add default.ini
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:196:		/*XITODO : Cache jomsocial fields */
-../packages/tmp/admin/libraries/plugins/baseview.php:33:		/*XITODO : unset already exist info */
 ../packages/tmp/admin/models/info.php:70:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:124:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

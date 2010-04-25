@@ -20,10 +20,13 @@ class XiusTableList extends JTable
 	var $name			= null;
 	var $visibleinfo	= null;
 	var $sortinfo		= null;
+	var $sortdir		= null;
 	var $join			= null;
+	var $conditions		= null;
 	var $published		= null;
 	var $ordering		= null;
 	var $description	= null;
+	var $params			= null;
 	
 	function __construct(&$db)
 	{
@@ -36,11 +39,13 @@ class XiusTableList extends JTable
 			return parent::load( $id );
 		
 		$this->id			= 0;
-		$this->owner		= JFactory::getUser()->id;
+		$this->owner		= 0;
 		$this->name			= '';
 		$this->visibleinfo	= '';
-		$this->sortinfo		= '';
+		$this->sortinfo		= 'userid';
+		$this->sortdir		= 'ASC';
 		$this->join			= '';
+		$this->conditions	= '';
 		$this->published	= true;
 		$this->ordering		= 0;
 		$this->description	= '';
@@ -57,7 +62,9 @@ class XiusTableList extends JTable
 	function store(  )
 	{
 		$db		=& JFactory::getDBO();		
-		
+		if(!$this->owner)
+			return false;
+			
 		//For new records need to update the ordering.
  		if( $this->id == 0 )
  		{
@@ -84,15 +91,7 @@ class XiusTableList extends JTable
 	 **/
 	function bind($data)
 	{
-			$this->id			= $data['id'];
-			$this->name			= $data['name'];
-			$this->fieldid		= $data['fieldid'];
-			$this->sort			= $data['sort'];
-			$this->join			= $data['join'];
-			$this->published	= $data['published'];
-			$this->description	= $data['description'];
-			
-			return parent::bind($data);
+		return parent::bind($data);
 	}
 }
 

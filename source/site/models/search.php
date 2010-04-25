@@ -25,7 +25,7 @@ class XiusModelSearch extends JModel
         $this->setState('limitstart', $limitstart);
 	}
 	
-	/*XITODO : Rename fn to getUsers */
+	
 	function getUsers($params,$join='AND',$sort='userid',$dir='ASC')
 	{
 		if($this->_users)

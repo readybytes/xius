@@ -124,4 +124,32 @@ class XiusControllerSearch extends JController
 	}
 	
 	
+	function saveList()
+	{
+		global $mainframe;
+		$user =& JFactory::getUser();
+		if(!$user->id){
+			$url = JRoute::_("index.php?option=com_xius&view=search&task=basicsearch",false);
+			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
+		}
+		
+		$searchdata = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
+		if(!$searchdata){
+			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
+			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
+		}
+
+		$data = array();
+		
+		$data['id'] = 0;
+		$data['join'] = XiusLibrariesUsersearch::getDataFromSession('join','AND');
+		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession('sort','userid');
+		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession('dir','ASC');
+		$data['owner'] = $user->id;
+		$data['conditions'] = serialize($searchdata);
+		$data['searchdata'] = serialize($searchdata);
+		
+		if(!XiusLibrariesList::saveList($data))
+			$mainframe->enqueueMessage(JText::_('ERROR IN SAVE LIST'),false);
+	}
 }

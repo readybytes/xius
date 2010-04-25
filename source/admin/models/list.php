@@ -105,19 +105,6 @@ class XiusModelList extends JModel
 	}
 	
 	
-	function getConditions($id)
-	{
-		$db			=& JFactory::getDBO();
-		$query = 'SELECT * FROM'.' '
-				. $db->nameQuote('#__xius_conditions').' '
-				.'WHERE `id`='.$db->Quote($id);
-				
-		$db->setQuery( $query );
-		$conditions	= $db->loadObjectList();
-		return $conditions;
-	}
-	
-	
 	function updatePublish($id,$value)
 	{
 		global $mainframe;
@@ -161,29 +148,6 @@ class XiusModelList extends JModel
 		}
 
 		return $row->id;
-	}
-	
-
-	function removeConditions($id)
-	{
-		global $mainframe;
-		
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-
-		$rows	= $this->getConditions($id);
-		
-		$count = 0;
-		if(!empty($rows)){
-			$table	=& JTable::getInstance( 'conditions', 'XiusTable' );
-			
-			foreach( $rows as $row ){
-				$table->load( $row->id );
-				$table->delete( $row->id );
-				$count++;
-			}
-		}
-		
-		return $count;
 	}
 }
 ?>

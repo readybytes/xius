@@ -2,10 +2,19 @@
 ../packages/tmp/site/controllers/search.php:6:class XiusControllerSearch extends JController
 ../packages/tmp/site/controllers/search.php:42:		$document	=& JFactory::getDocument();
 ../packages/tmp/site/controllers/search.php:117:		$document	=& JFactory::getDocument();
+../packages/tmp/site/controllers/search.php:129:		global $mainframe;
+../packages/tmp/site/controllers/search.php:130:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/search.php:132:			$url = JRoute::_("index.php?option=com_xius&view=search&task=basicsearch",false);
+../packages/tmp/site/controllers/search.php:133:			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
+../packages/tmp/site/controllers/search.php:138:			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
+../packages/tmp/site/controllers/search.php:139:			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
+../packages/tmp/site/controllers/search.php:153:			$mainframe->enqueueMessage(JText::_('ERROR IN SAVE LIST'),false);
 ../packages/tmp/site/models/search.php:15:        global $mainframe, $option;
 ../packages/tmp/site/models/search.php:18:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/views/search/tmpl/default.php:5:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/search/tmpl/searchpanel.php:4:$document =& JFactory::getDocument();
+../packages/tmp/site/views/search/tmpl/toolbar.php:5:$user =& JFactory::getUser();
+../packages/tmp/site/views/search/tmpl/toolbar.php:9:	echo '<a href="'.JRoute::_($url,false).'" />'.JText::_('SAVE THIS LIST').'</a>';
 ../packages/tmp/site/views/search/tmpl/basicsearch.php:6:$document =& JFactory::getDocument();
 ../packages/tmp/install/uninstall.php:13:	$db			=& JFactory::getDBO();		
 ../packages/tmp/admin/helpers/utils.php:35:		global $mainframe;
@@ -67,12 +76,11 @@
 ../packages/tmp/admin/controllers/list.php:138:			$mainframe->redirect( 'index.php?option=com_xius&view=list' );
 ../packages/tmp/admin/tables/info.php:5:class XiusTableInfo extends JTable
 ../packages/tmp/admin/tables/info.php:43:	 * Overrides Joomla's JTable store method so that we can define proper values
-../packages/tmp/admin/tables/conditions.php:19:class UserlistTableConditions extends JTable {
-../packages/tmp/admin/tables/conditions.php:70:	 * Overrides Joomla's JTable store method so that we can define proper values
+../packages/tmp/admin/tables/conditions.php:19:class XiusTableConditions extends JTable 
+../packages/tmp/admin/tables/conditions.php:59:	 * Overrides Joomla's JTable store method so that we can define proper values
 ../packages/tmp/admin/tables/list.php:15:class XiusTableList extends JTable
-../packages/tmp/admin/tables/list.php:39:		$this->owner		= JFactory::getUser()->id;
-../packages/tmp/admin/tables/list.php:52:	 * Overrides Joomla's JTable store method so that we can define proper values
-../packages/tmp/admin/tables/list.php:59:		$db		=& JFactory::getDBO();		
+../packages/tmp/admin/tables/list.php:57:	 * Overrides Joomla's JTable store method so that we can define proper values
+../packages/tmp/admin/tables/list.php:64:		$db		=& JFactory::getDBO();		
 ../packages/tmp/admin/libraries/cache.php:18:		$this->db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/usersearch.php:16:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/usersearch.php:73:		$mySess =& JFactory::getSession();
@@ -86,7 +94,7 @@
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:33:			$document	=& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/base.php:332:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/base.php:366:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:456:		$db =& JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:457:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:73:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:11:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:58:		$document	=& JFactory::getDocument();
@@ -115,14 +123,10 @@
 ../packages/tmp/admin/models/list.php:68:		$db			=& JFactory::getDBO();
 ../packages/tmp/admin/models/list.php:100:		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
 ../packages/tmp/admin/models/list.php:101:		$row	=& JTable::getInstance( 'list', 'XiusTable' );
-../packages/tmp/admin/models/list.php:110:		$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/list.php:123:		global $mainframe;
-../packages/tmp/admin/models/list.php:124:		$db =& JFactory::getDBO();
-../packages/tmp/admin/models/list.php:145:		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-../packages/tmp/admin/models/list.php:146:		$row	=& JTable::getInstance( 'list', 'XiusTable' );
-../packages/tmp/admin/models/list.php:169:		global $mainframe;
-../packages/tmp/admin/models/list.php:171:		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-../packages/tmp/admin/models/list.php:177:			$table	=& JTable::getInstance( 'conditions', 'XiusTable' );
+../packages/tmp/admin/models/list.php:110:		global $mainframe;
+../packages/tmp/admin/models/list.php:111:		$db =& JFactory::getDBO();
+../packages/tmp/admin/models/list.php:132:		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
+../packages/tmp/admin/models/list.php:133:		$row	=& JTable::getInstance( 'list', 'XiusTable' );
 ../packages/tmp/admin/views/info/tmpl/default.php:70:					<?php $link = JRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$info->id, false); ?>
 ../packages/tmp/admin/views/cpanel/view.html.php:52:		$lang		=& JFactory::getLanguage();
 ../packages/tmp/admin/views/list/tmpl/default.php:71:					<?php $link = JRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>

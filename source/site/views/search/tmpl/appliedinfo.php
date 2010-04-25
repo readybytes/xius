@@ -17,7 +17,7 @@ if(!empty($this->appliedInfo)){
 	foreach($this->appliedInfo as $a){
 		echo $a['label']." ".$a['value'];
 		echo '<img src="administrator/components/com_xius/assets/images/minus.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'" height="16" width="16" 
-								alt="Remove" onClick="deleteInfo(this);"/></td>';
+								alt="Remove" onClick="deleteInfo(this);"/>';
 	}
 }
 ?>

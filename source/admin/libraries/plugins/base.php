@@ -147,7 +147,7 @@ abstract class XiusBase extends JObject
 	
 	
 	/*function will display listing of plugins */
-	function renderRawData()
+	/*function renderRawData()
 	{
 		$pluginsInfo = $this->getAvailableInfo();
 		if(!$pluginsInfo)
@@ -161,7 +161,7 @@ abstract class XiusBase extends JObject
 		$html .= "</select>";
 		
 		return $html;
-	}
+	}*/
 	
 	
 	public function renderRawDataHtml()
@@ -173,11 +173,11 @@ abstract class XiusBase extends JObject
 		if(false === $view)
 			return $this->renderRawData();
 		
-		$html = $view->rawDataHtml($this);
-		if($html)
+		return $view->rawDataHtml($this);
+		/*if($html)
 			return $html;
 			
-		return $this->renderRawData();
+		return $this->renderRawData();*/
 	}
 	
 	
@@ -436,7 +436,8 @@ abstract class XiusBase extends JObject
 			return true;
 
 		foreach($availableInfo as $ai){
-			if(array_key_exists($ai->key,$info))
+			if(array_key_exists($ai->key,$info)
+					&& $this->pluginType == $ai->pluginType)
 				unset($info[$ai->key]);
 		}
 		

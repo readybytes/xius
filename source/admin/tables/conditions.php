@@ -16,21 +16,14 @@ jimport('joomla.filter.input');
 * @subpackage		profilestatus
 */
 
-class UserlistTableConditions extends JTable {
-
-	/**
-	 * Primary Key
-	 *
-	 * @var int
-	 */
-	var $id = null;
-	var $name = null;
-	var $listid = null;
-	var $fieldid = null;
-	var $operator = null;
-	var $value = null;
-	var $combinecondition = null;
-	var $published = null;
+class XiusTableConditions extends JTable 
+{
+	var $id 				= null;
+	var $listid 			= null;
+  	var $infoid				= null;
+  	var $operator			= null;
+  	var $value				= null;
+  	var $combinecondition	= null;
 
     /**
 	 * Constructor
@@ -39,26 +32,22 @@ class UserlistTableConditions extends JTable {
 	 * @since 1.0
 	 */
 	function __construct(& $db) {
-		parent::__construct('#__userlist_conditions', 'id', $db);
+		parent::__construct('#__xius_conditions', 'id', $db);
 	}
 	
 	function load( $id)
 	{
-		if( $id == 0 )
-		{
-			$this->id			= 0;
-			$this->name			= '0';
-			$this->listid		= 0;
-			$this->fieldid		= 0;
-			$this->operator		= 0;
-			$this->value		= '0';
-			$this->combinecondition		= '0';
-			$this->published	= true;
-		}
-		else
-		{
+		if($id)
 			return parent::load( $id );
-		}
+			
+		$this->id					= 0;
+		$this->listid				= 0;
+		$this->infoid				= 0;
+		$this->operator				= 0;
+		$this->value				= '0';
+		$this->combinecondition		= '0';
+		
+		return true;
 	}
 
 	function delete()
@@ -85,22 +74,14 @@ class UserlistTableConditions extends JTable {
 	 **/
 	function bind($data)
 	{
-			///*
-			$this->id					= $data['id'];
-			$this->name					= $data['name'];
-			$this->listid				= $data['listid'];
-			$this->fieldid				= $data['fieldid'];
-			$this->operator				= $data['operator'];
-			$this->value				= $data['value'];
-			$this->combinecondition		= $data['combinecondition'];
-			$this->published			= $data['published'];
-			//*/
-			/*
-			$this->name			= $data->name;
-			$this->total		= $data->total;
-			$this->value		= $data->value;
-			*/
-			//print_r($this);
+		/*	if(is_object($data))
+				$data = (array)$data;
+				
+			foreach($data as $k => $v){
+				if(in_array($k,$this->getProperties()))
+					$this->$k = $v;
+			}*/
+			
 			return parent::bind($data);
 	}
 	/**
@@ -109,13 +90,13 @@ class UserlistTableConditions extends JTable {
 	 * @access public
 	 * @return boolean True on success
 	 */
-	function check() {
+	/*function check() {
 		if (trim($this->name) == '') {
 			$this->setError(JText::_('YOUR CONDITIONS MUST CONTAIN A NAME'));
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 }
 ?>
