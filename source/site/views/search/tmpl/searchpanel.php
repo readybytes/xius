@@ -15,14 +15,13 @@ jimport('joomla.html.pane');
 		$i  = 0;
 		
 		if(!empty($this->infohtml))
-		foreach($this->infohtml as $data)
-		{
+		foreach($this->infohtml as $data):
 			?> <div class="ul">
-				<div class="tag"><?php echo $data['label'];?></div>
-				<div class="input"><?php echo $data['html'];?></div>
+				<span><?php echo $data['html'];?>
+				<?php echo $data['label'];?></span>
 				</div>		
 		<?php 
-		}
+		endforeach;
 		?>
 				<br />
 	</div>

@@ -181,10 +181,6 @@ abstract class XiusBase extends JObject
 			return $this->renderRawData();
 		
 		return $view->rawDataHtml($this);
-		/*if($html)
-			return $html;
-			
-		return $this->renderRawData();*/
 	}
 	
 	
