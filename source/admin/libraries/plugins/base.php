@@ -135,6 +135,13 @@ abstract class XiusBase extends JObject
 		return $isSortable;
 	}
 	
+
+	public function isExportable()
+	{
+		$isExportable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isExportable',false);
+		return $isExportable;
+	}
+	
 	/*override function if child class is displaying 
 	 * fields html with not in select box and any other method
 	 */

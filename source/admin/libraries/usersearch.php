@@ -160,7 +160,7 @@ class XiusLibrariesUsersearch
 		 * We can only add column also without creating whole table
 		 */
 		$cache = XiusFactory::getCacheObject();
-		if(!$cache->createTable())
+		if(!$cache->createTable(true))
 			return false;
 
 		/*XITODO : break insert user data query into parts

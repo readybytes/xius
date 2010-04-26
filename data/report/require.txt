@@ -12,8 +12,8 @@
 ../packages/tmp/admin/libraries/factory.php:52:		require_once $pluginPath;
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
 ../packages/tmp/admin/libraries/plugins/joomla/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
-../packages/tmp/admin/libraries/plugins/base.php:270:		 * for display inteface .We will include view file
-../packages/tmp/admin/libraries/plugins/base.php:281:		require_once $viewPath;
+../packages/tmp/admin/libraries/plugins/base.php:277:		 * for display inteface .We will include view file
+../packages/tmp/admin/libraries/plugins/base.php:288:		require_once $viewPath;
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:173:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:203:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );

@@ -68,4 +68,11 @@ class XiusHelpersUtils
 		return XIUS_ALL;
 	}
 	
+	
+ 	function isAdmin($userid)
+	{
+		$user	=& JFactory::getUser($userid);		
+		return ( $user->usertype == 'Super Administrator');
+	}
+	
 }

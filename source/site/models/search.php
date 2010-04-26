@@ -26,7 +26,7 @@ class XiusModelSearch extends JModel
 	}
 	
 	
-	function getUsers($params,$join='AND',$sort='userid',$dir='ASC')
+	function getUsers($params,$join='AND',$sort='userid',$dir='ASC',$reqPagination=true)
 	{
 		if($this->_users)
 			return $this->_users;
@@ -36,8 +36,11 @@ class XiusModelSearch extends JModel
 		if(!XiusHelpersUtils::isTableExist('xius_cache'))
 			XiusLibrariesUsersearch::updateCache();
 			
-        $query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);        
-        $this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        $query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir); 
+        if($reqPagination)       
+        	$this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        else
+        	$this->_users = $this->_getList($query);
         /*XITODO : Add error message */
         if($this->_db->_cursor === false) {
           if($this->_db->_errorNum == 1146){
@@ -45,7 +48,11 @@ class XiusModelSearch extends JModel
              * create it and again call build query
              */		
             XiusLibrariesUsersearch::updateCache();
-            $this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+            //$this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+             if($reqPagination)       
+        		$this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        	else
+        		$this->_users = $this->_getList($query);
           }
         }
         

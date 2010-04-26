@@ -128,7 +128,9 @@ class XiusControllerSearch extends JController
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();
-		if(!$user->id){
+		
+		/* Check for admin only admin can save list	 */
+		if(!XiusHelpersUtils::isAdmin($user->id)){
 			$url = JRoute::_("index.php?option=com_xius&view=search&task=basicsearch",false);
 			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
 		}
@@ -139,6 +141,7 @@ class XiusControllerSearch extends JController
 			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
 		}
 
+		/*XITODO : set visible info and published also */
 		$data = array();
 		
 		$data['id'] = 0;
@@ -150,6 +153,11 @@ class XiusControllerSearch extends JController
 		$data['searchdata'] = serialize($searchdata);
 		
 		if(!XiusLibrariesList::saveList($data))
-			$mainframe->enqueueMessage(JText::_('ERROR IN SAVE LIST'),false);
+			$msg = JText::_('ERROR IN SAVE LIST');
+		else
+			$msg = JText::_('LIST SAVED SUCCESSFULLY');
+
+		$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
+		$mainframe->redirect($url,JText::_('ERROR IN SAVE LIST'),false);
 	}
 }
