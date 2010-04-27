@@ -1,12 +1,22 @@
+<script language="javascript" type="text/javascript">
+	function applySort(subtask) {
+		var form = document.userForm;
+		form.subtask.value = subtask;
+		form.submit();
+	}
+	
+</script>
+
 <div class="sort">
 <div class="selectbox">	
 	<?php 
 		if(empty($this->sortableFields))
 			echo "I m in sorting";
 		else{
-			$html = '<select id="xiussort" name="xiussort" onchange="document.basicSearchForm.submit();" />';
+			$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" />';
 			foreach($this->sortableFields as $sfields){
 				$selected = '';
+				$p = $this->sort;
 				if($this->sort == $sfields['key'])
 					$selected = ' selected=true ';
 				
@@ -23,7 +33,7 @@
 			else if($this->dir == 'DESC')
 				$descselected = ' selected=true ';
 				
-			$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="document.basicSearchForm.submit();"/>';
+			$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="applySort(\'xiussortdir\');"/>';
 			$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
 			$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
 			$dirhtml .= '</select>';

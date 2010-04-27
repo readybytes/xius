@@ -6,9 +6,9 @@ defined('_JEXEC') or die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class XiusViewSearch extends JView 
+class XiusViewUsers extends JView 
 {
-	function showsearchpanel($allInfo)
+	function displaySearch($allInfo)
 	{
 		$infohtml = array();
 		if(!empty($allInfo)){
@@ -45,21 +45,18 @@ class XiusViewSearch extends JView
 		}
 		
 		$this->assign( 'infohtml' , $infohtml );
-		parent::display();
+		return parent::display();
 	}
 	
-	function _replaceText($serachStr,$replaceStr,&$string)
+
+	function displayResult($from,$subtask,$list='')
 	{
-		
-	}
-		
-	
-	function basicsearch()
-	{
-		$params = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
-		$sortInfo = XiusLibrariesUsersearch::collectSortParams();
-		$join = XiusLibrariesUsersearch::getDataFromSession('join','AND');
-		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortInfo['sort']);
+		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$sortId = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
+		$dir = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+		//$sortInfo = XiusLibrariesUsersearch::collectSortParams();
+		$join = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortId);
 		
 		if(!$plgSortInstance)
 			$sort = 'userid';
@@ -74,10 +71,10 @@ class XiusViewSearch extends JView
 			}
 		}
 		
-		$model =& XiusFactory::getModel('search','site');
-		$users =& $model->getUsers($params,$join,$sort,$sortInfo['dir']);      
-        $pagination =& $model->getPagination($params);
-        $total =& $model->getTotal($params);
+		$model =& XiusFactory::getModel('users','site');
+		$users =& $model->getUsers($conditions,$join,$sort,$dir);      
+        $pagination =& $model->getPagination($conditions);
+        $total =& $model->getTotal($conditions);
         
         $userprofile = array();
         
@@ -124,29 +121,24 @@ class XiusViewSearch extends JView
 			}
         }
 		
-        $availableInfo = $allInfo;
+        //$availableInfo = $allInfo;
         $appliedInfo = array();
         /*convert search param into display data
          * creating applied info ( search parameter )
          */
-        if(!empty($params)){
-        	foreach($params as $p){
-        		if(!array_key_exists('infoid',$p))
+        if(!empty($conditions)){
+        	foreach($conditions as $c){
+        		if(!array_key_exists('infoid',$c))
         			continue;
         			
-        		$plgInstance = XiusFactory::getPluginInstanceFromId($p['infoid']);
+        		$plgInstance = XiusFactory::getPluginInstanceFromId($c['infoid']);
 				if(!$plgInstance)
 					continue;
-				
-					/*unset applied info */
-				foreach($availableInfo as $k => $info){
-					if($info->id == $p['infoid'])
-						unset($availableInfo[$k]);
-				}
+			
 				$appliedData = array();
 				$appliedData['label'] = $plgInstance->get('labelName');
-				$appliedData['value'] = $p['value'];
-				$appliedData['infoid'] = $p['infoid'];
+				$appliedData['value'] = $c['value'];
+				$appliedData['infoid'] = $c['infoid'];
 				
 				$appliedInfo[] = $appliedData;
         	}
@@ -156,13 +148,42 @@ class XiusViewSearch extends JView
         /*XITODO : arrange available info
          * representation array
          */
-	 	if(!empty($availableInfo)){
-        	foreach($availableInfo as $ai){	
+        $availableInfo = array();
+	 	if(!empty($allInfo)){
+        	foreach($allInfo as $ai){	
         		$plgInstance = XiusFactory::getPluginInstanceFromId($ai->id);
 				if(!$plgInstance)
 					continue;
+					
+				if(!$plgInstance->isAllRequirementSatisfy())
+					continue;
+
+				if(!$plgInstance->isSearchable())
+					continue;
+
+				if(!empty($appliedInfo)){
+					$exist = false;
+					foreach($appliedInfo as $api){
+						if($api['infoid'] == $ai->id)
+							$exist = true;
+					}
+					if($exist == true)
+						continue;
+				}
+				$inputHtml = $plgInstance->renderSearchableHtml();
+						
+				if($inputHtml === false)
+					continue;
+							
+				$infohtml['infoid'] = $ai->id;
+				$infohtml['info'] = $ai;
+				$infohtml['label'] = $ai->labelName;
+				$infohtml['html'] = $inputHtml;
+				
+				array_push($availableInfo,$infohtml);
         	}
         }
+        
         
 		$this->assignRef('users', $users);
 		$this->assignRef('userprofile', $userprofile);
@@ -172,14 +193,20 @@ class XiusViewSearch extends JView
 		$this->assign('appliedInfo', $appliedInfo);
 		$this->assign('availableInfo', $availableInfo);
 
-		$this->assign('sort', $sortInfo['sort']);
-		$this->assign('dir', $sortInfo['dir']);
+		$this->assign('sort', $sortId);
+		$this->assign('dir', $dir);
+		
+		$this->assign('list', $list);
+		
+		$this->assign('task', $from);
+		$this->assign('subtask', $subtask);
 		parent::display();
 	}
 	
 	
-	function showLists()
+	function _showLists($fromTask,$owner)
 	{
+		/*XITODO : get list according to owner*/
 		$lModel =& XiusFactory::getModel('list','admin');
 		
 		$filter = array();
@@ -193,7 +220,7 @@ class XiusViewSearch extends JView
 		
 		$this->assign('lists',$lists);
 		
-		parent::display();
+		return parent::display();
 	}
 }	
 

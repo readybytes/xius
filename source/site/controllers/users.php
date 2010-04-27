@@ -3,17 +3,15 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class XiusControllerSearch extends JController
+class XiusControllerUsers extends JController
 {
 	
 	function display()
 	{
-		$this->showsearchpanel();
+		$this->displaySearch();
 	}
 	
-	
-	
-	function showsearchpanel()
+	function displaySearch()
 	{
 		/*XITODO : Add icon for mailing , printing ,and pdf document
 		 * for pdf :- &format=pdf&tmpl=component use it
@@ -26,6 +24,47 @@ class XiusControllerSearch extends JController
 		 * show only searchable information
 		 * for admin non-published info should be visible
 		 */
+		
+		$subtask = JRequest::getVar('subtask', ''); 
+		$supltytask = JRequest::getVar('suplytask', '');
+		switch($subtask){
+			
+			case 'xiussearch':
+				$scanned = JRequest::getVar('scanned', 0,'POST'); 
+				if($scanned)
+					break;
+					
+				$conditions = XiusLibrariesUsersearch::processSearchData();
+				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+				break;
+			case 'xiusdelinfo':
+				XiusLibrariesUsersearch::deleteSearchData();
+				break;
+			case 'xiusaddinfo':
+				XiusLibrariesUsersearch::addSearchData();
+				break;
+			case 'xiussort':
+			case 'xiussortdir':
+				XiusLibrariesUsersearch::processSortData();
+				break;
+			case 'xiussavelist':
+				$this->_saveList();
+				break;
+			case 'xiusexport':
+				return $this->_exportUser(__FUNCTION__);
+				break;
+			default	:
+				if(!$supltytask)
+					return $this->_showSearchPanel(__FUNCTION__);
+				break;
+		}
+			
+		return $this->_displayResult(__FUNCTION__,$subtask);
+	}
+	
+	
+	function _showSearchPanel($fromTask)
+	{
 		$filter = array();
 		$filter['published'] = true;
 		
@@ -36,178 +75,160 @@ class XiusControllerSearch extends JController
 		else
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,$count);
 		
-		$viewName	= JRequest::getCmd( 'view' , 'search' );
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
-		$layout		= JRequest::getCmd( 'layout' , 'searchpanel' );
-		$view->setLayout( $layout );
+		$view->setLayout( 'default' );
 
 		/*XITODO : pass only searchable information 
 		 * Trigger event before displaying search 
 		 */
-		echo $view->showsearchpanel($allInfo);
-		
+		return $view->displaySearch($allInfo);
 	}
 	
-	function basicsearch()
+	
+	function _displayResult($fromTask,$subtask,$list='')
 	{
-		/*XITODO : collect join parameter
-		 * and set in session
-		 */
-		if(JRequest::getVar('xiusdelinfo', '', 'POST') != ''){
-			$params = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
-			$delInfoId = JRequest::getVar('xiusdelinfo', 0, 'POST');
-			if($delInfoId){
-				if(!empty($params)){
-		        	foreach($params as $key => $p){
-		        		if(!array_key_exists('infoid',$p))
-		        			continue;
-		        			
-		        		if($p['infoid'] == $delInfoId)
-		        			unset($params[$key]);
-		        	}
-		        }
-			}
-			XiusLibrariesUsersearch::setDataInSession('searchdata',$params,'XIUS');
-		}
-		
-		if(JRequest::getVar('xiussort', '', 'POST') != ''){
-			$sort = JRequest::getVar('xiussort', 'userid', 'POST');
-			$dir = JRequest::getVar('xiussortdir', 'ASC', 'POST');
-			
-			XiusLibrariesUsersearch::setDataInSession('sort',$sort,'XIUS');
-			XiusLibrariesUsersearch::setDataInSession('dir',$dir,'XIUS');
-		}
-		if(JRequest::getVar('xiussearch', '', 'POST') != ''){
-			$searchdata = array();
-			$infoid = 0;
-			$count = 0;
-			$post = JRequest::get('POST');
-			foreach($post as $key => $value){
-				if(JString::stristr($key,'xiusinfo_')){
-					if($infoid && $infoid == $value)
-						$infoid = 0;
-					else
-						$infoid = $value;
-					
-					continue;
-				}
-				
-				if(empty($value))
-					continue;
-				
-				if($infoid){
-					$searchdata[$count]['infoid'] = $infoid;
-					$searchdata[$count]['value'] = $value;
-					$searchdata[$count]['operator'] = XIUS_EQUAL;
-					$count++;
-				}
-	
-			}	
-	
-			XiusLibrariesUsersearch::setDataInSession('searchdata',$searchdata,'XIUS');
-		}
-	
-		$viewName	= JRequest::getCmd( 'view' , 'search' );
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
-		$layout		= JRequest::getCmd( 'layout' , 'basicsearch' );
-		$view->setLayout( $layout );
 		
-        $view->basicsearch();
+		$view->setLayout( 'displayresult' );
+		return $view->displayResult($fromTask,$subtask,$list);
+	}
+	
+
+	function _exportUser($fromTask)
+	{
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
+		$document	=& JFactory::getDocument();
+		$viewType	= 'csv';
+		$view		=& $this->getView( $viewName , $viewType );
+		
+		$view->setLayout( 'displayresult' );
+		return $view->exportUser($fromTask);
 	}
 	
 	
 	
-	function showLists()
+	function displayList()
 	{
 		$listId = JRequest::getVar('listid', 0);
+		$subtask = JRequest::getVar('subtask', ''); 
 		
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
+		$user =& JFactory::getUser();
+		if(!$listId && $subtask != 'xiussavelist' 
+			&&	$subtask != 'xiusexport')
+			return $this->_showLists( __FUNCTION__,$user->id);
+			
+	
+		/*get list */
+		$lModel =& XiusFactory::getModel('list','admin');
+		$list = $lModel->getList($listId);
 		
-		if($listId){
-			$layout		= JRequest::getCmd( 'layout' , 'basicsearch' );
-
-			/*get list */
-			$lModel =& XiusFactory::getModel('list','admin');
-			$list = $lModel->getList($listId);
-			
-			$url = JRoute::_('index.php?option=com_xius&view=search&task=showLists',false);
-			if(empty($list))
-				$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
-				
-			/*set data in session*/
-			$listInfo = array();
-			$listInfo[$listId]['sort']			= $list->sortinfo;
-			$listInfo[$listId]['dir']			= $list->sortdir;
-			$listInfo[$listId]['join']			= $list->join;
-			$listInfo[$listId]['searchdata']	= unserialize($list->conditions);
-			
-			XiusLibrariesUsersearch::setDataInSession('listid',$listId,'XIUS');
-			XiusLibrariesUsersearch::setDataInSession('sort',$list->sortinfo,'XIUS');	
-			XiusLibrariesUsersearch::setDataInSession('dir',$list->sortdir,'XIUS');
-			XiusLibrariesUsersearch::setDataInSession('join',$list->join,'XIUS');
-			XiusLibrariesUsersearch::setDataInSession('searchdata',unserialize($list->conditions),'XIUS');
-			
-			$params = $listInfo[$listId]['searchdata'];
-			$join = $list->join;
-			$sortInfo = array();
-			$sortInfo['sort']	=	$list->sortinfo;
-			$sortInfo['dir']	=	$list->sortdir;
-			
-			$view->setLayout( $layout );
-			$view->showusers($params,$sortInfo,$join,$listId);
+		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList',false);
+		if(empty($list))
+			$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
+		
+		switch($subtask){
+			case 'xiusdelinfo':
+				XiusLibrariesUsersearch::deleteSearchData();
+				break;
+			case 'xiusaddinfo':
+				XiusLibrariesUsersearch::addSearchData();
+				break;
+			case 'xiussort' :
+			case 'xiussortdir':
+				XiusLibrariesUsersearch::processSortData();
+				break;
+			case 'xiussavelist':
+				$this->_saveList();
+				break;
+			case 'xiusexport':
+				return $this->_exportUser(__FUNCTION__);
+				break;
+			default	:
+				$this->_processList($list);
+				break;
 		}
-		else{
-			$layout		= JRequest::getCmd( 'layout' , 'lists' );
-			$view->setLayout( $layout );
-			$view->showLists($listId);
-		}
+		
+		return $this->_displayResult(__FUNCTION__,$subtask,$list);
 		
 	}
 	
 	
+	function _processList($list)
+	{
+		//XITODO : unset old data first
+		//XiusLibrariesUsersearch::setDataInSession('listid',$listId,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
+		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,unserialize($list->conditions),'XIUS');
+		return true;
+	}
 	
-	function saveList()
+	
+	function _showLists($fromTask,$owner)
+	{
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
+		$document	=& JFactory::getDocument();
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , $viewType );
+		
+		$view->setLayout( 'lists' );
+		return $view->_showLists($fromTask,$owner);
+	}
+		
+	
+	
+	
+	function _saveList()
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();
 		
 		/* Check for admin only admin can save list	 */
 		if(!XiusHelpersUtils::isAdmin($user->id)){
-			$url = JRoute::_("index.php?option=com_xius&view=search&task=basicsearch",false);
+			$url = JRoute::_("index.php?option=com_xius&view=users",false);
 			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
 		}
 		
-		$searchdata = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
+		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		/*if(!$searchdata){
 			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
 			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
 		}*/
 
-		$listid		= XiusLibrariesUsersearch::getDataFromSession('listid',0);//JRequest::getCmd( 'listid' ,0 );
+		/*XITODO : ask user for list details
+		 * and whether to save this as a new list
+		 * or update existing one
+		 */
+		$listId = JRequest::getVar('listid', 0);
 		/*XITODO : set visible info and published also */
 		$data = array();
 		
-		$data['id'] = $listid;//0;
-		$data['join'] = XiusLibrariesUsersearch::getDataFromSession('join','AND');
-		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession('sort','userid');
-		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession('dir','ASC');
+		$data['id'] = $listId;//0;
+		$data['join'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,'userid');
+		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
 		$data['owner'] = $user->id;
-		$data['conditions'] = serialize($searchdata);
-		$data['searchdata'] = serialize($searchdata);
+		$data['conditions'] = serialize($conditions);
 		
-		if(!XiusLibrariesList::saveList($data))
+		if(!($id = XiusLibrariesList::saveList($data)))
 			$msg = JText::_('ERROR IN SAVE LIST');
 		else
 			$msg = JText::_('LIST SAVED SUCCESSFULLY');
 
-		$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
+		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
 		$mainframe->redirect($url,$msg,false);
+	}
+	
+	
+	function exportUser()
+	{
+		
 	}
 }

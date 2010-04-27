@@ -6,21 +6,23 @@ defined('_JEXEC') or die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class XiusViewSearch extends JView 
+class XiusViewUsers extends JView 
 {	
-	function basicsearch()
+	function exportUser($fromTask)
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();
 		
 		if(!XiusHelpersUtils::isAdmin($user->id)){
-			$url = JRoute::_('index.php?option=com_xius&view=search&task=basicsearch',false);
+			$url = JRoute::_('index.php?option=com_xius&view=users',false);
 			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
 		}
 		$this->setLayout('userlist.csv');
-		$params = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
-		$sortInfo = XiusLibrariesUsersearch::collectSortParams();
-		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortInfo['sort']);
+		$params = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$sort = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
+		$dir = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,false);
+		//$sortInfo = XiusLibrariesUsersearch::collectSortParams();
+		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sort);
 		
 		if(!$plgSortInstance)
 			$sort = 'userid';
@@ -35,9 +37,9 @@ class XiusViewSearch extends JView
 			}
 		}
 		
-		$join = XiusLibrariesUsersearch::getDataFromSession('join','AND');
-		$model =& XiusFactory::getModel('search','site');
-		$users =& $model->getUsers($params,$join,$sort,$sortInfo['dir'],false);      
+		$join = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$model =& XiusFactory::getModel('users','site');
+		$users =& $model->getUsers($params,$join,$sort,$dir,false);      
       
         $userprofile = array();
         

@@ -7,7 +7,7 @@
 		<div style="float:right; width:25%;margin-top:12px;margin-left:10px;">
 			<?php echo $this->pagination->getLimitBox();?>		
 		</div><br />
-		<a href="index.php?option=com_xius&view=search&task=showsearchpanel"> <<< Back</a>
+		<a href="index.php?option=com_xius&view=users"> <<< Back</a>
 		<br /><br />
 		
 	</div>

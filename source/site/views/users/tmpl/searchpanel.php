@@ -8,7 +8,7 @@ jimport('joomla.html.pane');
 		
 ?>
 
-<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=search&task=basicsearch" method="post" name="form" id="form">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=users&suplytask=displayresult" method="post" name="searchForm" id="searchForm">
 <div class="xius_box"><div class="head"><p><b>Search : </b></p></div>
 		<?php
 		$count = 0;
@@ -29,9 +29,8 @@ jimport('joomla.html.pane');
 <div class="clr"></div>
 	<div id="searcha"><input type="submit" id="xiussearch" name="xiussearch" value="Search" /></div>
 	<input type="hidden" name="option" value="com_xius" />
-	<input type="hidden" name="view" value="search" />
-	<input type="hidden" name="boxchecked" value="0" />
-	<input type="hidden" name="task" value="basicsearch" />
+	<input type="hidden" name="view" value="users" />
+	<input type="hidden" name="task" value="<?php echo JRequest::getCmd('task','displaySearch');?>" />
+	<input type="hidden" name="subtask" value="xiussearch" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
-

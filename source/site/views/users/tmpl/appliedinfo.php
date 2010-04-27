@@ -1,7 +1,8 @@
 <script language="javascript" type="text/javascript">
 	function deleteInfo(infoid) {
-		var form = document.basicSearchForm;
+		var form = document.userForm;
 		form.xiusdelinfo.value = infoid.id;
+		form.subtask.value = 'xiusdelinfo';
 		form.submit();
 	}
 	

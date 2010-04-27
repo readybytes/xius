@@ -1,7 +1,7 @@
 <?php
 defined( '_JEXEC' ) or die( 'Restricted access' );
 jimport( 'joomla.application.component.model' );
-class XiusModelSearch extends JModel
+class XiusModelUsers extends JModel
 {
 	
 	protected $_total = null;
