@@ -22,27 +22,13 @@ class XiusLibrariesList
 		
 		//$id = $lModel->store($listData);
 		$id = $lModel->store($data);
-		if(!$id)
-			return false;
-		
-		/*$lModel->removeConditions($id);
-			
-		$searchData = $data['searchdata'];
-		
-		if(!$searchData)
-			return false;
-
-		$condition = array();
-		foreach($searchData as $sd){
-			$condition['id'] 		= 0;
-			$condition['listid'] 	= $id;
-			$condition['infoid'] 	= $sd['infoid'];
-			$condition['operator'] 	= $sd['operator'];
-			$condition['value'] 	= serialize($sd['value']);
-			
-			$lModel->storeCondition($condition);
-		}*/
 		
 		return $id;
 	}	
+	
+	
+	function getUser()
+	{
+		
+	}
 }

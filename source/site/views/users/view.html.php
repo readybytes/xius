@@ -52,11 +52,13 @@ class XiusViewSearch extends JView
 	{
 		
 	}
+		
 	
 	function basicsearch()
 	{
 		$params = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
 		$sortInfo = XiusLibrariesUsersearch::collectSortParams();
+		$join = XiusLibrariesUsersearch::getDataFromSession('join','AND');
 		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortInfo['sort']);
 		
 		if(!$plgSortInstance)
@@ -72,7 +74,6 @@ class XiusViewSearch extends JView
 			}
 		}
 		
-		$join = XiusLibrariesUsersearch::getDataFromSession('join','AND');
 		$model =& XiusFactory::getModel('search','site');
 		$users =& $model->getUsers($params,$join,$sort,$sortInfo['dir']);      
         $pagination =& $model->getPagination($params);
@@ -173,6 +174,25 @@ class XiusViewSearch extends JView
 
 		$this->assign('sort', $sortInfo['sort']);
 		$this->assign('dir', $sortInfo['dir']);
+		parent::display();
+	}
+	
+	
+	function showLists()
+	{
+		$lModel =& XiusFactory::getModel('list','admin');
+		
+		$filter = array();
+					
+		$user = JFactory::getUser();
+		
+		if(XiusHelpersUtils::isAdmin($user->id))
+			$filter['published'] = 1;
+
+		$lists = $lModel->getLists($filter);
+		
+		$this->assign('lists',$lists);
+		
 		parent::display();
 	}
 }	

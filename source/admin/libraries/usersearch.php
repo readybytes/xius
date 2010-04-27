@@ -248,4 +248,124 @@ class XiusLibrariesUsersearch
 	}
 	
 	
+	function processUserRequest($what)
+	{
+		
+		switch($what){
+			case 'SEARCH':
+				return XiusLibrariesUsersearch::processSearch();
+				break;
+
+			case 'DELINFO':
+				return XiusLibrariesUsersearch::deleteSearchData();
+				break;
+				
+			case 'SORT':
+				return XiusLibrariesUsersearch::processSort();
+				break;
+		}
+			
+	}
+	
+	
+	
+	function processSearchData()
+	{
+		$searchdata = array();
+		$infoid = 0;
+		$count = 0;
+		$post = JRequest::get('POST');
+		foreach($post as $key => $value){
+			if(JString::stristr($key,'xiusinfo_')){
+				if($infoid && $infoid == $value)
+					$infoid = 0;
+				else
+					$infoid = $value;
+				
+				continue;
+			}
+			
+			if(empty($value))
+				continue;
+			
+			if($infoid){
+				$searchdata[$count]['infoid'] = $infoid;
+				$searchdata[$count]['value'] = $value;
+				$searchdata[$count]['operator'] = XIUS_EQUAL;
+				$count++;
+			}
+
+		}	
+		
+		return $searchdata;
+	}
+	
+	
+	function deleteSearchData()
+	{
+		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$delInfoId = JRequest::getVar('xiusdelinfo', 0, 'POST');
+		if($delInfoId){
+			if(!empty($conditions)){
+	        	foreach($conditions as $key => $c){
+	        		if(!array_key_exists('infoid',$c))
+	        			continue;
+	        			
+	        		if($c['infoid'] == $delInfoId)
+	        			unset($conditions[$key]);
+	        	}
+	        }
+		}
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		return true;
+	}
+	
+	
+	function addSearchData()
+	{
+		$addInfoId = JRequest::getCmd('xiusaddinfo',0);
+		
+		if(!$addInfoId)
+			return;
+			
+		$post = JRequest::get('POST');
+		
+		if(!$post)
+			return;
+			
+		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$start = false;
+		foreach($post as $key => $value){
+			if(JString::stristr($key,'xiusinfo_')){
+				if($addInfoId == $value)
+					$start = true;
+				
+				continue;
+			}
+			
+			if(empty($value))
+				continue;
+			
+			if($start){
+				$searchdata['infoid'] = $addInfoId;
+				$searchdata['value'] = $value;
+				$searchdata['operator'] = XIUS_EQUAL;
+				
+				array_push($conditions,$searchdata);
+				
+				$start = false;
+				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+				return;
+			}
+		}
+	}
+	
+	function processSortData()
+	{
+		$sort = JRequest::getVar('xiussort', 'userid', 'POST');
+		$dir = JRequest::getVar('xiussortdir', 'ASC', 'POST');
+		
+		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$sort,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$dir,'XIUS');
+	}
 }

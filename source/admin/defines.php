@@ -31,3 +31,14 @@ define('XIUS_ALL',-1);
 define('XIUS_EQUAL','=');
 define('XIUS_LT','<');
 define('XIUS_GT','>');
+
+
+define('XIUSSEARCH','SEARCH');
+define('XIUSDEL','DELINFO');
+define('XIUSSORT','SORT');
+
+
+define('XIUS_CONDITIONS','conditions');
+define('XIUS_SORT','sort');
+define('XIUS_DIR','dir');
+define('XIUS_JOIN','join');

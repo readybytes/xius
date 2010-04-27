@@ -37,11 +37,7 @@ class XiusControllerSearch extends JController
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,$count);
 		
 		$viewName	= JRequest::getCmd( 'view' , 'search' );
-		
-		// Get the document object
 		$document	=& JFactory::getDocument();
-
-		// Get the view type
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		$layout		= JRequest::getCmd( 'layout' , 'searchpanel' );
@@ -124,6 +120,59 @@ class XiusControllerSearch extends JController
 	}
 	
 	
+	
+	function showLists()
+	{
+		$listId = JRequest::getVar('listid', 0);
+		
+		$viewName	= JRequest::getCmd( 'view' , 'list' );
+		$document	=& JFactory::getDocument();
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , $viewType );
+		
+		if($listId){
+			$layout		= JRequest::getCmd( 'layout' , 'basicsearch' );
+
+			/*get list */
+			$lModel =& XiusFactory::getModel('list','admin');
+			$list = $lModel->getList($listId);
+			
+			$url = JRoute::_('index.php?option=com_xius&view=search&task=showLists',false);
+			if(empty($list))
+				$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
+				
+			/*set data in session*/
+			$listInfo = array();
+			$listInfo[$listId]['sort']			= $list->sortinfo;
+			$listInfo[$listId]['dir']			= $list->sortdir;
+			$listInfo[$listId]['join']			= $list->join;
+			$listInfo[$listId]['searchdata']	= unserialize($list->conditions);
+			
+			XiusLibrariesUsersearch::setDataInSession('listid',$listId,'XIUS');
+			XiusLibrariesUsersearch::setDataInSession('sort',$list->sortinfo,'XIUS');	
+			XiusLibrariesUsersearch::setDataInSession('dir',$list->sortdir,'XIUS');
+			XiusLibrariesUsersearch::setDataInSession('join',$list->join,'XIUS');
+			XiusLibrariesUsersearch::setDataInSession('searchdata',unserialize($list->conditions),'XIUS');
+			
+			$params = $listInfo[$listId]['searchdata'];
+			$join = $list->join;
+			$sortInfo = array();
+			$sortInfo['sort']	=	$list->sortinfo;
+			$sortInfo['dir']	=	$list->sortdir;
+			
+			$view->setLayout( $layout );
+			$view->showusers($params,$sortInfo,$join,$listId);
+		}
+		else{
+			$layout		= JRequest::getCmd( 'layout' , 'lists' );
+			$view->setLayout( $layout );
+			$view->showLists($listId);
+		}
+		
+	}
+	
+	
+	
 	function saveList()
 	{
 		global $mainframe;
@@ -136,15 +185,16 @@ class XiusControllerSearch extends JController
 		}
 		
 		$searchdata = XiusLibrariesUsersearch::getDataFromSession('searchdata',false);
-		if(!$searchdata){
+		/*if(!$searchdata){
 			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
 			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
-		}
+		}*/
 
+		$listid		= XiusLibrariesUsersearch::getDataFromSession('listid',0);//JRequest::getCmd( 'listid' ,0 );
 		/*XITODO : set visible info and published also */
 		$data = array();
 		
-		$data['id'] = 0;
+		$data['id'] = $listid;//0;
 		$data['join'] = XiusLibrariesUsersearch::getDataFromSession('join','AND');
 		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession('sort','userid');
 		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession('dir','ASC');
@@ -158,6 +208,6 @@ class XiusControllerSearch extends JController
 			$msg = JText::_('LIST SAVED SUCCESSFULLY');
 
 		$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
-		$mainframe->redirect($url,JText::_('ERROR IN SAVE LIST'),false);
+		$mainframe->redirect($url,$msg,false);
 	}
 }

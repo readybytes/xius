@@ -10,8 +10,8 @@ defined('_JEXEC') or die();
 require_once  dirname(__FILE__).DS.'includes.php';
 
 //now decide what to do
-$view	= JRequest::getCmd('view', 		'search');
-$task 	= JRequest::getCmd('task', 		'display');
+$view	= JRequest::getCmd('view', 		'users');
+$task 	= JRequest::getCmd('task', 		'displaySearch');
 $format	= JRequest::getCmd('format',	'html');
 
 $path		= JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.JString::strtolower($view).'.php';
