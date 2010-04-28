@@ -8,7 +8,7 @@
 </script>
 
 <div class="sort">
-<div class="selectbox">	
+
 	<?php 
 		if(empty($this->sortableFields))
 			echo "I m in sorting";
@@ -16,7 +16,6 @@
 			$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" />';
 			foreach($this->sortableFields as $sfields){
 				$selected = '';
-				$p = $this->sort;
 				if($this->sort == $sfields['key'])
 					$selected = ' selected=true ';
 				
@@ -43,5 +42,4 @@
 		
 		
 	?>
-</div>	
 </div>

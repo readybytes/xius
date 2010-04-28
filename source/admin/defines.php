@@ -32,7 +32,6 @@ define('XIUS_EQUAL','=');
 define('XIUS_LT','<');
 define('XIUS_GT','>');
 
-
 define('XIUSSEARCH','SEARCH');
 define('XIUSDEL','DELINFO');
 define('XIUSSORT','SORT');

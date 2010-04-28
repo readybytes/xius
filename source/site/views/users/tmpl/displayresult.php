@@ -10,12 +10,18 @@ if($this->task == 'displayList')
 	
 include('appliedinfo.php');
 include('availableinfo.php');
+?>
+<div><div class="xius_bar">
+<?php 
 include('toolbar.php');
 include('sorting.php');
+?>
+</div></div>
+<div class="clr"></div>
+<?php
 include('userlisting.php');
 include('pagination.php');
 ?>	
-
 <input type="hidden" name="option" value="com_xius" />
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="<?php echo $this->task;?>" />
