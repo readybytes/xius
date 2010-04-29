@@ -1,14 +1,17 @@
-../packages/tmp/site/controllers/search.php:18:		/*XITODO : Add icon for mailing , printing ,and pdf document
-../packages/tmp/site/controllers/search.php:22:		/*XITODO : Collect all info here
-../packages/tmp/site/controllers/search.php:46:		/*XITODO : pass only searchable information 
-../packages/tmp/site/controllers/search.php:55:		/*XITODO : collect join parameter
-../packages/tmp/site/controllers/search.php:194:		/*XITODO : set visible info and published also */
-../packages/tmp/site/models/search.php:35:		/*XITODO : get table name from cache object */ 
-../packages/tmp/site/models/search.php:44:        /*XITODO : Add error message */
-../packages/tmp/site/views/list/tmpl/default.php:3:/*XITODO : pass variable for color */
-../packages/tmp/site/views/search/view.html.php:156:        /*XITODO : arrange available info
-../packages/tmp/site/views/search/tmpl/default.php:3:/*XITODO : pass variable for color */
-../packages/tmp/site/views/search/tmpl/basicsearch.php:4:/*XITODO : pass variable for color */
+../packages/tmp/site/controllers/users.php:16:		/*XITODO : Add icon for mailing , printing ,and pdf document
+../packages/tmp/site/controllers/users.php:20:		/*XITODO : Collect all info here
+../packages/tmp/site/controllers/users.php:84:		/*XITODO : pass only searchable information 
+../packages/tmp/site/controllers/users.php:164:		//XITODO : unset old data first
+../packages/tmp/site/controllers/users.php:205:		/*XITODO : ask user for list details
+../packages/tmp/site/controllers/users.php:210:		/*XITODO : set visible info and published also */
+../packages/tmp/site/models/users.php:35:		/*XITODO : get table name from cache object */ 
+../packages/tmp/site/models/users.php:44:        /*XITODO : Add error message */
+../packages/tmp/site/views/users/view.html.php:148:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:209:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/users1/tmpl/displayresult.php:4:/*XITODO : pass variable for color */
+../packages/tmp/site/views/users/tmpl/pagination.php:10:		<?php /*XITODO : dont't give static path for back , it can be search or list */ ?>
+../packages/tmp/site/views/users/tmpl/displayresult.php:4:/*XITODO : pass variable for color */
+../packages/tmp/site/views/users/tmpl/basicsearch.php:4:/*XITODO : pass variable for color */
 ../packages/tmp/admin/helpers/utils.php:59:		/*XITODO : get parameter from configuration*
 ../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/controllers/info.php:205:		/*XITODO : check if info is used anywhere,
