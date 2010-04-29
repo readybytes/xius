@@ -273,7 +273,6 @@ class XiusLibrariesUsersearch
 	{
 		$searchdata = array();
 		$infoid = 0;
-		$count = 0;
 		$post = JRequest::get('POST');
 		foreach($post as $key => $value){
 			if(JString::stristr($key,'xiusinfo_')){
@@ -289,10 +288,12 @@ class XiusLibrariesUsersearch
 				continue;
 			
 			if($infoid){
-				$searchdata[$count]['infoid'] = $infoid;
-				$searchdata[$count]['value'] = $value;
-				$searchdata[$count]['operator'] = XIUS_EQUAL;
-				$count++;
+				$data = array();
+				$data['infoid'] = $infoid;
+				$data['value'] = $value;
+				$data['operator'] = XIUS_EQUAL;
+				
+				array_push($searchdata,$data);
 			}
 
 		}	
@@ -303,19 +304,44 @@ class XiusLibrariesUsersearch
 	
 	function deleteSearchData()
 	{
+		/*XITODO : only delete same infoid verses value pair
+		 * don't delete all infoid
+		 */
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		
+		if(!$conditions)
+			return true;
+		
 		$delInfoId = JRequest::getVar('xiusdelinfo', 0, 'POST');
-		if($delInfoId){
-			if(!empty($conditions)){
-	        	foreach($conditions as $key => $c){
-	        		if(!array_key_exists('infoid',$c))
-	        			continue;
-	        			
-	        		if($c['infoid'] == $delInfoId)
-	        			unset($conditions[$key]);
-	        	}
-	        }
-		}
+		
+		if(!$delInfoId)
+			return true;
+		
+		$conditionvalue = JRequest::getVar('conditionvalue', '', 'POST');
+		$value = unserialize($conditionvalue);
+       /* foreach($conditions as $key => $c){
+        	if(!array_key_exists('infoid',$c))
+        		continue;
+        		
+        	if($c['infoid'] == $delInfoId){
+        		//&& $c['value'] == $conditionvalue){
+        		unset($conditions[$key]);
+        		//break;
+        	}
+        }*/
+		
+		$conditions = array_values($conditions);
+
+		$searchdata['infoid'] = $delInfoId;
+		$searchdata['value'] = $value;
+		$searchdata['operator'] = XIUS_EQUAL;
+			
+		$position = XiusLibrariesUsersearch::checkSearchDataExistance($searchdata,$conditions);
+		if($position)
+			unset($conditions[$position-1]);
+			
+		$conditions = array_values($conditions);
+	       
 		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		return true;
 	}
@@ -334,11 +360,21 @@ class XiusLibrariesUsersearch
 			return;
 			
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		if(!$conditions)
+			$conditions = array();
+
+		$conditions = array_values($conditions);
+
 		$start = false;
+		$infoid = 0;
 		foreach($post as $key => $value){
 			if(JString::stristr($key,'xiusinfo_')){
-				if($addInfoId == $value)
+				if($addInfoId && $value == $infoid && $start)
+					$start = false;
+				if($addInfoId == $value && !$infoid){
 					$start = true;
+					$infoid = $addInfoId;
+				}
 				
 				continue;
 			}
@@ -351,14 +387,57 @@ class XiusLibrariesUsersearch
 				$searchdata['value'] = $value;
 				$searchdata['operator'] = XIUS_EQUAL;
 				
-				array_push($conditions,$searchdata);
+				$result = XiusLibrariesUsersearch::checkSearchDataExistance($searchdata,$conditions);
+				if(!$result)
+					array_push($conditions,$searchdata);
 				
 				$start = false;
+				$conditions = array_values($conditions);
 				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 				return;
 			}
 		}
 	}
+	
+	/*$searchArray :- Required to check 
+	 * $inArray :- check existance of searchArray in inArray
+	 */
+	function checkSearchDataExistance(array $searchArray,array $inArray)
+	{
+		if(empty($searchArray) || empty($inArray))
+			return false;
+
+		$count = 0; 
+		foreach($inArray as $k => $i){
+			
+			$count++;
+			
+			if($i['infoid'] != $searchArray['infoid'])
+				continue;
+				
+			if($i['operator'] != $searchArray['operator'])
+				continue;
+				
+			if(is_array($searchArray['value'])){
+				if(!is_array($i['value']))
+					continue;
+					
+				if(!array_diff($searchArray['value'],$i['value']))
+					return $count;
+			}
+			else {
+				if(is_array($i['value']))
+					continue;
+					
+				if($i['value'] == $searchArray['value'])
+					return $count;
+			}
+			
+		}
+		
+		return false;
+	}
+	
 	
 	function processSortData()
 	{

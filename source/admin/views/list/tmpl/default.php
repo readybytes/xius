@@ -67,9 +67,15 @@ function submitbutton( action )
 						<?php echo $checked; ?>
 				</td>
 				<td>
-					<span class="editlinktip" title="<?php echo $list->name; ?>" id="name<?php echo $list->id;?>">
+				<?php 
+				
+					$lname = $list->name;
+				if(!$lname)
+					$lname = 'LIST'.$list->id;
+					 ?>
+					<span class="editlinktip" title="<?php echo $lname; ?>" id="name<?php echo $list->id;?>">
 					<?php $link = JRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
-						<A HREF="<?php echo $link; ?>"><?php echo $list->name; ?></A>
+						<A HREF="<?php echo $link; ?>"><?php echo $lname; ?></A>
 						<?php //echo JHTML::_('link', 'javascript:void(0);', $row->name, 'onclick'=>"javascript:editFields()"); ?>
 					</span>
 				</td>

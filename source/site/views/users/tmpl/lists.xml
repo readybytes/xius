@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: metadata.xml 8178 2009-11-17 02:00:47Z Team JoomlaXi $ -->
+<metadata>
+	<layout title="All List">
+		<message>
+			<![CDATA[Display All User List.]]>
+		</message>
+	</layout>
+	<state>
+		<name>User List</name>
+		<url>
+			<param name="task" type="hidden" default="displayList" label="Task" description="DISPLAY ALL LIST" />
+		</url>
+	</state>
+</metadata>

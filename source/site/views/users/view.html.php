@@ -49,7 +49,7 @@ class XiusViewUsers extends JView
 	}
 	
 
-	function displayResult($from,$subtask,$list='')
+	function displayResult($from,$list='')
 	{
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sortId = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
@@ -161,7 +161,7 @@ class XiusViewUsers extends JView
 				if(!$plgInstance->isSearchable())
 					continue;
 
-				if(!empty($appliedInfo)){
+				/*if(!empty($appliedInfo)){
 					$exist = false;
 					foreach($appliedInfo as $api){
 						if($api['infoid'] == $ai->id)
@@ -169,7 +169,7 @@ class XiusViewUsers extends JView
 					}
 					if($exist == true)
 						continue;
-				}
+				}*/
 				$inputHtml = $plgInstance->renderSearchableHtml();
 						
 				if($inputHtml === false)
@@ -199,7 +199,7 @@ class XiusViewUsers extends JView
 		$this->assign('list', $list);
 		
 		$this->assign('task', $from);
-		$this->assign('subtask', $subtask);
+		//$this->assign('subtask', $subtask);
 		parent::display();
 	}
 	

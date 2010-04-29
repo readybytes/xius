@@ -3,8 +3,10 @@
 
 $user =& JFactory::getUser();
 $listid = 0;
-if(!empty( $this->list ))
-	$listid = $this->list->id;
+if(!empty( $this->list )){
+	if(isset($this->list->id))
+		$listid = $this->list->id;
+}
 /*only admin will see this icon */
 if(XiusHelpersUtils::isAdmin($user->id)){
 	$url = "index.php?option=com_xius&view=users&task=displayList&subtask=xiussavelist&listid=".$listid;

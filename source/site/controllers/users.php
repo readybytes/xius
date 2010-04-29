@@ -88,15 +88,15 @@ class XiusControllerUsers extends JController
 	}
 	
 	
-	function _displayResult($fromTask,$subtask,$list='')
+	function _displayResult($fromTask,$list='')
 	{
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		
-		$view->setLayout( 'displayresult' );
-		return $view->displayResult($fromTask,$subtask,$list);
+		$view->setLayout( 'results' );
+		return $view->displayResult($fromTask,$list);
 	}
 	
 
@@ -106,8 +106,6 @@ class XiusControllerUsers extends JController
 		$document	=& JFactory::getDocument();
 		$viewType	= 'csv';
 		$view		=& $this->getView( $viewName , $viewType );
-		
-		$view->setLayout( 'displayresult' );
 		return $view->exportUser($fromTask);
 	}
 	
@@ -154,7 +152,7 @@ class XiusControllerUsers extends JController
 				break;
 		}
 		
-		return $this->_displayResult(__FUNCTION__,$subtask,$list);
+		return $this->_displayResult(__FUNCTION__,$list);
 		
 	}
 	
@@ -226,9 +224,4 @@ class XiusControllerUsers extends JController
 		$mainframe->redirect($url,$msg,false);
 	}
 	
-	
-	function exportUser()
-	{
-		
-	}
 }
