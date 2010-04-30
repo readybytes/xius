@@ -8,22 +8,21 @@
 	
 </script>
 
-<div class="available">
-	<div class="head">I Am Available Info.php
-	</div>
+<div class="xius_ablemain">
+<fieldset><legend>Available Info</legend>
 <?php 
-
 if(!empty($this->availableInfo))
 		foreach($this->availableInfo as $data):
-			?> <div class="ul">
+			?> <div class="xius_able">
 				<span><?php echo $data['html'];?>
 				<?php echo $data['label'];?>
-				<img src="administrator/components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
+				<img src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
 								alt="Add" onClick="addInfo(<?php echo $data['infoid'];?>);"/>
 		</span>
 				</div>		
 		<?php 
 		endforeach;
 ?>
+</fieldset>
 </div>
 <input type="hidden" name="xiusaddinfo" value="" />

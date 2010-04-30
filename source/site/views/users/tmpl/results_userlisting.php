@@ -39,17 +39,17 @@
 							if($cuser->isOnline())	:
 							?>
 								<div>
-								<img src="<?php echo JURI::base().'administrator/components/com_xius/assets/images/online.png';?>" />
+								<img src="<?php echo JURI::base().'components/com_xius/assets/images/online.png';?>" />
 								<?php echo "online</div>";						
 							else	:
 							?>	
 								<div style="margin:1px;">
-								<img src="<?php echo JURI::base().'administrator/components/com_xius/assets/images/offline.png';?>" />
+								<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" />
 								<?php echo "offline</div>";
 							endif;
 							?><br />
 							<div>
-							<img src="<?php echo JURI::base().'administrator/components/com_xius/assets/images/friends.png';?>" />
+							<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" />
 							<a href="<?php echo CRoute::_('index.php?option=com_community&view=friends&userid=' . $cuser->id );?>"><?php echo JText::sprintf( ($cuser->getFriendCount()) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $cuser->getFriendCount());?></a>
 							</div>
 							</div>

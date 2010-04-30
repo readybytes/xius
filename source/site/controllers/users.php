@@ -223,5 +223,5 @@ class XiusControllerUsers extends JController
 		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
 		$mainframe->redirect($url,$msg,false);
 	}
-	
+
 }

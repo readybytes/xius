@@ -17,9 +17,16 @@ if(!empty($this->appliedInfo)) : ?>
 		$count++; ?>
 		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo serialize($a['value']);?>' />
 		<?php 
-		echo '<div class="applied"><div class="left"><div><b>'.$a['label']."</b></div><div>".$a['value'];
-		echo '</div></div><div class="right"><img src="administrator/components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
-								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';
+		echo '<div class="applied"><div class="left"><div><b>'.$a['label'].'</b></div>';
+		if(is_array($a['value']))	:	
+			foreach($a['value'] as $a_values) 
+				echo '<div>'.$a_values.'</div>';
+		else	:
+			echo '<div>'.$a['value'].'</div>';
+		endif;
+		
+		echo '</div></div><div class="right"><img src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
+								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
 	endforeach;
 
 ?>

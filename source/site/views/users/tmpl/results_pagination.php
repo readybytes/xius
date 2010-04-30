@@ -9,7 +9,7 @@
 		</div><br />
 		<?php /*XITODO : dont't give static path for back , it can be search or list */ ?>
 		<a href="index.php?option=com_xius&view=users">
-		<img src="<?php echo JURI::base().'administrator/components/com_xius/assets/images/back.png';?>" title="Go Back To Search Panel"/></a>
+		<img src="<?php echo JURI::base().'components/com_xius/assets/images/back.png';?>" title="Go Back To Search Panel"/></a>
 		<br /><br />
 		
 	</div>

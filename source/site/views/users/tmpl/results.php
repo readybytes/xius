@@ -2,7 +2,7 @@
 <?php
 
 /*XITODO : pass variable for color */
-$css = JURI::base().'administrator/components/com_xius/assets/css/front/blue.css';
+$css = JURI::base().'components/com_xius/assets/css/blue.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 if($this->task == 'displayList')

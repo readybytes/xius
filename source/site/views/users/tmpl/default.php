@@ -1,6 +1,6 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-$css = JURI::base().'administrator/components/com_xius/assets/css/front/sp.css';
+$css = JURI::base().'components/com_xius/assets/css/sp.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 JHTML::_('behavior.tooltip', '.hasTip');
@@ -24,6 +24,13 @@ jimport('joomla.html.pane');
 		<?php 
 		endforeach;
 		?>
+		<div class="xius_inputs">
+		<div class="xius_label">Join With</div>
+		<div>
+		<input type="radio" name="xius_join" value="AND" />And 
+		<input type="radio" name="xius_join" value="OR" />Or
+		</div>
+		</div>
 		<p class="submit"><input type="submit" id="xiussearch" name="xiussearch" value="Search" /></p>	
 </div>
 </div>
