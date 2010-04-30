@@ -41,3 +41,6 @@ define('XIUS_CONDITIONS','conditions');
 define('XIUS_SORT','sort');
 define('XIUS_DIR','dir');
 define('XIUS_JOIN','join');
+
+
+define('XIUS_USER_LIMIT',1000);

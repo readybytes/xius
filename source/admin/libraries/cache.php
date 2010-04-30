@@ -43,10 +43,15 @@ class XiusCache
 		return false;
 	}
 
-	function insertIntoTable(XiusQuery $query)
+	function insertIntoTable(XiusQuery $query,$limitReq=false,$limit = array())
 	{
 		$this->insertQuery	.= $query->__toString();
+		
+		if($limitReq)
+			$this->insertQuery .= ' LIMIT '.$limit['limitStart'].' , '.$limit['limit'];
+		
 		$this->insertQuery .= ' )';
+		
 		
 		/*XITODO : Bound result set starting from some users
 		 * Limit should be configurable
@@ -55,9 +60,11 @@ class XiusCache
 		
 		$this->db->setQuery($this->insertQuery);
 		
-		if($this->db->query())
-			return true;
-			
+		if($this->db->query()){
+			$affectedRows = $this->db->getAffectedRows();
+			return $affectedRows;
+		}
+		
 		$this->error->setError($this->db->ErrorMsg());
 		return false;
 	}

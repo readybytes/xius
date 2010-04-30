@@ -11,7 +11,7 @@ FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/site/controllers/users.php
 --------------------------------------------------------------------------------
-FOUND 21 ERROR(S) AND 2 WARNING(S) AFFECTING 19 LINE(S)
+FOUND 20 ERROR(S) AND 2 WARNING(S) AFFECTING 18 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
    9 | ERROR   | No scope modifier specified for function "display"
@@ -24,20 +24,19 @@ FOUND 21 ERROR(S) AND 2 WARNING(S) AFFECTING 19 LINE(S)
   66 | ERROR   | No scope modifier specified for function "_showSearchPanel"
   91 | ERROR   | No scope modifier specified for function "_displayResult"
  103 | ERROR   | No scope modifier specified for function "_exportUser"
- 116 | ERROR   | No scope modifier specified for function "displayList"
- 122 | ERROR   | Operator ! prohibited; use === FALSE instead
- 122 | ERROR   | Operator != prohibited; use !== instead
- 123 | ERROR   | Operator != prohibited; use !== instead
- 132 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 162 | ERROR   | No scope modifier specified for function "_processList"
- 174 | ERROR   | No scope modifier specified for function "_showLists"
- 188 | ERROR   | No scope modifier specified for function "_saveList"
- 190 | ERROR   | Use of the "global" keyword is forbidden; use
+ 114 | ERROR   | No scope modifier specified for function "displayList"
+ 120 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 120 | ERROR   | Operator != prohibited; use !== instead
+ 121 | ERROR   | Operator != prohibited; use !== instead
+ 130 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 160 | ERROR   | No scope modifier specified for function "_processList"
+ 172 | ERROR   | No scope modifier specified for function "_showLists"
+ 186 | ERROR   | No scope modifier specified for function "_saveList"
+ 188 | ERROR   | Use of the "global" keyword is forbidden; use
      |         | "$GLOBALS['mainframe']" instead
- 194 | ERROR   | Operator ! prohibited; use === FALSE instead
- 220 | ERROR   | Operator ! prohibited; use === FALSE instead
- 220 | ERROR   | Assignments must be the first block of code on a line
- 230 | ERROR   | No scope modifier specified for function "exportUser"
+ 192 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 218 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 218 | ERROR   | Assignments must be the first block of code on a line
 --------------------------------------------------------------------------------
 
 
@@ -82,7 +81,7 @@ FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/site/views/users/view.html.php
 --------------------------------------------------------------------------------
-FOUND 31 ERROR(S) AND 2 WARNING(S) AFFECTING 29 LINE(S)
+FOUND 28 ERROR(S) AND 2 WARNING(S) AFFECTING 26 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   11 | ERROR   | No scope modifier specified for function "displaySearch"
@@ -90,7 +89,7 @@ FOUND 31 ERROR(S) AND 2 WARNING(S) AFFECTING 29 LINE(S)
   19 | ERROR   | Operator ! prohibited; use === FALSE instead
   22 | ERROR   | Operator ! prohibited; use === FALSE instead
   25 | ERROR   | Operator ! prohibited; use === FALSE instead
-  52 | ERROR   | Function's cyclomatic complexity (29) exceeds allowed maximum
+  52 | ERROR   | Function's cyclomatic complexity (25) exceeds allowed maximum
      |         | of 20
   52 | ERROR   | No scope modifier specified for function "displayResult"
   61 | ERROR   | Operator ! prohibited; use === FALSE instead
@@ -111,114 +110,10 @@ FOUND 31 ERROR(S) AND 2 WARNING(S) AFFECTING 29 LINE(S)
  155 | ERROR   | Operator ! prohibited; use === FALSE instead
  158 | ERROR   | Operator ! prohibited; use === FALSE instead
  161 | ERROR   | Operator ! prohibited; use === FALSE instead
- 164 | ERROR   | Operator ! prohibited; use === FALSE instead
- 167 | ERROR   | Operator == prohibited; use === instead
- 170 | ERROR   | Operator == prohibited; use === instead
  207 | WARNING | The method parameter $fromTask is never used
  207 | WARNING | The method parameter $owner is never used
  207 | ERROR   | No scope modifier specified for function "_showLists"
  216 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/default.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 17 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: ...s/xius/trunk/packages/tmp/site/views/users/users1/tmpl/userlist.csv.php
---------------------------------------------------------------------------------
-FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
---------------------------------------------------------------------------------
-  5 | ERROR | Operator ! prohibited; use === FALSE instead
-  7 | ERROR | Operator ! prohibited; use === FALSE instead
- 15 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/lists.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
- 3 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 9 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
---------------------------------------------------------------------------------
-
-
-FILE: ...bs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/searchpanel.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 17 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/toolbar.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
-  7 | ERROR | Operator ! prohibited; use === FALSE instead
- 10 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
---------------------------------------------------------------------------------
-
-
-FILE: .../xius/trunk/packages/tmp/site/views/users/users1/tmpl/availableinfo.php
---------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
---------------------------------------------------------------------------------
- 16 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: ...bs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/appliedinfo.php
---------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
---------------------------------------------------------------------------------
- 13 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/sorting.php
---------------------------------------------------------------------------------
-FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
---------------------------------------------------------------------------------
- 13 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 20 | ERROR | Operator == prohibited; use === instead
- 31 | ERROR | Operator == prohibited; use === instead
- 33 | ERROR | Operator == prohibited; use === instead
---------------------------------------------------------------------------------
-
-
-FILE: ...bs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/userlisting.php
---------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
---------------------------------------------------------------------------------
- 17 | ERROR | Operator ! prohibited; use === FALSE instead
- 19 | ERROR | Operator != prohibited; use !== instead
- 20 | ERROR | Operator == prohibited; use === instead
- 34 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 48 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
---------------------------------------------------------------------------------
-
-
-FILE: .../xius/trunk/packages/tmp/site/views/users/users1/tmpl/displayresult.php
---------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
---------------------------------------------------------------------------------
- 8 | ERROR | Operator == prohibited; use === instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/users1/tmpl/listinfo.php
---------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
---------------------------------------------------------------------------------
- 4 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -276,42 +171,7 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/searchpanel.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
-  2 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 18 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/toolbar.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
- 6 | ERROR | Operator ! prohibited; use === FALSE instead
- 9 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/availableinfo.php
---------------------------------------------------------------------------------
-FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
---------------------------------------------------------------------------------
- 16 | ERROR | Operator ! prohibited; use === FALSE instead
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/appliedinfo.php
---------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
---------------------------------------------------------------------------------
- 11 | ERROR | Operator ! prohibited; use === FALSE instead
- 13 | ERROR | Assignments must be the first block of code on a line
---------------------------------------------------------------------------------
-
-
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/sorting.php
+FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/results_sorting.php
 --------------------------------------------------------------------------------
 FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
 --------------------------------------------------------------------------------
@@ -322,7 +182,15 @@ FOUND 4 ERROR(S) AND 0 WARNING(S) AFFECTING 4 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/userlisting.php
+FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/results.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 8 | ERROR | Operator == prohibited; use === instead
+--------------------------------------------------------------------------------
+
+
+FILE: ...s/xius/trunk/packages/tmp/site/views/users/tmpl/results_userlisting.php
 --------------------------------------------------------------------------------
 FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
@@ -334,15 +202,34 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/displayresult.php
+FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/results_toolbar.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
+--------------------------------------------------------------------------------
+  6 | ERROR | Operator ! prohibited; use === FALSE instead
+  7 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 11 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+--------------------------------------------------------------------------------
+
+
+FILE: ...xius/trunk/packages/tmp/site/views/users/tmpl/results_availableinfo.php
 --------------------------------------------------------------------------------
 FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
 --------------------------------------------------------------------------------
- 8 | ERROR | Operator == prohibited; use === instead
+ 16 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
-FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/listinfo.php
+FILE: ...s/xius/trunk/packages/tmp/site/views/users/tmpl/results_appliedinfo.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 12 | ERROR | Operator ! prohibited; use === FALSE instead
+ 14 | ERROR | Assignments must be the first block of code on a line
+--------------------------------------------------------------------------------
+
+
+FILE: ...vobs/xius/trunk/packages/tmp/site/views/users/tmpl/results_listinfo.php
 --------------------------------------------------------------------------------
 FOUND 1 ERROR(S) AND 0 WARNING(S) AFFECTING 1 LINE(S)
 --------------------------------------------------------------------------------
@@ -738,74 +625,94 @@ FOUND 26 ERROR(S) AND 0 WARNING(S) AFFECTING 20 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php
 --------------------------------------------------------------------------------
-FOUND 63 ERROR(S) AND 0 WARNING(S) AFFECTING 62 LINE(S)
+FOUND 80 ERROR(S) AND 1 WARNING(S) AFFECTING 75 LINE(S)
 --------------------------------------------------------------------------------
-   5 | ERROR | Logical operator "or" is prohibited; use "||" instead
-  10 | ERROR | No scope modifier specified for function "buildQuery"
-  21 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  24 | ERROR | Operator ! prohibited; use === FALSE instead
-  34 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  49 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
-  56 | ERROR | No scope modifier specified for function
-     |       | "buildQueryForSingleInfo"
-  64 | ERROR | Operator ! prohibited; use === FALSE instead
-  71 | ERROR | No scope modifier specified for function "setDataInSession"
-  79 | ERROR | No scope modifier specified for function "getDataFromSession"
-  88 | ERROR | No scope modifier specified for function "collectSortParams"
-  99 | ERROR | No scope modifier specified for function "getAllInfo"
- 106 | ERROR | No scope modifier specified for function "createTableQuery"
- 114 | ERROR | No scope modifier specified for function
-     |       | "buildInsertUserdataQuery"
- 119 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 133 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 135 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 138 | ERROR | Operator ! prohibited; use === FALSE instead
- 149 | ERROR | No scope modifier specified for function "insertUserData"
- 156 | ERROR | No scope modifier specified for function "updateCache"
- 163 | ERROR | Operator ! prohibited; use === FALSE instead
- 170 | ERROR | Must use "self::" for local static member reference
- 177 | ERROR | No scope modifier specified for function
-     |       | "getMiniProfileDisplayFields"
- 184 | ERROR | Operator == prohibited; use === instead
- 190 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 198 | ERROR | Operator ! prohibited; use === FALSE instead
- 201 | ERROR | Operator ! prohibited; use === FALSE instead
- 204 | ERROR | Operator ! prohibited; use === FALSE instead
- 214 | ERROR | No scope modifier specified for function "getSortableFields"
- 220 | ERROR | Operator == prohibited; use === instead
- 226 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 233 | ERROR | Operator ! prohibited; use === FALSE instead
- 236 | ERROR | Operator ! prohibited; use === FALSE instead
- 239 | ERROR | Operator ! prohibited; use === FALSE instead
- 251 | ERROR | No scope modifier specified for function "processUserRequest"
- 256 | ERROR | Must use "self::" for local static member reference
- 260 | ERROR | Must use "self::" for local static member reference
- 264 | ERROR | Must use "self::" for local static member reference
- 272 | ERROR | No scope modifier specified for function "processSearchData"
- 279 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 280 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 280 | ERROR | Operator == prohibited; use === instead
- 288 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 291 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 304 | ERROR | No scope modifier specified for function "deleteSearchData"
- 306 | ERROR | Must use "self::" for local static member reference
- 308 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 309 | ERROR | Operator ! prohibited; use === FALSE instead
- 311 | ERROR | Operator ! prohibited; use === FALSE instead
- 314 | ERROR | Operator == prohibited; use === instead
- 319 | ERROR | Must use "self::" for local static member reference
- 324 | ERROR | No scope modifier specified for function "addSearchData"
- 328 | ERROR | Operator ! prohibited; use === FALSE instead
- 333 | ERROR | Operator ! prohibited; use === FALSE instead
- 336 | ERROR | Must use "self::" for local static member reference
- 339 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 340 | ERROR | Operator == prohibited; use === instead
- 346 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 349 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 357 | ERROR | Must use "self::" for local static member reference
- 363 | ERROR | No scope modifier specified for function "processSortData"
- 368 | ERROR | Must use "self::" for local static member reference
- 369 | ERROR | Must use "self::" for local static member reference
+   5 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+  10 | ERROR   | No scope modifier specified for function "buildQuery"
+  21 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  24 | ERROR   | Operator ! prohibited; use === FALSE instead
+  34 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  49 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+  56 | ERROR   | No scope modifier specified for function
+     |         | "buildQueryForSingleInfo"
+  64 | ERROR   | Operator ! prohibited; use === FALSE instead
+  71 | ERROR   | No scope modifier specified for function "setDataInSession"
+  79 | ERROR   | No scope modifier specified for function "getDataFromSession"
+  88 | ERROR   | No scope modifier specified for function "collectSortParams"
+  99 | ERROR   | No scope modifier specified for function "getAllInfo"
+ 106 | ERROR   | No scope modifier specified for function "createTableQuery"
+ 114 | ERROR   | No scope modifier specified for function
+     |         | "buildInsertUserdataQuery"
+ 119 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 133 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 135 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 138 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 149 | ERROR   | No scope modifier specified for function "insertUserData"
+ 156 | ERROR   | No scope modifier specified for function "updateCache"
+ 163 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 170 | ERROR   | Must use "self::" for local static member reference
+ 177 | ERROR   | No scope modifier specified for function
+     |         | "getMiniProfileDisplayFields"
+ 184 | ERROR   | Operator == prohibited; use === instead
+ 190 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 198 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 201 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 204 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 214 | ERROR   | No scope modifier specified for function "getSortableFields"
+ 220 | ERROR   | Operator == prohibited; use === instead
+ 226 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 233 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 236 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 239 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 251 | ERROR   | No scope modifier specified for function "processUserRequest"
+ 256 | ERROR   | Must use "self::" for local static member reference
+ 260 | ERROR   | Must use "self::" for local static member reference
+ 264 | ERROR   | Must use "self::" for local static member reference
+ 272 | ERROR   | No scope modifier specified for function "processSearchData"
+ 278 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 279 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 279 | ERROR   | Operator == prohibited; use === instead
+ 287 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 290 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 305 | ERROR   | No scope modifier specified for function "deleteSearchData"
+ 310 | ERROR   | Must use "self::" for local static member reference
+ 312 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 317 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 339 | ERROR   | Must use "self::" for local static member reference
+ 340 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 345 | ERROR   | Must use "self::" for local static member reference
+ 350 | WARNING | Function's cyclomatic complexity (11) exceeds 10; consider
+     |         | refactoring the function
+ 350 | ERROR   | No scope modifier specified for function "addSearchData"
+ 354 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 359 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 362 | ERROR   | Must use "self::" for local static member reference
+ 363 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 371 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 372 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 372 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 372 | ERROR   | Operator == prohibited; use === instead
+ 374 | ERROR   | Operator == prohibited; use === instead
+ 374 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 382 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 385 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 390 | ERROR   | Must use "self::" for local static member reference
+ 391 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 396 | ERROR   | Must use "self::" for local static member reference
+ 405 | ERROR   | No scope modifier specified for function
+     |         | "checkSearchDataExistance"
+ 407 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 407 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 415 | ERROR   | Operator != prohibited; use !== instead
+ 418 | ERROR   | Operator != prohibited; use !== instead
+ 421 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 422 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 425 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 429 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 432 | ERROR   | Operator == prohibited; use === instead
+ 442 | ERROR   | No scope modifier specified for function "processSortData"
+ 447 | ERROR   | Must use "self::" for local static member reference
+ 448 | ERROR   | Must use "self::" for local static member reference
 --------------------------------------------------------------------------------
 
 
@@ -1474,12 +1381,13 @@ FOUND 3 ERROR(S) AND 0 WARNING(S) AFFECTING 3 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/views/list/tmpl/default.php
 --------------------------------------------------------------------------------
-FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
+FOUND 6 ERROR(S) AND 0 WARNING(S) AFFECTING 6 LINE(S)
 --------------------------------------------------------------------------------
   2 | ERROR | Logical operator "or" is prohibited; use "||" instead
  56 | ERROR | Operator ! prohibited; use === FALSE instead
- 71 | ERROR | Assignments must be the first block of code on a line
- 77 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 78 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 73 | ERROR | Operator ! prohibited; use === FALSE instead
+ 77 | ERROR | Assignments must be the first block of code on a line
+ 83 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 84 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 

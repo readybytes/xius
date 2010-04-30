@@ -75,4 +75,11 @@ class XiusHelpersUtils
 		return ( $user->usertype == 'Super Administrator');
 	}
 	
+	
+	function getUserLimit()
+	{
+		/*XITODO : Ask from admin */
+		return XIUS_USER_LIMIT;
+	}
+	
 }
