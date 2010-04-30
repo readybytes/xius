@@ -182,6 +182,34 @@ class XiusControllerUsers extends JController
 		
 	
 	
+	function displaySaveOption()
+	{
+		$prevTask = JRequest::getVar('prevtask', '');
+		
+		global $mainframe;
+		$user =& JFactory::getUser();
+		
+		/* Check for admin only admin can save list	 */
+		if(!XiusHelpersUtils::isAdmin($user->id)){
+			$url = JRoute::_("index.php?option=com_xius&view=users",false);
+			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
+		}
+		
+		$listName = JRequest::getVar('xius_list_name', '');
+		
+		if($listName)
+			return $this->_saveList();
+			
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
+		$document	=& JFactory::getDocument();
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , 'raw' );
+		
+		$view->setLayout( 'results_saveoptions' );
+		return $view->displaySaveOption();
+	}
+	
+	
 	
 	function _saveList()
 	{
@@ -205,10 +233,12 @@ class XiusControllerUsers extends JController
 		 * or update existing one
 		 */
 		$listId = JRequest::getVar('listid', 0);
+		$listName = JRequest::getVar('xius_list_name', '');
 		/*XITODO : set visible info and published also */
 		$data = array();
 		
 		$data['id'] = $listId;//0;
+		$data['name'] = $listName;//0;
 		$data['join'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,'userid');
 		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
@@ -221,7 +251,18 @@ class XiusControllerUsers extends JController
 			$msg = JText::_('LIST SAVED SUCCESSFULLY');
 
 		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
-		$mainframe->redirect($url,$msg,false);
+		//$mainframe->redirect($url,$msg,false);
+		
+		$data = array();
+		$data['url']	= $url;
+		$data['msg'] = $msg; 		
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
+		$document	=& JFactory::getDocument();
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , $viewType );
+		
+		$view->setLayout( 'results_success' );
+		return $view->success($data);
 	}
 
 }

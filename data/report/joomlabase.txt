@@ -117,12 +117,13 @@
 ../packages/tmp/admin/controllers/list.php:136:				$mainframe->enqueueMessage($table->getError());
 ../packages/tmp/admin/controllers/list.php:138:			$mainframe->redirect( 'index.php?option=com_xius&view=list' );
 ../packages/tmp/site/includes.php:20:$lang =& JFactory::getLanguage();
-../packages/tmp/site/views/users/view.raw.php:214:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.raw.php:213:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.raw.php:234:		$user = JFactory::getUser();
 ../packages/tmp/site/views/users/tmpl/default.php:4:$document =& JFactory::getDocument();
-../packages/tmp/site/views/users/tmpl/results_toolbar.php:4:$user =& JFactory::getUser();
-../packages/tmp/site/views/users/tmpl/results_toolbar.php:23:	?><img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
-../packages/tmp/site/views/users/tmpl/results_toolbar.php:50:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
-../packages/tmp/site/views/users/tmpl/results_toolbar.php:67: <!-- onClick='location.href="<?php //echo JRoute::_($url,false);?>"'-->
+../packages/tmp/site/views/users/tmpl/results_saveoptions.php:3:$document =& JFactory::getDocument();
+../packages/tmp/site/views/users/tmpl/results_saveoptions.php:28:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+../packages/tmp/site/views/users/tmpl/results_toolbar.php:5:$user =& JFactory::getUser();
+../packages/tmp/site/views/users/tmpl/results_toolbar.php:25:	?><img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
 ../packages/tmp/site/views/users/tmpl/basicsearch.php:6:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/results.php:6:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/lists.php:7:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
@@ -131,7 +132,8 @@
 ../packages/tmp/site/views/users/view.csv.php:17:			$url = JRoute::_('index.php?option=com_xius&view=users',false);
 ../packages/tmp/site/views/users/view.csv.php:18:			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
 ../packages/tmp/site/views/users/view.html.php:192:		$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:227:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:226:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:254:		$user = JFactory::getUser();
 ../packages/tmp/site/models/users.php:15:        global $mainframe, $option;
 ../packages/tmp/site/models/users.php:18:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/controllers/users.php:6:class XiusControllerUsers extends JController
@@ -142,12 +144,18 @@
 ../packages/tmp/site/controllers/users.php:129:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList',false);
 ../packages/tmp/site/controllers/users.php:131:			$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
 ../packages/tmp/site/controllers/users.php:175:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/users.php:188:		global $mainframe;
-../packages/tmp/site/controllers/users.php:189:		$user =& JFactory::getUser();
-../packages/tmp/site/controllers/users.php:193:			$url = JRoute::_("index.php?option=com_xius&view=users",false);
-../packages/tmp/site/controllers/users.php:194:			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
-../packages/tmp/site/controllers/users.php:199:			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
-../packages/tmp/site/controllers/users.php:200:			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
-../packages/tmp/site/controllers/users.php:223:		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
-../packages/tmp/site/controllers/users.php:224:		$mainframe->redirect($url,$msg,false);
+../packages/tmp/site/controllers/users.php:189:		global $mainframe;
+../packages/tmp/site/controllers/users.php:190:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/users.php:194:			$url = JRoute::_("index.php?option=com_xius&view=users",false);
+../packages/tmp/site/controllers/users.php:195:			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
+../packages/tmp/site/controllers/users.php:204:		$document	=& JFactory::getDocument();
+../packages/tmp/site/controllers/users.php:216:		global $mainframe;
+../packages/tmp/site/controllers/users.php:217:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/users.php:221:			$url = JRoute::_("index.php?option=com_xius&view=users",false);
+../packages/tmp/site/controllers/users.php:222:			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
+../packages/tmp/site/controllers/users.php:227:			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
+../packages/tmp/site/controllers/users.php:228:			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
+../packages/tmp/site/controllers/users.php:253:		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
+../packages/tmp/site/controllers/users.php:254:		//$mainframe->redirect($url,$msg,false);
+../packages/tmp/site/controllers/users.php:260:		$document	=& JFactory::getDocument();
 ../packages/tmp/install/uninstall.php:13:	$db			=& JFactory::getDBO();		
