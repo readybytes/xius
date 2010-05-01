@@ -3,13 +3,10 @@
 		var form = document.userForm;
 		form.subtask.value = subtask;
 		form.submit();
-	}
-	
+	}	
 </script>
-
-<div class="sort">
-
-	<?php 
+<div class = "xius_sorting">
+<?php 
 		if(empty($this->sortableFields))
 			echo "I m in sorting";
 		else{

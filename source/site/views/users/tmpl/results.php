@@ -13,19 +13,22 @@ echo $this->loadTemplate('availableinfo');
 //include('appliedinfo.php');
 //include('availableinfo.php');
 ?>
-<div><div class="xius_bar">
-<?php 
+<div><?php 
 echo $this->loadTemplate('toolbar');
-echo $this->loadTemplate('sorting');
 ?>
-</div></div>
-<div class="clr"></div>
+<div class = "clr"></div>
 <?php
 echo $this->loadTemplate('userlisting');
-echo $this->loadTemplate('pagination');
 //include('userlisting.php');
 //include('pagination.php');
-?>	
+?>
+</div>
+<div>
+<?php
+echo $this->pagination->getPagesLinks(); 
+?>
+</div>
+<div class="clr"></div>
 <input type="hidden" name="option" value="com_xius" />
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="<?php echo $this->task;?>" />

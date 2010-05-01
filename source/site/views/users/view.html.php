@@ -185,20 +185,6 @@ class XiusViewUsers extends JView
         	}
         }
         
-        
-        $lModel =& XiusFactory::getModel('list','admin');
-		
-		$filter = array();
-					
-		$user = JFactory::getUser();
-		
-		if(XiusHelpersUtils::isAdmin($user->id))
-			$filter['published'] = 1;
-
-		$lists = $lModel->getLists($filter);
-		
-		$this->assign('lists',$lists);
-        
 		$this->assignRef('users', $users);
 		$this->assignRef('userprofile', $userprofile);
 		$this->assignRef('sortableFields', $sortableFields);

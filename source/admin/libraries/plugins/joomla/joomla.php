@@ -44,11 +44,7 @@ class Joomla extends XiusBase
 			$columns = $this->getCacheColumns();
 			if(!$columns)
 				return false;
-
-			/*XITODO : think about registration date search
-			 * till now it's not supporting date feature
-			 */
-								
+				
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					if($this->key == 'registerDate')

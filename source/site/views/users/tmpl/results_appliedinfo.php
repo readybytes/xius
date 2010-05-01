@@ -17,7 +17,7 @@
 </script>
 <?php 
 if(!empty($this->appliedInfo)) : ?>
-	<fieldset><legend>Applied Info</legend>
+	<fieldset><legend><?php echo JText::_('Applied Information');?></legend>
 	<?php $data = $this->appliedInfo;
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
@@ -33,7 +33,7 @@ if(!empty($this->appliedInfo)) : ?>
 		endif;
 		
 		echo '</div></div><div class="right"><img src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
-								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
+								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div></div>';		
 	endforeach;
 
 ?>

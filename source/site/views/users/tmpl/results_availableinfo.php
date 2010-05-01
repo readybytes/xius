@@ -9,16 +9,17 @@
 </script>
 
 <div class="xius_ablemain">
-<fieldset><legend>Available Info</legend>
+<fieldset><legend> <?php echo JText::_('Available Information');?> </legend>
+
 <?php 
 if(!empty($this->availableInfo))
 		foreach($this->availableInfo as $data):
-			?> <div class="xius_able">
-				<span><?php echo $data['html'];?>
-				<?php echo $data['label'];?>
+			?> <div class="xius_available">
+				<div class="xi_left"><?php echo $data['label'];?></div>
+				<div class="xi_right"><?php echo $data['html'];?>
 				<img src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
 								alt="Add" onClick="addInfo(<?php echo $data['infoid'];?>);"/>
-		</span>
+		</div>
 				</div>		
 		<?php 
 		endforeach;

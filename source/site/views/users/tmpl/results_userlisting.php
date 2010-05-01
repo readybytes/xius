@@ -40,12 +40,12 @@
 							?>
 								<div>
 								<img src="<?php echo JURI::base().'components/com_xius/assets/images/online.png';?>" />
-								<?php echo "online</div>";						
+								<?php echo JText::_('Online')."</div>";						
 							else	:
 							?>	
 								<div style="margin:1px;">
 								<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" />
-								<?php echo "offline</div>";
+								<?php echo JText::_('Offline')."</div>";
 							endif;
 							?><br />
 							<div>
@@ -59,8 +59,8 @@
 					<div class="clr"></div>	
 							
 				
-			</div>	
+			</div>	</div>
 	<?php endforeach; ?>
 </div>
-
+</div>
 

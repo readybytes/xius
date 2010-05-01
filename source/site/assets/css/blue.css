@@ -53,28 +53,51 @@ ul{
 	text-align: left;
 	/*border:1px solid red;*/
 	}
-.sort{
-	width:48%;
-	float:left;
-	margin-left: 1%;
-	margin-top: 1.5px;
+.xius_toolbar{
+	overflow:hidden;
+	background:#D8DFEA;
+	border:1px solid #275788;
+	margin:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	padding: 2px 5px 2px 5px;
 	}
-.sort img{
+.toolbar_top{
+	width:100:%;
+	padding: 5px;
+	}
+.toolbar_top img{
+	cursor: pointer;
+	}	
+.toolbar_top_left{
+	float:left;
+	}
+.xius_sorting{
+	float: right;
+	color:#275788;
+	font-weight: bold;
+	font-size: 120%;
+	}
+.xius_sorting img{
 	cursor: pointer;
 	}
-.sort select{
+.xius_sorting select{
 	background: #fff;
 	color: #275788;
-	margin-top: .5px;
 	}
-.toolbar{
-	width:48:%;
-	float: right;
-	margin-right: 2%;
+.xius_blank{
+	width: 100%; 
+	border-bottom: 1px solid #275788; 
+	overflow: hidden;
 	}
-
-.toolbar img{
-	cursor: pointer;
+.xius_toolbar_bottom{
+	padding: 5px;
+	}
+.xius_total{
+	float:left;
+	}
+.xius_pagination{
+	float:right;
 	}
 .lsubrightbox{
 	float:left;
@@ -94,7 +117,7 @@ ul{
 	width:90px;
 	}
 .viewprofile button{
-	background-image: url("../../images/button.gif");
+	background-image: url("../images/button.gif");
 	font-size: x-small;
 	font-weight: bold;
 	color:#275788;
@@ -125,14 +148,6 @@ ul{
 	width:25%;
 	cursor: pointer;
 	}
-.xius_bar{
-	overflow:hidden;
-	background:#D8DFEA;
-	border:1px solid #275788;
-	margin:5px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	}
 .xiusinfo{
 	float:right;
 	width:25%;
@@ -142,9 +157,8 @@ ul{
 .xius_ablemain{
 	overflow: hidden;
 	}
-.xius_able{
+.xius_available{
 	float: left;
-	border:1px solid #275788;
 	width: 44%;
 	margin-top:10px;
 	margin-left: 15px;
@@ -152,16 +166,24 @@ ul{
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	}	
-.xius_able input{
+.xi_left{
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+	}
+.xi_right{
+	float: right;
+	}	
+.xius_available input{
 	width:150px;
 	}
-.xius_able select{
+.xius_available select{
 	width:156px;
 	}
-.xius_able input[type="checkbox"] {
+.xius_available input[type="checkbox"] {
 width:15px;
 }
-.xius_able img{
+.xius_available img{
 	cursor: pointer;
 	}
 
