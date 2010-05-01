@@ -37,14 +37,14 @@ class XiusModelInfo extends JModel
 	 * @return object	JPagination object	 	 
 	 **/	 	
 
-	function &getPagination()
+	function &getPagination($filter = '',$join = 'AND')
 	{
 		global $mainframe;
 		if ($this->_pagination == null){
 
 			// Get the limit / limitstart
 			$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-			$limitstart	= $mainframe->getUserStateFromRequest('com_xiuslimitstart', 'limitstart', 0, 'int');
+			$limitstart	= $mainframe->getUserStateFromRequest('com_xius_infolimitstart', 'limitstart', 0, 'int');
 	
 			// In case limit has been changed, adjust limitstart accordingly
 			$limitstart	= ($limit != 0) ? ($limitstart / $limit ) * $limit : 0;
@@ -52,9 +52,14 @@ class XiusModelInfo extends JModel
 			$db			=& JFactory::getDBO();
 			
 			// Get the total number of records for pagination
-			$query	= 'SELECT COUNT(*) FROM ' . $db->nameQuote( '#__xius_info' );
+			$filterSql = $this->_buildFilterQuery($filter,$join);
+		
+			$query	= ' SELECT COUNT(*) FROM ' 
+				. $db->nameQuote('#__xius_info')
+				.$filterSql;
+			
 			$db->setQuery( $query );
-			$total	= $db->loadResult();
+			$total = $db->loadResult();
 			
 			jimport('joomla.html.pagination');
 		
@@ -70,12 +75,34 @@ class XiusModelInfo extends JModel
 	/*XITODO : Cache function for same filter */
 	function getAllInfo($filter = '',$join = 'AND',$reqPagination = true,$limitStart=0 , $limit=0)
 	{
-		$this->getPagination();
+		$this->getPagination($filter,$join);
 		if($reqPagination && $limitStart == 0 && $limit == 0){
 			$limitStart = $this->_pagination->limitstart;
 			$limit = $this->_pagination->limit;
 		}
 		// Initialize variables
+		$db			=& JFactory::getDBO();
+
+		$filterSql = $this->_buildFilterQuery($filter,$join);
+		
+		$query	= ' SELECT * FROM ' 
+				. $db->nameQuote('#__xius_info')
+				.$filterSql
+				. ' ORDER BY '. $db->nameQuote('ordering');
+			
+		if($reqPagination)
+			$db->setQuery( $query , $limitStart , $limit );
+		else
+			$db->setQuery($query);
+			
+		$allInfo	= $db->loadObjectList();
+		
+		return $allInfo;
+	}
+	
+	
+	function _buildFilterQuery($filter = '',$join = 'AND')
+	{
 		$db			=& JFactory::getDBO();
 
 		$filterSql = ''; 
@@ -89,20 +116,9 @@ class XiusModelInfo extends JModel
 			}
 		}
 		
-		$query	= ' SELECT * FROM ' 
-				. $db->nameQuote('#__xius_info')
-				.$filterSql
-				. ' ORDER BY '. $db->nameQuote('ordering');
-
-		if($reqPagination)
-			$db->setQuery( $query , $limitStart , $limit );
-		else
-			$db->setQuery($query);
-			
-		$allInfo	= $db->loadObjectList();
-		
-		return $allInfo;
+		return $filterSql;
 	}
+	
 	
 	
 	function getInfo($id = 0)

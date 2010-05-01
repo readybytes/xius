@@ -13,7 +13,7 @@
 		if(empty($this->sortableFields))
 			echo "I m in sorting";
 		else{
-			$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" />';
+			$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" >';
 			foreach($this->sortableFields as $sfields){
 				$selected = '';
 				if($this->sort == $sfields['key'])
@@ -32,7 +32,7 @@
 			else if($this->dir == 'DESC')
 				$descselected = ' selected=true ';
 				
-			$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="applySort(\'xiussortdir\');"/>';
+			$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="applySort(\'xiussortdir\');" >';
 			$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
 			$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
 			$dirhtml .= '</select>';

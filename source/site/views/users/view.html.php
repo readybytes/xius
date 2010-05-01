@@ -73,8 +73,8 @@ class XiusViewUsers extends JView
 		
 		$model =& XiusFactory::getModel('users','site');
 		$users =& $model->getUsers($conditions,$join,$sort,$dir);      
-        $pagination =& $model->getPagination($conditions);
-        $total =& $model->getTotal($conditions);
+        $pagination =& $model->getPagination($conditions,$join,$sort,$dir);
+        $total =& $model->getTotal($conditions,$join,$sort,$dir);
         
         $userprofile = array();
         
@@ -137,8 +137,9 @@ class XiusViewUsers extends JView
 			
 				$appliedData = array();
 				$appliedData['label'] = $plgInstance->get('labelName');
-				$appliedData['value'] = $c['value'];
+				$appliedData['formatvalue'] = $plgInstance->_getFormatData($c['value']);
 				$appliedData['infoid'] = $c['infoid'];
+				$appliedData['value'] = $c['value'];
 				
 				$appliedInfo[] = $appliedData;
         	}
@@ -208,6 +209,7 @@ class XiusViewUsers extends JView
 
 		$this->assign('sort', $sortId);
 		$this->assign('dir', $dir);
+		$this->assign('join', $join);
 		
 		$this->assign('list', $list);
 		
@@ -228,9 +230,12 @@ class XiusViewUsers extends JView
 		if(XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
-		$lists = $lModel->getLists($filter);
+		$lists = $lModel->getLists($filter,'AND',false);
+		
+		$selectedListId = JRequest::getVar('listid', 0);
 		
 		$this->assign('lists',$lists);
+		$this->assign('selectedListId',$selectedListId);
 		
 		parent::display();
 	}
@@ -256,9 +261,11 @@ class XiusViewUsers extends JView
 		if(XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
-		$lists = $lModel->getLists($filter);
+		$lists = $lModel->getLists($filter,'AND',true);
+		$pagination =& $lModel->getPagination($filter,'AND');
 		
 		$this->assign('lists',$lists);
+		$this->assign('pagination', $pagination);
 		
 		return parent::display();
 	}

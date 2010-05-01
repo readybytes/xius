@@ -38,6 +38,7 @@ define('XIUSSORT','SORT');
 
 
 define('XIUS_CONDITIONS','conditions');
+define('XIUS_VISIBLE','visible');
 define('XIUS_SORT','sort');
 define('XIUS_DIR','dir');
 define('XIUS_JOIN','join');

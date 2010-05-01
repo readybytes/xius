@@ -319,17 +319,6 @@ class XiusLibrariesUsersearch
 		
 		$conditionvalue = JRequest::getVar('conditionvalue', '', 'POST');
 		$value = unserialize($conditionvalue);
-       /* foreach($conditions as $key => $c){
-        	if(!array_key_exists('infoid',$c))
-        		continue;
-        		
-        	if($c['infoid'] == $delInfoId){
-        		//&& $c['value'] == $conditionvalue){
-        		unset($conditions[$key]);
-        		//break;
-        	}
-        }*/
-		
 		$conditions = array_values($conditions);
 
 		$searchdata['infoid'] = $delInfoId;
@@ -422,7 +411,13 @@ class XiusLibrariesUsersearch
 				if(!is_array($i['value']))
 					continue;
 					
-				if(!array_diff($searchArray['value'],$i['value']))
+				$extraValueInsearch = array_diff($searchArray['value'],$i['value']);
+				$extraValueInI = array_diff($i['value'],$searchArray['value']);
+					
+				if($extraValueInsearch || $extraValueInI)
+					continue;
+				
+				if(!$extraValueInI && !$extraValueInI)
 					return $count;
 			}
 			else {

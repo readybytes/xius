@@ -103,6 +103,13 @@ function submitbutton( action )
 				$count++;
 		}
 		?>
+		<tfoot>
+		<tr>
+			<td colspan="15">
+				<?php echo $this->pagination->getListFooter(); ?>
+			</td>
+		</tr>
+		</tfoot>
 </table>
 
 <div class="clr"></div>

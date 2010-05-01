@@ -4,7 +4,7 @@ jimport( 'joomla.application.component.model' );
 class XiusModelUsers extends JModel
 {
 	
-	protected $_total = null;
+	protected $_totalusers = null;
 	protected $_pagination = null;
 	protected $_users = null;
 	
@@ -59,26 +59,26 @@ class XiusModelUsers extends JModel
         return $this->_users;
   	}
   	
-  	function getTotal($params)
+  	function getTotal($params,$join='AND',$sort='userid',$dir='ASC')
   	{
-        if ($this->_total)
-        	return $this->_total;
+        if ($this->_totalusers)
+        	return $this->_totalusers;
         	
-		$query = XiusLibrariesUsersearch::buildQuery($params);
+		$query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);
 
-        $this->_total = $this->_getListCount($query);    
+        $this->_totalusers = $this->_getListCount($query);    
 
-       	return $this->_total;
+       	return $this->_totalusers;
   	}
   	
   	
-  	function getPagination($params)
+  	function getPagination($params,$join='AND',$sort='userid',$dir='ASC')
   	{
         if ($this->_pagination)
         	return $this->_pagination;
         	
         jimport('joomla.html.pagination');
-        $this->_pagination = new JPagination($this->getTotal($params), $this->getState('limitstart'), $this->getState('limit') );
+        $this->_pagination = new JPagination($this->getTotal($params,$join,$sort,$dir), $this->getState('limitstart'), $this->getState('limit') );
         
         return $this->_pagination;
   	}

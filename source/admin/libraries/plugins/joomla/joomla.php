@@ -48,17 +48,24 @@ class Joomla extends XiusBase
 			/*XITODO : think about registration date search
 			 * till now it's not supporting date feature
 			 */
+								
 			if(is_array($columns)) {
 				foreach($columns as $c){
-					//$query->select($c['columnname']);
-					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
+					if($this->key == 'registerDate')
+						$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y')".$operator."'".$this->formatValue($value)."'";
+					else
+						$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
+					
 					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
-				//$query->select($columns['columnname']);
-				$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
+				if($this->key == 'registerDate')
+					$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y')".$operator."'".$this->formatValue($value)."'";
+				else
+					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
+					
 				$query->where($conditions,$join);
 				return true;
 			}
@@ -116,4 +123,31 @@ class Joomla extends XiusBase
 		return $formatvalue;
 	}*/
 	
+	
+	public function _getFormatData($value)
+	{
+		if($this->key != 'registerDate')
+			return parent::_getFormatData($value);
+		
+		$value = split('-',$value);
+		$finalvalue = '';
+		
+		if(is_array($value)){
+			if( empty( $value[0] ) || empty( $value[1] ) || empty( $value[2] ) )
+				$finalvalue = '';
+			else {
+				$year	= intval($value[0]);
+				$month	= intval($value[1]);
+				$day	= intval($value[2]);
+				
+				$day 	= !empty($day) 		? $day 		: 1;
+				$month 	= !empty($month) 	? $month 	: 1;
+				$year 	= !empty($year) 	? $year 	: 1970;
+				
+				$finalvalue	= $day . '-' . $month . '-' . $year;
+			}
+		}
+			
+		return $finalvalue;	
+	}
 }

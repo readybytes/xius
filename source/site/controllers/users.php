@@ -13,10 +13,9 @@ class XiusControllerUsers extends JController
 	
 	function displaySearch()
 	{
-		/*XITODO : Add icon for mailing , printing ,and pdf document
-		 * for pdf :- &format=pdf&tmpl=component use it
-		 * for print :- &print=1&tmpl=component
-		 */
+		
+		global $mainframe;
+		
 		/*XITODO : Collect all info here
 		 * ask admin , how many no's of info
 		 * he want's to display at a time , and add more links.
@@ -36,6 +35,13 @@ class XiusControllerUsers extends JController
 					
 				$conditions = XiusLibrariesUsersearch::processSearchData();
 				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+				
+				$join = JRequest::getVar('xius_join','AND','POST');
+				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+				break;
+			case 'xiusjoin':
+				$join = JRequest::getVar('xiusjoin','AND','POST');
+				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 				break;
 			case 'xiusdelinfo':
 				XiusLibrariesUsersearch::deleteSearchData();
@@ -48,7 +54,8 @@ class XiusControllerUsers extends JController
 				XiusLibrariesUsersearch::processSortData();
 				break;
 			case 'xiussavelist':
-				$this->_saveList();
+				$data = $this->_saveList();
+				$mainframe->redirect($data['url'],$data['msg'],false);
 				break;
 			case 'xiusexport':
 				return $this->_exportUser(__FUNCTION__);
@@ -59,7 +66,7 @@ class XiusControllerUsers extends JController
 				break;
 		}
 			
-		return $this->_displayResult(__FUNCTION__,$subtask);
+		return $this->_displayResult(__FUNCTION__);
 	}
 	
 	
@@ -113,6 +120,7 @@ class XiusControllerUsers extends JController
 	
 	function displayList()
 	{
+		global $mainframe;
 		$listId = JRequest::getVar('listid', 0);
 		$subtask = JRequest::getVar('subtask', ''); 
 		
@@ -131,6 +139,10 @@ class XiusControllerUsers extends JController
 			$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
 		
 		switch($subtask){
+			case 'xiusjoin':
+				$join = JRequest::getVar('xiusjoin','AND','POST');
+				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+				break;
 			case 'xiusdelinfo':
 				XiusLibrariesUsersearch::deleteSearchData();
 				break;
@@ -142,7 +154,8 @@ class XiusControllerUsers extends JController
 				XiusLibrariesUsersearch::processSortData();
 				break;
 			case 'xiussavelist':
-				$this->_saveList();
+				$data = $this->_saveList();
+				$mainframe->redirect($data['url'],$data['msg'],false);
 				break;
 			case 'xiusexport':
 				return $this->_exportUser(__FUNCTION__);
@@ -165,6 +178,7 @@ class XiusControllerUsers extends JController
 		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
 		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,unserialize($list->conditions),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,unserialize($list->visibleinfo),'XIUS');
 		return true;
 	}
 	
@@ -184,34 +198,46 @@ class XiusControllerUsers extends JController
 	
 	function displaySaveOption()
 	{
-		$prevTask = JRequest::getVar('prevtask', '');
-		
 		global $mainframe;
 		$user =& JFactory::getUser();
-		
-		/* Check for admin only admin can save list	 */
-		if(!XiusHelpersUtils::isAdmin($user->id)){
-			$url = JRoute::_("index.php?option=com_xius&view=users",false);
-			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
-		}
-		
-		$listName = JRequest::getVar('xius_list_name', '');
-		
-		if($listName)
-			return $this->_saveList();
-			
+				
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , 'raw' );
+		$view		=& $this->getView( $viewName , $viewType );
 		
+		$subtask = JRequest::getVar('subtask', '');
+		
+		$listId = JRequest::getVar('listid', 0);
+		$listName = JRequest::getVar('xius_list_name', '');
+		
+		switch($subtask){
+			case 'xiussaveexisting':
+				if(!$listId)
+					break;
+				$data =  $this->_saveList(false);
+				$view->setLayout( 'results_success' );
+				return $view->success($data);
+				break;
+			case 'xiussavenew' :
+				
+				if(!$listName)
+					break;
+				$data =  $this->_saveList(true);
+				$view->setLayout( 'results_success' );
+				return $view->success($data);
+				break;
+			default :
+				break;
+		}
+					
 		$view->setLayout( 'results_saveoptions' );
 		return $view->displaySaveOption();
 	}
 	
 	
 	
-	function _saveList()
+	function _saveList($new = true)
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();
@@ -219,7 +245,13 @@ class XiusControllerUsers extends JController
 		/* Check for admin only admin can save list	 */
 		if(!XiusHelpersUtils::isAdmin($user->id)){
 			$url = JRoute::_("index.php?option=com_xius&view=users",false);
-			$mainframe->redirect($url,JText::_('YOU CAN NOT SAVE LIST'),false);
+			
+			$returndata = array();
+			$returndata['id']		= 0;
+			$returndata['url']	= $url;
+			$returndata['msg'] 	= JText::_('YOU CAN NOT SAVE LIST'); 
+			
+			return $returndata;
 		}
 		
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
@@ -233,12 +265,18 @@ class XiusControllerUsers extends JController
 		 * or update existing one
 		 */
 		$listId = JRequest::getVar('listid', 0);
-		$listName = JRequest::getVar('xius_list_name', '');
+		$listName = JRequest::getVar('xius_list_name', 'LIST'.$listId);
 		/*XITODO : set visible info and published also */
 		$data = array();
 		
-		$data['id'] = $listId;//0;
-		$data['name'] = $listName;//0;
+		$data['id'] = $listId;
+		
+		if($new){
+			$data['name'] = $listName;
+			$data['description'] = JRequest::getVar('xius_list_desc', '');
+			$data['published'] = JRequest::getVar('xius_list_publish', 1);
+		}
+		
 		$data['join'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,'userid');
 		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
@@ -253,16 +291,12 @@ class XiusControllerUsers extends JController
 		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
 		//$mainframe->redirect($url,$msg,false);
 		
-		$data = array();
-		$data['url']	= $url;
-		$data['msg'] = $msg; 		
-		$viewName	= JRequest::getCmd( 'view' , 'users' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
+		$returndata = array();
+		$returndata['id']	= $id;
+		$returndata['url']	= $url;
+		$returndata['msg'] 	= $msg; 		
 		
-		$view->setLayout( 'results_success' );
-		return $view->success($data);
+		return $returndata;
 	}
 
 }

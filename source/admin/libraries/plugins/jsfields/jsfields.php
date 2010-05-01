@@ -196,7 +196,7 @@ class Jsfields extends XiusBase
 		/*XITODO : Cache jomsocial fields */
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
 		
-		if(empty($fieldInfo) && is_array($value)) {
+		if(empty($fieldInfo) || is_array($value)) {
 			$formatvalue = implode(',',$value);
 			return $formatvalue;
 		}
