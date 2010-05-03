@@ -24,4 +24,5 @@ if(XiusHelpersUtils::isAdmin($user->id)){
 	?><img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
 	<?php 
 }?>
+
 </div>

@@ -18,7 +18,8 @@
 <?php 
 if(!empty($this->appliedInfo)) : ?>
 	<fieldset><legend><?php echo JText::_('Applied Information');?></legend>
-	<?php $data = $this->appliedInfo;
+
+<?php $data = $this->appliedInfo;
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
 		$count++; ?>
@@ -34,14 +35,9 @@ if(!empty($this->appliedInfo)) : ?>
 		
 		echo '</div></div><div class="right"><img src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
 								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div></div>';		
-	endforeach;
-
-?>
-<input type="hidden" name="xiusdelinfo" value="" />
-<input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
-</fieldset>
-<?php endif;
-
+	endforeach;?>
+<div class="applied">
+<?php 
 $orSelected = '';
 $andSelected = '';
 if($this->join == 'AND')
@@ -53,5 +49,15 @@ $joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="applyJoin(\'xiusjoi
 $joinhtml .= '<option value="AND" '.$andSelected.'>AND</option>';
 $joinhtml .= '<option value="OR" '.$orSelected.'>OR</option>';
 $joinhtml .= '</select>';
+echo '<b>'.JText::_('Join With').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
+echo $joinhtml;	
+?>
+</div>
+<?php 
+endif;
+?>
 
-echo $joinhtml;
+<input type="hidden" name="xiusdelinfo" value="" />
+<input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
+</fieldset>
+
