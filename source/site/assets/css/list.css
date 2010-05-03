@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+.listmain{
+overflow: hidden;
+margin-top: 3px;
+}
+.listtopleft{
+width:25%;
+float:left;
+color:#A8A8A8;
+}
+.listtopleft h1{
+margin:4px;	
+}
+.listtopright{
+width:75%;
+float: right;
+}
+.listdesc{
+width:100%;
+float: left;
+min-height: 40px;
+margin: 4px;
+}
