@@ -1264,8 +1264,8 @@ FILE: /vobs/xius/trunk/packages/tmp/site/views/users/tmpl/lists.php
 --------------------------------------------------------------------------------
 FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
-  4 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 15 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  9 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 20 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -1452,10 +1452,10 @@ FOUND 8 ERROR(S) AND 0 WARNING(S) AFFECTING 7 LINE(S)
     |       | Tahoma
  34 | ERROR | Browser-specific styles are not allowed
  35 | ERROR | Browser-specific styles are not allowed
- 45 | ERROR | Browser-specific styles are not allowed
- 46 | ERROR | Browser-specific styles are not allowed
- 57 | ERROR | Browser-specific styles are not allowed
- 58 | ERROR | Browser-specific styles are not allowed
+ 48 | ERROR | Browser-specific styles are not allowed
+ 49 | ERROR | Browser-specific styles are not allowed
+ 60 | ERROR | Browser-specific styles are not allowed
+ 61 | ERROR | Browser-specific styles are not allowed
 --------------------------------------------------------------------------------
 
 

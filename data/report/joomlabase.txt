@@ -126,7 +126,8 @@
 ../packages/tmp/site/views/users/tmpl/results_adminoption.php:4:$user =& JFactory::getUser();
 ../packages/tmp/site/views/users/tmpl/results_adminoption.php:24:	?><img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
 ../packages/tmp/site/views/users/tmpl/results.php:6:$document =& JFactory::getDocument();
-../packages/tmp/site/views/users/tmpl/lists.php:8:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+../packages/tmp/site/views/users/tmpl/lists.php:3:$document =& JFactory::getDocument();
+../packages/tmp/site/views/users/tmpl/lists.php:13:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
 ../packages/tmp/site/views/users/view.csv.php:13:		global $mainframe;
 ../packages/tmp/site/views/users/view.csv.php:14:		$user =& JFactory::getUser();
 ../packages/tmp/site/views/users/view.csv.php:17:			$url = JRoute::_('index.php?option=com_xius&view=users',false);

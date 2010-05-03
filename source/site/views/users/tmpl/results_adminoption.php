@@ -12,7 +12,7 @@ if(XiusHelpersUtils::isAdmin($user->id)){
 	//$url = "index.php?option=com_xius&view=users&task=displayList&subtask=xiussavelist&listid=".$listid;
 	
 	$url = "index.php?option=com_xius&view=users&task=displaySaveOption&prevtask=".$this->task."&tmpl=component&listid=".$listid;
-	?><a class = 'savelist' href="<?php echo $url;?>" rel = "{handler: 'iframe', size: {x: 500 , y: 450}}" >
+	?><a class = 'savelist' href="<?php echo $url;?>" rel = "{handler: 'iframe', size: {x: 550 , y: 550}}" >
 	<img src="<?php echo JURI::base().'components/com_xius/assets/images/save.png';?>" title=<?php echo JText::_("Save This List"); ?> />
 	</a>
 	

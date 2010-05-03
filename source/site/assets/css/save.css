@@ -35,6 +35,9 @@ float:left;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	margin-top: 2px;
 	}
+.savemainbox input[type="radio"] {
+width:15px;
+}
 .submit input {
 	width: auto;
 	padding: 9px 15px;

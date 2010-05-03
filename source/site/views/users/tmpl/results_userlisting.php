@@ -15,7 +15,7 @@
 					</div>
 					<div class="viewprofile">
 						<a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>" >
-						<button><?php JText::_('View Profile'); ?></button></a>
+						<button><?php echo JText::_('View Profile'); ?></button></a>
 					</div>	
 				</div>
 				<div class="subrightbox">

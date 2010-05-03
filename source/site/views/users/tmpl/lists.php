@@ -1,3 +1,8 @@
+<?php 
+$css = JURI::base().'components/com_xius/assets/css/list.css';
+$document =& JFactory::getDocument();
+$document->addStyleSheet($css);
+?>
 <div class="">
 <form action="index.php?option=com_xius&view=users" name="listForm" id="listForm" method="post">
 <?php
@@ -7,9 +12,9 @@ else	:
 	foreach($this->lists as $l)	:
 		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
 		?>
-		<div style="overflow: hidden; margin-top: 3px;">
-		<div style="width:25%; float:left; color:#A8A8A8;">
-		<h1 style="margin:4px;">
+		<div class="listmain">
+		<div class="listtopleft">
+		<h1>
 		<?php 
 		$name = $l->name;
 		if(empty($name))
@@ -18,10 +23,9 @@ else	:
 		echo '<a href="'.$url.'">'.JText::_($name).'</a>'
 		?></h1>
 		</div>
-		<div style="width:75%; float: right;">
+		<div class="listtopright">
 		</div>
-		<!--  echo '<a href="'.$url.'">'.$name.$l->id.'</a>';-->
-		<div style="width:100%;float: left;min-height: 40px; margin: 4px;">
+		<div class="listdesc">
 		<?php 
 		echo $l->description;
 		?><hr />
