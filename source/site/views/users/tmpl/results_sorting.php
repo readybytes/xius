@@ -7,18 +7,16 @@
 </script>
 <div class = "xius_sorting">
 <?php 
-		if(empty($this->sortableFields))
-			echo "I m in sorting";
-		else{
+		if(!empty($this->sortableFields))	:
 			$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" >';
-			foreach($this->sortableFields as $sfields){
+			foreach($this->sortableFields as $sfields)	:
 				$selected = '';
 				if($this->sort == $sfields['key'])
 					$selected = ' selected=true ';
 				
 				$html .= '<option value='.$sfields['key'].$selected.'>'.$sfields['value'];
 				$html .= '</option>';
-			}
+			endforeach;
 			$html .= '</select>';
 			echo $html;
 			
@@ -35,7 +33,7 @@
 			$dirhtml .= '</select>';
 			
 			echo $dirhtml;
-		}
+		endif;
 		
 		
 	?>

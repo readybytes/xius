@@ -1,11 +1,15 @@
 <?php 
 $listid = 0;
 
-if(!empty( $this->list ))
+if(!empty( $this->list ))	:
 	$listid = $this->list->id;
 	if(empty($this->list->name))
-		echo $name = 'LIST';
+		$name = 'LIST'.$listid;
 	else
-		echo $name = $this->list->name;
+		$name = $this->list->name;
+		
+	echo JText::_($name);
+
+endif;
 ?>
 <input type="hidden" name="listid" value="<?php echo $listid;?>" />

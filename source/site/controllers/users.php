@@ -161,6 +161,14 @@ class XiusControllerUsers extends JController
 				return $this->_exportUser(__FUNCTION__);
 				break;
 			default	:
+				$user =& JFactory::getUser();
+				if($list)
+					if(!XiusHelpersUtils::isAdmin($user->id) && !$list->published){
+						$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList",false);
+						$msg = JText::_('DO NOT HAVE ACCESS RIGHTS');
+						$mainframe->redirect($url,$msg,false);
+						break;
+					}
 				$this->_processList($list);
 				break;
 		}
@@ -272,6 +280,7 @@ class XiusControllerUsers extends JController
 		$data['id'] = $listId;
 		
 		if($new){
+			$data['id'] = 0;
 			$data['name'] = $listName;
 			$data['description'] = JRequest::getVar('xius_list_desc', '');
 			$data['published'] = JRequest::getVar('xius_list_publish', 1);

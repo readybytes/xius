@@ -15,7 +15,7 @@ else	:
 		if(empty($name))
 			$name = 'LIST';
 			
-		echo '<a href="'.$url.'">'.$name.'</a>'
+		echo '<a href="'.$url.'">'.JText::_($name).'</a>'
 		?></h1>
 		</div>
 		<div style="width:75%; float: right;">

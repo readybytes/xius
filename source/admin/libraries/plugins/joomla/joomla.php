@@ -127,14 +127,21 @@ class Joomla extends XiusBase
 		
 		$value = split('-',$value);
 		$finalvalue = '';
-		
+			
 		if(is_array($value)){
 			if( empty( $value[0] ) || empty( $value[1] ) || empty( $value[2] ) )
 				$finalvalue = '';
 			else {
-				$year	= intval($value[0]);
-				$month	= intval($value[1]);
-				$day	= intval($value[2]);
+				if(JString::strlen($value[0]) == 4){
+					$year	= intval($value[0]);
+					$month	= intval($value[1]);
+					$day	= intval($value[2]);
+				}
+				else{
+					$day	= intval($value[0]);
+					$month	= intval($value[1]);
+					$year	= intval($value[2]);
+				}
 				
 				$day 	= !empty($day) 		? $day 		: 1;
 				$month 	= !empty($month) 	? $month 	: 1;

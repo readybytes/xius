@@ -15,7 +15,7 @@
 if(!empty($this->availableInfo))
 		foreach($this->availableInfo as $data):
 			?> <div class="xius_available">
-				<div class="xi_left"><?php echo $data['label'];?></div>
+				<div class="xi_left"><?php echo JText::_($data['label']);?></div>
 				<div class="xi_right"><?php echo $data['html'];?>
 				<img src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
 								alt="Add" onClick="addInfo(<?php echo $data['infoid'];?>);"/>

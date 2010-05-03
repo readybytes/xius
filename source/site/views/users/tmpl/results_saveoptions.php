@@ -15,16 +15,16 @@ $document->addStyleSheet($css);
 <div class="savemainbox">
 	<div class="leftbox">
 		<h3>Save As New</h3>
-		<div class="lab"><label>Name</label></div>
+		<div class="lab"><label><?php echo JText::_('Name');?></label></div>
 		<div><input type="text" name="xius_list_name" /></div>
-		<div class="lab"><label>Description</label></div>
+		<div class="lab"><label><?php echo JText::_('Description');?></label></div>
 		<div><textarea rows="" cols="" name="xius_list_desc"></textarea></div>
-		<div>Publish:<input type="radio" name="xius_list_publish" value="1" checked="checked">Unpublish:<input type="radio" name="xius_list_publish" value="0"></div>
+		<div><?php echo JText::_('Publish');?>:<input type="radio" name="xius_list_publish" value="1" checked="checked"><?php echo JText::_('Unpublish');?>:<input type="radio" name="xius_list_publish" value="0"></div>
 		<div class="submit"><input type="submit" name = "xiussavenew" id = "xiussavenew" value=<?php echo JText::_('SAVE AS NEW')?> onClick = "saveList('xiussavenew');"/></div>
 		
 	</div>
 	<div class="rightbox">
-		<h3>Save in Existing</h3>
+		<h3><?php echo JText::_('Save in Existing');?></h3>
 		<div class="subrightbox"><?php
 if(empty($this->lists))	:
 	echo JText::_('NO LISTS AVAILABLE');
@@ -44,7 +44,7 @@ else	:
 		if($l->id == $this->selectedListId)
 			$checked = ' checked=checked';
 			
-		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .ucwords($name)."<br />" ;
+		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(ucwords($name))."<br />" ;
 		echo "</div>";
 	endforeach;
 endif;

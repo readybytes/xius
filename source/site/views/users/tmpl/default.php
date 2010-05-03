@@ -18,7 +18,7 @@ jimport('joomla.html.pane');
 		if(!empty($this->infohtml))
 		foreach($this->infohtml as $data):
 			?> <div class="xius_inputs">
-				<div class="xius_label"><?php echo $data['label'];?></div>
+				<div class="xius_label"><?php echo JText::_($data['label']);?></div>
 				<div><?php echo $data['html'];?></div>
 			   </div>		
 		<?php 

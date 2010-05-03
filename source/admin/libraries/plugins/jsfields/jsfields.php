@@ -200,6 +200,10 @@ class Jsfields extends XiusBase
 			$formatvalue = implode(',',$value);
 			return $formatvalue;
 		}
+		
+		if($fieldInfo[0]->type == 'date')
+			return $value;
+		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::getFieldData($fieldInfo[0]->type,$value);
 		return $formatvalue;

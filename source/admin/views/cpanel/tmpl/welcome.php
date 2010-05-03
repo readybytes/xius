@@ -1,5 +1,5 @@
 <?php
-	//echo $this->pane->startPanel( JText::_('WELCOME TO XIPT') , 'welcome' );
+	//echo $this->pane->startPanel( JText::_('WELCOME TO XIUS') , 'welcome' );
 	?>
 	<table class="adminlist">
 		<tr>

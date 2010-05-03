@@ -80,7 +80,7 @@ function submitbutton( action )
 					</span>
 				</td>
 				<td align="center">
-							<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $list->published ? 'unpublishList' : 'publishList' ?>')">
+							<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $list->published ? 'unpublish' : 'publish' ?>')">
 							<?php if($list->published)
 							{ ?>
 								<img src="images/tick.png" width="16" height="16" border="0" alt="Published" />
