@@ -52,8 +52,6 @@ class XiusControllerList extends JController
 					$mainframe->redirect( 'index.php?option=com_xius&view=list' , $message);
 					exit;
 				}
-				
-				$lModel->removeConditions($id);
 				$i++;
 			}
 		}

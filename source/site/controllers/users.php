@@ -219,18 +219,24 @@ class XiusControllerUsers extends JController
 		$listId = JRequest::getVar('listid', 0);
 		$listName = JRequest::getVar('xius_list_name', '');
 		
+		$msg = '';
+		
 		switch($subtask){
 			case 'xiussaveexisting':
-				if(!$listId)
+				if(!$listId){
+					$msg = JText::_('Please select a list to save or save as a new');
 					break;
+				}
 				$data =  $this->_saveList(false);
 				$view->setLayout( 'results_success' );
 				return $view->success($data);
 				break;
 			case 'xiussavenew' :
 				
-				if(!$listName)
+				if(!$listName){
+					$msg = JText::_('Please provide list name');
 					break;
+				}
 				$data =  $this->_saveList(true);
 				$view->setLayout( 'results_success' );
 				return $view->success($data);
@@ -240,7 +246,7 @@ class XiusControllerUsers extends JController
 		}
 					
 		$view->setLayout( 'results_saveoptions' );
-		return $view->displaySaveOption();
+		return $view->displaySaveOption($msg);
 	}
 	
 	

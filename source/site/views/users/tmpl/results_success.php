@@ -3,7 +3,7 @@ function refreshParent(url)
 {
 	window.parent.location.href = url;
 	//window.opener.location.href = url;
- parent.SqueezeBox.close();
+ 	parent.SqueezeBox.close();
  }
 </script>
 <form>

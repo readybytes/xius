@@ -10,11 +10,15 @@
 $css = JURI::base().'components/com_xius/assets/css/save.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
+
+if(!empty($this->msg))
+	echo "<strong>".$this->msg."</strong>";
+
 ?>
 <form action="index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component" name="saveListForm" id="saveListForm" method="post">
 <div class="savemainbox">
 	<div class="leftbox">
-		<h3>Save As New</h3>
+		<h3><?php JText::_("Save As New"); ?></h3>
 		<div class="lab"><label><?php echo JText::_('Name');?></label></div>
 		<div><input type="text" name="xius_list_name" /></div>
 		<div class="lab"><label><?php echo JText::_('Description');?></label></div>
@@ -44,7 +48,7 @@ else	:
 		if($l->id == $this->selectedListId)
 			$checked = ' checked=checked';
 			
-		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(ucwords($name))."<br />" ;
+		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(JString::ucwords($name))."<br />" ;
 		echo "</div>";
 	endforeach;
 endif;

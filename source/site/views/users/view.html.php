@@ -44,6 +44,9 @@ class XiusViewUsers extends JView
 			}
 		}
 		
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::_('Search Panel'));
+		
 		$this->assign( 'infohtml' , $infohtml );
 		return parent::display();
 	}
@@ -185,6 +188,12 @@ class XiusViewUsers extends JView
         	}
         }
         
+        $document = JFactory::getDocument();
+        if(!empty($list) && !empty($list->name))
+			$document->setTitle(JText::_($list->name));
+		else
+			$document->setTitle(JText::_('Search Result'));
+        
 		$this->assignRef('users', $users);
 		$this->assignRef('userprofile', $userprofile);
 		$this->assignRef('sortableFields', $sortableFields);
@@ -205,7 +214,7 @@ class XiusViewUsers extends JView
 	}
 	
 	
-	function displaySaveOption()
+	function displaySaveOption($msg = '')
 	{
 		$lModel =& XiusFactory::getModel('list','admin');
 		
@@ -213,7 +222,7 @@ class XiusViewUsers extends JView
 					
 		$user = JFactory::getUser();
 		
-		if(XiusHelpersUtils::isAdmin($user->id))
+		if(!XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
 		$lists = $lModel->getLists($filter,'AND',false);
@@ -222,7 +231,7 @@ class XiusViewUsers extends JView
 		
 		$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
-		
+		$this->assign('msg',$msg);
 		parent::display();
 	}
 	
@@ -230,6 +239,16 @@ class XiusViewUsers extends JView
 	function success($data)
 	{		
 		$this->assign('data',$data);
+		
+		/*$document->addScriptDeclaration("
+		window.addEvent('domready', function() {
+			document.preview = SqueezeBox;
+		});");*/
+		
+		/*$document = JFactory::getDocument();
+		$document->addScriptDeclaration("
+		window.parent.location.href = ".$data['url'].";
+ 		parent.SqueezeBox.close();");*/
 		
 		parent::display();
 	}
@@ -244,7 +263,7 @@ class XiusViewUsers extends JView
 					
 		$user = JFactory::getUser();
 		
-		if(XiusHelpersUtils::isAdmin($user->id))
+		if(!XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
 		$lists = $lModel->getLists($filter,'AND',true);
