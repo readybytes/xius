@@ -8,13 +8,13 @@
 	
 </script>
 
-<div class="xius_ablemain">
-<fieldset><legend> <?php echo JText::_('Available Information');?> </legend>
 
+<fieldset><legend> <?php echo JText::_('Available Information');?> </legend>
+<div class="xius_available">
 <?php 
 if(!empty($this->availableInfo))
 		foreach($this->availableInfo as $data):
-			?> <div class="xius_available">
+			?> <div class="xius_availablemain">
 				<div class="xi_left"><?php echo JText::_($data['label']);?></div>
 				<div class="xi_right"><?php echo $data['html'];?>
 				<img src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
@@ -23,7 +23,7 @@ if(!empty($this->availableInfo))
 				</div>		
 		<?php 
 		endforeach;
-?>
+?></div>
 </fieldset>
-</div>
+
 <input type="hidden" name="xiusaddinfo" value="" />

@@ -244,12 +244,13 @@ class XiusViewUsers extends JView
 		window.addEvent('domready', function() {
 			document.preview = SqueezeBox;
 		});");*/
-		
-		/*$document = JFactory::getDocument();
-		$document->addScriptDeclaration("
-		window.parent.location.href = ".$data['url'].";
- 		parent.SqueezeBox.close();");*/
-		
+ 		/*$resizeJs = "SqueezeBox.resize({size:{x: 200, y: 100}});";
+ 		$document->addScriptDeclaration($resizeJs); */
+
+		$document = JFactory::getDocument();
+		$js = "window.setTimeout(\"window.parent.location.href = '".$data['url']."';parent.SqueezeBox.close()\", 1000);";
+ 		$document->addScriptDeclaration($js); 
+
 		parent::display();
 	}
 	

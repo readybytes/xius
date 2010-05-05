@@ -12,13 +12,13 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 
 if(!empty($this->msg))
-	echo "<strong>".$this->msg."</strong>";
+	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 ?>
 <form action="index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component" name="saveListForm" id="saveListForm" method="post">
 <div class="savemainbox">
 	<div class="leftbox">
-		<h3><?php JText::_("Save As New"); ?></h3>
+		<h3><?php echo JText::_("Save As New"); ?></h3>
 		<div class="lab"><label><?php echo JText::_('Name');?></label></div>
 		<div><input type="text" name="xius_list_name" /></div>
 		<div class="lab"><label><?php echo JText::_('Description');?></label></div>
@@ -50,9 +50,11 @@ else	:
 			
 		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(JString::ucwords($name))."<br />" ;
 		echo "</div>";
-	endforeach;
-endif;
-?>	<div class="submit"><input type="submit" name = "xiussaveexisting" id = "xiussaveexisting" value=<?php echo JText::_('SAVE AS EXISTING')?> onClick = "saveList('xiussaveexisting');"/></div>
+	endforeach;?>
+	<div class="submit"><input type="submit" name = "xiussaveexisting" id = "xiussaveexisting" value=<?php echo JText::_('SAVE AS EXISTING')?> onClick = "saveList('xiussaveexisting');"/></div>
+<?php 
+endif;?>
+	
 	</div></div>
 </div>
 </div>

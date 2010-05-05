@@ -15,6 +15,7 @@
 		form.submit();
 	}
 </script>
+<div>
 <?php 
 if(!empty($this->appliedInfo)) : ?>
 	<fieldset><legend><?php echo JText::_('Applied Information');?></legend>
@@ -34,7 +35,7 @@ if(!empty($this->appliedInfo)) : ?>
 		endif;
 		
 		echo '</div></div><div class="right"><img src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
-								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div></div>';		
+								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
 	endforeach;?>
 <div class="applied">
 <?php 
@@ -60,4 +61,4 @@ endif;
 <input type="hidden" name="xiusdelinfo" value="" />
 <input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
 </fieldset>
-
+</div>
