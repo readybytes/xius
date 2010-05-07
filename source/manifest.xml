@@ -38,6 +38,8 @@
 			<file>includes.php</file>
 			<file>loader.php</file>
 			<file>defines.php</file>
+			<file>configuration.xml</file>
+			<file>configuration.ini</file>
 			<file>index.html</file>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
