@@ -1,12 +1,17 @@
-../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
+../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
+../packages/tmp/site/controllers/users.php:91:		/*XITODO : pass only searchable information 
+../packages/tmp/site/controllers/users.php:183:		//XITODO : unset old data first
+../packages/tmp/site/controllers/users.php:277:		/*XITODO : ask user for list details
+../packages/tmp/site/controllers/users.php:283:		/*XITODO : set visible info and published also */
+../packages/tmp/site/models/users.php:35:		/*XITODO : get table name from cache object */ 
+../packages/tmp/site/models/users.php:44:        /*XITODO : Add error message */
+../packages/tmp/site/views/users/view.html.php:152:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:260:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/tmpl/results.php:5:/*XITODO : pass variable for color */
 ../packages/tmp/admin/helpers/utils.php:59:		/*XITODO : get parameter from configuration*
 ../packages/tmp/admin/helpers/utils.php:81:		/*XITODO : Ask from admin */
-../packages/tmp/admin/libraries/factory.php:67:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/base.php:294:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:496:		/*XITODO : never initialize params again
-../packages/tmp/admin/libraries/plugins/base.php:500:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:196:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
+../packages/tmp/admin/controllers/info.php:205:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/libraries/cache.php:56:		/*XITODO : Bound result set starting from some users
 ../packages/tmp/admin/libraries/cache.php:86:	/*XITODO : Modify fn to check that column name
 ../packages/tmp/admin/libraries/usersearch.php:12:		/*XITODO : provide join operator and sorting condition
@@ -17,17 +22,12 @@
 ../packages/tmp/admin/libraries/usersearch.php:179:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:216:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:307:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 
+../packages/tmp/admin/libraries/factory.php:67:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/plugins/base.php:26:		//XITODO: add default.ini
+../packages/tmp/admin/libraries/plugins/base.php:294:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:496:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/base.php:500:		//XITODO: add default.ini
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:196:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/models/info.php:75:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:140:		/*XITODO : check key should not be added already*/
-../packages/tmp/admin/controllers/info.php:205:		/*XITODO : check if info is used anywhere,
-../packages/tmp/site/views/users/tmpl/results.php:5:/*XITODO : pass variable for color */
-../packages/tmp/site/views/users/view.html.php:152:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:262:		/*XITODO : get list according to owner*/
-../packages/tmp/site/models/users.php:35:		/*XITODO : get table name from cache object */ 
-../packages/tmp/site/models/users.php:44:        /*XITODO : Add error message */
-../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
-../packages/tmp/site/controllers/users.php:91:		/*XITODO : pass only searchable information 
-../packages/tmp/site/controllers/users.php:183:		//XITODO : unset old data first
-../packages/tmp/site/controllers/users.php:277:		/*XITODO : ask user for list details
-../packages/tmp/site/controllers/users.php:283:		/*XITODO : set visible info and published also */
+../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

@@ -56,15 +56,14 @@ class XiusHelpersUtils
 	
 	public function getDebugMode()
 	{
-		/*XITODO : get parameter from configuration*
-		 */
-		return false;
+		$debugMode = self::getConfigurationParams('"xiusDebugMode"',false);
+		return $debugMode;
 	}
 	
 	
 	public function getDisplayInformationCount()
 	{
-		/*-1 means display all information ,from configuration*/
+		/*XITODO : -1 means display all information ,from configuration*/
 		return XIUS_ALL;
 	}
 	
@@ -78,8 +77,26 @@ class XiusHelpersUtils
 	
 	function getUserLimit()
 	{
-		/*XITODO : Ask from admin */
-		return XIUS_USER_LIMIT;
+		$userLimit = self::getConfigurationParams('xiusUserLimit',2000);
+		return $userLimit;
+		//return XIUS_USER_LIMIT;
+	}
+	
+	
+	function getKeyForCacheUpdate()
+	{
+		$key = self::getConfigurationParams('xiusKey',0);
+		return $key;
+	}
+	
+	
+	function getConfigurationParams($what,$default=0)
+	{
+		$cModel = XiusFactory::getModel('configuration');
+		$params	= $cModel->getParams();
+		
+		$result = $params->get($what,$default);
+		return $result;
 	}
 	
 }

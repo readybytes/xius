@@ -31,6 +31,8 @@ define('XIUS_ALL',-1);
 define('XIUS_EQUAL','=');
 define('XIUS_LT','<');
 define('XIUS_GT','>');
+define('XIUS_LIKE','LIKE');
+define('XIUS_NOTLIKE','NOT LIKE');
 
 define('XIUSSEARCH','SEARCH');
 define('XIUSDEL','DELINFO');
@@ -42,6 +44,3 @@ define('XIUS_VISIBLE','visible');
 define('XIUS_SORT','sort');
 define('XIUS_DIR','dir');
 define('XIUS_JOIN','join');
-
-
-define('XIUS_USER_LIMIT',1000);

@@ -75,18 +75,24 @@ class Jsfields extends XiusBase
 		if(!$columns)
 			return false;
 
+		$fType = Jsfieldshelper::getFieldType($this->key);
 		if(!is_array($value)){
 			if(is_array($columns)) {
 				foreach($columns as $c){
-					//$query->select($c['columnname']);
-					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
+					if(JString::strtolower($fType) == 'text')
+						$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
+					else
+						$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
 					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
-				//$query->select($columns['columnname']);
-				$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
+				if(JString::strtolwer($fType) == 'text')
+					$conditions =  $db->nameQuote($columns['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
+				else
+					$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
+					
 				$query->where($conditions,$join);
 				return true;
 			}
@@ -142,11 +148,6 @@ class Jsfields extends XiusBase
 		$query->select(strtolower($this->pluginType).$this->key.'.value as '.strtolower($this->pluginType).$this->key);
 		$query->leftJoin('`#__community_fields_values` as '.strtolower($this->pluginType).$this->key.' ON ( '.strtolower($this->pluginType).$this->key.'.`user_id` = juser.`id`'
 				.' AND '.strtolower($this->pluginType).$this->key.'.`field_id` = '.$this->key.')');
-		/*$query->select($this->pluginType.'fv.value as '.$this->pluginType.$this->key);
-		$query->from('#__community_fields_values as '.$this->pluginType.'fv');*/
-		//$query->leftJoin('`#__users` ON ')
-		//$query->leftJoin('`#__community_fields` as '.$this->pluginType.'f ON ('.$this->pluginType.'f.field_id = '.$this->key.' AND )');
-		//$query->leftJoin('`#__users` as '.$this->pluginType.'u ON ('.$this->pluginType.'u.field_id = '.$this->key.')');
 	}
 	
 	function formatValue($value)

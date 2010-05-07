@@ -84,6 +84,21 @@ class Jsfieldshelper
 	}
 	
 	
+	
+	function getFieldType($fieldId)
+	{
+		$filter = array();
+		$filter['id'] = $fieldId;
+		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+		
+		if(empty($fieldInfo))
+			return false;
+			
+		return $fieldInfo[0]->type;
+	}
+	
+	
+	
 	function isJomsocialExist()
 	{
 		

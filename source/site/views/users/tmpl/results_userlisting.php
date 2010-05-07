@@ -11,7 +11,7 @@
 			
 			<div class="leftbox">
 				<div class="subleftbox">
-					<img src="<?php echo $cuser->getThumbAvatar();?>" onclick='location.href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>"'/>
+					<a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>"><img src="<?php echo $cuser->getThumbAvatar();?>"/></a>
 				</div>
 				<div class="viewprofile">
 					<a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>" >
@@ -48,7 +48,7 @@
 						
 						<div>
 							<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" />
-							<a href="<?php echo CRoute::_('index.php?option=com_community&view=friends&userid=' . $cuser->id );?>"><?php echo JText::sprintf( ($cuser->getFriendCount()) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $cuser->getFriendCount());?></a>
+							<a href="<?php echo CRoute::_('index.php?option=com_community&view=friends&userid=' . $cuser->id , false );?>"><?php echo JText::sprintf( ($cuser->getFriendCount()) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $cuser->getFriendCount());?></a>
 						</div>
 						
 					</div>
