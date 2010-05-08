@@ -37,10 +37,12 @@ class XiusModelUsers extends JModel
 			XiusLibrariesUsersearch::updateCache();
 			
         $query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir); 
+        $strQuery = $query->__toString();
+        
         if($reqPagination)       
-        	$this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        	$this->_users = $this->_getList($strQuery, $this->getState('limitstart'), $this->getState('limit'));
         else
-        	$this->_users = $this->_getList($query);
+        	$this->_users = $this->_getList($strQuery);
         /*XITODO : Add error message */
         if($this->_db->_cursor === false) {
           if($this->_db->_errorNum == 1146){
@@ -50,9 +52,9 @@ class XiusModelUsers extends JModel
             XiusLibrariesUsersearch::updateCache();
             //$this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
              if($reqPagination)       
-        		$this->_users = $this->_getList($query, $this->getState('limitstart'), $this->getState('limit'));
+        		$this->_users = $this->_getList($strQuery, $this->getState('limitstart'), $this->getState('limit'));
         	else
-        		$this->_users = $this->_getList($query);
+        		$this->_users = $this->_getList($strQuery);
           }
         }
         
@@ -65,8 +67,9 @@ class XiusModelUsers extends JModel
         	return $this->_totalusers;
         	
 		$query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);
-
-        $this->_totalusers = $this->_getListCount($query);    
+		$strQuery = $query->__toString();
+		
+        $this->_totalusers = $this->_getListCount($strQuery);    
 
        	return $this->_totalusers;
   	}

@@ -32,27 +32,33 @@ class XiusJoomlaTest extends XiUnitTestCase
 			$requiredInfo['usertype'] 		= JText::_('usertype');
 			$requiredInfo['block'] 			= JText::_('block');
 			$requiredInfo['gid'] 			= JText::_('gid');
-			$requiredInfo['sendEmail'] 		= JText::_('sendEmail');
 			$requiredInfo['registerDate'] 	= JText::_('registerDate');
 			$requiredInfo['lastvisitDate'] 	= JText::_('lastvisitDate');
-			$requiredInfo['activation'] 	= JText::_('activation');
 		    
 			$this->assertEquals($requiredInfo,$info);
 		}
 	}
 
-	function testSearchHtml()
+	
+	
+	function testViewSearchHtml()
 	{
-		/*XITODO : Test case is not complete , apply some assertion */
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'joomla' . DS . 'joomla.php';
 		$instance = new Joomla();
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'joomla' . DS . 'views' . DS . 'view.html.php';
 		$instance->load(5);
 		$viewClass = new JoomlaView();
-		$this->assertFalse($viewClass->searchHtml($instance));
+		$this->assertFalse($viewClass->searchHtml($instance)); 
 		
 		$instance->load(4);
-		echo $viewClass->searchHtml($instance);
+		$searchHtml =  $viewClass->searchHtml($instance);
+		
+		$result = '<input class="inputbox" type="text" name="JoomlaregisterDate"'
+				.' id="JoomlaregisterDate" style="width:125px; margin-right:4px" value="" />'
+				.'<a href="javascript:void(0)" onclick="return showCalendar(\'JoomlaregisterDate\', \'dd-mm-y\');" >'
+				.'<img src="http://http/usr/bin/components/com_community/assets/calendar.png"></a>';
+				
+		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces($searchHtml));
 	}
 	
 }

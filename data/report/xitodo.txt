@@ -4,12 +4,11 @@
 ../packages/tmp/site/controllers/users.php:277:		/*XITODO : ask user for list details
 ../packages/tmp/site/controllers/users.php:283:		/*XITODO : set visible info and published also */
 ../packages/tmp/site/models/users.php:35:		/*XITODO : get table name from cache object */ 
-../packages/tmp/site/models/users.php:44:        /*XITODO : Add error message */
+../packages/tmp/site/models/users.php:46:        /*XITODO : Add error message */
 ../packages/tmp/site/views/users/view.html.php:152:        /*XITODO : arrange available info
 ../packages/tmp/site/views/users/view.html.php:260:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/users/tmpl/results.php:5:/*XITODO : pass variable for color */
-../packages/tmp/admin/helpers/utils.php:59:		/*XITODO : get parameter from configuration*
-../packages/tmp/admin/helpers/utils.php:81:		/*XITODO : Ask from admin */
+../packages/tmp/admin/helpers/utils.php:66:		/*XITODO : -1 means display all information ,from configuration*/
 ../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/controllers/info.php:205:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/libraries/cache.php:56:		/*XITODO : Bound result set starting from some users
@@ -27,7 +26,7 @@
 ../packages/tmp/admin/libraries/plugins/base.php:294:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/base.php:496:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/plugins/base.php:500:		//XITODO: add default.ini
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:196:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:197:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/models/info.php:75:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:140:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 

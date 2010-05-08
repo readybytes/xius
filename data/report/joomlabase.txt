@@ -24,6 +24,10 @@
 ../packages/tmp/site/controllers/users.php:274:			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
 ../packages/tmp/site/controllers/users.php:306:		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
 ../packages/tmp/site/controllers/users.php:307:		//$mainframe->redirect($url,$msg,false);
+../packages/tmp/site/controllers/users.php:320:		global $mainframe;
+../packages/tmp/site/controllers/users.php:347:    		$mainframe->redirect(JRoute::_("index.php?option=com_xius&view=users&task=updateCache&key=".$secureKey."&limitStart=".$limitStart,false));
+../packages/tmp/site/controllers/users.php:353:		$url = JRoute::_("index.php?option=com_xius&view=cpanel",false);
+../packages/tmp/site/controllers/users.php:354:		$mainframe->redirect($url,$msg,false);*/
 ../packages/tmp/site/models/users.php:15:        global $mainframe, $option;
 ../packages/tmp/site/models/users.php:18:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/views/users/view.html.php:47:		$document = JFactory::getDocument();
@@ -47,9 +51,20 @@
 ../packages/tmp/admin/helpers/utils.php:35:		global $mainframe;
 ../packages/tmp/admin/helpers/utils.php:39:		$database = &JFactory::getDBO();
 ../packages/tmp/admin/helpers/utils.php:42:		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
-../packages/tmp/admin/helpers/utils.php:74:		$user	=& JFactory::getUser($userid);		
+../packages/tmp/admin/helpers/utils.php:73:		$user	=& JFactory::getUser($userid);		
 ../packages/tmp/admin/includes.php:29:JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/admin/includes.php:56:$lang =& JFactory::getLanguage();
+../packages/tmp/admin/controllers/configuration.php:5:class XiusControllerConfiguration extends JController 
+../packages/tmp/admin/controllers/configuration.php:24:		global $mainframe;
+../packages/tmp/admin/controllers/configuration.php:28:		$user	=& JFactory::getUser();
+../packages/tmp/admin/controllers/configuration.php:42:		$mainframe	=& JFactory::getApplication();		
+../packages/tmp/admin/controllers/configuration.php:55:		$link = JRoute::_('index.php?option=com_xius&view=configuration', false);
+../packages/tmp/admin/controllers/configuration.php:56:		$mainframe->redirect($link, $message);
+../packages/tmp/admin/controllers/configuration.php:62:		global $mainframe;
+../packages/tmp/admin/controllers/configuration.php:67:		$user	=& JFactory::getUser();
+../packages/tmp/admin/controllers/configuration.php:74:		$mainframe	=& JFactory::getApplication();		
+../packages/tmp/admin/controllers/configuration.php:87:		$link = JRoute::_('index.php?option=com_xijc&view=configuration', false);
+../packages/tmp/admin/controllers/configuration.php:88:		$mainframe->redirect($link, $message);
 ../packages/tmp/admin/controllers/info.php:6:class XiusControllerInfo extends JController 
 ../packages/tmp/admin/controllers/info.php:31:		$document	=& JFactory::getDocument();
 ../packages/tmp/admin/controllers/info.php:57:		$document	=& JFactory::getDocument();
@@ -106,6 +121,7 @@
 ../packages/tmp/admin/controllers/list.php:130:			$table	=& JTable::getInstance( 'list' , 'XiusTable' );
 ../packages/tmp/admin/controllers/list.php:134:				$mainframe->enqueueMessage($table->getError());
 ../packages/tmp/admin/controllers/list.php:136:			$mainframe->redirect( 'index.php?option=com_xius&view=list' );
+../packages/tmp/admin/tables/configuration.php:14:class XiusTableConfiguration extends JTable
 ../packages/tmp/admin/tables/info.php:5:class XiusTableInfo extends JTable
 ../packages/tmp/admin/tables/info.php:43:	 * Overrides Joomla's JTable store method so that we can define proper values
 ../packages/tmp/admin/tables/conditions.php:19:class XiusTableConditions extends JTable 
@@ -120,7 +136,7 @@
 ../packages/tmp/admin/libraries/usersearch.php:90:		$mySess =& JFactory::getSession();
 ../packages/tmp/admin/libraries/usersearch.php:158:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/query.php:436:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/joomla/joomla.php:42:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/joomla/joomla.php:43:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:11:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:13:		$userTable = new JTable('#__users','id', $db);
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:33:			$document	=& JFactory::getDocument();
@@ -133,6 +149,11 @@
 ../packages/tmp/admin/libraries/dscinstaller.php:101:			$this->_db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/dscinstaller.php:277:					$config =& JFactory::getConfig();
 ../packages/tmp/admin/libraries/dscinstaller.php:346:				$config =& JFactory::getConfig();
+../packages/tmp/admin/models/configuration.php:23:		$mainframe	=& JFactory::getApplication();
+../packages/tmp/admin/models/configuration.php:55:			$config		=& JTable::getInstance( 'configuration' , 'XiusTable' );
+../packages/tmp/admin/models/configuration.php:73:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+../packages/tmp/admin/models/configuration.php:96:		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
+../packages/tmp/admin/models/configuration.php:97:		$row	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 ../packages/tmp/admin/models/info.php:18:		global $mainframe;
 ../packages/tmp/admin/models/info.php:24:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
 ../packages/tmp/admin/models/info.php:25:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius.limitstart', 'limitstart', 0, 'int' );

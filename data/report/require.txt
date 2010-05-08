@@ -15,8 +15,8 @@
 ../packages/tmp/admin/libraries/plugins/base.php:273:		 * for display inteface .We will include view file
 ../packages/tmp/admin/libraries/plugins/base.php:284:		require_once $viewPath;
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:173:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:207:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:174:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:208:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:64:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:65:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';

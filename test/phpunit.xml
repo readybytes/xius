@@ -9,6 +9,7 @@
 	<testsuite name="AllTest">
 		<file>install/installTest.php</file>
 		<file>test/unit/com/admin/libraries/factory.php</file>
+		<file>test/unit/com/admin/libraries/info.php</file>
 		<file>test/unit/com/admin/libraries/pluginbase.php</file>
 		<file>test/unit/com/admin/libraries/jsfieldview.php</file>
 		<file>test/unit/com/admin/libraries/joomla.php</file>

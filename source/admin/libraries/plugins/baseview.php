@@ -37,9 +37,7 @@ class XiusBaseView extends JView
 		$this->assign('info',$info);
 		ob_start();
 		$this->display();
-		ob_end_flush();
-		$contents = ob_get_contents();
-		ob_clean();
+		$contents = ob_get_clean();
 		return $contents;
 	}
 	

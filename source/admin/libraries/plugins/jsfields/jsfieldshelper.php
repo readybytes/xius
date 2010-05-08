@@ -65,9 +65,6 @@ class Jsfieldshelper
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		
 		$fieldHTML = '';
-		//isset($result[$i]['options']) && $result[$i]['options'] != '')
-		/*if(isset($fieldInfo->options) && $fieldInfo->options != '')
-			$options	= explode("\n", $options);*/
 		
 		/*IMP : if change date field data into y-mm-dd ,
 		 * then take care of jsfields formatValue function also

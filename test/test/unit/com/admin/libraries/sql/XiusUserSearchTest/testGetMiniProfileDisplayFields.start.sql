@@ -1,18 +1,43 @@
 TRUNCATE TABLE `#__xius_info`;
 ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;
 
+INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
+(1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '2', '', 'Jsfields', 1, 1),
+(2, 'City', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=1\n\n', '11', '', 'Jsfields', 2, 1),
+(3, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=1\n\n', '12', '', 'Jsfields', 3, 1),
+(4, 'Register Date', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'registerDate', '', 'Joomla', 4, 1),
+(5, 'Username', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=1\n\n', 'username', '', 'Joomla', 5, 1),
+(6, 'Name', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'name', '', 'Joomla', 6, 1),
+(7, 'Checkbox1', 'isSearchable=1\nisVisible=0\nisSortable=0\nisExportable=1\n\n', '17', '', 'Jsfields', 7, 1),
+(8, 'Birthday', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '3', '', 'Jsfields', 8, 1);
+
+
 DROP TABLE IF EXISTS `#__xius_cache`;
 
-INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) 
-VALUES
-(1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\ntemplate=\n\n', '2', '', 'Jsfields', 1, 1),
-(2, 'City', 'isSearchable=1\nisVisible=1\nisSortable=1\ntemplate=\n\n', '11', '', 'Jsfields', 2, 1),
-(3, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\ntemplate=\n\n', '12', '', 'Jsfields', 3, 1),
-(4, 'Register Date', 'isSearchable=1\nisVisible=0\nisSortable=1\ntemplate=\n\n', 'registerDate', '', 'Joomla', 4, 1),
-(5, 'Username', 'isSearchable=1\nisVisible=1\nisSortable=1\ntemplate=\n\n', 'username', '', 'Joomla', 5, 1),
-(6, 'Name', 'isSearchable=1\nisVisible=1\nisSortable=1\ntemplate=\n\n', 'name', '', 'Joomla', 6, 1),
-(7, 'Checkbox1', 'isSearchable=1\nisVisible=0\nisSortable=1\ntemplate=\n\n', '17', '', 'Jsfields', 7, 1);
+CREATE TABLE IF NOT EXISTS `#__xius_cache` (
+  `userid` int(21) NOT NULL,
+  `jsfields2` varchar(250) NOT NULL,
+  `jsfields11` varchar(250) NOT NULL,
+  `jsfields12` varchar(250) NOT NULL,
+  `joomlaregisterDate` datetime NOT NULL,
+  `joomlausername` varchar(250) NOT NULL,
+  `joomlaname` varchar(250) NOT NULL,
+  `jsfields17` varchar(250) NOT NULL,
+  `jsfields3` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+
+INSERT INTO `#__xius_cache` (`userid`, `jsfields2`, `jsfields11`, `jsfields12`, `joomlaregisterDate`, `joomlausername`, `joomlaname`, `jsfields17`, `jsfields3`) VALUES
+(62, '', '', '', '2010-01-16 11:12:08', 'admin', 'Administrator', '', ''),
+(63, 'Male', 'Noida', 'India', '2009-03-05 08:18:00', 'ssv', 'Moderator', 'JomSocial Redirector,', ''),
+(64, '', '', '', '2009-03-15 00:26:29', 'shansmith01', 'Shannon', '', ''),
+(65, '', '', '', '2009-03-15 11:26:31', 'pembaris', 'pembaris', '', ''),
+(66, '', '', '', '2009-03-16 10:56:18', 'collaborator', 'collaborator', '', ''),
+(67, '', '', '', '2009-03-17 06:00:03', 'edge', 'edge', '', ''),
+(68, 'Male', '', '', '2009-03-17 13:55:57', 'Twinkiez', 'Frank', '', ''),
+(70, '', '', '', '2009-03-22 00:51:13', 'Mapelibebuime', 'Mapelibebuime', '', ''),
+(71, '', '', '', '2009-03-24 16:44:51', 'Metaltome', 'Christopher', '', ''),
+(73, '', '', '', '2009-04-01 15:16:42', 'CurveeOrg', 'CurveeOrg', '', '');
 
 
 TRUNCATE TABLE `#__community_fields`;

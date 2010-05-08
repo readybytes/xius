@@ -243,7 +243,7 @@ abstract class XiusBase extends JObject
 		$view = $this->getViewName();
 		if(false === $view)
 			return $this->generateSearchHtml();
-		
+
 		$html = $view->searchHtml($this);
 		if(!empty($html)){
 			$infoIdStartHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'1" id="xiusinfo_'.$this->id.'1" value="'.$this->id.'"/>';

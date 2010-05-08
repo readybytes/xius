@@ -40,16 +40,6 @@ class XiusFactoryTest extends XiUnitTestCase
 		$test[2]['info']['labelName'] 	= 'Country';
 		$test[2]['info']['pluginType'] 	= 'Jsfields';
 		
-		/*foreach($test as $t) {
-			$instance = XiusFactory::getPluginInstanceFromId($t['id']);
-			$this->assertEquals($instance->getMe(),"JsFields");
-			$property = $instance->getProperties();
-			foreach($t['info'] as $k => $v) {
-				
-				//echo "\nk = $k v = $v p[k] = $property[$k]";
-				$this->assertEquals($v,$property[$k]);
-			}
-		}*/
 		
 		foreach($test as $t) {
 			$instance = XiusFactory::getPluginInstanceFromId($t['id']);

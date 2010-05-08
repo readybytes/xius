@@ -44,12 +44,12 @@ class XiusLibrariesUsersearch
 		$dispatcher =& JDispatcher::getInstance();
 		$results = $dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$query ) );
 		
-		$strQuery = $query->__toString();
+	/*	$strQuery = $query->__toString();
 		
 		if(empty($strQuery))
-			return false;
+			return false;*/
 				
-		return $strQuery;
+		return $query;
 	}
 	
 	

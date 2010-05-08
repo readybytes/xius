@@ -7,27 +7,32 @@ class XiusJsfieldViewTest extends XiUnitTestCase
 		return dirname(__FILE__).'/sql/'.__CLASS__;
 	}
 
-	function testViewObject()
+	function testJsfViewObject()
 	{
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'views' . DS . 'view.html.php';
 		$viewClass = new JsfieldsView();
 		
-		//echo "layout = ".$viewClass->getLayout()." template = ".$viewClass->_template;
 		$this->assertEquals('search',$viewClass->getLayout(),"layout is not search , we get ".$viewClass->getLayout());
 		
-		$requiredTemplatePath = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'views'.DS.'tmpl'.DS;
-		//$this->assertContains($requiredTemplatePath,$viewClass->_path['template'],"template is not equal , we get ".var_export($viewClass->_path['template']));
+		$requiredTemplatePath[0] = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'views'.DS.'tmpl' . DS;
+		$diffArray = array_diff($requiredTemplatePath,$viewClass->_path['template']);
+		$this->assertTrue((count($diffArray) == 0));
 	}
 	
-	function testSearchHtml()
+	function testJsfSearchHtml()
 	{
-		/*XITODO : Test case is not complete , apply some assertion */
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'jsfields.php';
 		$instance = new Jsfields();
 		$instance->load(2);
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'views' . DS . 'view.html.php';
 		$viewClass = new JsfieldsView();
-		echo $viewClass->searchHtml($instance);
+		$searchHtml =  $viewClass->searchHtml($instance);
+		
+		$result = '<input title="City / Town::City / Town" type="text" value="" id="field11"'
+				.' name="field11" maxlength="100" size="40" class="jomTips tipRight inputbox required" />'
+				.'<span id="errfield11msg" style="display:none;">&nbsp;</span>';
+				
+		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces($searchHtml));
 	}
 	
 }

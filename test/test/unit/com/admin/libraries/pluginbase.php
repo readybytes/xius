@@ -152,5 +152,119 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		);
 	}
 	
+	
+	/**
+	 * @dataProvider searchProvider
+	 */
+	function testSearchHtml($infoid,$html)
+	{
+		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		$this->_DBO->loadSql($sqlPath);
+		
+		$instance = XiusFactory::getPluginInstanceFromId($infoid);
+		$searchHtml = $instance->renderSearchableHtml();
+		//echo "\n search =".$searchHtml;
+		$this->assertEquals($this->cleanWhiteSpaces($html),$this->cleanWhiteSpaces($searchHtml));
+		//echo $viewClass->searchHtml($instance);
+	}
+	
+	
+	public static function searchProvider()
+	{
+		$html1 = '<input type = "hidden" name="xiusinfo_11" id="xiusinfo_11" value="1"/>'
+				.'<select id="field2" name="field2" class="jomTips tipRight select required"'
+				.' title="Gender::Select gender"><option value=""  selected="selected">'
+				.'Select below</option><option value="Male">Male</option>'
+				.'<option value="Female">Female</option>'
+				.'</select><span id="errfield2msg" style="display:none;">&nbsp;</span>'
+				.'<input type = "hidden" name="xiusinfo_12" id="xiusinfo_12" value="1"/>';
+		
+		$html2 = '<input type = "hidden" name="xiusinfo_21" id="xiusinfo_21" value="2"/>'
+				.'<input title="City / Town::City / Town" type="text" value="" id="field11"'
+				.' name="field11" maxlength="100" size="40" class="jomTips tipRight inputbox required" />'
+				.' <span id="errfield11msg" style="display:none;">&nbsp;</span>'
+				.'<input type = "hidden" name="xiusinfo_22" id="xiusinfo_22" value="2"/>';
+				
+		$html4 = '<input type = "hidden" name="xiusinfo_41" id="xiusinfo_41" value="4"/>'
+				.'<input class="inputbox" type="text" name="JoomlaregisterDate" id="JoomlaregisterDate" style="width:125px; margin-right:4px" value="" />'
+				.'<a href="javascript:void(0)" onclick="return showCalendar(\'JoomlaregisterDate\', \'dd-mm-y\');" >'
+				.'<img src="http://http/usr/bin/components/com_community/assets/calendar.png">'
+				.'</a><input type = "hidden" name="xiusinfo_42" id="xiusinfo_42" value="4"/>';
+		
+		$html5 = '<input type = "hidden" name="xiusinfo_51" id="xiusinfo_51" value="5"/>'
+				.'<input type="text" name="Joomla_5" id="Joomla_5" />'
+				.'<input type = "hidden" name="xiusinfo_52" id="xiusinfo_52" value="5"/>';
+
+		$html7 = '<input type = "hidden" name="xiusinfo_71" id="xiusinfo_71" value="7"/>'
+				.'<div class="jomTips tipRight" style="display: inline-block;" title="Checkbox1::Checkbox1">'
+				.'<label class="lblradio-block">'
+				.'<input type="checkbox" name="field17[]" value="Checkbox1" class="checkbox  required validate-custom-checkbox" style="margin: 0 5px 5px 0;" />'
+				.'Checkbox1</label><label class="lblradio-block">'
+				.'<input type="checkbox" name="field17[]" value="Checkbox11" class="checkbox  required validate-custom-checkbox" style="margin: 0 5px 5px 0;" />'
+				.'Checkbox11</label><label class="lblradio-block">'
+				.'<input type="checkbox" name="field17[]" value="Checkbox2" class="checkbox  required validate-custom-checkbox" style="margin: 0 5px 5px 0;" />'
+				.'Checkbox2</label><label class="lblradio-block">'
+				.'<input type="checkbox" name="field17[]" value="Checkbox21" class="checkbox  required validate-custom-checkbox" style="margin: 0 5px 5px 0;" />'
+				.'Checkbox21</label><label class="lblradio-block">'
+				.'<input type="checkbox" name="field17[]" value="Checkbox" class="checkbox  required validate-custom-checkbox" style="margin: 0 5px 5px 0;" />'
+				.'Checkbox</label><span id="errfield17msg" style="display: none;">&nbsp;</span></div>'
+				.'<input type = "hidden" name="xiusinfo_72" id="xiusinfo_72" value="7"/>';
+		
+		$html8 = '<input type = "hidden" name="xiusinfo_81" id="xiusinfo_81" value="8"/>'
+				.'<input class="inputbox" type="text" name="field3" id="field3" style="width:125px; margin-right:4px" value="" />'
+				.'<a href="javascript:void(0)" onclick="return showCalendar(\'field3\', \'dd-mm-y\');" >'
+				.'<img src="http://http/usr/bin/components/com_community/assets/calendar.png"></a>'
+				.'<input type = "hidden" name="xiusinfo_82" id="xiusinfo_82" value="8"/>';
+				
+		return array(
+			array(1,$html1),
+			array(2,$html2),
+			array(4,$html4),
+			array(5,$html5),
+			array(7,$html7),
+			array(8,$html8),
+		);
+	}
+	
+	
+	/**
+	 * @dataProvider infoProvider
+	 */
+	function testRemoveExistingInfo($pluginType,$result)
+	{
+		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		$this->_DBO->loadSql($sqlPath);
+		
+		$instance = XiusFactory::getPluginInstance($pluginType);
+		
+		$totalInfo = $instance->getAvailableInfo();
+		$existingInfo = XiusLibrariesInfo::getInfo();
+		
+		$instance->removeExistingInfo($totalInfo,$existingInfo);
+		//$this->assertFalse(array_key_exists($result,$totalInfo),$result." should not be exist in ".$pluginType);
+		/*Result values should not be exist in totalinfo*/
+		foreach($result as $r)
+			$this->assertFalse(array_key_exists($r,$totalInfo),$r." should not be exist in ".$pluginType);
+			
+	}
+	
+	
+	public static function infoProvider()
+	{
+		$pluginType1 = 'jsfields';
+		
+		$result1 = array(2,3,11,12,17);
+		
+		$pluginType2 = 'joomla';
+		
+		$result2 = array('name','username','registerDate');
+		
+		return array(
+			array($pluginType1,$result1),
+			array($pluginType2,$result2)
+		);
+	}
+	
+	
 }
 ?>

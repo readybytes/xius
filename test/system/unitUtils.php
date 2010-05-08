@@ -85,4 +85,10 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
   }
   
 	
+	function cleanWhiteSpaces($str)
+	{
+		$str = preg_replace('#[\\n\\b\\s\\t]+#','' , $str);
+		return $str;
+	}
+  
 }
