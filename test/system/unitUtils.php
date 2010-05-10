@@ -8,6 +8,7 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
   {
   	//XiFactory::getErrorObject()->setError('');
   	require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
+  	$this->resetCachedData();
   	//$this->parentSetup();
   }
   
@@ -90,5 +91,16 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 		$str = preg_replace('#[\\n\\b\\s\\t]+#','' , $str);
 		return $str;
 	}
+	
+	
+	function resetCachedData()
+	{
+		require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+		$fields = Jsfieldshelper::getAllJomsocialFields(true);
+		
+		$allInfo = XiusLibrariesInfo::getAllInfo(true);
+	}
   
 }
+
+

@@ -186,17 +186,18 @@ class XiusLibrariesUsersearch
 			$filter['published'] = true;
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
 		}
-		
 		if(empty($allInfo))
 			return $displayFields;
 			
 		$count = 0;
 		$cache = XiusFactory::getCacheObject();
 		foreach($allInfo as $info){
-			$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+			$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
 			
 			if(!$plgInstance)
 				continue;
+				
+			$plgInstance->bind($info);			
 				
 			if(!$plgInstance->isAllRequirementSatisfy())
 				continue;

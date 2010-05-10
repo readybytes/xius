@@ -93,9 +93,12 @@ class XiusViewUsers extends JView
         		if(empty($users))
         			break;
         			
-				$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+				//$plgInstance = XiusFactory::getPluginInstance($info->id);
+				$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
 				if(!$plgInstance)
 					continue;
+					
+				$plgInstance->bind($info);
 
 				if(!$plgInstance->isAllRequirementSatisfy())
 					continue;
@@ -134,7 +137,21 @@ class XiusViewUsers extends JView
         		if(!array_key_exists('infoid',$c))
         			continue;
         			
-        		$plgInstance = XiusFactory::getPluginInstanceFromId($c['infoid']);
+        		//$plgInstance = XiusFactory::getPluginInstanceFromId($c['infoid']);
+        		$plgInstance = false;
+        		if(!empty($allInfo)){
+        			foreach($allInfo as $info){
+        				if($info->id == $c['infoid']){
+        					$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
+        					if($plgInstance)
+								$plgInstance->bind($info);	
+
+							break;
+        				}
+        					
+        			}
+        		}
+        		
 				if(!$plgInstance)
 					continue;
 			

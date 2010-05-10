@@ -6,7 +6,50 @@ defined('_JEXEC') or die('Restricted access');
 class Jsfieldshelper
 {
 
-	function getJomsocialFields($filter = '')
+	function getJomsocialFields($filter = '',$reset = false)
+	{
+		$result = '';
+		$result = self::getAllJomsocialFields($reset);
+		
+		//B'coz we want those result which satisfy all conditions.
+		//so unset result which broke even a single condition
+		if(!empty($result) && !empty($filter)){
+			foreach($filter as $fk => $fv){
+				foreach($result as $rk => $rv){
+					if($rv->$fk != $fv)
+						unset($result[$rk]);
+				}
+			}
+		}
+		
+		$result = array_values($result);
+		
+		$fields = array();
+		
+		for($i = 0; $i < count($result); $i++)
+		{
+			// Re-arrange options to be an array by splitting them into an array
+			if(isset($result[$i]->options) 
+					&& $result[$i]->options != '' 
+						&& !is_array($result[$i]->options))
+			{
+				$options	= $result[$i]->options;
+				$options	= explode("\n", $options);
+
+				array_walk($options, array( 'JString' , 'trim' ) );
+				
+				$result[$i]->options	= $options;
+				
+			}
+
+			$fields[$i] = $result[$i];
+		}
+	    	
+		return $fields;
+	}
+	
+	
+	/*function getJomsocialFields($filter = '')
 	{
 		$db	=& JFactory::getDBO();
 			
@@ -47,6 +90,24 @@ class Jsfieldshelper
 		}
 	    	
 		return $fields;
+	}*/
+	
+	
+	
+	function getAllJomsocialFields($reset = false)
+	{
+		static $jsFields;
+		
+		if(!$reset && isset($jsFields))
+			return $jsFields;
+			
+		$db	=& JFactory::getDBO();
+		$sql = "SELECT * FROM " . $db->nameQuote('#__community_fields');
+		$sql .= " ORDER BY `ordering`";
+		$db->setQuery($sql);
+		$jsFields = $db->loadObjectList();
+		
+		return $jsFields;
 	}
 	
 	

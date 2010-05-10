@@ -89,14 +89,13 @@ class XiusModelInfo extends JModel
 				. $db->nameQuote('#__xius_info')
 				.$filterSql
 				. ' ORDER BY '. $db->nameQuote('ordering');
-			
+		
 		if($reqPagination)
 			$db->setQuery( $query , $limitStart , $limit );
 		else
 			$db->setQuery($query);
 			
 		$allInfo	= $db->loadObjectList();
-		
 		return $allInfo;
 	}
 	

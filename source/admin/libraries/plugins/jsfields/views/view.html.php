@@ -26,7 +26,6 @@ class JsfieldsView extends XiusBaseView
 		$filter = array();
 		$filter['id'] = $calleObject->get('key');
 		$field = jsfieldshelper::getJomsocialFields($filter);
-
 		if(!$field) 		
 			return false;		
 			

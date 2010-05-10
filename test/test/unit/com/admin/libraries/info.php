@@ -74,16 +74,16 @@ class XiusInfoTest extends XiUnitTestCase
 	public static function infoexistProvider()
 	{
 		/*result will be info id or false */
-		$data1 = array('key' => 2 , 'pluginType' => 'jsfields');
+		$data1 = array('key' => 2 , 'pluginType' => 'Jsfields');
 		$result1 = 1;
 		
-		$data2 = array('key' => 'registerDate' , 'pluginType' => 'joomla');
+		$data2 = array('key' => 'registerDate' , 'pluginType' => 'Joomla');
 		$result2 = 4;
 		
-		$data3 = array('key' => 'block' , 'pluginType' => 'joomla');
+		$data3 = array('key' => 'block' , 'pluginType' => 'Joomla');
 		$result3 = false;
 		
-		$data4 = array('key' => 9 , 'pluginType' => 'jsfields');
+		$data4 = array('key' => 9 , 'pluginType' => 'Jsfields');
 		$result4 = false;
 		
 		return array(

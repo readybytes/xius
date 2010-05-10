@@ -15,6 +15,8 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
+		$this->resetCachedData();
+		
 		$value = XiusLibrariesUsersearch::getMiniProfileDisplayFields($userid);
 		$this->assertEquals($value,$result);
 		$diffArrayAcToV = array_diff($value,$result);

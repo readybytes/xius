@@ -54,9 +54,12 @@ class XiusViewUsers extends JView
         		if(empty($users))
         			break;
         			
-				$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+				$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
+						
 				if(!$plgInstance)
 					continue;
+					
+				$plgInstance->bind($info);
 
 				if(!$plgInstance->isAllRequirementSatisfy())
 					continue;
