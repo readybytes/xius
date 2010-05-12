@@ -32,8 +32,8 @@ class XiusCache
 		if($droptableReq)
 			$this->dropTable();
 			
-		if(empty($this->createQuery))
-			$this->buildCreateTableQuery();
+		//if(empty($this->createQuery))
+		$this->buildCreateTableQuery();
 			
 		$this->db->setQuery($this->createQuery->__toString());
 		if($this->db->query())
@@ -55,9 +55,12 @@ class XiusCache
 			$this->insertQuery .= ' LIMIT '.$limit['limitStart'].' , '.$limit['limit'];
 		
 		$this->insertQuery .= ' )';
-		
+
 		$this->db->setQuery($this->insertQuery);
 		
+		// clear the insert query
+		$this->insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
+			
 		if($this->db->query()){
 			$affectedRows = $this->db->getAffectedRows();
 			return $affectedRows;

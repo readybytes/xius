@@ -54,6 +54,34 @@ class XiusViewUsers extends JView
 
 	function displayResult($from,$list='')
 	{
+		$data	  = $this->_displayResult($from,$list='');
+		$document = JFactory::getDocument();
+        if(!empty($data['list']) && !empty($data['list']->name))
+			$document->setTitle(JText::_($data['list']->name));
+		else
+			$document->setTitle(JText::_('Search Result'));
+        
+		$this->assignRef('users', $data['users']);
+		$this->assignRef('userprofile', $data['userprofile']);
+		$this->assignRef('sortableFields', $data['sortableFields']);
+		$this->assignRef('pagination', $data['pagination']);
+		$this->assign('total', $data['total']);
+		$this->assign('appliedInfo', $data['appliedInfo']);
+		$this->assign('availableInfo', $data['availableInfo']);
+
+		$this->assign('sort', $data['sortId']);
+		$this->assign('dir', $data['dir']);
+		$this->assign('join', $data['join']);
+		
+		$this->assign('list', $data['list']);
+		
+		$this->assign('task', $data['from']);
+		//$this->assign('subtask', $subtask);
+		parent::display();
+	}
+	
+	function _displayResult($from,$list='')
+	{
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sortId = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
 		$dir = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
@@ -204,30 +232,24 @@ class XiusViewUsers extends JView
 				array_push($availableInfo,$infohtml);
         	}
         }
-        
-        $document = JFactory::getDocument();
-        if(!empty($list) && !empty($list->name))
-			$document->setTitle(JText::_($list->name));
-		else
-			$document->setTitle(JText::_('Search Result'));
-        
-		$this->assignRef('users', $users);
-		$this->assignRef('userprofile', $userprofile);
-		$this->assignRef('sortableFields', $sortableFields);
-		$this->assignRef('pagination', $pagination);
-		$this->assign('total', $total);
-		$this->assign('appliedInfo', $appliedInfo);
-		$this->assign('availableInfo', $availableInfo);
+                
+		$data['users']= $users;
+		$data['userprofile']=$userprofile;
+		$data['sortableFields']= $sortableFields;
+		$data['pagination']=$pagination;
+		$data['total']=$total;
+		$data['appliedInfo']=$appliedInfo;
+		$data['availableInfo']=$availableInfo;
 
-		$this->assign('sort', $sortId);
-		$this->assign('dir', $dir);
-		$this->assign('join', $join);
+		$data['sortId']=$sortId;
+		$data['dir']=$dir;
+		$data['join']=$join;
 		
-		$this->assign('list', $list);
+		$data['list']=$list;
 		
-		$this->assign('task', $from);
+		$data['from']=$from;
 		//$this->assign('subtask', $subtask);
-		parent::display();
+		return $data;
 	}
 	
 	

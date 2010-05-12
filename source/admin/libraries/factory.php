@@ -6,33 +6,33 @@ defined('_JEXEC') or die('Restricted access');
 class XiusFactory
 {	
 	
-	function &getModel( $name ,$location='admin')
+	function &getModel( $name ,$location='admin', $reset=false )
 	{
 		static $modelInstances = null;
 		
-		if(!isset($modelInstances[$name]))
-		{
-			if($location === 'admin'){
-				$modelAdminFile = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
-				if(!JFile::exists($modelAdminFile))
-					JError::raiseError(sprintf(JText::_('Not able to open model %s'),$name));
-				
-				include_once($modelAdminFile);
-			}
-			else if($location === 'site'){	
-
-				$modelSiteFile = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
-				if(!JFile::exists($modelSiteFile))
-					JError::raiseError(sprintf(JText::_('Not able to open model %s'),$name));
-				
-				include_once($modelSiteFile);
-			}
-			else
-				assert(0);
-							
-			$classname = 'XiusModel'.$name;
-			$modelInstances[$name] =& new $classname;
+		if(!$reset && isset($modelInstances[$name]))
+			return $modelInstances[$name];
+		
+		if($location === 'admin'){
+			$modelAdminFile = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
+			if(!JFile::exists($modelAdminFile))
+				JError::raiseError(sprintf(JText::_('Not able to open model %s'),$name));
+			
+			include_once($modelAdminFile);
 		}
+		else if($location === 'site'){	
+
+			$modelSiteFile = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
+			if(!JFile::exists($modelSiteFile))
+				JError::raiseError(sprintf(JText::_('Not able to open model %s'),$name));
+			
+			include_once($modelSiteFile);
+		}
+		else
+			assert(0);
+						
+		$classname = 'XiusModel'.$name;
+		$modelInstances[$name] =& new $classname;
 		
 		return $modelInstances[$name];
 	}

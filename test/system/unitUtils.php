@@ -99,6 +99,7 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 		$fields = Jsfieldshelper::getAllJomsocialFields(true);
 		
 		$allInfo = XiusLibrariesInfo::getAllInfo(true);
+		XiusFactory::getModel('users','site',true);
 	}
   
 }

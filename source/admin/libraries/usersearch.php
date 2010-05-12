@@ -279,11 +279,13 @@ class XiusLibrariesUsersearch
 	
 	
 	
-	function processSearchData()
+	function processSearchData($post=null)
 	{
+		if($post==null)
+			$post = JRequest::get('POST');
+			
 		$searchdata = array();
 		$infoid = 0;
-		$post = JRequest::get('POST');
 		foreach($post as $key => $value){
 			if(JString::stristr($key,'xiusinfo_')){
 				if($infoid && $infoid == $value)

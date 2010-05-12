@@ -39,7 +39,7 @@ VALUES
 
 DROP TABLE IF EXISTS `#__xius_cache`;
 
-CREATE TABLE IF NOT EXISTS `j666_xius_cache` (
+CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `userid` int(21) NOT NULL,
   `jsfields2` varchar(250) NOT NULL,
   `jsfields11` varchar(250) NOT NULL,

@@ -327,20 +327,12 @@ class XiusControllerUsers extends JController
 			return;
 		
 		$limitStart=JRequest::getVar('limitStart', 0, 'GET');
-		
-		$cache = XiusFactory::getCacheObject();
-		if($limitStart == 0) {
-			if(!$cache->createTable(true))
-				return false;
-		}
-
-		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
-		
+			
 		$limit = array();
 		$limit['limitStart'] = $limitStart;
 		$limit['limit'] = XiusHelpersUtils::getUserLimit();
 		
-		$insertedRows = $cache->insertIntoTable($getDataQuery,true,$limit);
+		$insertedRows =$this->_updateCache($limit); 
 		
 		if($insertedRows == $limit['limit']){
 			$limitStart += $limit['limit'];
@@ -352,6 +344,17 @@ class XiusControllerUsers extends JController
 		/*$msg = JText::_('CACHE UPDATED SUCCESSFULLY');
 		$url = JRoute::_("index.php?option=com_xius&view=cpanel",false);
 		$mainframe->redirect($url,$msg,false);*/
+	}
+	
+	function _updateCache($limit)
+	{
+		$cache = XiusFactory::getCacheObject();
+		if($limit['limitStart'] == 0) {
+			if(!$cache->createTable(true))
+				return false;
+		}
+		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
+		return $cache->insertIntoTable($getDataQuery,true,$limit);		
 	}
 	
 }
