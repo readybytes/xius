@@ -8,6 +8,10 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 if($this->task == 'displayList')
 	echo $this->loadTemplate('listinfo');
+
+/*jimport('joomla.application.module.helper');
+$module = & JModuleHelper::getModule('mod_footer');
+echo JModuleHelper::renderModule($module);*/
 	
 echo $this->loadTemplate('appliedinfo');
 echo $this->loadTemplate('availableinfo');

@@ -13,6 +13,15 @@ class XiusLibrariesUsersearch
 		 * provide conditional operator also
 		 * provide direction also
 		 * */
+		/*Trigger event */
+		$dispatcher =& JDispatcher::getInstance();
+		$data = array();
+		$data['conditions'] = &$params;
+		$data['join'] = &$join;
+		$data['sort'] = &$sort;
+		$data['dir']  = &$dir;
+		$results = $dispatcher->trigger( 'onBeforeUserSearchQueryBuild', array( $data ) );
+		
 		$db = JFactory::getDBO();
 		$query = new XiusQuery();		
 		$cache = XiusFactory::getCacheObject();
@@ -41,7 +50,7 @@ class XiusLibrariesUsersearch
 		}
 		
 		/*Trigger event */
-		$dispatcher =& JDispatcher::getInstance();
+		//$dispatcher =& JDispatcher::getInstance();
 		$results = $dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$query ) );
 		
 	/*	$strQuery = $query->__toString();

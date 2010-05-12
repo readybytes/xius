@@ -47,16 +47,14 @@ class XiusCache
 	{
 		$this->insertQuery	.= $query->__toString();
 		
+		/*Bound result set starting from some users
+		 * Limit should be configurable
+		 */
+		
 		if($limitReq)
 			$this->insertQuery .= ' LIMIT '.$limit['limitStart'].' , '.$limit['limit'];
 		
 		$this->insertQuery .= ' )';
-		
-		
-		/*XITODO : Bound result set starting from some users
-		 * Limit should be configurable
-		 */
-		/*$str .= ' LIMIT 10'*/
 		
 		$this->db->setQuery($this->insertQuery);
 		

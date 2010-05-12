@@ -192,7 +192,7 @@ FOUND 17 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/site/views/users/view.html.php
 --------------------------------------------------------------------------------
-FOUND 33 ERROR(S) AND 2 WARNING(S) AFFECTING 30 LINE(S)
+FOUND 36 ERROR(S) AND 2 WARNING(S) AFFECTING 33 LINE(S)
 --------------------------------------------------------------------------------
    4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
   11 | ERROR   | No scope modifier specified for function "displaySearch"
@@ -200,36 +200,39 @@ FOUND 33 ERROR(S) AND 2 WARNING(S) AFFECTING 30 LINE(S)
   19 | ERROR   | Operator ! prohibited; use === FALSE instead
   22 | ERROR   | Operator ! prohibited; use === FALSE instead
   25 | ERROR   | Operator ! prohibited; use === FALSE instead
-  55 | ERROR   | Function's cyclomatic complexity (26) exceeds allowed maximum
+  55 | ERROR   | Function's cyclomatic complexity (30) exceeds allowed maximum
      |         | of 20
   55 | ERROR   | No scope modifier specified for function "displayResult"
   64 | ERROR   | Operator ! prohibited; use === FALSE instead
   68 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
   90 | ERROR   | Operator ! prohibited; use === FALSE instead
   93 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
-  97 | ERROR   | Operator ! prohibited; use === FALSE instead
- 100 | ERROR   | Operator ! prohibited; use === FALSE instead
+  98 | ERROR   | Operator ! prohibited; use === FALSE instead
  103 | ERROR   | Operator ! prohibited; use === FALSE instead
- 110 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 114 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 114 | ERROR   | Operator ! prohibited; use === FALSE instead
- 118 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 132 | ERROR   | Operator ! prohibited; use === FALSE instead
- 134 | ERROR   | Operator ! prohibited; use === FALSE instead
- 138 | ERROR   | Operator ! prohibited; use === FALSE instead
- 156 | ERROR   | Operator ! prohibited; use === FALSE instead
- 159 | ERROR   | Operator ! prohibited; use === FALSE instead
- 162 | ERROR   | Operator ! prohibited; use === FALSE instead
- 165 | ERROR   | Operator ! prohibited; use === FALSE instead
- 192 | ERROR   | Operator ! prohibited; use === FALSE instead
- 192 | ERROR   | Operator ! prohibited; use === FALSE instead
- 217 | ERROR   | No scope modifier specified for function "displaySaveOption"
- 225 | ERROR   | Operator ! prohibited; use === FALSE instead
- 239 | ERROR   | No scope modifier specified for function "success"
- 258 | WARNING | The method parameter $fromTask is never used
- 258 | WARNING | The method parameter $owner is never used
- 258 | ERROR   | No scope modifier specified for function "_showLists"
- 267 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 106 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 113 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 117 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 117 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 121 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 135 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 137 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 142 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 144 | ERROR   | Operator == prohibited; use === instead
+ 146 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 155 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 173 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 176 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 179 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 182 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 209 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 209 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 234 | ERROR   | No scope modifier specified for function "displaySaveOption"
+ 242 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 256 | ERROR   | No scope modifier specified for function "success"
+ 275 | WARNING | The method parameter $fromTask is never used
+ 275 | WARNING | The method parameter $owner is never used
+ 275 | ERROR   | No scope modifier specified for function "_showLists"
+ 284 | ERROR   | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -249,13 +252,13 @@ FOUND 15 ERROR(S) AND 2 WARNING(S) AFFECTING 14 LINE(S)
  31 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
  51 | ERROR   | Operator ! prohibited; use === FALSE instead
  54 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 58 | ERROR   | Operator ! prohibited; use === FALSE instead
- 61 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 59 | ERROR   | Operator ! prohibited; use === FALSE instead
  64 | ERROR   | Operator ! prohibited; use === FALSE instead
- 72 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 76 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 76 | ERROR   | Operator ! prohibited; use === FALSE instead
- 80 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 67 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 75 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 79 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 79 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 83 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -848,70 +851,70 @@ FOUND 82 ERROR(S) AND 2 WARNING(S) AFFECTING 75 LINE(S)
  177 | ERROR   | No scope modifier specified for function
      |         | "getMiniProfileDisplayFields"
  184 | ERROR   | Operator == prohibited; use === instead
- 190 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 198 | ERROR   | Operator ! prohibited; use === FALSE instead
- 201 | ERROR   | Operator ! prohibited; use === FALSE instead
- 204 | ERROR   | Operator ! prohibited; use === FALSE instead
- 214 | ERROR   | No scope modifier specified for function "getSortableFields"
- 220 | ERROR   | Operator == prohibited; use === instead
- 226 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 233 | ERROR   | Operator ! prohibited; use === FALSE instead
- 236 | ERROR   | Operator ! prohibited; use === FALSE instead
- 239 | ERROR   | Operator ! prohibited; use === FALSE instead
- 251 | ERROR   | No scope modifier specified for function "processUserRequest"
- 256 | ERROR   | Must use "self::" for local static member reference
- 260 | ERROR   | Must use "self::" for local static member reference
- 264 | ERROR   | Must use "self::" for local static member reference
- 272 | ERROR   | No scope modifier specified for function "processSearchData"
- 278 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 189 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 197 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 202 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 205 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 215 | ERROR   | No scope modifier specified for function "getSortableFields"
+ 221 | ERROR   | Operator == prohibited; use === instead
+ 227 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 234 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 237 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 240 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 252 | ERROR   | No scope modifier specified for function "processUserRequest"
+ 257 | ERROR   | Must use "self::" for local static member reference
+ 261 | ERROR   | Must use "self::" for local static member reference
+ 265 | ERROR   | Must use "self::" for local static member reference
+ 273 | ERROR   | No scope modifier specified for function "processSearchData"
  279 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 279 | ERROR   | Operator == prohibited; use === instead
- 287 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 290 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 305 | ERROR   | No scope modifier specified for function "deleteSearchData"
- 310 | ERROR   | Must use "self::" for local static member reference
- 312 | ERROR   | Operator ! prohibited; use === FALSE instead
- 317 | ERROR   | Operator ! prohibited; use === FALSE instead
- 328 | ERROR   | Must use "self::" for local static member reference
- 329 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 334 | ERROR   | Must use "self::" for local static member reference
- 339 | WARNING | Function's cyclomatic complexity (11) exceeds 10; consider
+ 280 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 280 | ERROR   | Operator == prohibited; use === instead
+ 288 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 291 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 306 | ERROR   | No scope modifier specified for function "deleteSearchData"
+ 311 | ERROR   | Must use "self::" for local static member reference
+ 313 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 318 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 329 | ERROR   | Must use "self::" for local static member reference
+ 330 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 335 | ERROR   | Must use "self::" for local static member reference
+ 340 | WARNING | Function's cyclomatic complexity (11) exceeds 10; consider
      |         | refactoring the function
- 339 | ERROR   | No scope modifier specified for function "addSearchData"
- 343 | ERROR   | Operator ! prohibited; use === FALSE instead
- 348 | ERROR   | Operator ! prohibited; use === FALSE instead
- 351 | ERROR   | Must use "self::" for local static member reference
- 352 | ERROR   | Operator ! prohibited; use === FALSE instead
- 360 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 340 | ERROR   | No scope modifier specified for function "addSearchData"
+ 344 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 349 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 352 | ERROR   | Must use "self::" for local static member reference
+ 353 | ERROR   | Operator ! prohibited; use === FALSE instead
  361 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 361 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 361 | ERROR   | Operator == prohibited; use === instead
- 363 | ERROR   | Operator == prohibited; use === instead
- 363 | ERROR   | Operator ! prohibited; use === FALSE instead
- 371 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 374 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 379 | ERROR   | Must use "self::" for local static member reference
- 380 | ERROR   | Operator ! prohibited; use === FALSE instead
- 385 | ERROR   | Must use "self::" for local static member reference
- 394 | WARNING | Function's cyclomatic complexity (11) exceeds 10; consider
+ 362 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 362 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 362 | ERROR   | Operator == prohibited; use === instead
+ 364 | ERROR   | Operator == prohibited; use === instead
+ 364 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 372 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 375 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 380 | ERROR   | Must use "self::" for local static member reference
+ 381 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 386 | ERROR   | Must use "self::" for local static member reference
+ 395 | WARNING | Function's cyclomatic complexity (11) exceeds 10; consider
      |         | refactoring the function
- 394 | ERROR   | No scope modifier specified for function
+ 395 | ERROR   | No scope modifier specified for function
      |         | "checkSearchDataExistance"
- 396 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 396 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 404 | ERROR   | Operator != prohibited; use !== instead
- 407 | ERROR   | Operator != prohibited; use !== instead
- 410 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 411 | ERROR   | Operator ! prohibited; use === FALSE instead
- 417 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 417 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 420 | ERROR   | Operator ! prohibited; use === FALSE instead
- 420 | ERROR   | Operator ! prohibited; use === FALSE instead
- 424 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
- 427 | ERROR   | Operator == prohibited; use === instead
- 437 | ERROR   | No scope modifier specified for function "processSortData"
- 442 | ERROR   | Must use "self::" for local static member reference
+ 397 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 397 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 405 | ERROR   | Operator != prohibited; use !== instead
+ 408 | ERROR   | Operator != prohibited; use !== instead
+ 411 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 412 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 418 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 418 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 421 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 421 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 425 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 428 | ERROR   | Operator == prohibited; use === instead
+ 438 | ERROR   | No scope modifier specified for function "processSortData"
  443 | ERROR   | Must use "self::" for local static member reference
+ 444 | ERROR   | Must use "self::" for local static member reference
 --------------------------------------------------------------------------------
 
 
@@ -926,10 +929,18 @@ FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
 
 FILE: /vobs/xius/trunk/packages/tmp/admin/libraries/info.php
 --------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AND 0 WARNING(S) AFFECTING 2 LINE(S)
+FOUND 9 ERROR(S) AND 1 WARNING(S) AFFECTING 8 LINE(S)
 --------------------------------------------------------------------------------
-  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
- 23 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  4 | ERROR   | Logical operator "or" is prohibited; use "||" instead
+  9 | WARNING | The method parameter $join is never used
+ 12 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 12 | ERROR   | Operator == prohibited; use === instead
+ 17 | ERROR   | Operator != prohibited; use !== instead
+ 23 | ERROR   | Operator == prohibited; use === instead
+ 44 | ERROR   | No scope modifier specified for function "getAllInfo"
+ 48 | ERROR   | Operator ! prohibited; use === FALSE instead
+ 48 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
+ 64 | ERROR   | Implicit true comparisons prohibited; use === TRUE instead
 --------------------------------------------------------------------------------
 
 
@@ -1216,24 +1227,29 @@ FOUND 29 ERROR(S) AND 1 WARNING(S) AFFECTING 28 LINE(S)
 
 FILE: .../trunk/packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php
 --------------------------------------------------------------------------------
-FOUND 14 ERROR(S) AND 0 WARNING(S) AFFECTING 13 LINE(S)
+FOUND 19 ERROR(S) AND 0 WARNING(S) AFFECTING 17 LINE(S)
 --------------------------------------------------------------------------------
-  4 | ERROR | Logical operator "or" is prohibited; use "||" instead
-  9 | ERROR | No scope modifier specified for function "getJomsocialFields"
- 15 | ERROR | Operator ! prohibited; use === FALSE instead
- 22 | ERROR | Operator ! prohibited; use === FALSE instead
- 32 | ERROR | The use of count() inside a loop condition is not allowed. Assign
-    |       | the return value of count() to a variable and use the variable in
-    |       | the loop condition instead.
- 35 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 35 | ERROR | Operator != prohibited; use !== instead
- 40 | ERROR | Expected 0 spaces between "'JString'" and comma; 1 found
- 56 | ERROR | No scope modifier specified for function "getFieldsHTML"
- 72 | ERROR | Operator == prohibited; use === instead
- 85 | ERROR | No scope modifier specified for function "getFieldType"
- 89 | ERROR | Must use "self::" for local static member reference
- 91 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 99 | ERROR | No scope modifier specified for function "isJomsocialExist"
+   4 | ERROR | Logical operator "or" is prohibited; use "||" instead
+   9 | ERROR | No scope modifier specified for function "getJomsocialFields"
+  16 | ERROR | Operator ! prohibited; use === FALSE instead
+  16 | ERROR | Operator ! prohibited; use === FALSE instead
+  19 | ERROR | Operator != prohibited; use !== instead
+  29 | ERROR | The use of count() inside a loop condition is not allowed.
+     |       | Assign the return value of count() to a variable and use the
+     |       | variable in the loop condition instead.
+  32 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+  33 | ERROR | Operator != prohibited; use !== instead
+  34 | ERROR | Operator ! prohibited; use === FALSE instead
+  39 | ERROR | Expected 0 spaces between "'JString'" and comma; 1 found
+  97 | ERROR | No scope modifier specified for function "getAllJomsocialFields"
+ 101 | ERROR | Operator ! prohibited; use === FALSE instead
+ 101 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 117 | ERROR | No scope modifier specified for function "getFieldsHTML"
+ 133 | ERROR | Operator == prohibited; use === instead
+ 146 | ERROR | No scope modifier specified for function "getFieldType"
+ 150 | ERROR | Must use "self::" for local static member reference
+ 152 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 160 | ERROR | No scope modifier specified for function "isJomsocialExist"
 --------------------------------------------------------------------------------
 
 
@@ -1245,7 +1261,7 @@ FOUND 5 ERROR(S) AND 0 WARNING(S) AFFECTING 5 LINE(S)
  11 | ERROR | No scope modifier specified for function "__construct"
  16 | ERROR | No scope modifier specified for function "searchHtml"
  18 | ERROR | Operator ! prohibited; use === FALSE instead
- 30 | ERROR | Operator ! prohibited; use === FALSE instead
+ 29 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
@@ -1462,15 +1478,15 @@ FOUND 24 ERROR(S) AND 0 WARNING(S) AFFECTING 21 LINE(S)
   79 | ERROR | Operator == prohibited; use === instead
   79 | ERROR | Operator == prohibited; use === instead
   93 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 104 | ERROR | No scope modifier specified for function "_buildFilterQuery"
- 109 | ERROR | Operator ! prohibited; use === FALSE instead
- 113 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
- 124 | ERROR | No scope modifier specified for function "getInfo"
- 135 | ERROR | No scope modifier specified for function "save"
- 147 | ERROR | No scope modifier specified for function "updatePublish"
+ 103 | ERROR | No scope modifier specified for function "_buildFilterQuery"
+ 108 | ERROR | Operator ! prohibited; use === FALSE instead
+ 112 | ERROR | Implicit true comparisons prohibited; use === TRUE instead
+ 123 | ERROR | No scope modifier specified for function "getInfo"
+ 134 | ERROR | No scope modifier specified for function "save"
+ 146 | ERROR | No scope modifier specified for function "updatePublish"
+ 150 | ERROR | String concat is not required here; use a single string instead
  151 | ERROR | String concat is not required here; use a single string instead
- 152 | ERROR | String concat is not required here; use a single string instead
- 154 | ERROR | Operator ! prohibited; use === FALSE instead
+ 153 | ERROR | Operator ! prohibited; use === FALSE instead
 --------------------------------------------------------------------------------
 
 
