@@ -77,7 +77,6 @@ class XiusModelConfiguration extends JModel
 		
 		$registry	=& JRegistry::getInstance( 'xius' );
 		$registry->loadArray($xiusparams,'xius');
-		$ini = $registry->toString( 'INI' , 'xius' );
 		// Get the complete INI string
 		$config->params	= $registry->toString( 'INI' , 'xius' );
 		

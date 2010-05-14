@@ -34,7 +34,7 @@ function submitbutton( action )
 			<th width="1%">
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->allinfo ); ?>);" />
 			</th>
-			<th>
+			<th width="20%">
 				<?php echo JText::_( 'LABEL NAME' ); ?>
 			</th>
 			<th width="5%">
@@ -42,6 +42,18 @@ function submitbutton( action )
 			</th>
 			<th width="5%">
 				<?php echo JText::_( 'PUBLISHED' ); ?>
+			</th>
+			<th width="5%">
+				<?php echo JText::_( 'SEARCHABLE' ); ?>
+			</th>
+			<th width="5%">
+				<?php echo JText::_( 'VISIBLE' ); ?>
+			</th>
+			<th width="5%">
+				<?php echo JText::_( 'SORTABLE' ); ?>
+			</th>
+			<th width="5%">
+				<?php echo JText::_( 'EXPORTABLE' ); ?>
 			</th>
 			<th width="5%" align="center">
 				<?php echo JText::_( 'ORDERING' ); ?>
@@ -55,6 +67,12 @@ function submitbutton( action )
 	if(!empty($this->allinfo))
 	foreach($this->allinfo as $info)
 	{
+		/*XITODO : direct using param here without any help of plugin instance
+		 * use plugin instance after dissucssion
+		 */
+		$params	= new JParameter('','');
+		$params->bind($info->params);
+		
 		$input	= JHTML::_('grid.id', $count, $info->id);
 		
 		// Process publish / unpublish images
@@ -84,6 +102,66 @@ function submitbutton( action )
 							else 
 							{ ?>
 								<img src="images/publish_x.png" width="16" height="16" border="0" alt="Unpublished" />
+						<?php 
+							} //echo $published;
+						?>
+				</a>
+			</td>
+			<td align="center" id="searchable<?php echo $info->id;?>">
+				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isSearchable',0) ? 'unsearchable' : 'searchable' ?>')">
+							<?php if($params->get('isSearchable',0))
+							{ ?>
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo JText::_('Searchable');?> />
+							<?php 
+							}
+							else 
+							{ ?>
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo JText::_('Not Searchable');?> />
+						<?php 
+							} //echo $published;
+						?>
+				</a>
+			</td>
+			<td align="center" id="visible<?php echo $info->id;?>">
+				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isVisible',0) ? 'invisible' : 'visible' ?>')">
+							<?php if($params->get('isVisible',0))
+							{ ?>
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo JText::_('Visible');?> />
+							<?php 
+							}
+							else 
+							{ ?>
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo JText::_('Not Visible');?> />
+						<?php 
+							} //echo $published;
+						?>
+				</a>
+			</td>
+			<td align="center" id="sortable<?php echo $info->id;?>">
+				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isSortable',0) ? 'unsortable' : 'sortable' ?>')">
+							<?php if($params->get('isSortable',0))
+							{ ?>
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo JText::_('Sortable');?> />
+							<?php 
+							}
+							else 
+							{ ?>
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo JText::_('Not Sortable');?> />
+						<?php 
+							} //echo $published;
+						?>
+				</a>
+			</td>
+			<td align="center" id="exportable<?php echo $info->id;?>">
+				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isExportable',0) ? 'unexportable' : 'exportable' ?>')">
+							<?php if($params->get('isExportable',0))
+							{ ?>
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo JText::_('Exportable');?> />
+							<?php 
+							}
+							else 
+							{ ?>
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo JText::_('Not Exportable');?> />
 						<?php 
 							} //echo $published;
 						?>

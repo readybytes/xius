@@ -13,6 +13,21 @@ class XiusControllerInfo extends JController
 		//registering some extra in all task list which we want to call
 		$this->registerTask( 'orderup' , 'saveOrder' );
 		$this->registerTask( 'orderdown' , 'saveOrder' );
+		
+		$this->registerTask( 'searchable' , 'saveParamDoable' );
+		$this->registerTask( 'unsearchable' , 'saveParamDoable' );
+		
+		$this->registerTask( 'searchable' , 'saveParamDoable' );
+		$this->registerTask( 'unsearchable' , 'saveParamDoable' );
+		
+		$this->registerTask( 'visible' , 'saveParamDoable' );
+		$this->registerTask( 'invisible' , 'saveParamDoable' );
+		
+		$this->registerTask( 'sortable' , 'saveParamDoable' );
+		$this->registerTask( 'unsortable' , 'saveParamDoable' );
+		
+		$this->registerTask( 'exportable' , 'saveParamDoable' );
+		$this->registerTask( 'unexportable' , 'saveParamDoable' );
 	}
 	
     function display() 
@@ -173,18 +188,19 @@ class XiusControllerInfo extends JController
 	
 	function save()
 	{
+		global $mainframe;
 		$data = $this->_processSave();
 		$link = JRoute::_('index.php?option=com_xius&view=info', false);
-		$mainframe	=& JFactory::getApplication();
 		$mainframe->redirect($link, $data['msg']);		
 		
 	}
 	
 	function apply()
 	{
+		global $mainframe;
+		
 		$data = $this->_processSave();
 		$link = JRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
-		$mainframe	=& JFactory::getApplication();
 		$mainframe->redirect($link, $data['msg']);				
 	}	
 
@@ -302,6 +318,68 @@ class XiusControllerInfo extends JController
 			
 			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
 		}
+	}
+	
+	
+	function saveParamDoable()
+	{
+		global $mainframe;
+		
+		$link = JRoute::_('index.php?option=com_xius&view=info', false);		
+		
+		$subtask = JRequest::getWord( 'task' , '' );
+		
+		$id			= JRequest::getVar( 'cid', array(), 'post', 'array' );
+		
+		if( !isset( $id[0] ) )
+			$mainframe->redirect($link, JText::_('Please Select any information to update'));	
+		
+		$id		= (int) $id[0];
+		
+		switch($subtask)
+		{
+			case 'searchable':
+				$todo = 'isSearchable';
+				$value = true;
+				break;
+			case 'unsearchable':
+				$todo = 'isSearchable';
+				$value = false;
+				break;
+			case 'visible':
+				$todo = 'isVisible';
+				$value = true;
+				break;
+			case 'invisible':
+				$todo = 'isVisible';
+				$value = false;
+				break;
+			case 'sortable':
+				$todo = 'isSortable';
+				$value = true;
+				break;
+			case 'unsortable':
+				$todo = 'isSortable';
+				$value = false;
+				break;
+			case 'exportable':
+				$todo = 'isExportable';
+				$value = true;
+				break;
+			case 'unexportable':
+				$todo = 'isExportable';
+				$value = false;
+				break;
+			default :
+				$todo = '';
+				$value = 0;
+				break;
+		}
+		
+		$iModel	= XiusFactory::getModel( 'info' );
+		$iModel->updateParams($id,$todo,$value);
+		
+		$mainframe->redirect($link, JText::_('Params updated successfully'));	
 	}
 	
 }

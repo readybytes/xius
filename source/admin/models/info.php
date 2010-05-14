@@ -155,4 +155,35 @@ class XiusModelInfo extends JModel
 			
 		return true;
 	}
+	
+	
+	function updateParams($id,$what,$value)
+	{
+		if(!$what)
+			return false;
+			
+		$info = $this->getInfo($id);
+		
+		if(!$info)
+			return false;
+		
+		$params	= new JParameter('','');
+		$params->bind($info->params);
+		
+		$properties = $params->getProperties(false);
+			
+		$params->set($what,$value);
+		
+		$paramStr = $params->toString('INI');
+		
+		$db 	=& JFactory::getDBO();
+		$query 	= 'UPDATE #__xius_info'
+				. ' SET `params` ='.$db->Quote($paramStr).''
+				. ' WHERE `id`='. $db->Quote($id);
+		$db->setQuery( $query );
+		if (!$db->query())
+			return JError::raiseWarning( 500, $db->getError() );
+			
+		return true;
+	}
 }

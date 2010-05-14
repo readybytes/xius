@@ -50,6 +50,7 @@ class XiusTableList extends JTable
 		$this->ordering		= 0;
 		$this->description	= '';
 	
+		return true;
 	}
 
 	

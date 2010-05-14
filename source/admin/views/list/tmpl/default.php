@@ -76,7 +76,6 @@ function submitbutton( action )
 					<span class="editlinktip" title="<?php echo $lname; ?>" id="name<?php echo $list->id;?>">
 					<?php $link = JRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
 						<A HREF="<?php echo $link; ?>"><?php echo $lname; ?></A>
-						<?php //echo JHTML::_('link', 'javascript:void(0);', $row->name, 'onclick'=>"javascript:editFields()"); ?>
 					</span>
 				</td>
 				<td align="center">

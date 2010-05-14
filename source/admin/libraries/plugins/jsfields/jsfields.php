@@ -121,21 +121,19 @@ class Jsfields extends XiusBase
 				return true;
 				
 			}
-				else{
-					//$query->select($columns['columnname']);
-					$conditions = '';
-					$count = 0;
-					foreach($value as $v){
-						$conditions .= $count ? ' AND ' : ' ( ';
-						$conditions .=  $db->nameQuote($columns['columnname'])." LIKE '%".$this->formatValue($v)."%'";
-						$count++;
-						//$query->where($conditions,'OR');
-					}
-					$query->where($conditions,$join);
-					return true;
+			else{
+				//$query->select($columns['columnname']);
+				$conditions = '';
+				$count = 0;
+				foreach($value as $v){
+					$conditions .= $count ? ' AND ' : ' ( ';
+					$conditions .=  $db->nameQuote($columns['columnname'])." LIKE '%".$this->formatValue($v)."%'";
+					$count++;
+					//$query->where($conditions,'OR');
 				}
-			
-			return false;
+				$query->where($conditions,$join);
+				return true;
+			}
 		}		
 		return false;		
 	}

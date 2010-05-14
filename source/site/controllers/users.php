@@ -319,7 +319,7 @@ class XiusControllerUsers extends JController
 	{
 		global $mainframe;
 		
-		$secureKey=JRequest::getVar('key', 0, 'GET');
+		$secureKey=JRequest::getVar('key', 0, 'GET','string');
 		
 		$setKey = XiusHelpersUtils::getKeyForCacheUpdate();
 		

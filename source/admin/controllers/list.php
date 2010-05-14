@@ -38,8 +38,6 @@ class XiusControllerList extends JController
 		$i = 1;
 		if(!empty($ids))
 		{
-			$lModel =& XiusFactory::getModel('list');
-			
 			foreach( $ids as $id )
 			{
 				$row	=& JTable::getInstance( 'list', 'XiusTable' );
@@ -77,7 +75,6 @@ class XiusControllerList extends JController
 			return JError::raiseWarning( 500, JText::_( 'NO ITEMS SELECTED' ) );
 		}
 		
-		$db			=& JFactory::getDBO();
 		$lModel =& XiusFactory::getModel('list');
 		foreach($ids as $id)
 			$lModel->updatePublish($id,1);
@@ -100,7 +97,6 @@ class XiusControllerList extends JController
 			return JError::raiseWarning( 500, JText::_( 'NO ITEMS SELECTED' ) );
 		}
 		
-		$db			=& JFactory::getDBO();
 		$lModel =& XiusFactory::getModel('list');
 		foreach($ids as $id)
 			$lModel->updatePublish($id,0);

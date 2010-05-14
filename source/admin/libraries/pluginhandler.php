@@ -12,4 +12,10 @@ class XiusLibrariesPluginhandler
 	{
 		return XiusLibrariesUsersearch::updateCache();
 	}
+	
+
+	function onCronRun()
+	{
+		return XiusLibrariesUsersearch::updateCache();
+	}
 }

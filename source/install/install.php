@@ -3,16 +3,25 @@ defined('_JEXEC') or die('Restricted access');
 
 function com_install()
 {
-	if(installPlugin() == false){
+	/*if(installPlugin() == false){
 		JError::raiseError('INSTERR', JText::_("NOT ABLE TO INSTALL PLUGINS"));
 		return false;
+	}*/
+	
+	if(installExtensions() == false){
+		JError::raiseError('INSTERR', JText::_("NOT ABLE TO INSTALL EXTENSIONS"));
+		return false;
 	}
+	
+	
+	changePluginState('xius_system',true);
+	
 	
 	return true;
 }
 
 	
-function installPlugin()
+/*function installPlugin()
 {		
 	JLoader::import( 'com_xius.libraries.dscinstaller', JPATH_ADMINISTRATOR.DS.'components' );
 		
@@ -49,9 +58,8 @@ function installPlugin()
 			return false;
 		}
 		
-		/*
-		 * fire the dioscouriInstaller with the foldername and folder entryType
-		 */
+		// fire the dioscouriInstaller with the foldername and folder entryType
+		 
 		$pathToFolder = $installer->getPath('source').DS.$pname;
 		$dscInstaller = new dscInstaller();
 		if ($ppublish) {
@@ -72,13 +80,60 @@ function installPlugin()
 		}
 	}
 	return true;
-}
+}*/
 	
 
+function installExtensions($extPath=null)
+{
+	//if no path defined, use default path
+	if($extPath==null)
+		$extPath = dirname(__FILE__).DS.'extensions';
+
+	if(!JFolder::exists($extPath))
+		return false;
 	
+	$extensions	= JFolder::folders($extPath);
+	
+	//no apps there to install
+	if(empty($extensions))
+		return true;
+
+	//get instance of installer
+	$installer =  new JInstaller();
+	$installer->setOverwrite(true);
+
+	//install all apps
+	foreach ($extensions as $ext)
+	{
+		$msg = JText::sprintf("Supportive Plugin/Module %S Installed Successfully",$ext);
+
+		// Install the packages
+		if($installer->install($extPath.DS.$ext)==false)
+			$msg = JText::sprintf("Supportive Plugin/Module %S Installation Failed",$ext);
+
+		//enque the message
+		JFactory::getApplication()->enqueueMessage($msg);
+	}
+
+	return true;
+}	
 		
 	
-
+function changePluginState($pluginname, $action=1)
+{
+  
+	$db			=& JFactory::getDBO();
+	$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
+			. ' SET '.$db->nameQuote('published').'='.$db->Quote($action)
+	          .' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
+	
+	$db->setQuery($query);		
+	
+	if(!$db->query())
+		return false;
+		
+	return true;
+}
 
 
 

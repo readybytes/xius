@@ -164,7 +164,6 @@ class XiusLibrariesUsersearch
 	
 	function updateCache()
 	{
-		$db =& JFactory::getDBO();
 		/*XITODO : update xius_cache table with new info id
 		 * We can only add column also without creating whole table
 		 */
@@ -198,7 +197,6 @@ class XiusLibrariesUsersearch
 		if(empty($allInfo))
 			return $displayFields;
 			
-		$count = 0;
 		$cache = XiusFactory::getCacheObject();
 		foreach($allInfo as $info){
 			$plgInstance = XiusFactory::getPluginInstance($info->pluginType);

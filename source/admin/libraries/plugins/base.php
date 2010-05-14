@@ -23,9 +23,11 @@ abstract class XiusBase extends JObject
 	function __construct($className)
 	{		
 		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
-		//XITODO: add default.ini
+		$ini	= dirname(__FILE__) . DS . 'params.ini';
+		$data	= JFile::read($ini);
+		
 		if(JFile::exists($paramsxmlpath))
-			$this->params = new JParameter('',$paramsxmlpath);
+			$this->params = new JParameter($data,$paramsxmlpath);
 			
 		$this->pluginType 	= $className;
 		
@@ -497,9 +499,11 @@ abstract class XiusBase extends JObject
 		 * only clean values
 		 */ 
 		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
-		//XITODO: add default.ini
+		$ini	= dirname(__FILE__) . DS . 'params.ini';
+		$data	= JFile::read($ini);
+		
 		if(JFile::exists($paramsxmlpath))
-			$this->params = new JParameter('',$paramsxmlpath);
+			$this->params = new JParameter($data,$paramsxmlpath);
 			
 		//if already defined by child class do not create it.
 		if(!$this->pluginParams)

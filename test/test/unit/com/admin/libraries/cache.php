@@ -174,8 +174,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 		$query = XiusLibrariesUsersearch::buildQuery($conditions,$join,$sort,$dir);
 		$strQuery = $query->__toString();
-	
-		echo $strQuery;
+
 		$db = JFactory::getDBO();
 		$db->setQuery($strQuery);
 		$users = $db->loadObjectList();
@@ -248,5 +247,16 @@ class XiusCacheTest extends XiUnitTestCase
 		);
 	}
 	
+	
+	function testCreateTableWithEmptyInfo()
+	{
+		$this->resetCachedData();
+		
+		$cache = new XiusCache();
+		$result = $cache->createTable(false);
+	
+		$this->assertFalse($result);
+		
+	}
 }
 ?>

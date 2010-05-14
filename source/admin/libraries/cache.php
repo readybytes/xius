@@ -32,8 +32,8 @@ class XiusCache
 		if($droptableReq)
 			$this->dropTable();
 			
-		//if(empty($this->createQuery))
-		$this->buildCreateTableQuery();
+		if($this->buildCreateTableQuery() == false)
+			return false;	
 			
 		$this->db->setQuery($this->createQuery->__toString());
 		if($this->db->query())
