@@ -170,7 +170,7 @@ class XiusLibrariesUsersearch
 		$cache = XiusFactory::getCacheObject();
 		if(!$cache->createTable(true))
 			return false;
-
+			
 		/*XITODO : break insert user data query into parts
 		 * provide limit , for huge amount of users say 1,00,000
 		 * then in first rount process 1000 users then again 1000 etc.

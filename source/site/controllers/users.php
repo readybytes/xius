@@ -365,6 +365,5 @@ class XiusControllerUsers extends JController
 		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		return $cache->insertIntoTable($getDataQuery,true,$limit);		
 	}
-
-
+	
 }

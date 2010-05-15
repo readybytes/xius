@@ -47,7 +47,7 @@ class XiusLibrariesInfo
 		
 		if(!$reset && isset($allInfo))
 			return $allInfo;
-		
+			
 		$iModel	= XiusFactory::getModel( 'info' );	
 		$allInfo		=& $iModel->getAllInfo('','AND',false);
 		

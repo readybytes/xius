@@ -17,6 +17,8 @@
 		<file>test/unit/com/admin/libraries/usersearch.php</file>
 		<file>test/unit/com/admin/libraries/cache.php</file>
 		<file>test/unit/com/admin/helpers/utils.php</file>		
+		
+		<file>test/unit/com/admin/controllers/info.php</file>
 	</testsuite>
 	
 	<listeners>

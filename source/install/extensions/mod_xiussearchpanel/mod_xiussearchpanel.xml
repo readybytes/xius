@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<install type="module" version="1.5.0">
+<install type="module" version="1.5.0" method="upgrade">
 	<name>Advance Search</name>
  	<version>@global.version@.@svn.lastrevision@</version>
     	<creationDate>Jan 2010</creationDate>

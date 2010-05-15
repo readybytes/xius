@@ -109,21 +109,12 @@ class XiusControllerInfo extends JController
 	}
 	
 	
-	function _processSave()
-	{
-		//save aclparam and core param in individual columns
-		// Test if this is really a post request
-		$method	= JRequest::getMethod();
-		$id = JRequest::getVar('editId', 0 );
-		if( $method == 'GET' )
-		{
-			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
-			return;
-		}
-		
+	function _processSave($post=null)
+	{		
 		$mainframe	=& JFactory::getApplication();
 
-		$post	= JRequest::get('post');
+		if($post == null)
+			$post	= JRequest::get('post');
 		
 		jimport('joomla.filesystem.file');
 
@@ -180,6 +171,11 @@ class XiusControllerInfo extends JController
 		
 		//JPluginHelper::importPlugin( 'system' );
 		
+		/*info reset required , b'coz it will return
+		 * old data and new info will not be added in cache
+		 */
+		$allInfo = XiusLibrariesInfo::getAllInfo(true);
+		
 		$dispatcher =& JDispatcher::getInstance();
 		$results = $dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
 			
@@ -188,6 +184,15 @@ class XiusControllerInfo extends JController
 	
 	function save()
 	{
+		//save aclparam and core param in individual columns
+		// Test if this is really a post request
+		$method	= JRequest::getMethod();
+		if( $method == 'GET' )
+		{
+			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			return;
+		}
+		
 		global $mainframe;
 		$data = $this->_processSave();
 		$link = JRoute::_('index.php?option=com_xius&view=info', false);
@@ -197,6 +202,15 @@ class XiusControllerInfo extends JController
 	
 	function apply()
 	{
+		//save aclparam and core param in individual columns
+		// Test if this is really a post request
+		$method	= JRequest::getMethod();
+		if( $method == 'GET' )
+		{
+			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			return;
+		}
+		
 		global $mainframe;
 		
 		$data = $this->_processSave();
@@ -209,18 +223,31 @@ class XiusControllerInfo extends JController
 		global $mainframe;
 		// Check for request forgeries
 		JRequest::checkToken() or jexit( 'Invalid Token' );
+
+		$data = $this->_remove();
 		
-		$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
+		$cache = & JFactory::getCache('com_content');
+		$cache->clean();	
+		$link = JRoute::_('index.php?option=com_xius&view=info', false);
+		$mainframe->redirect($link, $data['message']);
+	}
 	
-		//$post['id'] = (int) $cid[0];
+	
+	function _remove($ids=null)
+	{
+		if($ids == null)
+			$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
+	
 		$count	= count($ids);
 		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
 		$row	=& JTable::getInstance( 'info' , 'XiusTable' );
-		$i = 1;
 		
 		/*XITODO : check if info is used anywhere,
 		 * if true , then don't delete it
 		 */
+		$data = array();
+		$data['message'] = '';
+		$data['success'] = false;
 		if(!empty($ids))
 		{
 			foreach( $ids as $id )
@@ -229,19 +256,16 @@ class XiusControllerInfo extends JController
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$message	= JText::_('ERROR IN REMOVING INFO');
-					$mainframe->redirect( 'index.php?option=com_xius&view=info' , $message);
-					exit;
+					$data['message']	= JText::_('ERROR IN REMOVING INFO');
+					return $data;
 				}
-				$i++;
 			}
+			
+			$data['message'] = $count.' '.JText::_('INFO REMOVED');	;
+			$data['success'] = true;
 		}
-				
-		$cache = & JFactory::getCache('com_content');
-		$cache->clean();
-		$message	= $count.' '.JText::_('INFO REMOVED');		
-		$link = JRoute::_('index.php?option=com_xius&view=info', false);
-		$mainframe->redirect($link, $message);
+		
+		return $data;
 	}
 	
 	
@@ -304,7 +328,7 @@ class XiusControllerInfo extends JController
 
 		// Get the ID in the correct location
  		$id			= JRequest::getVar( 'cid', array(), 'post', 'array' );
-
+		
 		if( isset( $id[0] ) )
 		{
 			$id		= (int) $id[0];
@@ -327,8 +351,6 @@ class XiusControllerInfo extends JController
 		
 		$link = JRoute::_('index.php?option=com_xius&view=info', false);		
 		
-		$subtask = JRequest::getWord( 'task' , '' );
-		
 		$id			= JRequest::getVar( 'cid', array(), 'post', 'array' );
 		
 		if( !isset( $id[0] ) )
@@ -336,39 +358,55 @@ class XiusControllerInfo extends JController
 		
 		$id		= (int) $id[0];
 		
+		$subtask = JRequest::getWord( 'task' , '' );
+		
+		if($this->_saveParamDoable($id,$subtask))
+			$msg = JText::_('Params updated successfully');
+		else
+			$msg = JText::_('Unable to save params');
+			
+		$mainframe->redirect($link, $msg);	
+	}
+	
+	
+	function _saveParamDoable($id,$subtask = null)
+	{
+		if($subtask == null)
+			$subtask = JRequest::getWord( 'task' , '' );
+		
 		switch($subtask)
 		{
 			case 'searchable':
 				$todo = 'isSearchable';
-				$value = true;
+				$value = 1;
 				break;
 			case 'unsearchable':
 				$todo = 'isSearchable';
-				$value = false;
+				$value = 0;
 				break;
 			case 'visible':
 				$todo = 'isVisible';
-				$value = true;
+				$value = 1;
 				break;
 			case 'invisible':
 				$todo = 'isVisible';
-				$value = false;
+				$value = 0;
 				break;
 			case 'sortable':
 				$todo = 'isSortable';
-				$value = true;
+				$value = 1;
 				break;
 			case 'unsortable':
 				$todo = 'isSortable';
-				$value = false;
+				$value = 0;
 				break;
 			case 'exportable':
 				$todo = 'isExportable';
-				$value = true;
+				$value = 1;
 				break;
 			case 'unexportable':
 				$todo = 'isExportable';
-				$value = false;
+				$value = 0;
 				break;
 			default :
 				$todo = '';
@@ -377,9 +415,11 @@ class XiusControllerInfo extends JController
 		}
 		
 		$iModel	= XiusFactory::getModel( 'info' );
-		$iModel->updateParams($id,$todo,$value);
 		
-		$mainframe->redirect($link, JText::_('Params updated successfully'));	
+		if($iModel->updateParams($id,$todo,$value))
+			return true;
+		
+		return false;
 	}
 	
 }

@@ -105,11 +105,11 @@ function installExtensions($extPath=null)
 	//install all apps
 	foreach ($extensions as $ext)
 	{
-		$msg = JText::sprintf("Supportive Plugin/Module %S Installed Successfully",$ext);
+		$msg = "Supportive Plugin/Module $ext Installed Successfully";
 
 		// Install the packages
 		if($installer->install($extPath.DS.$ext)==false)
-			$msg = JText::sprintf("Supportive Plugin/Module %S Installation Failed",$ext);
+			$msg = "Supportive Plugin/Module $ext Installation Failed";
 
 		//enque the message
 		JFactory::getApplication()->enqueueMessage($msg);
@@ -134,3 +134,6 @@ function changePluginState($pluginname, $action=1)
 		
 	return true;
 }
+
+
+
