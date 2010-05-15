@@ -54,10 +54,17 @@ class XiusViewUsers extends JView
 
 	function displayResult($from,$list='')
 	{
-		$data	  = $this->_displayResult($from,$list='');
+		$data = array(array());
+		$this->_getInitialData(&$data);
+		$this->_getUsers(&$data);
+		$this->_getTotalUsers(&$data);
+		$this->_createUserProfile(&$data);
+		$this->_getAppliedInfo(&$data);
+		$this->_getAvailableInfo(&$data);
+		
 		$document = JFactory::getDocument();
-        if(!empty($data['list']) && !empty($data['list']->name))
-			$document->setTitle(JText::_($data['list']->name));
+        if(!empty($list) && !empty($list->name))
+			$document->setTitle(JText::_($list->name));
 		else
 			$document->setTitle(JText::_('Search Result'));
         
@@ -73,14 +80,13 @@ class XiusViewUsers extends JView
 		$this->assign('dir', $data['dir']);
 		$this->assign('join', $data['join']);
 		
-		$this->assign('list', $data['list']);
+		$this->assign('list', $list);
 		
-		$this->assign('task', $data['from']);
-		//$this->assign('subtask', $subtask);
+		$this->assign('task', $from);
 		parent::display();
 	}
 	
-	function _displayResult($from,$list='')
+	function _getInitialData($data)
 	{
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sortId = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
@@ -101,24 +107,46 @@ class XiusViewUsers extends JView
 				}
 			}
 		}
-		
-		$model =& XiusFactory::getModel('users','site');
-		$users =& $model->getUsers($conditions,$join,$sort,$dir);      
-        $pagination =& $model->getPagination($conditions,$join,$sort,$dir);
-        $total =& $model->getTotal($conditions,$join,$sort,$dir);
-        
-        $userprofile = array();
-        
-        /*collect all info */
+		/*collect all info */
         $filter = array();
 		$filter['published'] = true;
-        $allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
-        $sortableFields = XiusLibrariesUsersearch::getSortableFields($allInfo);
+		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		
+		$data['allInfo']=$allInfo;
+		$data['conditions']=$conditions;
+		$data['sortId']=$sortId;
+		$data['sort']=$sort;
+		$data['dir']=$dir;
+		$data['join']=$join;
+	}
+	
+	function _getUsers($data)
+	{
+		$model =& XiusFactory::getModel('users','site');
+		$users =& $model->getUsers($data['conditions'],$data['join'],$data['sort'],$data['dir']);      
+        $pagination =& $model->getPagination($data['conditions'],$data['join'],$data['sort'],$data['dir']);
+        
+        $data['users']= $users;
+        $data['pagination']=$pagination;
+	}
+	
+	function _getTotalUsers($data)
+	{
+		$model =& XiusFactory::getModel('users','site');
+		$total =& $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
+        
+		$data['total']=$total;        
+	}
+	
+	function _createUserProfile($data)
+	{
+        $userprofile = array();
+        $sortableFields = XiusLibrariesUsersearch::getSortableFields($data['allInfo']);
 
-        if(!empty($allInfo)){
-        	foreach($allInfo as $info){
+        if(!empty($data['allInfo'])){
+        	foreach($data['allInfo'] as $info){
         		
-        		if(empty($users))
+        		if(empty($data['users']))
         			break;
         			
 				//$plgInstance = XiusFactory::getPluginInstance($info->id);
@@ -134,11 +162,9 @@ class XiusViewUsers extends JView
 				if(!$plgInstance->isVisible())
 					continue;
 				
-        		foreach($users as $u){
-        			$userprofile[$u->userid][$info->id]['label'] = $info->labelName;
-        			
+        		foreach($data['users'] as $u){        			
 				    $columns = $plgInstance->getCacheColumns();
-					if(empty($columns))
+					if(empty($columns) || !$columns)
 						break;
 				
 					foreach($columns as $c){
@@ -146,6 +172,8 @@ class XiusViewUsers extends JView
 							$cname = $c['columnname'];
 					}
         			
+					$userprofile[$u->userid][$info->id]['label'] = $info->labelName;
+					
 					if(isset($u->$cname))
         				$userprofile[$u->userid][$info->id]['value'] = $plgInstance->_getFormatData($u->$cname);
         			else
@@ -154,21 +182,26 @@ class XiusViewUsers extends JView
 	        		
 			}
         }
-		
-        //$availableInfo = $allInfo;
+        $data['userprofile']=$userprofile;
+		$data['sortableFields']= $sortableFields;
+	}
+
+	function _getAppliedInfo($data)
+	{
+	//$availableInfo = $allInfo;
         $appliedInfo = array();
         /*convert search param into display data
          * creating applied info ( search parameter )
          */
-        if(!empty($conditions)){
-        	foreach($conditions as $c){
+        if(!empty($data['conditions'])){
+        	foreach($data['conditions'] as $c){
         		if(!array_key_exists('infoid',$c))
         			continue;
         			
         		//$plgInstance = XiusFactory::getPluginInstanceFromId($c['infoid']);
         		$plgInstance = false;
-        		if(!empty($allInfo)){
-        			foreach($allInfo as $info){
+        		if(!empty($data['allInfo'])){
+        			foreach($data['allInfo'] as $info){
         				if($info->id == $c['infoid']){
         					$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
         					if($plgInstance)
@@ -192,14 +225,17 @@ class XiusViewUsers extends JView
 				$appliedInfo[] = $appliedData;
         	}
         }
-        
-        
+        $data['appliedInfo']=$appliedInfo;        
+	}
+	
+	function _getAvailableInfo($data)
+	{
         /*XITODO : arrange available info
          * representation array
          */
         $availableInfo = array();
-	 	if(!empty($allInfo)){
-        	foreach($allInfo as $ai){	
+	 	if(!empty($data['allInfo'])){
+        	foreach($data['allInfo'] as $ai){	
         		$plgInstance = XiusFactory::getPluginInstanceFromId($ai->id);
 				if(!$plgInstance)
 					continue;
@@ -232,24 +268,7 @@ class XiusViewUsers extends JView
 				array_push($availableInfo,$infohtml);
         	}
         }
-                
-		$data['users']= $users;
-		$data['userprofile']=$userprofile;
-		$data['sortableFields']= $sortableFields;
-		$data['pagination']=$pagination;
-		$data['total']=$total;
-		$data['appliedInfo']=$appliedInfo;
-		$data['availableInfo']=$availableInfo;
-
-		$data['sortId']=$sortId;
-		$data['dir']=$dir;
-		$data['join']=$join;
-		
-		$data['list']=$list;
-		
-		$data['from']=$from;
-		//$this->assign('subtask', $subtask);
-		return $data;
+        $data['availableInfo']=$availableInfo;
 	}
 	
 	

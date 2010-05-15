@@ -199,8 +199,9 @@ class InsertUserTest extends XiUnitTestCase
 		// get the user data according to search condition
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
 		$startTime 		= $profiler->getmicrotime();
-		$data			= XiusViewUsers::_displayResult('displaySearch');
-		
+		$data = array(array());
+		XiusViewUsers::_getInitialData(&$data);
+		XiusViewUsers::_getUsers(&$data);		
 		$endTime 		= $profiler->getmicrotime();
 			
 		// perrmace measurement in getting results
@@ -219,7 +220,7 @@ class InsertUserTest extends XiUnitTestCase
 		//print_r(var_export($db->getLog()));
 		$noOfqueries	= 5; 	
 		$this->assertFalse( $noOfqueries < ($endTicker - $startTicker) );
-				
+		XiusViewUsers::_getTotalUsers($data);	
 		return $data;	
 	}
 	

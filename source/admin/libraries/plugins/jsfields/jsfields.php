@@ -79,7 +79,7 @@ class Jsfields extends XiusBase
 		if(!is_array($value)){
 			if(is_array($columns)) {
 				foreach($columns as $c){
-					if(JString::strtolower($fType) == 'text')
+					if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
 						$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
 					else
 						$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
@@ -88,7 +88,7 @@ class Jsfields extends XiusBase
 				}
 			}
 			else{
-				if(JString::strtolwer($fType) == 'text')
+				if(JString::strtolwer($fType) == 'text' || $operator == XIUS_LIKE)
 					$conditions =  $db->nameQuote($columns['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
 				else
 					$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
@@ -166,7 +166,10 @@ class Jsfields extends XiusBase
 		if($fieldInfo[0]->type == 'date')
 		{
 			//$values = array();
-			$value = split('-',$value);
+			$splitValue = split('-',$value);
+			if( count($splitValue) < 3)
+				return $value;
+			$value		= $splitValue;
 		}
 
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
@@ -200,8 +203,12 @@ class Jsfields extends XiusBase
 			return $formatvalue;
 		}
 		
-		if($fieldInfo[0]->type == 'date')
-			return $value;
+		if($fieldInfo[0]->type == 'date'){
+			$db 	= &JFactory::getDBO(); 
+			$query	= 'SELECT DATE_FORMAT('.$db->Quote($value).', "%d-%m-%Y") AS FORMATED_DATE';
+			$db->setQuery($query);
+			return $db->loadResult();
+		}
 		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::getFieldData($fieldInfo[0]->type,$value);

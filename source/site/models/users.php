@@ -43,6 +43,9 @@ class XiusModelUsers extends JModel
         	$this->_users = $this->_getList($strQuery, $this->getState('limitstart'), $this->getState('limit'));
         else
         	$this->_users = $this->_getList($strQuery);
+        	
+        $this->_totalusers = $this->_getListCount($strQuery);
+        
         /*XITODO : Add error message */
         if($this->_db->_cursor === false) {
           if($this->_db->_errorNum == 1146){

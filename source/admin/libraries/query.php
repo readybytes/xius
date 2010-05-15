@@ -59,6 +59,11 @@ class XiusQueryElement
 			$this->_elements = array_unique(array_merge($this->_elements, array($elements)));
 		}
 	}
+	
+	function convertWhereIntoString()
+	{
+		return implode($this->_glue, $this->_elements);
+	}
 }
 
 /**
@@ -419,6 +424,13 @@ class XiusQuery
 
 		return $query;
 	}
+	
+	function convertWhereIntoString()
+	{
+		if ($this->_where) {
+			return $this->_where->convertWhereIntoString();
+		}
+	} 
 }
 
 
