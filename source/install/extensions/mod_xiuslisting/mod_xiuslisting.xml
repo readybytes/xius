@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install type="module" version="1.5.0">
+	<name>XiusListing</name>
+	<version>@global.version@.@svn.lastrevision@</version>
+    	<creationDate>Jan 2010</creationDate>
+    	<author>JoomlaXi.com</author>
+    	<authorEmail>shyam@joomlaxi.com</authorEmail>
+    	<authorUrl>http://www.joomlaxi.com</authorUrl>
+    	<copyright>2009 JoomlaXi.com</copyright>
+    	<copyrightHolder>JoomlaXi.com</copyrightHolder>
+    	<license>GNU General Public License v2</license>
+	<description>Displays Userlisting</description>
+	<files>
+		<file module="mod_xiuslisting">mod_xiuslisting.php</file>
+		<file>helper.php</file>
+		<file>css/xius_list.css</file>
+		<file>css/xius_list.css</file>
+		<file>index.html</file>		
+		<file>css/index.html</file>
+	</files>
+</install>

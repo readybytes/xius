@@ -313,8 +313,17 @@ class XiusControllerUsers extends JController
 		
 		return $returndata;
 	}
-
 	
+	function displayAdvanceSearch()
+	{
+		$viewName	= JRequest::getCmd( 'view' , 'users' );
+		$document	=& JFactory::getDocument();
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , $viewType );		
+		$view->setLayout( 'advance_search' );
+		return $view->displayAdvanceSearch();	
+	}
+
 	function updateCache()
 	{
 		global $mainframe;
@@ -356,5 +365,6 @@ class XiusControllerUsers extends JController
 		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		return $cache->insertIntoTable($getDataQuery,true,$limit);		
 	}
-	
+
+
 }

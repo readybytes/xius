@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install type="module" version="1.5.0">
+	<name>Advance Search</name>
+ 	<version>@global.version@.@svn.lastrevision@</version>
+    	<creationDate>Jan 2010</creationDate>
+    	<author>JoomlaXi.com</author>
+    	<authorEmail>shyam@joomlaxi.com</authorEmail>
+    	<authorUrl>http://www.joomlaxi.com</authorUrl>
+    	<copyright>2009 JoomlaXi.com</copyright>
+    	<copyrightHolder>JoomlaXi.com</copyrightHolder>
+    	<license>GNU General Public License v2</license>
+	<description>Displays Advance Search</description>
+	<files>
+		<file module="mod_xiussearchpanel">mod_xiussearchpanel.php</file>
+		<file>index.html</file>
+		<file>helper.php</file>
+		<file>mod_xiussearchpanel.xml</file>
+		<file>css/mod_xiussearchpanel_ver.css</file>
+		<file>css/mod_xiussearchpanel_hz.css</file>
+		<file>css/index.html</file>
+	</files>
+	<params>
+		<param name="count" type="text" default="1" label="Count" description="PARAMNUMBERITEMS" />
+		<param name="xius_layout" type="list" default="horizontal" label="Layout" description="">
+			<option value="horizontal">Horizontal</option>
+			<option value="vertical">Vertical</option>
+	</param>
+</params>
+</install> 
+

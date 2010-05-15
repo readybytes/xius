@@ -15,7 +15,7 @@
 		form.submit();
 	}
 </script>
-<div>
+<div class="xiusAppliedinfo">
 <?php 
 if(!empty($this->appliedInfo)) : ?>
 	<fieldset><legend><?php echo JText::_('Applied Information');?></legend>

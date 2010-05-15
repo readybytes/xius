@@ -1,12 +1,12 @@
-<div class = "xius_toolbar">
-<div class = "toolbar_top">
+<div class = "xiusToolbar">
+<div class = "xiusToolbarTop">
 <?php 
 echo $this->loadTemplate('adminoption');
 echo $this->loadTemplate('sorting');
 ?>
 </div>
-<div class = "xius_blank"></div>
-<div class = "xius_toolbar_bottom">
+<div class = "xiusBlank"></div>
+<div class = "xiusToolbarBottom">
 <?php 
 echo $this->loadTemplate('pagination');
 ?>

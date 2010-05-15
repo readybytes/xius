@@ -1,5 +1,5 @@
-<div class="xius_total">
+<div class="xiusTotal">
 <?php echo '<i>'.sprintf(JText::_('Total :  %s'),$this->total).'</i>';?>
 </div>
-<div class="xius_pagination"><?php echo $this->pagination->getLimitBox();?>
+<div class="xiusPagination"><?php echo $this->pagination->getLimitBox();?>
 </div>

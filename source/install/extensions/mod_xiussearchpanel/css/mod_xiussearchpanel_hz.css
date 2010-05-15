@@ -1,0 +1,51 @@
+/** Available Info Module Div  **/
+.xiusMod_available {
+	overflow: hidden;
+}
+
+.xiusMod_availablemain {
+	float: left;
+	width: 44%;
+	margin-top: 10px;
+	margin-left: 15px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+
+.xiMod_left {
+	float: left;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+.xiMod_right {
+	float: right;
+}
+
+.xiusMod_available input {
+	width: 150px;
+	float: left;
+}
+
+.xiusMod_available select {
+	width: 156px;
+	float: left;
+}
+
+.xiusMod_available input[type="checkbox"] {
+	width: 15px;
+	float: left;
+}
+.xiusModSearch{
+	clear: both;
+	}
+
+.xiusModSearch input{
+	margin-top: 10px;
+	margin-left: 15px;
+	}
+LABEL {
+display: block;	
+}
+/** End Of Available Info **/

@@ -314,6 +314,11 @@ class XiusViewUsers extends JView
 		
 		return parent::display();
 	}
+	
+	function displayAdvanceSearch()
+	{
+		parent::display();
+	}
 }	
 
 ?>

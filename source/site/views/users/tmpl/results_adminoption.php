@@ -1,4 +1,4 @@
-<div class = "toolbar_top_left"><?php 
+<div class = "toolbarTopLeft"><?php 
 $params	= array('size'=>array('x' => 500 , 'y' => 450));
 JHTML::_('behavior.modal' , 'a.savelist' , $params);
 $user =& JFactory::getUser();
@@ -24,5 +24,4 @@ if(XiusHelpersUtils::isAdmin($user->id)){
 	?><img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
 	<?php 
 }?>
-
 </div>

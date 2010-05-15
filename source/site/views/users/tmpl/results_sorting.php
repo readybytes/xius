@@ -5,7 +5,7 @@
 		form.submit();
 	}	
 </script>
-<div class = "xius_sorting">
+<div class = "xiusSorting">
 <?php 
 		if(!empty($this->sortableFields))	:
 			$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" >';

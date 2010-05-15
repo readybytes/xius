@@ -45,13 +45,33 @@
                         tofile="${target}/source/install/extensions/xius_system/xius_system.xml" 
                          />
 
+		<!-- Add module folders -->
+		<copy todir="${target}/source/install/extensions/mod_xiuslisting">
+			<fileset dir="${source}/modules/mod_xiuslisting">
+				<include name="**/*.*" />
+			</fileset>
+                </copy>
+
+		<copy todir="${target}/source/install/extensions/mod_xiussearchpanel">
+			<fileset dir="${source}/modules/mod_xiussearchpanel">
+				<include name="**/*.*" />
+			</fileset>
+                </copy>
+
+
+		<copy todir="${target}/source/site">
+			<fileset dir="${source}/components/com_xius">
+				<include name="**/*.*" />
+			</fileset>
+        </copy>
+
 		<delete file="${target}/source/admin/xius_system.xml" /> -->
 
 		<!-- Delete plugin files from admin folder -->
 		<!--<delete dir="${target}/source/admin/xius_system" /> -->
 
 
-        <copy todir="${target}/source/site">
+       		 <copy todir="${target}/source/site">
 			<fileset dir="${source}/components/com_xius">
 				<include name="**/*.*" />
 			</fileset>

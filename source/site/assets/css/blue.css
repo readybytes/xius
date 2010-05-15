@@ -1,9 +1,29 @@
-.mainbox {
-	width: 100%;
-	overflow: hidden;
+/** css for result page **/
+.xius_result{
 }
 
-.subbox {
+.xius_result fieldset {
+	background-image: none;
+	border: 1px solid #275788;
+}
+
+.xiusListname{
+	color: #275788;
+	margin-left: 10px;
+	font-size: 1.5em;
+	text-decoration: underline;
+	}
+	
+	
+/** css for User Listing Main DIV **/	
+.xiusListing {
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+}
+
+/** Mini Profile Div **/
+.xiusListing .xiusProfile {
 	margin: 5px;
 	position: relative;
 	margin-top: 2px;
@@ -15,33 +35,37 @@
 	-webkit-border-radius: 5px;
 }
 
-.head {
+.xiusProfile .xiusTopBar{
 	width: 100%;
 	background-color: #D8DFEA;
 	height: 20px;
 	border-bottom: 1px solid #275788;
 	color: #275788;
+	margin:0;
 }
 
-.head .xiusname {
+.xiusTopBar .xiusname {
 	margin-left: 10px;
 	margin-top: 3px;
 	font-weight: bold;
 }
+.xiusProfileArea{
+}
 
-.leftbox {
+/** Avtar and View Profile's Left Side Div **/ 
+.xiusProfileLeft {
 	overflow: hidden;
 	float: left;
 	width: 95px;
 }
 
-.subleftbox {
+.xiusAvatar {
 	margin: 10px;
 	border: 1px solid #275788;
 	background-color: #DDECF3;
 }
 
-.subleftbox img {
+.xiusAvatar img {
 	width: 67px;
 	margin: 3px;
 	height: 67px;
@@ -49,18 +73,54 @@
 	cursor: pointer;
 }
 
-ul {
-	
+.xiusViewProfile {
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	height: 20px;
+	width: 90px;
 }
 
-.subrightbox {
+.xiusViewProfile button {
+	background-image: url("../images/button.gif");
+	font-size: x-small;
+	font-weight: bold;
+	color: #275788;
+	padding: 0px;
+	cursor: pointer;
+}
+
+/** End of Avtar and View Profile's Left Side Div **/
+/** Mini Profile And Status Right Area **/
+.xiusProfileRight {
 	float: right;
 	width: 75%;
 	text-align: left;
-	/*border:1px solid red;*/
 }
 
-.xius_toolbar {
+
+.xiusMiniProfile {
+	float: left;
+	margin-top: 10px;
+	padding-top: 0px;
+	width: 50%;
+}
+
+.xiusMiniProfile b {
+	color: #275788;
+}
+
+.xiusStatus {
+	float: right;
+	width: 20%;
+	margin-top: 4px;
+	margin-right: 10px;
+}
+
+/** End of Mini Profile And Status Right Area **/
+/** Toolbar**/
+.xiusToolbar {
 	overflow: hidden;
 	background: #D8DFEA;
 	border: 1px solid #275788;
@@ -70,86 +130,65 @@ ul {
 	padding: 2px 5px 2px 5px;
 }
 
-.toolbar_top {
+.xiusToolbarTop {
 	width: 100 :%;
 	padding: 5px;
 }
 
-.toolbar_top img {
+.xiusToolbarTop img {
 	cursor: pointer;
 }
 
-.toolbar_top_left {
+.toolbarTopLeft {
 	float: left;
 }
 
-.xius_sorting {
+.xiusSorting {
 	float: right;
 	color: #275788;
 	font-weight: bold;
 	font-size: 120%;
+	margin: 0;
 }
 
-.xius_sorting img {
+.xiusSorting img {
 	cursor: pointer;
 }
 
-.xius_sorting select {
+.xiusSorting select {
 	background: #fff;
 	color: #275788;
 }
 
-.xius_blank {
+.xiusBlank {
 	width: 100%;
 	border-bottom: 1px solid #275788;
 	overflow: hidden;
 }
 
-.xius_toolbar_bottom {
+.xiusToolbarBottom {
 	padding: 5px;
+	margin:0px;
 }
 
-.xius_total {
+.xiusTotal {
 	float: left;
+	margin: 0;
+	color:#275788;
 }
 
-.xius_pagination {
+.xiusPagination {
+	float: right;
+	margin: 0px;
+}
+
+.xiusPagination input {
 	float: right;
 }
 
-.xius_pagination input {
-	float: right;
-}
+/** End of Toolbar **/
 
-.leftsubrightbox {
-	float: left;
-	margin-top: 10px;
-	padding-top: 0px;
-	width: 50%;
-}
-
-.leftsubrightbox b {
-	color: #275788;
-}
-
-.viewprofile {
-	float: left;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	margin-top: 0px;
-	height: 20px;
-	width: 90px;
-}
-
-.viewprofile button {
-	background-image: url("../images/button.gif");
-	font-size: x-small;
-	font-weight: bold;
-	color: #275788;
-	padding: 0px;
-	cursor: pointer;
-}
-
+/** applied info div css**/
 .applied {
 	margin-bottom: 2px;
 }
@@ -177,13 +216,8 @@ ul {
 	cursor: pointer;
 }
 
-.rightsubrightbox {
-	float: right;
-	width: 20%;
-	margin-top: 4px;
-	margin-right: 10px;
-}
-
+/** End of applied info**/
+/** Available info div **/
 .xius_available {
 	overflow: hidden;
 }
@@ -214,16 +248,19 @@ ul {
 
 .xius_available select {
 	width: 156px;
+
 }
 
 .xius_available input[type="checkbox"] {
 	width: 15px;
+	display: block;
 }
 
 .xius_available img {
 	cursor: pointer;
 }
-
+/** End Of Available Info **/
+/** admin option popup box css**/
 .savemainbox {
 	overflow: hidden;
 	border: 1px solid #275788;
@@ -265,7 +302,7 @@ ul {
 	margin-top: 2px;
 }
 
-.submit input {
+.xiusSubmit input {
 	width: auto;
 	padding: 9px 15px;
 	background: #D8DFEA;
@@ -278,6 +315,30 @@ ul {
 	text-align: right;
 }
 
-.xius_result FIELDSET {
-	background-image: none;
+/**
+.accordion {
+	width: 100%;
+	border-bottom: solid 1px #c4c4c4;
 }
+.accordion h3 {
+	background: url(images/arrow-square.gif) no-repeat right -51px;
+	padding: 7px 15px;
+	margin: 0;
+	font: bold 120%/100% Arial, Helvetica, sans-serif;
+	border: solid 1px #c4c4c4;
+	border-bottom: none;
+	cursor: pointer;
+}
+.accordion h3:hover {
+}
+.accordion h3.active {
+	background-position: right 5px;
+}
+.accordion div {
+	margin: 0;
+	padding: 10px 15px 20px;
+	border-left: solid 1px #c4c4c4;
+	border-right: solid 1px #c4c4c4;
+	display: none;
+}
+**/

@@ -7,16 +7,15 @@ $css = JURI::base().'components/com_xius/assets/css/blue.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 if($this->task == 'displayList')
-	echo $this->loadTemplate('listinfo');
-
-/*jimport('joomla.application.module.helper');
-$module = & JModuleHelper::getModule('mod_footer');
-echo JModuleHelper::renderModule($module);*/
+	echo '<span class = "xiusListname">'.JTEXT::_(ucfirst($this->loadTemplate('listinfo'))).'</span>';
 	
 echo $this->loadTemplate('appliedinfo');
+
+//jimport('joomla.application.module.helper');
+//$module =& JModuleHelper::getModule('mod_available_info');
+//echo JModuleHelper::renderModule($module);
+
 echo $this->loadTemplate('availableinfo');
-//include('appliedinfo.php');
-//include('availableinfo.php');
 ?>
 <?php 
 echo $this->loadTemplate('toolbar');

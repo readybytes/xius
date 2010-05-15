@@ -15,8 +15,8 @@ class XiusModelUsers extends JModel
         global $mainframe, $option;
  
         // Get pagination request variables
-        $limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius_userslimitstart', 'limitstart', 0, 'int' );
+        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
+        $limitstart = JRequest::getVar('limitstart', 0, '', 'int');
  
         // In case limit has been changed, adjust it
         $limitstart = ($limit != 0 ? (floor($limitstart / $limit) * $limit) : 0);

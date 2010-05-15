@@ -134,6 +134,3 @@ function changePluginState($pluginname, $action=1)
 		
 	return true;
 }
-
-
-
