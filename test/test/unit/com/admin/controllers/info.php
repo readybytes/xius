@@ -16,8 +16,18 @@ class XiusControllerInfoTest extends XiUnitTestCase
 		$this->resetCachedData();
 		
 		require_once XIUS_COMPONENT_PATH_ADMIN.DS.'controllers'.DS.'info.php'; 
-		
-		JPluginHelper::importPlugin( 'system' , 'xius_system');
+
+		$db		=& JFactory::getDBO();
+		$query = 'SELECT folder AS type, element AS name, params'
+				. ' FROM #__plugins'
+				. ' WHERE element = "xius_system"'
+				. ' ORDER BY ordering';
+
+		$db->setQuery( $query );
+
+		$plugin = $db->loadObject();
+
+		JPluginHelper::_import($plugin);
 		
 		$infoController = new XiusControllerInfo();
 		
