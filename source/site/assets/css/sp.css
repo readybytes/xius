@@ -45,15 +45,19 @@
 	margin-top: 2px;
 }
 
-input[type="checkbox"] {
+.xius_box input[type="checkbox"] {
 	width: 15px;
 }
 
-input[type="radio"] {
+.xius_box input[type="radio"] {
 	width: 15px;
 }
-
-input:hover,textarea:hover,input:focus,textarea:focus {
+.xius_box label{
+	display:block;
+	width:32%;
+	float:left;
+}
+.xius_box input:hover,textarea:hover,input:focus,textarea:focus {
 	border-color: #C9C9C9;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
 }
@@ -93,6 +97,7 @@ input:hover,textarea:hover,input:focus,textarea:focus {
 	width: 100px;
 	float: left;
 	margin-right: 35px;
+	margin-bottom: 10px;
 }
 
 .xius_field {

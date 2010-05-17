@@ -131,7 +131,7 @@
 }
 
 .xiusToolbarTop {
-	width: 100 :%;
+	width: 100%;
 	padding: 5px;
 }
 
@@ -189,13 +189,22 @@
 /** End of Toolbar **/
 
 /** applied info div css**/
+.xiusAppliedinfo{
+	border:1px solid #275788;
+	overflow:hidden;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin:8px;
+}
 .applied {
 	margin-bottom: 2px;
 }
 
 .applied {
 	float: left;
-	border: 1px solid #275788;
+	background:#D8DFEA;
+	-moz-border-radius:5px;
+	/*border: 1px solid #275788;*/
 	position: relative;
 	width: 18%;
 	overflow: hidden;
@@ -220,6 +229,9 @@
 /** Available info div **/
 .xius_available {
 	overflow: hidden;
+	border:1px solid #275788;
+	-moz-border-radius:5px;
+	margin:8px;
 }
 
 .xius_availablemain {
@@ -236,12 +248,20 @@
 	float: left;
 	margin-left: 15px;
 	margin-top: 5px;
+	width:30%;
 }
 
 .xi_right {
-	float: right;
+	float: left;
 }
 
+.xi_right label{
+	display:block;
+	width:45%;
+	float:left;
+	padding: 0px;
+	margin: 0px;
+	}
 .xius_available input {
 	width: 150px;
 }
@@ -253,7 +273,7 @@
 
 .xius_available input[type="checkbox"] {
 	width: 15px;
-	display: block;
+	/*display: block;*/
 }
 
 .xius_available img {

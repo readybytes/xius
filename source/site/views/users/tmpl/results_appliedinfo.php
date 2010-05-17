@@ -15,10 +15,12 @@
 		form.submit();
 	}
 </script>
-<div class="xiusAppliedinfo">
+
 <?php 
 if(!empty($this->appliedInfo)) : ?>
-	<fieldset><legend><?php echo JText::_('Applied Information');?></legend>
+<div class="xiusAppliedinfo">
+	<!--<fieldset><legend><?php echo JText::_('Applied Information');?></legend>-->
+	 <h3 style="width:100%; border-bottom:1px solid #275788; margin:5px;">Applied Information</h3>
 
 <?php $data = $this->appliedInfo;
 	$count = 0;
@@ -60,5 +62,5 @@ endif;
 
 <input type="hidden" name="xiusdelinfo" value="" />
 <input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
-</fieldset>
+<!--</fieldset> -->
 </div>
