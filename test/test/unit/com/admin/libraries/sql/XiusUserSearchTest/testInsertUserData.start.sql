@@ -1,7 +1,7 @@
-TRUNCATE TABLE `#__xius_info`;
-ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__xius_info`;;
+ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;;
 
-DROP TABLE IF EXISTS `#__xius_cache`;
+DROP TABLE IF EXISTS `#__xius_cache`;;
 
 INSERT INTO `#__xius_info` (`id`,`labelName`,`params`,`key`,`pluginParams`,`pluginType`,`ordering`,`published`) VALUES
 (1, 'Gender', '', '2', '', 'Jsfields', 1, 1),
@@ -10,11 +10,11 @@ INSERT INTO `#__xius_info` (`id`,`labelName`,`params`,`key`,`pluginParams`,`plug
 (4, 'Register Date', '', 'registerDate', '', 'Joomla', 4, 1),
 (5, 'Username', '', 'username', '', 'Joomla', 5, 1),
 (6, 'Name', '', 'name', '', 'Joomla', 6, 1),
-(7, 'Checkbox1', '', '17', '', 'Jsfields', 7, 1);
+(7, 'Checkbox1', '', '17', '', 'Jsfields', 7, 1);;
 
 
-TRUNCATE TABLE `#__community_fields`;
-ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__community_fields`;;
+ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 
@@ -35,4 +35,4 @@ VALUES
 (14, 'group', 14, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, 1, '', ''),
 (15, 'text', 15, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, 1, '', 'FIELD_COLLEGE'),
 (16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, 1, '', 'FIELD_GRADUATION'),
-(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1');
+(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1');;

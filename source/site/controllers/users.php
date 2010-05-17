@@ -53,10 +53,6 @@ class XiusControllerUsers extends JController
 			case 'xiussortdir':
 				XiusLibrariesUsersearch::processSortData();
 				break;
-			case 'xiussavelist':
-				$data = $this->_saveList();
-				$mainframe->redirect($data['url'],$data['msg'],false);
-				break;
 			case 'xiusexport':
 				return $this->_exportUser(__FUNCTION__);
 				break;
@@ -153,10 +149,6 @@ class XiusControllerUsers extends JController
 			case 'xiussortdir':
 				XiusLibrariesUsersearch::processSortData();
 				break;
-			case 'xiussavelist':
-				$data = $this->_saveList();
-				$mainframe->redirect($data['url'],$data['msg'],false);
-				break;
 			case 'xiusexport':
 				return $this->_exportUser(__FUNCTION__);
 				break;
@@ -227,7 +219,14 @@ class XiusControllerUsers extends JController
 					$msg = JText::_('Please select a list to save or save as a new');
 					break;
 				}
-				$data =  $this->_saveList(false);
+				
+				$data = $this->_saveListChecks(false);
+				
+				if($data['success'] == true){
+					$data = '';
+					$data =  $this->_saveList(false);
+				}
+					
 				$view->setLayout( 'results_success' );
 				return $view->success($data);
 				break;
@@ -237,6 +236,14 @@ class XiusControllerUsers extends JController
 					$msg = JText::_('Please provide list name');
 					break;
 				}
+				
+				$data = $this->_saveListChecks(false);
+				
+				if($data['success'] == true){
+					$data = '';
+					$data =  $this->_saveList(false);
+				}
+				
 				$data =  $this->_saveList(true);
 				$view->setLayout( 'results_success' );
 				return $view->success($data);
@@ -249,54 +256,62 @@ class XiusControllerUsers extends JController
 		return $view->displaySaveOption($msg);
 	}
 	
-	
-	
-	function _saveList($new = true)
+
+	function _saveListChecks($new = true)
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();
 		
+		$returndata = array();
+		
 		/* Check for admin only admin can save list	 */
 		if(!XiusHelpersUtils::isAdmin($user->id)){
 			$url = JRoute::_("index.php?option=com_xius&view=users",false);
-			
-			$returndata = array();
-			$returndata['id']		= 0;
-			$returndata['url']	= $url;
-			$returndata['msg'] 	= JText::_('YOU CAN NOT SAVE LIST'); 
-			
+			$msg = JText::_('YOU CAN NOT SAVE LIST');
+			$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
 			return $returndata;
 		}
 		
+		$returndata = array('id' => 0 ,  'success' => true);
+		return $returndata;
+		
+	}
+	
+		
+	
+	function _saveList($new = true , $data = null)
+	{
+		global $mainframe;
+		$user =& JFactory::getUser();
+		
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		/*if(!$searchdata){
-			$url = JRoute::_("index.php?option=com_xius&view=search&task=display",false);
-			$mainframe->redirect($url,JText::_('PLEASE SELECT ANY CRITERIA'),false);
-		}*/
 
 		/*XITODO : ask user for list details
 		 * and whether to save this as a new list
 		 * or update existing one
 		 */
-		$listId = JRequest::getVar('listid', 0);
-		$listName = JRequest::getVar('xius_list_name', 'LIST'.$listId);
-		/*XITODO : set visible info and published also */
-		$data = array();
 		
-		$data['id'] = $listId;
-		
-		if($new){
-			$data['id'] = 0;
-			$data['name'] = $listName;
-			$data['description'] = JRequest::getVar('xius_list_desc', '');
-			$data['published'] = JRequest::getVar('xius_list_publish', 1);
+		if($data == null){
+			$listId = JRequest::getVar('listid', 0);
+			$listName = JRequest::getVar('xius_list_name', 'LIST'.$listId);
+			/*XITODO : set visible info and published also */
+			$data = array();
+			
+			$data['id'] = $listId;
+			
+			if($new){
+				$data['id'] = 0;
+				$data['name'] = $listName;
+				$data['description'] = JRequest::getVar('xius_list_desc', '');
+				$data['published'] = JRequest::getVar('xius_list_publish', 1);
+			}
+			
+			$data['join'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+			$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,'userid');
+			$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+			$data['owner'] = $user->id;
+			$data['conditions'] = serialize($conditions);
 		}
-		
-		$data['join'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
-		$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,'userid');
-		$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
-		$data['owner'] = $user->id;
-		$data['conditions'] = serialize($conditions);
 		
 		if(!($id = XiusLibrariesList::saveList($data)))
 			$msg = JText::_('ERROR IN SAVE LIST');
@@ -304,7 +319,6 @@ class XiusControllerUsers extends JController
 			$msg = JText::_('LIST SAVED SUCCESSFULLY');
 
 		$url = JRoute::_("index.php?option=com_xius&view=users&task=displayList&listid=".$id,false);
-		//$mainframe->redirect($url,$msg,false);
 		
 		$returndata = array();
 		$returndata['id']	= $id;

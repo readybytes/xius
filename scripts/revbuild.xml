@@ -65,7 +65,7 @@
 			</fileset>
         </copy>
 
-		<delete file="${target}/source/admin/xius_system.xml" /> -->
+		<!-- <delete file="${target}/source/admin/xius_system.xml" /> -->
 
 		<!-- Delete plugin files from admin folder -->
 		<!--<delete dir="${target}/source/admin/xius_system" /> -->

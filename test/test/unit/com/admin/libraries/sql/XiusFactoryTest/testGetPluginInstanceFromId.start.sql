@@ -1,14 +1,14 @@
-TRUNCATE TABLE `#__xius_info`;
-ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__xius_info`;;
+ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;;
 
 INSERT INTO `#__xius_info` (`id`,`labelName`,`params`,`key`,`pluginParams`,`pluginType`,`ordering`,`published`) VALUES
 (1, 'Gender', '', '2', '','Jsfields',1,1),
 (2, 'City', '', '11', '','Jsfields',2,1),
-(3, 'Country', '', '12','', 'Jsfields',3,1);
+(3, 'Country', '', '12','', 'Jsfields',3,1);;
 
 
-TRUNCATE TABLE `#__community_fields`;
-ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__community_fields`;;
+ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 
@@ -28,4 +28,4 @@ VALUES
 (13, 'text', 13, 1, 10, 100, 'Website', 'Website', 1, 1, 1, 1, '', 'FIELD_WEBSITE'),
 (14, 'group', 14, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, 1, '', ''),
 (15, 'text', 15, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, 1, '', 'FIELD_COLLEGE'),
-(16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, 1, '', 'FIELD_GRADUATION');
+(16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, 1, '', 'FIELD_GRADUATION');;

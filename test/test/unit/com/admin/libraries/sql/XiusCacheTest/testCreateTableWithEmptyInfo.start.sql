@@ -1,2 +1,2 @@
-TRUNCATE TABLE `#__xius_info`;
+TRUNCATE TABLE `#__xius_info`;;
 

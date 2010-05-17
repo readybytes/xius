@@ -173,7 +173,7 @@ class XiDBCheck
     
     function execSql($query)
     {
-    	$allQuery=explode(';',$query);
+    	$allQuery=explode(';;',$query);
         
         foreach($allQuery as $q)
         {

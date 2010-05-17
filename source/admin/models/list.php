@@ -130,9 +130,10 @@ class XiusModelList extends JModel
 		. ' WHERE `id`='. $db->Quote($id);
 		
 		$db->setQuery( $query );
-		if (!$db->query()) {
-			return JError::raiseWarning( 500, $db->getError() );
-		}
+		if (!$db->query())
+			return false;
+		
+		return true;
 	}
 	
 	

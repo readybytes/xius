@@ -20,6 +20,9 @@
 		<file>test/unit/com/admin/helpers/utils.php</file>		
 		
 		<file>test/unit/com/admin/controllers/info.php</file>
+		<file>test/unit/com/admin/controllers/list.php</file>
+		
+		<file>test/unit/com/site/controllers/users.php</file>
 	</testsuite>
 	
 	<listeners>

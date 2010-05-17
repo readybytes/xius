@@ -1,4 +1,4 @@
-TRUNCATE TABLE `#__community_fields_values`;
+TRUNCATE TABLE `#__community_fields_values`;;
 
 INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) VALUES
 (1, 63, 5, 'I am shyam, the moderator at JoomlaXi.'),
@@ -15402,7 +15402,7 @@ INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) 
 (15477, 970, 28, 'default'),
 (15478, 970, 29, '1'),
 (15479, 971, 28, 'default'),
-(15480, 971, 29, '1');
+(15480, 971, 29, '1');;
 INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) VALUES
 (15481, 972, 28, 'default'),
 (15482, 972, 29, '1'),
@@ -17397,7 +17397,7 @@ INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) 
 (17471, 2056, 28, 'default'),
 (17472, 2056, 29, '1'),
 (17473, 2057, 28, 'default'),
-(17474, 2057, 29, '1');
+(17474, 2057, 29, '1');;
 INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) VALUES
 (17475, 2058, 28, 'default'),
 (17476, 2058, 29, '1'),
@@ -19394,7 +19394,7 @@ INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) 
 (19467, 3054, 28, 'default'),
 (19468, 3054, 29, '1'),
 (19469, 3055, 28, 'default'),
-(19470, 3055, 29, '1');
+(19470, 3055, 29, '1');;
 INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) VALUES
 (19471, 3056, 28, 'default'),
 (19472, 3056, 29, '2'),
@@ -21157,9 +21157,9 @@ INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) 
 (21229, 3936, 28, 'default'),
 (21230, 3936, 29, '1'),
 (21231, 3937, 28, 'default'),
-(21232, 3937, 29, '1');
+(21232, 3937, 29, '1');;
 
-TRUNCATE TABLE `#__community_users`;
+TRUNCATE TABLE `#__community_users`;;
 
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (63, 'JSPT 2.0 is about to released, with JomSocial 1.6 stable release you will be able to use it !!!', 94, '2009-12-24 04:29:40', 'images/profiletype/avatar_3.png', 'images/profiletype/avatar_3_thumb.png', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 87, 15),
@@ -21329,7 +21329,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (264, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (265, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (266, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 1, 0),
-(267, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 6, 0);
+(267, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 6, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (268, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 6, 0),
 (269, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 0, 0),
@@ -21497,7 +21497,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (426, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 2, 0),
 (427, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 2, 0),
 (428, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 7, 0),
-(429, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 5, 0);
+(429, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 5, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (430, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 6, 0),
 (431, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 2, 0),
@@ -21665,7 +21665,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (590, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 9, 0),
 (591, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (592, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
-(593, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 4, 0);
+(593, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 4, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (594, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 2, 0),
 (595, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 9, 0),
@@ -21833,7 +21833,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (756, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 7, 0),
 (757, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 3, 0),
 (758, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 6, 0),
-(759, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 8, 0);
+(759, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 8, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (760, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (761, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 8, 0),
@@ -21999,7 +21999,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (919, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (1522, '', 1, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (920, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 9, 0),
-(921, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 6, 0);
+(921, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 6, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (922, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 10, 0),
 (923, 'Gospodo jedite sendvice i ispijajte piva Jos uvijek vam dobro stoji u vama je perspektiva.', 3, '0000-00-00 00:00:00', 'images/avatar/c61a5ed016bfdc7863398454.jpg', 'images/avatar/thumb_c61a5ed016bfdc7863398454.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=30\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\ndaylightsavingoffset=0\naction=save\n\n', 0, 0),
@@ -22501,7 +22501,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (1453, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 10, 0),
 (1454, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 14, 0),
 (1455, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 5, 1),
-(1456, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 15, 0);
+(1456, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 15, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (1902, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (1457, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 13, 0),
@@ -22670,7 +22670,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (1659, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 0, 0),
 (1660, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 0, 0),
 (1661, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 0, 0),
-(1662, '', 1, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0);
+(1662, '', 1, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (1670, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 11, 0),
 (1664, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=0\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n', 14, 0),
@@ -22842,7 +22842,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (1835, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (1836, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (1837, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
-(1838, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0);
+(1838, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (1839, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 0, 0),
 (1840, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=0\nprivacyFriendsView=0\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\n\n', 1, 0),
@@ -23012,7 +23012,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (2015, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2017, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2018, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(2019, '', 4, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(2019, '', 4, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (2020, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2021, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -23183,7 +23183,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (2183, '', 3, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2226, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2184, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(2185, '', 1, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(2185, '', 1, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (2186, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2187, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -23353,7 +23353,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (2354, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2355, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2356, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(2358, '', 3, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(2358, '', 3, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (2359, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2360, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -23524,7 +23524,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (2526, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2527, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2528, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(2529, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(2529, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (2531, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2532, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -23696,7 +23696,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (2702, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2723, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2704, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(2705, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(2705, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (2707, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2708, '', 2, '0000-00-00 00:00:00', 'images/profiletype/avatar_2.gif', 'images/profiletype/avatar_2_thumb.gif', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -23864,7 +23864,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (2871, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2872, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2873, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(2874, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(2874, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (2875, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (2876, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24031,7 +24031,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3037, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3038, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3039, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3040, '', 2, '0000-00-00 00:00:00', 'images/avatar/5df28b300740c892e707afb7.jpg', 'images/avatar/thumb_5df28b300740c892e707afb7.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3040, '', 2, '0000-00-00 00:00:00', 'images/avatar/5df28b300740c892e707afb7.jpg', 'images/avatar/thumb_5df28b300740c892e707afb7.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (3041, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3042, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24198,7 +24198,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3204, '', 2, '0000-00-00 00:00:00', 'images/avatar/577c8fe19d4ececbe5ca4948.jpg', 'images/avatar/thumb_577c8fe19d4ececbe5ca4948.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3205, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3206, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3207, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3207, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (3209, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3210, '', 2, '0000-00-00 00:00:00', 'images/avatar/4c1541cd63a365726fb55384.jpg', 'images/avatar/thumb_4c1541cd63a365726fb55384.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24365,7 +24365,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3371, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3372, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3373, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3374, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3374, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (3375, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3376, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24532,7 +24532,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3537, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3538, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3539, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3540, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3540, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (3541, '', 2, '0000-00-00 00:00:00', 'images/avatar/038c12ba6627a7bf015eb85c.jpg', 'images/avatar/thumb_038c12ba6627a7bf015eb85c.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3542, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24699,7 +24699,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3705, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3706, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3707, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3708, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3708, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (3709, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3710, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24867,7 +24867,7 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3872, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3873, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3874, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3875, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3875, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `avatar`, `thumb`, `invite`, `params`, `view`, `friendcount`) VALUES
 (3876, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3877, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
@@ -24929,10 +24929,10 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (3934, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3935, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
 (3936, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0),
-(3937, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);
+(3937, '', 2, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=20\nprivacyPhotoView=40\nprivacyFriendsView=30\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=0\n\n', 0, 0);;
 
 
-TRUNCATE TABLE `#__core_acl_aro`;
+TRUNCATE TABLE `#__core_acl_aro`;;
 
 INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
 (10, 'users', '62', 0, 'Administrator', 0),
@@ -26190,7 +26190,7 @@ INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `n
 (1269, 'users', '1321', 0, 'Cosmas', 0),
 (1270, 'users', '1322', 0, 'reclus', 0),
 (1271, 'users', '1323', 0, 'Wilson Loo', 0),
-(1272, 'users', '1324', 0, 'testuser123', 0);
+(1272, 'users', '1324', 0, 'testuser123', 0);;
 INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
 (1273, 'users', '1325', 0, 'Andrew Gerges', 0),
 (1274, 'users', '1326', 0, 'robertmarq', 0),
@@ -27397,7 +27397,7 @@ INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `n
 (2483, 'users', '2535', 0, 'Justin Hartfield', 0),
 (2484, 'users', '2536', 0, 'steve', 0),
 (2485, 'users', '2537', 0, 'Juho-Pekka Vuorela', 0),
-(2486, 'users', '2538', 0, 'Tod', 0);
+(2486, 'users', '2538', 0, 'Tod', 0);;
 INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
 (2487, 'users', '2539', 0, 'sbrandon', 0),
 (2488, 'users', '2540', 0, 'Goede Waar', 0),
@@ -28605,7 +28605,7 @@ INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `n
 (3690, 'users', '3742', 0, 'steven barbe', 0),
 (3691, 'users', '3743', 0, 'Helge Johnsen', 0),
 (3692, 'users', '3744', 0, 'Russ Johnson', 0),
-(3693, 'users', '3745', 0, 'Horacio Rene Correa Canales', 0);
+(3693, 'users', '3745', 0, 'Horacio Rene Correa Canales', 0);;
 INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
 (3694, 'users', '3746', 0, 'Vallabhaneni Dasachandra Bose', 0),
 (3695, 'users', '3747', 0, 'drewman', 0),
@@ -28798,7 +28798,7 @@ INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `n
 (3882, 'users', '3934', 0, 'Tsasa V.', 0),
 (3883, 'users', '3935', 0, 'dave', 0),
 (3884, 'users', '3936', 0, 'Landshark', 0),
-(3885, 'users', '3937', 0, 'admin', 0);
+(3885, 'users', '3937', 0, 'admin', 0);;
 
 -- --------------------------------------------------------
 
@@ -28816,11 +28816,11 @@ CREATE TABLE IF NOT EXISTS `#__core_acl_aro_groups` (
   PRIMARY KEY  (`id`),
   KEY `#__gacl_parent_id_aro_groups` (`parent_id`),
   KEY `#__gacl_lft_rgt_aro_groups` (`lft`,`rgt`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;;
 
 
 
-TRUNCATE TABLE `#__core_acl_groups_aro_map`;
+TRUNCATE TABLE `#__core_acl_groups_aro_map`;;
 
 INSERT INTO `#__core_acl_groups_aro_map` (`group_id`, `section_value`, `aro_id`) VALUES
 (18, '', 12),
@@ -32459,7 +32459,7 @@ INSERT INTO `#__core_acl_groups_aro_map` (`group_id`, `section_value`, `aro_id`)
 (18, '', 3790),
 (18, '', 3791),
 (18, '', 3792),
-(18, '', 3793);
+(18, '', 3793);;
 INSERT INTO `#__core_acl_groups_aro_map` (`group_id`, `section_value`, `aro_id`) VALUES
 (18, '', 3794),
 (18, '', 3795),
@@ -32683,10 +32683,10 @@ INSERT INTO `#__core_acl_groups_aro_map` (`group_id`, `section_value`, `aro_id`)
 (25, '', 10),
 (25, '', 11),
 (25, '', 28),
-(25, '', 1747);
+(25, '', 1747);;
 
 
-TRUNCATE TABLE `#__users`;
+TRUNCATE TABLE `#__users`;;
 
 
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
@@ -32914,7 +32914,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (286, 'Domingo', 'domi', 'domingo.sanchez.vigara@gmail.com', 'da54def21a9355743c00b619e381c5cb:wH1G0bQ9kl1HEF2JcflDuBOIAHGQKvtg', 'Registered', 0, 0, 18, '2009-05-14 11:49:59', '2009-05-14 11:59:15', '', '\n'),
 (287, 'Justin', 'pooblej', 'pooblej@yahoo.com', 'f35c66eec3e518e1f52361e0c2052a4c:ndHFPyGV2fHel5As9Q7M0Hml6AzHRjY0', 'Registered', 0, 0, 18, '2009-05-14 12:23:19', '2009-06-04 08:41:12', '', '\n'),
 (288, 'IIOO', 'oiuliana', 'oiuliana@gmail.com', '63af384ab6b8344a1e5aeed9bf1125a6:QdLyICuxwBhS9o6b4OtFYhQFMdp1ma1Z', 'Registered', 0, 0, 18, '2009-05-14 12:40:57', '2009-06-02 08:19:25', '', '\n'),
-(289, 'elodie', 'elodie', 'elodie@leniglo.com', 'b3649bdef4f871e04e5cf7a9e9f2e63a:Jngh6IH6UJoBwQF3XbnsWIOWNTO5VzpK', 'Registered', 0, 0, 18, '2009-05-14 12:42:02', '2009-05-18 10:10:51', '', '\n');
+(289, 'elodie', 'elodie', 'elodie@leniglo.com', 'b3649bdef4f871e04e5cf7a9e9f2e63a:Jngh6IH6UJoBwQF3XbnsWIOWNTO5VzpK', 'Registered', 0, 0, 18, '2009-05-14 12:42:02', '2009-05-18 10:10:51', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (290, 'mat sadler', 'matjkd', 'joomla@matsadler.com', '1d6eaebb7719fe05d092607b6500d9f8:w9NoxI26rj8PoBBpk5ZkYj3csvU2M2ML', 'Registered', 0, 0, 18, '2009-05-14 14:18:32', '2009-05-14 14:18:55', '', '\n'),
 (291, 'artnco', 'artnco', 'artnco@orange.fr', 'd9a056de9797be499ac01a20c9d2f4af:vT7BfMuk7ikLSdzHLHjZTvS2bkSlJ77b', 'Registered', 0, 0, 18, '2009-05-14 14:50:54', '2009-09-15 09:31:02', '', '\n'),
@@ -33153,7 +33153,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (523, 'renaud_', 'renaud_', 'renaudgevrey@free.fr', '6aad3523b41edf8df8f130caf09e6cf9:ftBpw3AuQ5F9uQFZEpMfNcTDf7Mw5sQI', 'Registered', 0, 0, 18, '2009-05-24 22:40:00', '2009-06-05 10:41:37', '', '\n'),
 (524, 'adi', 'adi2001me', 'adi2001me@gmail.com', '478bef9b18349d455e17f489f7ae416a:klLwJi0zfa3AvTtugVRIUjDycccO3DuI', 'Registered', 0, 0, 18, '2009-05-25 00:33:18', '0000-00-00 00:00:00', '', '\n'),
 (525, 'Gabriel', 'Weckmuller1', 'gabriel.weckmuller@gmail.com', '4a8bcc5db721709e26fa2d9f96f1a84b:lVkKhTrLaWtCBJLpPvbMeiiw2bX7vTdS', 'Registered', 0, 0, 18, '2009-05-25 00:36:18', '2009-05-25 03:23:56', '', '\n'),
-(526, 'Federico Carranza', 'federicocarranza', 'federico.carranza@iberdrola.com.mx', '8e9a79ce5f4b14104701be07fdc64e87:MyS4PcBMaiAWBBC4m2Ah9WpM5WDaJkCb', 'Registered', 0, 0, 18, '2009-05-25 04:20:34', '2009-05-25 04:26:56', '', '\n');
+(526, 'Federico Carranza', 'federicocarranza', 'federico.carranza@iberdrola.com.mx', '8e9a79ce5f4b14104701be07fdc64e87:MyS4PcBMaiAWBBC4m2Ah9WpM5WDaJkCb', 'Registered', 0, 0, 18, '2009-05-25 04:20:34', '2009-05-25 04:26:56', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (527, 'max', 'mascarp', 'mascarp70@hotmail.com', '5fa25f2990e5126dc2f7f05bb36d8ba0:B2u89x7oSi88A7whUGIHuVF8p2jIhbii', 'Registered', 0, 0, 18, '2009-05-25 07:58:28', '2009-05-25 08:05:14', '', '\n'),
 (528, 'Black Bull', 'blacknsmooth', 'blacknsmooth832@yahoo.com', 'd737b1dd92475e86accbed6eb20b8317:Vg4jyWJZenu6l5z0rySfxbca3yEegpTS', 'Registered', 0, 0, 18, '2009-05-25 09:09:13', '2009-05-25 09:13:17', '', '\n'),
@@ -33393,7 +33393,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (763, 'ecclabs', 'ecclabs', 'ecclabs@gmail.com', 'd6888f8574004d76631390041678cc6b:HkJSlr272zduIODwEp64q92UhDtbkQzS', 'Registered', 0, 0, 18, '2009-06-05 15:46:30', '2009-06-05 15:48:56', '', '\n'),
 (764, 'Muneo', 'Muneo', 'muneo@joanopolis.com.br', '9955b2a18a87148f8469ae2f065cde17:8Q7T2QpM6RVQm45VQt9PDe4gzwGU45fm', 'Registered', 1, 0, 18, '2009-06-05 15:50:37', '0000-00-00 00:00:00', '326f6ce7bb89f9488213d582c467c9dc', '\n'),
 (765, 'antonio_marcos_dm', 'antonio_marcos_dm', 'antonio_marcos_dm@yahoo.com.br', 'c388dd568803b405d4904649313e5edf:VwUaMPoYqCxWlF4tXa6VrkUGjhnBeCJI', 'Registered', 0, 0, 18, '2009-06-05 15:54:05', '2009-06-06 06:26:36', '', '\n'),
-(766, 'Syl', 'Syl', 'syl@oldradioz.com', '75a9d73ca72bdf09ced6bb54a87377ea:P98Ngce335gw4RxFNgC85T7cG7aDs4Zz', 'Registered', 0, 0, 18, '2009-06-05 16:02:39', '2009-06-05 16:04:26', '', '\n');
+(766, 'Syl', 'Syl', 'syl@oldradioz.com', '75a9d73ca72bdf09ced6bb54a87377ea:P98Ngce335gw4RxFNgC85T7cG7aDs4Zz', 'Registered', 0, 0, 18, '2009-06-05 16:02:39', '2009-06-05 16:04:26', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (767, 'infograf768', 'infograf768', 'infografjms@gmail.com', 'e2c95ecf0b3e5d59fdf69b78170f7c4a:UTYTF6JtDURaKN9tHyGvo2isBLFPeQC3', 'Registered', 0, 0, 18, '2009-06-05 16:13:33', '2009-12-05 08:18:34', '', '\n'),
 (768, 'torsten', 'Braindead', 'admin@radio-schattenwelt.de', '6e9c48893faa4c06d4eff4a8cfc1b0e4:VRY0yTZMzCkeDX6bVpKIKQMpsv9Bg4DN', 'Registered', 0, 0, 18, '2009-06-05 17:18:02', '2009-07-07 20:22:41', '', '\n'),
@@ -33622,7 +33622,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (994, 'Vytukas', 'vytaciokas', 'vytez@centras.lt', 'a2d46f44bfec6c5ca80d6fef02af3f76:yJROdCllwfeMkfElIekVUPUmyeyDXgA4', 'Registered', 0, 0, 18, '2009-06-16 10:55:55', '2009-06-17 20:16:31', '', '\n'),
 (995, 'digi', 'dirk', 'geblonsky@online.de', 'ae2b0298be59688c876b4a8daa3f225b:7lmEobaIBCzRjPwqjeDujeXDDNXLGhjh', 'Registered', 0, 0, 18, '2009-06-16 12:02:42', '2009-06-16 12:05:06', '', '\n'),
 (996, 'smootha', 'smootha', 'info@setterinfo.de', '6a94af7b37fc5e65817e940eb6e26f5c:en8HlvoEuLbMDdJpZiCZa2k17LumALbW', 'Registered', 0, 0, 18, '2009-06-16 13:44:20', '2009-06-16 13:44:59', '', '\n'),
-(997, 'scherer', 'scherer', 'f.scherer@connos.de', 'c46370312cf354fbb80ac856e498fd6e:MSddefpxg49Yj1uqT2axWwSSZ8zsyc1h', 'Registered', 0, 0, 18, '2009-06-16 14:20:15', '2009-11-03 07:09:04', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=5.5\njustloggedin=1\nprofilecomplete=1\n\n');
+(997, 'scherer', 'scherer', 'f.scherer@connos.de', 'c46370312cf354fbb80ac856e498fd6e:MSddefpxg49Yj1uqT2axWwSSZ8zsyc1h', 'Registered', 0, 0, 18, '2009-06-16 14:20:15', '2009-11-03 07:09:04', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=5.5\njustloggedin=1\nprofilecomplete=1\n\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (998, 'edna', 'edna5050', 'ednastich307@yahoo.com', '286ce160e6923e1084b5d1f0ecd88853:SJMXx19dQDt0qg9oinUjqbBVPf7UgKXA', 'Registered', 0, 0, 18, '2009-06-16 15:29:15', '2009-06-16 15:41:34', '', '\n'),
 (999, 'mimi', 'mimosa', 'j.castrotorres@hotmail.com', 'dba798fbf62e99e26f6885a557d3305b:iH7sC9X1n5zGxVjoxbqDYZoBmrUgwbB4', 'Registered', 0, 0, 18, '2009-06-16 15:43:16', '2009-06-16 15:48:30', '', '\n'),
@@ -33853,7 +33853,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (1224, 'Lee', 'mrocks', 'murli.rk@gmail.com', 'e2727c4341079ec173ec11df6cb83c85:EcQ8eFLFFE1y1Vs2AJZgS3KvF4Ced9Mh', 'Registered', 0, 0, 18, '2009-07-01 06:41:32', '2009-07-01 14:42:10', '', '\n'),
 (1225, 'nishank', 'nishank', 'nishank_gupta@rediffmail.com', '5869c3fddf76f4d5eac9943f2a009479:NLda5r71SheO3vgzDyaE9k2k2vjh0Ea8', 'Registered', 0, 0, 18, '2009-07-01 08:28:43', '2009-07-01 15:50:18', '', '\n'),
 (1226, 'tony', 'lobito', 'tlobito@yahoo.co.uk', '1f2427085dc889dc53f82c964b13287f:ptOmG3KR2aXAGQjpvCobs3meNcgEbTCa', 'Registered', 0, 0, 18, '2009-07-01 09:46:57', '2009-07-03 20:07:18', '', '\n'),
-(1227, 'hakim', 'hakim00', 'hakim.email@yahoo.com', 'e91c7c9f85f6ff142bbaeb3fc7b061ab:gU8V1KjAN5Tz9m5o4Fq7aB1D46RiLO40', 'Registered', 0, 0, 18, '2009-07-01 09:52:05', '2009-07-01 17:23:24', '', '\n');
+(1227, 'hakim', 'hakim00', 'hakim.email@yahoo.com', 'e91c7c9f85f6ff142bbaeb3fc7b061ab:gU8V1KjAN5Tz9m5o4Fq7aB1D46RiLO40', 'Registered', 0, 0, 18, '2009-07-01 09:52:05', '2009-07-01 17:23:24', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (1228, 'Tim Nelson', 'thbnelson', 'joomlaxi@timnelson.com', '7d026c0fb30c0febc24d804096aa7c41:0pxGL7a3KyWfVkCFZkcgSpO198zCKXwA', 'Registered', 0, 0, 18, '2009-07-01 10:45:37', '2009-10-14 20:49:00', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (1229, 'zyberwax01', 'zyberwax01', 'b.seeland73@gmail.com', 'b21d079845ce1243dd328da2f2b42e0a:B1LLgkfyMwVYWeNwEV44mdJQsHmUafFM', 'Registered', 1, 0, 18, '2009-07-01 12:05:59', '0000-00-00 00:00:00', '67c23588d2c302b3274ada60eefa52e9', '\n'),
@@ -34085,7 +34085,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (1455, 'Skippy Fresh', 'skippyfresh', 'webmaster@internetwebdesign.net', 'def78a6ff04475ebdfce8aae3f82dc28:nUeBdUacRRmhK7zn5K5r8iY3gjHVw2BZ', 'Registered', 0, 0, 18, '2009-07-18 20:09:24', '2009-12-09 11:33:20', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (1456, 'paul', 'pcp3', 'admin@pcpstudios.com', 'df91137c1d25aa64b0b487dc5ea72431:geJxpsTrsidti2baFpZdt7mokEof5YpY', 'Registered', 0, 0, 18, '2009-07-18 21:08:22', '2009-07-28 08:47:03', '', '\n'),
 (1457, 'S Registers', 'sregisters', 'sregisters@gmail.com', 'be3ce383919ef45431da2299e3c48d80:RT1KocAt3QbdCXrWSpHkgaDnY3l8orOg', 'Registered', 0, 0, 18, '2009-07-19 01:32:06', '2009-12-17 13:02:03', '', '\n'),
-(1458, 'rahonny yusof', 'rahonny', 'rahonny@gmail.com', '7920e0e729c58942f2ef8695f3425087:xOX0Wa1f5SiYwN2JmpqBMoD1wqMg3FU9', 'Registered', 0, 0, 18, '2009-07-19 02:32:52', '2009-07-19 22:21:12', '', '\n');
+(1458, 'rahonny yusof', 'rahonny', 'rahonny@gmail.com', '7920e0e729c58942f2ef8695f3425087:xOX0Wa1f5SiYwN2JmpqBMoD1wqMg3FU9', 'Registered', 0, 0, 18, '2009-07-19 02:32:52', '2009-07-19 22:21:12', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (1459, 'kapilreddy', 'kaplreddy', 'reddy.kapil@gmail.com', 'a00d19912a8fa16470292f3d80def3db:9Lm9eEYuSO6xOFPQHmUrhJLiJpcDKMJB', 'Registered', 0, 0, 18, '2009-07-19 03:38:19', '2009-07-19 10:39:08', '', '\n'),
 (1460, 'warren', 'woza', 'ilkley@gmail.com', 'f18cd1e500978fc8e88a2eee78c784f0:IgYfuVIUzpfRY6XMXcbYvlBbRroMLZm5', 'Registered', 0, 0, 18, '2009-07-19 05:16:02', '2009-07-19 12:16:24', '', '\n'),
@@ -34318,7 +34318,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (1689, 'Community', 'Community', 'boxdoss@gmail.com', 'b1974de686cef0fe2e242dbe228accff:3SGAh8Q6pvRZqR2swxElCUkLoMsktryu', 'Registered', 0, 0, 18, '2009-08-05 07:54:45', '2009-08-05 14:56:16', '', 'justloggedin=0\nprofilecomplete=0\n\n'),
 (1690, 'pb3000', 'pb3000', 'pb3000@live.com', '1631b9bffe4004cea21bece034bfd9ea:nWGgLHx1OFvrYYBUle9o9PbBw24RLflq', 'Registered', 0, 0, 18, '2009-08-05 08:14:31', '2009-08-05 15:15:24', '', 'justloggedin=0\nprofilecomplete=0\n\n'),
 (1691, 'James Del Priore', 'FiftyGame', 'jjd@universalwebdesigns.net', '6c23f09bdd72ab8a4a84f5fb53d1a557:KsbosX9UhMgGLoqYQ5uTElsYlOcv4xVv', 'Registered', 0, 0, 19, '2009-08-05 09:49:15', '2009-08-05 16:50:33', '', 'justloggedin=0\nprofilecomplete=0\n\n'),
-(1692, 'Duncan', 'mindriot', 'duncan@feeley.name', '7f4d40c875847ac4c471a7770c91d735:JFm68rnYVuatrLGb9S2BUHm1tG8mU15X', 'Registered', 0, 0, 19, '2009-08-05 10:08:57', '2009-12-30 04:36:32', '', 'justloggedin=1\nprofilecomplete=1\n\n');
+(1692, 'Duncan', 'mindriot', 'duncan@feeley.name', '7f4d40c875847ac4c471a7770c91d735:JFm68rnYVuatrLGb9S2BUHm1tG8mU15X', 'Registered', 0, 0, 19, '2009-08-05 10:08:57', '2009-12-30 04:36:32', '', 'justloggedin=1\nprofilecomplete=1\n\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (1693, 'Ismaila Fall', 'isofall', 'ismaila.fall@avanzesolutions.com', 'f42d95da9dac2ec3618a6efdd37a210f:plxb8fJ0myfl3foavf5D5uVt6kkWY5Hk', 'Registered', 0, 0, 19, '2009-08-05 20:19:04', '2009-08-24 23:21:49', '', 'justloggedin=0\nprofilecomplete=0\n\n'),
 (1694, 'hans', 'michelle99', 'ph-ps@bluewin.ch', '44b97991126e13cbe9cb0c1861b37022:Q92LMsXGl0gh2R1uruAgmGu1akFKWLFl', 'Registered', 0, 0, 18, '2009-08-06 00:42:22', '2009-08-06 07:44:22', '', 'justloggedin=0\nprofilecomplete=0\n\n'),
@@ -34549,7 +34549,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (1919, 'Chris Walters', 'cwalters', 'cdub@soulrebelproductions.com', '7070d6a50e8d2349bd138cf1acf4f830:aB1JLeIlGC1aerU3PbuYmmcgf5zH29BX', 'Registered', 0, 0, 19, '2009-09-06 18:38:45', '2009-09-08 17:21:00', '', '\n'),
 (1920, 'Stephen Yale', 'syale', 'stephen.yale@gmail.com', '41aa296ecd0714d91c43b966aba1d8d2:bmLvVJwjRHnjbZ8FFPIAQgBv9ucajqGa', 'Registered', 0, 0, 18, '2009-09-06 20:29:34', '2009-09-06 23:02:08', '', '\n'),
 (1924, 'opus8', 'opus8', 'opus8@o2.pl', 'deb3b5ad869fb60b58b9f45b750bdc40:8rdAbSOs1m6roal1X4KiVmGmRVe0p92f', 'Registered', 1, 0, 18, '2009-09-07 12:19:31', '0000-00-00 00:00:00', '08ccfbf8c8893037e462de9b251fd275', '\n'),
-(1921, 'arthur munnell', 'ketok', 'samplefreak@hotmail.com', '3d37ded1831484d47cd4c2a4217ca052:joZdQNCm7haHqmsVCPppgVErYTl8NsjK', 'Registered', 0, 0, 18, '2009-09-07 04:13:33', '2009-09-07 18:10:23', '', '\n');
+(1921, 'arthur munnell', 'ketok', 'samplefreak@hotmail.com', '3d37ded1831484d47cd4c2a4217ca052:joZdQNCm7haHqmsVCPppgVErYTl8NsjK', 'Registered', 0, 0, 18, '2009-09-07 04:13:33', '2009-09-07 18:10:23', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (1922, 'Jodie', 'chybby', 'jodie@kjwarden.com.au', '3a69c169953b66725047ed8a9d6bf973:Fz9RTa3CFkLDGg4r7ki6A7KWxMQffZfy', 'Registered', 0, 0, 18, '2009-09-07 05:55:15', '2009-09-07 06:00:28', '', '\n'),
 (1923, 'miicity', 'miicity', 'admin@miicity.com', 'b77722eedd435e74756fbc72a17921a1:LaBgBAUR2zUNeF7fbIaWJgrlRC8xV8RT', 'Registered', 1, 0, 18, '2009-09-07 06:09:15', '0000-00-00 00:00:00', '918d729013ced89d1dd0a2691c4020a2', '\n'),
@@ -34776,7 +34776,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (2152, 'Lars', 'Lars', 'Lars_haase@mail.tele.dk', '3093c17fcb27a049493818670ae3b391:DC5d4V7hAuq1Rn6vDT5uhBwMnq4qTbcQ', 'Registered', 0, 0, 18, '2009-10-06 17:25:14', '2010-01-02 20:56:05', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2153, 'Lexbook', 'girolamo', 'girolamo.derada@libero.it', '423ab327fe2338a431d1a8892d1c4ae0:v9ecjLYj8lYrmGo40ysW9LZtcdaX6f3k', 'Registered', 0, 0, 18, '2009-10-06 19:34:38', '2009-10-14 19:54:10', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2154, 'Rob Tyas', 'the robster', 'catastrophe18@hotmail.com', '38a775cf21fef83484626f318ca28d43:IjvIeai2jEzOFuR2dWljcbWDF7Qqf0cH', 'Registered', 0, 0, 18, '2009-10-06 21:39:18', '2009-10-06 21:41:09', '', '\n'),
-(2155, 'Mark Otten', 'navarre', 'anonymous.chat@gmail.com', 'b4e55b6ad2596c5fec059e8b2d527786:RmefTwRKW5GBPKBy4yeRQV1HtkQcMnRw', 'Registered', 0, 0, 18, '2009-10-07 00:30:57', '2009-10-07 01:25:22', '', '\n');
+(2155, 'Mark Otten', 'navarre', 'anonymous.chat@gmail.com', 'b4e55b6ad2596c5fec059e8b2d527786:RmefTwRKW5GBPKBy4yeRQV1HtkQcMnRw', 'Registered', 0, 0, 18, '2009-10-07 00:30:57', '2009-10-07 01:25:22', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (2156, 'lahe', 'lahe', 'lahe_ms@hotmail.com', 'f8c32c5e511799b886593e48a477bfb3:2V4lWLgbsWs5PdYazmDY1ak5Yj7AKG9z', 'Registered', 0, 0, 18, '2009-10-07 04:33:13', '2009-10-07 04:33:47', '', '\n'),
 (2157, 'angga indra', 'angga666', 'anggasimon@gmail.com', '787e28761c370d903ee659542e982142:CoROcscJjgx3NrC7C1fMNXAQQdG3PCCa', 'Registered', 0, 0, 18, '2009-10-07 04:43:17', '2009-10-07 04:45:56', '', '\n'),
@@ -34986,7 +34986,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (2361, 'Chris Anderson', 'caffic', 'caffic@yahoo.com', 'a663c4456bfcc20a03dbda9af2907470:a5nF6bEcgkwm3ohixL71AUxAm8Gx68aI', 'Registered', 0, 0, 18, '2009-10-31 06:50:05', '2009-11-30 20:01:36', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2362, 'tdi120', 'tdi120', 'alex@thecity.ro', '11231647fbb1082afc6216c6d1c0b6ac:VFqqkBOsuWOE7rzU09c2pZRrCSid0qI3', 'Registered', 0, 0, 18, '2009-10-31 08:55:03', '2009-11-01 16:04:54', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2363, 'richard morgan', 'kempo63', 'kempo63@gmail.com', '73a69ac4f8203da7a6475a6ea9fc8c06:ylPaM2qiDEet97FL79RK7AbvpB67InCe', 'Registered', 0, 0, 18, '2009-10-31 16:25:31', '2009-10-31 16:26:57', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
-(2364, 'hinzu', 'hinzu', 'hinzu@hotmail.com', 'efc53fa121310f967276ec856b4c795b:937LV2MVJyFrnku7ghfgPMP6iMUniQGe', 'Registered', 0, 0, 18, '2009-10-31 20:29:07', '2009-11-01 12:58:16', '', 'justloggedin=1\nprofilecomplete=1\n\n');
+(2364, 'hinzu', 'hinzu', 'hinzu@hotmail.com', 'efc53fa121310f967276ec856b4c795b:937LV2MVJyFrnku7ghfgPMP6iMUniQGe', 'Registered', 0, 0, 18, '2009-10-31 20:29:07', '2009-11-01 12:58:16', '', 'justloggedin=1\nprofilecomplete=1\n\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (2365, 'Daemon', 'daemonhunt', 'daemonhunt@gmail.com', '0ab62e51c3633c4d0b44c38965d6455e:VOT3qmU0medCWmPU4HBVTbJTINCPMES4', 'Registered', 0, 0, 18, '2009-10-31 22:52:15', '2009-11-01 10:05:56', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2366, 'clarson00', 'spider00', 'clarson52@comcast.net', 'b0a119e642f40389a5faafaa285dd771:8VYYpJqVfG0JeSVHR5BNC7ezPyuWVtUr', 'Registered', 0, 0, 18, '2009-11-01 04:27:38', '0000-00-00 00:00:00', '', '\n'),
@@ -35195,7 +35195,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (2568, 'Marko', 'mtomic', 'marko2009@gmail.com', 'db4d17e66d2231d73f80acf91c3acdc3:Mx4tmIQNXP9xn5mhNHKoEDDZ41KE8M34', 'Registered', 0, 0, 18, '2009-11-23 11:50:21', '2009-11-24 05:13:10', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2569, 'manoz', 'manoz', 'mano_pl@o2.pl', '7c72e73325944a8e1f1bb24b0017bfcd:bEqe6qYmGMy8v0LZ5j5dKUSCmof5lfLs', 'Registered', 0, 0, 18, '2009-11-23 13:08:34', '0000-00-00 00:00:00', '', '\n'),
 (2570, 'El Severo', 'el.severo', 'alex1902@gmail.com', '0879f421ba72f4cb573f0967bf6d93ea:rwCutTEiMNjE5TXOquczmNsP2BVxs7ie', 'Registered', 0, 0, 18, '2009-11-23 13:46:24', '2009-11-23 13:49:19', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
-(2571, 'Simon Gooch', 'simongooch', 'simon@gooch.se', '496644465747aad06d86dd052bf4eddf:H4CDTysGRKa6SoB1e0cpsPr2s8VYuWdE', 'Registered', 0, 0, 18, '2009-11-23 16:53:35', '2009-11-24 15:12:24', '', 'justloggedin=1\nprofilecomplete=1\n\n');
+(2571, 'Simon Gooch', 'simongooch', 'simon@gooch.se', '496644465747aad06d86dd052bf4eddf:H4CDTysGRKa6SoB1e0cpsPr2s8VYuWdE', 'Registered', 0, 0, 18, '2009-11-23 16:53:35', '2009-11-24 15:12:24', '', 'justloggedin=1\nprofilecomplete=1\n\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (2572, 'illuz', 'illuz', 'michel@nakedeyemag.com', 'cddb30f14252908b6f5dc3a6a89312bc:2BcUSdRBuDZQ7jD1SoOJ9zaEGptozez0', 'Registered', 0, 0, 18, '2009-11-23 17:50:30', '2009-11-23 18:06:22', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
 (2573, 'Didi Maf', 'didi', 'dariomaffia@hotmail.it', '839a91bc20e2d0061cac053c0fc1e951:CH4T5O3dzvxeqawF01n2itgr2yu9RC0K', 'Registered', 0, 0, 18, '2009-11-23 19:04:13', '2009-11-24 01:26:42', '', 'justloggedin=1\nprofilecomplete=1\n\n'),
@@ -35432,7 +35432,7 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (2805, 'Atul Sharma', 'sharma.atul85', 'sharma.atul85@gmail.com', 'a64d62b8b1d2117a6518ed9a150d08b4:z30kzTOqKxug6CKuncEt3SnKZ06qhvsM', 'Registered', 0, 0, 18, '2009-12-16 18:24:08', '2009-12-16 19:47:41', '', '\n'),
 (2806, 'blaz', 'pyrostar', 'info@portal-pirotehnike.com', '7c2de7c2fc90e15fdb332ca902818c82:Hq9lBhGTeqCpeiJ0j41J41H3DltS9nZG', 'Registered', 0, 0, 18, '2009-12-16 18:47:57', '2009-12-16 18:50:46', '', '\n'),
 (2807, 'Tim', 'retaf99', 'retaf99@yahoo.com', 'e71942b8c2a3da7bfbea3f6407466d0f:mKDNDYjvIi4og3kHe1Z5ASyRZtx4U1kW', 'Registered', 0, 0, 18, '2009-12-16 19:22:22', '0000-00-00 00:00:00', '', '\n'),
-(2808, 'Curt Akin', 'Knerkin', 'curt@downinthecountry.com', '849ffb392dce4289965e787b67c0cf44:0n7DJtrfHd09IHyMHsi6PRhbP1p2W0YY', 'Registered', 0, 0, 18, '2009-12-16 22:52:55', '2009-12-16 17:58:02', '', '\n');
+(2808, 'Curt Akin', 'Knerkin', 'curt@downinthecountry.com', '849ffb392dce4289965e787b67c0cf44:0n7DJtrfHd09IHyMHsi6PRhbP1p2W0YY', 'Registered', 0, 0, 18, '2009-12-16 22:52:55', '2009-12-16 17:58:02', '', '\n');;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (2809, 'Nuria', 'baby_n', 'baby_n@hotmail.com', '04ca3767c9221fa66e305bd250b869e2:BviopDzxH3HNuXrKjO3GZPhDJ2nWDwDb', 'Registered', 0, 0, 18, '2009-12-16 23:06:36', '2009-12-28 16:30:12', '', '\n'),
 (2810, 'Kathe', 'Kathe', 'kathile@gmail.com', '60dd58cd8da699cd3b1219563c192fc6:QJf2N4kei1iP2O37OA7hs54KDs7Zk74r', 'Registered', 0, 0, 18, '2009-12-16 23:15:38', '2009-12-16 23:17:29', '', '\n'),
@@ -36561,4 +36561,4 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (3934, 'Tsasa V.', 'tsasav', 'tsasav@gmail.com', '3b1498b99e89c1e4b1111aab28715fa8:uZBGVp8hSbfdf2JIUvkl0F6ZdNDwww0y', 'Registered', 0, 0, 18, '2010-01-04 04:52:30', '2010-01-04 04:56:43', '', '\n'),
 (3935, 'dave', 'daveb', 'liber700@aol.com', 'af27434745a5c66bcbea0484f26b7d1e:4WbpcCXwwjHbGNhnXbWZLDuE0rZRK5aV', 'Registered', 0, 0, 18, '2010-01-04 05:50:54', '2010-01-04 05:55:37', '', '\n'),
 (3936, 'Landshark', 'Landshark', 'mike.rinaldi@gmail.com', '149323848bcf537efdf9bde89c685101:ZbVVucftM2LZapl0LwtsaOJBwW8D8A33', 'Registered', 0, 0, 18, '2010-01-04 02:14:08', '2010-01-04 02:21:13', '', '\n'),
-(3937, 'admin', 'adminwww', 'johnspis@yahoo.com', '55daf1274af1fe06f592edcbda4c5dd8:ExthpZZAa4KDQO2DDDZbs6QyIloKyzvr', 'Registered', 1, 0, 18, '2010-01-04 07:36:32', '0000-00-00 00:00:00', 'c5fb94754687d6bc3d19d42e16dcd885', '\n');
+(3937, 'admin', 'adminwww', 'johnspis@yahoo.com', '55daf1274af1fe06f592edcbda4c5dd8:ExthpZZAa4KDQO2DDDZbs6QyIloKyzvr', 'Registered', 1, 0, 18, '2010-01-04 07:36:32', '0000-00-00 00:00:00', 'c5fb94754687d6bc3d19d42e16dcd885', '\n');;

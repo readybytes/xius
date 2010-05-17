@@ -31,34 +31,45 @@ class XiusControllerList extends JController
 		// Check for request forgeries
 		JRequest::checkToken() or jexit( 'Invalid Token' );
 		
-		$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
+		$data = $this->_remove();
+				
+		$cache = & JFactory::getCache('com_content');
+		$cache->clean();
+		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$mainframe->redirect($link, $data['message']);
+	}
+	
+	
+	function _remove($ids=null)
+	{
+		if($ids == null)
+			$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 	
 		$count	= count($ids);
 		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$i = 1;
+		$row	=& JTable::getInstance( 'list', 'XiusTable' );
+		
+		$data = array();
+		$data['message'] = '';
+		$data['success'] = false;
 		if(!empty($ids))
 		{
 			foreach( $ids as $id )
 			{
-				$row	=& JTable::getInstance( 'list', 'XiusTable' );
-			
 				$row->load( $id );
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$message	= JText::_('ERROR IN REMOVING LIST');
-					$mainframe->redirect( 'index.php?option=com_xius&view=list' , $message);
-					exit;
+					$data['message']	= JText::_('ERROR IN REMOVING LIST').' '. $id;
+					return $data;
 				}
-				$i++;
 			}
+			
+			$data['message'] = $count.' '.JText::_('LIST REMOVED');	;
+			$data['success'] = true;
 		}
-				
-		$cache = & JFactory::getCache('com_content');
-		$cache->clean();
-		$message	= $count.' '.JText::_('LIST REMOVED');		
-		$link = JRoute::_('index.php?option=com_xius&view=list', false);
-		$mainframe->redirect($link, $message);
+		
+		return $data;
 	}
 	
 	
@@ -76,8 +87,12 @@ class XiusControllerList extends JController
 		}
 		
 		$lModel =& XiusFactory::getModel('list');
-		foreach($ids as $id)
-			$lModel->updatePublish($id,1);
+		$result = $this->_updatePublish(1,$ids);
+
+		if($result['success'])
+			$msg = $count.' '.JText::_('ITEM UNPUBLISHED' );
+		else
+			$msg = JText::_('Unable to unblish list');
 		
 		$msg = $count. ' '. JText::_('ITEM PUBLISHED' );
 		$link = JRoute::_('index.php?option=com_xius&view=list', false);
@@ -98,14 +113,41 @@ class XiusControllerList extends JController
 		}
 		
 		$lModel =& XiusFactory::getModel('list');
-		foreach($ids as $id)
-			$lModel->updatePublish($id,0);
+		$result = $this->_updatePublish(0,$ids);
+
+		if($result['success'])
+			$msg = $count.' '.JText::_('ITEM UNPUBLISHED' );
+		else
+			$msg = JText::_('Unable to unblish list');
 			
-		$msg = $count.' '.JText::_('ITEM UNPUBLISHED' );
 		$link = JRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg); 
 	}
 	
+	
+	function _updatePublish($value , $ids = null)
+	{
+		if($ids == null)
+			$ids		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
+			
+		$count			= count( $ids );
+
+		$data = array();
+		$data['success'] = false;
+		$data['msg'] = '';
+		
+		$lModel =& XiusFactory::getModel('list');
+		foreach($ids as $id)
+			if(!$lModel->updatePublish($id,$value)){
+				$data['msg'] = JText::_('Unable to publish/unpublish list');
+				return $data;
+			}
+				
+		$data['success'] = true;
+		$data['msg'] = JText::_('Publish/Unpublish list');
+		
+		return $data;
+	}
 	
 	
 	function saveOrder()
@@ -118,6 +160,14 @@ class XiusControllerList extends JController
 		// Get the ID in the correct location
  		$id			= JRequest::getVar( 'cid', array(), 'post', 'array' );
 
+ 		$result = $this->_saveOrder($id,$direction);
+ 		
+		$mainframe->redirect( JRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
+	}
+	
+	
+	function _saveOrder($id , $direction)
+	{
 		if( isset( $id[0] ) )
 		{
 			$id		= (int) $id[0];
@@ -126,10 +176,15 @@ class XiusControllerList extends JController
 			$table	=& JTable::getInstance( 'list' , 'XiusTable' );
 		
 			$table->load( $id );
-			if(!$table->move( $direction ))
-				$mainframe->enqueueMessage($table->getError());
 			
-			$mainframe->redirect( 'index.php?option=com_xius&view=list' );
+			if(!$table->move( $direction ))
+				$data = array('msg' => $table->getError() , 'success' => false );
+			else
+				$data = array('msg' => JText::_('Ordered List') , 'success' => true );	
 		}
+		else
+			$data = array('msg' => JText::_('Not ordered') , 'success' => false );
+			
+		return $data;
 	}
 }

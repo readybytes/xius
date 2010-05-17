@@ -1,6 +1,6 @@
 /* XIUS INFO */
 
-TRUNCATE TABLE `#__xius_info`;
+TRUNCATE TABLE `#__xius_info`;;
 INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
 (1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '2', '', 'Jsfields', 1, 1),
 (2, 'City', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '11', '', 'Jsfields', 2, 1),
@@ -25,7 +25,7 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (21, 'Website', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '13', '', 'Jsfields', 21, 1),
 (22, 'College / University', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '15', '', 'Jsfields', 22, 1),
 (23, 'Graduation Year', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '16', '', 'Jsfields', 23, 1),
-(24, 'Keyword', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'keywordsearch', '', 'Keyword', 24, 1);
+(24, 'Keyword', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'keywordsearch', '', 'Keyword', 24, 1);;
 
 
 

@@ -1,5 +1,5 @@
-TRUNCATE TABLE `#__xius_info`;
-ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__xius_info`;;
+ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;;
 
 INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
 (1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '2', '', 'Jsfields', 1, 1),
@@ -9,11 +9,11 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (5, 'Username', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=1\n\n', 'username', '', 'Joomla', 5, 1),
 (6, 'Name', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'name', '', 'Joomla', 6, 1),
 (7, 'Checkbox1', 'isSearchable=1\nisVisible=0\nisSortable=0\nisExportable=1\n\n', '17', '', 'Jsfields', 7, 1),
-(8, 'Birthday', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '3', '', 'Jsfields', 8, 1);
+(8, 'Birthday', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '3', '', 'Jsfields', 8, 1);;
 
 
-TRUNCATE TABLE `#__community_fields`;
-ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__community_fields`;;
+ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 
@@ -34,10 +34,10 @@ VALUES
 (14, 'group', 14, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, 1, '', ''),
 (15, 'text', 15, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, 1, '', 'FIELD_COLLEGE'),
 (16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, 1, '', 'FIELD_GRADUATION'),
-(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1');
+(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1');;
 
 
-DROP TABLE IF EXISTS `#__xius_cache`;
+DROP TABLE IF EXISTS `#__xius_cache`;;
 
 CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `userid` int(21) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `joomlaname` varchar(250) NOT NULL,
   `jsfields17` varchar(250) NOT NULL,
   `jsfields3` varchar(250) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 
 INSERT INTO `#__xius_cache` (`userid`, `jsfields2`, `jsfields11`, `jsfields12`, `joomlaregisterDate`, `joomlausername`, `joomlaname`, `jsfields17`, `jsfields3`) VALUES
@@ -62,11 +62,11 @@ INSERT INTO `#__xius_cache` (`userid`, `jsfields2`, `jsfields11`, `jsfields12`, 
 (68, 'Male', '', '', '2009-03-17 13:55:57', 'Twinkiez', 'Frank', '', ''),
 (70, '', '', '', '2009-03-22 00:51:13', 'Mapelibebuime', 'Mapelibebuime', '', ''),
 (71, '', '', '', '2009-03-24 16:44:51', 'Metaltome', 'Christopher', '', ''),
-(73, '', '', '', '2009-04-01 15:16:42', 'CurveeOrg', 'CurveeOrg', '', '');
+(73, '', '', '', '2009-04-01 15:16:42', 'CurveeOrg', 'CurveeOrg', '', '');;
 
 
-TRUNCATE TABLE `#__community_fields`;
-ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__community_fields`;;
+ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 
@@ -87,4 +87,4 @@ VALUES
 (14, 'group', 14, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, 1, '', ''),
 (15, 'text', 15, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, 1, '', 'FIELD_COLLEGE'),
 (16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, 1, '', 'FIELD_GRADUATION'),
-(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1');
+(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1');;

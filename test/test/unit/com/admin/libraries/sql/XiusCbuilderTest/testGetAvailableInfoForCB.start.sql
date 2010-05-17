@@ -1,5 +1,5 @@
-TRUNCATE TABLE `#__comprofiler_fields`;
-ALTER TABLE `#__comprofiler_fields` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__comprofiler_fields`;;
+ALTER TABLE `#__comprofiler_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__comprofiler_fields` (`fieldid`, `name`, `tablecolumns`, `table`, `title`, `description`, `type`, `maxlength`, `size`, `required`, `tabid`, `ordering`, `cols`, `rows`, `value`, `default`, `published`, `registration`, `profile`, `displaytitle`, `readonly`, `searchable`, `calculated`, `sys`, `pluginid`, `params`) 
@@ -24,8 +24,8 @@ VALUES
 (22, 'forumposts', '', '#__comprofiler', '_UE_FORUM_TOTALPOSTS', '', 'forumstats', NULL, NULL, 0, 21, -15, NULL, NULL, NULL, NULL, 1, 0, 1, 1, 1, 0, 1, 1, 4, NULL),
 (21, 'forumkarma', '', '#__comprofiler', '_UE_FORUM_KARMA', '', 'forumstats', NULL, NULL, 0, 21, -14, NULL, NULL, NULL, NULL, 1, 0, 1, 1, 1, 0, 1, 1, 4, NULL),
 (54, 'cb_trial', 'cb_trial', '#__comprofiler', 'Trial', '<p>trial</p>', 'text', 0, 0, 0, 11, -29, 0, 0, NULL, '', 1, 1, 1, 1, 0, 0, 0, 0, 1, 'fieldMinLength=0\nfieldValidateExpression=\npregexp=/^.*$/\npregexperror=Not a valid input\nfieldValidateForbiddenList_register=http:,https:,mailto:,//.[url],<a,</a>,&#\nfieldValidateForbiddenList_profile='),
-(55, 'cb_trialdate', 'cb_trialdate', '#__comprofiler', 'Trial Date', '<p>Trial Date</p>', 'date', 0, 0, 0, 11, -28, 0, 0, NULL, '', 1, 1, 1, 1, 0, 0, 0, 0, 1, 'year_min=-110\nyear_max=+25\nfield_display_by=0\nfield_display_years_text=1\nfield_display_ago_text=1\nfield_search_by=0\nduration_title=\nshow_date_time=0');
+(55, 'cb_trialdate', 'cb_trialdate', '#__comprofiler', 'Trial Date', '<p>Trial Date</p>', 'date', 0, 0, 0, 11, -28, 0, 0, NULL, '', 1, 1, 1, 1, 0, 0, 0, 0, 1, 'year_min=-110\nyear_max=+25\nfield_display_by=0\nfield_display_years_text=1\nfield_display_ago_text=1\nfield_search_by=0\nduration_title=\nshow_date_time=0');;
 
 
-TRUNCATE TABLE `#__comprofiler`;
-ALTER TABLE `#__comprofiler` AUTO_INCREMENT=1;
+TRUNCATE TABLE `#__comprofiler`;;
+ALTER TABLE `#__comprofiler` AUTO_INCREMENT=1;;
