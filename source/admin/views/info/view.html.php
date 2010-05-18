@@ -48,6 +48,7 @@ class XiusViewInfo extends JView
 		}
 		
 		$this->assign( 'plugins' , $plugins );
+		JToolBarHelper::title( JText::_( 'GENERATE INFO' ), 'info' );
 		parent::display($tpl);
 	}
 	
@@ -75,6 +76,7 @@ class XiusViewInfo extends JView
 		$this->assign('pluginArray',		$pluginArray);
 		$this->assign('info',$data);
 		$this->assign('infoName',$infoName);
+		JToolBarHelper::title( JText::_( 'GENERATE INFO' ), 'info' );
 		parent::display($tpl);
 	}
 	

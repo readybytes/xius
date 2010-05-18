@@ -40,4 +40,20 @@ class UserSearchHelper
 			}
 		return $infohtml;		
 	}
+	
+	function getInfoRange($infoRange)
+	{
+		$infoRange=explode('-',$infoRange);
+		if( array_key_exists(0,$infoRange) && !empty($infoRange[0]))
+			$range['start'] = $infoRange[0];
+		else
+			$range['start'] = 0;
+		
+		if( array_key_exists(1,$infoRange) && !empty($infoRange[1]))
+				$range['end'] = $infoRange[1];
+		else
+				$range['end'] = 0;
+				
+		return $range;
+	}
 }

@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 if(empty($this->info))
-	echo JText::_('NO INFO TO DISPLAY');
+	return false;
 else if(!empty($this->info)){?>
 	<select id="rawdata" name="rawdata">
 	<?php 

@@ -28,8 +28,8 @@ jimport('joomla.html.pane');
 		<div class="xius_inputs">
 		<div class="xius_label">Join With</div>
 		<div>
-		<input type="radio" name="xius_join" value="AND" />And 
-		<input type="radio" name="xius_join" value="OR" />Or
+		<input type="radio" name="xius_join" value="AND" /><?php echo JText::_('MATCH ALL'); ?>  
+		<input type="radio" name="xius_join" value="OR" /><?php echo JText::_('MATCH ANY'); ?>
 		</div>
 		</div>
 		<p class="submit"><input type="submit" id="xiussearch" name="xiussearch" value="Search" /></p>	

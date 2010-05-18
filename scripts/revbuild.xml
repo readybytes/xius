@@ -15,6 +15,8 @@
                         tofile="${target}/source/languages/admin/en-GB.com_xius.ini" 
                          />
 
+		<delete dir="${source}/administrator/components/com_xius/install/extensions" />
+
 		<copy todir="${target}/source/admin">
 			<fileset dir="${source}/administrator/components/com_xius">
 				<include name="**/*.*" />
@@ -24,17 +26,6 @@
 		<move file="${target}/source/admin/manifest.xml" 
                         tofile="${target}/source/manifest.xml" 
          />
-
-		 <!-- move install directory again into install folder --> 
-		<!-- first copy -->
-		<copy todir="${target}/source/install">
-			<fileset dir="${target}/source/admin/install">
-				<include name="**/*.*" />
-			</fileset>
-       		 </copy>
-
-		<!-- delete admin installer -->
-		<delete dir="${target}/source/admin/install" />
 		
 		<!-- Copy plguin files again into folder -->
 		<copy   file="${source}/plugins/system/xius_system.php" 
@@ -59,17 +50,15 @@
                 </copy>
 
 
-		<copy todir="${target}/source/site">
-			<fileset dir="${source}/components/com_xius">
+		<!-- first copy -->
+		<copy todir="${target}/source/install">
+			<fileset dir="${target}/source/admin/install">
 				<include name="**/*.*" />
 			</fileset>
-        </copy>
+       		 </copy>
 
-		<!-- <delete file="${target}/source/admin/xius_system.xml" /> -->
-
-		<!-- Delete plugin files from admin folder -->
-		<!--<delete dir="${target}/source/admin/xius_system" /> -->
-
+		<!-- delete admin installer -->
+		<delete dir="${target}/source/admin/install" />
 
        		 <copy todir="${target}/source/site">
 			<fileset dir="${source}/components/com_xius">

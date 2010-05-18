@@ -11,6 +11,11 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 <div id="error-notice" style="color: red; font-weight:700;"></div>
 <div style="clear: both;"></div>
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
+<?php 
+if(empty($this->rawDataHtml))
+	echo JText::_('NO INFO TO DISPLAY');
+else 
+{?>
 <table cellspacing="0" class="admintable" border="0" width="100%">
 	<tbody>
 		<tr>
@@ -19,8 +24,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 			<td>
 				<div>
 				<?php
-					if(!empty($this->rawDataHtml))
-						echo $this->rawDataHtml;
+					echo $this->rawDataHtml;
 				?>
 				</div>
 			</td>
@@ -32,7 +36,8 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 
 <div style="float:left; margin-left: 320px">
 	<input type="submit" name="infonext" value="<?php echo JText::_('NEXT');?>"/>
-</div>	
+</div>
+<?php }?>	
 	<input type="hidden" name="plugin" value="<?php echo $this->plugin;?>" />
 	
 	<input type="hidden" name="option" value="com_xius" />

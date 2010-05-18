@@ -21,7 +21,20 @@ $disp= UserSearchHelper::getSearchHtml();
 	<div class="xiusMod_available">
 		<form action="<?php echo JRoute::_("index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch")?>" method=post>
 		<?php 	
+			$infoRange = $params->get('xius_info_range','all');
+			$range=array();
+			if( 'all' != strtolower($infoRange) )
+				$range = UserSearchHelper::getInfoRange($infoRange);
+				
+			$count=0;
 			foreach($disp as $data):
+				$count++;
+				if(count($range)>0){
+					 if( $range['start']!=0 && $count < $range['start'])
+						continue;
+					 if($range['end']!=0 && $count > $range['end']) 
+						break;
+				}
 			?> 
 				<div class="xiusMod_availablemain">
 				<div class="xiMod_left"><?php echo JText::_($data['label']);?></div>

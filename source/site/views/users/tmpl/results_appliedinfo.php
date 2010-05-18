@@ -49,8 +49,8 @@ else if($this->join == 'OR')
 	$orSelected = ' selected=true ';
 	
 $joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="applyJoin(\'xiusjoin\');" >';
-$joinhtml .= '<option value="AND" '.$andSelected.'>AND</option>';
-$joinhtml .= '<option value="OR" '.$orSelected.'>OR</option>';
+$joinhtml .= '<option value="AND" '.$andSelected.'>'.JText::_('MATCH ALL').'</option>';
+$joinhtml .= '<option value="OR" '.$orSelected.'>'.JText::_('MATCH ANY').'</option>';
 $joinhtml .= '</select>';
 echo '<b>'.JText::_('Join With').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
 echo $joinhtml;	

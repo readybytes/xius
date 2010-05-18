@@ -52,6 +52,7 @@ class XiusModelConfiguration extends JModel
 			else 
 				$this->_params = new JParameter('','');
 				
+			JTable::addIncludePath(XIUS_PATH_TABLE);
 			$config		=& JTable::getInstance( 'configuration' , 'XiusTable' );
 			$config->load( 'config' );
 			
@@ -70,6 +71,7 @@ class XiusModelConfiguration extends JModel
 	{
 		jimport('joomla.filesystem.file');
 
+		JTable::addIncludePath(XIUS_PATH_TABLE);
 		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 		$config->load( 'config' );
 		
@@ -92,7 +94,7 @@ class XiusModelConfiguration extends JModel
 	{
 		jimport('joomla.filesystem.file');
 				
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
+		JTable::addIncludePath(XIUS_PATH_TABLE);
 		$row	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 		
 		$row->load('config');
