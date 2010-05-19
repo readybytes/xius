@@ -13,9 +13,6 @@ class XiusControllerUsers extends JController
 	
 	function displaySearch()
 	{
-		
-		global $mainframe;
-		
 		/*XITODO : Collect all info here
 		 * ask admin , how many no's of info
 		 * he want's to display at a time , and add more links.
@@ -58,7 +55,7 @@ class XiusControllerUsers extends JController
 				break;
 			default	:
 				if(!$supltytask)
-					return $this->_showSearchPanel(__FUNCTION__);
+					return $this->_showSearchPanel();
 				break;
 		}
 			
@@ -66,7 +63,7 @@ class XiusControllerUsers extends JController
 	}
 	
 	
-	function _showSearchPanel($fromTask)
+	function _showSearchPanel()
 	{
 		$filter = array();
 		$filter['published'] = true;
@@ -106,7 +103,6 @@ class XiusControllerUsers extends JController
 	function _exportUser($fromTask)
 	{
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
-		$document	=& JFactory::getDocument();
 		$viewType	= 'csv';
 		$view		=& $this->getView( $viewName , $viewType );
 		return $view->exportUser($fromTask);
@@ -123,7 +119,7 @@ class XiusControllerUsers extends JController
 		$user =& JFactory::getUser();
 		if(!$listId && $subtask != 'xiussavelist' 
 			&&	$subtask != 'xiusexport')
-			return $this->_showLists( __FUNCTION__,$user->id);
+			return $this->_showLists( $user->id);
 			
 	
 		/*get list */
@@ -183,7 +179,7 @@ class XiusControllerUsers extends JController
 	}
 	
 	
-	function _showLists($fromTask,$owner)
+	function _showLists($owner)
 	{
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$document	=& JFactory::getDocument();
@@ -198,7 +194,6 @@ class XiusControllerUsers extends JController
 	
 	function displaySaveOption()
 	{
-		global $mainframe;
 		$user =& JFactory::getUser();
 				
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
@@ -259,7 +254,6 @@ class XiusControllerUsers extends JController
 
 	function _saveListChecks($new = true)
 	{
-		global $mainframe;
 		$user =& JFactory::getUser();
 		
 		$returndata = array();
@@ -281,7 +275,6 @@ class XiusControllerUsers extends JController
 	
 	function _saveList($new = true , $data = null)
 	{
-		global $mainframe;
 		$user =& JFactory::getUser();
 		
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
@@ -340,15 +333,13 @@ class XiusControllerUsers extends JController
 
 	function runCron()
 	{
-		global $mainframe;
-		
 		if(XiusHelpersUtils::verifyCronRunRequired() == false)
 			return;
 			
 		$time = XiusLibrariesUsersearch::getTimestamp();
 		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
-		$result = XiusLibrariesUsersearch::updateCache();
+		XiusLibrariesUsersearch::updateCache();
 		
 		$time = XiusLibrariesUsersearch::getTimestamp();
 		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);

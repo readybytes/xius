@@ -50,7 +50,16 @@
 							<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" />
 							<a href="<?php echo CRoute::_('index.php?option=com_community&view=friends&userid=' . $cuser->id );?>"><?php echo JText::sprintf( ($cuser->getFriendCount()) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $cuser->getFriendCount());?></a>
 						</div>
-						
+						<?php 
+							$onlineUser = JFactory::getUser();
+							if($onlineUser->id != $u->userid)	:
+								?>
+								<div class = "xiusFriends">
+									 <a onclick="<?php echo CMessaging::getPopup($u->userid); ?>" href="javascript:void(0);">	            	            
+				            			<?php echo JText::_('Write Message'); ?>
+				            		</a>
+								</div>
+						<?php endif;?>
 					</div>
 				</div>
 				

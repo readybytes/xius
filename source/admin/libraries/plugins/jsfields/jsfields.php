@@ -187,6 +187,8 @@ class Jsfields extends XiusBase
 		
 		if(!empty($fieldInfo))
 			return $fieldInfo[0]->name;
+			
+		return false;
 	}
 	
 	

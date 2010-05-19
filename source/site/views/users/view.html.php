@@ -313,14 +313,17 @@ class XiusViewUsers extends JView
 	}
 	
 	
-	function _showLists($fromTask,$owner)
+	function _showLists($owner = null)
 	{
 		/*XITODO : get list according to owner*/
 		$lModel =& XiusFactory::getModel('list','admin');
 		
 		$filter = array();
 					
-		$user = JFactory::getUser();
+		if($owner == null)
+			$user = JFactory::getUser();
+		else
+			$user = JFactory::getUser($owner);
 		
 		if(!XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;

@@ -51,7 +51,7 @@ class XiusLibrariesUsersearch
 		
 		/*Trigger event */
 		//$dispatcher =& JDispatcher::getInstance();
-		$results = $dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$query ) );
+		$dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$query ) );
 		
 	/*	$strQuery = $query->__toString();
 		
@@ -71,7 +71,7 @@ class XiusLibrariesUsersearch
 		$instance = XiusFactory::getPluginInstanceFromId($infoId);
 		
 		if(!$instance)
-			return;
+			return false;
 			
 		return $instance->addSearchToQuery($query,$value,$operator,$join);
 	}
@@ -186,7 +186,6 @@ class XiusLibrariesUsersearch
 	function getTimestamp()
 	{
 		//$time = date('H:i:s');
-		$date = new DateTime();
 		$time =  microtime(true);//$date->getTimestamp();
 		$time = time();
 		return $time;
@@ -285,7 +284,7 @@ class XiusLibrariesUsersearch
 	}
 	
 	
-	function processUserRequest($what)
+	/*function processUserRequest($what)
 	{
 		
 		switch($what){
@@ -301,8 +300,10 @@ class XiusLibrariesUsersearch
 				return XiusLibrariesUsersearch::processSort();
 				break;
 		}
+		
+		return false;
 			
-	}
+	}*/
 	
 	
 	

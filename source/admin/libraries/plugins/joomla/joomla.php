@@ -99,6 +99,8 @@ class Joomla extends XiusBase
 		
 		if(!empty($fieldInfo))
 			return $fieldInfo;
+			
+		return false;
 	}
 	
 	

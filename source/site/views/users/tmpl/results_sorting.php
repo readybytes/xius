@@ -22,10 +22,11 @@
 			
 			$ascselected = '';
 			$descselected = '';
-			if($this->dir == 'ASC')
+			if($this->dir == 'ASC')	:
 				$ascselected = ' selected=true ';
-			else if($this->dir == 'DESC')
+			elseif($this->dir == 'DESC')	:
 				$descselected = ' selected=true ';
+			endif;
 				
 			$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="applySort(\'xiussortdir\');" >';
 			$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';

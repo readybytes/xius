@@ -111,8 +111,6 @@ class XiusControllerInfo extends JController
 	
 	function _processSave($post=null)
 	{		
-		$mainframe	=& JFactory::getApplication();
-
 		if($post == null)
 			$post	= JRequest::get('post');
 		
@@ -140,7 +138,7 @@ class XiusControllerInfo extends JController
 		
 		$plgObject = XiusFactory::getPluginInstance($data['pluginType']);
 
-		$isGotPluginData = $plgObject->collectParamsFromPost($data['key'],$data['pluginParams'],$post);
+		$plgObject->collectParamsFromPost($data['key'],$data['pluginParams'],$post);
 		
 		$storedInfo = array();
 		
@@ -174,10 +172,10 @@ class XiusControllerInfo extends JController
 		/*info reset required , b'coz it will return
 		 * old data and new info will not be added in cache
 		 */
-		$allInfo = XiusLibrariesInfo::getAllInfo(true);
+		XiusLibrariesInfo::getAllInfo(true);
 		
 		$dispatcher =& JDispatcher::getInstance();
-		$results = $dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
+		$dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
 			
 		return $storedInfo;
 	}

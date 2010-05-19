@@ -6,7 +6,7 @@
 * @contact		shyam@joomlaxi.com
 */
 
-defined('_JEXEC') or die();
+defined('_JEXEC') or die('Restricted access');
 
 // If file is already included
 if(defined('XIUS_SITE_INCLUDES'))

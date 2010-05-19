@@ -9,7 +9,7 @@
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:5:require_once( dirname(__FILE__).DS.'helper.php' );
 ../packages/tmp/admin/includes.php:24:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'defines.php';
 ../packages/tmp/admin/includes.php:31:require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'loader.php');
-../packages/tmp/admin/includes.php:56:require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
+../packages/tmp/admin/includes.php:58:require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
 ../packages/tmp/admin/xius.php:5:require_once  dirname(__FILE__).DS.'includes.php';
 ../packages/tmp/admin/xius.php:20:	require_once( $path );
 ../packages/tmp/admin/libraries/factory.php:21:			include_once($modelAdminFile);
@@ -23,9 +23,9 @@
 ../packages/tmp/admin/libraries/plugins/base.php:286:		require_once $viewPath;
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:6:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:175:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:213:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:125:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:126:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:215:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:124:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:125:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:6:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 ../packages/tmp/admin/views/cpanel/tmpl/mainupdates.php:7:				require_once 'welcome.php';
 ../packages/tmp/admin/views/cpanel/tmpl/mainupdates.php:16:				require_once 'news.php';

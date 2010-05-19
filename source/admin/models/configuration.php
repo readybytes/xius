@@ -20,8 +20,6 @@ class XiusModelConfiguration extends JModel
 	 */
 	function __construct()
 	{
-		$mainframe	=& JFactory::getApplication();
-
 		// Test if ini path is set
 		if( empty( $this->_xml ) )
 		{

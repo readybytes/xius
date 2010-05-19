@@ -53,6 +53,8 @@ XiusLoader::addAutoLoadFile('CConfig', JPATH_ROOT.DS.'components'.DS.'com_commun
 XiusLoader::addAutoLoadFile('CApplications', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
 XiusLoader::addAutoLoadFile('CUser', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
 XiusLoader::addAutoLoadFile('CRoute', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+
+XiusLoader::addAutoLoadFile('CMessaging', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'messaging.php');
 require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
 
 /*Load Langauge file*/

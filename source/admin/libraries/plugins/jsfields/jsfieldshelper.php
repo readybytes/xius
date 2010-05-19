@@ -8,7 +8,6 @@ class Jsfieldshelper
 
 	function getJomsocialFields($filter = '',$reset = false)
 	{
-		$result = '';
 		$result = self::getAllJomsocialFields($reset);
 		
 		//B'coz we want those result which satisfy all conditions.

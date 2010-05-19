@@ -170,7 +170,7 @@ class XiusModelInfo extends JModel
 		$params	= new JParameter('','');
 		$params->bind($info->params);
 		
-		$properties = $params->getProperties(false);
+		//$properties = $params->getProperties(false);
 			
 		$params->set($what,$value);
 		
