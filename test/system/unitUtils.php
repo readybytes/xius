@@ -100,6 +100,7 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 		
 		$allInfo = XiusLibrariesInfo::getAllInfo(true);
 		XiusFactory::getModel('users','site',true);
+		XiusFactory::getModel('configuration','admin',true);
 	}
   
 }

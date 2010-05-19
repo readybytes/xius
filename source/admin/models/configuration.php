@@ -67,21 +67,19 @@ class XiusModelConfiguration extends JModel
 	 * 
 	 * @return boolean	True on success false on failure.
 	 **/
-	function save()
+	function save($name,$params)
 	{
 		jimport('joomla.filesystem.file');
 
 		JTable::addIncludePath(XIUS_PATH_TABLE);
 		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
-		$config->load( 'config' );
+		$config->load( $name );
 		
-		$xiusparams	= JRequest::getVar('xiusparams','','post');
-		
-		$registry	=& JRegistry::getInstance( 'xius' );
-		$registry->loadArray($xiusparams,'xius');
+		$registry	=& JRegistry::getInstance( 'xius_'.$name );
+		$registry->loadArray($params,'xius_'.$name);
 		// Get the complete INI string
-		$config->params	= $registry->toString( 'INI' , 'xius' );
-		
+		$config->params	= $registry->toString( 'INI' , 'xius_'.$name );
+		$config->name = $name;
 		// Save it
 		if(!$config->store() )
 		{
@@ -90,23 +88,21 @@ class XiusModelConfiguration extends JModel
 		return true;
 	}
 	
-	function reset()
+	
+	
+	function getOtherParams($name)
 	{
-		jimport('joomla.filesystem.file');
-				
+		jimport( 'joomla.filesystem.file');
+		
+		$params = new JParameter('','');
+			
 		JTable::addIncludePath(XIUS_PATH_TABLE);
-		$row	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+		$config		=& JTable::getInstance( 'configuration' , 'XiusTable' );
+		$config->load( $name );
 		
-		$row->load('config');
-
-		// Get the complete INI string
-		$row->params = '';
+		// Bind the saved configuration.
+		$params->bind( $config->params );
 		
-		// Save it
-		if(!$row->store() )
-		{
-			return false;
-		}
-		return true;
+		return $params;
 	}
 }

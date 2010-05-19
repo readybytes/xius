@@ -29,7 +29,7 @@ class XiusTableConfiguration extends JTable
 		$db		=& $this->getDBO();
 		
 		$query	= 'SELECT COUNT(*) FROM ' . $db->nameQuote( '#__xius_config') . ' '
-				. 'WHERE ' . $db->nameQuote( 'name' ) . '=' . $db->Quote( 'config' );
+				. 'WHERE ' . $db->nameQuote( 'name' ) . '=' . $db->Quote( $this->name );
 		$db->setQuery( $query );
 		
 		$count	= $db->loadResult();
@@ -37,12 +37,9 @@ class XiusTableConfiguration extends JTable
 		$data	= new stdClass();
 		$data->name		= $this->name;
 		$data->params	= $this->params;
-
+		
 		if( $count > 0 )
-		{
 			return $db->updateObject( '#__xius_config' , $data , 'name' );
-			
-		}
 
 		return $db->insertObject( '#__xius_config' , $data );
 	}

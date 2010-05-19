@@ -29,7 +29,7 @@ class XiusKeywordTest extends XiUnitTestCase
 		$this->_DBO->loadSql($url);
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
-		$insertedRows = XiusControllerUsers::_updateCache(array('limitStart'=>0,'limit'=>1000000));
+		$insertedRows = XiusControllerUsers::_runCron(array('limitStart'=>0,'limit'=>1000000));
 		
 		$value		= 'admin';
 		$operator	= XIUS_LIKE;

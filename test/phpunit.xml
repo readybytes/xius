@@ -22,6 +22,8 @@
 		<file>test/unit/com/admin/controllers/info.php</file>
 		<file>test/unit/com/admin/controllers/list.php</file>
 		
+		<file>test/unit/com/admin/models/configuration.php</file>
+		
 		<file>test/unit/com/site/controllers/users.php</file>
 	</testsuite>
 	

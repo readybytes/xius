@@ -83,6 +83,16 @@ class XiusHelpersUtils
 	}
 	
 	
+	function getOtherConfigParams($configname , $what , $default = 0)
+	{
+		$cModel = XiusFactory::getModel('configuration');
+		$params	= $cModel->getOtherParams($configname);
+		
+		$result = $params->get($what,$default);
+		return $result;
+	}
+	
+	
 	function getKeyForCacheUpdate()
 	{
 		$key = self::getConfigurationParams('xiusKey',0);
@@ -94,9 +104,40 @@ class XiusHelpersUtils
 	{
 		$cModel = XiusFactory::getModel('configuration');
 		$params	= $cModel->getParams();
-		
 		$result = $params->get($what,$default);
 		return $result;
+	}
+	
+	
+	function verifyCronRunRequired($secureKey = null,$currentTime = null)
+	{
+		if($secureKey == null)
+			$secureKey=JRequest::getVar('xiuskey', 0, 'GET','string');
+		
+		$setKey = XiusHelpersUtils::getKeyForCacheUpdate();
+		
+		if($secureKey != $setKey)
+			return false;
+			
+		$startTime = XiusHelpersUtils::getOtherConfigParams('cache',XIUS_CACHE_START_TIME,0);
+		
+		$endTime = XiusHelpersUtils::getOtherConfigParams('cache',XIUS_CACHE_END_TIME,0);
+		
+		if($currentTime == null)
+			$currentTime = XiusLibrariesUsersearch::getTimestamp();
+		
+		$timeGap = $currentTime - $endTime;
+		$totalRunTime = $endTime - $startTime;
+		
+		$diffReq = XIUS_CRON_TIME_MULTIPLIER * $totalRunTime;
+		
+		/*XITODO: Minimun time for updating cache
+		 * should be 60 sec or 1 min
+		 */
+		if($timeGap < 60 || $timeGap < $diffReq)
+			return false;
+			
+		return true;
 	}
 	
 }

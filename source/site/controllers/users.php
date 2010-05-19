@@ -338,38 +338,59 @@ class XiusControllerUsers extends JController
 		return $view->displayAdvanceSearch();	
 	}
 
-	function updateCache()
+	function runCron()
 	{
 		global $mainframe;
 		
-		$secureKey=JRequest::getVar('key', 0, 'GET','string');
-		
-		$setKey = XiusHelpersUtils::getKeyForCacheUpdate();
-		
-		if($secureKey != $setKey)
+		if(XiusHelpersUtils::verifyCronRunRequired() == false)
 			return;
+			
+		$time = XiusLibrariesUsersearch::getTimestamp();
+		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
+		$result = XiusLibrariesUsersearch::updateCache();
+		
+		$time = XiusLibrariesUsersearch::getTimestamp();
+		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
+		
+		return;
+			
+		/*$startTime = XiusHelpersUtils::getOtherConfigParams('cache',XIUS_CACHE_START_TIME,0);
+		$endTime = XiusHelpersUtils::getOtherConfigParams('cache',XIUS_CACHE_END_TIME,0);
+		
+		$currentTime = XiusLibrariesUsersearch::getTimestamp();
+		
+		$timeGap = $currentTime - $endTime;
+		$totalRunTime = $endTime - $startTime;
+		
+		if($timeGap < XIUS_CRON_TIME_MULTIPLIER * $totalRunTime)
+			return ;
+			
 		$limitStart=JRequest::getVar('limitStart', 0, 'GET');
 			
+		if($limitStart == 0){
+			$time = XiusLibrariesUsersearch::getTimestamp();
+			XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
+		}
+		
 		$limit = array();
 		$limit['limitStart'] = $limitStart;
 		$limit['limit'] = XiusHelpersUtils::getUserLimit();
 		
-		$insertedRows =$this->_updateCache($limit); 
+		$insertedRows =$this->_runCron($limit); 
 		
 		if($insertedRows == $limit['limit']){
 			$limitStart += $limit['limit'];
-    		$mainframe->redirect(JRoute::_("index.php?option=com_xius&view=users&task=updateCache&key=".$secureKey."&limitStart=".$limitStart,false));
+    		$mainframe->redirect(JRoute::_("index.php?option=com_xius&view=users&task=runCron&xiuskey=".$secureKey."&limitStart=".$limitStart,false));
 		}
 		
-		return;
+		$time = XiusLibrariesUsersearch::getTimestamp();
+		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
-		/*$msg = JText::_('CACHE UPDATED SUCCESSFULLY');
-		$url = JRoute::_("index.php?option=com_xius&view=cpanel",false);
-		$mainframe->redirect($url,$msg,false);*/
+		return;*/
 	}
 	
-	function _updateCache($limit)
+	function _runCron($limit)
 	{
 		$cache = XiusFactory::getCacheObject();
 		if($limit['limitStart'] == 0) {

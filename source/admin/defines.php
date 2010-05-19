@@ -44,3 +44,9 @@ define('XIUS_VISIBLE','visible');
 define('XIUS_SORT','sort');
 define('XIUS_DIR','dir');
 define('XIUS_JOIN','join');
+
+define('XIUS_CACHE_START_TIME','cacheStartTime');
+define('XIUS_CACHE_END_TIME','cacheEndTime');
+
+define('XIUS_CRON_TIME_MULTIPLIER',5);
+define('XIUS_MICRO_TO_SECOND',(1000*1000));

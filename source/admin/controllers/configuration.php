@@ -43,8 +43,10 @@ class XiusControllerConfiguration extends JController
 
 		$cModel	=& XiusFactory::getModel( 'configuration' );
 		
+		$xiusparams	= JRequest::getVar('xiusparams','','post');
+		
 		// Try to save configurations
-		if( $cModel->save() )
+		if( $cModel->save('config',$xiusparams) )
 		{
 			$message	= JText::_('CONFIGURATION UPDATED');
 		}

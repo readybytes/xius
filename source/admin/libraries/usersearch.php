@@ -163,7 +163,7 @@ class XiusLibrariesUsersearch
 	
 	
 	function updateCache()
-	{
+	{		
 		/*XITODO : update xius_cache table with new info id
 		 * We can only add column also without creating whole table
 		 */
@@ -177,7 +177,36 @@ class XiusLibrariesUsersearch
 		 */
 		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		
-		return $cache->insertIntoTable($getDataQuery);
+		$result =  $cache->insertIntoTable($getDataQuery);
+				
+		return $result;
+	}
+	
+	
+	function getTimestamp()
+	{
+		//$time = date('H:i:s');
+		$date = new DateTime();
+		$time =  microtime(true);//$date->getTimestamp();
+		$time = time();
+		return $time;
+	}
+	
+	
+	function saveCacheParams($what,$value)
+	{		
+		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+		$config->load( 'cache' );
+		
+		$cModel = XiusFactory::getModel('configuration','admin');
+		
+		$params = $cModel->getOtherParams('cache');
+		$params->set($what,$value);
+		
+		$config->params = $params->toString('INI');
+		
+		$config->store();
+		
 	}
 	
 	

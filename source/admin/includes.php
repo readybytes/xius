@@ -33,6 +33,9 @@ require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'loader.php');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_HELPER,'Helpers');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_LIBRARY,'Libraries');
 
+XiusLoader::addAutoLoadFolder(XIUS_PATH_MODEL,'model');
+XiusLoader::addAutoLoadFolder(XIUS_COMPONENT_PATH_SITE.DS.'models','model');
+
 XiusLoader::addAutoLoadFile('XiusCache', XIUS_PATH_LIBRARY.DS.'cache.php');
 XiusLoader::addAutoLoadFile('XiusFactory', XIUS_PATH_LIBRARY.DS.'factory.php');
 XiusLoader::addAutoLoadFile('XiusError', XIUS_PATH_LIBRARY.DS.'error.php');
