@@ -3,17 +3,17 @@
 [0m[0mDirectories:                                          8
 Files:                                               24
 
-Lines of Code (LOC):                               2680
+Lines of Code (LOC):                               3024
   Cyclomatic Complexity / Lines of Code:           0.01
-Comment Lines of Code (CLOC):                       264
-Non-Comment Lines of Code (NCLOC):                 2416
+Comment Lines of Code (CLOC):                       302
+Non-Comment Lines of Code (NCLOC):                 2722
 
 Namespaces:                                           0
 Interfaces:                                           0
 Classes:                                              2
   Abstract:                                           0 (0.00%)
   Concrete:                                           2 (100.00%)
-  Average Class Length (NCLOC):                    1200
+  Average Class Length (NCLOC):                    1361
 Methods:                                             19
   Scope:
     Non-Static:                                      19 (100.00%)
@@ -21,7 +21,7 @@ Methods:                                             19
   Visibility:
     Public:                                          18 (94.74%)
     Non-Public:                                       1 (5.26%)
-  Average Method Length (NCLOC):                    126
+  Average Method Length (NCLOC):                    143
   Cyclomatic Complexity / Number of Methods:       2.42
 
 Anonymous Functions:                                  0
@@ -33,5 +33,5 @@ Constants:                                           21
 
 Tests:
   Classes:                                           18
-  Methods:                                           52
+  Methods:                                           57
 [0m

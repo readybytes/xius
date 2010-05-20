@@ -342,29 +342,33 @@ class XiusLibrariesUsersearch
 	}
 	
 	
-	function deleteSearchData()
+	function deleteSearchData($conditions = null,$delInfoId = null,$conditionvalue = null)
 	{
 		/*XITODO : only delete same infoid verses value pair
 		 * don't delete all infoid
 		 */
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		if($conditions == null)
+			$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		
 		if(!$conditions)
-			return true;
-		
-		$delInfoId = JRequest::getVar('xiusdelinfo', 0, 'POST');
+			return false;
+	
+		if($delInfoId == null)
+			$delInfoId = JRequest::getVar('xiusdelinfo', 0, 'POST');
 		
 		if(!$delInfoId)
-			return true;
+			return false;
 		
-		$conditionvalue = JRequest::getVar('conditionvalue', '', 'POST');
+		if($conditionvalue == null)
+			$conditionvalue = JRequest::getVar('conditionvalue', '', 'POST');
+			
 		$value = unserialize($conditionvalue);
 		$conditions = array_values($conditions);
-
+		
 		$searchdata['infoid'] = $delInfoId;
 		$searchdata['value'] = $value;
 		$searchdata['operator'] = XIUS_EQUAL;
-			
+		
 		$position = XiusLibrariesUsersearch::checkSearchDataExistance($searchdata,$conditions);
 		if($position)
 			unset($conditions[$position-1]);
@@ -376,14 +380,16 @@ class XiusLibrariesUsersearch
 	}
 	
 	
-	function addSearchData()
+	function addSearchData($addInfoId = null,$post = null)
 	{
-		$addInfoId = JRequest::getCmd('xiusaddinfo',0);
+		if($addInfoId == null)
+			$addInfoId = JRequest::getCmd('xiusaddinfo',0);
 		
 		if(!$addInfoId)
 			return;
 			
-		$post = JRequest::get('POST');
+		if($post == null)
+			$post = JRequest::get('POST');
 		
 		if(!$post)
 			return;
@@ -433,7 +439,8 @@ class XiusLibrariesUsersearch
 	 */
 	function checkSearchDataExistance(array $searchArray,array $inArray)
 	{
-		if(empty($searchArray) || empty($inArray))
+		if(empty($searchArray) || empty($inArray)
+			|| count($searchArray) == 0 || count($inArray) == 0)
 			return false;
 
 		$count = 0; 

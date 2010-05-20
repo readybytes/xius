@@ -3,10 +3,10 @@
 [0m[0mDirectories:                                         32
 Files:                                               84
 
-Lines of Code (LOC):                               8219
+Lines of Code (LOC):                               8226
   Cyclomatic Complexity / Lines of Code:           0.11
 Comment Lines of Code (CLOC):                      1471
-Non-Comment Lines of Code (NCLOC):                 6748
+Non-Comment Lines of Code (NCLOC):                 6755
 
 Namespaces:                                           0
 Interfaces:                                           0
@@ -22,7 +22,7 @@ Methods:                                            286
     Public:                                         277 (96.85%)
     Non-Public:                                       9 (3.15%)
   Average Method Length (NCLOC):                     18
-  Cyclomatic Complexity / Number of Methods:       2.94
+  Cyclomatic Complexity / Number of Methods:       2.97
 
 Anonymous Functions:                                  0
 Functions:                                            6

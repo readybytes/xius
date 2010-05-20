@@ -212,8 +212,8 @@ Analyzing /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php...
 /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 23): Value assigned to variable 'results' is never used
 /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 145): In if-if-else construction else relates to the closest if. Use braces to make the code clearer.
 /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 189): Value assigned to variable 'time' is never used
-/vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 440): Variable 'k' encountered only once. May be a typo?
-/vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 440): Value assigned to variable 'k' is never used
+/vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 447): Variable 'k' encountered only once. May be a typo?
+/vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 447): Value assigned to variable 'k' is never used
 /vobs/xius/trunk/packages/tmp/admin/libraries/usersearch.php(line 5): Expression result is never used
 Analyzing /vobs/xius/trunk/packages/tmp/admin/libraries/error.php...
 /vobs/xius/trunk/packages/tmp/admin/libraries/error.php(line 4): Expression result is never used
