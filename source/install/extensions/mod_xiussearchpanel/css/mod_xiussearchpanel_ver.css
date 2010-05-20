@@ -5,20 +5,19 @@
 .xiusMod_availablemain {
 	float: left;
 	width:100%;
-    margin-top: 10px;
+    margin-top: 5px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 }
 .xiMod_left {
-	width:24%;
-	float: left;
+font-weight:bold;
 	margin: 0 0 0 0;
 	}
 
 .xiMod_right {
-	width:70%;
-	float: right;
+
+	
 	margin: 0 0 0 1px;
 }
 .xiusMod_available input {
@@ -35,12 +34,12 @@
 	width: 15px;
 }
 .xiusModSearch{
-	clear: both;
 	}
 .xiusModSearch input{
 	margin-top: 10px;
-	float:right;
 	}
-LABEL {
+.xiusMod_availablemain label {
 	display: block;
+	padding-left: 										0px;
+    margin-left:0px;
 }

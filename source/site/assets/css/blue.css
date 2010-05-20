@@ -196,6 +196,15 @@
 	-webkit-border-radius:5px;
 	margin:8px;
 }
+
+.xius_apiHead{
+	padding:0px 0px 5px 15px;
+	font-size:1.5em;
+	color:#275788;
+	margin:15px 0 5px 5px;
+	border-bottom:1px solid green;
+}
+
 .applied {
 	margin-bottom: 2px;
 }
@@ -227,59 +236,65 @@
 
 /** End of applied info**/
 /** Available info div **/
-.xius_available {
-	overflow: hidden;
+
+.xius_ai{
 	border:1px solid #275788;
-	-moz-border-radius:5px;
+	padding:5px;
 	margin:8px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 }
 
-.xius_availablemain {
-	float: left;
-	width: 47%;
-	margin-top: 10px;
-	margin-left: 15px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+.xius_aiHead{
+	padding:0px 0px 5px 15px;
+	font-size:1.5em;
+	color:#275788;
+	margin:15px 0 5px 5px;
+	border-bottom:1px solid green;
 }
 
-.xi_left {
-	float: left;
-	margin-left: 15px;
-	margin-top: 5px;
-	width:30%;
-	font-weight: bold;
+.xius_aiMain{
+	border:1px solid #E0E8EF;
+	overflow:hidden;
+	margin:5px;
+	padding:5px;
 }
 
-.xi_right {
-	float: left;
+.xius_aiLabel{
+	float:left;
+	width:22%;
+	font-weight:bold;
+	padding:0px;
+	margin:0px;
 }
 
-.xi_right label{
+.xius_aiInput{
+	float:left;	
+	width:68%;
+	padding:0px;
+	margin:0px;
+}
+
+.xius_aiInput input{
+	margin-left:17px;	
+}
+
+.xius_aiInput select{
+	margin-left:17px;	
+}
+
+.xius_aiImg{
+	float:right;
+	padding:0px;
+	margin:0px;
+	cursor:pointer;
+}
+.xius_aiInput label{
+	margin:0px;
+	padding-left:17px;
 	display:block;
 	width:45%;
-	float:left;
-	padding: 0 0 0 17px;
-	margin: 0px;
-	margin-left: 18px;
-	}
-.xius_available input {
-	width: 150px;
-}
-
-.xius_available select {
-	width: 156px;
-
-}
-
-.xius_available input[type="checkbox"] {
-	width: 15px;
-	/*display: block;*/
-}
-
-.xius_available img {
-	cursor: pointer;
+	float:left;	
 }
 /** End Of Available Info **/
 /** admin option popup box css**/

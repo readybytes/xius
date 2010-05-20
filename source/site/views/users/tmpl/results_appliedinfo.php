@@ -56,11 +56,12 @@ echo '<b>'.JText::_('Join With').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
 echo $joinhtml;	
 ?>
 </div>
-<?php 
-endif;
-?>
+
 
 <input type="hidden" name="xiusdelinfo" value="" />
 <input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
 <!--</fieldset> -->
 </div>
+<?php 
+endif;
+?>
