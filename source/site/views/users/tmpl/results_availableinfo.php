@@ -25,7 +25,7 @@ if(!empty($this->availableInfo))
 				<?php echo $data['html'];?>
 				</div>
 				<div class="xius_aiImg">
-				<img src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
+				<img class="xius_test_addinfo_<?php echo $data['infoid'];?>" src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
 						alt="Add" title="Search" onClick="addInfo(<?php echo $data['infoid'];?>);"/>
 				</div>
 			</div>	

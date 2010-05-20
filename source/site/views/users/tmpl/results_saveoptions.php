@@ -23,7 +23,7 @@ if(!empty($this->msg))
 		<div><input type="text" name="xius_list_name" /></div>
 		<div class="lab"><label><?php echo JText::_('Description');?></label></div>
 		<div><textarea rows="" cols="" name="xius_list_desc"></textarea></div>
-		<div><?php echo JText::_('Publish');?>:<input type="radio" name="xius_list_publish" value="1" checked="checked"><?php echo JText::_('Unpublish');?>:<input type="radio" name="xius_list_publish" value="0"></div>
+		<div><?php echo JText::_('Published');?>:<input type="radio" name="xius_list_publish" value="0"><?php echo JText::_('NO');?>:<input type="radio" name="xius_list_publish" value="1" checked="checked"><?php echo JText::_('YES');?></div>
 		<div class="submit"><input type="submit" name = "xiussavenew" id = "xiussavenew" value=<?php echo JText::_('SAVE AS NEW')?> onClick = "saveList('xiussavenew');"/></div>
 		
 	</div>

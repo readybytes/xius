@@ -249,4 +249,48 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		$this->assertEquals($actualState, $enabled);
   }
   
+  function removeCondition($remove)
+	{
+		$temp = $remove;
+		foreach($remove as $key=>$val){
+			$this->click("//img[@class='xius_test_remove_$key']");
+			$this->waitPageLoad();
+			$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_$key']"));
+			$this->assertTrue($this->isElementPresent("//span[@id='total_$val']"));
+			
+			unset($temp[$key]);
+			foreach($temp as $k=>$v)
+				$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_$k']"));
+		}		
+	}
+	
+	
+	function isInformationExists($information)
+	{
+		foreach($information as $info=>$val){
+			$element = '//input[@id="'.$info.'"]';
+			$this->assertTrue($this->isElementPresent($element));
+		}	
+	}
+	
+	function fillInfo($information, $join)
+	{
+		foreach( $information as $key=>$val)
+			$this->type('//input[@id="'.$key.'"]', "$val"); 
+			
+	    $this->click("//input[@name='xius_join' and @value='$join']"); // match any
+	    $this->click("xiussearch");
+	    $this->waitPageLoad();			
+	}
+	
+	function isSearchElementPresent($elememt)
+	{
+		if(!is_array($elememt))
+			$this->assertTrue($this->isElementPresent($elememt));
+		else{
+			foreach($elememt as $ele)		
+				$this->assertTrue($this->isElementPresent($ele));
+		}			
+	}
+  
 }

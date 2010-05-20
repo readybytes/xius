@@ -106,13 +106,21 @@ class Joomla extends XiusBase
 	
 	public function getCacheColumns()
 	{
-		if($this->key != 'registerDate')
-			return parent::getCacheColumns();
+		if($this->key == 'registerDate'){
+			$details[] = array();
+			$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
+			$details[0]['specs'] = 'datetime NOT NULL';
+			return $details; 
+		}
 		
-		$details[] = array();
-		$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
-		$details[0]['specs'] = 'datetime NOT NULL';
-		return $details;
+		if($this->key == 'id'){
+			$details[] = array();
+			$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
+			$details[0]['specs'] = 'int(21) NOT NULL';
+			return $details;
+		}
+		
+		return parent::getCacheColumns();
 	}
 	
 	

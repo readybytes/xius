@@ -11,7 +11,7 @@
 			
 			<div class="xiusProfileLeft">
 				<div class="xiusAvatar">
-					<img src="<?php echo $cuser->getThumbAvatar();?>" onclick='location.href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>"'/>
+					<img id="avatar_<?php echo $cuser->id;?>" src="<?php echo $cuser->getThumbAvatar();?>" onclick='location.href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>"'/>
 				</div>
 				<div class="xiusViewProfile">
 					<a href="<?php echo CRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);?>" >
