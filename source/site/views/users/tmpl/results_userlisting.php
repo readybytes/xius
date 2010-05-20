@@ -52,11 +52,12 @@
 						</div>
 						<?php 
 							$onlineUser = JFactory::getUser();
-							if($onlineUser->id != $u->userid)	:
+							if($onlineUser->id != 0 && $onlineUser->id != $u->userid)	:
 								?>
 								<div class = "xiusFriends">
+									<img src="<?php echo JURI::base().'components/com_xius/assets/images/msg.png';?>" />
 									 <a onclick="<?php echo CMessaging::getPopup($u->userid); ?>" href="javascript:void(0);">	            	            
-				            			<?php echo JText::_('Write Message'); ?>
+				            			<?php echo JText::_('Message'); ?>
 				            		</a>
 								</div>
 						<?php endif;?>

@@ -3,10 +3,10 @@
 [0m[0mDirectories:                                         32
 Files:                                               84
 
-Lines of Code (LOC):                               8226
+Lines of Code (LOC):                               8240
   Cyclomatic Complexity / Lines of Code:           0.11
 Comment Lines of Code (CLOC):                      1471
-Non-Comment Lines of Code (NCLOC):                 6755
+Non-Comment Lines of Code (NCLOC):                 6769
 
 Namespaces:                                           0
 Interfaces:                                           0

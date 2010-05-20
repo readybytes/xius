@@ -217,7 +217,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	 */
 	function testCheckSearchDataExistance($fromArray , $toArray , $resultPosition)
 	{
-		$sqlPath = $this->getSqlPath().DS.__FUNCTION__."testDeleteSearchData.start.sql";
+		$sqlPath = $this->getSqlPath().DS."testDeleteSearchData.start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
 		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$toArray,'XIUS');
@@ -436,7 +436,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	 */
 	function testAddSearchData($addInfoId,$post,$existconditions,$resultConditions)
 	{
-		$sqlPath = $this->getSqlPath().DS.__FUNCTION__."testDeleteSearchData.start.sql";
+		$sqlPath = $this->getSqlPath().DS."testDeleteSearchData.start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
 		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$existconditions,'XIUS');
