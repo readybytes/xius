@@ -266,5 +266,37 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	}
 	
 	
+	/**
+	 * @dataProvider cacheColumnProvider
+	 */
+	function testCacheColumnName($infoid,$result)
+	{
+		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		$this->_DBO->loadSql($sqlPath);
+		
+		$instance = XiusFactory::getPluginInstanceFromId($infoid);
+		
+		$columns = $instance->getCacheColumns();
+		
+		$this->assertEquals($result,$columns," Both columns are not equal ");
+	}
+	
+	
+	public static function cacheColumnProvider()
+	{
+		
+		$result4 = array(array('columnname' => 'joomlaregisterDate' , 'specs' => 'datetime NOT NULL'));
+		$result8 = array(array('columnname' => 'jsfields3' , 'specs' => 'varchar(250) NOT NULL'));
+		$result9 = array(array('columnname' => 'joomlaid' , 'specs' => 'int(21) NOT NULL'));
+		$result10 = array(array('columnname' => 'joomlalastvisitDate' , 'specs' => 'varchar(250) NOT NULL'));
+		
+		return array(
+			array(4,$result4),
+			array(8,$result8),
+			array(9,$result9),
+			array(10,$result10)
+		);
+	}
+	
 }
 ?>

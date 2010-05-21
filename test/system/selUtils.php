@@ -13,6 +13,7 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
  */ 
   function setUp()
   {
+  	require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
   	$this->parentSetup();
   }
   

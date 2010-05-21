@@ -1,20 +1,37 @@
-phploc 1.2.0 by Sebastian Bergmann.
+[0mphploc 1.5.0 by Sebastian Bergmann.
 
-Directories:                               10
-Files:                                     27
+[0m[0mDirectories:                                         10
+Files:                                               28
 
-Lines of Code (LOC):                     3362
-Comment Lines of Code (CLOC):             383
-Non-Comment Lines of Code (NCLOC):       2979
+Lines of Code (LOC):                               3485
+  Cyclomatic Complexity / Lines of Code:           0.01
+Comment Lines of Code (CLOC):                       405
+Non-Comment Lines of Code (NCLOC):                 3080
 
-Interfaces:                                 0
-Abstract Classes:                           0
-Classes:                                    2
-Non-Static Methods:                        19
-Static Methods:                            17
-Functions:                                  0
-Constants:                                 21
-Class constants:                            0
+Namespaces:                                           0
+Interfaces:                                           0
+Classes:                                              2
+  Abstract:                                           0 (0.00%)
+  Concrete:                                           2 (100.00%)
+  Average Class Length (NCLOC):                    1559
+Methods:                                             19
+  Scope:
+    Non-Static:                                      19 (100.00%)
+    Static:                                           0 (0.00%)
+  Visibility:
+    Public:                                          18 (94.74%)
+    Non-Public:                                       1 (5.26%)
+  Average Method Length (NCLOC):                    164
+  Cyclomatic Complexity / Number of Methods:       2.42
 
-Test classes:                              21
-Test methods:                             134
+Anonymous Functions:                                  0
+Functions:                                            0
+
+Constants:                                           21
+  Global constants:                                  21
+  Class constants:                                    0
+
+Tests:
+  Classes:                                           22
+  Methods:                                           63
+[0m

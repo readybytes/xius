@@ -1,17 +1,33 @@
-phploc 1.2.0 by Sebastian Bergmann.
+[0mphploc 1.5.0 by Sebastian Bergmann.
 
-Directories:                               32
-Files:                                     84
+[0m[0mDirectories:                                         32
+Files:                                               84
 
-Lines of Code (LOC):                     8251
-Comment Lines of Code (CLOC):            1471
-Non-Comment Lines of Code (NCLOC):       6780
+Lines of Code (LOC):                               8251
+  Cyclomatic Complexity / Lines of Code:           0.11
+Comment Lines of Code (CLOC):                      1471
+Non-Comment Lines of Code (NCLOC):                 6780
 
-Interfaces:                                 0
-Abstract Classes:                           1
-Classes:                                   44
-Non-Static Methods:                       286
-Static Methods:                             0
-Functions:                                  6
-Constants:                                 29
-Class constants:                            0
+Namespaces:                                           0
+Interfaces:                                           0
+Classes:                                             45
+  Abstract:                                           1 (2.22%)
+  Concrete:                                          44 (97.78%)
+  Average Class Length (NCLOC):                     118
+Methods:                                            286
+  Scope:
+    Non-Static:                                     286 (100.00%)
+    Static:                                           0 (0.00%)
+  Visibility:
+    Public:                                         277 (96.85%)
+    Non-Public:                                       9 (3.15%)
+  Average Method Length (NCLOC):                     18
+  Cyclomatic Complexity / Number of Methods:       2.97
+
+Anonymous Functions:                                  0
+Functions:                                            6
+
+Constants:                                           29
+  Global constants:                                  29
+  Class constants:                                    0
+[0m

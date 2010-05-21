@@ -187,7 +187,7 @@ class XiusControllerUsers extends JController
 		$view		=& $this->getView( $viewName , $viewType );
 		
 		$view->setLayout( 'lists' );
-		return $view->_showLists($fromTask,$owner);
+		return $view->_showLists($owner);
 	}
 		
 	
