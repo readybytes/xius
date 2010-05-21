@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<params>
+	<!--
 		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
-		<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
+	-->
+	<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
 		<param name="xiusDebugMode" type="radio" default="0" label="ENABLE DEBUG MODE" description="ENABLE DEBUG MODE.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>

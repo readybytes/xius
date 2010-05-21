@@ -102,6 +102,7 @@ class InstallTest extends XiSelTestCase
  
   		//1.
   		$this->verifyPluginState('xius_system',false);
+  		$this->verifyPluginState('xius',false);
   		$this->verifyModuleState('mod_xiuslisting',false);
   		$this->verifyModuleState('mod_xiussearchpanel',false);
   }
@@ -113,6 +114,7 @@ class InstallTest extends XiSelTestCase
  
   		//1.
   		$this->verifyPluginState('xius_system',true);
+  		$this->verifyPluginState('xius',true);
   		$this->verifyModuleState('mod_xiuslisting',false);
   		$this->verifyModuleState('mod_xiussearchpanel',false);
   }
@@ -137,6 +139,12 @@ class InstallTest extends XiSelTestCase
     
     return -1;
   }
-  
-  
+
+  function testVerifyCronRun()
+  {
+  	$this->open(JOOMLA_LOCATION."index.php?option=com_community&task=cron");
+    $this->waitPageLoad();
+    $this->assertTrue($this->isTextPresent("Running XIUS Cron update"));
+  }
+
 }

@@ -1,11 +1,9 @@
+../packages/tmp/admin/controllers/info.php:243:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/views/info/view.html.php:34:			/*XITODO : render all plugins individual fields 
 ../packages/tmp/admin/views/info/tmpl/default.php:70:		/*XITODO : direct using param here without any help of plugin instance
 ../packages/tmp/admin/helpers/utils.php:66:		/*XITODO : -1 means display all information ,from configuration*/
 ../packages/tmp/admin/helpers/utils.php:134:		/*XITODO: Minimun time for updating cache
-../packages/tmp/admin/controllers/info.php:243:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/includes.php:17://XITODO : add autoloading, do not just includes
-../packages/tmp/admin/models/info.php:75:	/*XITODO : Cache function for same filter */
-../packages/tmp/admin/models/info.php:139:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/libraries/cache.php:87:	/*XITODO : Modify fn to check that column name
 ../packages/tmp/admin/libraries/usersearch.php:12:		/*XITODO : provide join operator and sorting condition
 ../packages/tmp/admin/libraries/usersearch.php:41:		 * XITODO : add block condition
@@ -15,20 +13,22 @@
 ../packages/tmp/admin/libraries/usersearch.php:215:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:252:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:347:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:200:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/plugins/base.php:296:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/base.php:498:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:200:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/factory.php:67:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/site/views/users/view.html.php:233:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:318:		/*XITODO : get list according to owner*/
-../packages/tmp/site/views/users/tmpl/results.php:5:/*XITODO : pass variable for color */
+../packages/tmp/admin/models/info.php:75:	/*XITODO : Cache function for same filter */
+../packages/tmp/admin/models/info.php:139:		/*XITODO : check key should not be added already*/
 ../packages/tmp/site/controllers/users.php:16:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:84:		/*XITODO : pass only searchable information 
 ../packages/tmp/site/controllers/users.php:171:		//XITODO : unset old data first
 ../packages/tmp/site/controllers/users.php:282:		/*XITODO : ask user for list details
 ../packages/tmp/site/controllers/users.php:290:			/*XITODO : set visible info and published also */
+../packages/tmp/site/views/users/view.html.php:233:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:318:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/tmpl/results.php:5:/*XITODO : pass variable for color */
 ../packages/tmp/site/models/users.php:35:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/users.php:49:        /*XITODO : Add error message */
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:17://XITODO : use proper name
-../packages/tmp/install/extensions/mod_xiuslisting/helper.php:9:		//XITODO : Use library fn to get list
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:6://XITODO : use proper name for disp , apply itemid also
+../packages/tmp/install/extensions/mod_xiuslisting/helper.php:9:		//XITODO : Use library fn to get list
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:17://XITODO : use proper name

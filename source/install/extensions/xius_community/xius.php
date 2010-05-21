@@ -10,18 +10,16 @@ jimport('joomla.filesystem.folder');
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 	return;
 
-class plgSystemxius_system extends JPlugin
+class plgCommunityxius extends JPlugin
 {
 	var $_debugMode = 0;
-		
-	function plgSystemxius_system( &$subject, $params )
+
+	function plgCommunityxius( &$subject, $params )
 	{
 		parent::__construct( $subject, $params );
 	}
-	
-	
-	
-	function onUsInfoUpdated($data)
+
+	function onCronRun()
 	{
 		$incldePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
 		if(!JFile::exists($incldePath))
@@ -29,6 +27,7 @@ class plgSystemxius_system extends JPlugin
 
 		require_once $incldePath;
 		$plgHandler = XiusFactory::getLibraryPluginHandler();
-		return $plgHandler->onUsInfoUpdated($data);
+		echo " Running XIUS Cron update";
+		return $plgHandler->onCronRun();
 	}
 }

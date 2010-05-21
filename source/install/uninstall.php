@@ -6,6 +6,7 @@ function com_uninstall()
 {
 	// disable plugins
 	disable_plugin('xius_system');
+	disable_plugin('xius');
 	changeModuleState('mod_xiuslisting',0);
 	changeModuleState('mod_xiussearchpanel',0);
 }

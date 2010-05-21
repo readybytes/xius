@@ -36,6 +36,15 @@
                         tofile="${target}/source/install/extensions/xius_system/xius_system.xml" 
                          />
 
+
+		<copy   file="${source}/plugins/community/xius.php" 
+                        tofile="${target}/source/install/extensions/xius_community/xius.php" 
+                         />
+
+		<copy   file="${source}/plugins/community/xius.xml" 
+                        tofile="${target}/source/install/extensions/xius_community/xius.xml" 
+                         />
+                         
 		<!-- Add module folders -->
 		<copy todir="${target}/source/install/extensions/mod_xiuslisting">
 			<fileset dir="${source}/modules/mod_xiuslisting">
