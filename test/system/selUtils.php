@@ -250,15 +250,17 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		$this->assertEquals($actualState, $enabled);
   }
   
-  function removeCondition($remove)
+  function removeCondition($remove, $count='All')
 	{
 		$temp = $remove;
 		foreach($remove as $key=>$val){
+			if($count == 0)
+				break;
 			$this->click("//img[@class='xius_test_remove_$key']");
 			$this->waitPageLoad();
 			$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_$key']"));
 			$this->assertTrue($this->isElementPresent("//span[@id='total_$val']"));
-			
+			if($count != 'All' && $count!='all') $count--;
 			unset($temp[$key]);
 			foreach($temp as $k=>$v)
 				$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_$k']"));

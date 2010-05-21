@@ -1,5 +1,4 @@
 <?php
-require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
 
 class XiusSearchTest extends XiSelTestCase
 {
@@ -19,8 +18,6 @@ class XiusSearchTest extends XiSelTestCase
 	function testXiusSearch()
 	{
 		$this->loadSql();
-		//$url =  dirname(__FILE__).'/sql/XiusJoomlaSearchTest/testJoomlaPluginSearch.start.sql';
-		//$this->_DBO->loadSql($url);
 		
 		// go to search panel
 		// condition 1
@@ -44,12 +41,12 @@ class XiusSearchTest extends XiSelTestCase
 		// joomla published information will be shown
 		$this->assertTrue($this->isElementPresent("//select[@id='field2']"));
 		$this->select("//select[@id='field2']", "label=Female");
-		echo "sads";
 		$information = array('field11'=>'Noida', 'field10'=>'Karnataka');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		$this->fillInfo($information, 'AND');
-		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));		
+		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
+				
 	}
 	
 	function testSearchWithMultipleSameInfo()
@@ -77,8 +74,66 @@ class XiusSearchTest extends XiSelTestCase
 		$this->select("//select[@id='field2']", "label=Female");
 		$this->click("//img[@class='xius_test_addinfo_1']");
     	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
     	
-    	$condotions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS);
-		print_r(var_export($condotions));
+    	$element[] = "//img[@class='xius_test_remove_Male']";
+    	$element[] = "//img[@class='xius_test_remove_Female']";
+    	$element[] = "//img[@class='xius_test_remove_Rajasthan']";
+    	$this->isSearchElementPresent($element);
+    	
+    	// match any condition
+    	$this->select("xiusjoin", "label=Match Any");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_57']"));
+		// remove male
+		$remove = array('Male'=>33,'Female'=>8,'Rajasthan'=>8);
+		$count=1;
+		$this->removeCondition($remove,$count);
+		
+		//remove female
+		$remove = array('Female'=>8,'Rajasthan'=>8);
+		$count=1;
+		$this->removeCondition($remove,$count);
+		
+		// add same info for state
+		$this->type('field10','Rajasthan');
+    	$this->click("//img[@class='xius_test_addinfo_20']");
+    	$this->waitPageLoad();
+		
+		$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_Rajasthan')]"), 1);
+	}
+	
+	function testKeywordSearch()
+	{
+		$this->loadSql();
+		$url =  dirname(__FILE__).'/sql/XiusSearchTest/testXiusSearch.start.sql';
+		$this->_DBO->loadSql($url);
+		
+		// go to search panel
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		$this->assertTrue($this->isElementPresent("//select[@id='field2']"));
+		$this->assertTrue($this->isElementPresent("//select[@id='field12']"));
+		// joomla published information will be shown
+		$information = array('field11'=>'','Joomla_6'=>'','field3'=>'',
+							 'field10'=>'','Keyword_24'=>'Bhilwara');
+		$this->isInformationExists($information);
+		// call the function the for filling the values of information
+		
+		$this->fillInfo($information, 'OR');
+		$this->assertTrue($this->isElementPresent("//span[@id='total_3']"));
+		
+		$this->type("Keyword_24", "Jaipur");
+    	$this->click("//img[@class='xius_test_addinfo_24']");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_6']"));
+    	
+    	$this->type("Keyword_24", "Jaipur");
+    	$this->click("//img[@class='xius_test_addinfo_24']");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_6']"));
+    	
+    	$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_Jaipur')]"), 1);
 	}
 }

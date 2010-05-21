@@ -1,3 +1,33 @@
+DROP TABLE IF EXISTS `#__xius_cache`;;
+
+CREATE TABLE IF NOT EXISTS `#__xius_cache` (
+  `userid` int(21) NOT NULL,
+  `jsfields2` varchar(250) NOT NULL,
+  `jsfields11` varchar(250) NOT NULL,
+  `jsfields12` varchar(250) NOT NULL,
+  `joomlaregisterDate` datetime NOT NULL,
+  `joomlausername` varchar(250) NOT NULL,
+  `joomlaname` varchar(250) NOT NULL,
+  `jsfields17` varchar(250) NOT NULL,
+  `jsfields3` varchar(250) NOT NULL,
+  `joomlaid` int(21) NOT NULL,
+  `joomlaemail` varchar(250) NOT NULL,
+  `joomlausertype` varchar(250) NOT NULL,
+  `joomlablock` varchar(250) NOT NULL,
+  `joomlagid` varchar(250) NOT NULL,
+  `joomlalastvisitDate` varchar(250) NOT NULL,
+  `jsfields4` varchar(250) NOT NULL,
+  `jsfields5` varchar(250) NOT NULL,
+  `jsfields7` varchar(250) NOT NULL,
+  `jsfields8` varchar(250) NOT NULL,
+  `jsfields9` varchar(250) NOT NULL,
+  `jsfields10` varchar(250) NOT NULL,
+  `jsfields13` varchar(250) NOT NULL,
+  `jsfields15` varchar(250) NOT NULL,
+  `jsfields16` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
+
+
 TRUNCATE TABLE `#__xius_cache`;;
 INSERT INTO `#__xius_cache` (`userid`, `jsfields2`, `jsfields11`, `jsfields12`, `joomlaregisterDate`, `joomlausername`, `joomlaname`, `jsfields17`, `jsfields3`, `joomlaid`, `joomlaemail`, `joomlausertype`, `joomlablock`, `joomlagid`, `joomlalastvisitDate`, `jsfields4`, `jsfields5`, `jsfields7`, `jsfields8`, `jsfields9`, `jsfields10`, `jsfields13`, `jsfields15`, `jsfields16`) VALUES
 (62, '', '', '', '2010-01-16 11:12:08', 'admin', 'Administrator', '', '', 62, 'shyam@joomlaxi.com', 'Super Administrator', '0', '25', '2010-05-20 10:15:03', '', '', '', '', '', '', '', '', ''),
@@ -59,4 +89,3 @@ INSERT INTO `#__xius_cache` (`userid`, `jsfields2`, `jsfields11`, `jsfields12`, 
 (118, 'Female', 'Jaipur', 'American Samoa', '2010-05-20 10:32:10', 'username119', 'name119', '', '1999-10-22 23:59:59', 118, 'username119@email.com', 'Registered', '0', '18', '0000-00-00 00:00:00', 'Jaipur', '', '1190570091', '1291781763', 'Jaipur', 'Karnataka', '', '', ''),
 (119, 'Male', 'Surat', 'Albania', '2010-05-20 10:32:10', 'username120', 'name120', '', '1999-7-4 23:59:59', 119, 'username120@email.com', 'Registered', '0', '18', '0000-00-00 00:00:00', 'Surat', '', '1375183906', '1393797278', 'Surat', 'Karnataka', '', '', ''),
 (120, 'Male', 'Ludhiana', 'Algeria', '2010-05-20 10:32:10', 'username121', 'name121', '', '1990-6-13 23:59:59', 120, 'username121@email.com', 'Registered', '0', '18', '0000-00-00 00:00:00', 'Ludhiana', '', '1274438791', '1305112088', 'Ludhiana', 'Rajasthan', '', '', '');;
-

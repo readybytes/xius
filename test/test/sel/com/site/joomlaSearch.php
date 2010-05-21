@@ -15,7 +15,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->_DBO->loadSql($url);	
 	}
 	
-	function xxxtestJoomlaPluginSearch()
+	function testJoomlaPluginSearch()
 	{
 		$this->loadSql();
 		
@@ -96,14 +96,14 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 	   	$this->type("JoomlaregisterDate", "15-03-2009");
     	$this->click("//img[@class='xius_test_addinfo_4']");
     	$this->waitPageLoad();
-    	    	
-    	$element[]= "//img[@class='xius_test_remove_4']";
-    	$element[]= "//img[@class='xius_test_remove_9']";
-    	$element[]= "//img[@class='xius_test_remove_6']";
-    	$element[]= "//img[@class='xius_test_remove_11']";
-    	$element[]= "//img[@class='xius_test_remove_10']";
-    	$this->isSearchElementPresent($element);
+
+    	$element[]= "//img[@class='xius_test_remove_15-3-2009']";
+    	$element[]= "//img[@class='xius_test_remove_name']";
+    	$element[]= "//img[@class='xius_test_remove_66']";
+    	$element[]= "//img[@class='xius_test_remove_email']";
+    	$element[]= "//img[@class='xius_test_remove_register']";
     	
+    	$this->isSearchElementPresent($element);
     	// match any
 		$this->select("xiusjoin", "label=Match Any");
 		$this->waitPageLoad();
