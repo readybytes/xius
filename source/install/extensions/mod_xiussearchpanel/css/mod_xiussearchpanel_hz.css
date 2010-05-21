@@ -17,13 +17,15 @@
 	float: left;
 	margin-left: 15px;
 	margin-top: 5px;
+	width:30%;
 }
 
 .xiMod_right {
-	float: right;
+	overflow:hidden;
+	float: left;
 }
 
-.xiusMod_available input {
+.xiMod_right input {
 	width: 150px;
 	float: left;
 }
@@ -45,7 +47,9 @@
 	margin-top: 10px;
 	margin-left: 15px;
 	}
-LABEL {
-display: block;	
+.xiMod_right label{
+display: block;
+width:45%;
+float:left;
 }
 /** End Of Available Info **/

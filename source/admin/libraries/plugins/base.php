@@ -227,7 +227,7 @@ abstract class XiusBase extends JObject
 	protected function generateSearchHtml()
 	{
 		$infoIdStartHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'1" id="xiusinfo_'.$this->id.'1" value="'.$this->id.'"/>';
-		$inputHtml = '<input type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
+		$inputHtml = '<input class="inputbox" type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
 		$infoIdEndHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'2" id="xiusinfo_'.$this->id.'2" value="'.$this->id.'"/>';
 		$htmlwithInfoId = $infoIdStartHtml . $inputHtml . $infoIdEndHtml;
 		

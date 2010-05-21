@@ -39,7 +39,7 @@ if(!empty($this->appliedInfo)) : ?>
 		echo '</div></div><div class="right"><img class="xius_test_remove_'.$a['infoid'].'" src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
 								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
 	endforeach;?>
-<div class="applied">
+<div class="xijoin">
 <?php 
 $orSelected = '';
 $andSelected = '';

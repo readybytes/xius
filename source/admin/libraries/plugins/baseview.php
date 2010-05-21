@@ -44,7 +44,7 @@ class XiusBaseView extends JView
 	
 	function searchHtml($calleObject)
 	{
-		$inputHtml = '<input type="text" name="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" id="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" />';
+		$inputHtml = '<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" id="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" />';
 		
 		return $inputHtml;
 	}

@@ -33,6 +33,10 @@ font-weight:bold;
 .xiusMod_available input[type="checkbox"] {
 	width: 15px;
 }
+
+.xiusMod_available input[type="radio"] {
+	width: 15px;
+}
 .xiusModSearch{
 	}
 .xiusModSearch input{

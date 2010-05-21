@@ -36,16 +36,16 @@
 }
 
 .xius_spInput input{
-	margin-left:17px;	
+/*	margin-left:17px; */	
 }
 
 .xius_spInput select{
-	margin-left:17px;	
+/*	margin-left:17px; */	
 }
 
 .xius_spInput label{
 	margin:0px;
-	padding-left:17px;
+/*	padding-left:17px; */
 	display:block;
 	width:45%;
 	float:left;

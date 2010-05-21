@@ -234,6 +234,18 @@
 	cursor: pointer;
 }
 
+.xijoin{
+	float: left;
+	background:#D8DFEA;
+	-moz-border-radius:5px;
+	/*border: 1px solid #275788;*/
+	position: relative;
+	width: 180px;
+	overflow: hidden;
+	color: #275788;
+	margin-left: 4px;
+	padding:2px;
+}
 /** End of applied info**/
 /** Available info div **/
 
@@ -276,11 +288,11 @@
 }
 
 .xius_aiInput input{
-	margin-left:17px;	
+/*	margin-left:17px;*/	
 }
 
 .xius_aiInput select{
-	margin-left:17px;	
+/*	margin-left:17px;	*/
 }
 
 .xius_aiImg{
@@ -291,7 +303,7 @@
 }
 .xius_aiInput label{
 	margin:0px;
-	padding-left:17px;
+/*	padding-left:17px;*/
 	display:block;
 	width:45%;
 	float:left;	
