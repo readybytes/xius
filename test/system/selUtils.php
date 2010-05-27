@@ -250,17 +250,17 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		$this->assertEquals($actualState, $enabled);
   }
   
-  function removeCondition($remove, $count='All')
+  function removeCondition($remove, $count=-1)
 	{
 		$temp = $remove;
 		foreach($remove as $key=>$val){
-			if($count == 0)
+			if($count==0)
 				break;
 			$this->click("//img[@class='xius_test_remove_$key']");
 			$this->waitPageLoad();
 			$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_$key']"));
 			$this->assertTrue($this->isElementPresent("//span[@id='total_$val']"));
-			if($count != 'All' && $count!='all') $count--;
+			if($count > 0) $count--;
 			unset($temp[$key]);
 			foreach($temp as $k=>$v)
 				$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_$k']"));
@@ -295,5 +295,4 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 				$this->assertTrue($this->isElementPresent($ele));
 		}			
 	}
-  
 }

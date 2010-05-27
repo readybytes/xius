@@ -26,9 +26,10 @@ class XiusLibrariesList
 		return $id;
 	}	
 	
-	
-	function getUser()
-	{
-		
+	function getLists($filter='', $join = 'AND',$reqPagination=true)
+	{		
+		$lModel = XiusFactory::getModel('list','admin');
+		return $lModel->getLists($filter, $join, $reqPagination);
+			
 	}
 }

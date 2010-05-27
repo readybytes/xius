@@ -232,14 +232,12 @@ class XiusControllerUsers extends JController
 					break;
 				}
 				
-				$data = $this->_saveListChecks(false);
+				$data = $this->_saveListChecks(true);
 				
 				if($data['success'] == true){
 					$data = '';
-					$data =  $this->_saveList(false);
+					$data =  $this->_saveList(true);
 				}
-				
-				$data =  $this->_saveList(true);
 				$view->setLayout( 'results_success' );
 				return $view->success($data);
 				break;

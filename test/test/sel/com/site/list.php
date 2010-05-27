@@ -7,85 +7,109 @@ class XiusListTest extends XiSelTestCase
 		return dirname(__FILE__).'/sql/'.__CLASS__;
 	}
 	
-	
+	function loadSql()
+	{
+		$url = dirname(__FILE__).'/_data/insert.sql';
+		$this->_DBO->loadSql($url);
+		$url = dirname(__FILE__).'/_data/updateCache.sql';
+		$this->_DBO->loadSql($url);	
+	}
+		
 	function testSaveList()
 	{
+		//$this->loadSql();		
 		$this->_DBO->addTable('#__xius_list');
 		$this->_DBO->filterColumn('#__xius_list','params');
 		$this->_DBO->filterColumn('#__xius_list','ordering');
-		
-		/*$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
-		$this->_DBO->loadSql($sqlPath);*/
-		
-		$url = dirname(__FILE__).'/_data/insert.sql';
-		$this->_DBO->loadSql($url);
-
+				
 		$this->frontLogin('admin','ssv445');
-		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=1');
+    	$this->waitPageLoad();
     	
+		$element = "//img[@class='xius_test_remove_Male']";
+		$this->click($element);
+		$this->waitPageLoad();
+		
 		$this->select("field2", "label=Female");
-   		$this->click("//img[@alt='Add']");
+   	   	$this->click("//img[@class='xius_test_addinfo_1']");
     	$this->waitPageLoad();
-    	$this->click("1");
-    	$this->waitPageLoad();
-    
+    	
+    	$this->assertTrue($this->isElementPresent("//img[@title='Save']"));
 		$this->click("//img[@title='Save']");
-		for ($second = 0; ; $second++) {
-	        if ($second >= 60) 
-	        	$this->fail("timeout");
-	        	
-            if ($this->isElementPresent("//form[@id='saveListForm']/div/div[1]/h3")) 
-            	break;
-        	
-       		sleep(1);
-    	}
-
-	    for ($second = 0; ; $second++) {
-	       if ($second >= 60) 
-	        	$this->fail("timeout");
-	        	
-            if ($this->isElementPresent("//form[@id='saveListForm']/div/div[2]/h3")) 
-            	break;
-        	
-       		sleep(1);
-	    }
-	    
-	
-        $this->assertEquals("1", $this->getValue("listid"));
-    
-        $this->assertEquals("1", $this->getValue("//input[@name='listid' and @value='1']"));
-        $this->assertEquals("off", $this->getValue("//input[@name='listid' and @value='2']"));
+		
+		$this->waitForElement('sbox-window');
+		sleep(2);
+		
+ 		$this->assertEquals("1", $this->getValue("name=listid value=1"));
+        $this->assertEquals("off", $this->getValue("name=listid value=2"));
         
 	    $this->type("xius_list_name", "Female From Afghanistan");
     	$this->type("xius_list_desc", "All Female from afghanistan");
     	$this->click("xiussavenew");
     	
-    	
-		for ($second = 0; $second <= 60 ; $second++)
-       		sleep(1);
-    	
-    	
-    	//$this->waitPageLoad();
-    	
-	  	//$this->click("//input[@value='close']");
-  
-	  	//$this->selectWindow($this->getCurrentWindow());
-	  	
-	  	
-    	/*for ($second = 0; ; $second++) {
-        	if ($second >= 120)
-        		$this->fail("timeout");
-       
-            if ($this->isTextPresent("Female From Afghanistan")) 
-            	break;
-       
-       		sleep(1);
-    	}
-    	
-        $this->assertTrue($this->isTextPresent("Female From Afghanistan"));*/
+	    sleep(3);
+	    $this->waitPageLoad();
+        $this->assertTrue($this->isTextPresent("Female From Afghanistan"));
         	
 	}
 	
+	function testListEditing()
+	{				
+		$this->_DBO->addTable('#__xius_list');
+		$this->_DBO->filterColumn('#__xius_list','params');
+		$this->_DBO->filterColumn('#__xius_list','ordering');
+		
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=2');
+    	$this->waitPageLoad();
+    	$this->assertFalse($this->isElementPresent("//img[@title='Save']"));
+    	
+		$this->frontLogin('admin','ssv445');
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=2');
+    	$this->waitPageLoad();
+    	
+		$element = "//img[@class='xius_test_remove_16-1-2010']";
+		$this->click($element);
+		$this->waitPageLoad();
+				
+		$this->type("field11", "Noida");
+   	   	$this->click("//img[@class='xius_test_addinfo_2']");
+    	$this->waitPageLoad();
+
+    	$this->type("field11", "Jaipur");
+   	   	$this->click("//img[@class='xius_test_addinfo_2']");
+    	$this->waitPageLoad();
+    	
+    	$this->assertTrue($this->isElementPresent("//img[@title='Save']"));
+		$this->click("//img[@title='Save']");
+		
+		$this->waitForElement('sbox-window');
+		sleep(2);
+		
+ 		$this->assertEquals("off", $this->getValue("name=listid value=1"));
+        $this->assertEquals("2", $this->getValue("name=listid value=2"));
+        
+	   /* $this->type("xius_list_name", "Users from Noida or Jaipur");
+    	$this->type("xius_list_desc", "Users from Noida or Jaipur");*/
+    	$this->click("xiussaveexisting");
+    	
+	    sleep(3);
+	    $this->waitPageLoad();
+        $this->assertTrue($this->isTextPresent("Register Date is 16-01-2010"));
+	}
+
+	function testListByRemovingInfo()
+	{
+		$this->loadSql();
+		$this->frontLogin('admin','ssv445');
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=1');
+    	$this->waitPageLoad();
+    	
+    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_Jaipur']"));
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_2']"));
+    	
+    	$this->click("//img[@class='xius_test_remove_Male']");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_3']"));    	
+	}
 	
 }

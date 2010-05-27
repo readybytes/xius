@@ -136,4 +136,96 @@ class XiusSearchTest extends XiSelTestCase
     	
     	$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_Jaipur')]"), 1);
 	}
+	
+	function testRadioCheckBoxSearch()
+	{
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		// search from Radio buttons 
+		$this->click("//form[@id='searchForm']/div[2]/div[2]/div/label[1]/input");
+    	$this->click("xiussearch");
+    	$this->waitPageLoad();
+    	
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_7']"));
+    	// compare user listed
+    	$avatar[] = "//img[@id='avatar_71']";
+		$avatar[] = "//img[@id='avatar_76']";
+		$avatar[] = "//img[@id='avatar_91']";
+		$avatar[] = "//img[@id='avatar_94']";
+		$avatar[] = "//img[@id='avatar_102']";
+		$avatar[] = "//img[@id='avatar_108']";
+		$avatar[] = "//img[@id='avatar_119']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);
+		
+		$this->click("//form[@id='userForm']/div[2]/div[2]/div[2]/div/label[2]/input");
+		$this->click("//img[@class='xius_test_addinfo_10']");
+		$this->waitPageLoad();    
+		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
+		
+		$this->click("//img[@class='xius_test_remove_Single']");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_5']"));
+    	// compare user listed
+    	$avatar[] = "//img[@id='avatar_80']";
+		$avatar[] = "//img[@id='avatar_82']";
+		$avatar[] = "//img[@id='avatar_100']";
+		$avatar[] = "//img[@id='avatar_111']";
+		$avatar[] = "//img[@id='avatar_116']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);
+		
+		// serach according to birthday
+		
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+				
+    	$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[1]/input");
+    	$this->click("//input[@name='xius_join' and @value='OR']");
+	    $this->click("xiussearch");
+    	$this->waitPageLoad();
+		
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_4']"));
+    	$avatar[] = "//img[@id='avatar_80']";
+		$avatar[] = "//img[@id='avatar_82']";
+		$avatar[] = "//img[@id='avatar_102']";		
+		$avatar[] = "//img[@id='avatar_116']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);
+		
+		$this->click("//form[@id='userForm']/div[2]/div[3]/div[2]/div/label[2]/input");
+    	$this->click("//img[@class='xius_test_addinfo_12']");    	
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_7']"));
+    	$avatar[] = "//img[@id='avatar_91']";
+		$avatar[] = "//img[@id='avatar_100']";		
+		$avatar[] = "//img[@id='avatar_119']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);
+						
+		
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[3]/input");
+    	$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[4]/input");
+		$this->click("xiussearch");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
+    	$avatar[] = "//img[@id='avatar_94']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);
+	
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();		
+		$this->type("//form[@id='searchForm']/div[4]/div[2]/input[2]", "13-10-1995");
+    	$this->click("xiussearch");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
+		$avatar[] = "//img[@id='avatar_82']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);
+				
+	}
+	
 }

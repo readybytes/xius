@@ -2,22 +2,16 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class ListHelper
+class XiusListHelper
 {
 	function getListData()
 	{
-		//XITODO : Use library fn to get list
-		$db			=& JFactory::getDBO();
-
-		//$filterSql = $this->_buildFilterQuery($filter,$join);
+		$user = JFactory::getUser();
+		$filter='';
 		
-		$query	= ' SELECT * FROM ' 
-				. $db->nameQuote('#__xius_list')
-				//.$filterSql
-				. ' ORDER BY '. $db->nameQuote('ordering');
-		$db->setQuery($query);
+		if(!XiusHelpersUtils::isAdmin($user->id))
+			$filter['published'] = 1; 
 			
-		$lists	= $db->loadObjectList();
-		return $lists;		
+		return XiusLibrariesList::getLists($filter, 'AND', false);
 	}
 }

@@ -22,3 +22,9 @@ define('JOOMLA_ADMIN_PASSWORD',	'ssv445');
 
 //these files should have been copied by phing during setup of joomla 
 define('XIUS_PKG',		JOOMLA_LOCATION.'/xius.zip');
+
+$name = 'com_xius';
+define( 'JPATH_COMPONENT',					JPATH_BASE.DS.'components'.DS.$name);
+define( 'JPATH_COMPONENT_SITE',				JPATH_SITE.DS.'components'.DS.$name);
+define( 'JPATH_COMPONENT_ADMINISTRATOR',	JPATH_ADMINISTRATOR.DS.'components'.DS.$name);
+

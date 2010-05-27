@@ -236,7 +236,10 @@ class XiusViewUsers extends JView
         $availableInfo = array();
 	 	if(!empty($data['allInfo'])){
         	foreach($data['allInfo'] as $ai){	
-        		$plgInstance = XiusFactory::getPluginInstanceFromId($ai->id);
+        		$plgInstance = XiusFactory::getPluginInstance($ai->pluginType);
+        		if($plgInstance)
+					$plgInstance->bind($ai);
+						
 				if(!$plgInstance)
 					continue;
 					

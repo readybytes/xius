@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2010-05-21T16:25:33" pdepend="0.9.11" ahh="0.7" andc="0.117647058824" calls="1040" ccn="723" ccn2="785" cloc="855" clsa="1" clsc="70" eloc="3740" fanout="352" leafs="63" loc="5938" maxDIT="2" ncloc="5083" noc="71" nof="6" noi="0" nom="262" nop="3" roots="6">
+<metrics generated="2010-05-27T17:07:27" pdepend="0.9.11" ahh="0.7" andc="0.117647058824" calls="1042" ccn="725" ccn2="787" cloc="852" clsa="1" clsc="70" eloc="3741" fanout="355" leafs="63" loc="5934" maxDIT="2" ncloc="5082" noc="71" nof="6" noi="0" nom="262" nop="3" roots="6">
   <files>
     <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php" cloc="35" eloc="42" loc="93" ncloc="58"/>
     <file name="/vobs/xius/trunk/source/admin/controllers/cpanel.php" cloc="1" eloc="45" loc="63" ncloc="62"/>
@@ -10,7 +10,7 @@
     <file name="/vobs/xius/trunk/source/admin/libraries/error.php" cloc="0" eloc="9" loc="15" ncloc="15"/>
     <file name="/vobs/xius/trunk/source/admin/libraries/factory.php" cloc="13" eloc="87" loc="132" ncloc="119"/>
     <file name="/vobs/xius/trunk/source/admin/libraries/info.php" cloc="7" eloc="45" loc="71" ncloc="64"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/list.php" cloc="9" eloc="16" loc="35" ncloc="26"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/list.php" cloc="9" eloc="18" loc="36" ncloc="27"/>
     <file name="/vobs/xius/trunk/source/admin/libraries/pluginhandler.php" cloc="3" eloc="13" loc="22" ncloc="19"/>
     <file name="/vobs/xius/trunk/source/admin/libraries/plugins/base.php" cloc="84" eloc="315" loc="516" ncloc="432"/>
     <file name="/vobs/xius/trunk/source/admin/libraries/plugins/baseview.php" cloc="6" eloc="33" loc="54" ncloc="48"/>
@@ -34,34 +34,34 @@
     <file name="/vobs/xius/trunk/source/admin/views/cpanel/view.html.php" cloc="12" eloc="50" loc="74" ncloc="62"/>
     <file name="/vobs/xius/trunk/source/admin/views/info/view.html.php" cloc="9" eloc="64" loc="100" ncloc="91"/>
     <file name="/vobs/xius/trunk/source/admin/views/list/view.html.php" cloc="11" eloc="27" loc="48" ncloc="37"/>
-    <file name="/vobs/xius/trunk/source/install/extensions/mod_xiuslisting/helper.php" cloc="4" eloc="15" loc="24" ncloc="20"/>
+    <file name="/vobs/xius/trunk/source/install/extensions/mod_xiuslisting/helper.php" cloc="1" eloc="13" loc="18" ncloc="17"/>
     <file name="/vobs/xius/trunk/source/install/extensions/mod_xiussearchpanel/helper.php" cloc="1" eloc="45" loc="60" ncloc="59"/>
     <file name="/vobs/xius/trunk/source/install/extensions/xius_community/xius.php" cloc="1" eloc="25" loc="34" ncloc="33"/>
     <file name="/vobs/xius/trunk/source/install/extensions/xius_system/xius_system.php" cloc="1" eloc="24" loc="35" ncloc="34"/>
-    <file name="/vobs/xius/trunk/source/site/controllers/users.php" cloc="53" eloc="263" loc="396" ncloc="343"/>
+    <file name="/vobs/xius/trunk/source/site/controllers/users.php" cloc="53" eloc="262" loc="394" ncloc="341"/>
     <file name="/vobs/xius/trunk/source/site/models/users.php" cloc="9" eloc="60" loc="93" ncloc="84"/>
     <file name="/vobs/xius/trunk/source/site/views/users/view.csv.php" cloc="4" eloc="74" loc="100" ncloc="96"/>
-    <file name="/vobs/xius/trunk/source/site/views/users/view.html.php" cloc="32" eloc="237" loc="347" ncloc="315"/>
+    <file name="/vobs/xius/trunk/source/site/views/users/view.html.php" cloc="32" eloc="239" loc="350" ncloc="318"/>
     <file name="/vobs/xius/trunk/source/install/install.php" cloc="10" eloc="43" loc="76" ncloc="66"/>
     <file name="/vobs/xius/trunk/source/install/uninstall.php" cloc="2" eloc="31" loc="42" ncloc="40"/>
     <file name="/vobs/xius/trunk/source/admin/tables/conditions.php" cloc="48" eloc="40" loc="102" ncloc="54"/>
     <file name="/vobs/xius/trunk/source/admin/tables/list.php" cloc="20" eloc="62" loc="99" ncloc="79"/>
   </files>
   <package name="+global" cr="0.2775" noc="67" nof="6" noi="0" nom="230" rcr="0.15">
-    <class name="XiusControllerConfiguration" cis="7" cloc="34" cr="0.15" csz="7" dit="2" eloc="39" impl="0" loc="88" ncloc="54" noam="3" nocc="0" nom="3" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="7" wmci="7" wmcnp="7">
+    <class name="XiusControllerConfiguration" cis="7" cloc="34" cr="0.15" csz="7" dit="1" eloc="39" impl="0" loc="88" ncloc="54" noam="3" nocc="0" nom="3" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="7" wmci="7" wmcnp="7">
       <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="2" eloc="3" loc="7" ncloc="5" npath="1"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="save" ccn="4" ccn2="5" cloc="2" eloc="28" loc="38" ncloc="36" npath="8"/>
     </class>
-    <class name="XiusControllerCpanel" cis="7" cloc="0" cr="0.15" csz="7" dit="2" eloc="42" impl="0" loc="57" ncloc="57" noam="4" nocc="0" nom="4" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="7" wmci="7" wmcnp="7">
+    <class name="XiusControllerCpanel" cis="7" cloc="0" cr="0.15" csz="7" dit="1" eloc="42" impl="0" loc="57" ncloc="57" noam="4" nocc="0" nom="4" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="7" wmci="7" wmcnp="7">
       <file name="/vobs/xius/trunk/source/admin/controllers/cpanel.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="updates" ccn="1" ccn2="1" cloc="0" eloc="9" loc="11" ncloc="11" npath="1"/>
       <method name="updateCache" ccn="4" ccn2="4" cloc="0" eloc="21" loc="29" ncloc="29" npath="6"/>
     </class>
-    <class name="XiusControllerInfo" cis="52" cloc="27" cr="0.15" csz="52" dit="2" eloc="294" impl="0" loc="418" ncloc="391" noam="14" nocc="0" nom="14" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="52" wmci="52" wmcnp="52">
+    <class name="XiusControllerInfo" cis="52" cloc="27" cr="0.15" csz="52" dit="1" eloc="294" impl="0" loc="418" ncloc="391" noam="14" nocc="0" nom="14" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="52" wmci="52" wmcnp="52">
       <file name="/vobs/xius/trunk/source/admin/controllers/info.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="1" eloc="15" loc="23" ncloc="22" npath="1"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
@@ -78,7 +78,7 @@
       <method name="saveParamDoable" ccn="3" ccn2="3" cloc="0" eloc="14" loc="22" ncloc="22" npath="4"/>
       <method name="_saveParamDoable" ccn="11" ccn2="11" cloc="0" eloc="47" loc="52" ncloc="52" npath="36"/>
     </class>
-    <class name="XiusControllerList" cis="26" cloc="15" cr="0.15" csz="26" dit="2" eloc="127" impl="0" loc="185" ncloc="170" noam="9" nocc="0" nom="9" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="26" wmci="26" wmcnp="26">
+    <class name="XiusControllerList" cis="26" cloc="15" cr="0.15" csz="26" dit="1" eloc="127" impl="0" loc="185" ncloc="170" noam="9" nocc="0" nom="9" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="26" wmci="26" wmcnp="26">
       <file name="/vobs/xius/trunk/source/admin/controllers/list.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="1" eloc="5" loc="8" ncloc="7" npath="1"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
@@ -114,7 +114,7 @@
       <method name="dropTable" ccn="2" ccn2="2" cloc="0" eloc="8" loc="11" ncloc="11" npath="2"/>
       <method name="buildCreateTableQuery" ccn="5" ccn2="5" cloc="0" eloc="18" loc="27" ncloc="27" npath="12"/>
     </class>
-    <class name="XiusError" cis="1" cloc="0" cr="0.15" csz="1" dit="2" eloc="6" impl="0" loc="10" ncloc="10" noam="1" nocc="0" nom="1" noom="0" rcr="0.1925" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+    <class name="XiusError" cis="1" cloc="0" cr="0.15" csz="1" dit="1" eloc="6" impl="0" loc="10" ncloc="10" noam="1" nocc="0" nom="1" noom="0" rcr="0.1925" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
       <file name="/vobs/xius/trunk/source/admin/libraries/error.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
     </class>
@@ -133,17 +133,17 @@
       <method name="getAllInfo" ccn="2" ccn2="3" cloc="0" eloc="8" loc="12" ncloc="12" npath="3"/>
       <method name="infoExist" ccn="2" ccn2="2" cloc="0" eloc="9" loc="11" ncloc="11" npath="2"/>
     </class>
-    <class name="XiusLibrariesList" cis="3" cloc="6" cr="0.15" csz="3" dit="0" eloc="13" impl="0" loc="27" ncloc="21" noam="0" nocc="0" nom="2" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+    <class name="XiusLibrariesList" cis="3" cloc="6" cr="0.15" csz="3" dit="0" eloc="15" impl="0" loc="28" ncloc="22" noam="0" nocc="0" nom="2" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
       <file name="/vobs/xius/trunk/source/admin/libraries/list.php"/>
       <method name="saveList" ccn="2" ccn2="2" cloc="6" eloc="7" loc="18" ncloc="12" npath="2"/>
-      <method name="getUser" ccn="1" ccn2="1" cloc="0" eloc="2" loc="4" ncloc="4" npath="1"/>
+      <method name="getLists" ccn="1" ccn2="1" cloc="0" eloc="4" loc="6" ncloc="6" npath="1"/>
     </class>
     <class name="XiusLibrariesPluginhandler" cis="2" cloc="0" cr="0.15" csz="2" dit="0" eloc="10" impl="0" loc="14" ncloc="14" noam="0" nocc="0" nom="2" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
       <file name="/vobs/xius/trunk/source/admin/libraries/pluginhandler.php"/>
       <method name="onUsInfoUpdated" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="onCronRun" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
     </class>
-    <class name="XiusBase" cis="76" cloc="83" cr="0.5325" csz="90" dit="2" eloc="312" impl="0" loc="510" ncloc="427" noam="33" nocc="3" nom="33" noom="0" rcr="0.1925" vars="9" varsi="9" varsnp="0" wmc="81" wmci="81" wmcnp="76">
+    <class name="XiusBase" cis="76" cloc="83" cr="0.5325" csz="90" dit="1" eloc="312" impl="0" loc="510" ncloc="427" noam="33" nocc="3" nom="33" noom="0" rcr="0.1925" vars="9" varsi="9" varsnp="0" wmc="81" wmci="81" wmcnp="76">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/base.php"/>
       <method name="__construct" ccn="3" ccn2="3" cloc="1" eloc="13" loc="19" ncloc="18" npath="4"/>
       <method name="setData" ccn="2" ccn2="2" cloc="0" eloc="4" loc="5" ncloc="5" npath="2"/>
@@ -179,13 +179,13 @@
       <method name="_getFormatData" ccn="2" ccn2="2" cloc="0" eloc="7" loc="9" ncloc="9" npath="2"/>
       <method name="cleanObject" ccn="3" ccn2="3" cloc="4" eloc="11" loc="19" ncloc="15" npath="4"/>
     </class>
-    <class name="XiusBaseView" cis="4" cloc="4" cr="0.5325" csz="4" dit="2" eloc="29" impl="0" loc="45" ncloc="41" noam="3" nocc="3" nom="3" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
+    <class name="XiusBaseView" cis="4" cloc="4" cr="0.5325" csz="4" dit="1" eloc="29" impl="0" loc="45" ncloc="41" noam="3" nocc="3" nom="3" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/baseview.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="7" loc="8" ncloc="8" npath="1"/>
       <method name="rawDataHtml" ccn="2" ccn2="2" cloc="4" eloc="13" loc="22" ncloc="18" npath="2"/>
       <method name="searchHtml" ccn="1" ccn2="1" cloc="0" eloc="4" loc="6" ncloc="6" npath="1"/>
     </class>
-    <class name="Joomla" cis="32" cloc="18" cr="0.15" csz="32" dit="3" eloc="110" impl="0" loc="165" ncloc="147" noam="1" nocc="0" nom="7" noom="6" rcr="0.204541666667" vars="0" varsi="9" varsnp="0" wmc="32" wmci="83" wmcnp="32">
+    <class name="Joomla" cis="32" cloc="18" cr="0.15" csz="32" dit="2" eloc="110" impl="0" loc="165" ncloc="147" noam="1" nocc="0" nom="7" noom="6" rcr="0.204541666667" vars="0" varsi="9" varsnp="0" wmc="32" wmci="83" wmcnp="32">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/joomla.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="getAvailableInfo" ccn="5" ccn2="8" cloc="0" eloc="15" loc="21" ncloc="21" npath="24"/>
@@ -200,12 +200,12 @@
       <method name="getJoomlaFields" ccn="4" ccn2="4" cloc="0" eloc="12" loc="18" ncloc="18" npath="8"/>
       <method name="getFieldsHTML" ccn="2" ccn2="2" cloc="0" eloc="13" loc="16" ncloc="16" npath="2"/>
     </class>
-    <class name="JoomlaView" cis="4" cloc="3" cr="0.15" csz="4" dit="3" eloc="20" impl="0" loc="32" ncloc="29" noam="0" nocc="0" nom="2" noom="2" rcr="0.197660714286" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
+    <class name="JoomlaView" cis="4" cloc="3" cr="0.15" csz="4" dit="2" eloc="20" impl="0" loc="32" ncloc="29" noam="0" nocc="0" nom="2" noom="2" rcr="0.197660714286" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/views/view.html.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="searchHtml" ccn="3" ccn2="3" cloc="3" eloc="13" loc="22" ncloc="19" npath="4"/>
     </class>
-    <class name="Jsfields" cis="37" cloc="34" cr="0.15" csz="37" dit="3" eloc="138" impl="0" loc="214" ncloc="180" noam="1" nocc="0" nom="8" noom="7" rcr="0.204541666667" vars="0" varsi="9" varsnp="0" wmc="37" wmci="83" wmcnp="37">
+    <class name="Jsfields" cis="37" cloc="34" cr="0.15" csz="37" dit="2" eloc="138" impl="0" loc="214" ncloc="180" noam="1" nocc="0" nom="8" noom="7" rcr="0.204541666667" vars="0" varsi="9" varsnp="0" wmc="37" wmci="83" wmcnp="37">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/jsfields.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="isAllRequirementSatisfy" ccn="2" ccn2="2" cloc="1" eloc="4" loc="6" ncloc="5" npath="5"/>
@@ -224,12 +224,12 @@
       <method name="getFieldType" ccn="2" ccn2="2" cloc="0" eloc="8" loc="11" ncloc="11" npath="2"/>
       <method name="isJomsocialExist" ccn="1" ccn2="1" cloc="0" eloc="2" loc="4" ncloc="4" npath="1"/>
     </class>
-    <class name="JsfieldsView" cis="4" cloc="4" cr="0.15" csz="4" dit="3" eloc="23" impl="0" loc="35" ncloc="31" noam="0" nocc="0" nom="2" noom="2" rcr="0.197660714286" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
+    <class name="JsfieldsView" cis="4" cloc="4" cr="0.15" csz="4" dit="2" eloc="23" impl="0" loc="35" ncloc="31" noam="0" nocc="0" nom="2" noom="2" rcr="0.197660714286" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/views/view.html.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="searchHtml" ccn="3" ccn2="3" cloc="4" eloc="16" loc="25" ncloc="21" npath="4"/>
     </class>
-    <class name="Keyword" cis="15" cloc="13" cr="0.15" csz="15" dit="3" eloc="52" impl="0" loc="83" ncloc="70" noam="2" nocc="0" nom="6" noom="4" rcr="0.204541666667" vars="0" varsi="9" varsnp="0" wmc="15" wmci="90" wmcnp="15">
+    <class name="Keyword" cis="15" cloc="13" cr="0.15" csz="15" dit="2" eloc="52" impl="0" loc="83" ncloc="70" noam="2" nocc="0" nom="6" noom="4" rcr="0.204541666667" vars="0" varsi="9" varsnp="0" wmc="15" wmci="90" wmcnp="15">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/keyword/keyword.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="getAvailableInfo" ccn="2" ccn2="2" cloc="0" eloc="6" loc="10" ncloc="10" npath="2"/>
@@ -238,11 +238,11 @@
       <method name="addSearchToQuery" ccn="2" ccn2="2" cloc="5" eloc="9" loc="16" ncloc="11" npath="2"/>
       <method name="_addSearchToQuery" ccn="7" ccn2="8" cloc="3" eloc="20" loc="29" ncloc="26" npath="26"/>
     </class>
-    <class name="KeywordView" cis="1" cloc="0" cr="0.15" csz="1" dit="3" eloc="6" impl="0" loc="8" ncloc="8" noam="0" nocc="0" nom="1" noom="1" rcr="0.197660714286" vars="0" varsi="0" varsnp="0" wmc="1" wmci="4" wmcnp="1">
+    <class name="KeywordView" cis="1" cloc="0" cr="0.15" csz="1" dit="2" eloc="6" impl="0" loc="8" ncloc="8" noam="0" nocc="0" nom="1" noom="1" rcr="0.197660714286" vars="0" varsi="0" varsnp="0" wmc="1" wmci="4" wmcnp="1">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/keyword/views/view.html.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
     </class>
-    <class name="XiusCreateTable" cis="10" cloc="0" cr="0.15" csz="11" dit="2" eloc="37" impl="0" loc="50" ncloc="50" noam="4" nocc="0" nom="4" noom="0" rcr="0.1925" vars="3" varsi="3" varsnp="2" wmc="8" wmci="8" wmcnp="8">
+    <class name="XiusCreateTable" cis="10" cloc="0" cr="0.15" csz="11" dit="1" eloc="37" impl="0" loc="50" ncloc="50" noam="4" nocc="0" nom="4" noom="0" rcr="0.1925" vars="3" varsi="3" varsnp="2" wmc="8" wmci="8" wmcnp="8">
       <file name="/vobs/xius/trunk/source/admin/libraries/query.php"/>
       <method name="__construct" ccn="2" ccn2="2" cloc="0" eloc="9" loc="12" ncloc="12" npath="2"/>
       <method name="finalizeQuery" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
@@ -276,14 +276,14 @@
       <method name="addAutoLoadFolder" ccn="3" ccn2="3" cloc="0" eloc="11" loc="14" ncloc="14" npath="3"/>
       <method name="addAutoLoadFile" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
     </class>
-    <class name="XiusModelConfiguration" cis="10" cloc="20" cr="0.15" csz="10" dit="2" eloc="57" impl="0" loc="94" ncloc="74" noam="4" nocc="0" nom="4" noom="0" rcr="0.181875" vars="2" varsi="2" varsnp="2" wmc="8" wmci="8" wmcnp="8">
+    <class name="XiusModelConfiguration" cis="10" cloc="20" cr="0.15" csz="10" dit="1" eloc="57" impl="0" loc="94" ncloc="74" noam="4" nocc="0" nom="4" noom="0" rcr="0.181875" vars="2" varsi="2" varsnp="2" wmc="8" wmci="8" wmcnp="8">
       <file name="/vobs/xius/trunk/source/admin/models/configuration.php"/>
       <method name="__construct" ccn="2" ccn2="2" cloc="2" eloc="7" loc="11" ncloc="9" npath="2"/>
       <method name="getParams" ccn="3" ccn2="3" cloc="2" eloc="18" loc="24" ncloc="22" npath="3"/>
       <method name="save" ccn="2" ccn2="2" cloc="2" eloc="15" loc="20" ncloc="18" npath="2"/>
       <method name="getOtherParams" ccn="1" ccn2="1" cloc="1" eloc="9" loc="15" ncloc="14" npath="1"/>
     </class>
-    <class name="XiusModelInfo" cis="23" cloc="25" cr="0.15" csz="23" dit="2" eloc="112" impl="0" loc="185" ncloc="160" noam="8" nocc="0" nom="8" noom="0" rcr="0.181875" vars="1" varsi="1" varsnp="1" wmc="22" wmci="22" wmcnp="22">
+    <class name="XiusModelInfo" cis="23" cloc="25" cr="0.15" csz="23" dit="1" eloc="112" impl="0" loc="185" ncloc="160" noam="8" nocc="0" nom="8" noom="0" rcr="0.181875" vars="1" varsi="1" varsnp="1" wmc="22" wmci="22" wmcnp="22">
       <file name="/vobs/xius/trunk/source/admin/models/info.php"/>
       <method name="__construct" ccn="2" ccn2="2" cloc="3" eloc="9" loc="17" ncloc="14" npath="5"/>
       <method name="getPagination" ccn="3" ccn2="3" cloc="4" eloc="18" loc="33" ncloc="29" npath="6"/>
@@ -294,7 +294,7 @@
       <method name="updatePublish" ccn="2" ccn2="2" cloc="0" eloc="10" loc="12" ncloc="12" npath="2"/>
       <method name="updateParams" ccn="4" ccn2="4" cloc="1" eloc="19" loc="29" ncloc="28" npath="8"/>
     </class>
-    <class name="XiusModelList" cis="21" cloc="17" cr="0.15" csz="21" dit="2" eloc="102" impl="0" loc="161" ncloc="144" noam="7" nocc="0" nom="7" noom="0" rcr="0.181875" vars="1" varsi="1" varsnp="1" wmc="20" wmci="20" wmcnp="20">
+    <class name="XiusModelList" cis="21" cloc="17" cr="0.15" csz="21" dit="1" eloc="102" impl="0" loc="161" ncloc="144" noam="7" nocc="0" nom="7" noom="0" rcr="0.181875" vars="1" varsi="1" varsnp="1" wmc="20" wmci="20" wmcnp="20">
       <file name="/vobs/xius/trunk/source/admin/models/list.php"/>
       <method name="__construct" ccn="2" ccn2="2" cloc="2" eloc="9" loc="14" ncloc="12" npath="5"/>
       <method name="getPagination" ccn="3" ccn2="3" cloc="4" eloc="19" loc="34" ncloc="30" npath="6"/>
@@ -304,61 +304,61 @@
       <method name="updatePublish" ccn="2" ccn2="2" cloc="0" eloc="11" loc="14" ncloc="14" npath="2"/>
       <method name="store" ccn="3" ccn2="3" cloc="2" eloc="14" loc="22" ncloc="20" npath="4"/>
     </class>
-    <class name="XiusTableConfiguration" cis="5" cloc="3" cr="0.15" csz="5" dit="2" eloc="22" impl="0" loc="33" ncloc="30" noam="2" nocc="0" nom="2" noom="0" rcr="0.181875" vars="2" varsi="2" varsnp="2" wmc="3" wmci="3" wmcnp="3">
+    <class name="XiusTableConfiguration" cis="5" cloc="3" cr="0.15" csz="5" dit="1" eloc="22" impl="0" loc="33" ncloc="30" noam="2" nocc="0" nom="2" noom="0" rcr="0.181875" vars="2" varsi="2" varsnp="2" wmc="3" wmci="3" wmcnp="3">
       <file name="/vobs/xius/trunk/source/admin/tables/configuration.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="store" ccn="2" ccn2="2" cloc="0" eloc="13" loc="19" ncloc="19" npath="2"/>
     </class>
-    <class name="XiusTableInfo" cis="13" cloc="17" cr="0.15" csz="13" dit="2" eloc="33" impl="0" loc="59" ncloc="42" noam="3" nocc="0" nom="3" noom="0" rcr="0.181875" vars="8" varsi="8" varsnp="8" wmc="5" wmci="5" wmcnp="5">
+    <class name="XiusTableInfo" cis="13" cloc="17" cr="0.15" csz="13" dit="1" eloc="33" impl="0" loc="59" ncloc="42" noam="3" nocc="0" nom="3" noom="0" rcr="0.181875" vars="8" varsi="8" varsnp="8" wmc="5" wmci="5" wmcnp="5">
       <file name="/vobs/xius/trunk/source/admin/tables/info.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="load" ccn="2" ccn2="2" cloc="1" eloc="6" loc="8" ncloc="7" npath="2"/>
       <method name="store" ccn="2" ccn2="2" cloc="1" eloc="11" loc="14" ncloc="13" npath="2"/>
     </class>
-    <class name="XiusViewConfiguration" cis="2" cloc="11" cr="0.15" csz="2" dit="2" eloc="20" impl="0" loc="38" ncloc="27" noam="2" nocc="0" nom="2" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+    <class name="XiusViewConfiguration" cis="2" cloc="11" cr="0.15" csz="2" dit="1" eloc="20" impl="0" loc="38" ncloc="27" noam="2" nocc="0" nom="2" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
       <file name="/vobs/xius/trunk/source/admin/views/configuration/view.html.php"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="10" loc="12" ncloc="12" npath="1"/>
       <method name="setToolBar" ccn="1" ccn2="1" cloc="4" eloc="6" loc="13" ncloc="9" npath="1"/>
     </class>
-    <class name="XiusViewCpanel" cis="6" cloc="10" cr="0.15" csz="6" dit="2" eloc="45" impl="0" loc="65" ncloc="55" noam="4" nocc="0" nom="4" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="6" wmci="6" wmcnp="6">
+    <class name="XiusViewCpanel" cis="6" cloc="10" cr="0.15" csz="6" dit="1" eloc="45" impl="0" loc="65" ncloc="55" noam="4" nocc="0" nom="4" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="6" wmci="6" wmcnp="6">
       <file name="/vobs/xius/trunk/source/admin/views/cpanel/view.html.php"/>
       <method name="display" ccn="1" ccn2="1" cloc="1" eloc="8" loc="12" ncloc="11" npath="1"/>
       <method name="setToolBar" ccn="1" ccn2="1" cloc="2" eloc="14" loc="17" ncloc="15" npath="1"/>
       <method name="addIcon" ccn="3" ccn2="3" cloc="0" eloc="13" loc="15" ncloc="15" npath="25"/>
       <method name="updates" ccn="1" ccn2="1" cloc="0" eloc="4" loc="5" ncloc="5" npath="1"/>
     </class>
-    <class name="XiusViewInfo" cis="8" cloc="7" cr="0.15" csz="8" dit="2" eloc="60" impl="0" loc="91" ncloc="84" noam="4" nocc="0" nom="4" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="8" wmci="8" wmcnp="8">
+    <class name="XiusViewInfo" cis="8" cloc="7" cr="0.15" csz="8" dit="1" eloc="60" impl="0" loc="91" ncloc="84" noam="4" nocc="0" nom="4" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="8" wmci="8" wmcnp="8">
       <file name="/vobs/xius/trunk/source/admin/views/info/view.html.php"/>
       <method name="display" ccn="1" ccn2="1" cloc="1" eloc="10" loc="15" ncloc="14" npath="1"/>
       <method name="add" ccn="4" ccn2="4" cloc="4" eloc="16" loc="26" ncloc="22" npath="4"/>
       <method name="renderinfo" ccn="2" ccn2="2" cloc="0" eloc="18" loc="26" ncloc="26" npath="2"/>
       <method name="setToolBar" ccn="1" ccn2="1" cloc="2" eloc="10" loc="15" ncloc="13" npath="1"/>
     </class>
-    <class name="XiusViewList" cis="2" cloc="9" cr="0.15" csz="2" dit="2" eloc="22" impl="0" loc="39" ncloc="30" noam="2" nocc="0" nom="2" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+    <class name="XiusViewList" cis="2" cloc="9" cr="0.15" csz="2" dit="1" eloc="22" impl="0" loc="39" ncloc="30" noam="2" nocc="0" nom="2" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
       <file name="/vobs/xius/trunk/source/admin/views/list/view.html.php"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="9" loc="12" ncloc="12" npath="1"/>
       <method name="setToolBar" ccn="1" ccn2="1" cloc="2" eloc="9" loc="14" ncloc="12" npath="1"/>
     </class>
-    <class name="ListHelper" cis="1" cloc="3" cr="0.15" csz="1" dit="0" eloc="12" impl="0" loc="19" ncloc="16" noam="0" nocc="0" nom="1" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+    <class name="XiusListHelper" cis="2" cloc="0" cr="0.15" csz="2" dit="0" eloc="10" impl="0" loc="13" ncloc="13" noam="0" nocc="0" nom="1" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
       <file name="/vobs/xius/trunk/source/install/extensions/mod_xiuslisting/helper.php"/>
-      <method name="getListData" ccn="1" ccn2="1" cloc="3" eloc="9" loc="16" ncloc="13" npath="1"/>
+      <method name="getListData" ccn="2" ccn2="2" cloc="0" eloc="7" loc="10" ncloc="10" npath="2"/>
     </class>
     <class name="UserSearchHelper" cis="14" cloc="0" cr="0.15" csz="14" dit="0" eloc="42" impl="0" loc="55" ncloc="55" noam="0" nocc="0" nom="2" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="14" wmci="14" wmcnp="14">
       <file name="/vobs/xius/trunk/source/install/extensions/mod_xiussearchpanel/helper.php"/>
       <method name="getSearchHtml" ccn="8" ccn2="9" cloc="0" eloc="26" loc="36" ncloc="36" npath="54"/>
       <method name="getInfoRange" ccn="3" ccn2="5" cloc="0" eloc="12" loc="15" ncloc="15" npath="9"/>
     </class>
-    <class name="plgCommunityxius" cis="4" cloc="0" cr="0.15" csz="4" dit="2" eloc="17" impl="0" loc="21" ncloc="21" noam="2" nocc="0" nom="2" noom="0" rcr="0.21375" vars="1" varsi="1" varsnp="1" wmc="3" wmci="3" wmcnp="3">
+    <class name="plgCommunityxius" cis="4" cloc="0" cr="0.15" csz="4" dit="1" eloc="17" impl="0" loc="21" ncloc="21" noam="2" nocc="0" nom="2" noom="0" rcr="0.21375" vars="1" varsi="1" varsnp="1" wmc="3" wmci="3" wmcnp="3">
       <file name="/vobs/xius/trunk/source/install/extensions/xius_community/xius.php"/>
       <method name="plgCommunityxius" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="onCronRun" ccn="2" ccn2="2" cloc="0" eloc="9" loc="11" ncloc="11" npath="2"/>
     </class>
-    <class name="plgSystemxius_system" cis="4" cloc="0" cr="0.15" csz="4" dit="2" eloc="16" impl="0" loc="22" ncloc="22" noam="2" nocc="0" nom="2" noom="0" rcr="0.21375" vars="1" varsi="1" varsnp="1" wmc="3" wmci="3" wmcnp="3">
+    <class name="plgSystemxius_system" cis="4" cloc="0" cr="0.15" csz="4" dit="1" eloc="16" impl="0" loc="22" ncloc="22" noam="2" nocc="0" nom="2" noom="0" rcr="0.21375" vars="1" varsi="1" varsnp="1" wmc="3" wmci="3" wmcnp="3">
       <file name="/vobs/xius/trunk/source/install/extensions/xius_system/xius_system.php"/>
       <method name="plgSystemxius_system" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="onUsInfoUpdated" ccn="2" ccn2="2" cloc="0" eloc="8" loc="10" ncloc="10" npath="2"/>
     </class>
-    <class name="XiusControllerUsers" cis="51" cloc="52" cr="0.15" csz="51" dit="2" eloc="260" impl="0" loc="390" ncloc="338" noam="14" nocc="0" nom="14" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="51" wmci="51" wmcnp="51">
+    <class name="XiusControllerUsers" cis="51" cloc="52" cr="0.15" csz="51" dit="1" eloc="259" impl="0" loc="388" ncloc="336" noam="14" nocc="0" nom="14" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="51" wmci="51" wmcnp="51">
       <file name="/vobs/xius/trunk/source/site/controllers/users.php"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="displaySearch" ccn="10" ccn2="10" cloc="7" eloc="37" loc="50" ncloc="43" npath="10"/>
@@ -368,25 +368,25 @@
       <method name="displayList" ccn="11" ccn2="14" cloc="1" eloc="45" loc="54" ncloc="53" npath="80"/>
       <method name="_processList" ccn="1" ccn2="1" cloc="2" eloc="8" loc="11" ncloc="9" npath="1"/>
       <method name="_showLists" ccn="1" ccn2="1" cloc="0" eloc="8" loc="10" ncloc="10" npath="1"/>
-      <method name="displaySaveOption" ccn="7" ccn2="7" cloc="0" eloc="44" loc="58" ncloc="58" npath="9"/>
+      <method name="displaySaveOption" ccn="7" ccn2="7" cloc="0" eloc="43" loc="56" ncloc="56" npath="9"/>
       <method name="_saveListChecks" ccn="2" ccn2="2" cloc="1" eloc="12" loc="18" ncloc="17" npath="2"/>
       <method name="_saveList" ccn="4" ccn2="4" cloc="5" eloc="31" loc="47" ncloc="42" npath="6"/>
       <method name="displayAdvanceSearch" ccn="1" ccn2="1" cloc="0" eloc="8" loc="9" ncloc="9" npath="1"/>
       <method name="runCron" ccn="2" ccn2="2" cloc="33" eloc="10" loc="49" ncloc="16" npath="2"/>
       <method name="_runCron" ccn="3" ccn2="3" cloc="0" eloc="9" loc="10" ncloc="10" npath="3"/>
     </class>
-    <class name="XiusModelUsers" cis="13" cloc="9" cr="0.15" csz="16" dit="2" eloc="56" impl="0" loc="89" ncloc="80" noam="4" nocc="0" nom="4" noom="0" rcr="0.181875" vars="3" varsi="3" varsnp="0" wmc="13" wmci="13" wmcnp="13">
+    <class name="XiusModelUsers" cis="13" cloc="9" cr="0.15" csz="16" dit="1" eloc="56" impl="0" loc="89" ncloc="80" noam="4" nocc="0" nom="4" noom="0" rcr="0.181875" vars="3" varsi="3" varsnp="0" wmc="13" wmci="13" wmcnp="13">
       <file name="/vobs/xius/trunk/source/site/models/users.php"/>
       <method name="__construct" ccn="2" ccn2="2" cloc="2" eloc="9" loc="16" ncloc="14" npath="5"/>
       <method name="getUsers" ccn="7" ccn2="7" cloc="7" eloc="23" loc="37" ncloc="30" npath="32"/>
       <method name="getTotal" ccn="2" ccn2="2" cloc="0" eloc="8" loc="12" ncloc="12" npath="2"/>
       <method name="getPagination" ccn="2" ccn2="2" cloc="0" eloc="7" loc="10" ncloc="10" npath="2"/>
     </class>
-    <class name="XiusViewUsers" cis="17" cloc="2" cr="0.15" csz="17" dit="2" eloc="69" impl="0" loc="90" ncloc="88" noam="1" nocc="0" nom="1" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="17" wmci="17" wmcnp="17">
+    <class name="XiusViewUsers" cis="17" cloc="2" cr="0.15" csz="17" dit="1" eloc="69" impl="0" loc="90" ncloc="88" noam="1" nocc="0" nom="1" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="17" wmci="17" wmcnp="17">
       <file name="/vobs/xius/trunk/source/site/views/users/view.csv.php"/>
       <method name="exportUser" ccn="16" ccn2="17" cloc="2" eloc="66" loc="87" ncloc="85" npath="2192"/>
     </class>
-    <class name="XiusViewUsers" cis="53" cloc="30" cr="0.15" csz="53" dit="2" eloc="232" impl="0" loc="336" ncloc="306" noam="12" nocc="0" nom="12" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="53" wmci="53" wmcnp="53">
+    <class name="XiusViewUsers" cis="54" cloc="30" cr="0.15" csz="54" dit="1" eloc="234" impl="0" loc="339" ncloc="309" noam="12" nocc="0" nom="12" noom="0" rcr="0.168214285714" vars="0" varsi="0" varsnp="0" wmc="54" wmci="54" wmcnp="54">
       <file name="/vobs/xius/trunk/source/site/views/users/view.html.php"/>
       <method name="displaySearch" ccn="7" ccn2="7" cloc="3" eloc="27" loc="42" ncloc="39" npath="18"/>
       <method name="displayResult" ccn="2" ccn2="3" cloc="0" eloc="27" loc="33" ncloc="33" npath="3"/>
@@ -395,7 +395,7 @@
       <method name="_getTotalUsers" ccn="1" ccn2="1" cloc="0" eloc="5" loc="7" ncloc="7" npath="1"/>
       <method name="_createUserProfile" ccn="12" ccn2="14" cloc="1" eloc="34" loc="47" ncloc="46" npath="402"/>
       <method name="_getAppliedInfo" ccn="9" ccn2="9" cloc="5" eloc="29" loc="41" ncloc="36" npath="22"/>
-      <method name="_getAvailableInfo" ccn="7" ccn2="7" cloc="12" eloc="23" loc="42" ncloc="30" npath="18"/>
+      <method name="_getAvailableInfo" ccn="8" ccn2="8" cloc="12" eloc="25" loc="45" ncloc="33" npath="34"/>
       <method name="displaySaveOption" ccn="2" ccn2="2" cloc="0" eloc="13" loc="20" ncloc="20" npath="2"/>
       <method name="success" ccn="1" ccn2="1" cloc="6" eloc="7" loc="17" ncloc="11" npath="1"/>
       <method name="_showLists" ccn="3" ccn2="3" cloc="1" eloc="15" loc="23" ncloc="22" npath="4"/>
@@ -451,7 +451,7 @@
     </class>
   </package>
   <package name="Joomla\profilestatus" cr="0.15" noc="2" nof="0" noi="0" nom="10" rcr="0.2775">
-    <class name="XiusTableConditions" cis="12" cloc="37" cr="0.15" csz="12" dit="2" eloc="35" impl="0" loc="83" ncloc="46" noam="5" nocc="0" nom="5" noom="0" rcr="0.181875" vars="6" varsi="6" varsnp="6" wmc="6" wmci="6" wmcnp="6">
+    <class name="XiusTableConditions" cis="12" cloc="37" cr="0.15" csz="12" dit="1" eloc="35" impl="0" loc="83" ncloc="46" noam="5" nocc="0" nom="5" noom="0" rcr="0.181875" vars="6" varsi="6" varsnp="6" wmc="6" wmci="6" wmcnp="6">
       <file name="/vobs/xius/trunk/source/admin/tables/conditions.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="3" ncloc="3" npath="1"/>
       <method name="load" ccn="2" ccn2="2" cloc="0" eloc="11" loc="14" ncloc="14" npath="2"/>
@@ -459,7 +459,7 @@
       <method name="store" ccn="1" ccn2="1" cloc="1" eloc="3" loc="5" ncloc="4" npath="1"/>
       <method name="bind" ccn="1" ccn2="1" cloc="7" eloc="3" loc="12" ncloc="5" npath="1"/>
     </class>
-    <class name="XiusTableList" cis="20" cloc="12" cr="0.15" csz="20" dit="2" eloc="57" impl="0" loc="83" ncloc="71" noam="5" nocc="0" nom="5" noom="0" rcr="0.181875" vars="12" varsi="12" varsnp="12" wmc="8" wmci="8" wmcnp="8">
+    <class name="XiusTableList" cis="20" cloc="12" cr="0.15" csz="20" dit="1" eloc="57" impl="0" loc="83" ncloc="71" noam="5" nocc="0" nom="5" noom="0" rcr="0.181875" vars="12" varsi="12" varsnp="12" wmc="8" wmci="8" wmcnp="8">
       <file name="/vobs/xius/trunk/source/admin/tables/list.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="load" ccn="2" ccn2="2" cloc="0" eloc="16" loc="19" ncloc="19" npath="2"/>

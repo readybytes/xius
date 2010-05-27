@@ -17,9 +17,18 @@ require_once( dirname(__FILE__).DS.'helper.php' );
 //XITODO : use proper name
 $disp= UserSearchHelper::getSearchHtml();
 	if(!empty($disp)):
+		$link = 'index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch';
+		$menu = &JSite::getMenu(); 
+		$itemid = $menu->getItems('link', $link);
+		if(empty($itemid))
+			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
+			
+		if(!empty($itemid))
+			$link .= "&Itemid=".$itemid[0]->id;
+		
 	?>
 	<div class="xiusMod_available">
-		<form action="<?php echo JRoute::_("index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch")?>" method=post>
+		<form action="<?php echo JRoute::_($link,false);?>" method=post>
 		<?php 	
 			$infoRange = $params->get('xius_info_range','all');
 			$range=array();

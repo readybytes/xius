@@ -44,16 +44,20 @@ class XiusKeywordTest extends XiUnitTestCase
 	}
 	
 	function testKeywordsearch()
-	{
+	{		
+		$url	= JPATH_ROOT.'/test/test/sel/com/site/_data';
+	    //$this->_DBO->loadSql($url.'/insert.sql');	
+		$this->_DBO->loadSql($url.'/updateCache.sql');
+		
 		$url	= dirname(__FILE__).'/sql/'.__CLASS__.'/testGetAvailableInfoForKeyword.start.sql';
 		$this->_DBO->loadSql($url);
-		
+	    
 		$compareCondition[0]["infoid"]	= 24;
 		$compareCondition[0]["value"]	= 'admin';
 		$compareCondition[0]["operator"]= '=';
 		
 		// data post
-		$post			= array('xiusinfo_241'=>24,'keyword'=>'admin','xiusinfo_242'=>24);
+		$post			= array('xiusinfo_241'=>24,'keyword'=>'name','xiusinfo_242'=>24);
 		
 		// build the condition and  compare
 		//$startTime 		= $profiler->getmicrotime();
@@ -68,6 +72,6 @@ class XiusKeywordTest extends XiUnitTestCase
 		XiusViewUsers::_getInitialData(&$data);
 		XiusViewUsers::_getTotalUsers(&$data);		
 		
-		$this->assertEquals($data['total'],89);
+		$this->assertEquals($data['total'],58);
 	}
 }
