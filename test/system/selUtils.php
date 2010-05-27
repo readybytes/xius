@@ -61,24 +61,45 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   
   function frontLogin($username=JOOMLA_ADMIN_USERNAME, $password= JOOMLA_ADMIN_PASSWORD)
   {
-    $this->open(JOOMLA_LOCATION."/index.php");
+	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
+  	$this->waitPageLoad();
+  	
+  	//verify that nobody is logged in 
+  	$this->assertTrue($this->isElementPresent("//input[@id='passwd']"));
+  	
+  	// do login
+ 	$this->type("//input[@id='username']", $username);
+ 	$this->type("//input[@id='passwd']", $password);
+ 	$this->click("//form[@id='com-form-login']//input[@type='submit']");
     $this->waitPageLoad();
+    
+  	//verify again that you are logged in
+  	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
+  	$this->waitPageLoad();
 
-    $this->type("modlgn_username", $username);
-    $this->type("modlgn_passwd", $password);
-    $this->click("//form[@id='form-login']/fieldset/input");
-    $this->waitPageLoad();
-    $this->assertEquals("Log out", $this->getValue("//form[@id='form-login']/div[2]/input"));
+  	//verify no login box there
+  	$this->assertFalse($this->isElementPresent("//input[@id='passwd']"));
   }
   
   function frontLogout()
   {
-  	$this->open(JOOMLA_LOCATION."/index.php");
-    $this->waitForPageToLoad("30000");
-    $this->assertEquals("Log out", $this->getValue("//form[@id='form-login']/div[2]/input"));
-    $this->click("//form[@id='form-login']/div[2]/input");
-    $this->waitPageLoad();
-    $this->assertTrue($this->isElementPresent("modlgn_username"));
+  	//load logout page
+  	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
+  	$this->waitPageLoad();
+
+  	//verify no login box there
+  	$this->assertFalse($this->isElementPresent("//input[@id='passwd']"));
+  	
+  	// do logout
+  	$this->click("//form[@id='login']//input[@type='submit']");
+  	$this->waitPageLoad();
+  	
+  	//load logout page
+  	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
+  	$this->waitPageLoad();
+
+  	//verify no login box there
+  	$this->assertTrue($this->isElementPresent("//input[@id='passwd']"));
   }
   
   function waitPageLoad($time=TIMEOUT_SEC)

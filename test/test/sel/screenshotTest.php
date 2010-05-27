@@ -9,22 +9,35 @@ class ScreenshotTest extends XiSelTestCase
   
   function setUp()
   {    
+  	parent::setUp();
 	$filter['debug']=0;
     $filter['error_reporting']=6143;
+    $filter['list_limit']=10;
     $this->updateJoomlaConfig($filter);
   }
   
  function captureScreen($fileName)
  {
- 	$fileName = dirname(__FILE__).DS."screenshots".DS.$fileName . '.png';
- 	$this->drivers[0]->captureEntirePageScreenshot($fileName);
+ 	$this->windowMaximize();
+ 	$this->windowFocus();
+ 	$fileName = dirname(__FILE__).DS.__CLASS__.DS."screenshots".DS.$fileName . '.png';
+ 	$this->drivers[0]->captureEntirePageScreenshotAndWait($fileName);
  }
  
 
  function testScreenshot()
  {
  	$this->importDatabase();
- 	$this->installTemplates();
+ 	$this->adminLogin();
+ 	$templates = $this->installTemplates();
+ 	$templates[]= 'ja_purity';
+ 	$templates[]= 'rhuk_milkyway';
+ 	
+ 	foreach($templates as $t)
+ 	{
+ 		$this->selectTemplate($t);
+ 		$this->takeScreenshots($t);
+ 	}
  }
  
  function importDatabase()
@@ -36,65 +49,78 @@ class ScreenshotTest extends XiSelTestCase
  
  function installTemplates()
  {
- 	$templatePath= dirname(__FILE__).DS.__CLASS__.DS.'templates';
- 	
- 	// collect all files
- 	
- 	// install these one by one
- 	
- 	//return all installed templates
+ 	$templatePath=$_ENV['HOME']."/Dropbox/Joomla/templates";
+ 	$retTemplates = array();
+ 
+	if(!JFolder::exists($templatePath))
+		return $retTemplates ;
+	
+	$templates = JFolder::files($templatePath);//array('rt_nexus_j15.tgz'); //
+	
+	foreach ($templates as $ext)
+	{ 
+		$this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
+		$this->type("install_package", $templatePath.DS.$ext);
+  		$this->click("//input[@value='Upload File & Install']");
+  		$this->waitPageLoad();
+  		$retTemplates[]=JFile::stripExt($ext);
+	}
+	return $retTemplates;
  }
  
- function selectTemplate()
- {}
+ function selectTemplate($template)
+ {
+ 		$this->open(JOOMLA_LOCATION."administrator/index.php?option=com_templates");
+ 		$order= $this->getTemplateOrder($template);
+		$this->click("cb$order");
+		$this->click("link=Default");
+  		$this->waitPageLoad();
+ }
  
  function takeScreenshots($template)
  {    
- 	
     //go to page and take screenshot
     $this->open(JOOMLA_LOCATION."/index.php?option=com_xius");
     $this->waitPageLoad();
-    $this->captureScreen("searchPanelFirefox");
+    $this->captureScreen(JString::strtolower($template)."_searchPanel");
     
-    //go to page and take screenshot
-    $this->open(JOOMLA_LOCATION."/index.php?option=com_xius&view=users&suplytask=displayresult");
+    $this->select("field2", "label=Male");
+  	$this->select("field12", "label=Afghanistan");
+  	$this->click("//input[@name='xius_join' and @value='OR']");
+  	$this->click("xiussearch");
+  	$this->waitPageLoad();
+  	$this->captureScreen(JString::strtolower($template)."_result");
+  	$this->open(JOOMLA_LOCATION."/index.php?option=com_xius&view=users&layout=lists&task=displayList&Itemid=60");
+  	$this->captureScreen(JString::strtolower($template)."_userList");
+
+  	$this->frontLogin();
+  	
+  	$this->open(JOOMLA_LOCATION."/index.php?option=com_xius");
     $this->waitPageLoad();
-    $this->captureScreen("resultPanelFirefox");  
+   	$this->select("field2", "label=Male");
+  	$this->select("field12", "label=Afghanistan");
+  	$this->click("//input[@name='xius_join' and @value='OR']");
+  	$this->click("xiussearch");
+  	$this->waitPageLoad();
+  	$this->click("//img[@title='Save']");
+  	$this->captureScreen(JString::strtolower($template)."_saveOption");
+	$this->frontLogout();
  }  
-  
- function installTemplate($extPath=null)
-{
-	//if no path defined, use default path
-	if($extPath==null)
-		$extPath = dirname(__FILE__).DS.'extensions';
+ 
+function getTemplateOrder($template)
+  {
+  	// Import file dependencies
+	require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_templates'.DS.'helpers'.DS.'template.php');
 
-	if(!JFolder::exists($extPath))
-		return false;
-	
-	$extensions	= JFolder::folders($extPath);
-	
-	//no apps there to install
-	if(empty($extensions))
-		return true;
+	$rows = array();
+	$tBaseDir = JPATH_SITE.DS.'templates';
+	$rows = TemplatesHelper::parseXMLTemplateFiles($tBaseDir);
 
-	//get instance of installer
-	$installer =  new JInstaller();
-	$installer->setOverwrite(true);
-
-	//install all apps
-	foreach ($extensions as $ext)
-	{
-		$msg = "Supportive Plugin/Module $ext Installed Successfully";
-
-		// Install the packages
-		if($installer->install($extPath.DS.$ext)==false)
-			$msg = "Supportive Plugin/Module $ext Installation Failed";
-
-		//enque the message
-		JFactory::getApplication()->enqueueMessage($msg);
-	}
-
-	return true;
-}	
-   
+  	for($i = 0; $i < count($rows); $i++)  {
+  		//echo "Matching template given $template comapring to {$rows[$i]->directory} \n";
+		if($rows[$i]->directory == $template)
+			return $i;
+  }
+	return -1;
+  }
 }
