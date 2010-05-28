@@ -17,7 +17,13 @@ jimport('joomla.html.pane');
 		$count = 0;
 		$i  = 0;
 		
-		if(!empty($this->infohtml))
+		if(empty($this->infohtml)):
+		?>
+			<div class="xiusNoInfo">
+			<?php echo JText::_('All Searchable Information Has Been Disabled By Administrator');?>
+			</div>		
+		<?php 
+		else:
 		foreach($this->infohtml as $data):
 			?> 
 			<div class="xius_spMain">
@@ -41,8 +47,10 @@ jimport('joomla.html.pane');
 		<div class="xius_spSubmit">
 		<input type="submit" id="xiussearch" name="xiussearch" value="Search" />
 		</div>
-
-
+		<?php 
+		endif;
+		?>
+		
 
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="users" />

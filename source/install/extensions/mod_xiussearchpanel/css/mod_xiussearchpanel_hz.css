@@ -1,55 +1,51 @@
-/** Available Info Module Div  **/
 .xiusMod_available {
-	overflow: hidden;
+	overflow:hidden;
+	margin:0%;
+	padding:2%;
 }
-
 .xiusMod_availablemain {
 	float: left;
-	width: 44%;
-	margin-top: 10px;
-	margin-left: 15px;
+	width:45%;
+    margin-top: 5px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 }
-
 .xiMod_left {
-	float: left;
-	margin-left: 15px;
-	margin-top: 5px;
+	font-weight:bold;
+	margin: 0 0 0 0;
+	float:left;
 	width:30%;
-}
+	}
 
-.xiMod_right {
-	overflow:hidden;
-	float: left;
+.xiMod_right {	
+	margin: 0 0 0 1px;
 }
-
-.xiMod_right input {
-	width: 150px;
-	float: left;
+.xiusMod_available input {
+	width: 115px;
+	margin: 0 0 0 0;
 }
 
 .xiusMod_available select {
-	width: 156px;
-	float: left;
+	width: 120px;
+	margin: 0 0 0 0;
 }
 
 .xiusMod_available input[type="checkbox"] {
 	width: 15px;
-	float: left;
+}
+
+.xiusMod_available input[type="radio"] {
+	width: 15px;
 }
 .xiusModSearch{
-	clear: both;
+	float:left;
 	}
-
 .xiusModSearch input{
 	margin-top: 10px;
-	margin-left: 15px;
 	}
-.xiMod_right label{
-display: block;
-width:45%;
-float:left;
+.xiusMod_availablemain label {
+	display: block;
+	padding-left: 0px;
+    margin-left:0px;
 }
-/** End Of Available Info **/

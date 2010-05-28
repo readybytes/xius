@@ -53,6 +53,10 @@ class XiusControllerUsers extends JController
 			case 'xiusexport':
 				return $this->_exportUser(__FUNCTION__);
 				break;
+			case 'xiusresetfilter':
+				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
+				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'','XIUS');
+				break;
 			default	:
 				if(!$supltytask)
 					return $this->_showSearchPanel();
@@ -147,6 +151,10 @@ class XiusControllerUsers extends JController
 				break;
 			case 'xiusexport':
 				return $this->_exportUser(__FUNCTION__);
+				break;
+			case 'xiusresetfilter':
+				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
+				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'','XIUS');
 				break;
 			default	:
 				$user =& JFactory::getUser();

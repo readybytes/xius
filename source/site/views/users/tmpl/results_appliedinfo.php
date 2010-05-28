@@ -14,14 +14,22 @@
 		form.subtask.value = subtask;
 		form.submit();
 	}
+
+	function addSubTaskAndSubmit(subtask)
+	{
+		var form = document.userForm;
+		form.subtask.value = subtask;
+		form.submit();
+	}
 </script>
 
 <?php 
 if(!empty($this->appliedInfo)) : ?>
 <div class="xiusAppliedinfo">
-	<!--<fieldset><legend><?php echo JText::_('Applied Information');?></legend>-->
-	 <h3 style="width:100%; border-bottom:1px solid #275788; margin:5px;">Applied Information</h3>
-
+<div class="xius_apiHead">
+	<?php echo JText::_('Applied Information');?>
+	<img src="components/com_xius/assets/images/clear_all.png" title="Clear All Applied Info" onclick="addSubTaskAndSubmit('xiusresetfilter')" />
+</div>
 <?php $data = $this->appliedInfo;
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
@@ -60,7 +68,6 @@ echo $joinhtml;
 
 <input type="hidden" name="xiusdelinfo" value="" />
 <input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
-<!--</fieldset> -->
 </div>
 <?php 
 endif;

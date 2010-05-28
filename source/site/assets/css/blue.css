@@ -205,6 +205,12 @@
 	border-bottom:1px solid green;
 }
 
+.xius_apiHead img{
+float: right;
+margin-top: -10px;
+cursor: pointer;
+}
+
 .applied {
 	margin-bottom: 2px;
 }
@@ -264,6 +270,8 @@
 	margin:15px 0 5px 5px;
 	border-bottom:1px solid green;
 }
+
+
 
 .xius_aiMain{
 	border:1px solid #E0E8EF;
@@ -363,31 +371,3 @@
 	cursor: pointer;
 	text-align: right;
 }
-
-/**
-.accordion {
-	width: 100%;
-	border-bottom: solid 1px #c4c4c4;
-}
-.accordion h3 {
-	background: url(images/arrow-square.gif) no-repeat right -51px;
-	padding: 7px 15px;
-	margin: 0;
-	font: bold 120%/100% Arial, Helvetica, sans-serif;
-	border: solid 1px #c4c4c4;
-	border-bottom: none;
-	cursor: pointer;
-}
-.accordion h3:hover {
-}
-.accordion h3.active {
-	background-position: right 5px;
-}
-.accordion div {
-	margin: 0;
-	padding: 10px 15px 20px;
-	border-left: solid 1px #c4c4c4;
-	border-right: solid 1px #c4c4c4;
-	display: none;
-}
-**/

@@ -6,6 +6,7 @@
 		form.submit();
 	}
 	
+	
 </script>
 <div class="xius_ai">
 <div class="xius_aiHead">
@@ -26,7 +27,7 @@ if(!empty($this->availableInfo))
 				</div>
 				<div class="xius_aiImg">
 				<img class="xius_test_addinfo_<?php echo $data['infoid'];?>" src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-						alt="Add" title="Search" onClick="addInfo(<?php echo $data['infoid'];?>);"/>
+						alt="Add To Search" title="Add To Search" onClick="addInfo(<?php echo $data['infoid'];?>);"/>
 				</div>
 			</div>	
 		<?php 
