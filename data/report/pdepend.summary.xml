@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2010-05-31T13:29:08" pdepend="0.9.11" ahh="0.666666666667" andc="0.115384615385" calls="1048" ccn="736" ccn2="798" cloc="871" clsa="1" clsc="72" eloc="3801" fanout="360" leafs="65" loc="6027" maxDIT="2" ncloc="5156" noc="73" nof="6" noi="0" nom="265" nop="3" roots="6">
+<metrics generated="2010-05-31T15:06:51" pdepend="0.9.11" ahh="0.666666666667" andc="0.115384615385" calls="1048" ccn="736" ccn2="798" cloc="871" clsa="1" clsc="51" eloc="3801" fanout="360" leafs="44" loc="6027" maxDIT="2" ncloc="5156" noc="52" nof="6" noi="0" nom="265" nop="3" roots="6">
   <files>
     <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php" cloc="35" eloc="42" loc="93" ncloc="58"/>
     <file name="/vobs/xius/trunk/source/admin/controllers/cpanel.php" cloc="1" eloc="45" loc="63" ncloc="62"/>
@@ -48,7 +48,7 @@
     <file name="/vobs/xius/trunk/source/admin/tables/conditions.php" cloc="48" eloc="40" loc="102" ncloc="54"/>
     <file name="/vobs/xius/trunk/source/admin/tables/list.php" cloc="20" eloc="62" loc="99" ncloc="79"/>
   </files>
-  <package name="+global" cr="0.2775" noc="69" nof="6" noi="0" nom="233" rcr="0.15">
+  <package name="+global" cr="0.2775" noc="48" nof="6" noi="0" nom="233" rcr="0.15">
     <class name="XiusControllerConfiguration" cis="7" cloc="34" cr="0.15" csz="7" dit="1" eloc="39" impl="0" loc="88" ncloc="54" noam="3" nocc="0" nom="3" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="7" wmci="7" wmcnp="7">
       <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="2" eloc="3" loc="7" ncloc="5" npath="1"/>

@@ -54,6 +54,8 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 	?>
 	</fieldset>
 </div>
+</div>
+<div>
 <div class="col width-60" style="width:60%; float:right;">
 	<fieldset class="adminform">
 	<legend><?php echo JText::_( 'General Parameters' ); ?></legend>
