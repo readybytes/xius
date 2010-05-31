@@ -172,6 +172,11 @@ class Jsfields extends XiusBase
 			$value		= $splitValue;
 		}
 
+		if($fieldInfo[0]->type == 'profiletypes'){
+			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+			return ProfiletypesHelper::formatData($value);		
+		}
+		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
 		return $formatvalue;
@@ -210,6 +215,11 @@ class Jsfields extends XiusBase
 			$query	= 'SELECT DATE_FORMAT('.$db->Quote($value).', "%d-%m-%Y") AS FORMATED_DATE';
 			$db->setQuery($query);
 			return $db->loadResult();
+		}		
+		
+		if($fieldInfo[0]->type == 'profiletypes'){
+			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+			return ProfiletypesHelper::getFieldData($value);			
 		}
 		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );

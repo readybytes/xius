@@ -228,4 +228,42 @@ class XiusSearchTest extends XiSelTestCase
 				
 	}
 	
+	
+	function testProfileTypeSearch()
+	{
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		$this->select("field19", "label=Paid Subscriber");
+		$this->click("//input[@name='xius_join' and @value='OR']"); // match any
+    	$this->click("xiussearch");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_8']"));
+    	
+    	$element[] = "//img[@class='xius_test_remove_Paid Subscriber']";
+    	$this->isSearchElementPresent($element);
+		unset($element);
+		
+    	$this->select("field19", "label=Free Member");
+    	$this->click("//img[@class='xius_test_addinfo_9']");
+    	$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_13']"));
+    	
+		$element[] = "//img[@class='xius_test_remove_Paid Subscriber']";
+    	$element[] = "//img[@class='xius_test_remove_Free Member']";
+    	$this->isSearchElementPresent($element);
+		unset($element);
+		
+    	$this->select("field19", "label=Serious Joomla User");
+    	$this->click("//img[@class='xius_test_addinfo_9']");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_17']"));
+    	
+    	$element[] = "//img[@class='xius_test_remove_Paid Subscriber']";
+    	$element[] = "//img[@class='xius_test_remove_Free Member']";
+    	$element[] = "//img[@class='xius_test_remove_Serious Joomla User']";
+    	$this->isSearchElementPresent($element);
+		unset($element);    	
+	}
+	
 }

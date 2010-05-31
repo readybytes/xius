@@ -1,5 +1,7 @@
 <div class="xiusListing">
-	<?php foreach($this->users as $u)	:
+<?php
+	 foreach($this->users as $u)	:
+	 		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 		  	$cuser = CFactory::getUser($u->userid); ?>		
 	<div class="xiusProfile">
 		<div class="xiusTopBar">
@@ -69,6 +71,8 @@
 		
 		<div class="clr"></div>	
 	</div>
-	<?php endforeach; ?>
+	<?php endforeach;
+	JTable::addIncludePath(XIUS_PATH_TABLE);
+	 ?>
 </div>
 
