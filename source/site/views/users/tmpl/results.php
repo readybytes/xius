@@ -1,11 +1,14 @@
-<div class="xius_result">
+<div class="xius_result"><a name="xiustop"></a>
 <form action="index.php?option=com_xius&view=users&suplytask=displayresult" name="userForm" id="userForm" method="post">
 <?php
 
 /*XITODO : pass variable for color */
 $css = JURI::base().'components/com_xius/assets/css/blue.css';
+$js = JURI::base().'components/com_xius/assets/js/xius.js';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
+$document->addScript($js);
+
 if($this->task == 'displayList')
 	echo '<span class = "xiusListname">'.JTEXT::_(ucfirst($this->loadTemplate('listinfo'))).'</span>';
 	
@@ -37,4 +40,5 @@ echo $this->pagination->getPagesLinks();
 <input type="hidden" name="subtask" value="" />
 <input type="hidden" name="scanned" value="1" />
 </form>
+<a href="#xiustop" style="float:right;"><img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" /></a>
 </div>

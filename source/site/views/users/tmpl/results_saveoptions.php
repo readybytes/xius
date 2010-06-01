@@ -1,16 +1,9 @@
-<script language="javascript" type="text/javascript">
-	function saveList(subtask) {
-		var form = document.saveListForm;
-		form.subtask.value = subtask;
-		form.submit();
-	}
-	
-</script>
 <?php 
 $css = JURI::base().'components/com_xius/assets/css/save.css';
+$js = JURI::base().'components/com_xius/assets/js/xius.js';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
-
+$document->addScript($js);
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
@@ -25,11 +18,11 @@ if(!empty($this->msg))
 		<div><textarea rows="" cols="" name="xius_list_desc"></textarea></div>
 		<div><?php echo JText::_('Published');?>:<input type="radio" name="xius_list_publish" value="0"><?php echo JText::_('NO');?>:<input type="radio" name="xius_list_publish" value="1" checked="checked"><?php echo JText::_('YES');?></div>
 		<div class="submit"><input type="submit" name = "xiussavenew" id = "xiussavenew" value=<?php echo JText::_('SAVE AS NEW')?> onClick = "saveList('xiussavenew');"/></div>
-		
 	</div>
 	<div class="rightbox">
 		<h3><?php echo JText::_('Save in Existing');?></h3>
-		<div class="subrightbox"><?php
+		<div class="subrightbox">
+		<?php
 if(empty($this->lists))	:
 	echo JText::_('NO LISTS AVAILABLE');
 else	:

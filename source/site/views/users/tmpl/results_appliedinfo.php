@@ -1,28 +1,3 @@
-<script language="javascript" type="text/javascript">
-	function deleteInfo(infoid,valueBoxId)
-	{
-		var form = document.userForm;
-		form.xiusdelinfo.value = infoid.id;
-		form.conditionvalue.value = document.getElementById(valueBoxId).value;
-		form.subtask.value = 'xiusdelinfo';
-		form.submit();
-	}
-
-	function applyJoin(subtask) 
-	{
-		var form = document.userForm;
-		form.subtask.value = subtask;
-		form.submit();
-	}
-
-	function addSubTaskAndSubmit(subtask)
-	{
-		var form = document.userForm;
-		form.subtask.value = subtask;
-		form.submit();
-	}
-</script>
-
 <?php 
 if(!empty($this->appliedInfo)) : ?>
 <div class="xiusAppliedinfo">

@@ -1,13 +1,3 @@
-<script language="javascript" type="text/javascript">
-	function addInfo(infoid) {
-		var form = document.userForm;
-		form.xiusaddinfo.value = infoid;
-		form.subtask.value = 'xiusaddinfo';
-		form.submit();
-	}
-	
-	
-</script>
 <div class="xius_ai">
 <div class="xius_aiHead">
 <?php

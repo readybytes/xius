@@ -19,9 +19,11 @@ jimport('joomla.html.pane');
 		
 		if(empty($this->infohtml)):
 		?>
-			<div class="xiusNoInfo">
+			<!-- <div class="xiusNoInfo"> -->
+			<h3>
 			<?php echo JText::_('All Searchable Information Has Been Disabled By Administrator');?>
-			</div>		
+			</h3>
+			<!-- </div> -->		
 		<?php 
 		else:
 		foreach($this->infohtml as $data):
@@ -38,7 +40,7 @@ jimport('joomla.html.pane');
 		endforeach;
 		?>
 		<div class="xius_spMain">
-		<div class="xius_spLabel">Join With</div>
+		<div class="xius_spLabel"><?php echo JText::_('Join With'); ?></div>
 		<div class="xius_spInput">
 		<input type="radio" name="xius_join" value="AND" /><?php echo JText::_('MATCH ALL'); ?>  
 		<input type="radio" name="xius_join" value="OR" /><?php echo JText::_('MATCH ANY'); ?>

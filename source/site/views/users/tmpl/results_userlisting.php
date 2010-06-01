@@ -5,8 +5,8 @@
 		  	$cuser = CFactory::getUser($u->userid); ?>		
 	<div class="xiusProfile">
 		<div class="xiusTopBar">
-			<span class="xiusname"><?php echo $cuser->name;?></span> 
- 			<?php echo $cuser->getStatus() ;?>
+			<span class="xiusname"><?php echo JText::_($cuser->name);?></span> 
+ 			<?php echo JText::_($cuser->getStatus()) ;?>
  		</div>
  			
 		<div class="xiusProfileArea">
@@ -30,7 +30,7 @@
 							if($up['label']=='Name')
 								continue;
 				  			echo '<span><b>'.JText::_($up['label']).' :</b> ';
-				  			echo $up['value']."</span><br />";
+				  			echo JText::_($up['value'])."</span><br />";
 						endif; 
 					endforeach;
  				endif;

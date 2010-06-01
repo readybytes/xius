@@ -55,7 +55,8 @@ class XiusControllerUsers extends JController
 				break;
 			case 'xiusresetfilter':
 				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
-				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'','XIUS');
+				$join = JRequest::getVar('xius_join','AND','POST');
+				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 				break;
 			default	:
 				if(!$supltytask)

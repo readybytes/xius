@@ -1,10 +1,3 @@
-<script language="javascript" type="text/javascript">
-	function applySort(subtask) {
-		var form = document.userForm;
-		form.subtask.value = subtask;
-		form.submit();
-	}	
-</script>
 <div class = "xiusSorting">
 <?php 
 		if(!empty($this->sortableFields))	:

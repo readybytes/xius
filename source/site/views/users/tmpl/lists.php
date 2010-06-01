@@ -27,7 +27,7 @@ else	:
 		</div>
 		<div class="listdesc">
 		<?php 
-		echo $l->description;
+		echo JText::_($l->description);
 		?><hr />
 		</div>
 		</div>

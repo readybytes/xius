@@ -1,11 +1,3 @@
-<script language="JavaScript">
-function refreshParent(url)
-{
-	window.parent.location.href = url;
-	//window.opener.location.href = url;
- 	parent.SqueezeBox.close();
- }
-</script>
 <div style="margin-top:30%;margin-left:35%;">
 	<form>
 		<div style="border-bottom:1px solid #275788;width:40%;">
