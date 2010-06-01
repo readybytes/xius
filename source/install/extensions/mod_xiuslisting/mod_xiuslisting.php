@@ -1,4 +1,8 @@
 <?php
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
 defined('_JEXEC') or die('Restricted access');
 jimport( 'joomla.filesystem.folder' );
 require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');

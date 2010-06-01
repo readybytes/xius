@@ -1,4 +1,8 @@
-<div class = "toolbarTopLeft"><?php 
+<div class = "toolbarTopLeft"><?php
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/ 
 $params	= array('size'=>array('x' => 500 , 'y' => 450));
 JHTML::_('behavior.modal' , 'a.savelist' , $params);
 $user =& JFactory::getUser();

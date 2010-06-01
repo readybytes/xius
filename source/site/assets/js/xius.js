@@ -1,3 +1,6 @@
+//@Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+//@license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+
 	function deleteInfo(infoid,valueBoxId)
 	{
 		var form = document.userForm;
@@ -21,20 +24,23 @@
 		form.submit();
 	}
 	
-	function addInfo(infoid) {
+	function addInfo(infoid) 
+	{
 		var form = document.userForm;
 		form.xiusaddinfo.value = infoid;
 		form.subtask.value = 'xiusaddinfo';
 		form.submit();
 	}
 	
-	function saveList(subtask) {
+	function saveList(subtask) 
+	{
 		var form = document.saveListForm;
 		form.subtask.value = subtask;
 		form.submit();
 	}
 	
-	function applySort(subtask) {
+	function applySort(subtask) 
+	{
 		var form = document.userForm;
 		form.subtask.value = subtask;
 		form.submit();

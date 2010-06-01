@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2010-05-31T15:06:51" pdepend="0.9.11" ahh="0.666666666667" andc="0.115384615385" calls="1048" ccn="736" ccn2="798" cloc="871" clsa="1" clsc="51" eloc="3801" fanout="360" leafs="44" loc="6027" maxDIT="2" ncloc="5156" noc="52" nof="6" noi="0" nom="265" nop="3" roots="6">
+<metrics generated="2010-06-01T16:12:02" pdepend="0.9.11" ahh="0.636363636364" andc="0.11320754717" calls="1054" ccn="738" ccn2="800" cloc="1021" clsa="1" clsc="52" eloc="3811" fanout="362" leafs="45" loc="6162" maxDIT="2" ncloc="5141" noc="53" nof="6" noi="0" nom="267" nop="3" roots="6">
   <files>
-    <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php" cloc="35" eloc="42" loc="93" ncloc="58"/>
-    <file name="/vobs/xius/trunk/source/admin/controllers/cpanel.php" cloc="1" eloc="45" loc="63" ncloc="62"/>
-    <file name="/vobs/xius/trunk/source/admin/controllers/info.php" cloc="28" eloc="297" loc="424" ncloc="396"/>
-    <file name="/vobs/xius/trunk/source/admin/controllers/list.php" cloc="16" eloc="130" loc="191" ncloc="175"/>
-    <file name="/vobs/xius/trunk/source/admin/helpers/utils.php" cloc="6" eloc="94" loc="144" ncloc="138"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/cache.php" cloc="7" eloc="76" loc="119" ncloc="112"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/error.php" cloc="0" eloc="9" loc="15" ncloc="15"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/factory.php" cloc="13" eloc="87" loc="132" ncloc="119"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/info.php" cloc="7" eloc="45" loc="71" ncloc="64"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/list.php" cloc="9" eloc="18" loc="36" ncloc="27"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/pluginhandler.php" cloc="3" eloc="13" loc="22" ncloc="19"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/base.php" cloc="84" eloc="315" loc="516" ncloc="432"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/baseview.php" cloc="6" eloc="33" loc="54" ncloc="48"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/joomla.php" cloc="19" eloc="114" loc="173" ncloc="154"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/joomlahelper.php" cloc="2" eloc="31" loc="47" ncloc="45"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/views/view.html.php" cloc="4" eloc="24" loc="40" ncloc="36"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/jsfields.php" cloc="35" eloc="150" loc="232" ncloc="197"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/jsfieldshelper.php" cloc="52" eloc="79" loc="168" ncloc="116"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/profiletype.php" cloc="19" eloc="40" loc="71" ncloc="52"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/views/view.html.php" cloc="5" eloc="27" loc="43" ncloc="38"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/keyword/keyword.php" cloc="14" eloc="56" loc="90" ncloc="76"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/keyword/views/view.html.php" cloc="1" eloc="10" loc="16" ncloc="15"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/query.php" cloc="104" eloc="309" loc="486" ncloc="382"/>
-    <file name="/vobs/xius/trunk/source/admin/libraries/usersearch.php" cloc="70" eloc="299" loc="493" ncloc="423"/>
-    <file name="/vobs/xius/trunk/source/admin/loader.php" cloc="0" eloc="23" loc="30" ncloc="30"/>
-    <file name="/vobs/xius/trunk/source/admin/models/configuration.php" cloc="26" eloc="61" loc="107" ncloc="81"/>
-    <file name="/vobs/xius/trunk/source/admin/models/info.php" cloc="26" eloc="115" loc="189" ncloc="163"/>
-    <file name="/vobs/xius/trunk/source/admin/models/list.php" cloc="19" eloc="107" loc="170" ncloc="151"/>
-    <file name="/vobs/xius/trunk/source/admin/tables/configuration.php" cloc="12" eloc="25" loc="46" ncloc="34"/>
-    <file name="/vobs/xius/trunk/source/admin/tables/info.php" cloc="18" eloc="36" loc="63" ncloc="45"/>
-    <file name="/vobs/xius/trunk/source/admin/views/configuration/view.html.php" cloc="16" eloc="24" loc="50" ncloc="34"/>
-    <file name="/vobs/xius/trunk/source/admin/views/cpanel/view.html.php" cloc="12" eloc="50" loc="74" ncloc="62"/>
-    <file name="/vobs/xius/trunk/source/admin/views/info/view.html.php" cloc="9" eloc="64" loc="100" ncloc="91"/>
-    <file name="/vobs/xius/trunk/source/admin/views/list/view.html.php" cloc="11" eloc="27" loc="48" ncloc="37"/>
-    <file name="/vobs/xius/trunk/source/install/extensions/mod_xiuslisting/helper.php" cloc="1" eloc="13" loc="18" ncloc="17"/>
-    <file name="/vobs/xius/trunk/source/install/extensions/mod_xiussearchpanel/helper.php" cloc="1" eloc="45" loc="60" ncloc="59"/>
+    <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php" cloc="39" eloc="42" loc="97" ncloc="58"/>
+    <file name="/vobs/xius/trunk/source/admin/controllers/cpanel.php" cloc="5" eloc="45" loc="66" ncloc="61"/>
+    <file name="/vobs/xius/trunk/source/admin/controllers/info.php" cloc="32" eloc="297" loc="427" ncloc="395"/>
+    <file name="/vobs/xius/trunk/source/admin/controllers/list.php" cloc="20" eloc="130" loc="194" ncloc="174"/>
+    <file name="/vobs/xius/trunk/source/admin/helpers/utils.php" cloc="10" eloc="94" loc="147" ncloc="137"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/cache.php" cloc="11" eloc="76" loc="122" ncloc="111"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/error.php" cloc="4" eloc="9" loc="18" ncloc="14"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/factory.php" cloc="17" eloc="87" loc="135" ncloc="118"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/info.php" cloc="11" eloc="45" loc="74" ncloc="63"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/list.php" cloc="11" eloc="18" loc="38" ncloc="27"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/pluginhandler.php" cloc="5" eloc="13" loc="24" ncloc="19"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/base.php" cloc="88" eloc="315" loc="519" ncloc="431"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/baseview.php" cloc="10" eloc="33" loc="57" ncloc="47"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/joomla.php" cloc="23" eloc="114" loc="176" ncloc="153"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/joomlahelper.php" cloc="6" eloc="31" loc="50" ncloc="44"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/joomla/views/view.html.php" cloc="8" eloc="24" loc="43" ncloc="35"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/jsfields.php" cloc="39" eloc="150" loc="235" ncloc="196"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/jsfieldshelper.php" cloc="56" eloc="79" loc="171" ncloc="115"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/profiletype.php" cloc="14" eloc="36" loc="61" ncloc="47"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/views/view.html.php" cloc="9" eloc="27" loc="46" ncloc="37"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/keyword/keyword.php" cloc="18" eloc="56" loc="94" ncloc="76"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/plugins/keyword/views/view.html.php" cloc="5" eloc="10" loc="19" ncloc="14"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/query.php" cloc="108" eloc="309" loc="490" ncloc="382"/>
+    <file name="/vobs/xius/trunk/source/admin/libraries/usersearch.php" cloc="72" eloc="299" loc="495" ncloc="423"/>
+    <file name="/vobs/xius/trunk/source/admin/loader.php" cloc="4" eloc="23" loc="34" ncloc="30"/>
+    <file name="/vobs/xius/trunk/source/admin/models/configuration.php" cloc="25" eloc="61" loc="106" ncloc="81"/>
+    <file name="/vobs/xius/trunk/source/admin/models/info.php" cloc="30" eloc="115" loc="193" ncloc="163"/>
+    <file name="/vobs/xius/trunk/source/admin/models/list.php" cloc="23" eloc="107" loc="173" ncloc="150"/>
+    <file name="/vobs/xius/trunk/source/admin/tables/configuration.php" cloc="11" eloc="25" loc="44" ncloc="33"/>
+    <file name="/vobs/xius/trunk/source/admin/tables/info.php" cloc="22" eloc="36" loc="67" ncloc="45"/>
+    <file name="/vobs/xius/trunk/source/admin/views/configuration/view.html.php" cloc="17" eloc="24" loc="50" ncloc="33"/>
+    <file name="/vobs/xius/trunk/source/admin/views/cpanel/view.html.php" cloc="16" eloc="50" loc="77" ncloc="61"/>
+    <file name="/vobs/xius/trunk/source/admin/views/info/view.html.php" cloc="13" eloc="64" loc="103" ncloc="90"/>
+    <file name="/vobs/xius/trunk/source/admin/views/list/view.html.php" cloc="15" eloc="27" loc="51" ncloc="36"/>
+    <file name="/vobs/xius/trunk/source/install/extensions/mod_xiuslisting/helper.php" cloc="5" eloc="13" loc="22" ncloc="17"/>
+    <file name="/vobs/xius/trunk/source/install/extensions/mod_xiussearchpanel/helper.php" cloc="5" eloc="45" loc="64" ncloc="59"/>
     <file name="/vobs/xius/trunk/source/install/extensions/xius_community/xius.php" cloc="1" eloc="25" loc="34" ncloc="33"/>
     <file name="/vobs/xius/trunk/source/install/extensions/xius_system/xius_system.php" cloc="1" eloc="24" loc="35" ncloc="34"/>
-    <file name="/vobs/xius/trunk/source/site/controllers/users.php" cloc="53" eloc="270" loc="402" ncloc="349"/>
-    <file name="/vobs/xius/trunk/source/site/models/users.php" cloc="9" eloc="60" loc="93" ncloc="84"/>
-    <file name="/vobs/xius/trunk/source/site/views/users/view.csv.php" cloc="4" eloc="74" loc="100" ncloc="96"/>
-    <file name="/vobs/xius/trunk/source/site/views/users/view.html.php" cloc="32" eloc="239" loc="350" ncloc="318"/>
-    <file name="/vobs/xius/trunk/source/install/install.php" cloc="10" eloc="43" loc="76" ncloc="66"/>
-    <file name="/vobs/xius/trunk/source/install/uninstall.php" cloc="2" eloc="31" loc="42" ncloc="40"/>
-    <file name="/vobs/xius/trunk/source/admin/tables/conditions.php" cloc="48" eloc="40" loc="102" ncloc="54"/>
-    <file name="/vobs/xius/trunk/source/admin/tables/list.php" cloc="20" eloc="62" loc="99" ncloc="79"/>
+    <file name="/vobs/xius/trunk/source/site/controllers/users.php" cloc="57" eloc="271" loc="406" ncloc="349"/>
+    <file name="/vobs/xius/trunk/source/site/helpers/users.php" cloc="5" eloc="13" loc="22" ncloc="17"/>
+    <file name="/vobs/xius/trunk/source/site/models/users.php" cloc="13" eloc="60" loc="97" ncloc="84"/>
+    <file name="/vobs/xius/trunk/source/site/views/users/view.csv.php" cloc="8" eloc="74" loc="103" ncloc="95"/>
+    <file name="/vobs/xius/trunk/source/site/views/users/view.html.php" cloc="36" eloc="239" loc="353" ncloc="317"/>
+    <file name="/vobs/xius/trunk/source/install/install.php" cloc="14" eloc="43" loc="80" ncloc="66"/>
+    <file name="/vobs/xius/trunk/source/install/uninstall.php" cloc="6" eloc="31" loc="46" ncloc="40"/>
+    <file name="/vobs/xius/trunk/source/admin/tables/conditions.php" cloc="49" eloc="40" loc="102" ncloc="53"/>
+    <file name="/vobs/xius/trunk/source/admin/tables/list.php" cloc="24" eloc="62" loc="102" ncloc="78"/>
   </files>
-  <package name="+global" cr="0.2775" noc="48" nof="6" noi="0" nom="233" rcr="0.15">
+  <package name="+global" cr="0.2775" noc="49" nof="6" noi="0" nom="235" rcr="0.15">
     <class name="XiusControllerConfiguration" cis="7" cloc="34" cr="0.15" csz="7" dit="1" eloc="39" impl="0" loc="88" ncloc="54" noam="3" nocc="0" nom="3" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="7" wmci="7" wmcnp="7">
       <file name="/vobs/xius/trunk/source/admin/controllers/configuration.php"/>
       <method name="__construct" ccn="1" ccn2="1" cloc="2" eloc="3" loc="7" ncloc="5" npath="1"/>
@@ -225,7 +226,7 @@
       <method name="getFieldType" ccn="2" ccn2="2" cloc="0" eloc="8" loc="11" ncloc="11" npath="2"/>
       <method name="isJomsocialExist" ccn="1" ccn2="1" cloc="0" eloc="2" loc="4" ncloc="4" npath="1"/>
     </class>
-    <class name="ProfiletypesHelper" cis="10" cloc="16" cr="0.15" csz="10" dit="0" eloc="36" impl="0" loc="63" ncloc="47" noam="0" nocc="0" nom="3" noom="0" rcr="0.15" vars="4" varsi="4" varsnp="4" wmc="6" wmci="6" wmcnp="6">
+    <class name="ProfiletypesHelper" cis="6" cloc="9" cr="0.15" csz="6" dit="0" eloc="32" impl="0" loc="51" ncloc="42" noam="0" nocc="0" nom="3" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="6" wmci="6" wmcnp="6">
       <file name="/vobs/xius/trunk/source/admin/libraries/plugins/jsfields/profiletype.php"/>
       <method name="formatData" ccn="1" ccn2="1" cloc="0" eloc="4" loc="5" ncloc="5" npath="1"/>
       <method name="getFieldData" ccn="2" ccn2="2" cloc="0" eloc="7" loc="10" ncloc="10" npath="2"/>
@@ -365,10 +366,10 @@
       <method name="plgSystemxius_system" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
       <method name="onUsInfoUpdated" ccn="2" ccn2="2" cloc="0" eloc="8" loc="10" ncloc="10" npath="2"/>
     </class>
-    <class name="XiusControllerUsers" cis="53" cloc="52" cr="0.15" csz="53" dit="1" eloc="267" impl="0" loc="396" ncloc="344" noam="14" nocc="0" nom="14" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="53" wmci="53" wmcnp="53">
+    <class name="XiusControllerUsers" cis="53" cloc="52" cr="0.15" csz="53" dit="1" eloc="268" impl="0" loc="397" ncloc="345" noam="14" nocc="0" nom="14" noom="0" rcr="0.1755" vars="0" varsi="0" varsnp="0" wmc="53" wmci="53" wmcnp="53">
       <file name="/vobs/xius/trunk/source/site/controllers/users.php"/>
       <method name="display" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
-      <method name="displaySearch" ccn="11" ccn2="11" cloc="7" eloc="41" loc="54" ncloc="47" npath="11"/>
+      <method name="displaySearch" ccn="11" ccn2="11" cloc="7" eloc="42" loc="55" ncloc="48" npath="11"/>
       <method name="_showSearchPanel" ccn="2" ccn2="3" cloc="3" eloc="15" loc="23" ncloc="20" npath="3"/>
       <method name="_displayResult" ccn="1" ccn2="1" cloc="0" eloc="8" loc="10" ncloc="10" npath="1"/>
       <method name="_exportUser" ccn="1" ccn2="1" cloc="0" eloc="6" loc="7" ncloc="7" npath="1"/>
@@ -381,6 +382,11 @@
       <method name="displayAdvanceSearch" ccn="1" ccn2="1" cloc="0" eloc="8" loc="9" ncloc="9" npath="1"/>
       <method name="runCron" ccn="2" ccn2="2" cloc="33" eloc="10" loc="49" ncloc="16" npath="2"/>
       <method name="_runCron" ccn="3" ccn2="3" cloc="0" eloc="9" loc="10" ncloc="10" npath="3"/>
+    </class>
+    <class name="XiusHelperUsers" cis="2" cloc="0" cr="0.15" csz="2" dit="0" eloc="10" impl="0" loc="12" ncloc="12" noam="0" nocc="0" nom="2" noom="0" rcr="0.15" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/vobs/xius/trunk/source/site/helpers/users.php"/>
+      <method name="getSerializedData" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
+      <method name="getUnserializedData" ccn="1" ccn2="1" cloc="0" eloc="3" loc="4" ncloc="4" npath="1"/>
     </class>
     <class name="XiusModelUsers" cis="13" cloc="9" cr="0.15" csz="16" dit="1" eloc="56" impl="0" loc="89" ncloc="80" noam="4" nocc="0" nom="4" noom="0" rcr="0.181875" vars="3" varsi="3" varsnp="0" wmc="13" wmci="13" wmcnp="13">
       <file name="/vobs/xius/trunk/source/site/models/users.php"/>

@@ -1,11 +1,8 @@
 <?php
-
 /**
-* @copyright	Copyright (C) 2009 - 2009 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
-* @license		GNU/GPL, see LICENSE.php
-* @contact		shyam@joomlaxi.com
-*/
-
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
 defined('_JEXEC') or die();
 
 // If file is already included
