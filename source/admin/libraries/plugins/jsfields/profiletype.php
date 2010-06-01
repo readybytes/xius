@@ -7,18 +7,6 @@ require_once (JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'includes.xipt.php');
 
 class ProfiletypesHelper
 {
-	/* Value must be numeric */
-	var $_mainframe;
-	var $_task;
-	var $_view;
-	var $_params;
-	
-	/* if data not available,
-	 * then find user's profiletype and return
-	 * else present defaultProfiletype to community
-	 *
-	 * So there will be always a valid value returned
-	 * */
 	function formatData($value=0)
 	{
 	    $pID = $value;

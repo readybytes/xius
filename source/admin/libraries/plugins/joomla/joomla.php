@@ -49,9 +49,9 @@ class Joomla extends XiusBase
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					if($this->key == 'registerDate')
-						$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y')".$operator."'".$this->formatValue($value)."'";
+						$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
 					else
-						$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
+						$conditions =  $db->nameQuote($c['columnname']).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 					
 					$query->where($conditions,$join);
 					return true;
@@ -59,13 +59,13 @@ class Joomla extends XiusBase
 			}
 			else{
 				if($this->key == 'registerDate')
-					$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y')".$operator."'".$this->formatValue($value)."'";
+					$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
 				else{
 					/*IMP : We are using directly LIKE operator here
 					 * for text box , if we change any field presentation 
 					 * we have to change this also
 					 */
-					$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
+					$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 				}
 					
 				$query->where($conditions,$join);

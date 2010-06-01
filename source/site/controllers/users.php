@@ -182,8 +182,8 @@ class XiusControllerUsers extends JController
 		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
 		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,unserialize($list->conditions),'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,unserialize($list->visibleinfo),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
 		return true;
 	}
 	

@@ -16,6 +16,7 @@
 		<file>includes.php</file>
 		<file>index.html</file>
 		<folder>controllers</folder>
+		<folder>helpers</folder>
 		<folder>views</folder>
 		<folder>models</folder>
 		<folder>assets</folder>

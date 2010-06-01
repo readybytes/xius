@@ -80,18 +80,18 @@ class Jsfields extends XiusBase
 			if(is_array($columns)) {
 				foreach($columns as $c){
 					if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
-						$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
+						$conditions =  $db->nameQuote($c['columnname']).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 					else
-						$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
+						$conditions =  $db->nameQuote($c['columnname']).' '.$operator.' '.$db->Quote($this->formatValue($value));
 					$query->where($conditions,$join);
 					return true;
 				}
 			}
 			else{
 				if(JString::strtolwer($fType) == 'text' || $operator == XIUS_LIKE)
-					$conditions =  $db->nameQuote($columns['columnname'])." ".XIUS_LIKE." '%".$this->formatValue($value)."%'";
+					$conditions =  $db->nameQuote($columns['columnname']).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 				else
-					$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
+					$conditions =  $db->nameQuote($columns['columnname']).' '.$operator.' '.$db->Quote($this->formatValue($value));
 					
 				$query->where($conditions,$join);
 				return true;
@@ -108,7 +108,7 @@ class Jsfields extends XiusBase
 					$count = 0;
 					foreach($value as $v){
 						$conditions .= $count ? ' AND ' : ' ( ';
-						$conditions .= ''.$db->nameQuote($c['columnname'])." LIKE '%".$this->formatValue($v)."%'";
+						$conditions .= ''.$db->nameQuote($c['columnname']).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
 						$count++;
 						//$query->where($conditions);
 					}
@@ -127,7 +127,7 @@ class Jsfields extends XiusBase
 				$count = 0;
 				foreach($value as $v){
 					$conditions .= $count ? ' AND ' : ' ( ';
-					$conditions .=  $db->nameQuote($columns['columnname'])." LIKE '%".$this->formatValue($v)."%'";
+					$conditions .=  $db->nameQuote($columns['columnname']).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
 					$count++;
 					//$query->where($conditions,'OR');
 				}

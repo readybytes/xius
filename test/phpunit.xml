@@ -24,6 +24,7 @@
 		<file>test/unit/com/admin/models/configuration.php</file>
 		
 		<file>test/unit/com/site/controllers/users.php</file>
+		<file>test/unit/com/site/helpers/users.php</file>
 		
 		<file>test/sel/com/site/joomlaSearch.php</file>
 		<file>test/sel/com/site/search.php</file>

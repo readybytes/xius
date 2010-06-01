@@ -9,7 +9,7 @@ if(!empty($this->appliedInfo)) : ?>
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
 		$count++; ?>
-		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo serialize($a['value']);?>' />
+		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 		<?php 
 		echo '<div class="applied"><div class="left"><div><b>'.JText::_($a['label']).'</b>';
 		if(is_array($a['formatvalue']))	:	
