@@ -8,10 +8,10 @@
 ../packages/tmp/admin/includes.php:56:require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/views/view.html.php:9:require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:9:require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:178:			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:182:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:223:			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:227:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:182:			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:186:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:227:			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:231:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/profiletype.php:8:require_once (JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'includes.xipt.php');
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:127:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:128:		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );

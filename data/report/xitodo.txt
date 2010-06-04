@@ -15,15 +15,16 @@
 ../packages/tmp/admin/libraries/usersearch.php:217:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:254:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:359:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:207:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:211:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/plugins/base.php:299:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:441:		 * XITODO : Add all cache columns if one instance is 
-../packages/tmp/admin/libraries/plugins/base.php:476:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/base.php:445:		 * XITODO : Add all cache columns if one instance is 
+../packages/tmp/admin/libraries/plugins/base.php:486:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */		
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
-../packages/tmp/site/views/users/view.html.php:236:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:324:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/view.html.php:223:				 * XITODO : if information value is valid then add it, otheriwse discard it 
+../packages/tmp/site/views/users/view.html.php:243:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:331:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/users/tmpl/results.php:11:/*XITODO : pass variable for color */
 ../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:92:		/*XITODO : pass only searchable information 

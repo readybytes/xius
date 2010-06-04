@@ -355,6 +355,10 @@ abstract class XiusBase extends JObject
 		 * it's handling query only for single value
 		 * if column needs multiple comparision then they should handle
 		 */
+		
+		if($this->validateValues($value) == false)
+			return false;
+			
 		$db = JFactory::getDBO();
 		
 		if(is_array($value))
@@ -468,6 +472,12 @@ abstract class XiusBase extends JObject
 		return $value; 
 	}
 	
+	// format the value for applied info
+	public function _getFormatAppliedData($value)
+	{
+		return $this->_getFormatData($value);
+	}
+	
 	/*every constructed object should be clean 
 	 * before giving another to access old data
 	 */
@@ -489,5 +499,10 @@ abstract class XiusBase extends JObject
 			
 		$this->key		 = '';
 		$this->id		 = 0;
+	}
+	
+	public function validateValues($value)
+	{
+		return true;		
 	}
 }

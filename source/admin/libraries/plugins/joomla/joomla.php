@@ -43,6 +43,10 @@ class Joomla extends XiusBase
 
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
+		// if input values are are not valid then discard this		
+		if($this->validateValues($value) == false)
+			return false;
+		
 		$db = JFactory::getDBO();
 		if(is_array($value))
 			return false;

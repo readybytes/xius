@@ -85,7 +85,7 @@ class Rangesearch extends XiusBase
 		
 		foreach($myTableMapping as $mtm) 
 			foreach($tableMapping as $tm)
-				$query->select(" ( $date - YEAR({$tm->tableAlliasName}.{$tm->originColumnName}))"
+				$query->select(" ( $date - YEAR({$tm->tableAliasName}.{$tm->originColumnName}))"
 								." as {$mtm->cacheColumnName}"
 							   );
 		
@@ -107,16 +107,21 @@ class Rangesearch extends XiusBase
 	/*Available for converting raw data into format data*/
 	public function _getFormatData($value)
 	{
-		if(is_array($value)){
-			$value = $this->_getArrangedValue($value);
-			return "From {$value[0]} to {$value[1]}";
-		}
 		return $value;
 	}
 	
+	public function _getFormatAppliedData($value)
+	{
+		$value = $this->_getArrangedValue($value);
+		return "From {$value[0]} to {$value[1]}";	
+	}	
 	
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
+		// if input values are are not valid then discard this		
+		if($this->validateValues($value) == false)
+			return false;
+				
 		$db = JFactory::getDBO();
 		$columns = $this->getTableMapping();
 
@@ -134,10 +139,19 @@ class Rangesearch extends XiusBase
 
 		//apply search
 		foreach($columns as $c){
-			$conditions =  ' ( '.$db->nameQuote($c->cacheColumnName).' >= '.$db->Quote($value[0]).' AND '.$db->nameQuote($c['columnname']).' <= '.$db->Quote($value[1]).' ) ';
+			$conditions =  ' ( '.$db->nameQuote($c->cacheColumnName).' >= '.$db->Quote($value[0]).' AND '.$db->nameQuote($c->cacheColumnName).' <= '.$db->Quote($value[1]).' ) ';
 			$query->where($conditions,$join);				
 		}
 		return true;
+	}
+	
+	public function validateValues($value)
+	{
+		$value = $this->_getArrangedValue($value);
+		if( is_numeric($value[0]) && is_numeric($value[1]) )
+			return true;
+
+		return false;
 	}
 	
     // this function will return the arranged value given for searching according to range

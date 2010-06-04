@@ -219,9 +219,13 @@ class XiusViewUsers extends JView
 				if(!$plgInstance)
 					continue;
 			
+				// if input values are are not valid then discard this
+				if($plgInstance->validateValues($c['value']) == false)
+					continue;
+					
 				$appliedData = array();
 				$appliedData['label'] = $plgInstance->get('labelName');
-				$appliedData['formatvalue'] = $plgInstance->_getFormatData($c['value']);
+				$appliedData['formatvalue'] = $plgInstance->_getFormatAppliedData($c['value']);
 				$appliedData['infoid'] = $c['infoid'];
 				$appliedData['value'] = $c['value'];
 				
