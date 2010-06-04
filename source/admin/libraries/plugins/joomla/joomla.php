@@ -44,40 +44,24 @@ class Joomla extends XiusBase
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
 		$db = JFactory::getDBO();
-		if(!is_array($value)) {
-			$columns = $this->getCacheColumns();
-			if(!$columns)
-				return false;
-				
-			if(is_array($columns)) {
-				foreach($columns as $c){
-					if($this->key == 'registerDate')
-						$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
-					else
-						$conditions =  $db->nameQuote($c['columnname']).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-					
-					$query->where($conditions,$join);
-					return true;
-				}
-			}
-			else{
-				if($this->key == 'registerDate')
-					$conditions = "DATE_FORMAT(".$db->nameQuote($c['columnname']).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
-				else{
-					/*IMP : We are using directly LIKE operator here
-					 * for text box , if we change any field presentation 
-					 * we have to change this also
-					 */
-					$conditions =  $db->nameQuote($c['columnname'])." ".XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-				}
-					
-				$query->where($conditions,$join);
-				return true;
-			}
-			
+		if(is_array($value))
 			return false;
-		}
+
+		//get all cache columns 
+		$columns = $this->getTableMapping();
 		
+		if(!$columns)
+			return false;
+			
+		foreach($columns as $c){
+			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
+			
+			if($this->key == 'registerDate')
+				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
+				
+			$query->where($conditions,$join);
+		}		
+		return true;
 	}
 	
 	/*function will provide query for getting user info from
@@ -88,11 +72,34 @@ class Joomla extends XiusBase
 		$query->select('juser.`id` as userid');
 		$query->from('`#__users` as juser');
 		
-		$query->select('joomlauser'.$this->getCacheColumnName().'.'.$this->getCacheColumnName().' as '.strtolower($this->pluginType).$this->getCacheColumnName());
+		$tableMapping = $this->getTableMapping();
 		
-		$query->leftJoin('`#__users` as joomlauser'.$this->getCacheColumnName().' ON ( joomlauser'.$this->getCacheColumnName().'.`id` = juser.`id` )' );
+		foreach( $tableMapping as $tm){
+			$query->select( " {$tm->tableAliasName}.{$tm->originColumnName} "
+							." as {$tm->cacheColumnName} "
+						  );
+			$query->leftJoin( " {$tm->tableName}  as {$tm->tableAliasName}   "
+							 ." ON ( {$tm->tableAliasName}.`id` = juser.`id` ) "
+							);
+		}
 	}
 	
+	function getTableMapping()
+	{
+		$tableInfo					= array();
+		$count = 0;
+		 
+		$object	= new stdClass();
+		$object->tableName			= '`#__users`';
+		$object->tableAliasName 	= "joomlauser{$this->key}_$count";
+		$object->originColumnName	= $this->key;
+		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
+		$object->cacheSqlSpec 		= $this->getCacheSqlSpec($this->key);
+		
+		$tableInfo[]=$object;
+		
+		return $tableInfo;
+	}
 	
 	function getInfoName()
 	{
@@ -106,24 +113,15 @@ class Joomla extends XiusBase
 		return false;
 	}
 	
-	
-	public function getCacheColumns()
+	function getCacheSqlSpec($key)
 	{
-		if($this->key == 'registerDate'){
-			$details[] = array();
-			$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
-			$details[0]['specs'] = 'datetime NOT NULL';
-			return $details; 
-		}
+		if($key == 'registerDate')
+			return 'datetime NOT NULL'; 
 		
-		if($this->key == 'id'){
-			$details[] = array();
-			$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
-			$details[0]['specs'] = 'int(21) NOT NULL';
-			return $details;
-		}
-		
-		return parent::getCacheColumns();
+		if($key == 'id')
+			return 'int(21) NOT NULL';
+	
+		return parent::getCacheSqlSpec($key);
 	}
 	
 	
@@ -139,6 +137,7 @@ class Joomla extends XiusBase
 	}*/
 	
 	
+	/* formatting displaying output */
 	public function _getFormatData($value)
 	{
 		if($this->key != 'registerDate')

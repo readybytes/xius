@@ -41,18 +41,18 @@ DROP TABLE IF EXISTS `#__xius_cache`;;
 
 CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `userid` int(21) NOT NULL,
-  `jsfields2` varchar(250) NOT NULL,
-  `jsfields11` varchar(250) NOT NULL,
-  `jsfields12` varchar(250) NOT NULL,
-  `joomlaregisterDate` datetime NOT NULL,
-  `joomlausername` varchar(250) NOT NULL,
-  `joomlaname` varchar(250) NOT NULL,
-  `jsfields17` varchar(250) NOT NULL,
-  `jsfields3` varchar(250) NOT NULL
+  `jsfields2_0` varchar(250) NOT NULL,
+  `jsfields11_0` varchar(250) NOT NULL,
+  `jsfields12_0` varchar(250) NOT NULL,
+  `joomlaregisterDate_0` datetime NOT NULL,
+  `joomlausername_0` varchar(250) NOT NULL,
+  `joomlaname_0` varchar(250) NOT NULL,
+  `jsfields17_0` varchar(250) NOT NULL,
+  `jsfields3_0` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 
-INSERT INTO `#__xius_cache` (`userid`, `jsfields2`, `jsfields11`, `jsfields12`, `joomlaregisterDate`, `joomlausername`, `joomlaname`, `jsfields17`, `jsfields3`) VALUES
+INSERT INTO `#__xius_cache` (`userid`, `jsfields2_0`, `jsfields11_0`, `jsfields12_0`, `joomlaregisterDate_0`, `joomlausername_0`, `joomlaname_0`, `jsfields17_0`, `jsfields3_0`) VALUES
 (62, '', '', '', '2010-01-16 11:12:08', 'admin', 'Administrator', '', ''),
 (63, 'Male', 'Noida', 'India', '2009-03-05 08:18:00', 'ssv', 'Moderator', 'JomSocial Redirector,', ''),
 (64, '', '', '', '2009-03-15 00:26:29', 'shansmith01', 'Shannon', '', ''),

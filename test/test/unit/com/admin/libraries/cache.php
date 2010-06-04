@@ -16,7 +16,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$cache->createTable(true);
 		
 		//Test column exist or not
-		$columns = array('userid' => true,'jsfields2' => true , 'jsfields11' => true ,'jsfields12' => true ,'joomlaregisterDate' => true ,'joomlaregisterDate' => true ,'joomlausername' => true ,'joomlaname' => true ,'jsfields17' => true , 'jsfields3' => true ,'jsfields4' => false , 'joomlaactivation' => false );
+		$columns = array('userid' => true,'jsfields2_0' => true , 'jsfields11_0' => true ,'jsfields12_0' => true ,'joomlaregisterDate_0' => true ,'joomlaregisterDate_0' => true ,'joomlausername_0' => true ,'joomlaname_0' => true ,'jsfields17_0' => true , 'jsfields3_0' => true ,'jsfields4_0' => false , 'joomlaactivation_0' => false );
 		
 		foreach($columns as $columnName => $result)
 			$this->assertEquals($result,self::checkColumnExistance($columnName));
@@ -50,10 +50,10 @@ class XiusCacheTest extends XiUnitTestCase
 		$cache->insertIntoTable($getDataQuery);
 		
 		$datas = array();
-		$datas[] =	array('userid' => 63 , 'data' => array('jsfields2' => 'Male' , 'jsfields11' => 'Noida') , 'userStatus' => 1);
-		$datas[] =	array('userid' => 87 , 'data' => array('jsfields2' => '' , 'joomlausername' => 'Clint') , 'userStatus' => 1);
-		$datas[] =	array('userid' => 80 , 'data' => array('jsfields2' => 'Female' , 'joomlausername' => 'meenal' , ) , 'userStatus' => 1);
-		$datas[] =	array('userid' => 93 , 'data' => array('joomlaregisterDate' => '2009-04-10 20:10:05' , 'joomlausername' => 'raf13001' , ) , 'userStatus' => 1);
+		$datas[] =	array('userid' => 63 , 'data' => array('jsfields2_0' => 'Male' , 'jsfields11_0' => 'Noida') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 87 , 'data' => array('jsfields2_0' => '' , 'joomlausername_0' => 'Clint') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 80 , 'data' => array('jsfields2_0' => 'Female' , 'joomlausername_0' => 'meenal' , ) , 'userStatus' => 1);
+		$datas[] =	array('userid' => 93 , 'data' => array('joomlaregisterDate_0' => '2009-04-10 20:10:05' , 'joomlausername_0' => 'raf13001' , ) , 'userStatus' => 1);
 		$datas[] =	array('userid' => 10000 , 'data' => array() , 'userStatus' => 0);
 		
 		foreach($datas as $data)
@@ -78,9 +78,9 @@ class XiusCacheTest extends XiUnitTestCase
 		
 		$datas = array();
 		$datas[] =	array('userid' => 62 , 'data' => array() , 'userStatus' => 1);
-		$datas[] =	array('userid' => 63 , 'data' => array('jsfields2' => 'Male' , 'jsfields11' => 'Noida') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 63 , 'data' => array('jsfields2_0' => 'Male' , 'jsfields11_0' => 'Noida') , 'userStatus' => 1);
 		$datas[] =	array('userid' => 87 , 'data' => array() , 'userStatus' => 0);
-		$datas[] =	array('userid' => 80 , 'data' => array('jsfields2' => 'Female' , 'joomlausername' => 'meenal') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 80 , 'data' => array('jsfields2_0' => 'Female' , 'joomlausername_0' => 'meenal') , 'userStatus' => 1);
 		$datas[] =	array('userid' => 93 , 'data' => array() , 'userStatus' => 0);
 		$datas[] =	array('userid' => 10000 , 'data' => array() , 'userStatus' => 0);
 		
@@ -98,10 +98,10 @@ class XiusCacheTest extends XiUnitTestCase
 		
 		$datas = array();
 		$datas[] =	array('userid' => 62 , 'data' => array() , 'userStatus' => 1);
-		$datas[] =	array('userid' => 63 , 'data' => array('jsfields2' => 'Male' , 'jsfields11' => 'Noida') , 'userStatus' => 1);
-		$datas[] =	array('userid' => 87 , 'data' => array('jsfields2' => '' , 'joomlausername' => 'Clint') , 'userStatus' => 1);
-		$datas[] =	array('userid' => 80 , 'data' => array('jsfields2' => 'Female' , 'joomlausername' => 'meenal') , 'userStatus' => 1);
-		$datas[] =	array('userid' => 1685 , 'data' => array('jsfields2' => '' , 'joomlausername' => 'Denverwinks') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 63 , 'data' => array('jsfields2_0' => 'Male' , 'jsfields11_0' => 'Noida') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 87 , 'data' => array('jsfields2_0' => '' , 'joomlausername_0' => 'Clint') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 80 , 'data' => array('jsfields2_0' => 'Female' , 'joomlausername_0' => 'meenal') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 1685 , 'data' => array('jsfields2_0' => '' , 'joomlausername_0' => 'Denverwinks') , 'userStatus' => 1);
 		$datas[] =	array('userid' => 1693 , 'data' => array() , 'userStatus' => 0);
 		$datas[] =	array('userid' => 10000 , 'data' => array() , 'userStatus' => 0);
 		
@@ -118,9 +118,9 @@ class XiusCacheTest extends XiUnitTestCase
 		$cache->insertIntoTable($getDataQuery,true,$limit);
 		
 		$datas = array();
-		$datas[] =	array('userid' => 271 , 'data' => array('jsfields2' => 'Male' , 'jsfields11' => 'orldando' , 'jsfields12' => 'United States' , 'jsfields17' => 'JomSocial Redirector,') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 271 , 'data' => array('jsfields2_0' => 'Male' , 'jsfields11_0' => 'orldando' , 'jsfields12_0' => 'United States' , 'jsfields17_0' => 'JomSocial Redirector,') , 'userStatus' => 1);
 		
-		$datas[] =	array('userid' => 3937 , 'data' => array('jsfields2' => '' , 'joomlausername' => 'adminwww' , 'joomlaname' => 'admin') , 'userStatus' => 1);
+		$datas[] =	array('userid' => 3937 , 'data' => array('jsfields2_0' => '' , 'joomlausername_0' => 'adminwww' , 'joomlaname_0' => 'admin') , 'userStatus' => 1);
 		$datas[] =	array('userid' => 3938 , 'data' => array() , 'userStatus' => 0);
 		$datas[] =	array('userid' => 10000 , 'data' => array() , 'userStatus' => 0);
 		
@@ -234,7 +234,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$conditions3[] = array('infoid' => 8 ,'value' => '16-7-1984',  'operator' => '=');
 		
 		$join3 = 'OR';
-		$sort3 = 'joomlaregisterDate';
+		$sort3 = 'joomlaregisterDate_0';
 		$dir3 = 'DESC';
 		
 		$reqUsersCount3 = 3;

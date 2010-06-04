@@ -74,44 +74,33 @@ class Jsfields extends XiusBase
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
 		$db = JFactory::getDBO();
-		$columns = $this->getCacheColumns();
+		$columns = $this->getTableMapping();
 		if(!$columns)
 			return false;
-
-		$fType = Jsfieldshelper::getFieldType($this->key);
-		if(!is_array($value)){
-			if(is_array($columns)) {
-				foreach($columns as $c){
-					if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
-						$conditions =  $db->nameQuote($c['columnname']).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-					else
-						$conditions =  $db->nameQuote($c['columnname']).' '.$operator.' '.$db->Quote($this->formatValue($value));
-					$query->where($conditions,$join);
-					return true;
-				}
-			}
-			else{
-				if(JString::strtolwer($fType) == 'text' || $operator == XIUS_LIKE)
-					$conditions =  $db->nameQuote($columns['columnname']).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-				else
-					$conditions =  $db->nameQuote($columns['columnname']).' '.$operator.' '.$db->Quote($this->formatValue($value));
-					
-				$query->where($conditions,$join);
-				return true;
-			}
 			
+		if(!is_array($columns)) 
 			return false;
+			
+		$fType = Jsfieldshelper::getFieldType($this->key);
+		
+		if(!is_array($value)){		
+			foreach($columns as $c){
+				if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
+					$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
+				else
+					$conditions =  $db->nameQuote($c->cacheColumnName).' '.$operator.' '.$db->Quote($this->formatValue($value));
+				$query->where($conditions,$join);
+			}
+			return true;			
 		}
 		
-		if(is_array($value)){
-			
-			if(is_array($columns)) {
+		if(is_array($value)){			
 				foreach($columns as $c){
 					$conditions = '';
 					$count = 0;
 					foreach($value as $v){
 						$conditions .= $count ? ' AND ' : ' ( ';
-						$conditions .= ''.$db->nameQuote($c['columnname']).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
+						$conditions .= ''.$db->nameQuote($c->cacheColumnName).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
 						$count++;
 						//$query->where($conditions);
 					}
@@ -121,36 +110,46 @@ class Jsfields extends XiusBase
 					$query->where($conditions,$join);
 				}
 				
-				return true;
-				
-			}
-			else{
-				//$query->select($columns['columnname']);
-				$conditions = '';
-				$count = 0;
-				foreach($value as $v){
-					$conditions .= $count ? ' AND ' : ' ( ';
-					$conditions .=  $db->nameQuote($columns['columnname']).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
-					$count++;
-					//$query->where($conditions,'OR');
-				}
-				$query->where($conditions,$join);
-				return true;
-			}
-		}		
+				return true;			
+			}	
 		return false;		
 	}
 	
+	/*
+	 * return the information related to the source table  
+	 */
+	function getTableMapping()
+	{
+		$tableInfo					= array();
+		$count = 0;
+		 
+		$object	= new stdClass();
+		$object->tableName			= '`#__community_fields_values`';
+		$object->tableAliasName 	= strtolower($this->pluginType).$this->key.'_'.$count;
+		$object->originColumnName	= 'value';
+		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
+		$object->cacheSqlSpec		= 'varchar(250) NOT NULL';
+		$tableInfo[]=$object;
+		
+		return $tableInfo;
+	}
 	
 	function getUserData(XiusQuery &$query)
 	{
 		$query->select('juser.`id` as userid');
 		$query->from('`#__users` as juser');
-		$query->select(strtolower($this->pluginType).$this->key.'.value as '.strtolower($this->pluginType).$this->key);
-		$query->leftJoin('`#__community_fields_values` as '.strtolower($this->pluginType).$this->key.' ON ( '.strtolower($this->pluginType).$this->key.'.`user_id` = juser.`id`'
-				.' AND '.strtolower($this->pluginType).$this->key.'.`field_id` = '.$this->key.')');
+		$tableMapping = $this->getTableMapping();
+		foreach( $tableMapping as $tm){
+			$query->select(" {$tm->tableAliasName}.{$tm->originColumnName} as {$tm->cacheColumnName} ");
+			$query->leftJoin(" {$tm->tableName} as {$tm->tableAliasName} ON "
+								." ( {$tm->tableAliasName}.`user_id` = juser.`id` "
+								." AND  {$tm->tableAliasName}.`field_id` = {$this->key} "
+								." ) "
+							);
+		}		
 	}
 	
+	/* at the time of saving data into database durin search also */
 	function formatValue($value)
 	{
 		//print_r(var_export($value));

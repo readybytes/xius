@@ -269,14 +269,14 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	/**
 	 * @dataProvider cacheColumnProvider
 	 */
-	function testCacheColumnName($infoid,$result)
+	function testTableMapping($infoid,$result)
 	{
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
 		$instance = XiusFactory::getPluginInstanceFromId($infoid);
 		
-		$columns = $instance->getCacheColumns();
+		$columns = $instance->getTableMapping();
 		
 		$this->assertEquals($result,$columns," Both columns are not equal ");
 	}
@@ -284,11 +284,41 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	
 	public static function cacheColumnProvider()
 	{
+		$result4	=array();
+		$result = new stdClass();
+		$result->tableName  		= '`#__users`';
+		$result->tableAliasName 	= 'joomlauserregisterDate_0';
+		$result->originColumnName  = 'registerDate';
+		$result->cacheColumnName   = 'joomlaregisterDate_0';
+		$result->cacheSqlSpec	 	= 'datetime NOT NULL';
+		$result4[]	=$result;
 		
-		$result4 = array(array('columnname' => 'joomlaregisterDate' , 'specs' => 'datetime NOT NULL'));
-		$result8 = array(array('columnname' => 'jsfields3' , 'specs' => 'varchar(250) NOT NULL'));
-		$result9 = array(array('columnname' => 'joomlaid' , 'specs' => 'int(21) NOT NULL'));
-		$result10 = array(array('columnname' => 'joomlalastvisitDate' , 'specs' => 'varchar(250) NOT NULL'));
+		$result8	=array();
+		$result = new stdClass();
+		$result->tableName  	   = '`#__community_fields_values`';
+		$result->tableAliasName    = 'jsfields3_0';
+		$result->originColumnName  = 'value';
+		$result->cacheColumnName   = 'jsfields3_0';
+		$result->cacheSqlSpec	   = 'varchar(250) NOT NULL';
+		$result8[]	=$result;
+		
+		$result9	=array();
+		$result = new stdClass();
+		$result->tableName  		= '`#__users`';
+		$result->tableAliasName 	= 'joomlauserid_0';
+		$result->originColumnName  	= 'id';
+		$result->cacheColumnName   	= 'joomlaid_0';
+		$result->cacheSqlSpec	 	= 'int(21) NOT NULL';
+		$result9[]	=$result;
+
+		$result10	=array();
+		$result = new stdClass();
+		$result->tableName  		= '`#__users`';
+		$result->tableAliasName 	= 'joomlauserlastvisitDate_0';
+		$result->originColumnName   = 'lastvisitDate';
+		$result->cacheColumnName    = 'joomlalastvisitDate_0';
+		$result->cacheSqlSpec	 	= 'varchar(250) NOT NULL';
+		$result10[]	=$result;
 		
 		return array(
 			array(4,$result4),

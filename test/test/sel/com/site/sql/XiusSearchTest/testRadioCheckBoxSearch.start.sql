@@ -995,15 +995,15 @@ DROP TABLE IF EXISTS `#__xius_cache`;;
 
 CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `userid` int(21) NOT NULL,
-  `joomlaname` varchar(250) NOT NULL,
-  `jsfields17` varchar(250) NOT NULL,
-  `jsfields3` varchar(250) NOT NULL,  
-  `jsfields20` varchar(250) NOT NULL
+  `joomlaname_0` varchar(250) NOT NULL,
+  `jsfields17_0` varchar(250) NOT NULL,
+  `jsfields3_0` varchar(250) NOT NULL,  
+  `jsfields20_0` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 
 TRUNCATE TABLE `#__xius_cache`;;
-INSERT INTO `#__xius_cache` (`userid`, `jsfields20`, `jsfields17`, `jsfields3`) VALUES
+INSERT INTO `#__xius_cache` (`userid`, `jsfields20_0`, `jsfields17_0`, `jsfields3_0`) VALUES
 (62, '', '', ''),
 (63, '', '', ''),
 (64, '', '', '2000-12-25 23:59:59'),

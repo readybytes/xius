@@ -308,25 +308,21 @@ abstract class XiusBase extends JObject
 	}
 
 	
-	/*get column name , returns a unique name for the given plugin*/
-	protected function getCacheColumnName()
+	/*get table mapping data for given plugin*/
+	function getTableMapping()
 	{
-		return $this->key;
+		$tableInfo					= array();
+		return $tableInfo;
 	}
-	
-	
+		
 	/*fn return exact parameter details that will store
 	 * in that field
 	 */ 
-	public function getCacheColumns()
+		
+	function getCacheSqlSpec($key)
 	{
-		$details[] = array();
-		$details[0]['columnname'] = strtolower($this->pluginType).$this->getCacheColumnName();
-		$details[0]['specs'] = 'varchar(250) NOT NULL';
-		//$details[0]['default'] = '';
-		return $details;
+		return 'varchar(250) NOT NULL'; 
 	}
-	
 	
 	function getUserData(XiusQuery &$query)
 	{
@@ -338,65 +334,41 @@ abstract class XiusBase extends JObject
 	function appendCreateQuery(XiusCreateTable &$createQuery)
 	{
 		$db = JFactory::getDBO();
-		$columns = $this->getCacheColumns();
+		$columns = $this->getTableMapping();
 		
 		if(empty($columns))
 			return false;
 
 		$columnDeatils = array();
-		$i = 0;
-		foreach($columns as $c){
-			if(isset($c['columnname']) && !empty($c['columnname']))
-				$columnDeatils[$i] = $db->nameQuote($c['columnname']);
-			else
-				$columnDeatils[$i] = $db->nameQuote(strtolower($this->pluginType).$this->getCacheColumnName());
-		
-			if(isset($c['specs']) && !empty($c['specs']))
-				$columnDeatils[$i] .= ' '.$c['specs'];
-			else
-				$columnDeatils[$i] .= ' varchar(250) ';
-				
-			$i++;
-		}
+
+		foreach($columns as $c)
+			$columnDeatils[]  = " `{$c->cacheColumnName}` {$c->cacheSqlSpec} ";
 		
 		$createQuery->appendColumns($columnDeatils);
-		
 	}
 	
 	
 	/*function update query	 */
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
-		/*it's handling query only for single value
+		/*
+		 * it's handling query only for single value
 		 * if column needs multiple comparision then they should handle
 		 */
-		
 		$db = JFactory::getDBO();
 		
-		if(!is_array($value)) {
-			$columns = $this->getCacheColumns();
-			if(empty($columns))
-				return false;
-
-			if(is_array($columns)) {
-				foreach($columns as $c){
-					//$query->select($c['columnname']);
-					$conditions =  $db->nameQuote($c['columnname']).$operator."'".$this->formatValue($value)."'";
-					$query->where($conditions,$join);
-					return true;
-				}
-			}
-			else{
-				//$query->select($columns['columnname']);
-				$conditions =  $db->nameQuote($columns['columnname']).$operator."'".$this->formatValue($value)."'";
-				$query->where($conditions,$join);
-				return true;
-			}
-			
+		if(is_array($value))
 			return false;
-		}
-		
-		
+			
+		$columns = $this->getTableMapping();
+		if(empty($columns))
+			return false;
+
+		foreach($columns as $c){
+			$conditions =  $db->nameQuote($c->cacheColumnName).$operator."'".$this->formatValue($value)."'";
+			$query->where($conditions,$join);
+		}		
+		return true;	
 	}
 	
 	
@@ -458,22 +430,25 @@ abstract class XiusBase extends JObject
 		$cache = XiusFactory::getCacheObject();
 		$tname = $cache->getTableName();
 		$utname = 'userid';
-		$columns = $this->getCacheColumns();
+		$columns = $this->getTableMapping();
+
 		if(empty($columns))
 			return false;
 
 		$db =& JFactory::getDBO();
 		
+		/**
+		 * XITODO : Add all cache columns if one instance is 
+		 * 			displaying multiple information
+		 * */
 		foreach($columns as $c){
-			if(isset($c['columnname']) && !empty($c['columnname']))
-				$cname = $db->nameQuote($c['columnname']);
-			else
-				$cname = $db->nameQuote(strtolower($this->pluginType).$this->getCacheColumnName());
+			if(!empty($c->cacheColumnName))
+				$cname = $db->nameQuote($c->cacheColumnName);
 		}
 		
-		$query = 'SELECT '.$cname
-				.' FROM '.$db->nameQuote($tname)
-				.' WHERE '.$db->nameQuote($utname).'='.$db->Quote($userid);
+		$query = ' SELECT '.$cname
+				.' FROM '  .$db->nameQuote($tname)
+				.' WHERE ' .$db->nameQuote($utname).'='.$db->Quote($userid);
 		$db->setQuery($query);
 		$result = $db->loadResult();
 		

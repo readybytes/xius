@@ -41,14 +41,14 @@ DROP TABLE IF EXISTS `#__xius_cache`;;
 
 CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `userid` int(21) NOT NULL,
-  `jsfields2` varchar(250) NOT NULL,
-  `jsfields11` varchar(250) NOT NULL,
-  `jsfields12` varchar(250) NOT NULL,
-  `joomlaregisterDate` datetime NOT NULL,
-  `joomlausername` varchar(250) NOT NULL,
-  `joomlaname` varchar(250) NOT NULL,
-  `jsfields17` varchar(250) NOT NULL,
-  `jsfields3` varchar(250) NOT NULL
+  `jsfields2_0` varchar(250) NOT NULL,
+  `jsfields11_0` varchar(250) NOT NULL,
+  `jsfields12_0` varchar(250) NOT NULL,
+  `joomlaregisterDate_0` datetime NOT NULL,
+  `joomlausername_0` varchar(250) NOT NULL,
+  `joomlaname_0` varchar(250) NOT NULL,
+  `jsfields17_0` varchar(250) NOT NULL,
+  `jsfields3_0` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 

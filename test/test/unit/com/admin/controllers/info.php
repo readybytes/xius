@@ -32,8 +32,8 @@ class XiusControllerInfoTest extends XiUnitTestCase
 		$infoController = new XiusControllerInfo();
 		
 		$datas = array();
-		$datas[] = array('info' => array('id' => 0 , 'pluginType' => 'Jsfields' , 'labelName' => 'Gender' , 'published' => true , 'key' => 2 , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 0 , 'isExportable' => 0)),'resultId' => 1 , 'tableFieldName' => array('jsfields2'));
-		$datas[] = array('info' => array('id' => 0 , 'pluginType' => 'Joomla' , 'labelName' => 'Name' , 'published' => true , 'key' => 'name' , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 1 , 'isExportable' => 0)), 'resultId' => 2 , 'tableFieldName' => array('joomlaname'));
+		$datas[] = array('info' => array('id' => 0 , 'pluginType' => 'Jsfields' , 'labelName' => 'Gender' , 'published' => true , 'key' => 2 , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 0 , 'isExportable' => 0)),'resultId' => 1 , 'tableFieldName' => array('jsfields2_0'));
+		$datas[] = array('info' => array('id' => 0 , 'pluginType' => 'Joomla' , 'labelName' => 'Name' , 'published' => true , 'key' => 'name' , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 1 , 'isExportable' => 0)), 'resultId' => 2 , 'tableFieldName' => array('joomlaname_0'));
 		
 		$db = JFactory::getDBO();
 		
@@ -68,9 +68,9 @@ class XiusControllerInfoTest extends XiUnitTestCase
 		$infoController = new XiusControllerInfo();
 		
 		$datas = array();
-		$datas[] = array('info' => array('id' => 1 , 'pluginType' => 'Jsfields' , 'labelName' => 'All Gender' , 'published' => true , 'key' => 2 , 'params' => array('isSearchable' => 1 , 'isVisible' => 0 , 'isSortable' => 1 , 'isExportable' => 0)),'resultId' => 1 , 'tableFieldName' => array('jsfields2'));
-		$datas[] = array('info' => array('id' => 2 , 'pluginType' => 'Jsfields' , 'labelName' => 'All City' , 'published' => false , 'key' => 11 , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 1 , 'isExportable' => 0)), 'resultId' => 2 , 'tableFieldName' => array('jsfields11'));
-		$datas[] = array('info' => array('id' => 4 , 'pluginType' => 'Joomla' , 'labelName' => 'Registeration Date' , 'published' => true , 'key' => 'registerDate' , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 1 , 'isExportable' => 1)), 'resultId' => 4 , 'tableFieldName' => array('joomlaregisterDate'));
+		$datas[] = array('info' => array('id' => 1 , 'pluginType' => 'Jsfields' , 'labelName' => 'All Gender' , 'published' => true , 'key' => 2 , 'params' => array('isSearchable' => 1 , 'isVisible' => 0 , 'isSortable' => 1 , 'isExportable' => 0)),'resultId' => 1 , 'tableFieldName' => array('jsfields2_0'));
+		$datas[] = array('info' => array('id' => 2 , 'pluginType' => 'Jsfields' , 'labelName' => 'All City' , 'published' => false , 'key' => 11 , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 1 , 'isExportable' => 0)), 'resultId' => 2 , 'tableFieldName' => array('jsfields11_0'));
+		$datas[] = array('info' => array('id' => 4 , 'pluginType' => 'Joomla' , 'labelName' => 'Registeration Date' , 'published' => true , 'key' => 'registerDate' , 'params' => array('isSearchable' => 1 , 'isVisible' => 1 , 'isSortable' => 1 , 'isExportable' => 1)), 'resultId' => 4 , 'tableFieldName' => array('joomlaregisterDate_0'));
 		
 		$db = JFactory::getDBO();
 		

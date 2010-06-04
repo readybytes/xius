@@ -38,11 +38,6 @@ class Keyword extends XiusBase
 	}
 	
 
-	public function getCacheColumns()
-	{
-		return false;
-	}
-		
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator=XIUS_LIKE,$join='AND')
 	{
 		// get all information available

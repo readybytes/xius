@@ -5,12 +5,12 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 DROP TABLE `#__xius_cache`;;
 CREATE TABLE IF NOT EXISTS `#__xius_cache` (
   `userid` int(21) NOT NULL,
-  `jsfields19` varchar(250) NOT NULL
+  `jsfields19_0` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 
 TRUNCATE TABLE `#__xius_cache`;;
-INSERT INTO `#__xius_cache` (`userid`, `jsfields19`) VALUES
+INSERT INTO `#__xius_cache` (`userid`, `jsfields19_0`) VALUES
 (62, ''),
 (63, ''),
 (64, '2'),

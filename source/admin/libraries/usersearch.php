@@ -307,39 +307,49 @@ class XiusLibrariesUsersearch
 			
 	}*/
 	
-	
-	
 	function processSearchData($post=null)
 	{
 		if($post==null)
 			$post = JRequest::get('POST');
-			
+		
+		$data = array();
 		$searchdata = array();
 		$infoid = 0;
-		foreach($post as $key => $value){
-			if(JString::stristr($key,'xiusinfo_')){
-				if($infoid && $infoid == $value)
+		$keyNames = array_keys($post);
+		
+		for( $i=0 ; $i < count($keyNames) ; $i++){
+			if(JString::stristr($keyNames[$i],'xiusinfo_')){
+				if($infoid && $infoid == $post[$keyNames[$i]])
 					$infoid = 0;
 				else
-					$infoid = $value;
+					$infoid = $post[$keyNames[$i]];
 				
 				continue;
 			}
 			
-			if(empty($value))
+			if(empty($post[$keyNames[$i]]))
 				continue;
 			
-			if($infoid){
-				$data = array();
-				$data['infoid'] = $infoid;
-				$data['value'] = $value;
-				$data['operator'] = XIUS_EQUAL;
+			if(!$infoid)
+				continue;
 				
-				array_push($searchdata,$data);
+			$data = array();
+			$data['infoid'] = $infoid;
+			
+			if(JString::stristr($keyNames[$i+1],'xiusinfo_'))
+				$data['value'] = $post[$keyNames[$i]];
+			else{
+				while(!JString::stristr($keyNames[$i],'xiusinfo_')){
+					$data['value'][] = $post[$keyNames[$i]];
+					$i++;
+				}
+				$i--;
 			}
-
-		}	
-		
+				
+			$data['operator'] = XIUS_EQUAL;
+			
+			array_push($searchdata,$data);		
+		}		
 		return $searchdata;
 	}
 	
@@ -404,11 +414,14 @@ class XiusLibrariesUsersearch
 
 		$start = false;
 		$infoid = 0;
-		foreach($post as $key => $value){
-			if(JString::stristr($key,'xiusinfo_')){
-				if($addInfoId && $value == $infoid && $start)
+		
+		$keyNames = array_keys($post);
+		
+		for( $i=0 ; $i < count($keyNames) ; $i++){		
+			if(JString::stristr($keyNames[$i],'xiusinfo_')){
+				if($addInfoId && $post[$keyNames[$i]] == $infoid && $start)
 					$start = false;
-				if($addInfoId == $value && !$infoid){
+				if($addInfoId == $post[$keyNames[$i]] && !$infoid){
 					$start = true;
 					$infoid = $addInfoId;
 				}
@@ -416,12 +429,21 @@ class XiusLibrariesUsersearch
 				continue;
 			}
 			
-			if(empty($value))
+			if(empty($post[$keyNames[$i]]))
 				continue;
 			
 			if($start){
 				$searchdata['infoid'] = $addInfoId;
-				$searchdata['value'] = $value;
+				
+				if(JString::stristr($keyNames[$i+1],'xiusinfo_'))
+					$searchdata['value'] = $post[$keyNames[$i]];
+				else{
+					while(!JString::stristr($keyNames[$i],'xiusinfo_')){
+						$searchdata['value'][] = $post[$keyNames[$i]];
+						$i++;
+					}
+					$i--;
+				}
 				$searchdata['operator'] = XIUS_EQUAL;
 				
 				$result = XiusLibrariesUsersearch::checkSearchDataExistance($searchdata,$conditions);
@@ -492,3 +514,4 @@ class XiusLibrariesUsersearch
 		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$dir,'XIUS');
 	}
 }
+

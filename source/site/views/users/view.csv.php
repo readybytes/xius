@@ -30,12 +30,13 @@ class XiusViewUsers extends JView
 		if(!$plgSortInstance)
 			$sort = 'userid';
 		else{
-			$cacheColumns = $plgSortInstance->getCacheColumns();
+			$cacheColumns = $plgSortInstance->getTableMapping();
 			if(empty($cacheColumns))
 				$sort = 'userid';
 			else {
 				foreach($cacheColumns as $c){
-					$sort = $c['columnname'];
+					/*	XITODO : Sort according to multiple columns name */		
+					$sort = $c->cacheColumnName;
 				}
 			}
 		}
@@ -74,13 +75,14 @@ class XiusViewUsers extends JView
         		foreach($users as $u){
         			$userprofile[$u->userid][$info->id]['label'] = $info->labelName;
         			
-				    $columns = $plgInstance->getCacheColumns();
+				    $columns = $plgInstance->getTableMapping();
 					if(empty($columns))
 						break;
 				
 					foreach($columns as $c){
-						if(isset($c['columnname']) && !empty($c['columnname']))
-							$cname = $c['columnname'];
+						/* XITODO : multiple column support at all places */
+						if(!empty($c->cacheColumnName))
+							$cname = $c->cacheColumnName;
 					}
         			
 					if(isset($u->$cname))

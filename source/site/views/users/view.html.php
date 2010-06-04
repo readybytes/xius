@@ -101,12 +101,12 @@ class XiusViewUsers extends JView
 		if(!$plgSortInstance)
 			$sort = 'userid';
 		else{
-			$cacheColumns = $plgSortInstance->getCacheColumns();
+			$cacheColumns = $plgSortInstance->getTableMapping();
 			if(empty($cacheColumns))
 				$sort = 'userid';
 			else {
 				foreach($cacheColumns as $c){
-					$sort = $c['columnname'];
+					$sort = $c->cacheColumnName;
 				}
 			}
 		}
@@ -166,13 +166,13 @@ class XiusViewUsers extends JView
 					continue;
 				
         		foreach($data['users'] as $u){        			
-				    $columns = $plgInstance->getCacheColumns();
+				    $columns = $plgInstance->getTableMapping();
 					if(empty($columns) || !$columns)
 						break;
 				
 					foreach($columns as $c){
-						if(isset($c['columnname']) && !empty($c['columnname']))
-							$cname = $c['columnname'];
+						if(!empty($c->cacheColumnName))
+							$cname = $c->cacheColumnName;
 					}
         			
 					$userprofile[$u->userid][$info->id]['label'] = $info->labelName;
