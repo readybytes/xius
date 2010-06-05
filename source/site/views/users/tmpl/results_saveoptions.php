@@ -11,9 +11,9 @@ $document->addScript($js);
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
-?>
+?><div class="savemainbox">
 <form action="index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component" name="saveListForm" id="saveListForm" method="post">
-<div class="savemainbox">
+
 	<div class="leftbox">
 		<h3><?php echo JText::_("Save As New"); ?></h3>
 		<div class="lab"><label><?php echo JText::_('Name');?></label></div>
@@ -54,6 +54,7 @@ endif;?>
 	
 	</div></div>
 </div>
-</div>
+
 <input type="hidden" name="subtask" value="" />
 </form>
+</div>

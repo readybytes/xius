@@ -20,6 +20,7 @@ class ScreenshotTest extends XiSelTestCase
  {
  	$this->windowMaximize();
  	$this->windowFocus();
+ 	sleep(1);
  	$fileName = dirname(__FILE__).DS.__CLASS__.DS."screenshots".DS.$fileName . '.png';
  	$this->drivers[0]->captureEntirePageScreenshotAndWait($fileName);
  }
@@ -90,6 +91,7 @@ class ScreenshotTest extends XiSelTestCase
   	$this->click("xiussearch");
   	$this->waitPageLoad();
   	$this->captureScreen(JString::strtolower($template)."_result");
+  	
   	$this->open(JOOMLA_LOCATION."/index.php?option=com_xius&view=users&layout=lists&task=displayList&Itemid=60");
   	$this->captureScreen(JString::strtolower($template)."_userList");
 

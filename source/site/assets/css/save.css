@@ -5,23 +5,23 @@
 **/
 .savemainbox{
 overflow:hidden;
-border:1px solid #275788;
 margin: 3px;
+width:490px;
 }
 .savemainbox h3{
 text-align:center;
 }
 .savemainbox .leftbox{
-width:45%;
+width:220px;
 border: solid 1px #E5E5E5;
 float:left;
-margin: 10px;
+margin: 5px;
 }
 .savemainbox .rightbox{
-width:45%;
+width:225px;
 border: solid 1px #E5E5E5;
 float:right;
-margin: 10px;
+margin: 5px;
 }
 .savemainbox .lab{
 width:100px;
@@ -31,7 +31,7 @@ float:left;
 	padding: 9px;
 	border: solid 1px black;
 	outline: 0;
-	width:200px;
+	width:180px;
 	font: normal 13px/100% Verdana, Tahoma, sans-serif;
 	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;

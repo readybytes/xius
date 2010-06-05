@@ -19,199 +19,126 @@
 	}
 	
 	
-/** css for User Listing Main DIV **/	
-.xiusListing {
-	width: 100%;
-	overflow: hidden;
-	margin: 0;
+/** css for User Listing  Area **/	
+.xius_ul{
+	/**border:1px solid black;**/
+	padding:0px;
+	margin:2px;
 }
-
-/** Mini Profile Div **/
-.xiusListing .xiusProfile {
-	margin: 5px;
-	position: relative;
-	margin-top: 2px;
-	overflow: hidden;
-	border: 2px groove #DDECF3;
-	background-repeat: no-repeat;
-	background-position: 0px 20px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+.xiusMp{
+	border:1px solid #dddddd;
+	margin:5px 3px;
+	overflow:hidden;
+	-moz-border-radius:2px;
 }
-
-.xiusProfile .xiusTopBar{
-	width: 100%;
-	background-color: #D8DFEA;
-	height: 20px;
-	border-bottom: 1px solid #275788;
-	color: #275788;
-	margin:0;
+	
+.xiusMp:hover{
+	border:1px solid #bfbfbf;
+	background:#efefef;
 }
-
-.xiusTopBar .xiusname {
-	margin-left: 10px;
-	margin-top: 3px;
-	font-weight: bold;
-}
-.xiusProfileArea{
-}
-
-/** Avtar and View Profile's Left Side Div **/ 
-.xiusProfileLeft {
-	overflow: hidden;
-	float: left;
-	width: 95px;
-}
-
-.xiusAvatar {
-	margin: 10px;
-	border: 1px solid #275788;
-	background-color: #DDECF3;
-}
-
-.xiusAvatar img {
-	width: 67px;
-	margin: 3px;
-	height: 67px;
-	top: 40%;
+	
+.xiusMpAvatar{
+	border:3px solid #dddddd;
+	padding:3px;
+	width:70px;
+	height: 70px;
+	float:left;
+	margin:3px;
 	cursor: pointer;
+	}
+.xiusMpAvatar img{
+	margin-top:2px;
+	margin-left:1px;
 }
-
-.xiusViewProfile {
-	float: left;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	margin-top: 0px;
-	height: 20px;
-	width: 90px;
-}
-
-.xiusViewProfile button {
-	background-image: url("../images/button.gif");
-	font-size: x-small;
+.xiusMpAvatar:hover{
+	border:3px solid #bfbfbf;
+	}
+.xiusMpOptions{
+	float: right;
+	}
+.xiusHeader{
+	border-bottom:1px solid #dddddd;
+	border-bottom-style:dashed;
+	margin:3px;
+	padding:2px;
+	font-size: 100%;
 	font-weight: bold;
-	color: #275788;
-	padding: 0px;
-	cursor: pointer;
-}
+	}
+.xiusMpMiddle{
 
-/** End of Avtar and View Profile's Left Side Div **/
-/** Mini Profile And Status Right Area **/
-.xiusProfileRight {
-	float: right;
-	width: 75%;
-	text-align: left;
-}
-
-
-.xiusMiniProfile {
+	}
+.xiusMpData{
+	float:left;
+	padding:4px;
+	margin:3px 3px 3px 15px;
+	min-height:70px; 
+	width:75%;
+	}
+.xiusMpInfo{
+	float:left;
+	width:49%;
+	}
+.xiusMplabel{
 	float: left;
-	margin-top: 10px;
-	padding-top: 0px;
-	width: 50%;
-}
+	width: 29%;
+	font-weight: bold;
+	}
+.xiusMpValue{
+	float: left;
+	}
 
-.xiusMiniProfile b {
-	color: #275788;
-}
-
-.xiusStatus {
-	float: right;
-	width: 20%;
-	margin-top: 4px;
-	margin-right: 10px;
-}
-
-/** End of Mini Profile And Status Right Area **/
+/** End of User Listing Area **/
 /** Toolbar**/
 .xiusToolbar {
 	overflow: hidden;
-	background: #D8DFEA;
-	border: 1px solid #275788;
-	margin: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	padding: 2px 5px 2px 5px;
+	border: 1px solid #dddddd;
+	margin: 2px 5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	padding:1px 10px 0 10px;
 }
 
-.xiusToolbarTop {
-	width: 100%;
-	padding: 5px;
+.xiusToolbar:hover{
+	border:1px solid #bfbfbf;
+	background: #bfbfbf;
 }
-
-.xiusToolbarTop img {
+.xiusToolbar img{
 	cursor: pointer;
+	}
+.xiusTbRight{
+	float:right;
 }
 
-.toolbarTopLeft {
-	float: left;
+.xiusTotal{
+ 	text-align: right;
+	width:100%;
 }
-
-.xiusSorting {
-	float: right;
-	color: #275788;
-	font-weight: bold;
-	font-size: 120%;
-	margin: 0;
-}
-
-.xiusSorting img {
-	cursor: pointer;
-}
-
-.xiusSorting select {
-	background: #fff;
-	color: #275788;
-}
-
-.xiusBlank {
-	width: 100%;
-	border-bottom: 1px solid #275788;
-	overflow: hidden;
-}
-
-.xiusToolbarBottom {
-	padding: 5px;
-	margin:0px;
-}
-
-.xiusTotal {
-	float: left;
-	margin: 0;
-	color:#275788;
-}
-
-.xiusPagination {
-	float: right;
-	margin: 0px;
-}
-
-.xiusPagination input {
-	float: right;
-}
-
+.xiusTotalText{
+	margin-right: 5px;
+	}
 /** End of Toolbar **/
 
 /** applied info div css**/
 .xiusAppliedinfo{
-	border:1px solid #275788;
+	border:1px solid #dddddd;
 	overflow:hidden;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	margin:8px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	margin:5px;
 }
 
 .xius_apiHead{
-	padding:0px 0px 5px 15px;
+	padding:-5px 0px 5px 15px;
 	font-size:1.5em;
-	color:#275788;
 	margin:15px 0 5px 5px;
-	border-bottom:1px solid green;
+	border-bottom:1px solid #dddddd;
+	border-bottom-style: dashed;
 }
 
 .xius_apiHead img{
 float: right;
 margin-top: -10px;
+background-position:center;
 cursor: pointer;
 }
 
@@ -221,38 +148,47 @@ cursor: pointer;
 
 .applied {
 	float: left;
-	background:#D8DFEA;
-	-moz-border-radius:5px;
+	background:#efefef;
+	-moz-border-radius:2px;
 	/*border: 1px solid #275788;*/
 	position: relative;
-	width: 18%;
+	/**width: 18%;**/
 	overflow: hidden;
-	color: #275788;
+	color: 7f7f7f;
 	margin-left: 4px;
+	padding:3px;
 }
-
+.applied:hover{
+	background:#bfbfbf;
+	}
 .applied .left {
 	float: left;
-	width: 70%;
+	/*width: 70%;*/
 	margin: 2px;
 }
 
 .applied .right {
 	float: right;
 	margin-top: 5%;
-	width: 25%;
+	width: 22px;
 	cursor: pointer;
+}
+.right img{
+float: right;
+/*margin-top: 10px;*/
+position:relative;
+cursor: pointer;
 }
 
 .xijoin{
 	float: left;
-	background:#D8DFEA;
-	-moz-border-radius:5px;
+	/*background:#D8DFEA;*/
+	-moz-border-radius:2px;
 	/*border: 1px solid #275788;*/
 	position: relative;
 	width: 180px;
 	overflow: hidden;
-	color: #275788;
+	color: #7f7f7f;
 	margin-left: 4px;
 	padding:2px;
 }
@@ -260,30 +196,32 @@ cursor: pointer;
 /** Available info div **/
 
 .xius_ai{
-	border:1px solid #275788;
+	border:1px solid #dddddd;
 	padding:5px;
-	margin:8px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
+	margin:5px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
 }
 
 .xius_aiHead{
-	padding:0px 0px 5px 15px;
+	padding:-5px 0px 5px 15px;
 	font-size:1.5em;
-	color:#275788;
 	margin:15px 0 5px 5px;
-	border-bottom:1px solid green;
+	border-bottom:1px solid #dddddd;
+	border-bottom-style: dashed;
 }
 
 
 
 .xius_aiMain{
-	border:1px solid #E0E8EF;
+	border:1px solid #dddddd;
 	overflow:hidden;
 	margin:5px;
 	padding:5px;
 }
-
+.xius_aiMain:hover{
+background:#efefef;
+}
 .xius_aiLabel{
 	float:left;
 	width:22%;
