@@ -18,33 +18,33 @@ class XiusRangesearchTest extends XiSelTestCase
 		$information = array('Rangesearch8_min'=>'16', 'Rangesearch8_max'=>'18');
 		$this->fillRangeInfo($information, 'OR');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_15']"));
-		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 16 to 18']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 16 To 18']"));
 		// registration
 		$information = array('Rangesearch4_min'=>'2', 'Rangesearch4_max'=>'8');
 		$this->fillRangeInfo($information, 'OR');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_27']"));
-		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 2 to 8']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 2 To 8']"));
 		// age and registration
 		$information = array('Rangesearch8_min'=>'0', 'Rangesearch8_max'=>'14','Rangesearch4_min'=>'5', 'Rangesearch4_max'=>'9');
 		$this->fillRangeInfo($information, 'AND');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_6']"));
-		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 to 14']"));
-		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 5 to 9']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 To 14']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 5 To 9']"));
 					
 		$information = array('Rangesearch2_min'=>'sdfasd', 'Rangesearch2_max'=>'14');
 		$this->fillRangeInfo($information, 'AND');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
-		$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From sdfasd to 14']"));
+		$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From sdfasd To 14']"));
 		
 		$information = array('Rangesearch2_min'=>'0', 'Rangesearch2_max'=>'14');
 		$this->fillRangeInfo($information, 'AND');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
-		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 to 14']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 To 14']"));
 		
 		$information = array('Rangesearch2_min'=>'1', 'Rangesearch2_max'=>'14');
 		$this->fillRangeInfo($information, 'AND');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
-		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 1 to 14']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 1 To 14']"));
 				
 	}
 	
@@ -65,51 +65,51 @@ class XiusRangesearchTest extends XiSelTestCase
     	$this->click("//img[@class='xius_test_addinfo_25']");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_20']"));
-    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 12 to 14']"));
+    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 12 To 14']"));
 
     	$this->type('Rangesearch8_min','12');
 	    $this->type('Rangesearch8_max','14');	    
     	$this->click("//img[@class='xius_test_addinfo_25']");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_20']"));
-    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 12 to 14']"));
+    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 12 To 14']"));
 	    // after adding same condition only one should be exists
-    	$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_From 12 to 14')]"), 1);
+    	$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_From 12 To 14')]"), 1);
 	
     	$this->type('Rangesearch8_min','12');
 	    $this->type('Rangesearch8_max','13');	    
     	$this->click("//img[@class='xius_test_addinfo_25']");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_14']"));
-    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 12 to 13']"));
+    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 12 To 13']"));
 	    
     	$this->type('Rangesearch4_min','2');
 	    $this->type('Rangesearch4_max','8');	    
     	$this->click("//img[@class='xius_test_addinfo_26']");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_4']"));
-    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 2 to 8']"));
+    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 2 To 8']"));
 	    
 		$this->click("//img[@title='Clear All Applied Info']");
     	$this->waitPageLoad();
     	
-    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 2 to 8']"));
-    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 12 to 13']"));
-    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 12 to 14']"));
+    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 2 To 8']"));
+    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 12 To 13']"));
+    	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 12 To 14']"));
     	
     	$this->type('Rangesearch4_min','');
 	    $this->type('Rangesearch4_max','6');	    
     	$this->click("//img[@class='xius_test_addinfo_26']");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_56']"));
-    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 to 6']"));
+    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 To 6']"));
 
     	$this->type('Rangesearch8_min','13');
 	    $this->type('Rangesearch8_max','');	    
     	$this->click("//img[@class='xius_test_addinfo_25']");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_26']"));
-    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 to 13']"));
+    	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 0 To 13']"));
 	    
 	}
 	

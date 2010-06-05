@@ -36,7 +36,6 @@ class XiusViewConfiguration extends JView
 	function setToolBar()
 	{
 
-		//$resetImage = JUri::root().'administrator/components/com_xijc/assets/images/icon-reset.png';
 		// Set the titlebar text
 		JToolBarHelper::title( JText::_( 'Configuration' ), 'configuration' );
 
@@ -44,6 +43,9 @@ class XiusViewConfiguration extends JView
 		JToolBarHelper::back('HOME' , 'index.php?option=com_xijc');
 		JToolBarHelper::divider();
 		JToolBarHelper::save('save','SAVE');
+		 
+		JToolBarHelper::custom("runCron",'updateCache','','UPDATE CACHE',0,0); 
+			
 		//JToolBarHelper::custom('reset','reset','','RESET',0,0); 
 	}
 }

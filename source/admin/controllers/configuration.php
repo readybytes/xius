@@ -62,6 +62,30 @@ class XiusControllerConfiguration extends JController
 		$mainframe->redirect($link, $message);
 	}
 	
+	function runCron()
+	{
+		global $mainframe;
+		$link = JRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
+		$message = JText::_('CANT UPDATE CACHE NOW');
+		
+		$cModel = XiusFactory::getModel('configuration');
+		$params	= $cModel->getParams();
+		$xiusKey = $params->get('xiusKey','AB2F4');
+		
+		if(XiusHelpersUtils::verifyCronRunRequired($xiusKey) == false)
+			$mainframe->redirect($link, $message);
+	
+		$time = XiusLibrariesUsersearch::getTimestamp();
+		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
+		
+		XiusLibrariesUsersearch::updateCache();
+		
+		$time = XiusLibrariesUsersearch::getTimestamp();
+		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
+		
+		$message = JText::_('CACHE UPDATED SUCCESSFULLY');
+		$mainframe->redirect($link, $message);		
+	}
 	
 	/*function reset()
 	{

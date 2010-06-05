@@ -113,7 +113,7 @@ class Rangesearch extends XiusBase
 	public function _getFormatAppliedData($value)
 	{
 		$value = $this->_getArrangedValue($value);
-		return "From {$value[0]} to {$value[1]}";	
+		return JText::_('RANGESEARCH FROM')." $value[0] ".JText::_('RANGESEARCH TO')." $value[1]";	
 	}	
 	
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')

@@ -6,6 +6,16 @@
 // Disallow direct access to this file
 defined('_JEXEC') or die('Restricted access');
 ?>
+<style type="text/css">
+       #toolbar-updateCache
+       {
+           background-image:  url(../administrator/components/com_xius/assets/images/icon_update_cache.png);
+           background-repeat:no-repeat;
+           background-position: top center;
+        }
+</style>
+
+?>
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">
 <div>
 <?php 
