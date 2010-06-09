@@ -36,6 +36,7 @@ class XiusViewUsers extends JView
 				$infohtml[$count]['infoid'] = $info->id;
 				$infohtml[$count]['info'] = $info;
 				$infohtml[$count]['label'] = $info->labelName;
+				$infohtml[$count]['tooltip'] = $plgInstance->getTooltip();
 				/*
 				 *replace name and id in input html
 				 */
@@ -278,6 +279,7 @@ class XiusViewUsers extends JView
 				$infohtml['info'] = $ai;
 				$infohtml['label'] = $ai->labelName;
 				$infohtml['html'] = $inputHtml;
+				$infohtml['tooltip'] = $plgInstance->getTooltip();
 
 				array_push($availableInfo,$infohtml);
         	}

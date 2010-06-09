@@ -13,7 +13,7 @@ $js = JURI::base().'components/com_xius/assets/js/xius.js';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 $document->addScript($js);
-
+JHTML::_('behavior.tooltip');
 if($this->task == 'displayList')
 	echo '<span class = "xiusListname">'.JTEXT::_(ucfirst($this->loadTemplate('listinfo'))).'</span>';	
 echo $this->loadTemplate('appliedinfo');

@@ -16,7 +16,7 @@ if(!empty($this->availableInfo))
 			?> 
 			<div class="xius_aiMain">
 				<div class="xius_aiLabel">
-				<?php echo JText::_($data['label']);?>
+				<?php echo JHTML::_('tooltip',JText::_($data['tooltip']), JText::_($data['label']), null, JText::_($data['label'])); ?>
 				</div>
 				<div class="xius_aiInput">
 				<?php echo $data['html'];?>

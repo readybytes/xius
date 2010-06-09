@@ -146,6 +146,11 @@ abstract class XiusBase extends JObject
 		$isExportable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isExportable',false);
 		return $isExportable;
 	}
+
+	final public function getTooltip()
+	{
+		return XiusHelpersUtils::getValueFromXiusParams($this->params,'tooltip',false);
+	}
 	
 	/*override function if child class is displaying 
 	 * fields html with not in select box and any other method
