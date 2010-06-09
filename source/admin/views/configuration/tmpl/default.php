@@ -15,7 +15,6 @@ defined('_JEXEC') or die('Restricted access');
         }
 </style>
 
-?>
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">
 <div>
 <?php 
