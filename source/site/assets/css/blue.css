@@ -64,6 +64,14 @@
 	font-size: 100%;
 	font-weight: bold;
 	}
+	
+.xiusHeaderStatus{
+	font-size: 90%;
+	font-weight: normal;
+	font-style: italic;
+	margin-left:5px;
+}
+	
 .xiusMpMiddle{
 
 	}
