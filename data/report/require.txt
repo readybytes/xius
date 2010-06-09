@@ -33,5 +33,5 @@
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:9:require_once( dirname(__FILE__).DS.'helper.php' );
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:19:require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:20:require_once( dirname(__FILE__).DS.'helper.php' );
-../packages/tmp/install/extensions/xius_community/xius.php:28:		require_once $incldePath;
+../packages/tmp/install/extensions/xius_community/xius.php:31:		require_once $incldePath;
 ../packages/tmp/install/extensions/xius_system/xius_system.php:30:		require_once $incldePath;

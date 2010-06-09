@@ -23,8 +23,7 @@
 
 					<?php if(!empty($user->profileLink)) :?>
 						<a href="<?php echo $user->profileLink;?>" >
-							<img src="<?php echo JURI::base().'components/com_xius/assets/images/viewprofile.png';?>"
-								 title="View User Profile" />
+							<img src="<?php echo JURI::base().'components/com_xius/assets/images/viewprofile.png';?>" title="<?php echo JText::_('View User Profile'); ?>" />
 						</a>
 					<?php endif; ?>
 
@@ -32,7 +31,7 @@
 							$onlineUser = JFactory::getUser();
 						     if($onlineUser->id != 0 && $onlineUser->id != $user->id): ?>
 								<a <?php echo $user->messageHref; ?> >
-								<img src="<?php echo JURI::base().'components/com_xius/assets/images/msg.png';?>" title="Write Message" />
+								<img src="<?php echo JURI::base().'components/com_xius/assets/images/msg.png';?>" title="<?php echo JText::_('Write Message'); ?>" />
 								</a>
 						<?php endif; ?>
 					<?php endif; ?>
@@ -45,9 +44,9 @@
 
 
 					<?php if($user->isOnline): ?>
-						 	<img  src="<?php echo JURI::base().'components/com_xius/assets/images/online.png';?>" title="Online" />
+						 	<img  src="<?php echo JURI::base().'components/com_xius/assets/images/online.png';?>" title="<?php echo JText::_('Online'); ?>" />
 					<?php  else	: ?>
-							<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" title="Offline" />
+							<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" title="<?php echo JText::_('Offline'); ?>" />
 					<?php endif; ?>
 
 					</div>

@@ -6,8 +6,10 @@
 if(!empty($this->appliedInfo)) : ?>
 <div class="xiusAppliedinfo">
 <div class="xius_apiHead">
-	<?php echo JText::_('Applied Information');?>
-	<img src="components/com_xius/assets/images/clear_all.png" title="Clear All Applied Info" onclick="addSubTaskAndSubmit('xiusresetfilter')" />
+	<?php
+	echo JText::_('Applied Information');
+	?>
+	<img src="components/com_xius/assets/images/clear_all.png" title="Clear All Applied Info" onclick="xiusAddSubTask('xiusresetfilter')" />
 </div>
 <?php $data = $this->appliedInfo;
 	$count = 0;
@@ -24,7 +26,7 @@ if(!empty($this->appliedInfo)) : ?>
 		endif;
 		
 		echo '</div></div><div class="right"><img class="xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
-								alt="Remove" onClick="deleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
+								alt="Remove" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
 	endforeach;?>
 <div class="xijoin">
 <?php 
@@ -35,7 +37,7 @@ if($this->join == 'AND')
 else if($this->join == 'OR')
 	$orSelected = ' selected=true ';
 	
-$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="applyJoin(\'xiusjoin\');" >';
+$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'xiusjoin\');" >';
 $joinhtml .= '<option value="AND" '.$andSelected.'>'.JText::_('MATCH ALL').'</option>';
 $joinhtml .= '<option value="OR" '.$orSelected.'>'.JText::_('MATCH ANY').'</option>';
 $joinhtml .= '</select>';

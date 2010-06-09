@@ -20,11 +20,11 @@
 ../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
-../packages/tmp/site/views/users/tmpl/results.php:11:/*XITODO : pass variable for color */
+../packages/tmp/site/views/users/tmpl/results.php:10:/*XITODO : pass variable for color */
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */		
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
-../packages/tmp/site/views/users/view.html.php:240:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:328:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/view.html.php:244:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:332:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
 ../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here

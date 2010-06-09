@@ -1,7 +1,7 @@
 //@Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 //@license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 
-	function deleteInfo(infoid,valueBoxId)
+	function xiusDeleteInfo(infoid,valueBoxId)
 	{
 		var form = document.userForm;
 		form.xiusdelinfo.value = infoid.id;
@@ -10,21 +10,21 @@
 		form.submit();
 	}
 
-	function applyJoin(subtask) 
+	function xiusApplyJoin(subtask) 
 	{
 		var form = document.userForm;
 		form.subtask.value = subtask;
 		form.submit();
 	}
 
-	function addSubTaskAndSubmit(subtask)
+	function xiusAddSubTask(subtask)
 	{
 		var form = document.userForm;
 		form.subtask.value = subtask;
 		form.submit();
 	}
 	
-	function addInfo(infoid) 
+	function xiusAddInfo(infoid) 
 	{
 		var form = document.userForm;
 		form.xiusaddinfo.value = infoid;
@@ -32,21 +32,21 @@
 		form.submit();
 	}
 	
-	function saveList(subtask) 
+	function xiusSaveList(subtask) 
 	{
 		var form = document.saveListForm;
 		form.subtask.value = subtask;
 		form.submit();
 	}
 	
-	function applySort(subtask) 
+	function xiusApplySort(subtask) 
 	{
 		var form = document.userForm;
 		form.subtask.value = subtask;
 		form.submit();
 	}
 	
-	function refreshParent(url)
+	function xiusRefreshParent(url)
 	{
 		window.parent.location.href = url;
 		//window.opener.location.href = url;

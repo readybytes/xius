@@ -35,7 +35,7 @@ if(XiusHelpersUtils::isAdmin($user->id)){
 	
 				<?php 
 				if(!empty($this->sortableFields))	:
-					$html = '<select id="xiussort" name="xiussort" onchange="applySort(\'xiussort\');" >';
+					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'xiussort\');" >';
 					foreach($this->sortableFields as $sfields)	:
 						$selected = '';
 						if($this->sort == $sfields['key'])
@@ -55,7 +55,7 @@ if(XiusHelpersUtils::isAdmin($user->id)){
 						$descselected = ' selected=true ';
 					endif;
 						
-					$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="applySort(\'xiussortdir\');" >';
+					$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="xiusApplySort(\'xiussortdir\');" >';
 					$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
 					$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
 					$dirhtml .= '</select>';

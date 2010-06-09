@@ -12,4 +12,10 @@
   <files>  	
 	<filename plugin="xius">xius.php</filename>
   </files>
+  <params>
+  	<param name="showSearchMenuTab" type="radio" default="0" label="Show User Search Menu" description="Show User Search Menu in JomSocial Front-end OR Not">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+	</param>
+  </params>
 </install>

@@ -21,7 +21,7 @@ if(!empty($this->msg))
 		<div class="lab"><label><?php echo JText::_('Description');?></label></div>
 		<div><textarea rows="" cols="" name="xius_list_desc"></textarea></div>
 		<div><?php echo JText::_('Published');?>:<input type="radio" name="xius_list_publish" value="0"><?php echo JText::_('NO');?>:<input type="radio" name="xius_list_publish" value="1" checked="checked"><?php echo JText::_('YES');?></div>
-		<div class="submit"><input type="submit" name = "xiussavenew" id = "xiussavenew" value=<?php echo JText::_('SAVE AS NEW')?> onClick = "saveList('xiussavenew');"/></div>
+		<div class="submit"><input type="submit" name = "xiussavenew" id = "xiussavenew" value=<?php echo JText::_('SAVE AS NEW')?> onClick = "xiusSaveList('xiussavenew');"/></div>
 	</div>
 	<div class="rightbox">
 		<h3><?php echo JText::_('Save in Existing');?></h3>
@@ -48,7 +48,7 @@ else	:
 		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(JString::ucwords($name))."<br />" ;
 		echo "</div>";
 	endforeach;?>
-	<div class="submit"><input type="submit" name = "xiussaveexisting" id = "xiussaveexisting" value=<?php echo JText::_('SAVE AS EXISTING')?> onClick = "saveList('xiussaveexisting');"/></div>
+	<div class="submit"><input type="submit" name = "xiussaveexisting" id = "xiussaveexisting" value=<?php echo JText::_('SAVE AS EXISTING')?> onClick = "xiusSaveList('xiussaveexisting');"/></div>
 <?php 
 endif;?>
 	

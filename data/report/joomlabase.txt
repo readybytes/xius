@@ -140,15 +140,20 @@
 ../packages/tmp/admin/controllers/list.php:178:			// Load the JTable Object.
 ../packages/tmp/admin/controllers/list.php:179:			$table	=& JTable::getInstance( 'list' , 'XiusTable' );
 ../packages/tmp/site/includes.php:18:$lang =& JFactory::getLanguage();
+../packages/tmp/site/helpers/profile.php:20:		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
+../packages/tmp/site/helpers/profile.php:41:		JTable::addIncludePath(XIUS_PATH_TABLE);
+../packages/tmp/site/views/users/tmpl/results_userlisting.php.orig:32:							$onlineUser = JFactory::getUser();
+../packages/tmp/site/views/users/tmpl/results_userlisting.php.orig:82:		JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/views/users/tmpl/default.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/results_saveoptions.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/results_saveoptions.php:38:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:11:$user =& JFactory::getUser();
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:28:<img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
-../packages/tmp/site/views/users/tmpl/results_userlisting.php:15:	 		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
-../packages/tmp/site/views/users/tmpl/results_userlisting.php:26:						$onlineUser = JFactory::getUser();
+../packages/tmp/site/views/users/tmpl/results_userlisting.php.rej:9:  						$onlineUser = JFactory::getUser();
+../packages/tmp/site/views/users/tmpl/results_userlisting.php.rej:24:  						$onlineUser = JFactory::getUser();
+../packages/tmp/site/views/users/tmpl/results_userlisting.php:31:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/views/users/tmpl/results_userlisting.php:81:		JTable::addIncludePath(XIUS_PATH_TABLE);
-../packages/tmp/site/views/users/tmpl/results.php:14:$document =& JFactory::getDocument();
+../packages/tmp/site/views/users/tmpl/results.php:13:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/userlist.csv.php:9:    JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/views/users/tmpl/userlist.csv.php:27:	JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/views/users/tmpl/lists.php:7:$document =& JFactory::getDocument();
@@ -159,10 +164,10 @@
 ../packages/tmp/site/views/users/view.csv.php:21:			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
 ../packages/tmp/site/views/users/view.html.php:50:		$document = JFactory::getDocument();
 ../packages/tmp/site/views/users/view.html.php:68:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:291:		$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:318:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:334:			$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:336:			$user = JFactory::getUser($owner);
+../packages/tmp/site/views/users/view.html.php:295:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:322:		$document = JFactory::getDocument();
+../packages/tmp/site/views/users/view.html.php:338:			$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:340:			$user = JFactory::getUser($owner);
 ../packages/tmp/site/models/users.php:19:        global $mainframe, $option;
 ../packages/tmp/site/models/users.php:22:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/controllers/users.php:9:class XiusControllerUsers extends JController
@@ -188,6 +193,10 @@
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:27:				$link = JRoute::_($link, false);
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:7:$document =& JFactory::getDocument();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:35:		<form action="<?php echo JRoute::_($link,false);?>" method=post>
+../packages/tmp/install/extensions/xius_community/xius.php:45:		$lang =& JFactory::getLanguage();
+../packages/tmp/install/extensions/xius_community/xius.php:50:					 JRoute::_('index.php?option=com_xius'));
+../packages/tmp/install/extensions/xius_community/xius.php:51:		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', JText::_('ADVANCEDSEARCH'), JRoute::_('index.php?option=com_xius'));
+../packages/tmp/install/extensions/xius_community/xius.php:52:		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', JText::_('USERLIST'), JRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
 ../packages/tmp/install/install.php:55:		JFactory::getApplication()->enqueueMessage($msg);
 ../packages/tmp/install/install.php:65:	$db			=& JFactory::getDBO();
 ../packages/tmp/install/uninstall.php:20:	$db			=& JFactory::getDBO();		

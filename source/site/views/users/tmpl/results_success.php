@@ -10,7 +10,7 @@
 		<?php echo $this->data['msg'];?>
 		</div>
 		<p>
-			<a href="javascript:refreshParent('<?php echo $this->data['url'];?>');">
+			<a href="javascript:xiusRefreshParent('<?php echo $this->data['url'];?>');">
 			<input type = "button" value = "close"/>
 			</a>
 		</p>
