@@ -141,7 +141,6 @@ class XiusSearchTest extends XiSelTestCase
 	{
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
-		
 		// search from Radio buttons 
 		$this->click("//form[@id='searchForm']/div[2]/div[2]/div/label[1]/input");
     	$this->click("xiussearch");
@@ -158,8 +157,8 @@ class XiusSearchTest extends XiSelTestCase
 		$avatar[] = "//img[@id='avatar_119']";
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);
-		
-		$this->click("//form[@id='userForm']/div[2]/div[2]/div[2]/div/label[2]/input");
+		// search according to marital status married
+		$this->click("//div[@id='xius_Info_Ref10']/div[@class='xius_aiInput']/div/label[2]/input");
 		$this->click("//img[@class='xius_test_addinfo_10']");
 		$this->waitPageLoad();    
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
@@ -180,8 +179,7 @@ class XiusSearchTest extends XiSelTestCase
 		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
-				
-    	$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[1]/input");
+		$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[1]/input");
     	$this->click("//input[@name='xius_join' and @value='OR']");
 	    $this->click("xiussearch");
     	$this->waitPageLoad();
@@ -193,8 +191,8 @@ class XiusSearchTest extends XiSelTestCase
 		$avatar[] = "//img[@id='avatar_116']";
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);
-		
-		$this->click("//form[@id='userForm']/div[2]/div[3]/div[2]/div/label[2]/input");
+		// SEarch according to badminton game
+		$this->click("//div[@id='xius_Info_Ref12']/div[@class='xius_aiInput']/div/label[2]/input");
     	$this->click("//img[@class='xius_test_addinfo_12']");    	
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_7']"));

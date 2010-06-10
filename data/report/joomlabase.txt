@@ -13,9 +13,9 @@
 ../packages/tmp/admin/helpers/utils.php:45:		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 ../packages/tmp/admin/helpers/utils.php:76:		$user	=& JFactory::getUser($userid);		
 ../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:125:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:336:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:362:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:442:		$db =& JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:341:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:367:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:447:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:50:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:14:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:16:		$userTable = new JTable('#__users','id', $db);
@@ -142,8 +142,7 @@
 ../packages/tmp/site/includes.php:18:$lang =& JFactory::getLanguage();
 ../packages/tmp/site/helpers/profile.php:20:		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/helpers/profile.php:41:		JTable::addIncludePath(XIUS_PATH_TABLE);
-../packages/tmp/site/views/users/tmpl/results_userlisting.php.orig:32:							$onlineUser = JFactory::getUser();
-../packages/tmp/site/views/users/tmpl/results_userlisting.php.orig:82:		JTable::addIncludePath(XIUS_PATH_TABLE);
+../packages/tmp/site/helpers/slide.php:99:	        $document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/default.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/results_saveoptions.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/views/users/tmpl/results_saveoptions.php:38:		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
@@ -162,12 +161,12 @@
 ../packages/tmp/site/views/users/view.csv.php:17:		$user =& JFactory::getUser();
 ../packages/tmp/site/views/users/view.csv.php:20:			$url = JRoute::_('index.php?option=com_xius&view=users',false);
 ../packages/tmp/site/views/users/view.csv.php:21:			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
-../packages/tmp/site/views/users/view.html.php:50:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:68:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:295:		$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:322:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:338:			$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:340:			$user = JFactory::getUser($owner);
+../packages/tmp/site/views/users/view.html.php:51:		$document = JFactory::getDocument();
+../packages/tmp/site/views/users/view.html.php:69:		$document = JFactory::getDocument();
+../packages/tmp/site/views/users/view.html.php:297:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:324:		$document = JFactory::getDocument();
+../packages/tmp/site/views/users/view.html.php:340:			$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:342:			$user = JFactory::getUser($owner);
 ../packages/tmp/site/models/users.php:19:        global $mainframe, $option;
 ../packages/tmp/site/models/users.php:22:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/controllers/users.php:9:class XiusControllerUsers extends JController

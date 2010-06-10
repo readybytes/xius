@@ -33,6 +33,7 @@
 		<file>test/sel/com/site/list.php</file>
 		<file>test/sel/com/site/pagination.php</file>
 		<file>test/sel/com/site/rangesearch.php</file>
+		<file>test/sel/com/site/slider.php</file>
 	</testsuite>
 	
 	<listeners>
