@@ -25,7 +25,7 @@ class XiusControllerUsers extends JController
 		 */
 		
 		$subtask = JRequest::getVar('subtask', ''); 
-		$supltytask = JRequest::getVar('suplytask', '');
+		$supltytask = JRequest::getVar('supplytask', '');
 		switch($subtask){
 			
 			case 'xiussearch':

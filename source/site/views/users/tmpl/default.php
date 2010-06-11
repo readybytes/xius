@@ -9,10 +9,10 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 //$document->addStyleSheet('components/com_community/templates/default/css/style.css');
 JHTML::_('behavior.tooltip', '.hasTip');
-jimport('joomla.html.pane');		
+jimport('joomla.html.pane');
 ?>
 <div class="xius_sp">
-<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=users&suplytask=displayresult" method="post" name="searchForm" id="searchForm">
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" method="post" name="searchForm" id="searchForm">
 
 <div class="xius_spHead">
 <?php echo JText::_('Search');?>
@@ -20,18 +20,18 @@ jimport('joomla.html.pane');
 		<?php
 		$count = 0;
 		$i  = 0;
-		
+
 		if(empty($this->infohtml)):
 		?>
 			<!-- <div class="xiusNoInfo"> -->
 			<h3>
 			<?php echo JText::_('All Searchable Information Has Been Disabled By Administrator');?>
 			</h3>
-			<!-- </div> -->		
-		<?php 
+			<!-- </div> -->
+		<?php
 		else:
 		foreach($this->infohtml as $data):
-			?> 
+			?>
 			<div class="xius_spMain">
 			<div class="xius_spLabel">
 			<?php echo JHTML::_('tooltip',JText::_($data['tooltip']), JText::_($data['label']), null, JText::_($data['label'])); ?>
@@ -40,23 +40,23 @@ jimport('joomla.html.pane');
 			<?php echo $data['html'];?>
 			</div>
 			</div>
-			<?php 
+			<?php
 		endforeach;
 		?>
 		<div class="xius_spMain">
 		<div class="xius_spLabel"><?php echo JText::_('Join With'); ?></div>
 		<div class="xius_spInput">
-		<input type="radio" name="xius_join" value="AND" /><?php echo JText::_('MATCH ALL'); ?>  
+		<input type="radio" name="xius_join" value="AND" /><?php echo JText::_('MATCH ALL'); ?>
 		<input type="radio" name="xius_join" value="OR" /><?php echo JText::_('MATCH ANY'); ?>
 		</div>
 		</div>
 		<div class="xius_spSubmit">
 		<input type="submit" id="xiussearch" name="xiussearch" value="Search" />
 		</div>
-		<?php 
+		<?php
 		endif;
 		?>
-		
+
 
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="users" />

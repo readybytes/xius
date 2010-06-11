@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
@@ -12,7 +12,7 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 ?><div class="savemainbox">
-<form action="index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component" name="saveListForm" id="saveListForm" method="post">
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component'); ?>" name="saveListForm" id="saveListForm" method="post">
 
 	<div class="leftbox">
 		<h3><?php echo JText::_("Save As New"); ?></h3>
@@ -34,24 +34,24 @@ else	:
 		$checked = '';
 		?>
 		<div class="listloop">
-		<?php 
+		<?php
 		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
-		
+
 		if(empty($l->name))
 			$name = 'LIST<br />';
 		else
 			$name = $l->name;
-			
+
 		if($l->id == $this->selectedListId)
 			$checked = ' checked=checked';
-			
+
 		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(JString::ucwords($name))."<br />" ;
 		echo "</div>";
 	endforeach;?>
 	<div class="submit"><input type="submit" name = "xiussaveexisting" id = "xiussaveexisting" value=<?php echo JText::_('SAVE AS EXISTING')?> onClick = "xiusSaveList('xiussaveexisting');"/></div>
-<?php 
+<?php
 endif;?>
-	
+
 	</div></div>
 </div>
 

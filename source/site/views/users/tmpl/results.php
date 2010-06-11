@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 ?>
 <div class="xius_result"><a name="xiustop"></a>
-<form action="index.php?option=com_xius&view=users&suplytask=displayresult" name="userForm" id="userForm" method="post">
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
 $css = JURI::base().'components/com_xius/assets/css/blue.css';
@@ -15,16 +15,16 @@ $document->addStyleSheet($css);
 $document->addScript($js);
 JHTML::_('behavior.tooltip');
 if($this->task == 'displayList')
-	echo '<span class = "xiusListname">'.JTEXT::_(ucfirst($this->loadTemplate('listinfo'))).'</span>';	
+	echo '<span class = "xiusListname">'.JTEXT::_(ucfirst($this->loadTemplate('listinfo'))).'</span>';
 echo $this->loadTemplate('appliedinfo');
 
 //jimport('joomla.application.module.helper');
 //$module =& JModuleHelper::getModule('mod_available_info');
 //echo JModuleHelper::renderModule($module);
-				
+
 echo $this->loadTemplate('availableinfo');
 ?>
-<?php 
+<?php
 echo $this->loadTemplate('toolbar');
 ?>
 <?php
@@ -34,7 +34,7 @@ echo $this->loadTemplate('userlisting');
 ?>
 <div>
 <?php
-echo $this->pagination->getPagesLinks(); 
+echo $this->pagination->getPagesLinks();
 ?>
 </div>
 
