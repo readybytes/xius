@@ -51,7 +51,7 @@ class ProfiletypesHelper
 			foreach($pTypes as $pType){
 				$selected = '';			
 				
-				if(isset($field->value) && $field->value == $pType)
+				if(isset($field->value) && $field->value == $pType->id)
 					$selected = " selected = selected ";		
 					
 				$html	.= '<option value="' . $pType->id . '" '.$selected.'>' .$pType->name  . '</option>';
