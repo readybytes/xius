@@ -163,9 +163,8 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		
 		$instance = XiusFactory::getPluginInstanceFromId($infoid);
 		$searchHtml = $instance->renderSearchableHtml();
-		//echo "\n search =".$searchHtml;
+		
 		$this->assertEquals($this->cleanWhiteSpaces($html),$this->cleanWhiteSpaces($searchHtml));
-		//echo $viewClass->searchHtml($instance);
 	}
 	
 	
@@ -192,7 +191,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 				.'</a><input type = "hidden" name="xiusinfo_42" id="xiusinfo_42" value="4"/>';
 		
 		$html5 = '<input type = "hidden" name="xiusinfo_51" id="xiusinfo_51" value="5"/>'
-				.'<input class="inputbox" type="text" name="Joomla_5" id="Joomla_5" />'
+				.'<input class="inputbox" type="text" name="Joomla_5" id="Joomla_5" value=""/>'
 				.'<input type = "hidden" name="xiusinfo_52" id="xiusinfo_52" value="5"/>';
 
 		$html7 = '<input type = "hidden" name="xiusinfo_71" id="xiusinfo_71" value="7"/>'

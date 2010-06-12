@@ -48,17 +48,19 @@ class XiusJoomlaTest extends XiUnitTestCase
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'joomla' . DS . 'views' . DS . 'view.html.php';
 		$instance->load(5);
 		$viewClass = new JoomlaView();
-		$this->assertFalse($viewClass->searchHtml($instance)); 
+		$searchHtml5 =  $viewClass->searchHtml($instance);
+		$result5 = '<input class="inputbox" type="text" name="Joomla_5" id="Joomla_5" value=""/>';
+		$this->assertEquals($this->cleanWhiteSpaces($result5),$this->cleanWhiteSpaces($searchHtml5)); 
 		
 		$instance->load(4);
-		$searchHtml =  $viewClass->searchHtml($instance);
+		$searchHtml4 =  $viewClass->searchHtml($instance);
 		
-		$result = '<input class="inputbox" type="text" name="JoomlaregisterDate"'
+		$result4 = '<input class="inputbox" type="text" name="JoomlaregisterDate"'
 				.' id="JoomlaregisterDate" style="width:125px; margin-right:4px" value="" />'
 				.'<a href="javascript:void(0)" onclick="return showCalendar(\'JoomlaregisterDate\', \'dd-mm-y\');" >'
 				.'<img src="http://http/usr/bin/components/com_community/assets/calendar.png"></a>';
 				
-		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces($searchHtml));
+		$this->assertEquals($this->cleanWhiteSpaces($result4),$this->cleanWhiteSpaces($searchHtml4));
 	}
 	
 }

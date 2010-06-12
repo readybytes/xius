@@ -133,7 +133,11 @@ class Jsfieldshelper
 		 * then take care of jsfields formatValue function also
 		 */
 		if($fieldInfo->type == 'date') {
-			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.'" style="width:125px; margin-right:4px" value="" />';
+			$value = '';
+			if(isset($fieldInfo->value))
+				$value = $fieldInfo->value;
+				
+			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.'" style="width:125px; margin-right:4px" value="'.$value.'" />';
 			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 		}
 		else if($fieldInfo->type == 'profiletypes'){

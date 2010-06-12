@@ -20,4 +20,30 @@ class XiusLibrariesPluginhandler
 	{
 		return XiusLibrariesUsersearch::updateCache();
 	}
+	
+	
+	function onAfterUserSearchQueryBuild($query)
+	{
+		//currently this code is supposed to handle only for force search
+
+		$user =& JFactory::getUser();
+
+		if(XiusHelpersUtils::isAdmin($user->id))
+			return true;
+			
+		$filter = 	array('pluginType' => 'Forcesearch');
+		$forceSearchInfo	=	XiusLibrariesInfo::getInfo($filter,'AND',false);
+		
+		if(count($forceSearchInfo) == 0)
+			return true;
+			
+		$plgInstance = XiusFactory::getPluginInstance('Forcesearch');
+		
+		if(!$plgInstance)
+			return true;
+
+		$plgInstance->addSearchToQuery($query,'');
+		
+		return true;
+	}
 }

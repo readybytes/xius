@@ -83,6 +83,9 @@ class Keyword extends XiusBase
 				if(!$plgInstance->isSearchable())
 					continue;
 					
+				if(!$plgInstance->isKeywordCompatible())
+					continue;
+					
 				$plgInstance->addSearchToQuery(&$tempQuery, $val, XIUS_LIKE, 'OR');			
 		   	}
        	}

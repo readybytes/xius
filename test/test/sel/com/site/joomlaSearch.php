@@ -30,7 +30,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		// call the function the for filling the values of information
 		
 		$this->fillInfo($information, 'OR');
-		$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
 		$this->select("xiusjoin", "label=Match All");
@@ -55,7 +55,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		// call the function the for filling the values of information
 		
 		$this->fillInfo($information, 'OR');
-		$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
 		$this->select("xiusjoin", "label=Match All");
@@ -84,7 +84,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		// call the function the for filling the values of information
 		
 		$this->fillInfo($information, 'OR');
-		$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
 		$this->select("xiusjoin", "label=Match All");
@@ -107,6 +107,6 @@ class XiusJoomlaSearchTest extends XiSelTestCase
     	// match any
 		$this->select("xiusjoin", "label=Match Any");
 		$this->waitPageLoad();
-		$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));		
+		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));		
 	}	
 }

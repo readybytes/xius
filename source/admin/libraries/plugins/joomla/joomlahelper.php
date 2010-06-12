@@ -29,7 +29,7 @@ class Joomlahelper
 	}
 	
 	
-	function getFieldsHTML($calleObject)
+	function getFieldsHTML($calleObject,$value='')
 	{
 		if($calleObject->get('key') == 'registerDate'){
 			
@@ -39,7 +39,7 @@ class Joomlahelper
 			$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
 			$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
 		
-			$fieldHTML ='<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').'" style="width:125px; margin-right:4px" value="" />';
+			$fieldHTML ='<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').'" style="width:125px; margin-right:4px" value="'.$value.'" />';
 			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\''.$calleObject->get('pluginType').$calleObject->get('key').'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 			return $fieldHTML;
 		}

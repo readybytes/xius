@@ -23,12 +23,24 @@ class plgSystemxius_system extends JPlugin
 	
 	function onUsInfoUpdated($data)
 	{
-		$incldePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-		if(!JFile::exists($incldePath))
+		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
+		if(!JFile::exists($includePath))
 			return false;
 
-		require_once $incldePath;
+		require_once $includePath;
 		$plgHandler = XiusFactory::getLibraryPluginHandler();
 		return $plgHandler->onUsInfoUpdated($data);
+	}
+	
+	
+	function onAfterUserSearchQueryBuild($data)
+	{
+		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
+		if(!JFile::exists($includePath))
+			return false;
+
+		require_once $includePath;
+		$plgHandler = XiusFactory::getLibraryPluginHandler();
+		return $plgHandler->onAfterUserSearchQueryBuild($data);
 	}
 }

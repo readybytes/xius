@@ -16,7 +16,7 @@ class JsfieldsView extends XiusBaseView
 		parent::__construct(__FILE__);
 	}
 	
-	function searchHtml($calleObject)
+	function searchHtml($calleObject,$value='')
 	{
 		if(!$calleObject->isAllRequirementSatisfy())
 			return false;
@@ -30,7 +30,10 @@ class JsfieldsView extends XiusBaseView
 		$filter['id'] = $calleObject->get('key');
 		$field = jsfieldshelper::getJomsocialFields($filter);
 		if(!$field) 		
-			return false;		
+			return false;	
+
+		//Id is unique , so we will get single field of jomsocial always
+		$field[0]->value = $value;
 			
 		$fieldHtml = jsfieldshelper::getFieldsHTML($field[0]);
 		//print_r($fieldHtml);

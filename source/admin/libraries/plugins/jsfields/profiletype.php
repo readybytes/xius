@@ -46,9 +46,15 @@ class ProfiletypesHelper
 		
 		$html	= '<select id="field'.$field->id.'" name="field' . $field->id  . '" '.$disabled.' class="hasTip select'.$class.' inputbox" title="' . $field->name . '::' . htmlentities( $field->tips ). '">';
 	
+		$html   .= '<option value="">'.JText::_('SELECT BELOW').'</option>';
 		if(!empty($pTypes)){
 			foreach($pTypes as $pType){
-				$html	.= '<option value="' . $pType->id . '" >' .$pType->name  . '</option>';
+				$selected = '';			
+				
+				if(isset($field->value) && $field->value == $pType)
+					$selected = " selected = selected ";		
+					
+				$html	.= '<option value="' . $pType->id . '" '.$selected.'>' .$pType->name  . '</option>';
 			}
 		}
 		

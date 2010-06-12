@@ -16,7 +16,7 @@ class JoomlaView extends XiusBaseView
 		parent::__construct(__FILE__);
 	}
 	
-	function searchHtml($calleObject)
+	function searchHtml($calleObject,$value='')
 	{
 		if(!$calleObject->isAllRequirementSatisfy())
 			return false;
@@ -27,10 +27,10 @@ class JoomlaView extends XiusBaseView
 		 * so i can easily get properties of info
 		 */	
 			
-		$fieldHtml = Joomlahelper::getFieldsHTML($calleObject);
+		$fieldHtml = Joomlahelper::getFieldsHTML($calleObject,$value);
 		
 		if(false == $fieldHtml)
-			return false;
+			$fieldHtml = parent::searchHtml($calleObject,$value);
 		
 		$this->assign('fieldHtml',$fieldHtml);
 		ob_start();

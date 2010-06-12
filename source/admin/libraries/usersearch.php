@@ -16,6 +16,7 @@ class XiusLibrariesUsersearch
 		 * provide direction also
 		 * */
 		/*Trigger event */
+		JPluginHelper::importPlugin( 'system' );
 		$dispatcher =& JDispatcher::getInstance();
 		$data = array();
 		$data['conditions'] = &$params;
@@ -327,7 +328,7 @@ class XiusLibrariesUsersearch
 				continue;
 			}
 			
-			if(empty($post[$keyNames[$i]]))
+			if(empty($post[$keyNames[$i]]) && !is_numeric($post[$keyNames[$i]]))
 				continue;
 			
 			if(!$infoid)

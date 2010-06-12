@@ -62,7 +62,10 @@ class Joomla extends XiusBase
 			
 			if($this->key == 'registerDate')
 				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
-				
+
+			if($this->key == 'block' && $operator != XIUS_LIKE)
+				$conditions =  $db->nameQuote($c->cacheColumnName).' '.$operator.' '.$db->Quote($this->formatValue($value));
+			
 			$query->where($conditions,$join);
 		}		
 		return true;
@@ -124,6 +127,9 @@ class Joomla extends XiusBase
 		
 		if($key == 'id')
 			return 'int(21) NOT NULL';
+			
+		if($key == 'block')
+			return 'tinyint(4) NOT NULL';
 	
 		return parent::getCacheSqlSpec($key);
 	}

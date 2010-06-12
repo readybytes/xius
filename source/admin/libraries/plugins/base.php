@@ -50,6 +50,14 @@ abstract class XiusBase extends JObject
 			$this->$what = $value;
 	}
 	
+
+	function getData($what)
+	{
+		if(in_array($what,$this->getProperties()))
+			return $this->$what;
+			
+		return false;
+	}
 	
 	/*if it returns false means we can't access it's object
 	 * it will not behave as expected
@@ -152,6 +160,12 @@ abstract class XiusBase extends JObject
 		return XiusHelpersUtils::getValueFromXiusParams($this->params,'tooltip',false);
 	}
 	
+
+	public function isKeywordCompatible()
+	{
+		return true;
+	}
+	
 	/*override function if child class is displaying 
 	 * fields html with not in select box and any other method
 	 */
@@ -232,10 +246,10 @@ abstract class XiusBase extends JObject
 	
 	
 	
-	protected function generateSearchHtml()
+	protected function generateSearchHtml($value = '')
 	{
 		$infoIdStartHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'1" id="xiusinfo_'.$this->id.'1" value="'.$this->id.'"/>';
-		$inputHtml = '<input class="inputbox" type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'" />';
+		$inputHtml = '<input class="inputbox" type="text" name="'.$this->pluginType.'_'.$this->id.'" id="'.$this->pluginType.'_'.$this->id.'"  value = "'.$value.'"/>';
 		$infoIdEndHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'2" id="xiusinfo_'.$this->id.'2" value="'.$this->id.'"/>';
 		$htmlwithInfoId = $infoIdStartHtml . $inputHtml . $infoIdEndHtml;
 		
@@ -245,16 +259,16 @@ abstract class XiusBase extends JObject
 	/*this function is defined for front-end
 	 * return label + input box html
 	 */
-	public function renderSearchableHtml()
+	public function renderSearchableHtml($value = '')
 	{
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 			
 		$view = $this->getViewName();
 		if(false === $view)
-			return $this->generateSearchHtml();
+			return $this->generateSearchHtml($value);
 
-		$html = $view->searchHtml($this);
+		$html = $view->searchHtml($this,$value);
 		if(!empty($html)){
 			$infoIdStartHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'1" id="xiusinfo_'.$this->id.'1" value="'.$this->id.'"/>';
 			$infoIdEndHtml = '<input type = "hidden" name="xiusinfo_'.$this->id.'2" id="xiusinfo_'.$this->id.'2" value="'.$this->id.'"/>';
@@ -262,7 +276,7 @@ abstract class XiusBase extends JObject
 			return $htmlwithInfoId;
 		}
 
-		return $this->generateSearchHtml();
+		return false;
 	}
 
 	

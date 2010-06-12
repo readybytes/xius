@@ -14,6 +14,7 @@
 		<file>test/unit/com/admin/libraries/joomla.php</file>
 		<file>test/unit/com/admin/libraries/keyword.php</file>
 		<file>test/unit/com/admin/libraries/rangesearch.php</file>
+		<file>test/unit/com/admin/libraries/forcesearch.php</file>
 		<!--<file>test/unit/com/admin/libraries/cbuilder.php</file>-->
 		<file>test/unit/com/admin/libraries/usersearch.php</file>
 		<file>test/unit/com/admin/libraries/cache.php</file>
