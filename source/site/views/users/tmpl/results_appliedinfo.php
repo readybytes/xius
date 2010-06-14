@@ -11,7 +11,7 @@ if(!empty($this->appliedInfo)) : ?>
 	?>
 	<img src="components/com_xius/assets/images/clear_all.png" title="Clear All Applied Info" onclick="xiusAddSubTask('xiusresetfilter')" />
 </div>
-<?php $data = $this->appliedInfo;
+<?php 
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
 		$count++; ?>

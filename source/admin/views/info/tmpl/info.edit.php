@@ -50,19 +50,6 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 	<br />
 	
 	<fieldset class="adminform">
-	<legend><?php echo JText::_( 'Plugin Parameters' ); ?></legend>
-	<?php
-		jimport('joomla.html.pane');
-		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
-		echo $pane->startPane('plugin-pane');
-		echo $this->pluginParamsHtml;
-	?>
-	</fieldset>
-</div>
-</div>
-<div>
-<div class="col width-60" style="width:60%; float:right;">
-	<fieldset class="adminform">
 	<legend><?php echo JText::_( 'General Parameters' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
@@ -73,6 +60,25 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 		//echo $pane->endPanel();
 		?>
 	</fieldset>
+
+
+</div>
+</div>
+<div>
+<div class="col width-60" style="width:60%; float:right;">
+	
+
+<fieldset class="adminform">
+	<legend><?php echo JText::_( 'Plugin Parameters' ); ?></legend>
+	<?php
+		jimport('joomla.html.pane');
+		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
+		echo $pane->startPane('plugin-pane');
+		echo $this->pluginParamsHtml;
+	?>
+	</fieldset>
+
+
 </div>
 </div>
 <div class="clr"></div>

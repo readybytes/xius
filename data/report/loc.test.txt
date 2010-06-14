@@ -4,8 +4,8 @@ Directories:                               12
 Files:                                     36
 
 Lines of Code (LOC):                     4715
-Comment Lines of Code (CLOC):             479
-Non-Comment Lines of Code (NCLOC):       4236
+Comment Lines of Code (CLOC):             483
+Non-Comment Lines of Code (NCLOC):       4232
 
 Interfaces:                                 0
 Abstract Classes:                           0

@@ -86,7 +86,7 @@ class ScreenshotTest extends XiSelTestCase
     $this->captureScreen(JString::strtolower($template)."_searchPanel");
     
     $this->select("field2", "label=Male");
-  	$this->select("field12", "label=Afghanistan");
+  //	$this->select("field12", "label=Afghanistan");
   	$this->click("//input[@name='xius_join' and @value='OR']");
   	$this->click("xiussearch");
   	$this->waitPageLoad();
@@ -100,7 +100,7 @@ class ScreenshotTest extends XiSelTestCase
   	$this->open(JOOMLA_LOCATION."/index.php?option=com_xius");
     $this->waitPageLoad();
    	$this->select("field2", "label=Male");
-  	$this->select("field12", "label=Afghanistan");
+  //	$this->select("field12", "label=Afghanistan");
   	$this->click("//input[@name='xius_join' and @value='OR']");
   	$this->click("xiussearch");
   	$this->waitPageLoad();

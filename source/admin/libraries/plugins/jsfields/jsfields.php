@@ -233,5 +233,16 @@ class Jsfields extends XiusBase
 		return $formatvalue;
 	}
 	
+	public function _getFormatAppliedData($value)
+	{
+		$filter = array();
+		$filter['id'] = $this->key;
+		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+		
+		if($fieldInfo[0]->type == 'date')
+			return $value;
+		return $this->_getFormatData($value);
+	}
+	
 	
 }
