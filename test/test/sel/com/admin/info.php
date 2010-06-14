@@ -13,43 +13,148 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 		$this->_DBO->loadSql($url);
 		$url = dirname(__FILE__).'/_data/updateCache.sql';
 		$this->_DBO->loadSql($url);	
-	}
+	}	
+	
+  	function testAddForceSearch()
+ 	{
+	   	$this->_DBO->addTable('#__xius_info');
+		$this->_DBO->filterColumn('#__xius_info','ordering');
+		$this->_DBO->filterColumn('#__xius_info','id');
+				
+		$this->adminLogin();
+	    $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_xius&view=info");
+	    $this->waitPageLoad();
+      
+		//1. add force search info for date fields
+ 	 	$this->click("//td[@id='toolbar-new']/a");
+    	$this->waitPageLoad();
+    	
+    	$this->select("//select[@id='plugin']", "value=forcesearch");
+    	$this->click("infonext");
+    	$this->waitPageLoad();
+    
+    	//Verify existing forse search info value should not be here
+    	$this->assertFalse($this->isElementPresent("//option[@value='1']"));
+		$this->assertFalse($this->isElementPresent("//option[@value='11']"));
+		$this->assertFalse($this->isElementPresent("//option[@value='12']"));
+		$this->assertFalse($this->isElementPresent("//option[@value='14']"));
+		$this->assertFalse($this->isElementPresent("//option[@value='15']"));
+		$this->assertFalse($this->isElementPresent("//option[@value='16']"));
 		
-	function xtestEditForcesearchInfo()
+		$this->assertTrue($this->isElementPresent("//option[@value='4']"));
+    	$this->select("rawdata", "label=Register Date");
+    	$this->click("infonext");
+    	$this->waitPageLoad();
+    	
+    	$this->type("labelName", "Register Date Should be 10 Jun 2009");
+    	$this->type("//input[@id='JoomlaregisterDate']","10-06-2009");
+    	$this->click("paramsisSearchable0");
+    	$this->click("//td[@id='toolbar-apply']/a/span");
+    	$this->waitPageLoad();
+   
+    	$this->verifyValue("//input[@id='JoomlaregisterDate']","10-06-2009");
+        
+    	$this->click("//td[@id='toolbar-save']/a/span");
+    	$this->waitPageLoad();
+    
+	    $this->assertTrue($this->isTextPresent("Register Date Should be 10 Jun 2009"));
+	    
+	    //2. add force search info for checkboxes
+ 	 	$this->click("//td[@id='toolbar-new']/a");
+    	$this->waitPageLoad();
+    	
+    	$this->select("//select[@id='plugin']", "value=forcesearch");
+    	$this->click("infonext");
+    	$this->waitPageLoad();
+    
+    	$this->select("rawdata", "label=Checkbox1");
+    	$this->click("infonext");
+    	$this->waitPageLoad();
+    	
+    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox1']"));
+    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox2']"));
+    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox11']"));
+    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox21']"));
+    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox']"));
+    	
+    	$this->type("labelName", "Checkbox1 value should be checkbox11 and checkbox");
+	    $this->click("published0");
+	    $this->click("//input[@name='field17[]' and @value='Checkbox11']");
+	    $this->click("//input[@name='field17[]' and @value='Checkbox']");
+	    $this->click("paramsisSearchable0");
+	    $this->click("paramsisSortable0");
+    	
+    	$this->click("//td[@id='toolbar-apply']/a/span");
+    	$this->waitPageLoad();
+    	
+    	$this->assertTrue($this->isChecked("//input[@name='field17[]' and @value='Checkbox11']"));
+    	$this->assertTrue($this->isChecked("//input[@name='field17[]' and @value='Checkbox']"));
+        
+    	$this->click("//td[@id='toolbar-save']/a/span");
+    	$this->waitPageLoad();
+    
+	    $this->assertTrue($this->isTextPresent("Checkbox1 value should be checkbox11 and checkbox"));
+  
+  	}
+  
+
+  	function testEditForcesearchInfo()
 	{
-		//$this->loadSql();		
-		//$this->_DBO->addTable('#__xius_info');
-		//$this->_DBO->filterColumn('#__xius_info','ordering');
+		$this->_DBO->addTable('#__xius_info');
+		$this->_DBO->filterColumn('#__xius_info','ordering');
 				
 		$this->adminLogin();
     	$this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_xius&view=info");
     	$this->waitPageLoad();
 		
-	}
-	
-	
-  function xtestAddForceSearch()
-  {
-    //    setup default location 
-    $this->adminLogin();
-    $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_xipt&view=aclrules");
-    $this->waitPageLoad();
-      
-	// add Rule-1
-    $this->click("//td[@id='toolbar-new']/a");
-    $this->waitPageLoad();
+    	//$this->click("span[@id='labelname14']");
+	    $this->click("link=Block should be 1");
+	    $this->waitPageLoad();
+	    $this->type("labelName", "Block should be 0");
+	    $this->verifyValue("//input[@id='Joomla_12']",1);
+	    
+	    $this->type("//input[@id='Joomla_12']", "0");
+	    $this->click("paramsisSortable0");
+    	$this->click("paramsisVisible0");
+	    $this->type("paramstooltip", "Not Blocked User");
+	    $this->click("//td[@id='toolbar-apply']/a/span");
+	    $this->waitPageLoad();
+	   
+	    $this->click("//td[@id='toolbar-cancel']/a/span");
+	    $this->waitPageLoad();
+	    
+	    $this->click("link=All Male");
+	    $this->waitPageLoad();
+	    $this->type("labelName", "All Female");
+	    //$this->assertEquals("CC SELECT BELOWMaleFemale", $this->getText("field2"));
+	    
+	    $this->verifyValue("//select[@id='field2']",'Male');
     
-    $this->select("//select[@id='acl']", "value=addalbums");
-    $this->click("//input[@type='submit']");
-    $this->waitPageLoad();
-    $this->type("rulename", "Can not Add Album more than 5");
-    $this->type("aclparamsaddalbums_limit", "5");
-    $this->select("coreparams[core_profiletype]", "label=PROFILETYPE-1");
-    $this->click("//td[@id='toolbar-save']/a/span");
-    $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Can not Add Album more than 5"));
-    $this->_DBO->addTable('#__xipt_aclrules');
-    $this->_DBO->filterColumn('#__xipt_aclrules','id');
-  }
+	    $this->select("field2", "label=Female");
+	    $this->click("paramsisExportable0");
+	    $this->type("paramstooltip", "Female User");
+	    
+	    $this->click("//td[@id='toolbar-save']/a/span");
+	    
+	    $this->waitPageLoad();
+	    
+	    //Edit range search for age group
+	    $this->click("link=From 10 to 12 age group");
+	    $this->waitPageLoad();
+	    $this->type("labelName", "From 0 to 16 age group");
+	    $this->verifyValue("//input[@id='Rangesearch8_min']","10");
+	    $this->verifyValue("//input[@id='Rangesearch8_max']","12");
+	    
+	    $this->type("//input[@id='Rangesearch8_min']", "0");
+	    $this->type("//input[@id='Rangesearch8_max']", "16");
+	   
+	    $this->click("//td[@id='toolbar-apply']/a/span");
+	    $this->waitPageLoad();
+	    $this->verifyValue("//input[@id='Rangesearch8_min']",'0');
+	    $this->verifyValue("//input[@id='Rangesearch8_max']",'16');
+	   
+	    $this->click("//td[@id='toolbar-cancel']/a/span");
+	    $this->waitPageLoad();
+	}
 	
 }

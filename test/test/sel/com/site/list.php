@@ -112,4 +112,32 @@ class XiusListTest extends XiSelTestCase
     	$this->assertTrue($this->isElementPresent("//span[@id='total_3']"));    	
 	}
 	
+	
+
+	function testListDisplayWithForcesearch()
+	{
+		$url	= JPATH_ROOT.'/test/test/_data';
+	    $this->_DBO->loadSql($url.'/insert.sql');	
+		$this->_DBO->loadSql($url.'/updateCache.sql');
+		
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=3');
+    	$this->waitPageLoad();
+    	
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
+		
+        $this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=4');
+    	$this->waitPageLoad();
+    	
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
+
+    	//IMP : Force search is not applicable to admin
+    	$this->frontLogin('admin','ssv445');
+    	$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=displayList&listid=3');
+    	$this->waitPageLoad();
+    	
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_2']"));
+
+	$this->frontLogout();
+	}
+	
 }
