@@ -9,5 +9,9 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
+			<option value="none">No</option>
+			<option value="block">Yes</option>
+		</param>
 	</params>
 </config>

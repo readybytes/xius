@@ -321,3 +321,27 @@ background:#efefef;
 	cursor: pointer;
 	text-align: right;
 }
+
+.xiusSlider{
+	display:block;
+}
+
+.xiusSliderHide{
+	display:none;
+}
+
+.xiusSlideImgDown{
+padding-right:50px;
+float:right;
+background-image: url("../images/slideupdown.png");
+background-repeat: no-repeat;
+background-position: 0px -15px;
+}
+
+.xiusSlideImgUp{
+float:right;
+padding-right:50px;
+background-image: url("../images/slideupdown.png");
+background-repeat: no-repeat;
+background-position: 0px 3px;
+}

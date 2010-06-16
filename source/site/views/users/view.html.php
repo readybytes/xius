@@ -73,7 +73,8 @@ class XiusViewUsers extends JView
 			$document->setTitle(JText::_('Search Result'));
 
 		//collect user data from appropritae profile component
-
+		$xiusSlideShow  = xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
+		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 
 		$this->assignRef('users', XiusHelperProfile::getUserProfileData($data['users']));
 		//calculate data for these users

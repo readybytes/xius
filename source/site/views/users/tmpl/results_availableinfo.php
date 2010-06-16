@@ -4,13 +4,41 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/  
 ?>
+<script type="text/javascript">
+	function hideshowdiv()
+	{
+		if(document.getElementById("xiushide").className=="xiusSliderHide")
+		{
+			showdiv();
+		}
+		else
+		{
+			hidediv();	
+		}
+	}
+
+	function hidediv()
+	{
+		document.getElementById("xiushide").setAttribute("class", "xiusSliderHide");
+		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgDown");	
+	}
+
+	function showdiv()
+	{
+		document.getElementById("xiushide").setAttribute("class", "xiusSlider");
+		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgUp");
+	}
+
+</script>
+
 <div class="xius_ai">
 	<div class="xius_aiHead">
-		<?php $slide = new XiusHelperSlide(); ?>
-		<?php echo $slide->button(JText::_('Available Information'), 'xius_avail_info_toggle_1', 'xius_avail_info_slide_1'); ?>
+		<a href="javascript:hideshowdiv();"> <?php echo JText::_('Available Information'); ?></a>
+		<div id="xiusSliderImg" class="<?php if($this->xiusSlideShow=='none'){ echo 'xiusSlideImgUp'; } else{ echo 'xiusSlideImgDown';} ?>">&nbsp;</div>
 	</div>
-
-	<?php  echo $slide->startSlider('xius_avail_info_slide_1', 'class="greyBox"');
+<div id="xiushide" class="<?php if($this->xiusSlideShow=='none'){ echo 'xiusSliderHide'; } else{ echo 'xiusSlider'; } ?>">
+	<?php
+			
 		   if(!empty($this->availableInfo))
 			foreach($this->availableInfo as $data):
 				?> 
@@ -30,6 +58,4 @@
 
 
 	<input type="hidden" name="xiusaddinfo" value="" />
-	<?php  echo $slide->endSlider(); ?>
-	<?php  XiusHelperSlide::addScript(); ?>
-</div>
+</div></div>

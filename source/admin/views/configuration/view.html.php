@@ -40,7 +40,7 @@ class XiusViewConfiguration extends JView
 		JToolBarHelper::title( JText::_( 'Configuration' ), 'configuration' );
 
 		// Add the necessary buttons
-		JToolBarHelper::back('HOME' , 'index.php?option=com_xijc');
+		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');
 		JToolBarHelper::divider();
 		JToolBarHelper::save('save','SAVE');
 		 
