@@ -287,9 +287,10 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result = new stdClass();
 		$result->tableName  		= '`#__users`';
 		$result->tableAliasName 	= 'joomlauserregisterDate_0';
-		$result->originColumnName  = 'registerDate';
-		$result->cacheColumnName   = 'joomlaregisterDate_0';
+		$result->originColumnName  	= 'registerDate';
+		$result->cacheColumnName   	= 'joomlaregisterDate_0';
 		$result->cacheSqlSpec	 	= 'datetime NOT NULL';
+		$result->cacheLabelName		= 'Register Date';
 		$result4[]	=$result;
 		
 		$result8	=array();
@@ -299,6 +300,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->originColumnName  = 'value';
 		$result->cacheColumnName   = 'jsfields3_0';
 		$result->cacheSqlSpec	   = 'varchar(250) NOT NULL';
+		$result->cacheLabelName		= 'Birthday';
 		$result8[]	=$result;
 		
 		$result9	=array();
@@ -308,6 +310,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->originColumnName  	= 'id';
 		$result->cacheColumnName   	= 'joomlaid_0';
 		$result->cacheSqlSpec	 	= 'int(21) NOT NULL';
+		$result->cacheLabelName		= 'UserId';
 		$result9[]	=$result;
 
 		$result10	=array();
@@ -317,6 +320,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->originColumnName   = 'lastvisitDate';
 		$result->cacheColumnName    = 'joomlalastvisitDate_0';
 		$result->cacheSqlSpec	 	= 'varchar(250) NOT NULL';
+		$result->cacheLabelName		= 'Last Visit Date';
 		$result10[]	=$result;
 		
 		return array(

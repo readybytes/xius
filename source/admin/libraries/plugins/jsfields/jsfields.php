@@ -133,6 +133,7 @@ class Jsfields extends XiusBase
 		$object->originColumnName	= 'value';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec		= 'varchar(250) NOT NULL';
+		$object->cacheLabelName		= $this->labelName;
 		$tableInfo[]=$object;
 		
 		return $tableInfo;

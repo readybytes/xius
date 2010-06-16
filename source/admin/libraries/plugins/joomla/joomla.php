@@ -102,7 +102,7 @@ class Joomla extends XiusBase
 		$object->originColumnName	= $this->key;
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec 		= $this->getCacheSqlSpec($this->key);
-		
+		$object->cacheLabelName		= $this->labelName;
 		$tableInfo[]=$object;
 		
 		return $tableInfo;

@@ -68,6 +68,7 @@ class Rangesearch extends XiusBase
 		$object->originColumnName	= '';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec		= ' INT (5) NOT NULL DEFAULT 0 ';
+		$object->cacheLabelName		= $this->labelName;
 		$tableInfo[]=$object;
 		
 		return $tableInfo;

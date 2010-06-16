@@ -169,25 +169,8 @@ class XiusViewUsers extends JView
 
 				if(!$plgInstance->isVisible())
 					continue;
-
-        		foreach($data['users'] as $u){
-				    $columns = $plgInstance->getTableMapping();
-					if(empty($columns) || !$columns)
-						break;
-
-					foreach($columns as $c){
-						if(!empty($c->cacheColumnName))
-							$cname = $c->cacheColumnName;
-					}
-
-					$userprofile[$u->userid][$info->id]['label'] = $info->labelName;
-
-					if(isset($u->$cname))
-        				$userprofile[$u->userid][$info->id]['value'] = $plgInstance->_getFormatData($u->$cname);
-        			else
-        				$userprofile[$u->userid][$info->id]['value'] = $plgInstance->getMiniProfileDisplay($u->userid);
-        		}
-
+				 
+				$plgInstance->getDisplayData(&$userprofile,$data, $info);
 			}
         }
         $data['userprofile']=$userprofile;

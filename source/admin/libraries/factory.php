@@ -40,7 +40,7 @@ class XiusFactory
 		return $modelInstances[$name];
 	}
 	
-	public function getPluginInstance($pluginName,$bindArray = '',$isBindRequired = false)
+	static public function getPluginInstance($pluginName,$bindArray = '',$isBindRequired = false)
 	{
 		$pluginClassName = $pluginName;
 		$pluginName = strtolower($pluginName);

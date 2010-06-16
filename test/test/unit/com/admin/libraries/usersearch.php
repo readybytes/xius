@@ -491,5 +491,16 @@ class XiusUserSearchTest extends XiUnitTestCase
 			array($addInfoId2,$post2,$existConditions2,$resultCondition2)
 		);
 	}
+	
+	function testGetSortedInfo()
+    {
+		$info = XiusLibrariesUsersearch::getAllInfo();
+        $info = XiusHelpersUsersearch::getSortedInfo($info);
+       	foreach($info as $in)
+       		$sequence[]=$in->id;
+        
+       $result = array(2,3,4,1);
+       $this->assertEquals($sequence, $result);
+    }
 }
 ?>

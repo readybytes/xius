@@ -43,6 +43,20 @@ abstract class XiusBase extends JObject
 		$this->id		 = 0;
 	}
 	
+	function getController($className)
+	{
+		$pluginName = strtolower($this->pluginType);
+		$pluginPath	= dirname(__FILE__). DS . $pluginName . DS . 'controller.php';
+		jimport( 'joomla.filesystem.file' );
+		if(!JFile::exists($pluginPath))
+		{
+			JError::raiseError(400,JText::_("INVALID PLUGIN FILE"));
+			return false;
+		}
+		
+		require_once $pluginPath;
+		return new $className();
+	}
 	
 	function setData($what,$value)
 	{
@@ -221,7 +235,7 @@ abstract class XiusBase extends JObject
 	
 	public function getPluginParamsHtml()
 	{
-		$plguinParamsHtml = $this->pluginParams->render('pluginparams');
+		$plguinParamsHtml = $this->pluginParams->render('pluginParams');
 		
 		if($plguinParamsHtml)
 			return $plguinParamsHtml;
@@ -448,26 +462,26 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	function getMiniProfileDisplay($userid)
+	function getMiniProfileDisplay($userid,$cname)
 	{
 		$cache = XiusFactory::getCacheObject();
 		$tname = $cache->getTableName();
 		$utname = 'userid';
-		$columns = $this->getTableMapping();
+		/*$columns = $this->getTableMapping();
 
 		if(empty($columns))
 			return false;
-
+*/
 		$db =& JFactory::getDBO();
 		
 		/**
 		 * XITODO : Add all cache columns if one instance is 
 		 * 			displaying multiple information
 		 * */
-		foreach($columns as $c){
+		/*foreach($columns as $c){
 			if(!empty($c->cacheColumnName))
 				$cname = $db->nameQuote($c->cacheColumnName);
-		}
+		}*/
 		
 		$query = ' SELECT '.$cname
 				.' FROM '  .$db->nameQuote($tname)
@@ -511,17 +525,77 @@ abstract class XiusBase extends JObject
 		
 		if(JFile::exists($paramsxmlpath))
 			$this->params = new JParameter($data,$paramsxmlpath);
-			
-		//if already defined by child class do not create it.
-		if(!$this->pluginParams)
-			$this->pluginParams	= new JParameter('','');
-			
+		
+		$this->cleanPluginObject();
+		
 		$this->key		 = '';
 		$this->id		 = 0;
+	}
+	
+	public function cleanPluginObject()
+	{
+		//if already defined by child class do not create it.
+		if(!$this->pluginParams)
+			$this->pluginParams	= new JParameter('','');	
 	}
 	
 	public function validateValues($value)
 	{
 		return true;		
 	}
+	
+	/*
+	 * to get the dependent information of current information
+	 */
+	public function getDependentInfo()
+	{
+		return array();
+	}
+	
+	/*
+	 * To get the data, which will be displayed on users profile 
+	 */
+	public function getDisplayData($userprofile,$data, $info)
+	{		
+		foreach($data['users'] as $u){
+			$lname=array();
+			$cname=array();
+		    $columns = $this->getTableMapping();
+			if(empty($columns) || !$columns)
+				break;
+
+			// get the cache column name and label name
+			foreach($columns as $c){
+				if(!empty($c->cacheColumnName) && !empty($c->cacheLabelName)){
+					$cname[] = $c->cacheColumnName;
+					$lname[] = $c->cacheLabelName;
+				}
+			}
+
+			// get the temporary column name and label name which are not in cache table
+			$tempColumnName = $this->getTempColumnName();
+			foreach($tempColumnName as $tlabel => $tcolumn ){
+				if(!empty($tcolumn) && !empty($tlabel) && isset($u->$tcolumn)){
+					$cname[] = $tcolumn;
+					$lname[] = $tlabel;
+				}
+			}
+				
+			$userprofile[$u->userid][$info->id]['label'] = $lname;
+			
+			foreach($cname as $c){
+				//if(isset($u->$c))
+        			$userprofile[$u->userid][$info->id]['value'][] = $this->_getFormatData($u->$c);
+        		//else
+        		//	$userprofile[$u->userid][$info->id]['value'][] = $this->getMiniProfileDisplay($u->userid, $c);
+			}
+        }
+	}
+	
+	public function getTempColumnName()
+	{
+		return array();
+	}
+	
+	
 }

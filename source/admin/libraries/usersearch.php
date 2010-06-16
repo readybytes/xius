@@ -130,7 +130,9 @@ class XiusLibrariesUsersearch
 		
 		if(empty($info))
 			return false;
-
+		// sorting thr info according to their dependent info
+		// so that the current info query will be created after their dependent info
+		$info  = XiusHelpersUsersearch::getSortedInfo($info);
 		$query = new XiusQuery();
 		
 		/*This should always be on top
