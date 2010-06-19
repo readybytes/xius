@@ -83,9 +83,11 @@ class Proximity extends XiusBase
 		if(!$columns || !is_array($columns) || !$value)
 			return false;
 			
-		$values 	= $this->_getArrangedValue($value); 
+		$values 	= $this->_getArrangedValue($value);
+		
 		$latitude	= deg2rad($values['latitude']);
 		$longitude	= deg2rad($values['longitude']);
+		
 		$multiplier = PROXIMITY_MILES_TO_MILES;
 		// XITODO : need to clean up magic constants
 		if( $values['dis_unit'] === 'kms' ){
@@ -99,13 +101,13 @@ class Proximity extends XiusBase
 		*/
 			
 		$query->select(" ROUND(( ".PROXIMITY_QUERY_CONSTANT." * acos ( cos($latitude) * cos(radians({$db->nameQuote($columns[0]->cacheColumnName )}) )"
-							." * cos( radians({$db->nameQuote($columns[1]->cacheColumnName )}) - $longitude) "
+							." * cos( radians({$db->nameQuote($columns[1]->cacheColumnName )}) - ($longitude)) "
 							." + sin( $latitude ) * sin( radians({$db->nameQuote($columns[0]->cacheColumnName )}) ) ) ) * $multiplier ,3)  "
 							." AS xius_proximity_distance");
 		
 
 			$conditions =  " xius_proximity_distance < $distance ";
-			$query->having($conditions);
+			$query->having($conditions,$join);
 			// XITODO : Sorting according to distance
 			//$query->order(" xius_proximity_distance ");				
 		return true;

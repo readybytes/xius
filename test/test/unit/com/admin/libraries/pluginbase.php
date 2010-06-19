@@ -291,6 +291,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->cacheColumnName   	= 'joomlaregisterDate_0';
 		$result->cacheSqlSpec	 	= 'datetime NOT NULL';
 		$result->cacheLabelName		= 'Register Date';
+		$result->createCacheColumn	= true;
 		$result4[]	=$result;
 		
 		$result8	=array();
@@ -301,6 +302,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->cacheColumnName   = 'jsfields3_0';
 		$result->cacheSqlSpec	   = 'varchar(250) NOT NULL';
 		$result->cacheLabelName		= 'Birthday';
+		$result->createCacheColumn	= true;
 		$result8[]	=$result;
 		
 		$result9	=array();
@@ -311,6 +313,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->cacheColumnName   	= 'joomlaid_0';
 		$result->cacheSqlSpec	 	= 'int(21) NOT NULL';
 		$result->cacheLabelName		= 'UserId';
+		$result->createCacheColumn	= true;
 		$result9[]	=$result;
 
 		$result10	=array();
@@ -321,6 +324,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->cacheColumnName    = 'joomlalastvisitDate_0';
 		$result->cacheSqlSpec	 	= 'varchar(250) NOT NULL';
 		$result->cacheLabelName		= 'Last Visit Date';
+		$result->createCacheColumn	= true;
 		$result10[]	=$result;
 		
 		return array(

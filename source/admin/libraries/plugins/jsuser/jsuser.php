@@ -6,9 +6,9 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
+require_once dirname(__FILE__).DS.'jsuserhelper.php';
 
-class Joomla extends XiusBase
+class Jsuser extends XiusBase
 {
 
 	function __construct()
@@ -17,13 +17,19 @@ class Joomla extends XiusBase
 	}
 	
 	
+	function isAllRequirementSatisfy()
+	{
+		/*it will return false if community component does not exist */
+		$isExist = XiusHelpersUtils::isComponentExist('com_community',true) ? true : false;
+		return $isExist;
+	}
 	
 	public function getAvailableInfo()
 	{
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 			 
-		$fields = Joomlahelper::getJoomlaFields();
+		$fields = Jsuserhelper::getJomsocialFields();
 		
 		if(empty($fields))
 			return false;
@@ -31,9 +37,9 @@ class Joomla extends XiusBase
 		$pluginsInfo = array();
 			
 		foreach($fields as $k => $v){
-			if($k == 'params' || $k == 'password'
-					|| $k == 'activation' || $k == 'sendEmail')
-				continue;
+		//	if($k == '' || $k == 'password'
+			//		|| $k == 'activation' || $k == 'sendEmail')
+				//continue;
 				
 			$pluginsInfo[$k] = JText::_($k);
 		}
@@ -60,12 +66,9 @@ class Joomla extends XiusBase
 		foreach($columns as $c){
 			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 			
-			if($this->key == 'registerDate')
+			if($this->key == 'posted_on')
 				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
-
-			if($this->key == 'block' && $operator != XIUS_LIKE)
-				$conditions =  $db->nameQuote($c->cacheColumnName).' '.$operator.' '.$db->Quote($this->formatValue($value));
-			
+				
 			$query->where($conditions,$join);
 		}		
 		return true;
@@ -86,7 +89,7 @@ class Joomla extends XiusBase
 							." as {$tm->cacheColumnName} "
 						  );
 			$query->leftJoin( " {$tm->tableName}  as {$tm->tableAliasName}   "
-							 ." ON ( {$tm->tableAliasName}.`id` = juser.`id` ) "
+							 ." ON ( {$tm->tableAliasName}.`userid` = juser.`id` ) "
 							);
 		}
 	}
@@ -97,13 +100,13 @@ class Joomla extends XiusBase
 		$count = 0;
 		 
 		$object	= new stdClass();
-		$object->tableName			= '`#__users`';
-		$object->tableAliasName 	= "joomlauser{$this->key}_$count";
+		$object->tableName			= '`#__community_users`';
+		$object->tableAliasName 	= "communityusers{$this->key}_$count";
 		$object->originColumnName	= $this->key;
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec 		= $this->getCacheSqlSpec($this->key);
 		$object->cacheLabelName		= $this->labelName;
-		$object->createCacheColumn	=	true;
+		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
 		
 		return $tableInfo;
@@ -113,7 +116,7 @@ class Joomla extends XiusBase
 	{
 		//$filter = array();
 		$filter = $this->key;
-		$fieldInfo = Joomlahelper::getJoomlaFields($filter);
+		$fieldInfo = Jsuserhelper::getJomsocialFields($filter);
 		
 		if(!empty($fieldInfo))
 			return $fieldInfo;
@@ -123,15 +126,12 @@ class Joomla extends XiusBase
 	
 	function getCacheSqlSpec($key)
 	{
-		if($key == 'registerDate')
+		if($key == 'posted_on')
 			return 'datetime NOT NULL'; 
 		
-		if($key == 'id')
+		if($key == 'userid')
 			return 'int(21) NOT NULL';
 			
-		if($key == 'block')
-			return 'tinyint(4) NOT NULL';
-	
 		return parent::getCacheSqlSpec($key);
 	}
 	
@@ -151,7 +151,7 @@ class Joomla extends XiusBase
 	/* formatting displaying output */
 	public function _getFormatData($value)
 	{
-		if($this->key != 'registerDate')
+		if($this->key != 'posted_on')
 			return parent::_getFormatData($value);
 		
 		$value = split('-',$value);

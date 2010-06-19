@@ -20,12 +20,14 @@ class ProximityInformationEncoder extends XiusProximityEncoder
 		$tableMapping = array();
 		$instanceId['latitude']		= $this->params->get('xius_proximity_latitude');
 		$instanceId['longitude']	= $this->params->get('xius_proximity_longitude');
+		
 		foreach($instanceId as $key => $value){
 			$instance		= XiusFactory::getPluginInstanceFromId($value);
 			if(!$instance)
-				continue;
-			// XITODO : test it	
-			array_merge($tableMapping,$instance->getTableMapping());			
+				return false;
+			$mapping	= $instance->getTableMapping();
+			$mapping[0]->createCacheColumn = false;
+			array_push($tableMapping, $mapping[0]);						
 		}
 		
 		return $tableMapping;

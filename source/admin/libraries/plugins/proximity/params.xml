@@ -12,7 +12,7 @@
 		
 		<param name="@spacer" type="spacer" default="If Information is selected above then fill Latitude and Longitude Information" label="" description="" />
 			<param name="xius_proximity_latitude" type="info" default="0"  label="LATITUDE.LABEL" description="LATITUDE.DESC" addnone="true"/>
-			<param name="xius_proximity_latitude" type="info" default="0"  label="LONGITUDE.LABEL" description="LONGITUDE.DESC" addnone="true"/>
+			<param name="xius_proximity_longitude" type="info" default="0"  label="LONGITUDE.LABEL" description="LONGITUDE.DESC" addnone="true"/>
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 				
 		

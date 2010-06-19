@@ -373,10 +373,13 @@ abstract class XiusBase extends JObject
 			return false;
 
 		$columnDeatils = array();
-
-		foreach($columns as $c)
+		// XITODO : is set $c->createCacheColumn
+		foreach($columns as $c){
+			if($c->createCacheColumn == false)
+				continue;
+			
 			$columnDeatils[]  = " `{$c->cacheColumnName}` {$c->cacheSqlSpec} ";
-		
+		}		
 		$createQuery->appendColumns($columnDeatils);
 	}
 	
@@ -467,21 +470,21 @@ abstract class XiusBase extends JObject
 		$cache = XiusFactory::getCacheObject();
 		$tname = $cache->getTableName();
 		$utname = 'userid';
-		/*$columns = $this->getTableMapping();
+		$columns = $this->getTableMapping();
 
 		if(empty($columns))
 			return false;
-*/
+
 		$db =& JFactory::getDBO();
 		
 		/**
 		 * XITODO : Add all cache columns if one instance is 
 		 * 			displaying multiple information
 		 * */
-		/*foreach($columns as $c){
+		foreach($columns as $c){
 			if(!empty($c->cacheColumnName))
 				$cname = $db->nameQuote($c->cacheColumnName);
-		}*/
+		}
 		
 		$query = ' SELECT '.$cname
 				.' FROM '  .$db->nameQuote($tname)
@@ -556,7 +559,7 @@ abstract class XiusBase extends JObject
 	 * To get the data, which will be displayed on users profile 
 	 */
 	public function getDisplayData($userprofile,$data, $info)
-	{		
+	{			
 		foreach($data['users'] as $u){
 			$lname=array();
 			$cname=array();

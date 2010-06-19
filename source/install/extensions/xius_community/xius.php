@@ -47,11 +47,11 @@ class plgCommunityxius extends JPlugin
 		
 		$toolbar	=& CFactory::getToolbar();		
 		$toolbar->addGroup('XIUS_SEARCH', JText::_('SEARCH'),
-					 JRoute::_('index.php?option=com_xius'));
+							JRoute::_('index.php?option=com_xius'));
 		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', JText::_('ADVANCEDSEARCH'), JRoute::_('index.php?option=com_xius'));
 		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', JText::_('USERLIST'), JRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
-}
+	}
 	
 }

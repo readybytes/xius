@@ -122,6 +122,22 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
                }
 
  	}
+ 	
+	function get_js_version()
+  	{	
+		$CMP_PATH_ADMIN	= JPATH_ROOT . DS. 'administrator' .DS.'components' . DS . 'com_community';
+
+		$parser		=& JFactory::getXMLParser('Simple');
+		$xml		= $CMP_PATH_ADMIN . DS . 'community.xml';
+
+		$parser->loadFile( $xml );
+
+		$doc		=& $parser->document;
+		$element	=& $doc->getElementByPath( 'version' );
+		$version	= $element->data();
+
+		return $version;
+  	}
 
 }
 

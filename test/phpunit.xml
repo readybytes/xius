@@ -18,12 +18,16 @@
 		<!--<file>test/unit/com/admin/libraries/cbuilder.php</file>-->
 		<file>test/unit/com/admin/libraries/usersearch.php</file>
 		<file>test/unit/com/admin/libraries/cache.php</file>
+		<file>test/unit/com/admin/libraries/jsuser.php</file>
 		<file>test/unit/com/admin/helpers/utils.php</file>		
 		
 		<file>test/unit/com/admin/controllers/info.php</file>
 		<file>test/unit/com/admin/controllers/list.php</file>
 		
 		<file>test/unit/com/admin/models/configuration.php</file>
+		
+		<file>test/unit/com/admin/proximity/proximity.php</file>
+		<file>test/unit/com/admin/proximity/encoder.php</file>
 		
 		<file>test/unit/com/site/controllers/users.php</file>
 		<file>test/unit/com/site/helpers/users.php</file>

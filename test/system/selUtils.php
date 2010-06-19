@@ -315,5 +315,5 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 			foreach($elememt as $ele)		
 				$this->assertTrue($this->isElementPresent($ele));
 		}			
-	}
+	}	
 }
