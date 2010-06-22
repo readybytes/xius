@@ -19,6 +19,17 @@ class XiusBaseView extends JView
 		$config['template_path'] = $config['base_path'].DS.'views'.DS.'tmpl'; 
 		$config['layout'] 		 = 'search';
 		parent::__construct($config);
+		
+		//Little Hack : if template  have a override for us
+		global $option, $mainframe;
+		if($option == 'com_xius')
+		{
+			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
+			$this->_addPath('template', $fallback);
+		}
+		else
+			$this->_addPath('template', $config['template_path'] );
+		
 	}
 	
 	function rawDataHtml(XiusBase $calleObject)
