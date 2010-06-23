@@ -43,4 +43,27 @@ class plgSystemxius_system extends JPlugin
 		$plgHandler = XiusFactory::getLibraryPluginHandler();
 		return $plgHandler->onAfterUserSearchQueryBuild($data);
 	}
+	
+	function onAfterRoute()
+	{	
+		global $mainframe;
+
+		//Don't run in admin
+		if($mainframe->isAdmin())
+		return;
+		
+		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
+			return;
+			
+		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+		$xiusReplaceSearch=XiusHelpersUtils::getConfigurationParams('xiusReplaceSearch',0);
+
+		if(!$xiusReplaceSearch)
+			return;
+			
+		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		$pluginHandler->changeUrl();
+			
+	}
+	
 }

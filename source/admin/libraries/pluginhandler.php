@@ -46,4 +46,14 @@ class XiusLibrariesPluginhandler
 		
 		return true;
 	}
+	
+	function changeUrl()
+	{
+		global $mainframe;
+		$option=JRequest::getCmd('option','','GET');
+		$view=JRequest::getCmd('view','','GET');
+		$task=JRequest::getCmd('task','','GET');
+		if($option === 'com_community' && $view === 'search' && $task === 'advancesearch')
+			$mainframe->redirect(JRoute::_("index.php?option=com_xius",false));	
+	}
 }

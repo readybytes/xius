@@ -1,23 +1,23 @@
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:26:		$linkMap = "index.php?option=com_xius&task=getLocationMap&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:38:		//$fieldHtml  = '<a href="index.php?option=com_xius&plugin=proximity&task=getLocationMap&tmpl=component" name="'.$calleObject->get('pluginType').$calleObject->get('key').'_map" id="'.$calleObject->get('pluginType').$calleObject->get('key').'_map">'.JText::_("GET LOCATION").'</a>';
 ../packages/tmp/admin/views/configuration/view.html.php:43:		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');
-../packages/tmp/admin/views/info/view.html.php:94:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
-../packages/tmp/admin/views/info/tmpl/default.php:31:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 ../packages/tmp/admin/views/info/tmpl/pluginlist.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/info/tmpl/pluginlist.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
-../packages/tmp/admin/views/info/tmpl/info.add.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-../packages/tmp/admin/views/info/tmpl/info.add.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
+../packages/tmp/admin/views/info/tmpl/default.php:31:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 ../packages/tmp/admin/views/info/tmpl/info.edit.php:11:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/info/tmpl/info.edit.php:23:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
+../packages/tmp/admin/views/info/tmpl/info.add.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
+../packages/tmp/admin/views/info/tmpl/info.add.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
+../packages/tmp/admin/views/info/view.html.php:94:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/list/view.html.php:42:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
-../packages/tmp/admin/views/cpanel/view.html.php:49:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:9:<form action="<?php echo JURI::base();?>index.php?option=com_xius" method="post" name="adminForm">
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:14:				<?php echo $this->addIcon('xius-config.png','index.php?option=com_xius&view=configuration', JText::_('CONFIGURATION'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:15:				<?php echo $this->addIcon('info.png','index.php?option=com_xius&view=info', JText::_('INFO'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:16:				<?php echo $this->addIcon('userlist.png','index.php?option=com_xius&view=list', JText::_('list'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:17:				<?php echo $this->addIcon('icon-updates.gif','index.php?option=com_xius&view=cpanel&task=updates', JText::_('UPDATES'));?>
+../packages/tmp/admin/views/cpanel/view.html.php:49:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/controllers/info.php:344:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:26:		$linkMap = "index.php?option=com_xius&task=getLocationMap&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:38:		//$fieldHtml  = '<a href="index.php?option=com_xius&plugin=proximity&task=getLocationMap&tmpl=component" name="'.$calleObject->get('pluginType').$calleObject->get('key').'_map" id="'.$calleObject->get('pluginType').$calleObject->get('key').'_map">'.JText::_("GET LOCATION").'</a>';
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:24:		$link = 'index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch';
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:28:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:17:				$link = 'index.php?option=com_xius&view=users&layout=lists&task=displayList';
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:22:					$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users");
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:24:		$link = 'index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch';
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:28:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");

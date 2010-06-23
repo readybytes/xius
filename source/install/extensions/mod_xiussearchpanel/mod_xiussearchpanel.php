@@ -14,7 +14,7 @@ else
 ?>
 
 <?php
-defined('_JEXEC') or die('Restricted access');
+
 jimport( 'joomla.filesystem.folder' );
 require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 require_once( dirname(__FILE__).DS.'helper.php' );

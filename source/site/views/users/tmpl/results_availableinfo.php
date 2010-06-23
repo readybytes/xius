@@ -4,38 +4,12 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/  
 ?>
-<script type="text/javascript">
-	function hideshowdiv()
-	{
-		if(document.getElementById("xiushide").className=="xiusSliderHide")
-		{
-			showdiv();
-		}
-		else
-		{
-			hidediv();	
-		}
-	}
-
-	function hidediv()
-	{
-		document.getElementById("xiushide").setAttribute("class", "xiusSliderHide");
-		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgDown");	
-	}
-
-	function showdiv()
-	{
-		document.getElementById("xiushide").setAttribute("class", "xiusSlider");
-		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgUp");
-	}
-
-</script>
 
 <div class="xius_ai">
 	<div class="xius_aiHead">
-		<a href="javascript:hideshowdiv();"> <?php echo JText::_('Available Information'); ?></a>
-		<div id="xiusSliderImg" class="<?php if($this->xiusSlideShow=='none'){ echo 'xiusSlideImgUp'; } else{ echo 'xiusSlideImgDown';} ?>">&nbsp;</div>
-	</div>
+		<div onclick="javascript:xiushideshowdiv();" style="cursor: pointer;"> <?php echo JText::_('Available Information'); ?>
+		<div id="xiusSliderImg" class="<?php if(!$this->xiusSlideShow=='none'){ echo 'xiusSlideImgUp'; } else{ echo 'xiusSlideImgDown';} ?>">&nbsp;</div>
+	</div></div>
 <div id="xiushide" class="<?php if($this->xiusSlideShow=='none'){ echo 'xiusSliderHide'; } else{ echo 'xiusSlider'; } ?>">
 	<?php
 			

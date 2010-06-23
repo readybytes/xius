@@ -43,10 +43,10 @@ width:15px;
 }
 .submit input {
 	width: auto;
-	padding: 9px 15px;
+	padding: 6px 10px;
 	background: #E5E5E5;
 	border: 1px solid #9F9F9F;
-	font-size: 14px;
+	font-size: 12px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	cursor: pointer;

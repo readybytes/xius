@@ -36,7 +36,9 @@ class plgCommunityxius extends JPlugin
 	
 	function onSystemStart()
 	{
-		$showSearchMenuTab=$this->params->get('showSearchMenuTab', 0);
+		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
+		$showSearchMenuTab=XiusHelpersUtils::getConfigurationParams('showSearchMenuTab',0);
+		//$this->params->get('showSearchMenuTab', 0);
 	
 			if(!$showSearchMenuTab){
 				return;

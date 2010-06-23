@@ -8,7 +8,7 @@
 <form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
-$css = JURI::base().'components/com_xius/assets/css/blue.css';
+$css = JURI::base().'components/com_xius/assets/css/gray.css';
 $js = JURI::base().'components/com_xius/assets/js/xius.js';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);

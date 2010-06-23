@@ -52,3 +52,27 @@
 		//window.opener.location.href = url;
 	 	parent.SqueezeBox.close();
 	 }
+	
+	function xiushideshowdiv()
+	{
+		if(document.getElementById("xiushide").className=="xiusSliderHide")
+		{
+			xiusshowdiv();
+		}
+		else
+		{
+			xiushidediv();	
+		}
+	}
+
+	function xiushidediv()
+	{
+		document.getElementById("xiushide").setAttribute("class", "xiusSliderHide");
+		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgDown");	
+	}
+
+	function xiusshowdiv()
+	{
+		document.getElementById("xiushide").setAttribute("class", "xiusSlider");
+		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgUp");
+	}
