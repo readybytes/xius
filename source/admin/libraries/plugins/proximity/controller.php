@@ -30,6 +30,7 @@ class XiusPluginControllerProximity extends JController
    		if($pluginId === null)
     		$pluginId = JRequest::getVar('pluginid',0,'GET');
     	
+    	$formName	= JRequest::getVar('fromFormName','userForm','GET');
     	$instance 	= XiusFactory::getPluginInstanceFromId($pluginId);
     	if(!$instance)
     		return false;
@@ -89,12 +90,12 @@ class XiusPluginControllerProximity extends JController
 		echo $map->setMap();
 		
 		//echo $map->exportZoom($this->zoom, 'document.forms.xiusGmapForm.elements.zoom');
-		echo $map->exportMarker('Global', $this->type, $this->latitude, $this->longitude, "window.top.document.forms.userForm.elements.$latitude", "window.top.document.forms.userForm.elements.$longitude");
+		echo $map->exportMarker('Global', $this->type, $this->latitude, $this->longitude, "window.top.document.forms.$formName.elements.$latitude", "window.top.document.forms.$formName.elements.$longitude");
 		echo $map->setListener();
 		echo $map->setGeoCoder();
 		echo $map->endMapFunction();
 
-		echo $map->addAddressToMapFunction('Global', 'xiusAddressEl', $this->type, "window.top.document.forms.userForm.elements.$latitude", "window.top.document.forms.userForm.elements.$longitude");// no '.id.' - it is set in class
+		echo $map->addAddressToMapFunction('Global', 'xiusAddressEl', $this->type, "window.top.document.forms.$formName.elements.$latitude", "window.top.document.forms.$formName.elements.$longitude");// no '.id.' - it is set in class
 
 		echo $map->setInitializeFunction();
 	

@@ -1,0 +1,140 @@
+<?php
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+require_once(dirname(__FILE__) . DS . 'defines.php');
+
+class ProximityGoogleapiHelper extends JController 
+{
+
+	static public function getGoogleAPIContent($url)
+	{
+		if (!$url)
+			return false;
+		
+		if (function_exists('curl_init')){
+			$ch			= curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$response	= curl_exec($ch);
+			curl_close($ch);
+			return $response;
+		}
+		return false;
+	}
+	
+	public function getGeocodes($addresses)
+	{
+		require_once (dirname(__FILE__).DS.'json.php');
+		if(!array($addresses))
+			return false;
+			
+		foreach($addresses as $ad){
+			if(!isset($ad->address) || !$ad->address)
+				continue;
+				
+			$url = XIUS_GEOCODE_URL . 'address='.urlencode($ad->address) .'&sensor=false';
+			$content = ProximityGoogleapiHelper::getGoogleAPIContent($url);
+		
+			$status = null;	
+			if(!empty($content)){
+				$json = new Services_JSON();
+				$status = $json->decode($content);
+			}
+
+			if($status->status == 'OK'){
+				$data[$ad->id]['latitude']  = $status->results[0]->geometry->location->lat;
+				$data[$ad->id]['longitude'] = $status->results[0]->geometry->location->lng; 
+			}
+		}
+		return $data;
+	}	
+	
+	function createGeocodeTable()
+	{
+		$query =  " CREATE TABLE IF NOT EXISTS `#__xius_proximity_geocode` ( 
+				 `id` int(10) unsigned NOT NULL auto_increment,
+				 `address` varchar(250) NOT NULL,
+				 `latitude` float(10,6) DEFAULT NULL,
+				 `longitude` float(10,6) DEFAULT NULL,
+				 `valid` tinyint(1) NOT NULL default '0' , 
+				 PRIMARY KEY  (`id`) 
+				 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
+		
+		$db = JFactory::getDBO();
+		$db->setQuery( $query );
+		$db->query();
+		return true;
+	}
+	
+	function insertGeocodeRawData($info)
+	{
+		// create instance of proximity information plugin
+		$instance = XiusFactory::getPluginInstanceFromId($info[0]->id);
+		if(!$instance)
+			return false;
+
+		$tableMapping = $instance->getTableMapping();
+		if(empty($tableMapping))
+			return false;
+			
+		$columns =array();
+		
+		
+		$selectCacheCol		= $tableMapping[2]->cacheColumnName;
+		$selectGeocodeCol	= 'address';
+		
+		
+		$query 	= " INSERT INTO `#__xius_proximity_geocode` (`{$selectGeocodeCol}`) ( "
+				  ." SELECT DISTINCT `{$selectCacheCol}` "
+				  ." FROM `#__xius_cache` "
+				  ." WHERE ( `{$selectCacheCol}` <> '' ) AND "  
+				  ." (`{$selectCacheCol}`) NOT IN ( "
+				  ." SELECT `{$selectGeocodeCol}` "
+				  ." FROM `#__xius_proximity_geocode` ))";
+		
+		$db = JFactory::getDBO();
+		$db->setQuery( $query );
+		return $db->query();		
+	}
+	
+	function getInvalidAddress($limit=5)
+	{
+		if(!$limit)
+			return false;
+			
+		$query		= " SELECT * FROM `#__xius_proximity_geocode` WHERE "
+					 ." ( `address` <> ''  AND `valid`='0' ) LIMIT $limit";
+		$db = JFactory::getDBO();
+		$db->setQuery( $query );
+		$address	= $db->loadObjectList();
+		return $address;
+	}	
+	
+	function updateGeocodesOfInvalidAddress($data)
+	{
+		$db = JFactory::getDBO();
+		foreach( $data as $key=>$value){
+			if(!array_key_exists('latitude',$value) || !array_key_exists('longitude',$value)) 
+				return false;
+				
+			if(empty($value['latitude']) || empty($value['longitude'])) 
+				return false;
+				
+			$query	= " UPDATE `#__xius_proximity_geocode` SET "
+					 ." `latitude` = ".$db->Quote($value['latitude'])." , "
+					 ." `longitude` = ".$db->Quote($value['longitude'])." ,"
+					 ." `valid` = 1 "
+					 ." WHERE `id` = ".$db->Quote($key);
+			
+			$db->setQuery( $query );
+			$db->query();
+		}
+	}
+	
+}
+    

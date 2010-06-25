@@ -1,38 +1,3 @@
-DROP TABLE IF EXISTS `#__xius_proximity`;;
-CREATE TABLE IF NOT EXISTS `#__xius_proximity` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `country` varchar(5) NOT NULL DEFAULT 'India',
-  `state` varchar(255) NOT NULL,
-  `city` varchar(64) DEFAULT NULL,
-  `latitude` float(10,6) DEFAULT NULL,
-  `longitude` float(10,6) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;;
---
--- Dumping data for table 
---
-
-INSERT INTO `#__xius_proximity` (`id`, `country`, `state`, `city`, `latitude`, `longitude`) VALUES
-(1, 'India', '', 'Ajmer', 26.450001, 74.699997),
-(4, 'India', '', 'Ludhiana', 36.916000, 75.900002),
-(3, 'India', '', 'Surat', 21.200001, 72.916664),
-(5, 'India', '', 'Chandigarh', 30.737000, 76.787003),
-(6, 'India', '', 'Indore', 22.733000, 75.833000),
-(7, 'India', '', 'Noida', 28.033001, 70.500000),
-(8, 'India', '', 'Shimla', 31.100000, 72.216599),
-(9, 'India', '', 'Pune', 18.510000, 73.916603),
-(10, 'India', '', 'Kolkata', 22.569000, 88.369003),
-(11, 'India', '', 'Alwar', 27.566601, 76.633003),
-(12, 'India', '', 'Bikaner', 28.183001, 72.250000),
-(13, 'India', '', 'Nagpur', 21.150000, 79.150002),
-(14, 'India', '', 'Chennai', 13.066000, 80.283302),
-(15, 'India', '', 'Ahmedabad', 23.049999, 72.666000),
-(16, 'India', '', 'Coimbtore', 11.000000, 77.000000),
-(17, 'India', '', 'Bhilwara', 25.183001, 74.666000),
-(18, 'India', '', 'Jaipur', 26.916000, 75.865997),
-(19, 'India', '', 'Bhopal', 23.266001, 77.599998),
-(20, 'India', '', 'Mumbai', 18.916000, 72.900002);;
-
 TRUNCATE TABLE `#__community_fields`;;
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 
 VALUES
@@ -128,10 +93,10 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 (67, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 22.7269, 75.8638),
 (68, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 28.6165, 77.2415),
 (69, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 29.0588, 76.0856),
-(70, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 15.8513, 74.5212),
+(70, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 18.520, 73.8566),
 (71, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 24.5949, 84.7142),
 (72, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 27.5618, 76.6087),
-(73, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 27.0238, 74.2179),
+(73, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 18.520, 73.8566),
 (74, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 28.6183, 77.2422),
 (75, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 25.198, 85.5219),
 (76, '', 0, '0000-00-00 00:00:00', 'components/com_community/assets/default.jpg', 'components/com_community/assets/default_thumb.jpg', 0, 'notifyEmailSystem=1\nprivacyProfileView=30\nprivacyPhotoView=20\nprivacyFriendsView=20\nprivacyVideoView=1\nnotifyEmailMessage=1\nnotifyEmailApps=1\ndaylightsavingoffset=0\n\n', 0, 0, '', 28.6165, 77.2415),

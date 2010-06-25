@@ -142,7 +142,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 		// search from Radio buttons 
-		$this->click("//form[@id='searchForm']/div[2]/div[2]/div/label[1]/input");
+		$this->click("//input[@value='Single']");
     	$this->click("xiussearch");
     	$this->waitPageLoad();
     	
@@ -179,7 +179,7 @@ class XiusSearchTest extends XiSelTestCase
 		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
-		$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[1]/input");
+		$this->click("//input[@value='Cricket']");
     	$this->click("//input[@name='xius_join' and @value='OR']");
 	    $this->click("xiussearch");
     	$this->waitPageLoad();
@@ -205,8 +205,8 @@ class XiusSearchTest extends XiSelTestCase
 		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
-		$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[3]/input");
-    	$this->click("//form[@id='searchForm']/div[3]/div[2]/div/label[4]/input");
+		$this->click("//input[@value='Carom']");
+    	$this->click("//input[@value='Soccer']");
 		$this->click("xiussearch");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
@@ -216,7 +216,7 @@ class XiusSearchTest extends XiSelTestCase
 	
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();		
-		$this->type("//form[@id='searchForm']/div[4]/div[2]/input[2]", "13-10-1995");
+		$this->type("//input[@id='field3']", "13-10-1995");
     	$this->click("xiussearch");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));

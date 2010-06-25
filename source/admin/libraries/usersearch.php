@@ -183,7 +183,10 @@ class XiusLibrariesUsersearch
 		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		
 		$result =  $cache->insertIntoTable($getDataQuery);
-				
+		
+		// trigger the event onAfterXiusCacheUpdate
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onAfterXiusCacheUpdate' );
 		return $result;
 	}
 	

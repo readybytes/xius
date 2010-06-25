@@ -28,6 +28,7 @@
 		
 		<file>test/unit/com/admin/proximity/proximity.php</file>
 		<file>test/unit/com/admin/proximity/encoder.php</file>
+		<file>test/unit/com/admin/proximity/googleapihelper.php</file>
 		
 		<file>test/unit/com/site/controllers/users.php</file>
 		<file>test/unit/com/site/helpers/users.php</file>

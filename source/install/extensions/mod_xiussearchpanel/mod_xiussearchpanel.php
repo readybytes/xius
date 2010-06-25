@@ -29,10 +29,11 @@ $disp= UserSearchHelper::getSearchHtml();
 			
 		if(!empty($itemid))
 			$link .= "&Itemid=".$itemid[0]->id;
-		
+			
+		ob_start();
 	?>
 	<div class="xiusMod_available">
-		<form action="<?php echo JRoute::_($link,false);?>" method=post>
+		<form name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 		<?php 	
 			$infoRange = $params->get('xius_info_range','all');
 			$range=array();
@@ -60,6 +61,11 @@ $disp= UserSearchHelper::getSearchHtml();
 		</form>
 	</div>
 	<?php 
+	$contents	= ob_get_clean();
+	$replace 	= 'index.php?option=com_xius&task=getLocationMap&plugin=proximity&';
+	$str 		= "index.php?option=com_xius&task=getLocationMap&fromFormName=xiusMod{$module->id}&plugin=proximity&";	
+	$contents	=str_replace($replace,$str,$contents);
+	echo $contents;
 	endif;
 ?>
 

@@ -26,3 +26,4 @@ define('PROXIMITY_DEAFULT_MAP_ZOOM', 2);
 
 define('PROXIMITY_MAP_WIDTH' 	   , 730);
 define('PROXIMITY_MAP_HEIGHT'      , 400);
+define('XIUS_GEOCODE_URL', 'http://maps.google.com/maps/api/geocode/json?');

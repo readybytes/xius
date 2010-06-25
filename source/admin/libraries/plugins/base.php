@@ -234,7 +234,7 @@ abstract class XiusBase extends JObject
 	
 	
 	public function getPluginParamsHtml()
-	{
+	{		
 		$plguinParamsHtml = $this->pluginParams->render('pluginParams');
 		
 		if($plguinParamsHtml)
@@ -245,6 +245,10 @@ abstract class XiusBase extends JObject
 		return $plguinParamsHtml;
 	}
 	
+	public function getPluginParamsFromXml()
+	{
+		return true;
+	}
 	
 	final public function getParamsHtml()
 	{

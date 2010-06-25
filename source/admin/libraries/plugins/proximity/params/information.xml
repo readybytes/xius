@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/administrator/components/com_xius/libraries/plugins/proximity/elements" >
+		<param name="@spacer" type="spacer" default="Sealect Information of Latitude and Longitude" label="" description="" />
+			<param name="xius_proximity_latitude" type="info" default="0"  label="LATITUDE.LABEL" description="LATITUDE.DESC" />
+			<param name="xius_proximity_longitude" type="info" default="0"  label="LONGITUDE.LABEL" description="LONGITUDE.DESC" />
+						
+	</params>
+</config>

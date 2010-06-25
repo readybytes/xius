@@ -1,39 +1,39 @@
-../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
+../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
+../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
 ../packages/tmp/admin/helpers/utils.php:69:		/*XITODO : -1 means display all information ,from configuration*/
 ../packages/tmp/admin/helpers/utils.php:137:		/*XITODO: Minimun time for updating cache
-../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:92:		// XITODO : need to clean up magic constants
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:111:			// XITODO : Sorting according to distance
-../packages/tmp/admin/libraries/plugins/proximity/encoders/encoder.php:25:		// XITODO : validate , class exists or not	
-../packages/tmp/admin/libraries/plugins/base.php:332:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:376:		// XITODO : is set $c->createCacheColumn
-../packages/tmp/admin/libraries/plugins/base.php:481:		 * XITODO : Add all cache columns if one instance is 
-../packages/tmp/admin/libraries/plugins/base.php:522:		/*XITODO : never initialize params again
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:213:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
+../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
+../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
+../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
 ../packages/tmp/admin/libraries/usersearch.php:14:		/*XITODO : provide join operator and sorting condition
 ../packages/tmp/admin/libraries/usersearch.php:44:		 * XITODO : add block condition
 ../packages/tmp/admin/libraries/usersearch.php:128:		/*XITODO : pass info through parameter */
 ../packages/tmp/admin/libraries/usersearch.php:172:		/*XITODO : update xius_cache table with new info id
 ../packages/tmp/admin/libraries/usersearch.php:179:		/*XITODO : break insert user data query into parts
-../packages/tmp/admin/libraries/usersearch.php:220:		/*XITODO : pass info
-../packages/tmp/admin/libraries/usersearch.php:257:		/*XITODO : pass info
-../packages/tmp/admin/libraries/usersearch.php:362:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
-../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
-../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
-../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
-../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
-../packages/tmp/site/views/users/tmpl/results.php:10:/*XITODO : pass variable for color */
+../packages/tmp/admin/libraries/usersearch.php:223:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:260:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:365:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:213:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/proximity/encoders/encoder.php:25:		// XITODO : validate , class exists or not	
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:108:		// XITODO : need to clean up magic constants
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:127:			// XITODO : Sorting according to distance
+../packages/tmp/admin/libraries/plugins/base.php:336:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:380:		// XITODO : is set $c->createCacheColumn
+../packages/tmp/admin/libraries/plugins/base.php:485:		 * XITODO : Add all cache columns if one instance is 
+../packages/tmp/admin/libraries/plugins/base.php:526:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
 ../packages/tmp/site/views/users/view.html.php:229:        /*XITODO : arrange available info
 ../packages/tmp/site/views/users/view.html.php:318:		/*XITODO : get list according to owner*/
-../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
-../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
+../packages/tmp/site/views/users/tmpl/results.php:10:/*XITODO : pass variable for color */
 ../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:92:		/*XITODO : pass only searchable information 
 ../packages/tmp/site/controllers/users.php:183:		//XITODO : unset old data first
 ../packages/tmp/site/controllers/users.php:292:		/*XITODO : ask user for list details
 ../packages/tmp/site/controllers/users.php:300:			/*XITODO : set visible info and published also */
+../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
+../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:21://XITODO : use proper name

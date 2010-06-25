@@ -65,5 +65,27 @@ class plgSystemxius_system extends JPlugin
 		$pluginHandler->changeUrl();
 			
 	}
+
+	function getGeocodesOfInvalidAddress()
+	{
+		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		
+		$filter['pluginType'] = 'Proximity';
+		$filter['key'] = 'google';
+		// get the info details of Proximity information
+		$info = XiusLibrariesInfo::getInfo($filter);
+		if(!$info)
+			return false;
+			
+		$limit = 5;
+		ProximityGoogleapiHelper::createGeocodeTable();
+		ProximityGoogleapiHelper::insertGeocodeRawData($info);
+		
+		$addresses	= ProximityGoogleapiHelper::getInvalidAddress($limit);
+		$geocodes 	= ProximityGoogleapiHelper::getGeocodes($addresses);
+		
+		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocodes);
+		return true;
+	}
 	
 }

@@ -63,23 +63,14 @@ class XiusProximityEncoder
 							." as {$ptm->cacheColumnName}"
 						   );
 			$join="";
-			// 	column name od proximity database and instanse for tha same filed , both must exists
-			if(array_key_exists('city',$tableMapping) && $tableMapping['city'] && $columnName['city']!='')
-				$join = " {$ptm->tableAliasName}.`{$columnName['city']}`  = {$tableMapping['city'][0]->tableAliasName}.`{$tableMapping['city'][0]->originColumnName}` ";
-
-			if($join != '' && array_key_exists('zipcode',$tableMapping) && $tableMapping['zipcode'] && $columnName['zipcode']!='')
-				$join .=" OR ";
-
 			if(array_key_exists('zipcode',$tableMapping) && $tableMapping['zipcode'] && $columnName['zipcode']!='')
-				$join .= " {$ptm->tableAliasName}.`{$columnName['zipcode']}` = {$tableMapping['zipcode'][0]->tableAliasName}.`{$tableMapping['zipcode'][0]->originColumnName}` ";
+				$join = " AND {$ptm->tableAliasName}.`{$columnName['zipcode']}` = {$tableMapping['zipcode'][0]->tableAliasName}.`{$tableMapping['zipcode'][0]->originColumnName}` ";
 			
-			if($join =="")
-				return false;				
-
 			$query->leftJoin(" `{$ptm->tableName}` as {$ptm->tableAliasName} ON "
-						." ( ( $join ) "
+						." ( {$ptm->tableAliasName}.`{$columnName['city']}` = {$tableMapping['city'][0]->tableAliasName}.`{$tableMapping['city'][0]->originColumnName}` " 
 						." AND {$ptm->tableAliasName}.`{$columnName['country']}` = {$tableMapping['country'][0]->tableAliasName}.`{$tableMapping['country'][0]->originColumnName}` "
-						." ) "
+						." AND {$ptm->tableAliasName}.`{$columnName['state']}` = {$tableMapping['state'][0]->tableAliasName}.`{$tableMapping['state'][0]->originColumnName}` "
+						." $join ) "
 						);		
 		}
 	}

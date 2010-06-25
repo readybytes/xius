@@ -34,14 +34,13 @@ class XiusJuserTest extends XiUnitTestCase
 			$requiredInfo['invite'] 		= JText::_('invite');
 			$requiredInfo['params'] 		= JText::_('params');
 			$requiredInfo['view'] 			= JText::_('view');
-		    $requiredInfo['friendcount'] 	= JText::_('friendcount');
-		    
+		  	$requiredInfo['friendcount'] 		= JText::_('friendcount');		    
 		    
 		    $jsVersion	= $this->get_js_version();
 		    if(Jstring::stristr($jsVersion,'1.7') || Jstring::stristr($jsVersion,'1.8')){
 		    	$requiredInfo['alias'] 			= JText::_('alias');
-		    	$requiredInfo['latitude'] 	= JText::_('latitude');		    	
-		    	$requiredInfo['longitude'] 			= JText::_('longitude');		    	
+		    	$requiredInfo['latitude'] 		= JText::_('latitude');		    	
+		    	$requiredInfo['longitude'] 		= JText::_('longitude');		    	
 		    }
 			$this->assertEquals($requiredInfo,$info);
 		}

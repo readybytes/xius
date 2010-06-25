@@ -20,7 +20,8 @@ class XiusProximityTest extends XiUnitTestCase
 	}	
 
 	function testGetAvailableInfoForProximity()
-	{$this->loadSql(); 
+	{
+		$this->loadSql(); 
 		/*IMP : Need joomla enviorenment to run test case
 		 * it will not run individually ,
 		 * b'coz joomla file system does not load
@@ -36,40 +37,23 @@ class XiusProximityTest extends XiUnitTestCase
 		
 			$requiredInfo = array();
 			
-			$requiredInfo[0] 			= JText::_('GEOCODING');
-					    
+			$requiredInfo['information'] = JText::_('BY INFORMATION');
+			$requiredInfo['google'] 	 = JText::_('BY GOOGLE API');
+			
 			$this->assertEquals($requiredInfo,$info);
 		}
 	}
-
-	function testGetTableMapping()
+	
+	/**
+	 * @dataProvider tableMappingProvider
+	 */
+	function testGetTableMapping($compare)
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
 
-		$instance = XiusFactory::getPluginInstanceFromId(6);
+		$instance = XiusFactory::getPluginInstanceFromId(8);
 		$mapping  = $instance->getTableMapping();
-		$compare 	= array();
-		$obj = new stdClass();
 		
-		$obj->tableName 		= '#__xius_proximity';
-        $obj->tableAliasName 	= 'xius_proximity_latitude';
-        $obj->originColumnName  = 'latitude';
-        $obj->cacheColumnName 	= 'proximity_latitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
-        $obj->cacheLabelName 	= 'Latitude';
-        $obj->createCacheColumn	= true;
-        $compare[] 				= $obj; 
-
-        $obj = new stdClass();
-    	$obj->tableName 		= '#__xius_proximity';
-        $obj->tableAliasName 	= 'xius_proximity_longitude';
-        $obj->originColumnName  = 'longitude';
-        $obj->cacheColumnName 	= 'proximity_longitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
-        $obj->cacheLabelName 	= 'Longitude';
-        $obj->createCacheColumn	= true;
-        $compare[] 				= $obj; 
-
         $this->assertEquals($mapping, $compare);
 	} 
 	
@@ -77,49 +61,26 @@ class XiusProximityTest extends XiUnitTestCase
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
 		
-		$instance = XiusFactory::getPluginInstanceFromId(6);
+		$instance = XiusFactory::getPluginInstanceFromId(8);
 		$this->assertTrue($instance->isAllRequirementSatisfy());		
 	}
-	
 	function testGetUserData()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
-			
-		$mapping 	= array();
-		$obj = new stdClass();
-		
-		$obj->tableName 		= '#__xius_proximity';
-        $obj->tableAliasName 	= 'xius_proximity_latitude';
-        $obj->originColumnName  = 'latitude';
-        $obj->cacheColumnName 	= 'latitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
-        $obj->cacheLabelName 	= 'Latitude';
-        $mapping[] 				= $obj; 
-
-        $obj = new stdClass();
-    	$obj->tableName 		= '#__xius_proximity';
-        $obj->tableAliasName 	= 'xius_proximity_longitude';
-        $obj->originColumnName  = 'longitude';
-        $obj->cacheColumnName 	= 'longitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
-        $obj->cacheLabelName 	= 'Longitude';
-        $mapping[] 				= $obj; 
-		
+						
 		$query 					= new XiusQuery();
-		$instance 				= XiusFactory::getPluginInstanceFromId(6);
+		$instance 				= XiusFactory::getPluginInstanceFromId(8);
 		
 		$instance->getUserData($query);
 		$strQuery 				= $query->__toString();
 		
-		$compare				= 'SELECT  xius_proximity_latitude.`latitude`  '
-								  .'as proximity_latitude_0, xius_proximity_longitude.`longitude`  as proximity_longitude_0'
-								  .'LEFT JOIN  `#__xius_proximity` as xius_proximity_latitude ON  ( (  '
-								  .'xius_proximity_latitude.`city`  = jsfields11_0.`value`  )  AND '
-								  .'xius_proximity_latitude.`country` = jsfields12_0.`value`  )' 
-								  .'LEFT JOIN  `#__xius_proximity` as xius_proximity_longitude ON  ( ('  
-								  .'xius_proximity_longitude.`city`  = jsfields11_0.`value`  )  AND '
-								  .'xius_proximity_longitude.`country` = jsfields12_0.`value`  ) ';
-
+		$compare		= "SELECTxius_proximity_google.`latitude`asproximity_google_latitude_0,"
+						  ."xius_proximity_google.`longitude`asproximity_google_longitude_0,"
+						  ."CONCAT_WS(',',jsfields11_0.`value`,jsfields10_0.`value`,jsfields12_0.`value`)"
+						  ."asproximity_google_address_0LEFTJOIN`#__xius_proximity_geocode`as"
+						  ."xius_proximity_googleON(CONCAT_WS(',',jsfields11_0.`value`,jsfields10_0."
+						  ."`value`,jsfields12_0.`value`)=xius_proximity_google.`address`)";
+		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$this->cleanWhiteSpaces($compare));
 	}
 	
@@ -158,17 +119,17 @@ class XiusProximityTest extends XiUnitTestCase
 	function testAddSearchToQuery()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
-		$instance 	= XiusFactory::getPluginInstanceFromId(6);
+		$instance 	= XiusFactory::getPluginInstanceFromId(8);
 		$query		= new XiusQuery();
 		// first valid value
 		$value		= array(24.234,74.5490,200,'Kms');
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= 'SELECT  ROUND(( 3959 * acos ( cos(0.422963090928) * cos(radians(`proximity_latitude_0`) )'
-						.' * cos( radians(`proximity_longitude_0`) - (1.30112550407))  + sin( 0.422963090928 ) * '
-						.'sin( radians(`proximity_latitude_0`) ) ) ) * 1 ,3)   AS xius_proximity_distance'
-						.'HAVING  xius_proximity_distance < 200';
+		$compare	= 'SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))'
+					  .'*cos(radians(`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)'
+					  .'*sin(radians(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceHAVING'
+					  .'xius_proximity_distance<200';
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 		// second valid input
@@ -176,13 +137,13 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= 'SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_latitude_0`))'
-						.'*cos(radians(`proximity_longitude_0`)-(1.30112550407))+sin(0.422963090928)*'
-						.'sin(radians(`proximity_latitude_0`))))*1,3)ASxius_proximity_distance,'
-						.'ROUND((3959*acos(cos(0.981468451566)*cos(radians(`proximity_latitude_0`))'
-						.'*cos(radians(`proximity_longitude_0`)-(-1.82472427967))+sin(0.981468451566)'
-						.'*sin(radians(`proximity_latitude_0`))))*1,3)ASxius_proximity_distance'
-						.'HAVINGxius_proximity_distance<200ANDxius_proximity_distance<456';
+		$compare	= 'SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))'
+					  .'*cos(radians(`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*'
+					  .'sin(radians(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distance,ROUND('
+					  .'(3959*acos(cos(0.981468451566)*cos(radians(`proximity_google_latitude_0`))*cos(radians'
+					  .'(`proximity_google_longitude_0`)-(-1.82472427967))+sin(0.981468451566)*sin(radians'
+					  .'(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceHAVING'
+					  .'xius_proximity_distance<200ANDxius_proximity_distance<456';
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 		// invalid value, no change in $compare value
@@ -192,8 +153,44 @@ class XiusProximityTest extends XiUnitTestCase
 		$strQuery 	= $query->__toString();
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));	
 	}
-	
-	// add ( for longitude value if they are negative then -- will occur in query
-	
+		
+	function tableMappingProvider()
+	{
+		$compare 	= array();
+		$obj = new stdClass();
+		
+		$obj->tableName 		= '#__xius_proximity_geocode';
+        $obj->tableAliasName 	= 'xius_proximity_google';
+        $obj->originColumnName  = 'latitude';
+        $obj->cacheColumnName 	= 'proximity_google_latitude_0';
+        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
+        $obj->cacheLabelName 	= 'Latitude';
+        $obj->createCacheColumn	= true;
+        $compare[] 				= $obj; 
+
+        $obj = new stdClass();
+    	$obj->tableName 		= '#__xius_proximity_geocode';
+        $obj->tableAliasName 	= 'xius_proximity_google';
+        $obj->originColumnName  = 'longitude';
+        $obj->cacheColumnName 	= 'proximity_google_longitude_0';
+        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
+        $obj->cacheLabelName 	= 'Longitude';
+        $obj->createCacheColumn	= true;
+        $compare[] 				= $obj; 
+        
+        $obj	= new stdClass();
+		$obj->tableName			= '#__xius_proximity_geocode';
+		$obj->tableAliasName 	= "xius_proximity_google";
+		$obj->originColumnName	= 'address';
+		$obj->cacheColumnName	= 'proximity_google_address_0';
+		$obj->cacheSqlSpec		= ' varchar(250) NOT NULL ';
+		$obj->cacheLabelName 	= 'Address';
+		$obj->createCacheColumn	= true;
+		$compare[]				= $obj;
+		
+		return array(
+			array($compare)
+			);
+	} 
 }
 ?>
