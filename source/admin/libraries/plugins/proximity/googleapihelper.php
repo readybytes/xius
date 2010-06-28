@@ -41,10 +41,12 @@ class ProximityGoogleapiHelper extends JController
 			$content = ProximityGoogleapiHelper::getGoogleAPIContent($url);
 		
 			$status = null;	
-			if(!empty($content)){
-				$json = new Services_JSON();
-				$status = $json->decode($content);
-			}
+			if(empty($content))
+				return false;
+				
+			$json = new Services_JSON();
+			$status = $json->decode($content);
+
 
 			if($status->status == 'OK'){
 				$data[$ad->id]['latitude']  = $status->results[0]->geometry->location->lat;
