@@ -4,7 +4,18 @@
 	<target name="config" description="Load configuration file">
 		<property file="global.prop"  override="true" />		
 		<svnlastrevision workingcopy="${dir.root}" propertyname="svn.lastrevision" />
-		<php expression="rand(1000,9999)" returnProperty="joomla.now"/>
+		
+		<if>
+		 <isset property="${joomla.now}"/>
+		  <then>
+		 	<echo msg="Setting it to ${joomla.now}" />
+		 </then>
+		 <else>
+		 	<php expression="rand(1000,9999)" returnProperty="joomla.now"/>
+		 </else>
+		</if>
+		<echo msg="${joomla.now}" />
+
 		<php expression="rand(100,999)" returnProperty="joomla.random3"/>
 		<property file="setup.prop"  override="false" />
 	</target>
