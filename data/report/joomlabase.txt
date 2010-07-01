@@ -136,18 +136,20 @@
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:121:		$document	=& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:33:        $document =& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:36:        $mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/controller.php:10:class XiusPluginControllerProximity extends JController 
 ../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:10:class ProximityGoogleapiHelper extends JController 
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:68:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:100:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:112:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:120:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:79:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:111:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:123:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:131:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:58:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:65:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:70:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:76:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:653:		$link		= JRoute::_( $link );
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:96:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:97:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/base.php:373:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/base.php:402:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/base.php:482:		$db =& JFactory::getDBO();
@@ -175,7 +177,7 @@
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:26:	$csvurl = JRoute::_("index.php?option=com_xius&view=users&task=".$this->task."&subtask=xiusexport&format=csv");
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:28:<img src="<?php echo JURI::base().'components/com_xius/assets/images/excel.png';?>" onClick='location.href="<?php echo JRoute::_($csvurl,false);?>"' title="Export TO CSV" />
 ../packages/tmp/site/views/users/tmpl/default.php:8:$document =& JFactory::getDocument();
-../packages/tmp/site/views/users/tmpl/default.php:15:<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" method="post" name="userForm" >
+../packages/tmp/site/views/users/tmpl/default.php:15:<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" method="post" name="userForm" id="userForm">
 ../packages/tmp/site/views/users/tmpl/userlist_csv.php:9:    JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/views/users/tmpl/userlist_csv.php:27:	JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/views/users/tmpl/results_userlisting.php:31:							$onlineUser = JFactory::getUser();
@@ -216,7 +218,8 @@
 ../packages/tmp/install/extensions/xius_system/xius_system.php:49:		global $mainframe;
 ../packages/tmp/install/extensions/xius_system/xius_system.php:52:		if($mainframe->isAdmin())
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:7:$document =& JFactory::getDocument();
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:36:		<form name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:18:$mySess =& JFactory::getSession();
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:41:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 ../packages/tmp/install/extensions/mod_xiuslisting/helper.php:13:		$user = JFactory::getUser();
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:27:				$link = JRoute::_($link, false);
 ../packages/tmp/install/extensions/xius_community/xius.php:47:		$lang =& JFactory::getLanguage();

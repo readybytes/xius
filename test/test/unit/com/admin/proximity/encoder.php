@@ -76,7 +76,7 @@ class XiusProximityEncoderTest extends XiUnitTestCase
         $obj->tableAliasName 	= 'xius_proximity_google';
         $obj->originColumnName  = 'latitude';
         $obj->cacheColumnName 	= 'proximity_google_latitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
+        $obj->cacheSqlSpec	 	= 'float(10,6) DEFAULT NULL'; 
         $obj->cacheLabelName 	= 'Latitude';
         $obj->createCacheColumn	= true;
         $compare[] 				= $obj; 
@@ -86,7 +86,7 @@ class XiusProximityEncoderTest extends XiUnitTestCase
         $obj->tableAliasName 	= 'xius_proximity_google';
         $obj->originColumnName  = 'longitude';
         $obj->cacheColumnName 	= 'proximity_google_longitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
+        $obj->cacheSqlSpec	 	= 'float(10,6) DEFAULT NULL'; 
         $obj->cacheLabelName 	= 'Longitude';
         $obj->createCacheColumn	= true;
         $compare[] 				= $obj; 

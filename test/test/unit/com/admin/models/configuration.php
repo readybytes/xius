@@ -60,7 +60,9 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 	{
 		$cModel = new XiusModelConfiguration();
 		
-		$datas[] = array('resultparams' => array('xiusUserLimit' => 1930 , 'xiusKey' => 'AB2F4' , 'xiusDebugMode' => 0));
+		$datas[] = array('resultparams' => array('xiusUserLimit' => 1930 , 'xiusKey' => 'AB2F4' , 'xiusDebugMode' => 0,
+												'showSearchMenuTab' => 0, 'xiusReplaceSearch' => 0, 'xiusSlideShow' => 'none',
+												'xiusProximityDefaultLat' => 28.635308, 'xiusProximityDefaultLong' => 77.22496));
 		
 		foreach($datas as $d){
 			$params = $cModel->getParams();

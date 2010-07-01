@@ -35,11 +35,11 @@ class XiusPluginControllerProximity extends JController
     	if(!$instance)
     		return false;
     		
-    	$latitude 	= $instance->get('pluginType').$instance->get('key').'_lat';
-    	$longitude	= $instance->get('pluginType').$instance->get('key').'_long';
-    	
-    	$this->latitude 	= PROXIMITY_DEAFULT_LAT_LOC;
-    	$this->longitude	= PROXIMITY_DEAFULT_LONG_LOC;
+    	$latitudeEle 		= $instance->get('pluginType').$instance->get('key').'_'.$formName.'_lat';
+    	$longitudeEle		= $instance->get('pluginType').$instance->get('key').'_'.$formName.'_long';
+    	    	    	
+    	$this->latitude 	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
+    	$this->longitude	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
     	$this->type			= PROXIMITY_DEAFULT_MAP_TYPE;
     	$this->zoom			= PROXIMITY_DEAFULT_MAP_ZOOM;
     	
@@ -90,12 +90,12 @@ class XiusPluginControllerProximity extends JController
 		echo $map->setMap();
 		
 		//echo $map->exportZoom($this->zoom, 'document.forms.xiusGmapForm.elements.zoom');
-		echo $map->exportMarker('Global', $this->type, $this->latitude, $this->longitude, "window.top.document.forms.$formName.elements.$latitude", "window.top.document.forms.$formName.elements.$longitude");
+		echo $map->exportMarker('Global', $this->type, $this->latitude, $this->longitude, "window.top.document.forms.$formName.elements.$latitudeEle", "window.top.document.forms.$formName.elements.$longitudeEle");
 		echo $map->setListener();
 		echo $map->setGeoCoder();
 		echo $map->endMapFunction();
 
-		echo $map->addAddressToMapFunction('Global', 'xiusAddressEl', $this->type, "window.top.document.forms.$formName.elements.$latitude", "window.top.document.forms.$formName.elements.$longitude");// no '.id.' - it is set in class
+		echo $map->addAddressToMapFunction('Global', 'xiusAddressEl', $this->type, "window.top.document.forms.$formName.elements.$latitudeEle", "window.top.document.forms.$formName.elements.$longitudeEle");// no '.id.' - it is set in class
 
 		echo $map->setInitializeFunction();
 	

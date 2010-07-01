@@ -90,17 +90,16 @@ class Proximity extends XiusBase
 	
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
-		if($this->validateValues($value) == false)
+		$values	=	$this->validateValues($value);
+		if(!$values)
 			return false;
 				
 		$db = JFactory::getDBO();
 		$columns = $this->getTableMapping();
 
 		if(!$columns || !is_array($columns) || !$value)
-			return false;
+			return false;		
 			
-		$values 	= $this->_getArrangedValue($value);
-		
 		$latitude	= deg2rad($values['latitude']);
 		$longitude	= deg2rad($values['longitude']);
 		
@@ -141,14 +140,34 @@ class Proximity extends XiusBase
 
 	function _getArrangedValue($value)
 	{
-		if( $this->key == 0 )
-		{
-			$values['latitude']  	= $value[0];
-			$values['longitude'] 	= $value[1];
-			$values['distance'] 	= $value[2];
-			$values['dis_unit'] 	= $value[3];
+		if($value[0] == 'googlemap'){
+			$values['address']  	= $value[1];
+			$values['latitude']  	= $value[2];
+			$values['longitude'] 	= $value[3];
+			$values['distance'] 	= $value[4];
+			$values['dis_unit'] 	= $value[5];
 			return $values;
-		}	
+		}
+		//XITODO : check value od value[0]
+		if(empty($value[1]))
+			return false;
+			
+		static $latitude  = null;
+		static $longitude = null;
+		if(!$latitude || !$longitude){		
+			require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+			$geocodes  = ProximityGoogleapiHelper::_getGeocodes($value[1]);
+			$latitude  = $geocodes['latitude'];
+			$longitude = $geocodes['longitude'];
+		}
+		
+		$values['address']  	= $value[1];
+		$values['latitude']  	= $latitude;
+		$values['longitude'] 	= $longitude;
+		$values['distance'] 	= $value[4];
+		$values['dis_unit'] 	= $value[5];
+			
+		return $values;
 	}
 	
 	function bind($from, $ignore=array('debugMode','pluginType'))
@@ -209,14 +228,24 @@ class Proximity extends XiusBase
 	
 	function validateValues($value)
 	{
-		if(!is_array($value) || count($value)<4)
+		if(!is_array($value) || count($value) < 6)
 			return false;
 
 		$value = $this->_getArrangedValue($value);
+		if(!$value)
+			return false;
+			
 		if( !is_numeric($value['latitude']) || !is_numeric($value['longitude']) 
 				|| !is_numeric($value['distance']) || is_numeric($value['dis_unit']) )
 			return false;
 			
-		return true;
+		return $value;
 	}
+	
+	public function _getFormatAppliedData($value)
+	{
+		$value = $this->_getArrangedValue($value);
+		
+		return $value['distance'].' '.$value['dis_unit'].' '.JText::_('RANGESEARCH FROM').'<br/>'.$value['address'];	
+	}	
 }

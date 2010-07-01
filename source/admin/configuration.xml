@@ -10,16 +10,19 @@
 			<option value="1">Yes</option>
 		</param>
 		<param name="showSearchMenuTab" type="radio" default="0" label="SHOW USER SEARCH MENU.LABEL" description="SHOW USER SEARCH MENU.DESC">
-			<option value="1">Yes</option>
 			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</param>
 		<param name="xiusReplaceSearch" type="radio" default="0" label="REPLACE JOM SOCIAL ADVANCE SEARCH.LABEL" description="REPLACE JOM SOCIAL ADVANCE SEARCH.DESC">
-			<option value="1">Yes</option>
 			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</param>
 		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
 			<option value="none">No</option>
 			<option value="block">Yes</option>
 		</param>
+		<param name="xiusProximityDefaultLat" type="text" default="28.635308" label="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.DESC" />
+		<param name="xiusProximityDefaultLong" type="text" default="77.22496" label="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.DESC" />
+		
 	</params>
 </config>

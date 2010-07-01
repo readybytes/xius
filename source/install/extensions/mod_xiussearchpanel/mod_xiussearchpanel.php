@@ -14,13 +14,19 @@ else
 ?>
 
 <?php
+// set module form name in seesion
+$mySess =& JFactory::getSession();
+$mySess->set('xiusModuleForm',"xiusMod{$module->id}",'XIUS');
 
+
+		
 jimport( 'joomla.filesystem.folder' );
 require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 require_once( dirname(__FILE__).DS.'helper.php' );
 //XITODO : use proper name
 $disp= UserSearchHelper::getSearchHtml();
 	if(!empty($disp)):
+//XITODO: fix the bug in pagignation of module
 		$link = 'index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch';
 		$menu = &JSite::getMenu(); 
 		$itemid = $menu->getItems('link', $link);
@@ -33,7 +39,7 @@ $disp= UserSearchHelper::getSearchHtml();
 		ob_start();
 	?>
 	<div class="xiusMod_available">
-		<form name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
+		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 		<?php 	
 			$infoRange = $params->get('xius_info_range','all');
 			$range=array();
@@ -62,9 +68,7 @@ $disp= UserSearchHelper::getSearchHtml();
 	</div>
 	<?php 
 	$contents	= ob_get_clean();
-	$replace 	= 'index.php?option=com_xius&task=getLocationMap&plugin=proximity&';
-	$str 		= "index.php?option=com_xius&task=getLocationMap&fromFormName=xiusMod{$module->id}&plugin=proximity&";	
-	$contents	=str_replace($replace,$str,$contents);
+	$mySess->clear('xiusModuleForm','XIUS');
 	echo $contents;
 	endif;
 ?>

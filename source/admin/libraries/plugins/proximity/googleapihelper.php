@@ -27,9 +27,31 @@ class ProximityGoogleapiHelper extends JController
 		return false;
 	}
 	
-	public function getGeocodes($addresses)
+	public function _getGeocodes($address)
 	{
 		require_once (dirname(__FILE__).DS.'json.php');
+		$url = XIUS_GEOCODE_URL . 'address='.urlencode($address) .'&sensor=false';
+		$content = ProximityGoogleapiHelper::getGoogleAPIContent($url);
+		
+		$status = null;	
+		if(empty($content))
+			return false;
+				
+		$json = new Services_JSON();
+		$status = $json->decode($content);
+
+
+		if($status->status == 'OK'){
+			$data['latitude']  = $status->results[0]->geometry->location->lat;
+			$data['longitude'] = $status->results[0]->geometry->location->lng;
+			return $data; 
+		}
+		
+		return array('latitude'=>NULL, 'longitude'=>NULL);
+	}
+	
+	public function getGeocodes($addresses)
+	{		
 		if(!array($addresses))
 			return false;
 			
@@ -37,24 +59,11 @@ class ProximityGoogleapiHelper extends JController
 			if(!isset($ad->address) || !$ad->address)
 				continue;
 				
-			$url = XIUS_GEOCODE_URL . 'address='.urlencode($ad->address) .'&sensor=false';
-			$content = ProximityGoogleapiHelper::getGoogleAPIContent($url);
-		
-			$status = null;	
-			if(empty($content))
-				return false;
-				
-			$json = new Services_JSON();
-			$status = $json->decode($content);
-
-
-			if($status->status == 'OK'){
-				$data[$ad->id]['latitude']  = $status->results[0]->geometry->location->lat;
-				$data[$ad->id]['longitude'] = $status->results[0]->geometry->location->lng; 
-			}
+			$geocodes = ProximityGoogleapiHelper::_getGeocodes($ad->address);
+			$data[$ad->id]	= $geocodes;
 		}
 		return $data;
-	}	
+	}
 	
 	function createGeocodeTable()
 	{

@@ -86,7 +86,7 @@ class Keyword extends XiusBase
 				if(!$plgInstance->isKeywordCompatible())
 					continue;
 					
-				$plgInstance->addSearchToQuery(&$tempQuery, $val, XIUS_LIKE, 'OR');			
+				$plgInstance->addSearchToQuery($tempQuery, $val, XIUS_LIKE, 'OR');			
 		   	}
        	}
         	// convert  all element into one element so that more than one keyword search can be combined 

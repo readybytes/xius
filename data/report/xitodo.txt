@@ -6,6 +6,7 @@
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
+../packages/tmp/admin/libraries/pluginhandler.php:77:		// XITODO : write message when geocodes are not found
 ../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
 ../packages/tmp/admin/libraries/usersearch.php:14:		/*XITODO : provide join operator and sorting condition
 ../packages/tmp/admin/libraries/usersearch.php:44:		 * XITODO : add block condition
@@ -17,8 +18,8 @@
 ../packages/tmp/admin/libraries/usersearch.php:365:		/*XITODO : only delete same infoid verses value pair
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:213:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/plugins/proximity/encoders/encoder.php:25:		// XITODO : validate , class exists or not	
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:108:		// XITODO : need to clean up magic constants
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:127:			// XITODO : Sorting according to distance
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:107:		// XITODO : need to clean up magic constants
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:126:			// XITODO : Sorting according to distance
 ../packages/tmp/admin/libraries/plugins/base.php:336:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/base.php:380:		// XITODO : is set $c->createCacheColumn
 ../packages/tmp/admin/libraries/plugins/base.php:485:		 * XITODO : Add all cache columns if one instance is 
@@ -36,4 +37,4 @@
 ../packages/tmp/site/controllers/users.php:300:			/*XITODO : set visible info and published also */
 ../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:21://XITODO : use proper name
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:26://XITODO : use proper name

@@ -25,7 +25,7 @@ class XiusControllerUsers extends JController
 		 */
 		
 		$subtask = JRequest::getVar('subtask', ''); 
-		$supltytask = JRequest::getVar('supplytask', '');
+		$supplytask = JRequest::getVar('supplytask', '');
 		switch($subtask){
 			
 			case 'xiussearch':
@@ -62,7 +62,7 @@ class XiusControllerUsers extends JController
 				XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 				break;
 			default	:
-				if(!$supltytask)
+				if(!$supplytask)
 					return $this->_showSearchPanel();
 				break;
 		}

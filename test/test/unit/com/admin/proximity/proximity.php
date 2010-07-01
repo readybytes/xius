@@ -88,16 +88,18 @@ class XiusProximityTest extends XiUnitTestCase
 	{
 		$instance 				= new Proximity();		
 		$instance->setData('key','0');
-		$values					= $instance->_getArrangedValue(array(2.2,3.4,200,'Miles'));
+		$values					= $instance->_getArrangedValue(array('googlemap','',2.2,3.4,200,'Miles'));
+		$compare['address']		= '';
 		$compare['latitude']	= 2.2;
 		$compare['longitude']	= 3.4;
 		$compare['distance']	= 200;
 		$compare['dis_unit']	= 'Miles';
 		$this->assertEquals($values, $compare);
 		
-		$values					= $instance->_getArrangedValue(array(2.2,200,'Miles',0));
-		$compare['latitude']	= 2.2;
-		$compare['longitude']	= 200;
+		$values					= $instance->_getArrangedValue(array('addressbox','bhilwara,rajasthan',2.2,200,'Miles',0));
+		$compare['address']		= 'bhilwara,rajasthan';
+		$compare['latitude']	= 25.346251;
+		$compare['longitude']	= 74.636383;
 		$compare['distance']	= 'Miles';
 		$compare['dis_unit']	= '0';
 		$this->assertEquals($values, $compare);
@@ -106,23 +108,37 @@ class XiusProximityTest extends XiUnitTestCase
 	function testValidateValues()
 	{
 		$instance	= new Proximity();
-		$value 		= array(2.2,3.5,200,'Kms');
-		$this->assertTrue($instance->validateValues($value));
+		$value 		= array('googlemap','',2.2,3.5,200,'Kms');
+		$this->assertTrue(is_array($instance->validateValues($value)));
 		
-		$value 		= array(2.2,200,'Kms');
+		$value 		= array('addressbox','bhilwara',2.2,200,'Kms');
 		$this->assertFalse($instance->validateValues($value));
 		
-		$value 		= array(0,3.5,200,'Kms');
-		$this->assertTrue($instance->validateValues($value));	
+		$value 		= array('addressbox','bhilwara',0,3.5,200,'Kms');
+		$this->assertTrue(is_array($instance->validateValues($value)));	
 	}
 	
 	function testAddSearchToQuery()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
 		$instance 	= XiusFactory::getPluginInstanceFromId(8);
-		$query		= new XiusQuery();
 		// first valid value
-		$value		= array(24.234,74.5490,200,'Kms');
+		// through address
+		$query		= new XiusQuery();
+		$value		= array('addressbox','bhilwara,rajasthan,india',24.234,74.5490,200,'Kms');
+		$instance->addSearchToQuery(&$query,$value,'=','AND');
+		
+		$strQuery 	= $query->__toString();
+		$compare	= 'SELECTROUND((3959*acos(cos(0.442375532987)*cos(radians(`proximity_google_latitude_0`))'
+					  .'*cos(radians(`proximity_google_longitude_0`)-(1.30265062513))+sin(0.442375532987)'
+					  .'*sin(radians(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceHAVING'
+					  .'xius_proximity_distance<200';
+		
+		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));		
+		
+		// through google map
+		$query		= new XiusQuery();
+		$value		= array('googlemap','',24.234,74.5490,200,'Kms');
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
@@ -132,8 +148,9 @@ class XiusProximityTest extends XiUnitTestCase
 					  .'xius_proximity_distance<200';
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
+				
 		// second valid input
-		$value		= array(56.234,-104.5490,456,'Miles');
+		$value		= array('googlemap','',56.234,-104.5490,456,'Miles');
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
@@ -147,7 +164,7 @@ class XiusProximityTest extends XiUnitTestCase
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 		// invalid value, no change in $compare value
-		$value		= array(-104.5490,456,'Miles');
+		$value		= array('googlmap','',-104.5490,456,'Miles');
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
@@ -163,7 +180,7 @@ class XiusProximityTest extends XiUnitTestCase
         $obj->tableAliasName 	= 'xius_proximity_google';
         $obj->originColumnName  = 'latitude';
         $obj->cacheColumnName 	= 'proximity_google_latitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
+        $obj->cacheSqlSpec	 	= 'float(10,6) DEFAULT NULL'; 
         $obj->cacheLabelName 	= 'Latitude';
         $obj->createCacheColumn	= true;
         $compare[] 				= $obj; 
@@ -173,7 +190,7 @@ class XiusProximityTest extends XiUnitTestCase
         $obj->tableAliasName 	= 'xius_proximity_google';
         $obj->originColumnName  = 'longitude';
         $obj->cacheColumnName 	= 'proximity_google_longitude_0';
-        $obj->cacheSqlSpec	 	= ' Float (10,6) NOT NULL DEFAULT 0 '; 
+        $obj->cacheSqlSpec	 	= 'float(10,6) DEFAULT NULL'; 
         $obj->cacheLabelName 	= 'Longitude';
         $obj->createCacheColumn	= true;
         $compare[] 				= $obj; 
