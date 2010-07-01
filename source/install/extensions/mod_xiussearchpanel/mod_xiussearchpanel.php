@@ -26,8 +26,7 @@ require_once( dirname(__FILE__).DS.'helper.php' );
 //XITODO : use proper name
 $disp= UserSearchHelper::getSearchHtml();
 	if(!empty($disp)):
-//XITODO: fix the bug in pagignation of module
-		$link = 'index.php?option=com_xius&view=users&task=displaySearch&subtask=xiussearch';
+		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult';
 		$menu = &JSite::getMenu(); 
 		$itemid = $menu->getItems('link', $link);
 		if(empty($itemid))
@@ -66,6 +65,7 @@ $disp= UserSearchHelper::getSearchHtml();
 			<div class ="xiusModSearch"><input type="submit" value="Search" /></div>
 		</form>
 	</div>
+	<input type="hidden" name="subtask" value="xiussearch" />
 	<?php 
 	$contents	= ob_get_clean();
 	$mySess->clear('xiusModuleForm','XIUS');

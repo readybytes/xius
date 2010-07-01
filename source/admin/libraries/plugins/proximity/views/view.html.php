@@ -46,7 +46,7 @@ class ProximityView extends XiusBaseView
         $buttonMap = new JObject();
         $buttonMap->set('modal', true);
         $buttonMap->set('link', $linkMap);
-        $buttonMap->set('text', JText::_( 'SET LOCATION' ));
+        $buttonMap->set('text', JText::_( 'SHOW GOOGLE MAP' ));
         $buttonMap->set('name', 'image');
         $buttonMap->set('modalname', $elePrefix.'_map_button');
         $buttonMap->set('options', "{handler: 'iframe', size: {x: ".PROXIMITY_IFRAME_WIDTH.", y: ".PROXIMITY_IFRAME_HEIGHT."}}");

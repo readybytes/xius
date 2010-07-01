@@ -44,11 +44,8 @@ class XiusGoogleProximityTest extends XiSelTestCase
 		//$this->select("//select[@id='field2']", "label=Male");
 		$this->click("//img[@class='xius_test_addinfo_4']");
 		$this->waitPageLoad(); 
-		echo "dsdS";
 		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_Male']"));
-		echo "dsdS";
 		$this->assertTrue($this->isElementPresent("//span[@id='total_6']"));
-		echo "dsdS";
 		// remove gender = male info from conditon
 		$this->click("//img[@class='xius_test_remove_Male']");
 		$this->waitPageLoad();

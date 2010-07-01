@@ -5,23 +5,10 @@ class XiusProximityTest extends XiUnitTestCase
 	function getSqlPath()
 	{
 		return dirname(__FILE__).'/sql/'.__CLASS__;
-	}
-	
-	function loadSql()
-	{
-		$jsVersion	= $this->get_js_version();
-		$url = dirname(__FILE__).'/_data/insert.sql';
-		if(Jstring::stristr($jsVersion,'1.7') || Jstring::stristr($jsVersion,'1.8'))		    	
-			$url = dirname(__FILE__).'/_data/insert1.7.sql';
-		
-		$this->_DBO->loadSql($url);
-		$url = dirname(__FILE__).'/_data/updateCache.sql';
-		$this->_DBO->loadSql($url);	
 	}	
 
 	function testGetAvailableInfoForProximity()
 	{
-		$this->loadSql(); 
 		/*IMP : Need joomla enviorenment to run test case
 		 * it will not run individually ,
 		 * b'coz joomla file system does not load

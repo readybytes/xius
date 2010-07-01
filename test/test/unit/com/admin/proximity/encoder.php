@@ -7,14 +7,6 @@ class XiusProximityEncoderTest extends XiUnitTestCase
 		return dirname(__FILE__).'/sql/'.__CLASS__;
 	}
 	
-	function loadSql()
-	{
-		$url = dirname(__FILE__).'/_data/insert.sql';
-		$this->_DBO->loadSql($url);
-		$url = dirname(__FILE__).'/_data/updateCache.sql';
-		$this->_DBO->loadSql($url);	
-	}
-	
 	function requires()
 	{	
 		require_once(XIUS_PATH_LIBRARY.DS.'plugins'.DS.'proximity'.DS.'encoders'.DS.'encoder.php');
