@@ -31,8 +31,8 @@ class RangesearchView extends XiusBaseView
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
 		 */
-		$fieldHtml =JText::_('RANGESEARCH FROM').' <input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'_min" id="'.$calleObject->get('pluginType').$calleObject->get('key').'_min" value="'.$value0.'" /> ';
-		$fieldHtml .=JText::_('RANGESEARCH TO').' <input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'_max" id="'.$calleObject->get('pluginType').$calleObject->get('key').'_max" value="'.$value1.'" />';			
+		$fieldHtml =JText::_('RANGESEARCH FROM').'<br/><input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'_min" id="'.$calleObject->get('pluginType').$calleObject->get('key').'_min" value="'.$value0.'" /><br/>';
+		$fieldHtml .=JText::_('RANGESEARCH TO').'<br/><input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'_max" id="'.$calleObject->get('pluginType').$calleObject->get('key').'_max" value="'.$value1.'" />';			
 		
 		//print_r($fieldHtml);
 		$this->assign('fieldHtml',$fieldHtml);

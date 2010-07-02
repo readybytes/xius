@@ -33,6 +33,8 @@
 		<file>test/unit/com/site/controllers/users.php</file>
 		<file>test/unit/com/site/helpers/users.php</file>
 		
+		<file>test/sel/com/admin/info.php</file>
+		
 		<file>test/sel/com/site/joomlaSearch.php</file>
 		<file>test/sel/com/site/search.php</file>
 		<file>test/sel/com/site/sorting.php</file>
@@ -41,8 +43,8 @@
 		<file>test/sel/com/site/rangesearch.php</file>
 		<file>test/sel/com/site/slider.php</file>
 		<file>test/sel/com/site/googleProximity.php</file>
+		<file>test/sel/com/site/informationProximity.php</file>
 		
-		<file>test/sel/com/admin/info.php</file>
 	</testsuite>
 	
 	<listeners>

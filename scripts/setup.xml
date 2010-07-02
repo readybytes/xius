@@ -25,6 +25,7 @@
 		<phingcall target="copy_kit" />
 		<phingcall target="copy_testcase" />
 		<phingcall target="copy_revbuild" />
+		<phingcall target="copy_community18" />
 	</target>
 
 	<target name="copy_revbuild">
@@ -70,5 +71,31 @@
 	<target name="copy_kit">
 		<copy 	file="${dir.packages}/${file.package}.${svn.lastrevision}.zip" 
 				tofile="${joomla.rootpath}/${joomla.folder}/${project.shortform.small}.zip" />
+	</target>
+
+	<target name="copy_community18">
+		<copy 	file="${pkg.location}/jomsocial1.8/com_community1.8.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/com_community1.8.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_1.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_1.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_2.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_2.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_3.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_3.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_4.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_4.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_5.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_5.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_6.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_6.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_7.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_7.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_8.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_8.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_9.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_9.zip" />
+		<copy 	file="${pkg.location}/jomsocial1.8/zendPlugin/plg_zend_1.10.6_pack_10.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/plg_zend_pack_10.zip" />
+
 	</target>
 </project>

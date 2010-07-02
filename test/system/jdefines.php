@@ -28,3 +28,5 @@ define( 'JPATH_COMPONENT',					JPATH_BASE.DS.'components'.DS.$name);
 define( 'JPATH_COMPONENT_SITE',				JPATH_SITE.DS.'components'.DS.$name);
 define( 'JPATH_COMPONENT_ADMINISTRATOR',	JPATH_ADMINISTRATOR.DS.'components'.DS.$name);
 
+define('JOMSOCIAL_ZEND_PLUGIN', JOOMLA_LOCATION);
+define('JOMSOCIAL18_PKG', JOOMLA_LOCATION.'/com_community1.8.zip');

@@ -9,7 +9,7 @@ class XiusGoogleProximityTest extends XiSelTestCase
 	
 	function loadSqlFiles()
 	{
-		//$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert.sql');
+		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert.sql');
 		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/updateCache.sql');
 	}
 	
@@ -83,8 +83,8 @@ class XiusGoogleProximityTest extends XiSelTestCase
     	sleep(2);
     	$this->type("Proximitygoogle_userForm_dis", "400");
     	$this->select("//select[@id='Proximitygoogle_userForm_dis_unit']", "label=Kms");
-    	$this->select("//form[@id='userForm']/div[4]/div[2]/select", "label=Female");
-    	$this->type("//form[@id='userForm']/div[2]/div[2]/input[2]", "Mumbai");
+    	$this->select("//select[@id='field2']", "label=Female");
+    	$this->type("//input[@id='field11']", "Mumbai");
     	$this->click("xiussearch");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
@@ -94,7 +94,7 @@ class XiusGoogleProximityTest extends XiSelTestCase
     	$this->waitPageLoad();
 
     	// add gender=male to applied oinfo
-    	$this->select("//div[@id='xius_Info_Ref4']/div[2]/select", "label=Male");
+    	$this->select("//select[@id='field2']", "label=Male");
 		$this->click("//img[@class='xius_test_addinfo_4']");
 		$this->waitPageLoad(); 
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
@@ -178,8 +178,8 @@ class XiusGoogleProximityTest extends XiSelTestCase
     	sleep(2);
     	$this->type("Proximitygoogle_userForm_dis", "400");
     	$this->select("//select[@id='Proximitygoogle_userForm_dis_unit']", "label=Kms");
-    	$this->select("//div[@id='xius_Info_Ref4']/div[2]/select", "label=Female");		
-    	$this->type("//div[@id='xius_Info_Ref2']/div[2]/input[2]", "Mumbai");
+    	$this->select("//select[@id='field2']", "label=Female");		
+    	$this->type("//input[@id='field11']", "Mumbai");
     	$this->click("//img[@class='xius_test_addinfo_8']");
     	$this->waitPageLoad();
     	//$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_Array'][@id='8']"));
