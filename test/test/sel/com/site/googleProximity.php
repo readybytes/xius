@@ -51,7 +51,7 @@ class XiusGoogleProximityTest extends XiSelTestCase
 		$this->waitPageLoad();
 		
 		// now search female from bhilwara near by 150 miles
-		$this->select("//div[@id='xius_Info_Ref4']/div[2]/select", "label=Female");
+		$this->select("//select[@id='field2']", "label=Female");
 		//$this->select("//select[@id='field2']", "label=Female");
 		$this->click("//img[@class='xius_test_addinfo_4']");
 		$this->waitPageLoad(); 

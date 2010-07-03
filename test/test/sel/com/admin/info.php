@@ -111,9 +111,9 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	    $this->click("link=Block should be 1");
 	    $this->waitPageLoad();
 	    $this->type("labelName", "Block should be 0");
-	    $this->verifyValue("//input[@id='Joomla_12']",1);
+	    $this->select("//select[@id='Joomlablock']","label=No");
 	    
-	    $this->type("//input[@id='Joomla_12']", "0");
+	    $this->type("//select[@id='Joomlablock']", "0");
 	    $this->click("paramsisSortable0");
     	$this->click("paramsisVisible0");
 	    $this->type("paramstooltip", "Not Blocked User");

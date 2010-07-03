@@ -149,5 +149,108 @@ class XiusInformationProximityTest extends XiSelTestCase
       	$this->waitPageLoad();
 	    $this->assertTrue($this->isElementPresent("//span[@id='total_22']"));
   }
+  
+  function testProximityWithModule()
+  {
+  		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert17.sql');
+  		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testProximityByBoth.start.sql');;
+  		
+  		$this->changeModuleState('mod_xiussearchpanel',1);
+
+  		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+  	  	$this->waitPageLoad();
+  	  	// search from search panel
+ 		$this->click("//input[@id='Proximityinformation_userForm_option' and @value='googlemap']");
+       	$this->click("//a[@id='Proximityinformation_userForm_map_button']");		
+	  	sleep(8);		
+	    $this->type("xiusAddressEl", "Delhi, India");
+	    $this->click("find");
+	    $this->click("sbox-btn-close");
+	    sleep(2);
+	    $this->type("Proximityinformation_userForm_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_userForm_dis_unit']", "label=Kms");
+	    
+	    $this->click("xiussearch");
+      	$this->waitPageLoad();
+	    $this->assertTrue($this->isElementPresent("//span[@id='total_23']"));
+  		
+	    // search from module
+ 		$this->click("//input[@id='Proximityinformation_xiusMod45_option' and @value='googlemap']");
+       	$this->click("//a[@id='Proximityinformation_xiusMod45_map_button']");		
+	  	sleep(8);		
+	    $this->type("xiusAddressEl", "Delhi, India");
+	    $this->click("find");
+	    $this->click("sbox-btn-close");
+	    sleep(2);
+	    $this->type("Proximityinformation_xiusMod45_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_xiusMod45_dis_unit']", "label=Kms");
+	    
+	    $this->click("//input[@id='xiusMod45Search']");
+      	$this->waitPageLoad();
+	    $this->assertTrue($this->isElementPresent("//span[@id='total_23']"));
+  		
+	    $this->changeModuleState('mod_xiussearchpanel',0);
+  }
+  
+  function testProximityWithTwoModule()
+  {
+  		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert17.sql');
+  		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testProximityByBoth.start.sql');;
+  		
+  		// search from search panel
+ 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+  	  	$this->waitPageLoad();
+  	  	
+  		$this->click("//input[@id='Proximityinformation_userForm_option' and @value='googlemap']");
+       	$this->click("//a[@id='Proximityinformation_userForm_map_button']");		
+	  	sleep(8);		
+	    $this->type("xiusAddressEl", "Delhi, India");
+	    $this->click("find");
+	    $this->click("sbox-btn-close");
+	    sleep(2);
+	    $this->type("Proximityinformation_userForm_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_userForm_dis_unit']", "label=Kms");
+	    
+	    $this->click("xiussearch");
+      	$this->waitPageLoad();
+	    $this->assertTrue($this->isElementPresent("//span[@id='total_23']"));
+  		
+	    // search from module1
+	    $this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+  	  	$this->waitPageLoad();
+  	  	
+ 		$this->click("//input[@id='Proximityinformation_xiusMod45_option' and @value='googlemap']");
+       	$this->click("//a[@id='Proximityinformation_xiusMod45_map_button']");		
+	  	sleep(8);		
+	    $this->type("xiusAddressEl", "Delhi, India");
+	    $this->click("find");
+	    $this->click("sbox-btn-close");
+	    sleep(2);
+	    $this->type("Proximityinformation_xiusMod45_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_xiusMod45_dis_unit']", "label=Kms");
+	    
+	    $this->click("//input[@id='xiusMod45Search']");
+      	$this->waitPageLoad();
+	    $this->assertTrue($this->isElementPresent("//span[@id='total_23']"));
+  		
+	    // search from module2
+	    $this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+  	  	$this->waitPageLoad();
+  	  	
+ 		$this->click("//input[@id='Proximityinformation_xiusMod46_option' and @value='googlemap']");
+       	$this->click("//a[@id='Proximityinformation_xiusMod46_map_button']");		
+	  	sleep(8);		
+	    $this->type("xiusAddressEl", "Delhi, India");
+	    $this->click("find");
+	    $this->click("sbox-btn-close");
+	    sleep(2);
+	    $this->type("Proximityinformation_xiusMod46_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_xiusMod46_dis_unit']", "label=Kms");
+	    
+	    $this->click("//input[@id='xiusMod46Search']");
+      	$this->waitPageLoad();
+	    $this->assertTrue($this->isElementPresent("//span[@id='total_23']"));
+	    $this->changeModuleState('mod_xiussearchpanel',0);
+  }
 }
 	

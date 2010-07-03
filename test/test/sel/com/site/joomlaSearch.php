@@ -23,9 +23,10 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 		
+		$this->select("//select[@id='Joomlablock']", "label=No");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'name','Joomla_6'=>'username','Joomla_9'=>'123',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_12'=>'0','Joomla_13'=>'','Joomla_14'=>'');
+							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','Joomla_14'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -47,10 +48,10 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		// go to search panel
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
-		
+		$this->select("//select[@id='Joomlablock']", "label=No");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'name','Joomla_6'=>'username','Joomla_9'=>'123',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_12'=>'0','Joomla_13'=>'','Joomla_14'=>'');
+							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','Joomla_14'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -77,9 +78,10 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 		
+		$this->select("//select[@id='Joomlablock']", "label=No");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'','Joomla_6'=>'name','Joomla_9'=>'66',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_12'=>'0','Joomla_13'=>'','Joomla_14'=>'');
+							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','Joomla_14'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		

@@ -434,8 +434,8 @@ class XiusLibrariesUsersearch
 				
 				continue;
 			}
-			
-			if(empty($post[$keyNames[$i]]))
+			// XITODO : test with 0,null,baln,blank array
+			if(empty($post[$keyNames[$i]]) && !is_numeric($post[$keyNames[$i]]))
 				continue;
 			
 			if($start){

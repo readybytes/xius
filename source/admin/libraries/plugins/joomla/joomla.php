@@ -182,4 +182,15 @@ class Joomla extends XiusBase
 			
 		return $finalvalue;	
 	}
+	
+	public function _getFormatAppliedData($value)
+	{
+		if($this->key === 'block'){
+			$val[0] = JText::_('UN-BLOCKED');
+			$val[1] = JText::_('BLOCKED');
+			return $val[$value];
+		}
+			
+		return $this->_getFormatData($value);
+	}
 }

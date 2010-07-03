@@ -43,6 +43,12 @@ class Joomlahelper
 			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\''.$calleObject->get('pluginType').$calleObject->get('key').'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 			return $fieldHTML;
 		}
+		
+		if($calleObject->get('key') == 'block'){			
+			$fieldHTML  = '<select class="selectbox" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').'" value="" />';
+			$fieldHTML .= "<option value=''>".JText::_('SELECT BELOW')."</option><option value='0'>".JText::_('NO')."</option><option value='1'>".JText::_('YES')."</option></select>";
+			return $fieldHTML;
+		}
 		return false;
 	}
 	
