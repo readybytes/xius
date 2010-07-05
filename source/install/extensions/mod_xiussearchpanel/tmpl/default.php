@@ -25,7 +25,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php 
 			endforeach;
 			?>
-			
+			<input type="hidden" name="subtask" value="xiussearch" />			
 			<div class ="xiusModSearch"><input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="Search" /></div>
 		</form>
 	</div>
