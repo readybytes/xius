@@ -159,6 +159,45 @@ class XiusRangesearchTest extends XiSelTestCase
 		
 	}
 	
+	function testRangeSearchWithInteger()
+	{
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		// search by male joomla id range
+		$information = array('Rangesearch7_min'=>'70', 'Rangesearch7_max'=>'90') ;
+		$this->fillRangeInfo($information, 'AND');		
+		$this->assertTrue($this->isElementPresent("//span[@id='total_21']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 70 To 90']"));
+		
+		$this->select("//select[@id='field2']", "label=Male");
+		$this->click("//img[@class='xius_test_addinfo_1']");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_8']"));
+		
+		// search by age and joomla id range
+		$information = array('Rangesearch5_min'=>'10', 'Rangesearch5_max'=>'16', 'Rangesearch7_min'=>'80', 'Rangesearch7_max'=>'110');
+		$this->fillRangeInfo($information, 'AND');
+		
+		$this->assertTrue($this->isElementPresent("//span[@id='total_25']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 80 To 110']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 10 To 16']"));
+		
+		// search by age and joomla id range with same value
+		$this->select("//select[@id='field2']", "label=Male");
+		$information = array('Rangesearch5_min'=>'10', 'Rangesearch5_max'=>'16', 'Rangesearch7_min'=>'10', 'Rangesearch7_max'=>'16');
+		$this->fillRangeInfo($information, 'AND');
+		
+		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
+		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 10 To 16']"));
+		
+		$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_From 10 To 16')]"), 2);
+		
+		$this->select("//select[@id='xiusjoin']", "label=Match Any");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_44']"));		
+	}
+	
 	function fillRangeInfo($information, $join)
 	{
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');

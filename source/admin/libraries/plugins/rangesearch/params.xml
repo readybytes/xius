@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+		<param name="rangesearchType" type="list" default="date" label="INFORMATION TYPE.LABEL" description="INFORMATION TYPE.DESC">
+			<option value="date">Date</option>
+			<option value="integer">Integer</option>
+		</param>
+	</params>
+</config>

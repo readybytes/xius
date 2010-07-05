@@ -73,4 +73,33 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		
 		$this->assertEquals($data['total'],$totalUsers);
 	}
+	
+	function testGetUserData()
+	{
+		// for date type range search
+		$instance = XiusFactory::getPluginInstanceFromId(6);
+		if($instance)
+			$this->assertTrue(true);
+		else
+			$this->assertFalse(true);
+			
+		$query		= new XiusQuery();		
+		$instance->getUserData($query);
+		$strQuery	= $query->__toString();
+		$compare    ="SELECT(2010-YEAR(jsfields3_0.value))asrangesearch5_0";
+		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
+		
+		// for integer type range search
+		$instance = XiusFactory::getPluginInstanceFromId(8);
+		if($instance)
+			$this->assertTrue(true);
+		else
+			$this->assertFalse(true);
+			
+		$query		= new XiusQuery();		
+		$instance->getUserData($query);
+		$strQuery	= $query->__toString();
+		$compare    ="SELECT((joomlauserid_0.id))asrangesearch7_0";
+		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
+	}
 }

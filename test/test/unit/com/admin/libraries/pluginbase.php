@@ -300,7 +300,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$result->tableAliasName    = 'jsfields3_0';
 		$result->originColumnName  = 'value';
 		$result->cacheColumnName   = 'jsfields3_0';
-		$result->cacheSqlSpec	   = 'varchar(250) NOT NULL';
+		$result->cacheSqlSpec	   = 'datetime NOT NULL';
 		$result->cacheLabelName		= 'Birthday';
 		$result->createCacheColumn	= true;
 		$result8[]	=$result;

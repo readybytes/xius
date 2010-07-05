@@ -120,7 +120,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 					."`joomlausername_0` varchar(250) NOT NULL,"
 					."`joomlaname_0` varchar(250) NOT NULL,"
 					."`jsfields17_0` varchar(250) NOT NULL,"
-					."`jsfields3_0` varchar(250) NOT NULL )";
+					."`jsfields3_0` datetime NOT NULL )";
 		
 		$this->assertEquals($this->cleanWhiteSpaces($reqQuery),$this->cleanWhiteSpaces($query));
 	}

@@ -8,16 +8,20 @@ class Rangesearch extends XiusBase
 
 	function __construct()
 	{
+		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
+		$ini	= dirname(__FILE__) . DS . 'params.ini';
+		$data	= JFile::read($ini);
+		
+		if(JFile::exists($paramsxmlpath))
+			$this->pluginParams = new JParameter($data,$paramsxmlpath);
+		else{
+			JError::raiseError(500,JText::_("INVALID XML PARAMETER FILE"));
+			return false;
+		}	
 		parent::__construct(__CLASS__);
 	}
 	
-	
-	function isAllRequirementSatisfy()
-	{
-		/*it will return false if community component does not exist */
-		$isExist = XiusHelpersUtils::isComponentExist('com_community',true) ? true : false;
-		return $isExist;
-	}
+
 			
 	/*@ return plugin different - 2 type which can exist
 	 * Eq :- for JSFields ( Gender , city , state etc ) exist
@@ -67,7 +71,7 @@ class Rangesearch extends XiusBase
 		$object->tableAliasName 	= '';
 		$object->originColumnName	= '';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
-		$object->cacheSqlSpec		= ' INT (5) NOT NULL DEFAULT 0 ';
+		$object->cacheSqlSpec		= ' INT (31) NOT NULL DEFAULT 0 ';
 		$object->cacheLabelName		= $this->labelName;
 		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
@@ -85,11 +89,19 @@ class Rangesearch extends XiusBase
 		$myTableMapping = $this->getTableMapping();
 		$date=date('Y');
 		
-		foreach($myTableMapping as $mtm) 
+		foreach($myTableMapping as $mtm)
+		{ 
 			foreach($tableMapping as $tm)
-				$query->select(" ( $date - YEAR({$tm->tableAliasName}.{$tm->originColumnName}))"
+			{
+				$sql = " ( (";				
+				if($this->pluginParams->get('rangesearchType','date') === 'date')
+					$sql = " ( $date - YEAR( ";
+					
+				$query->select("{$sql}{$tm->tableAliasName}.{$tm->originColumnName}))"
 								." as {$mtm->cacheColumnName}"
-							   );
+							   );				
+			}
+		}
 		
 	}
 	
@@ -179,4 +191,18 @@ class Rangesearch extends XiusBase
 			return $val;
 		}		
 	}		
+	
+	public function cleanPluginObject()
+	{
+		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
+		$ini	= dirname(__FILE__) . DS . 'params.ini';
+		$data	= JFile::read($ini);
+		
+		if(JFile::exists($paramsxmlpath))
+			$this->pluginParams = new JParameter($data,$paramsxmlpath);
+		
+		if(!$this->pluginParams)
+			$this->pluginParams	= new JParameter('','');	
+	}
+	
 }
