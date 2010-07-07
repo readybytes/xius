@@ -77,4 +77,33 @@ class plgSystemxius_system extends JPlugin
 		return;
 	}
 	
+	function onBeforeXiusCacheUpdate()
+	{
+		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
+			return;
+							
+		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		return $pluginHandler->createGeocodeTable();		
+	}
+	
+	function onBeforeAllListDisplay($lists)
+	{
+		return true;
+	}
+	
+	function onBeforeMiniProfileDisplay($data)
+	{
+		return true;
+	}
+
+	function onBeforeDisplaySearchPanel($infohtml)
+	{
+		return true;
+	}
+
+	function onBeforeDisplayAvailableInfo($availableInfo)
+	{
+		return true;
+	}
 }

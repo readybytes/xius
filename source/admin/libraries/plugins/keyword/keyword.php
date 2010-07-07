@@ -46,10 +46,6 @@ class Keyword extends XiusBase
 		
 		// get all information available
 		$allInfo = XiusLibrariesInfo::getInfo(array(),'AND',false);
-		/*
-		$dispatcher =& JDispatcher::getInstance();
-		$dispatcher->trigger( 'onBeforeKeywordSearch',array($allInfo,$value));
-		*/
 		
 		if(!empty($allInfo)){
 			$strQuery = $this->_addSearchToQuery($allInfo, $value);		
@@ -66,7 +62,12 @@ class Keyword extends XiusBase
 		$tempQuery = new XiusQuery();
 		// exlpode the value by space so that multiple search can be done
 		$value	= explode(' ', $value);
-		 
+		
+		// XITODO : convert this function to general function
+		// search according to special value for specific info
+		/*$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeKeywordSearch',array( &$allInfo, &$value ));
+		*/
        	foreach($allInfo as $info){
        		foreach($value as $val){
        			if($info->pluginType == $this->pluginType && $info->key == $this->key)

@@ -128,22 +128,24 @@
 ../packages/tmp/admin/libraries/usersearch.php:85:		$mySess =& JFactory::getSession();
 ../packages/tmp/admin/libraries/usersearch.php:93:		$mySess =& JFactory::getSession();
 ../packages/tmp/admin/libraries/usersearch.php:102:		$mySess =& JFactory::getSession();
-../packages/tmp/admin/libraries/usersearch.php:205:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+../packages/tmp/admin/libraries/usersearch.php:207:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 ../packages/tmp/admin/libraries/plugins/baseview.php:24:		global $option, $mainframe;
 ../packages/tmp/admin/libraries/plugins/baseview.php:27:			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:80:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:222:			$db 	= &JFactory::getDBO(); 
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:230:			$db 	= &JFactory::getDBO(); 
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:121:		$document	=& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:140:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:33:        $document =& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:36:        $mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/controller.php:10:class XiusPluginControllerProximity extends JController 
 ../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:10:class ProximityGoogleapiHelper extends JController 
 ../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:79:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:111:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:123:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:131:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:110:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:122:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:130:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:162:		$db = JFactory::getDBO();	
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:58:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:65:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:70:		$document	= & JFactory::getDocument();
@@ -160,18 +162,19 @@
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:14:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:16:		$userTable = new JTable('#__users','id', $db);
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:36:			$document	=& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:42:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:50:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:127:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:139:		$db = JFactory::getDBO();
 ../packages/tmp/site/views/users/view.csv.php:16:		global $mainframe;
 ../packages/tmp/site/views/users/view.csv.php:17:		$user =& JFactory::getUser();
 ../packages/tmp/site/views/users/view.csv.php:20:			$url = JRoute::_('index.php?option=com_xius&view=users',false);
 ../packages/tmp/site/views/users/view.csv.php:21:			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
 ../packages/tmp/site/views/users/view.html.php:51:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:69:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:281:		$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:308:		$document = JFactory::getDocument();
-../packages/tmp/site/views/users/view.html.php:324:			$user = JFactory::getUser();
-../packages/tmp/site/views/users/view.html.php:326:			$user = JFactory::getUser($owner);
+../packages/tmp/site/views/users/view.html.php:71:		$document = JFactory::getDocument();
+../packages/tmp/site/views/users/view.html.php:291:		$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:318:		$document = JFactory::getDocument();
+../packages/tmp/site/views/users/view.html.php:334:			$user = JFactory::getUser();
+../packages/tmp/site/views/users/view.html.php:336:			$user = JFactory::getUser($owner);
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:11:$user =& JFactory::getUser();
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:19:	$url = JRoute::_("index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component&listid=".$listid);
 ../packages/tmp/site/views/users/tmpl/results_toolbar.php:26:	$csvurl = JRoute::_("index.php?option=com_xius&view=users&task=".$this->task."&subtask=xiusexport&format=csv");
@@ -214,12 +217,12 @@
 ../packages/tmp/site/controllers/users.php:385:    		$mainframe->redirect(JRoute::_("index.php?option=com_xius&view=users&task=runCron&xiuskey=".$secureKey."&limitStart=".$limitStart,false));
 ../packages/tmp/site/includes.php:18:$lang =& JFactory::getLanguage();
 ../packages/tmp/site/models/users.php:19:        global $mainframe, $option;
-../packages/tmp/site/models/users.php:22:        $limit = $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
+../packages/tmp/site/models/users.php:22:        $limit = $mainframe->getUserStateFromRequest('com_xius_user.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/install/extensions/xius_system/xius_system.php:49:		global $mainframe;
 ../packages/tmp/install/extensions/xius_system/xius_system.php:52:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:7:$document =& JFactory::getDocument();
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:18:$mySess =& JFactory::getSession();
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:41:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:8:$document =& JFactory::getDocument();
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:15:$mySess =& JFactory::getSession();
+../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:9:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 ../packages/tmp/install/extensions/mod_xiuslisting/helper.php:13:		$user = JFactory::getUser();
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:27:				$link = JRoute::_($link, false);
 ../packages/tmp/install/extensions/xius_community/xius.php:47:		$lang =& JFactory::getLanguage();

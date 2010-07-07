@@ -38,9 +38,14 @@ class Joomlahelper
 			$document->addScript(JURI::root()."includes/js/joomla.javascript.js");
 			$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
 			$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
-		
-			$fieldHTML ='<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').'" style="width:125px; margin-right:4px" value="'.$value.'" />';
-			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\''.$calleObject->get('pluginType').$calleObject->get('key').'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
+			// if module is displayin info
+			$mySess 	= & JFactory::getSession();
+			$formName	= $mySess->get('xiusModuleForm','','XIUS');
+       		if($formName != '')
+       			$formName .= "_{$formName}";
+       			
+			$fieldHTML ='<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').$formName.'" style="width:125px; margin-right:4px" value="'.$value.'" />';
+			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\''.$calleObject->get('pluginType').$calleObject->get('key').$formName.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 			return $fieldHTML;
 		}
 		

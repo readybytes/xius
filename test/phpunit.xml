@@ -34,6 +34,7 @@
 		<file>test/unit/com/site/helpers/users.php</file>
 		
 		<file>test/sel/com/admin/info.php</file>
+		<file>test/sel/com/admin/googleProximityTest.php</file>
 		
 		<file>test/sel/com/site/joomlaSearch.php</file>
 		<file>test/sel/com/site/search.php</file>

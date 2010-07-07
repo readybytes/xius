@@ -137,8 +137,13 @@ class Jsfieldshelper
 			if(isset($fieldInfo->value))
 				$value = $fieldInfo->value;
 				
-			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.'" style="width:125px; margin-right:4px" value="'.$value.'" />';
-			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
+			$mySess 	= & JFactory::getSession();
+			$formName	= $mySess->get('xiusModuleForm','','XIUS');
+       		if($formName != '')
+       			$formName .= "_{$formName}";
+       			
+			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.$formName.'" style="width:125px; margin-right:4px" value="'.$value.'" />';
+			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.$formName.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 		}
 		else if($fieldInfo->type == 'profiletypes'){
 			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );

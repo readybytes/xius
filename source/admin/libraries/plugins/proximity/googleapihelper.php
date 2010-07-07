@@ -78,8 +78,7 @@ class ProximityGoogleapiHelper extends JController
 		
 		$db = JFactory::getDBO();
 		$db->setQuery( $query );
-		$db->query();
-		return true;
+		return $db->query();		
 	}
 	
 	function insertGeocodeRawData($info)
@@ -130,11 +129,15 @@ class ProximityGoogleapiHelper extends JController
 	{
 		$db = JFactory::getDBO();
 		foreach( $data as $key=>$value){
-			if(!array_key_exists('latitude',$value) || !array_key_exists('longitude',$value)) 
-				return false;
-				
-			if(empty($value['latitude']) || empty($value['longitude'])) 
-				return false;
+			if(!array_key_exists('latitude',$value) 
+					|| !array_key_exists('longitude',$value)
+					|| empty($value['latitude']) 
+					|| empty($value['longitude']) 
+					) 
+					{
+						ProximityGoogleapiHelper::deleteInvalidGeocodeAddress($key);
+						continue;
+					}
 				
 			$query	= " UPDATE `#__xius_proximity_geocode` SET "
 					 ." `latitude` = ".$db->Quote($value['latitude'])." , "
@@ -147,5 +150,21 @@ class ProximityGoogleapiHelper extends JController
 		}
 	}
 	
+	/*
+	 * this function is used to delete the address in geocode
+	 * If google does not return the geocode it means there is some mistake in address
+	 * so lat and long can not be determine in any case, that why the entry must be removed
+	 */
+	function deleteInvalidGeocodeAddress($key)
+	{
+		if(!$key)
+			return;
+		$db = JFactory::getDBO();	
+		$query	= " DELETE FROM `#__xius_proximity_geocode` "
+				 ." WHERE `id` = ".$db->Quote($key);
+		
+		$db->setQuery( $query );
+		return $db->query();		
+	} 
 }
     

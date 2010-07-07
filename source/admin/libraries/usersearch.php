@@ -172,6 +172,9 @@ class XiusLibrariesUsersearch
 		/*XITODO : update xius_cache table with new info id
 		 * We can only add column also without creating whole table
 		 */
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeXiusCacheUpdate' );
+		
 		$cache = XiusFactory::getCacheObject();
 		if(!$cache->createTable(true))
 			return false;
@@ -184,8 +187,7 @@ class XiusLibrariesUsersearch
 		
 		$result =  $cache->insertIntoTable($getDataQuery);
 		
-		// trigger the event onAfterXiusCacheUpdate
-		$dispatcher =& JDispatcher::getInstance();
+		// trigger the event onAfterXiusCacheUpdate		
 		$dispatcher->trigger( 'onAfterXiusCacheUpdate' );
 		return $result;
 	}

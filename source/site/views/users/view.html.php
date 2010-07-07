@@ -50,7 +50,9 @@ class XiusViewUsers extends JView
 
 		$document = JFactory::getDocument();
 		$document->setTitle(JText::_('Search Panel'));
-
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeDisplaySearchPanel',array( &$infohtml  ));
+		
 		$this->assign( 'infohtml' , $infohtml );
 		return parent::display();
 	}
@@ -78,6 +80,11 @@ class XiusViewUsers extends JView
 
 		$this->assignRef('users', XiusHelperProfile::getUserProfileData($data['users']));
 		//calculate data for these users
+
+		// trigger event onBeforMiniProfileDisplae
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeMiniProfileDisplay', array( &$data ) );
+		
 		$this->assignRef('userprofile', $data['userprofile']);
 		$this->assignRef('sortableFields', $data['sortableFields']);
 		$this->assignRef('pagination', $data['pagination']);
@@ -268,6 +275,9 @@ class XiusViewUsers extends JView
 				array_push($availableInfo,$infohtml);
         	}
         }
+        $dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeDisplayAvailableInfo',array( &$availableInfo ));
+		
         $data['availableInfo']=$availableInfo;
 	}
 
@@ -330,6 +340,10 @@ class XiusViewUsers extends JView
 
 		$lists = $lModel->getLists($filter,'AND',true);
 		$pagination =& $lModel->getPagination($filter,'AND');
+
+		//  Trigger event 
+		$dispatcher =& JDispatcher::getInstance();
+		$results = $dispatcher->trigger( 'onBeforeAllListDisplay', array( &$lists ) );
 
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);

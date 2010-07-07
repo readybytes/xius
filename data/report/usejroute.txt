@@ -16,9 +16,7 @@
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:17:				<?php echo $this->addIcon('icon-updates.gif','index.php?option=com_xius&view=cpanel&task=updates', JText::_('UPDATES'));?>
 ../packages/tmp/admin/controllers/info.php:344:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:44:        $linkMap = "index.php?option=com_xius&task=getLocationMap&&fromFormName=$formName&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:29:		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult&subtask=xiussearch';
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:33:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:70:	/*$replace 	= 'index.php?option=com_xius&task=getLocationMap&plugin=proximity&';
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:71:	$str 		= "index.php?option=com_xius&task=getLocationMap&fromFormName=xiusMod{$module->id}&plugin=proximity&";	
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:26:		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult';
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:30:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:17:				$link = 'index.php?option=com_xius&view=users&layout=lists&task=displayList';
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:22:					$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users");

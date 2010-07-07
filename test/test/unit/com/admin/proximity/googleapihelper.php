@@ -53,7 +53,17 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 		$geocode = array();
 		$geocode[11]=array('latitude' => 22.725313);
 		$geocode[18]=array('latitude','longitude' => 74.6388889);
-		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocode);
+		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocode);		
+	}
+	
+	function testUpdateGeocodesOfInvalidAddress2()
+	{
+		// when google api can not determine geocode of one address , othen shuol be update and invalicd must be deleted
+		$this->_DBO->addTable('#__xius_proximity_geocode');
+		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		$address = ProximityGoogleapiHelper::getInvalidAddress(5);
+		$geocodes = ProximityGoogleapiHelper::getGeocodes($address);
+		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocodes);		
 	}
 	
 	public static function invalidAddressProvider()

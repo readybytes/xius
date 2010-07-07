@@ -12,14 +12,17 @@
 ../packages/tmp/admin/libraries/usersearch.php:44:		 * XITODO : add block condition
 ../packages/tmp/admin/libraries/usersearch.php:128:		/*XITODO : pass info through parameter */
 ../packages/tmp/admin/libraries/usersearch.php:172:		/*XITODO : update xius_cache table with new info id
-../packages/tmp/admin/libraries/usersearch.php:179:		/*XITODO : break insert user data query into parts
-../packages/tmp/admin/libraries/usersearch.php:223:		/*XITODO : pass info
-../packages/tmp/admin/libraries/usersearch.php:260:		/*XITODO : pass info
-../packages/tmp/admin/libraries/usersearch.php:365:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:213:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/usersearch.php:182:		/*XITODO : break insert user data query into parts
+../packages/tmp/admin/libraries/usersearch.php:225:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:262:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:367:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/admin/libraries/usersearch.php:439:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:221:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
 ../packages/tmp/admin/libraries/plugins/proximity/encoders/encoder.php:25:		// XITODO : validate , class exists or not	
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:107:		// XITODO : need to clean up magic constants
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:126:			// XITODO : Sorting according to distance
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:151:		//XITODO : check value od value[0]
 ../packages/tmp/admin/libraries/plugins/base.php:336:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/base.php:380:		// XITODO : is set $c->createCacheColumn
 ../packages/tmp/admin/libraries/plugins/base.php:485:		 * XITODO : Add all cache columns if one instance is 
@@ -27,8 +30,8 @@
 ../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
-../packages/tmp/site/views/users/view.html.php:229:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:318:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/view.html.php:236:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:328:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/users/tmpl/results.php:10:/*XITODO : pass variable for color */
 ../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:92:		/*XITODO : pass only searchable information 
@@ -37,4 +40,5 @@
 ../packages/tmp/site/controllers/users.php:300:			/*XITODO : set visible info and published also */
 ../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:26://XITODO : use proper name
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:6:// XITODO : move css stament to tmpl 
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:23://XITODO : use proper name

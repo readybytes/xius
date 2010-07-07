@@ -82,4 +82,11 @@ class XiusLibrariesPluginhandler
 		return true;
 	}
 	
+	function createGeocodeTable()
+	{
+		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		$val= ProximityGoogleapiHelper::createGeocodeTable();
+		return $val;
+	}
+	
 }
