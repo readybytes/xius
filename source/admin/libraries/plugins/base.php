@@ -50,7 +50,7 @@ abstract class XiusBase extends JObject
 		jimport( 'joomla.filesystem.file' );
 		if(!JFile::exists($pluginPath))
 		{
-			JError::raiseError(400,JText::_("INVALID PLUGIN FILE"));
+			JError::raiseError(400,JText::_("INVALID CONTROLLER FILE"));
 			return false;
 		}
 		
@@ -562,7 +562,7 @@ abstract class XiusBase extends JObject
 	/*
 	 * To get the data, which will be displayed on users profile 
 	 */
-	public function getDisplayData($userprofile,$data, $info)
+	public function getDisplayData(&$userprofile,$data, $info)
 	{			
 		foreach($data['users'] as $u){
 			$lname=array();

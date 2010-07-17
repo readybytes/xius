@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<params addpath="/administrator/components/com_xius/libraries/plugins/proximity/elements" >
+	<params addpath="/administrator/components/com_xius/elements" >
 		<param name="@spacer" type="spacer" default="Google API Configuration " description="" />
 			<param name="xius_proximity_country" type="info" default="-1"  label="COUNTRY.LABEL" description="COUNTRY.DESC"/>
 			<param name="xius_proximity_zipcode" type="info" default="-1"  label="ZIPCODE.LABEL" description="ZIPCODE.DESC" addnone="true"/>

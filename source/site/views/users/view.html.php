@@ -61,12 +61,12 @@ class XiusViewUsers extends JView
 	function displayResult($from,$list='')
 	{
 		$data = array(array());
-		$this->_getInitialData(&$data);
-		$this->_getUsers(&$data);
-		$this->_getTotalUsers(&$data);
-		$this->_createUserProfile(&$data);
-		$this->_getAppliedInfo(&$data);
-		$this->_getAvailableInfo(&$data);
+		$this->_getInitialData($data);
+		$this->_getUsers($data);
+		$this->_getTotalUsers($data);
+		$this->_createUserProfile($data);
+		$this->_getAppliedInfo($data);
+		$this->_getAvailableInfo($data);
 
 		$document = JFactory::getDocument();
         if(!empty($list) && !empty($list->name))
@@ -79,6 +79,16 @@ class XiusViewUsers extends JView
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 
 		$this->assignRef('users', XiusHelperProfile::getUserProfileData($data['users']));
+		
+		// get the list id for save list
+		$listid=0;
+		if(!empty( $list )){
+			if(isset($list->id))
+				$listid = $list->id;
+			}
+		
+		$toolbar =XiusHelperToolbar::getAdminToolbar($listid,$from);
+		$this->assignRef('toolbar',$toolbar);
 		//calculate data for these users
 
 		// trigger event onBeforMiniProfileDisplae
@@ -102,7 +112,7 @@ class XiusViewUsers extends JView
 		parent::display();
 	}
 
-	function _getInitialData($data)
+	function _getInitialData(&$data)
 	{
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sortId = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
@@ -136,7 +146,7 @@ class XiusViewUsers extends JView
 		$data['join']=$join;
 	}
 
-	function _getUsers($data)
+	function _getUsers(&$data)
 	{
 		$model =& XiusFactory::getModel('users','site');
 		$users =& $model->getUsers($data['conditions'],$data['join'],$data['sort'],$data['dir']);
@@ -146,7 +156,7 @@ class XiusViewUsers extends JView
         $data['pagination']=$pagination;
 	}
 
-	function _getTotalUsers($data)
+	function _getTotalUsers(&$data)
 	{
 		$model =& XiusFactory::getModel('users','site');
 		$total =& $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
@@ -154,7 +164,7 @@ class XiusViewUsers extends JView
 		$data['total']=$total;
 	}
 
-	function _createUserProfile($data)
+	function _createUserProfile(&$data)
 	{
         $userprofile = array();
         $sortableFields = XiusLibrariesUsersearch::getSortableFields($data['allInfo']);
@@ -178,14 +188,14 @@ class XiusViewUsers extends JView
 				if(!$plgInstance->isVisible())
 					continue;
 				 
-				$plgInstance->getDisplayData(&$userprofile,$data, $info);
+				$plgInstance->getDisplayData($userprofile,$data, $info);
 			}
         }
         $data['userprofile']=$userprofile;
 		$data['sortableFields']= $sortableFields;
 	}
 
-	function _getAppliedInfo($data)
+	function _getAppliedInfo(&$data)
 	{
 	//$availableInfo = $allInfo;
         $appliedInfo = array();
@@ -231,7 +241,7 @@ class XiusViewUsers extends JView
         $data['appliedInfo']=$appliedInfo;
 	}
 
-	function _getAvailableInfo($data)
+	function _getAvailableInfo(&$data)
 	{
         /*XITODO : arrange available info
          * representation array

@@ -150,7 +150,7 @@ class XiusGoogleProximityTest extends XiSelTestCase
 	function testGoogleProximityWithSameCondition()
 	{
 		$this->loadSqlFiles();
-		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'testSearchByGoogleAPI.start.sql');
+		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testSearchByGoogleAPI.start.sql');
 		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();

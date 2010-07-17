@@ -41,7 +41,7 @@ class ProximityView extends XiusBaseView
         $fieldHtml .= '<input type="radio" id="'.$elePrefix.'_option" name="'.$elePrefix.'_option" onClick="javascript:xiusShowGoogleMap(this,&quot;'.$elePrefix.'&quot;);" value="googlemap" />Google Map';
         $fieldHtml .= '<input type="radio" id="'.$elePrefix.'_option" name="'.$elePrefix.'_option" onClick="javascript:xiusShowAddressBox(this,&quot;'.$elePrefix.'&quot;);" value="addressbox" />Address Box<br/>';
          
-        $linkMap = "index.php?option=com_xius&task=getLocationMap&&fromFormName=$formName&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
+        $linkMap = "index.php?option=com_xius&task=getLocationMap&fromFormName=$formName&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
         JHTML::_('behavior.modal', 'a.'.$elePrefix.'_map_button');
         $buttonMap = new JObject();
         $buttonMap->set('modal', true);

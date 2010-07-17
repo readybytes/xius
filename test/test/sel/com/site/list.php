@@ -34,8 +34,8 @@ class XiusListTest extends XiSelTestCase
    	   	$this->click("//img[@class='xius_test_addinfo_1']");
     	$this->waitPageLoad();
     	
-    	$this->assertTrue($this->isElementPresent("//img[@title='Save']"));
-		$this->click("//img[@title='Save']");
+    	$this->assertTrue($this->isElementPresent("//img[@title='Save This List']"));
+		$this->click("//img[@title='Save This List']");
 		
 		$this->waitForElement('sbox-window');
 		sleep(2);
@@ -79,8 +79,8 @@ class XiusListTest extends XiSelTestCase
    	   	$this->click("//img[@class='xius_test_addinfo_2']");
     	$this->waitPageLoad();
     	
-    	$this->assertTrue($this->isElementPresent("//img[@title='Save']"));
-		$this->click("//img[@title='Save']");
+    	$this->assertTrue($this->isElementPresent("//img[@title='Save This List']"));
+		$this->click("//img[@title='Save This List']");
 		
 		$this->waitForElement('sbox-window');
 		sleep(2);

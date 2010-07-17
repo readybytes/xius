@@ -113,7 +113,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 	
 	public static function geocodeProvider()
 	{
-		$geocode[2]=array('latitude' => 26.4538889,'longitude' => 74.6388889);
+		$geocode[2]=array('latitude' => 26.4433,'longitude' => 74.642693);
     	$geocode[5]=array('latitude' => 30.731345,'longitude' => 76.775385);
     	$geocode[6]=array('latitude' => 22.725313,'longitude' => 75.865555);
     	$geocode[8]=array('latitude' => 31.1,'longitude' => 77.17);

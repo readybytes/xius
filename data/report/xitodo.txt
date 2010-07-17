@@ -27,11 +27,12 @@
 ../packages/tmp/admin/libraries/plugins/base.php:380:		// XITODO : is set $c->createCacheColumn
 ../packages/tmp/admin/libraries/plugins/base.php:485:		 * XITODO : Add all cache columns if one instance is 
 ../packages/tmp/admin/libraries/plugins/base.php:526:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:74:    	// XITODO : if not logged in then what to do
 ../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
-../packages/tmp/site/views/users/view.html.php:236:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:328:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/users/view.html.php:246:        /*XITODO : arrange available info
+../packages/tmp/site/views/users/view.html.php:338:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/users/tmpl/results.php:10:/*XITODO : pass variable for color */
 ../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:92:		/*XITODO : pass only searchable information 

@@ -106,4 +106,38 @@ class plgSystemxius_system extends JPlugin
 	{
 		return true;
 	}
+	
+	function onBeforeDisplayProfileLink($data)
+	{
+		global $mainframe;
+
+		//Don't run in admin
+		if($mainframe->isAdmin())
+			return;
+		
+		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
+			return;
+							
+		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		return $pluginHandler->triggerInternelPlugin(__FUNCTION__, $data);	
+		
+	}
+	
+	function onBeforeDisplayResultToolbar($toolbar)
+	{
+		global $mainframe;
+
+		//Don't run in admin
+		if($mainframe->isAdmin())
+			return;
+		
+		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
+			return;
+							
+		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		return $pluginHandler->triggerInternelPlugin(__FUNCTION__, $toolbar);	
+		
+	}
 }

@@ -12,14 +12,20 @@ class XiusHelperProfile
 	function getUserProfileData($users)
 	{
 		//check configuration and call appropriate function
-		return self::jomSocialProfileData($users);
+		$userData = array();
+		self::jomSocialProfileData($users, $userData);
+		
+		$args = array();
+		$args[] = & $userData; 
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeDisplayProfileLink',array( $args ));
+		return $userData;
 	}
 
-	function jomSocialProfileData($users)
+	function jomSocialProfileData($users, &$userData)
 	{
 		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 
-		$userData = array();
 		foreach($users as $user){
 
 			$cuser = CFactory::getUser($user->userid);
@@ -37,9 +43,8 @@ class XiusHelperProfile
 
 			$userData[] = $data;
 		}
-
+		
 		JTable::addIncludePath(XIUS_PATH_TABLE);
-		return $userData;
 	}
 
 }

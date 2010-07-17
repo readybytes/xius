@@ -44,14 +44,13 @@ class XiusPluginControllerProximity extends JController
     	$this->zoom			= PROXIMITY_DEAFULT_MAP_ZOOM;
     	
     	$id		= '';
-    	echo '</form></div><div class="p-add-address">'
+    	echo '<div class="p-add-address">'
 			. '<form action="#" onsubmit="addAddressToMap'.$id.'(); return false;"><h3>'
 			. JText::_('Set Coordinates by address').' : '
 			. '<input type="text" name="xiusAddressNameEl'.$id.'" id="xiusAddressEl'.$id.'" value="" class="address_input" size="30" />'
 			. '<input type="submit" name="find" value="'. JText::_('Set').'" />'
 			. '</h3></form>'
 			. '</div>';
-		echo '</div>';	
 		
 		echo '<div id="xiusmaps"><div><form action="#" name="xiusGmapForm">';
 		
@@ -101,5 +100,7 @@ class XiusPluginControllerProximity extends JController
 	
 		echo $map->endJScData();   	
 		echo JText::_("MESSAGE ON MAP");
+		echo '</form></div>';
+		echo '</div>';	
     }
 }

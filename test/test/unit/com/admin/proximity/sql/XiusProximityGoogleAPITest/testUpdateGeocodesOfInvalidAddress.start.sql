@@ -42,7 +42,7 @@ INSERT INTO `#__xius_proximity_geocode` (`id`, `address`, `latitude`, `longitude
 
 INSERT INTO `au_#__xius_proximity_geocode` (`id`, `address`, `latitude`, `longitude`, `valid`) VALUES
 (1, 'Bhilwara,Rajasthan,India', NULL, NULL, 1),
-(2, 'Ajmer,Rajasthan,India', 26.4538889, 74.6388889, 1),
+(2, 'Ajmer,Rajasthan,India', 26.443300, 74.642693, 1),
 (3, 'Surat,Gujrat,India', NULL, NULL, 1),
 (4, 'Ludhiana,Punjab,India', NULL, NULL, 1),
 (5, 'Chandigarh,Punjab,India', 30.731345, 76.775385, 1),

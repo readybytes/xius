@@ -89,4 +89,30 @@ class XiusLibrariesPluginhandler
 		return $val;
 	}
 	
+	
+	function triggerInternelPlugin($funcName, $data)
+	{
+		$filter = array();
+		$filter['published'] = true;
+		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);		
+	 	if(empty($allInfo))
+	 		return false;
+	 		
+        foreach($allInfo as $info){
+			//$plgInstance = XiusFactory::getPluginInstance($info->id);
+			$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
+			if(!$plgInstance)
+				continue;
+
+			$plgInstance->bind($info);
+
+			if(!$plgInstance->isAllRequirementSatisfy())
+				continue;
+				 
+			if(method_exists($plgInstance, $funcName))
+				call_user_func_array(array($plgInstance, $funcName), $data);
+        }
+	}
+	
+	
 }

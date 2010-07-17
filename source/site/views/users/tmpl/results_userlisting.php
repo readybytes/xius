@@ -10,9 +10,15 @@
 	<?php echo sprintf(JText::_('About :  %s results found'),$this->total);?>
 </span>
 </div>
-<?php foreach($this->users as $user) : ?>
+<?php 
+		$count= 0;
+		foreach($this->users as $user) : ?>
 		  	<div class="xiusMp">
-				<div class="xiusHeader">
+				<div class="xiusHeader">				
+				<?php if(isset($user->email) && !empty($user->email)):?>
+				<input type="checkbox" name="xiusCheckUser" id="xiusCheckUser<?php echo $count++; ?>" value="<?php echo $user->id; ?>" > 
+				<?php endif; ?>
+				
 				<?php echo JText::_(JString::ucfirst($user->name));?>
 				<?php if(!empty($user->status)) : ?>
 						<span class="xiusHeaderStatus">
@@ -48,6 +54,10 @@
 					<?php  else	: ?>
 							<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" title="<?php echo JText::_('Offline'); ?>" />
 					<?php endif; ?>
+					
+					<?php if(isset($user->email) && !empty($user->email)): 
+						 	echo $user->email;
+						  endif; ?>
 
 					</div>
 			</div>
@@ -83,4 +93,3 @@
 		JTable::addIncludePath(XIUS_PATH_TABLE);
 	?>
 </div>
-
