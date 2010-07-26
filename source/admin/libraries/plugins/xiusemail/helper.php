@@ -30,13 +30,33 @@ class XiusemailHelper
     function getResultedUserId()
     {
     	$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+    	$join = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
     	$model =& XiusFactory::getModel('users','site');
-		$users =& $model->getUsers($conditions,'AND','userid','ASC',false);
+		$users =& $model->getUsers($conditions,$join,'userid','ASC',false);
 		$userid= array();
 		foreach($users as $u)
 			$userid[] = $u->userid;
 		
 		return $userid;
+    }
+    
+	function showErrorMessage($message,$recipient)
+    {
+    	$document = JFactory::getDocument();
+    	if($recipient != array()){    		    	
+        	$css= JURI::base().'administrator/components/com_xius/assets/css/front/xiusemail.css';
+        	$document->addStyleSheet($css);        
+    	
+    		echo '<div class="xius_email" ><div class="xiusEmailHeader"><span>'.$message.'</span></div></div>';
+    		echo '<ul>';
+    		foreach($recipient as $rec)
+    			echo "<li>$rec</li>";
+    		
+    		echo '<ul>';
+    	}
+    	
+		$js = "window.setTimeout(\"parent.SqueezeBox.close()\", 5000);";
+ 		$document->addScriptDeclaration($js);
     }
 	
 }

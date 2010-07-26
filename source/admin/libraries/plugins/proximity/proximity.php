@@ -243,20 +243,13 @@ class Proximity extends XiusBase
 	}
 	
 	public function _getFormatAppliedData($value)
-	{
-		$value = $this->_getArrangedValue($value);
+	{		
+		$value 		= $this->_getArrangedValue($value);
 		
-		$linkMap = "http://maps.google.com/maps/api/staticmap?center={$value['latitude']},{$value['longitude']}&zoom=7&size=".PROXIMITY_APPLIED_IFRAME_WIDTH."x".PROXIMITY_APPLIED_IFRAME_HEIGHT
+		$linkMap 	= "http://maps.google.com/maps/api/staticmap?center={$value['latitude']},{$value['longitude']}&zoom=7&size=".PROXIMITY_APPLIED_IFRAME_WIDTH."x".PROXIMITY_APPLIED_IFRAME_HEIGHT
 		 			."&maptype=roadmap&markers=size:large|color:Red|label:S|{$value['latitude']},{$value['longitude']}&sensor=false"
 					."";
-        JHTML::_('behavior.modal', 'a.xius_show_location_map');
-        $buttonMap = new JObject();
-        $buttonMap->set('modal', true);
-        $buttonMap->set('link', $linkMap);
-        $buttonMap->set('text', JText::_( 'SHOW LOCATION' ));
-        $buttonMap->set('name', 'image');
-        $buttonMap->set('modalname', 'xius_show_location_map');
-        $buttonMap->set('options', "{handler: 'iframe', size: {x: ".PROXIMITY_APPLIED_IFRAME_WIDTH.", y: ".PROXIMITY_APPLIED_IFRAME_HEIGHT."}}");
+		$buttonMap 	= XiusFactory::getModalButtonObject('xius_show_location_map',JText::_( 'SHOW LOCATION' ),$linkMap,PROXIMITY_APPLIED_IFRAME_WIDTH,PROXIMITY_APPLIED_IFRAME_HEIGHT);
         $fieldHtml     = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a>';
 		return array($fieldHtml);	
 	}	

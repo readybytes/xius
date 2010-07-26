@@ -130,5 +130,17 @@ class XiusFactory
 		$object = new XiusCache();
 		return $object;
 	}
-	
+	//XITODO : send parameters as array of args
+	function getModalButtonObject($name,$text,$link,$width=750,$height=480)
+	{
+		JHTML::_('behavior.modal', "a.{$name}");
+        $buttonMap = new JObject();
+        $buttonMap->set('modal', true);
+        $buttonMap->set('text', JText::_( $text ));
+        $buttonMap->set('name', 'image');
+        $buttonMap->set('modalname', $name);
+        $buttonMap->set('options', "{handler: 'iframe', size: {x: ".$width.", y: ".$height."}}");        
+        $buttonMap->set('link', $link);
+        return $buttonMap;        	
+	}
 }

@@ -71,4 +71,10 @@ INSERT INTO `#__xius_cache` (`userid`, `jsfields19_0`) VALUES
 (119, '2'),
 (120, '1');;
 
+TRUNCATE TABLE `#__xipt_profiletypes`;;
+INSERT INTO `#__xipt_profiletypes` (`id`, `name`, `ordering`, `published`, `tip`, `privacy`, `template`, `jusertype`, `avatar`, `approve`, `allowt`, `group`, `watermark`, `params`) VALUES
+(1, 'Free Member', 0, 1, 'If you are just want to explore the site, choose this type. Its free.', 'members', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 4, '', ''),
+(2, 'Paid Subscriber', 1, 1, 'If you wish to subscribe for the paid components and services, choose this account type.', 'friends', 'default', 'Registered', 'images/profiletype/avatar_2.gif', 0, 1, 1, '', ''),
+(3, 'Serious Joomla User', 2, 1, 'Serious Joomla User, are the users who really want to motivate the joomla developers to enhance the joomla experience. When you subscribe to this plan, you support us by paying few $$.', 'friends', 'default', 'Registered', 'images/profiletype/avatar_3.png', 0, 0, 0, '', ''),
+(4, 'Moderator', 3, 0, 'The members are moderating the website.', 'friends', 'default', 'Registered', '/images/avatar/a1f960fb81d15c26035a6808.jpg', 1, 0, 0, '', '');;
 

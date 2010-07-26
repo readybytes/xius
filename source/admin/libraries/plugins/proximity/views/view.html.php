@@ -22,8 +22,6 @@ class ProximityView extends XiusBaseView
        
         $latitude 	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
     	$longitude	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
-    	
-        
         
         /*In $this->key , I will store field id for my understanding
          * so i can easily get properties of info
@@ -42,15 +40,9 @@ class ProximityView extends XiusBaseView
         $fieldHtml .= '<input type="radio" id="'.$elePrefix.'_option" name="'.$elePrefix.'_option" onClick="javascript:xiusShowAddressBox(this,&quot;'.$elePrefix.'&quot;);" value="addressbox" />Address Box<br/>';
          
         $linkMap = "index.php?option=com_xius&task=getLocationMap&fromFormName=$formName&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
-        JHTML::_('behavior.modal', 'a.'.$elePrefix.'_map_button');
-        $buttonMap = new JObject();
-        $buttonMap->set('modal', true);
-        $buttonMap->set('link', $linkMap);
-        $buttonMap->set('text', JText::_( 'SHOW GOOGLE MAP' ));
-        $buttonMap->set('name', 'image');
-        $buttonMap->set('modalname', $elePrefix.'_map_button');
-        $buttonMap->set('options', "{handler: 'iframe', size: {x: ".PROXIMITY_IFRAME_WIDTH.", y: ".PROXIMITY_IFRAME_HEIGHT."}}");
-        $this->assignRef('buttonmap', $buttonMap);
+
+        $buttonMap = XiusFactory::getModalButtonObject($elePrefix.'_map_button',JText::_( 'SHOW GOOGLE MAP' ),$linkMap,PROXIMITY_IFRAME_WIDTH,PROXIMITY_IFRAME_HEIGHT);
+	    $this->assignRef('buttonmap', $buttonMap);
         $fieldHtml    .= '<div id="'.$elePrefix.'_gmap_option" style="display:none;">';
         $fieldHtml     .= '<br/><a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a></div>';
        

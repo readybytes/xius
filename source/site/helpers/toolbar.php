@@ -12,6 +12,12 @@ class XiusHelperToolbar
 	function getAdminToolbar($listid, $task)
 	{
 		$toolbar	= array();
+		
+		$args = array();
+		$args[]=& $toolbar;		
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeDisplayResultToolbar', array($args) );
+		
 		$obj 		= new stdClass();
 		$url = JRoute::_("index.php?option=com_xius&view=users&task=displaySaveOption&tmpl=component&listid=".$listid);
 		$obj->value = "<a class ='savelist' href='{$url}' rel = \"{handler: 'iframe', size: {x: 500 , y: 450}}\" >"
@@ -22,12 +28,7 @@ class XiusHelperToolbar
 		$csvurl = JRoute::_("index.php?option=com_xius&view=users&task=".$task."&subtask=xiusexport&format=csv");
 		$obj->value	= "<img src='".JURI::base()."components/com_xius/assets/images/excel.png' onClick=\"location.href='".JRoute::_($csvurl,false)."'\" title='Export TO CSV' />";
 		$toolbar['csv'] = $obj;
-		$args = array();
-		$args[]=& $toolbar;
-		
-		$dispatcher =& JDispatcher::getInstance();
-		$dispatcher->trigger( 'onBeforeDisplayResultToolbar', array($args) );
-		
+				
 		return $toolbar;
 	}	
 }

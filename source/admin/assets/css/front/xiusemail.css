@@ -46,17 +46,18 @@
 		float: left;
 		width: 15%;
 		text-align:right;
+		font-size:medium;
 		font-weight: bold;
 		padding-top: 0px;
 		padding-right: 10px;
 		padding-bottom: 0px;
 		padding-left: 0px;
-		margin-top: 0px;
+		margin-top: 10px;
 		margin-right: 0px;
 		margin-bottom: 0px;
 		margin-left: 0px;
 	}
-
+	
 .xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl
 	{
 		witdth : 85 %;
@@ -67,10 +68,15 @@
 		margin-top: 0px;
 		margin-right: 0px;
 		margin-bottom: 0px;
-		margin-left: 0px;				
+		margin-left: 0px;			
 	}
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input,textarea 
+.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl a
+	{
+		font-size: xx-small;
+	}
+	
+.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input
 	{
 		padding: 9px;
 		border: solid 1px #E5E5E5;
@@ -94,14 +100,14 @@
 	}
 	
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input:hover,textarea:hover,input:focus,textarea:focus 
+.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input:hover,input:focus,textarea:focus 
 	{
 		border-color: #C9C9C9;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
 	}
 
 .xius_email .xiusEmailFooter input {
-	margin-left:1px;:
+	margin-left:1px;
 	width: auto;
 	padding: 9px 15px;
 	background: #D8DFEA;
@@ -111,5 +117,17 @@
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	cursor: pointer;
+}
+
+.xius_email .xiusEmailError {
+	margin-top: 1%;
+	margin-right: 10%;
+	text-align:right;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: auto;
+	border: 0;
+	font-size: 12px;
+	color: red;	
 }
 	
