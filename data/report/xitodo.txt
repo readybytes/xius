@@ -27,8 +27,9 @@
 ../packages/tmp/admin/libraries/plugins/base.php:380:		// XITODO : is set $c->createCacheColumn
 ../packages/tmp/admin/libraries/plugins/base.php:485:		 * XITODO : Add all cache columns if one instance is 
 ../packages/tmp/admin/libraries/plugins/base.php:526:		/*XITODO : never initialize params again
-../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:81:    	// XITODO : if not logged in then what to do
+../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:86:    	// XITODO : if not logged in then what to do
 ../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/factory.php:133:	//XITODO : send parameters as array of args
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
 ../packages/tmp/site/views/users/view.html.php:246:        /*XITODO : arrange available info

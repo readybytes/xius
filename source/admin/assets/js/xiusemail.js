@@ -1,14 +1,14 @@
 function xiusListSelectUser() {
 	// check message box or subject box are empty or not when comes from email window
-	if( checkEmailSubjectExist() == false){
+	if( xiusCheckEmailSubjectExist() == false){
 		alert("Subject can not be empty.");
 		return false;
 	}
 			
-	/*if( checkEmailMessageExist() == false){
+	if( xiusCheckEmailMessageExist() == ""){
 		alert("Message Box can not be empty.");
 		return false;
-	}*/
+	}
 	
 	var tempId = new Array();
     for (var i = 0; true; i++) {
@@ -23,17 +23,9 @@ function xiusListSelectUser() {
     return true;
 }
 
-function checkEmailSubjectExist(){
+function xiusCheckEmailSubjectExist(){
 	var subject = document.getElementById('xiusEmailSubjectEl');
 	if(trim(subject.value)=="")
-		return false;
-	return true;
-}
-
-function checkEmailMessageExist(){
-	var message = document.getElementById('xiusEmailMessageEl');
-	var str= message.getContent();
-	if(trim(str)=="")
 		return false;
 	return true;
 }

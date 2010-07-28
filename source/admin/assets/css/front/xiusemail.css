@@ -76,7 +76,7 @@
 		font-size: xx-small;
 	}
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input
+.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input,textarea
 	{
 		padding: 9px;
 		border: solid 1px #E5E5E5;

@@ -40,38 +40,43 @@ class XiusPluginControllerXiusemail extends JController
         $document->addScript($js);
         $document->addStyleSheet($css);
         
-        $editor =& JFactory::getEditor();    
-	    
+        $editor =& JFactory::getEditor(); 
+        
     	// display the form for emailing
     	echo '<div class="xius_email" >'
 			.'<form action="index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$pluginId.'&userid='.$userId.'&tmpl=component" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();"><h3>'
 			.'<div  class="xiusEmailHeader"><span>'.JText::_('XIUS EMAIL').'</span></div>';
 		if($userSelected == 'no')
-			echo '<div class="xiusEmailError">'.JText::_("YOU HAVE NOT SELECTED ANY USER TO EMAIL").'</div>';
-			
-		echo '<div class="xiusEmailBox">'
-			.'<div class="xiusEmailEntity">'
-			.'<div class="xiusEmailLabel">'
-			.'<span>'.JText::_('XIUS EMAIL SUBJECT').'</span>'
-			.'</div>'
-			.'<div class="xiusEmailControl">'
-			.'<input type="text" name="xiusEmailSubjectEl" id="xiusEmailSubjectEl" value="" class="input_box" size="40" /><br/><br/>'
-			.'</div></div>'
-			.'<div class="xiusEmailEntity">'
-			.'<div class="xiusEmailLabel">'
-			.'<span>'.JText::_('XIUS EMAIL MESSAGE').'</span>'
-			.'</div>'
-			.'<div class="xiusEmailControl" onBlur="alert(\"sdfdsfsdf\");">'
-			.$editor->display( 'xiusEmailMessageEl', '', '525', '270', '60', '20' )
-			.'</div></div>'
-			.'</div>'
-			.'<input type="hidden" name="xiusSelectedUserid" id="xiusSelectedUserid" value="" />';
-
-			if($userSelected == 'yes' || $userSelected==null)
-				echo '<div class="xiusEmailFooter"><input type="submit" name="send" value="'. JText::_('XIUS EMAIL SEND').'" /></div>';
+			echo '<div class="xiusEmailError"><span id="xiusErrorUserNotSelected">'.JText::_("YOU HAVE NOT SELECTED ANY USER TO EMAIL").'</span</div>';
+		else 	
+			echo '<div class="xiusEmailBox">'
+				.'<div class="xiusEmailEntity">'
+				.'<div class="xiusEmailLabel">'
+				.'<span>'.JText::_('XIUS EMAIL SUBJECT').'</span>'
+				.'</div>'
+				.'<div class="xiusEmailControl">'
+				.'<input type="text" name="xiusEmailSubjectEl" id="xiusEmailSubjectEl" value="" class="input_box" size="40" /><br/><br/>'
+				.'</div></div>'
+				.'<div class="xiusEmailEntity">'
+				.'<div class="xiusEmailLabel">'
+				.'<span>'.JText::_('XIUS EMAIL MESSAGE').'</span>'
+				.'</div>'
+				.'<div class="xiusEmailControl">'
+				.$editor->display( 'xiusEmailMessageEl', '', '525', '270', '60', '20' )
+				.'</div></div>'
+				.'</div>'
+				.'<input type="hidden" name="xiusSelectedUserid" id="xiusSelectedUserid" value="" />'
+				.'<div class="xiusEmailFooter"><input type="submit" name="send" value="'. JText::_('XIUS EMAIL SEND').'" /></div>'
 			//.'<input type="button" name="cancel" href="javascript:window.close();" value="'. JText::_('XIUS EMAIL CANCEL').'" />'
-			echo '</h3></form>'
-			.'</div>';
+			 	.'</h3></form>'
+				.'</div>';
+
+		$js="function xiusCheckEmailMessageExist(){
+		       		var content = ".$editor->getContent('xiusEmailMessageEl').";
+		       		return content;     			
+        		}
+        	";
+		$document->addScriptDeclaration($js);
     }
     
     function sendEmail($pluginId=null, $userId=null, $post=null)
@@ -119,11 +124,15 @@ class XiusPluginControllerXiusemail extends JController
     	$message = JRequest::getVar( 'xiusEmailMessageEl', '', 'post', 'string', JREQUEST_ALLOWRAW );
     	$sent=JUtility::sendMail($serderEmail, $loggedInUser->name, $recipient, $post['xiusEmailSubjectEl'], $message,1 );
     	if(is_object($sent)){
-    		XiusemailHelper::showErrorMessage('',array());
+    		XiusemailHelper::showResultMessage('',array());
     		return false;
     	}
     	
-    	XiusemailHelper::showErrorMessage(JText::_("EMAIL SENT TO FOLLOWING USERS"),$recipient);
+    	$userName =  XiusemailHelper::getUserDataFromUsersTable($userId,'name');
+    	$users = array();
+    	foreach($userName as $u)
+    		$users[] = $u->name;
+    	XiusemailHelper::showResultMessage(JText::_("EMAIL SENT TO FOLLOWING USERS"),$users);
     	return true;    			
     }
 }
