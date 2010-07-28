@@ -36,7 +36,7 @@ class XiusemailSelTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//input[@id='xiusCheckUser0']"));
 		
 		$this->click("//a[@id='xius_email_button62']");
-		sleep(1);
+		sleep(2);
 		$this->click("send");
     	$this->assertEquals("Subject can not be empty.", $this->getAlert());
 
@@ -70,14 +70,14 @@ class XiusemailSelTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//input[@id='xiusCheckUser0']"));
 		
 		$this->click("//a[@id='xius_emailselected_button']");
-		sleep(1);
+		sleep(2);
 		$this->assertTrue($this->isElementPresent("//span[@id='xiusErrorUserNotSelected']"));
     	$this->click('sbox-btn-close');
-    	sleep(1);
+    	sleep(2);
     	$this->click("//input[@id='xiusCheckUser0']");
     	$this->click("//input[@id='xiusCheckUser1']");
     	$this->click("//a[@id='xius_emailselected_button']");
-		sleep(1);
+		sleep(2);
 		
 		$this->type("xiusEmailSubjectEl","Test Mail From Xius Email System");
     	$this->click("link=Toggle editor");
@@ -113,11 +113,11 @@ class XiusemailSelTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//input[@id='xiusCheckUser0']"));
 		
 		$this->click("//a[@id='xius_emailall_button']");
-		sleep(1);
+		sleep(2);
 		
 		$this->type("xiusEmailSubjectEl","Test Mail From Xius Email System");
     	$this->click("link=Toggle editor");
-    	sleep(1);
+    	sleep(2);
     	$this->type("xiusEmailMessageEl", "<p>Test Email</p>");
     	$this->click("link=Toggle editor");$this->click('send');
     	$this->waitPageLoad();
@@ -146,11 +146,11 @@ class XiusemailSelTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//input[@id='xiusCheckUser1']"));
 		
 		$this->click("//a[@id='xius_emailall_button']");
-		sleep(1);
+		sleep(2);
 		
 		$this->type("xiusEmailSubjectEl","Test Mail From Xius Email System");
     	$this->click("link=Toggle editor");
-    	sleep(1);
+    	sleep(2);
     	$this->type("xiusEmailMessageEl", "<p>Test Email</p>");
     	$this->click("link=Toggle editor");$this->click('send');
 		$this->waitPageLoad();
