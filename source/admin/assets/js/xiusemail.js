@@ -11,13 +11,16 @@ function xiusListSelectUser() {
 	}
 	
 	var tempId = new Array();
+	var count=0;
     for (var i = 0; true; i++) {
     	var str = 'xiusCheckUser' + i;
     	var cbx = parent.document.getElementById(str);
     	if (!cbx) break;
-        if(cbx.checked == true)
-           	tempId[i] = cbx.value;
-        } // for
+        if(cbx.checked == true){
+           	tempId[count] = cbx.value;
+           	count++;
+       	}
+    } // for
     var hid1 = document.getElementById('xiusSelectedUserid');
     hid1.value = tempId;
     return true;

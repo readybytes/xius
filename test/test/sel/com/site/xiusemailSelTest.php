@@ -10,7 +10,7 @@ class XiusemailSelTest extends XiSelTestCase
 	function setEmailSettings()
 	{
 		$filter['mailer'] 	= 'smtp';
-		$filter['mailfrom'] = 'gaurav.jain028@gmail.com';
+		$filter['mailfrom'] = 'teamjoomlaxi@gmail.com';
 		$filter['smtpauth'] = '1';
 		$filter['smtpsecure'] = 'tls';
 		$filter['smtpport'] = '465';
@@ -88,6 +88,25 @@ class XiusemailSelTest extends XiSelTestCase
     	$this->assertTrue($this->isElementPresent("//span[@id='Email has been sent to following Users.']"));
     	$this->assertTrue($this->isElementPresent("//li[@id='Administrator']"));
     	$this->assertTrue($this->isElementPresent("//li[@id='name64']"));
+    	
+    	
+    	// make diffrence b/t two selection
+    	$this->click('sbox-btn-close');
+    	sleep(2);
+    	$this->click("//input[@id='xiusCheckUser7']");
+    	$this->click("//input[@id='xiusCheckUser19']");
+    	$this->click("//a[@id='xius_emailselected_button']");
+		sleep(2);
+		
+		$this->type("xiusEmailSubjectEl","Test Mail From Xius Email System");
+    	$this->click("link=Toggle editor");
+    	$this->type("xiusEmailMessageEl", "<p>Test Email</p>");
+    	$this->click("link=Toggle editor");$this->click('send');
+    	$this->waitPageLoad();
+    	    	
+    	$this->assertTrue($this->isElementPresent("//span[@id='Email has been sent to following Users.']"));
+    	$this->assertTrue($this->isElementPresent("//li[@id='name70']"));
+    	$this->assertTrue($this->isElementPresent("//li[@id='name82']"));
 	}
 	
 	function testXiusEmailToAll()
