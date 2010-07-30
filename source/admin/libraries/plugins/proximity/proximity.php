@@ -36,6 +36,17 @@ class Proximity extends XiusBase
 		return $this->encoder->getTableMapping();
 	}
 	
+	function getSortableTableMapping()
+	{
+		if($this->isSortable()==false)
+			return false;
+			
+		$object	= new stdClass();
+		$object->cacheColumnName = 'xius_proximity_distance';
+		$tableInfo[]=$object;
+		return $tableInfo;
+	}
+	
 	function isAllRequirementSatisfy()
 	{
 		if(isset($this->key) && !empty($this->key)){			
@@ -214,6 +225,18 @@ class Proximity extends XiusBase
 		
 	}
 	
+	public function isSortable()
+	{
+		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		if(!is_array($conditions) || empty($conditions))
+			return false;
+
+		foreach($conditions as $cond ){
+			if($cond['infoid'] == $this->id && $this->validateValues($cond['value']) != false)
+				return true;				
+		}		
+		return false;
+	}
 	
 	public function getTempColumnName()
 	{

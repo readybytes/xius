@@ -352,6 +352,11 @@ abstract class XiusBase extends JObject
 		return $tableInfo;
 	}
 		
+	public function getSortableTableMapping()
+	{
+		return $this->getTableMapping();
+	}
+	
 	/*fn return exact parameter details that will store
 	 * in that field
 	 */ 

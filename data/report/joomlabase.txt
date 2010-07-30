@@ -83,7 +83,7 @@
 ../packages/tmp/admin/tables/info.php:9:class XiusTableInfo extends JTable
 ../packages/tmp/admin/tables/info.php:47:	 * Overrides Joomla's JTable store method so that we can define proper values
 ../packages/tmp/admin/includes.php:26:JTable::addIncludePath(XIUS_PATH_TABLE);
-../packages/tmp/admin/includes.php:59:$lang =& JFactory::getLanguage();
+../packages/tmp/admin/includes.php:60:$lang =& JFactory::getLanguage();
 ../packages/tmp/admin/models/list.php:18:    	global $mainframe;
 ../packages/tmp/admin/models/list.php:21:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
 ../packages/tmp/admin/models/list.php:22:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius.limitstart', 'limitstart', 0, 'int' );
@@ -121,8 +121,6 @@
 ../packages/tmp/admin/models/info.php:183:		$db 	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/query.php:452:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/pluginhandler.php:29:		$user =& JFactory::getUser();
-../packages/tmp/admin/libraries/pluginhandler.php:52:		global $mainframe;
-../packages/tmp/admin/libraries/pluginhandler.php:57:			$mainframe->redirect(JRoute::_("index.php?option=com_xius",false));	
 ../packages/tmp/admin/libraries/cache.php:21:		$this->db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/usersearch.php:28:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/usersearch.php:85:		$mySess =& JFactory::getSession();
@@ -136,7 +134,7 @@
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:121:		$document	=& JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:140:			$mySess 	= & JFactory::getSession();
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:139:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:31:        $document =& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:34:        $mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/controller.php:10:class XiusPluginControllerProximity extends JController 
@@ -151,10 +149,10 @@
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:70:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:76:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:653:		$link		= JRoute::_( $link );
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:97:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:373:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:402:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:482:		$db =& JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:108:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:378:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:407:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/base.php:487:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:9:class XiusPluginControllerXiusemail extends JController 
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:39:        $document =& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:43:        $editor =& JFactory::getEditor(); 
@@ -229,10 +227,13 @@
 ../packages/tmp/site/models/users.php:22:        $limit = $mainframe->getUserStateFromRequest('com_xius_user.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/install/extensions/xius_system/xius_system.php:49:		global $mainframe;
 ../packages/tmp/install/extensions/xius_system/xius_system.php:52:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:112:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:115:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:129:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:132:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:66:		$oldTablePath = JTable::addIncludePath();
+../packages/tmp/install/extensions/xius_system/xius_system.php:69:		JTable::addIncludePath($oldTablePath);
+../packages/tmp/install/extensions/xius_system/xius_system.php:74:		$mainframe->redirect(JRoute::_("index.php?option=com_xius",false));			
+../packages/tmp/install/extensions/xius_system/xius_system.php:120:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:123:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:137:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:140:		if($mainframe->isAdmin())
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:15:$mySess =& JFactory::getSession();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:9:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>

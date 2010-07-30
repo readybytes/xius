@@ -124,7 +124,7 @@ class XiusViewUsers extends JView
 		if(!$plgSortInstance)
 			$sort = 'userid';
 		else{
-			$cacheColumns = $plgSortInstance->getTableMapping();
+			$cacheColumns = $plgSortInstance->getSortableTableMapping();
 			if(empty($cacheColumns))
 				$sort = 'userid';
 			else {

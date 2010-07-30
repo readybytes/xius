@@ -45,12 +45,13 @@ XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');
 
 /*community files */
-XiusLoader::addAutoLoadFile('CFactory', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
-XiusLoader::addAutoLoadFile('CAssets', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
-XiusLoader::addAutoLoadFile('CConfig', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
-XiusLoader::addAutoLoadFile('CApplications', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
-XiusLoader::addAutoLoadFile('CUser', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
-XiusLoader::addAutoLoadFile('CRoute', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CFactory', XIUS_PATH_LIBRARY.DS.'community.php');
+//XiusLoader::addAutoLoadFile('CFactory', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php');
+XiusLoader::addAutoLoadFile('CAssets', XIUS_PATH_LIBRARY.DS.'community.php');
+XiusLoader::addAutoLoadFile('CConfig', XIUS_PATH_LIBRARY.DS.'community.php');
+XiusLoader::addAutoLoadFile('CApplications', XIUS_PATH_LIBRARY.DS.'community.php');
+XiusLoader::addAutoLoadFile('CUser', XIUS_PATH_LIBRARY.DS.'community.php');
+XiusLoader::addAutoLoadFile('CRoute', XIUS_PATH_LIBRARY.DS.'community.php');
 
 XiusLoader::addAutoLoadFile('CMessaging', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'messaging.php');
 require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';

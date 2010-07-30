@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="All List">
+	<layout title="Show List">
 		<message>
-			<![CDATA[Display All User List.]]>
+			<![CDATA[Display User List.]]>
 		</message>
 	</layout>
 	<state>
-		<name>User List</name>
-		<url>
-			<param name="task" type="hidden" default="displayList" label="Task" description="DISPLAY ALL LIST" />
+		<name>Show List</name>
+		<description>Through this link you will be able to redirect user to a particular list.</description>
+		<url addpath="/administrator/components/com_xius/elements">
+		<param name="task" type="hidden" default="displayList" label="LIST" description="LIST.DESC" addall="true" />
+		<param name="listid" type="xiuslist" default="0" label="LIST" description="LIST.DESC" addall="true" />		
 		</url>
 	</state>
 </metadata>

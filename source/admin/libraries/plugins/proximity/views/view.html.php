@@ -52,8 +52,8 @@ class ProximityView extends XiusBaseView
        // $fieldHtml .= JText::_('LONGITUDE').' <input class="inputbox" type="text" name="'.$elePrefix.'_long" id="'.$elePrefix.'_long" value='.$longitude.' /><br />';
         $fieldHtml 	 .= '<input class="inputbox" type="hidden" name="'.$elePrefix.'_lat" id="'.$elePrefix.'_lat" value='.$latitude.' /> ';
         $fieldHtml   .= '<input class="inputbox" type="hidden" name="'.$elePrefix.'_long" id="'.$elePrefix.'_long" value='.$longitude.' /><br />';
-        $fieldHtml .= JText::_('DISTANCE').'<br/><input class="inputbox" type="text" size="12" name="'.$elePrefix.'_dis" id="'.$elePrefix.'_dis" value="10" />';
-        $fieldHtml .= '<select class="selectbox" name="'.$elePrefix.'_dis_unit" id="'.$elePrefix.'_dis_unit" value="">';
+        $fieldHtml .= JText::_('DISTANCE').'<br/><input class="xiusProximityInputbox" type="text" size="12" name="'.$elePrefix.'_dis" id="'.$elePrefix.'_dis" value="10" />';
+        $fieldHtml .= '<select class="xiusProximitySelectbox" name="'.$elePrefix.'_dis_unit" id="'.$elePrefix.'_dis_unit" value="">';
         $fieldHtml .= '<option value="miles" selected>'.JText::_("MILES").'</option>';
         $fieldHtml .= '<option value="kms" >'.JText::_("KMS").'</option></select>';
                    

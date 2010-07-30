@@ -50,20 +50,28 @@ class plgSystemxius_system extends JPlugin
 
 		//Don't run in admin
 		if($mainframe->isAdmin())
-		return;
+			return;
+
+	 	// take to xius search if community search is performed
+		$option=JRequest::getCmd('option','','GET');
+		$view=JRequest::getCmd('view','','GET');
+		$task=JRequest::getCmd('task','','GET');
+		
+		if($option != 'com_community' || $view != 'search' || $task != 'advancesearch')
+			return;		
 		
 		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
 			return;
 			
+		$oldTablePath = JTable::addIncludePath();
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$xiusReplaceSearch=XiusHelpersUtils::getConfigurationParams('xiusReplaceSearch',0);
+		JTable::addIncludePath($oldTablePath);
 
 		if(!$xiusReplaceSearch)
 			return;
 			
-		$pluginHandler=XiusFactory::getLibraryPluginHandler();
-		$pluginHandler->changeUrl();
-			
+		$mainframe->redirect(JRoute::_("index.php?option=com_xius",false));			
 	}
 
 	function onAfterXiusCacheUpdate()
@@ -141,3 +149,4 @@ class plgSystemxius_system extends JPlugin
 		
 	}
 }
+

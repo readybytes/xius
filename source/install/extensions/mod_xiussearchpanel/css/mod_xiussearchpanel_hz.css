@@ -12,6 +12,7 @@
 	float: left;
 	width:45%;
     margin-top: 5px;
+    margin-right: 3%;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
@@ -25,23 +26,28 @@
 
 .xiMod_right {	
 	margin: 0 0 0 1px;
+	width:60%;
+	float:right;
 }
 .xiusMod_available input {
-	width: 115px;
+	width: 90%;
 	margin: 0 0 0 0;
 }
 
 .xiusMod_available select {
-	width: 120px;
+	width: 90%;
 	margin: 0 0 0 0;
 }
 
 .xiusMod_available input[type="checkbox"] {
-	width: 15px;
+	width: 10%;
 }
 
 .xiusMod_available input[type="radio"] {
-	width: 15px;
+	width: 10%;
+	display:inline-table; 
+	
+	
 }
 .xiusModSearch{
 	float:left;
@@ -53,4 +59,10 @@
 	display: block;
 	padding-left: 0px;
     margin-left:0px;
+}
+.xiusMod_available .xiusProximityInputbox{
+	width:48%;
+}
+.xiusMod_available .xiusProximitySelectbox {
+	width:48%;
 }

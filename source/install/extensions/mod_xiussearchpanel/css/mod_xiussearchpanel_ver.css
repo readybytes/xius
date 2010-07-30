@@ -26,21 +26,21 @@ font-weight:bold;
 	margin: 0 0 0 1px;
 }
 .xiusMod_available input {
-	width: 115px;
+	width: 90%;
 	margin: 0 0 0 0;
 }
 
 .xiusMod_available select {
-	width: 120px;
+	width: 90%;
 	margin: 0 0 0 0;
 }
 
 .xiusMod_available input[type="checkbox"] {
-	width: 15px;
+	width: 10%;
 }
 
 .xiusMod_available input[type="radio"] {
-	width: 15px;
+	width: 10%px;
 }
 .xiusModSearch{
 	}
@@ -52,3 +52,11 @@ font-weight:bold;
 	padding-left:0px;
     margin-left:0px;
 }
+
+.xiusMod_available .xiusProximityInputbox{
+	width:50%;
+}
+.xiusMod_available .xiusProximitySelectbox {
+	width:40%;	
+}
+

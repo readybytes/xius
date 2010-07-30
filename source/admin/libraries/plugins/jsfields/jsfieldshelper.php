@@ -124,7 +124,6 @@ class Jsfieldshelper
 		$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
 		$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
 		
-		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'core.php' );
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		
 		$fieldHTML = '';
