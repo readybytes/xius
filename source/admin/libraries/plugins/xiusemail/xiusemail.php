@@ -90,9 +90,10 @@ class Xiusemail extends XiusBase
 		
         foreach( $data as $user ){
         	$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid={$user->id}&tmpl=component";
-        	$buttonMap = XiusFactory::getModalButtonObject('xius_email_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
-        	$user->email	= '<a id="'.$buttonMap->modalname.$user->id.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a>';
-        }
+        	$buttonMap = XiusFactory::getModalButtonObject('xius_email_button',JText::_('EMAIL'),$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
+        	$user->email	= '<a id="'.$buttonMap->modalname.$user->id.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'
+        						.'<img src="'. JURI::base().'components/com_xius/assets/images/email.png" title="'.JText::_("XIUS EMAIL").'" /></a>&nbsp;';
+            }
 	}
 	
 	function onBeforeDisplayResultToolbar($toolbar)
@@ -122,7 +123,7 @@ class Xiusemail extends XiusBase
 		$buttonMap = XiusFactory::getModalButtonObject('xius_emailselected_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
 		$obj= new stdClass();
         $obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'" onClick="return xiusCheckUserSelected()">'
-        				.'<img src="'. JURI::base().'components/com_xius/assets/images/emailselected.png" title="'.JText::_("EMAIL TO SELECTED").'" /></a>&nbsp;';
+        				.'<img src="'. JURI::base().'components/com_xius/assets/images/emailselected.png" title="'.JText::_("XIUS EMAIL TO SELECTED").'" /></a>&nbsp;';
    
 		$toolbar['selected'] = $obj;
 		
@@ -131,7 +132,7 @@ class Xiusemail extends XiusBase
         $buttonMap = XiusFactory::getModalButtonObject('xius_emailall_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
         $obj= new stdClass();
         $obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'
-        			  .'<img src="'. JURI::base().'components/com_xius/assets/images/emailall.png" title="'.JText::_("EMAIL ALL").'" /></a>';
+        			  .'<img src="'. JURI::base().'components/com_xius/assets/images/emailall.png" title="'.JText::_("XIUS EMAIL ALL").'" /></a>&nbsp;';
    
 		$toolbar['all'] = $obj;	
 	}

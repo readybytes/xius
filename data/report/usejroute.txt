@@ -18,8 +18,8 @@
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:42:        $linkMap = "index.php?option=com_xius&task=getLocationMap&fromFormName=$formName&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:47:			.'<form action="index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$pluginId.'&userid='.$userId.'&tmpl=component" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();"><h3>'
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:92:        	$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid={$user->id}&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:121:        $linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=selected&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:130:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=all&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:122:        $linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=selected&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:131:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=all&tmpl=component";
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:26:		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult';
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:30:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:17:				$link = 'index.php?option=com_xius&view=users&layout=lists&task=displayList';

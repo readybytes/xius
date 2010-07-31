@@ -158,7 +158,7 @@
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:43:        $editor =& JFactory::getEditor(); 
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:85:    	$loggedInUser 	= JFactory::getUser();
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:32:		$loggedInUser =& JFactory::getUser();
-../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:118:		$document =& JFactory::getDocument();        				
+../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:119:		$document =& JFactory::getDocument();        				
 ../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:20:    	$db = & JFactory::getDBO();	
 ../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:45:    	$document = JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:71:    	$db = & JFactory::getDBO();	
