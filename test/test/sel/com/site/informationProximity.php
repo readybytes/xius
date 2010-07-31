@@ -312,5 +312,63 @@ class XiusInformationProximityTest extends XiSelTestCase
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);	  
   }
+  
+// XITODO :: convert into unit test case
+  function testProximityWithMatchAny()
+  {
+  		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert17.sql');
+ 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testProximityByBoth.start.sql');;
+  		// search from proximity information
+ 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+  	  	$this->waitPageLoad();
+  	  
+ 		$this->click("//input[@id='Proximityinformation_userForm_option' and @value='googlemap']");
+     
+	  	$this->click("//a[@id='Proximityinformation_userForm_map_button']");		
+	  	sleep(8);		
+	    $this->type("xiusAddressEl", "Delhi, India");
+	    $this->click("find");
+	    $this->click("sbox-btn-close");
+	    sleep(2);
+	    $this->type("Proximityinformation_userForm_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_userForm_dis_unit']", "label=Kms");
+	    
+	    $this->click("xiussearch");
+      	$this->waitPageLoad();
+	    $this->assertTrue($this->isElementPresent("//span[@id='total_23']"));
+	    
+	    $this->select("limit", "label=5");
+		$this->waitPageLoad();
+		$avatar[] = "//img[@id='avatar_63']";
+		$avatar[] = "//img[@id='avatar_65']";
+		$avatar[] = "//img[@id='avatar_68']";
+		$avatar[] = "//img[@id='avatar_69']";
+		$avatar[] = "//img[@id='avatar_72']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);		
+		
+		$this->type('Rangesearch14_min','18');
+		$this->type('Rangesearch14_max','25');
+		$this->click("//img[@class='xius_test_addinfo_15']");
+		$this->waitPageLoad();
+		$avatar[] = "//img[@id='avatar_65']";
+		$avatar[] = "//img[@id='avatar_69']";
+		$avatar[] = "//img[@id='avatar_92']";
+		$avatar[] = "//img[@id='avatar_111']";
+		$avatar[] = "//img[@id='avatar_116']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);	
+		
+		$this->select('xiusjoin',"label=Match Any");
+		$this->waitPageLoad();
+		$this->assertTrue($this->isElementPresent("//span[@id='total_27']"));
+		$avatar[] = "//img[@id='avatar_63']";
+		$avatar[] = "//img[@id='avatar_65']";
+		$avatar[] = "//img[@id='avatar_68']";
+		$avatar[] = "//img[@id='avatar_69']";
+		$avatar[] = "//img[@id='avatar_72']";
+		$this->isSearchElementPresent($avatar);
+		unset($avatar);		
+  }
 }
 	

@@ -125,15 +125,14 @@ class Proximity extends XiusBase
 		if($value[3]=='kms')
 			$multiplier = ;
 		*/
-			
-		$query->select(" ROUND(( ".PROXIMITY_QUERY_CONSTANT." * acos( cos($latitude) * cos(radians({$db->nameQuote($columns[0]->cacheColumnName )}) )"
+		// XITODO :: Temporary fix for having clause need to fix it
+		$sql="	ROUND(( ".PROXIMITY_QUERY_CONSTANT." * acos( cos($latitude) * cos(radians({$db->nameQuote($columns[0]->cacheColumnName )}) )"
 							." * cos( radians({$db->nameQuote($columns[1]->cacheColumnName )}) - ($longitude)) "
-							." + sin( $latitude ) * sin( radians({$db->nameQuote($columns[0]->cacheColumnName )}) ) ) ) * $multiplier ,3)  "
-							." AS xius_proximity_distance");
-		
-
-			$conditions =  " xius_proximity_distance < $distance ";
-			$query->having($conditions,$join);
+							." + sin( $latitude ) * sin( radians({$db->nameQuote($columns[0]->cacheColumnName )}) ) ) ) * $multiplier ,3)  ";
+			
+		$query->select(" {$sql} AS xius_proximity_distance");		
+		$conditions =  " $sql <= $distance ";
+		$query->where($conditions,$join);
 			// XITODO : Sorting according to distance
 			//$query->order(" xius_proximity_distance ");				
 		return true;

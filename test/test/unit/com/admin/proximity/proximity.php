@@ -116,10 +116,12 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= 'SELECTROUND((3959*acos(cos(0.442375532987)*cos(radians(`proximity_google_latitude_0`))'
-					  .'*cos(radians(`proximity_google_longitude_0`)-(1.30265062513))+sin(0.442375532987)'
-					  .'*sin(radians(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceHAVING'
-					  .'xius_proximity_distance<200';
+		$compare	= "SELECTROUND((3959*acos(cos(0.442375532987)*cos(radians(`proximity_google_latitude_0`))*cos
+				   (radians(`proximity_google_longitude_0`)-(1.30265062513))+sin(0.442375532987)*sin(radians
+				   (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceWHEREROUND((3959*acos(cos
+				   (0.442375532987)*cos(radians(`proximity_google_latitude_0`))*cos(radians
+				   (`proximity_google_longitude_0`)-(1.30265062513))+sin(0.442375532987)*sin(radians
+				   (`proximity_google_latitude_0`))))*1,3)<=200";
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));		
 		
@@ -129,10 +131,12 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= 'SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))'
-					  .'*cos(radians(`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)'
-					  .'*sin(radians(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceHAVING'
-					  .'xius_proximity_distance<200';
+		$compare	= "SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
+				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
+				  (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceWHEREROUND((3959*acos(cos
+				  (0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
+				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
+				  (`proximity_google_latitude_0`))))*1,3)<=200";
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 				
@@ -141,14 +145,17 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= 'SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))'
-					  .'*cos(radians(`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*'
-					  .'sin(radians(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distance,ROUND('
-					  .'(3959*acos(cos(0.981468451566)*cos(radians(`proximity_google_latitude_0`))*cos(radians'
-					  .'(`proximity_google_longitude_0`)-(-1.82472427967))+sin(0.981468451566)*sin(radians'
-					  .'(`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceHAVING'
-					  .'xius_proximity_distance<200ANDxius_proximity_distance<456';
-		
+		$compare	= "SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
+				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
+				  (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distance,ROUND((3959*acos(cos
+				  (0.981468451566)*cos(radians(`proximity_google_latitude_0`))*cos(radians
+				  (`proximity_google_longitude_0`)-(-1.82472427967))+sin(0.981468451566)*sin(radians
+				  (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceWHEREROUND((3959*acos(cos
+				  (0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
+				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
+				  (`proximity_google_latitude_0`))))*1,3)<=200ANDROUND((3959*acos(cos(0.981468451566)*cos(radians
+				  (`proximity_google_latitude_0`))*cos(radians(`proximity_google_longitude_0`)-(-1.82472427967))+sin
+				  (0.981468451566)*sin(radians(`proximity_google_latitude_0`))))*1,3)<=456";
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 		// invalid value, no change in $compare value
 		$value		= array('googlmap','',-104.5490,456,'Miles');

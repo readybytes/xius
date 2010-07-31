@@ -21,8 +21,9 @@
 ../packages/tmp/admin/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
 ../packages/tmp/admin/libraries/plugins/proximity/encoders/encoder.php:25:		// XITODO : validate , class exists or not	
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:118:		// XITODO : need to clean up magic constants
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:137:			// XITODO : Sorting according to distance
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:162:		//XITODO : check value od value[0]
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:128:		// XITODO :: Temporary fix for having clause need to fix it
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:136:			// XITODO : Sorting according to distance
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php:161:		//XITODO : check value od value[0]
 ../packages/tmp/admin/libraries/plugins/base.php:336:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/base.php:385:		// XITODO : is set $c->createCacheColumn
 ../packages/tmp/admin/libraries/plugins/base.php:490:		 * XITODO : Add all cache columns if one instance is 
