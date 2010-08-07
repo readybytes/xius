@@ -19,6 +19,9 @@
 ../packages/tmp/admin/libraries/usersearch.php:439:			// XITODO : test with 0,null,baln,blank array
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:221:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php.rej:15:  			// XITODO : Sorting according to distance
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php.rej:22:+ 		// XITODO :: Temporary fix for having clause need to fix it
+../packages/tmp/admin/libraries/plugins/proximity/proximity.php.rej:30:  			// XITODO : Sorting according to distance
 ../packages/tmp/admin/libraries/plugins/proximity/encoders/encoder.php:25:		// XITODO : validate , class exists or not	
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:118:		// XITODO : need to clean up magic constants
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:128:		// XITODO :: Temporary fix for having clause need to fix it

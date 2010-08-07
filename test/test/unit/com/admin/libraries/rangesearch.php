@@ -40,9 +40,9 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
 		$insertedRows = XiusLibrariesUsersearch::updateCache();
 		
-		$this->searchUser(array(15,16),13);
+		$this->searchUser(array(15,16),11);
 		$this->searchUser(array(0,16),46);
-		$this->searchUser(array(16,18),15);
+		$this->searchUser(array(16,18),13);
 		$this->searchUser(array(6),2);
 		$this->searchUser(array(),59);
 	}
@@ -86,7 +86,9 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$query		= new XiusQuery();		
 		$instance->getUserData($query);
 		$strQuery	= $query->__toString();
-		$compare    ="SELECT(2010-YEAR(jsfields3_0.value))asrangesearch5_0";
+		$compare    ="SELECTYEAR(LOCALTIME())-YEAR(jsfields3_0.value)-(MONTH(LOCALTIME())"
+						."<MONTH(jsfields3_0.value)OR(MONTH(LOCALTIME())=MONTH(jsfields3_0.value)"
+						."ANDDAY(LOCALTIME())<DAY(jsfields3_0.value)))ASrangesearch5_0";
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
 		
 		// for integer type range search
@@ -99,7 +101,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$query		= new XiusQuery();		
 		$instance->getUserData($query);
 		$strQuery	= $query->__toString();
-		$compare    ="SELECT((joomlauserid_0.id))asrangesearch7_0";
+		$compare    ="SELECTjoomlauserid_0.idasrangesearch7_0";
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
 	}
 }

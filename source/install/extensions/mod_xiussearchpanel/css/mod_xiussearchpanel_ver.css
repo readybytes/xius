@@ -46,6 +46,8 @@ font-weight:bold;
 	}
 .xiusModSearch input{
 	margin-top: 10px;
+	width : 120px;
+	margin-left:10%;
 	}
 .xiusMod_availablemain label {
 	display: block;

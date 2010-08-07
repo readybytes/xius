@@ -173,7 +173,7 @@
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:36:			$document	=& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:42:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:50:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:139:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:142:		$db = JFactory::getDBO();
 ../packages/tmp/admin/elements/joomlaUserGroup.php:42:		$db= & JFactory::getDBO();
 ../packages/tmp/site/views/users/view.csv.php:16:		global $mainframe;
 ../packages/tmp/site/views/users/view.csv.php:17:		$user =& JFactory::getUser();

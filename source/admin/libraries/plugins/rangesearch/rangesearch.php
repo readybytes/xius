@@ -87,19 +87,22 @@ class Rangesearch extends XiusBase
 			
 		$tableMapping = $plgInstance->getTableMapping();
 		$myTableMapping = $this->getTableMapping();
-		$date=date('Y');
 		
 		foreach($myTableMapping as $mtm)
 		{ 
 			foreach($tableMapping as $tm)
 			{
-				$sql = " ( (";				
+			 	$columnName = "$tm->tableAliasName.$tm->originColumnName";
+			 	
+				$sql = " $columnName as {$mtm->cacheColumnName}";
+								
 				if($this->pluginParams->get('rangesearchType','date') === 'date')
-					$sql = " ( $date - YEAR( ";
+					$sql = " YEAR(LOCALTIME()) - YEAR($columnName) "
+							." - ( MONTH(LOCALTIME()) < MONTH($columnName) OR "
+							." ( MONTH(LOCALTIME()) = MONTH($columnName) AND "
+							." DAY(LOCALTIME()) < DAY($columnName) )) AS {$mtm->cacheColumnName} ";
 					
-				$query->select("{$sql}{$tm->tableAliasName}.{$tm->originColumnName}))"
-								." as {$mtm->cacheColumnName}"
-							   );				
+				$query->select($sql);				
 			}
 		}
 		
@@ -182,14 +185,15 @@ class Rangesearch extends XiusBase
 			if((array_key_exists(1,$value) && !($value[1])) || !array_key_exists(1,$value))
 				$value[1]=0;
 			
-			sort($value);
-			return $value;			
+			sort($value);						
 		}
 		else{
-			$val[0] = 0;
-			$val[1] = $value;
-			return $val;
-		}		
+			$temp = $value;
+			$value=array();
+			$value[0] = 0;
+			$value[1] = $temp;			
+		}
+		return $value;
 	}		
 	
 	public function cleanPluginObject()
