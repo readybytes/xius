@@ -143,4 +143,18 @@ class XiusHelpersUtils
 		return true;
 	}
 	
+/*
+	function getJoomlaUserGroupData($gid,$what='value')
+	{
+		if(!$gid)
+			return false;
+			
+		$db= & JFactory::getDBO();
+		$sql = ' SELECT '.$what.' FROM '.$db->nameQuote('#__core_acl_aro_groups') 
+				.' WHERE '.$db->nameQuote('id').' = '.$db->Quote($gid);
+		$db->setQuery($sql);
+		return $db->loadResult();
+	}
+*/
+	
 }

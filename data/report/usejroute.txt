@@ -14,7 +14,7 @@
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:15:				<?php echo $this->addIcon('info.png','index.php?option=com_xius&view=info', JText::_('INFO'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:16:				<?php echo $this->addIcon('userlist.png','index.php?option=com_xius&view=list', JText::_('list'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:17:				<?php echo $this->addIcon('icon-updates.gif','index.php?option=com_xius&view=cpanel&task=updates', JText::_('UPDATES'));?>
-../packages/tmp/admin/controllers/info.php:344:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
+../packages/tmp/admin/controllers/info.php:349:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:42:        $linkMap = "index.php?option=com_xius&task=getLocationMap&fromFormName=$formName&plugin=proximity&pluginid=".$calleObject->get('id')."&tmpl=component";
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:47:			.'<form action="index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$pluginId.'&userid='.$userId.'&tmpl=component" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();"><h3>'
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:92:        	$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid={$user->id}&tmpl=component";

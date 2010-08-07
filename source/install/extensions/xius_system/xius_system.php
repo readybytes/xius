@@ -148,5 +148,17 @@ class plgSystemxius_system extends JPlugin
 		return $pluginHandler->triggerInternelPlugin(__FUNCTION__, $toolbar);	
 		
 	}
+	
+	function xiusOnAfterLoadAllInfo(&$allInfo)
+	{
+		// XITODO: remove mainframe and use JApplication
+		global $mainframe;
+
+		//Don't run in admin
+		if($mainframe->isAdmin())
+			return true;
+		
+		return true;
+	}
 }
 

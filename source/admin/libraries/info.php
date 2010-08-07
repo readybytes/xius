@@ -52,7 +52,11 @@ class XiusLibrariesInfo
 			return $allInfo;
 			
 		$iModel	= XiusFactory::getModel( 'info' );	
-		$allInfo		=& $iModel->getAllInfo('','AND',false);
+		$allInfo	=& $iModel->getAllInfo('','AND',false);
+		
+		// trigger event after loading all info
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'xiusOnAfterLoadAllInfo',array( &$allInfo ));
 		
 		return $allInfo;
 	}

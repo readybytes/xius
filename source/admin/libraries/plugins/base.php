@@ -133,6 +133,7 @@ abstract class XiusBase extends JObject
 				}
 			}
 		}
+		$this->checkConfiguration('',true);
 		return true;
 	}
 	
@@ -142,24 +143,97 @@ abstract class XiusBase extends JObject
 		return $isAble;
 	}*/
 	
-	
-	public function isSearchable()
-	{
-		$isSearchable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isSearchable',false);
-		return $isSearchable;
+	public function isCoreAccessible($user)
+	{		
+		$userGroup = $user->usertype;
+		
+		if(!$userGroup)
+			$userGroup = 'Guest Only';
+		
+		if(	true == XiusHelpersUtils::isAdmin($user->id))
+			return true;
+			
+		$accessibleGroup = unserialize($this->params->get('isAccessible'));
+		
+		// XITODO : if any user group is not selected then what, is it should be public
+		if(!is_array($accessibleGroup))
+			return true;
+			
+		if(in_array('All', $accessibleGroup))
+			return true; 
+		
+		if(in_array($userGroup, $accessibleGroup))
+			return true;
+		
+		return false;
 	}
 	
-	public function isVisible()
+	public function isInfoAccessible()
 	{
-		$isVisible = XiusHelpersUtils::getValueFromXiusParams($this->params,'isVisible',false);
-		return $isVisible;
+		return true;
+	}
+	/*XITODO : function will decide which user can search
+	 *  sort etc from which info 
+	 *  will be helpful for PROFILETYPE layouts etc at later
+	 *  break in 2 function : accessible according to core
+	 *  2 : according to plugin 
+	 */
+	public function isAccessible($reset=false)
+	{
+		static $isAccessible = null;
+		if($reset){
+			$isAccessible = null;
+			return;
+		}
+		if($isAccessible!=null)
+			return $isAccessible;
+			 
+		$user 		= & JFactory::getUser();		
+		$coreAccessible = $this->isCoreAccessible($user);
+		$infoAccessible = $this->isInfoAccessible();
+		if($coreAccessible && $infoAccessible)
+			$isAccessible = true;		
+		else 
+			$isAccessible = false;
+		
+		return $isAccessible;
+	}
+
+	// XITODO : function clean up
+	public function checkConfiguration($what,$reset=false)
+	{		
+		static $config = array();
+		if($reset){
+			$this->isAccessible(true);
+			$config = array();
+			return;
+		}
+		
+		if(array_key_exists($what,$config) &&  isset($config[$what]))
+			return $config[$what];
+			
+		$config[$what] = XiusHelpersUtils::getValueFromXiusParams($this->params,$what,false);
+		if($config[$what]==true)
+			$config[$what] = $this->isAccessible();
+		
+		return $config[$what];
+	}
+	
+	public function isSearchable($reset=false)
+	{
+		return $this->checkConfiguration(__FUNCTION__,$reset);
+		
+	}
+	
+	public function isVisible($reset=false)
+	{
+		return $this->checkConfiguration(__FUNCTION__,$reset);
 	}
 	
 	
-	public function isSortable()
+	public function isSortable($reset=false)
 	{
-		$isSortable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isSortable',false);
-		return $isSortable;
+		return $this->checkConfiguration(__FUNCTION__,$reset);		
 	}
 	
 
@@ -330,21 +404,7 @@ abstract class XiusBase extends JObject
 		$view = new $viewClass();
 		return $view;
 	}
-	
-
-	
-	/*XITODO : function will decide which user can search
-	 *  sort etc from which info 
-	 *  will be helpful for PROFILETYPE layouts etc at later
-	 *  break in 2 function : accessible according to core
-	 *  2 : according to plugin 
-	 */
-	public function isAccessible($userid,$what='search')
-	{
-		return true;
-	}
-
-	
+		
 	/*get table mapping data for given plugin*/
 	function getTableMapping()
 	{

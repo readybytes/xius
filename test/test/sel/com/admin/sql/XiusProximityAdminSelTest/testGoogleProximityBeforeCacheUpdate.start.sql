@@ -6,7 +6,7 @@ INSERT INTO `au_#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams
 (17, 'State', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '10', '', 'Jsfields', 1, 1),
 (18, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '12', '', 'Jsfields', 2, 1),
 (19, 'City / Town', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '11', '', 'Jsfields', 3, 1),
-(20, 'By Google API', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', 'google', 'xius_proximity_country=18\nxius_proximity_zipcode=\nxius_proximity_state=17\nxius_proximity_city=19\nxius_gmap_key=\n\n', 'Proximity', 4, 1);;
+(20, 'By Google API', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', 'google', 'xius_proximity_country=18\nxius_proximity_zipcode=\nxius_proximity_state=17\nxius_proximity_city=19\nxius_gmap_key=\n\n', 'Proximity', 4, 1);;
 
 INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
 (17, 'State', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '10', '', 'Jsfields', 1, 1),

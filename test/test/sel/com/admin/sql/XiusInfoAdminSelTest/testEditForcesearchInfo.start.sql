@@ -44,8 +44,8 @@ INSERT INTO `au_#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams
 (11, 'usertype', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'usertype', '', 'Joomla', 11, 1),
 (12, 'Block', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'block', '', 'Joomla', 12, 1),
 (13, 'lastvisitDate', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'lastvisitDate', '', 'Joomla', 13, 1),
-(14, 'Block should be 0', 'isSearchable=1\nisVisible=0\nisSortable=0\nisExportable=1\ntooltip=Not Blocked User\n\n', 12, 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
-(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=0\ntooltip=Female User\n\n', 1, 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
+(14, 'Block should be 0', 'isSearchable=1\nisVisible=0\nisSortable=0\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=1\ntooltip=Not Blocked User\n\n', 12, 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
+(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=Female User\n\n', 1, 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
 (16, 'Super Admin should not be visible', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 11, 'infoid=11\nvalue=s:19:"Super Administrator";\noperator==\n\n', 'Forcesearch', 16, 0),
 (17, 'Age', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '8', '', 'Rangesearch', 17, 1),
-(18, 'From 0 to 16 age group', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '17', 'infoid=17\nvalue=a:2:{i:0;s:1:"0";i:1;s:2:"16";}\noperator==\n\n', 'Forcesearch', 19, 1);;
+(18, 'From 0 to 16 age group', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '17', 'infoid=17\nvalue=a:2:{i:0;s:1:"0";i:1;s:2:"16";}\noperator==\n\n', 'Forcesearch', 19, 1);;

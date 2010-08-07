@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<params>
+	<params addpath="/administrator/components/com_xius/elements" >
 		<param name="isSearchable" type="radio" default="1" label="IS INFORMATION CAN BE USED AS SEARCHABLE FOR YOUR SITE MEMBERS" description="IS INFORMATION CAN BE USED AS SEARCHABLE FOR YOUR SITE MEMBERS.DESC">
 			<option value="1">Yes</option>
 			<option value="0">No</option>
@@ -13,6 +13,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
+		<param name="isAccessible" type="joomlaUserGroup" default="ALL" label="ACCESSIBLE USER GROUP.LABEL" description="ACCESSIBLE USER GROUP.DESC"></param>
 		<param name="isExportable" type="radio" default="1" label="IS INFORMATION CAN BE USED AS EXPORTABLE FOR YOUR SITE MEMBERS" description="IS INFORMATION CAN BE USED AS EXPORTABLE FOR YOUR SITE MEMBERS.DESC">
 			<option value="1">Yes</option>
 			<option value="0">No</option>

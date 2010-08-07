@@ -19,6 +19,7 @@
 		<file>test/unit/com/admin/libraries/usersearch.php</file>
 		<file>test/unit/com/admin/libraries/cache.php</file>
 		<file>test/unit/com/admin/libraries/jsuser.php</file>
+		<file>test/unit/com/admin/libraries/xiusPrivacyUnitTest.php</file>
 		<file>test/unit/com/admin/helpers/utils.php</file>		
 		
 		<file>test/unit/com/admin/controllers/info.php</file>
@@ -44,10 +45,10 @@
 		<file>test/sel/com/site/pagination.php</file>
 		<file>test/sel/com/site/rangesearch.php</file>
 		<file>test/sel/com/site/slider.php</file>
+		<file>test/sel/com/site/xiusPrivacySelTest.php</file>
 		<file>test/sel/com/site/xiusemailSelTest.php</file>
 		<file>test/sel/com/site/googleProximity.php</file>
-		<file>test/sel/com/site/informationProximity.php</file>
-		
+		<file>test/sel/com/site/informationProximity.php</file>		
 	</testsuite>
 	
 	<listeners>

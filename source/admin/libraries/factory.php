@@ -143,4 +143,45 @@ class XiusFactory
         $buttonMap->set('link', $link);
         return $buttonMap;        	
 	}
+
+/*	
+	static public function getAllPluginInstanceFromProperty($pluginName,$bindArray = '',$isBindRequired = false)
+	{
+		$pluginClassName = $pluginName;
+		$pluginName = strtolower($pluginName);
+		$pluginPath	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . $pluginName . DS . $pluginName.'.php';
+		jimport( 'joomla.filesystem.file' );
+		if(!JFile::exists($pluginPath))
+		{
+			JError::raiseError(400,JText::_("INVALID PLUGIN FILE"));
+			return false;
+		}
+
+		require_once $pluginPath;
+			
+		//$instance will comtain all plugin object according to info
+		//Every info will have different object
+		static $instances = array();
+		if(isset($instances[$pluginName])){
+			//Clean object first
+			$instances[$pluginName]->cleanObject();
+		}
+		else
+			$instances[$pluginName] = new $pluginClassName();
+		
+		
+		// load id when it's not 0
+		 // load 0 is handeled by load fn so it's time for relaxation
+		//XITODO : skip load , let handles it by calle self
+		 // they should call bind function without work
+		// they can have info object themselves
+		 //
+		if($isBindRequired && $bindArray)
+				$instances[$pluginName] = $instances[$pluginName]->bind($bindArray);
+		
+		
+		return $instances[$pluginName];	
+	}
+*/
+
 }

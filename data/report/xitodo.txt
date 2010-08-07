@@ -2,7 +2,7 @@
 ../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
 ../packages/tmp/admin/helpers/utils.php:69:		/*XITODO : -1 means display all information ,from configuration*/
 ../packages/tmp/admin/helpers/utils.php:137:		/*XITODO: Minimun time for updating cache
-../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
+../packages/tmp/admin/controllers/info.php:251:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
@@ -24,13 +24,17 @@
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:128:		// XITODO :: Temporary fix for having clause need to fix it
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:136:			// XITODO : Sorting according to distance
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:161:		//XITODO : check value od value[0]
-../packages/tmp/admin/libraries/plugins/base.php:336:	/*XITODO : function will decide which user can search
-../packages/tmp/admin/libraries/plugins/base.php:385:		// XITODO : is set $c->createCacheColumn
-../packages/tmp/admin/libraries/plugins/base.php:490:		 * XITODO : Add all cache columns if one instance is 
-../packages/tmp/admin/libraries/plugins/base.php:531:		/*XITODO : never initialize params again
+../packages/tmp/admin/libraries/plugins/base.php:158:		// XITODO : if any user group is not selected then what, is it should be public
+../packages/tmp/admin/libraries/plugins/base.php:175:	/*XITODO : function will decide which user can search
+../packages/tmp/admin/libraries/plugins/base.php:202:	// XITODO : function clean up
+../packages/tmp/admin/libraries/plugins/base.php:445:		// XITODO : is set $c->createCacheColumn
+../packages/tmp/admin/libraries/plugins/base.php:550:		 * XITODO : Add all cache columns if one instance is 
+../packages/tmp/admin/libraries/plugins/base.php:591:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:86:    	// XITODO : if not logged in then what to do
 ../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:133:	//XITODO : send parameters as array of args
+../packages/tmp/admin/libraries/factory.php:175:		//XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/elements/joomlaUserGroup.php:14:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
 ../packages/tmp/site/views/users/view.html.php:246:        /*XITODO : arrange available info
@@ -43,5 +47,6 @@
 ../packages/tmp/site/controllers/users.php:300:			/*XITODO : set visible info and published also */
 ../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
+../packages/tmp/install/extensions/xius_system/xius_system.php:154:		// XITODO: remove mainframe and use JApplication
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:6:// XITODO : move css stament to tmpl 
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:23://XITODO : use proper name
