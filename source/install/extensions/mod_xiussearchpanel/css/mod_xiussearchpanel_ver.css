@@ -54,6 +54,7 @@
 }
 
 .xiusMod_available .xiusProximityInputbox{
+	border:1px solid #e3e3e3;
 	width:40%;
 }
 .xiusMod_available .xiusProximitySelectbox {
