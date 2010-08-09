@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusControllerList extends JController 
 {
@@ -32,7 +32,7 @@ class XiusControllerList extends JController
 	{
 		global $mainframe;
 		// Check for request forgeries
-		JRequest::checkToken() or jexit( 'Invalid Token' );
+		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		
 		$data = $this->_remove();
 				
@@ -80,7 +80,7 @@ class XiusControllerList extends JController
 	{
 		global $mainframe;
 		// Check for request forgeries
-		JRequest::checkToken() or jexit( 'Invalid Token' );
+		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
 		$ids		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 		$count			= count( $ids );
@@ -89,7 +89,6 @@ class XiusControllerList extends JController
 			return JError::raiseWarning( 500, JText::_( 'NO ITEMS SELECTED' ) );
 		}
 		
-		$lModel =& XiusFactory::getModel('list');
 		$result = $this->_updatePublish(1,$ids);
 
 		if($result['success'])
@@ -100,13 +99,14 @@ class XiusControllerList extends JController
 		$msg = $count. ' '. JText::_('ITEM PUBLISHED' );
 		$link = JRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg); 
+		return true;
 	}
 	
 	function unpublish()
 	{
 		global $mainframe;
 		// Check for request forgeries
-		JRequest::checkToken() or jexit( 'Invalid Token' );
+		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
 		$ids		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 		$count			= count( $ids );
@@ -115,7 +115,6 @@ class XiusControllerList extends JController
 			return JError::raiseWarning( 500, JText::_( 'NO ITEMS SELECTED' ) );
 		}
 		
-		$lModel =& XiusFactory::getModel('list');
 		$result = $this->_updatePublish(0,$ids);
 
 		if($result['success'])
@@ -125,6 +124,7 @@ class XiusControllerList extends JController
 			
 		$link = JRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg); 
+		return true;
 	}
 	
 	
@@ -133,7 +133,6 @@ class XiusControllerList extends JController
 		if($ids == null)
 			$ids		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 			
-		$count			= count( $ids );
 
 		$data = array();
 		$data['success'] = false;

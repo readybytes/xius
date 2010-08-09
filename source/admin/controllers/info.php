@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
  
 class XiusControllerInfo extends JController 
 {
@@ -228,7 +228,7 @@ class XiusControllerInfo extends JController
 	{
 		global $mainframe;
 		// Check for request forgeries
-		JRequest::checkToken() or jexit( 'Invalid Token' );
+		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 
 		$data = $this->_remove();
 		
@@ -279,7 +279,7 @@ class XiusControllerInfo extends JController
 	{
 		global $mainframe;
 		// Check for request forgeries
-		JRequest::checkToken() or jexit( 'Invalid Token' );
+		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
 		$ids		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 		$count			= count( $ids );
@@ -303,7 +303,7 @@ class XiusControllerInfo extends JController
 	{
 		global $mainframe;
 		// Check for request forgeries
-		JRequest::checkToken() or jexit( 'Invalid Token' );
+		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
 		$ids		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 		$count			= count( $ids );

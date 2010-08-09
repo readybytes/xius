@@ -1,3 +1,2 @@
 <?php
 echo $this->fieldHtml;
-?>

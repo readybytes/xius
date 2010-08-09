@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusControllerUsers extends JController
 {
@@ -205,9 +205,7 @@ class XiusControllerUsers extends JController
 	
 	
 	function displaySaveOption()
-	{
-		$user =& JFactory::getUser();
-				
+	{				
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();

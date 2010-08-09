@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 require_once (JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'includes.xipt.php');
 
 class ProfiletypesHelper
@@ -34,8 +34,6 @@ class ProfiletypesHelper
 	 */
 	function getFieldHTML($field)
 	{
-		$html	    = '';
-		//$pID	    = $field->value;
 		$class	    = '';
 		$disabled   = '';
 		

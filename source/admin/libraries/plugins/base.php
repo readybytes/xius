@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 abstract class XiusBase extends JObject
 {
@@ -435,7 +435,6 @@ abstract class XiusBase extends JObject
 	
 	function appendCreateQuery(XiusCreateTable &$createQuery)
 	{
-		$db = JFactory::getDBO();
 		$columns = $this->getTableMapping();
 		
 		if(empty($columns))
@@ -450,6 +449,7 @@ abstract class XiusBase extends JObject
 			$columnDeatils[]  = " `{$c->cacheColumnName}` {$c->cacheSqlSpec} ";
 		}		
 		$createQuery->appendColumns($columnDeatils);
+		return true;
 	}
 	
 	

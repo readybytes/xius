@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 // Import Joomla! libraries
 jimport('joomla.application.component.model');
@@ -126,7 +126,6 @@ class XiusModelList extends JModel
 	
 	function updatePublish($id,$value)
 	{
-		global $mainframe;
 		$db =& JFactory::getDBO();
 		$query = 'UPDATE #__xius_list'
 		. ' SET `published` ='.$db->Quote($value).''

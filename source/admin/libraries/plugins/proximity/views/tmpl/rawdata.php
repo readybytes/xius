@@ -1,6 +1,6 @@
 <?php
 
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 if(empty($this->info))
 	return false;
@@ -16,4 +16,3 @@ else if(!empty($this->info)){?>
 	</select>
 	<?php 
 }
-				

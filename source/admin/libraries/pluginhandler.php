@@ -4,12 +4,12 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 
 class XiusLibrariesPluginhandler
 {
-	
+	// XITODO :: What is use of $data here
 	function onUsInfoUpdated($data)
 	{
 		return XiusLibrariesUsersearch::updateCache();
@@ -102,6 +102,7 @@ class XiusLibrariesPluginhandler
 			if(method_exists($plgInstance, $funcName))
 				call_user_func_array(array($plgInstance, $funcName), $data);
         }
+		return true;
 	}
 	
 	

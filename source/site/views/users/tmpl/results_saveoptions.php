@@ -37,13 +37,15 @@ else	:
 		<?php
 		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
 
-		if(empty($l->name))
+		if(empty($l->name)):
 			$name = 'LIST<br />';
-		else
+		else :
 			$name = $l->name;
+		endif;
 
-		if($l->id == $this->selectedListId)
+		if($l->id == $this->selectedListId):
 			$checked = ' checked=checked';
+		endif;
 
 		echo '<input type="radio" name="listid" value="'.$l->id.'" '.$checked.' /> ' .JText::_(JString::ucwords($name))."<br />" ;
 		echo "</div>";

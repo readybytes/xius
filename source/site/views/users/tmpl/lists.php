@@ -21,9 +21,10 @@ else	:
 		<h1>
 		<?php
 		$name = $l->name;
-		if(empty($name))
+		if(empty($name)):
 			$name = 'LIST';
-
+		endif;
+		
 		echo '<a href="'.$url.'">'.JText::_($name).'</a>'
 		?></h1>
 		</div>

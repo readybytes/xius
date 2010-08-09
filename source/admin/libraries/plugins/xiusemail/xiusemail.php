@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
 require_once(dirname(__FILE__) . DS . 'defines.php');
@@ -24,7 +24,7 @@ class Xiusemail extends XiusBase
 			JError::raiseError(500,JText::_("INVALID XML PARAMETER FILE"));
 			return false;
 		}
-		parent::__construct(__CLASS__);
+		return (parent::__construct(__CLASS__));
 	}
 	
 	function isAllRequirementSatisfy()

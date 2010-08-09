@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
  
 class XiusControllerCpanel extends JController 
 {
@@ -60,6 +60,7 @@ class XiusControllerCpanel extends JController
 		$msg = JText::_('CACHE UPDATED SUCCESSFULLY');
 		$url = JRoute::_("index.php?option=com_xius&view=cpanel",false);
 		$mainframe->redirect($url,$msg,false);
+		return true;
 	}
 		
 }

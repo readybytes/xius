@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusPluginControllerXiusemail extends JController 
 {
@@ -97,8 +97,9 @@ class XiusPluginControllerXiusemail extends JController
    		// get the user id of users to email according to selected or all 
     	if($userId === array('selected'))
     	 	$userId = explode(',',$post['xiusSelectedUserid']);    	 	
-    	else if($userId === array('all'))
-    		$userId = XiusemailHelper::getResultedUserId();    		
+    	else if($userId === array('all')){
+    			$userId = XiusemailHelper::getResultedUserId();    		
+    	}
     	
     	$instance 		= XiusFactory::getPluginInstanceFromId($pluginId);
     	if(!$instance)

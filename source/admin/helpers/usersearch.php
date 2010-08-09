@@ -17,8 +17,9 @@ class XiusHelpersUsersearch
 		foreach($info as $i){
 			if(is_array($i))
 				$instance = XiusFactory::getPluginInstanceFromId($i['id']);
-			else if(is_object($i))
+			else if(is_object($i)){
 				$instance = XiusFactory::getPluginInstanceFromId($i->id);
+			}
 			
 			$dependentInfo[$i->id] = $instance->getDependentInfo();
 		}

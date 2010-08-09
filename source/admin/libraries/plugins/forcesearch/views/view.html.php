@@ -1,7 +1,7 @@
 <?php
 
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 class ForcesearchView extends XiusBaseView 
 {

@@ -32,10 +32,11 @@ if(!empty($this->appliedInfo)) : ?>
 <?php 
 $orSelected = '';
 $andSelected = '';
-if($this->join == 'AND')
+if($this->join == 'AND'):
 	$andSelected = ' selected=true ';
-else if($this->join == 'OR')
+elseif($this->join == 'OR') :
 	$orSelected = ' selected=true ';
+endif;
 	
 $joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'xiusjoin\');" >';
 $joinhtml .= '<option value="AND" '.$andSelected.'>'.JText::_('MATCH ALL').'</option>';

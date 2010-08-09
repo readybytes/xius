@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
@@ -353,7 +353,7 @@ class XiusViewUsers extends JView
 
 		//  Trigger event 
 		$dispatcher =& JDispatcher::getInstance();
-		$results = $dispatcher->trigger( 'onBeforeAllListDisplay', array( &$lists ) );
+		$dispatcher->trigger( 'onBeforeAllListDisplay', array( &$lists ) );
 
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);
@@ -366,5 +366,3 @@ class XiusViewUsers extends JView
 		parent::display();
 	}
 }
-
-?>

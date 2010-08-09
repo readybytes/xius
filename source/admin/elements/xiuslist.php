@@ -1,7 +1,7 @@
 <?php
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die();
+if(!defined('_JEXEC')) die('Restricted access');
 
 class JElementXiuslist extends JElement
 {
@@ -32,9 +32,7 @@ class JElementXiuslist extends JElement
 	function getXiuslistFieldHTML($name,$value,$control_name='params',$reqnone=false,$reqall=false)
 	{	
 		require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
-		$required			='1';
 		$html				= '';
-		$class				= ($required == 1) ? ' required' : '';
 		$options			= XiusLibrariesList::getLists('','AND',false);
 		
 		$html	.= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']" title="' . "Select Account Type" . '::' . "Please Select your account type" . '">';

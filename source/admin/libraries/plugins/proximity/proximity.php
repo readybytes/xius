@@ -1,7 +1,7 @@
 <?php
 
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . 'defines.php');
 
 class Proximity extends XiusBase
@@ -201,6 +201,7 @@ class Proximity extends XiusBase
 		
 		$this->getPluginParamsFromXml($from['key']);
 		parent::bind($from, $ignore);
+		return true;
 	}
 	
 	public function getDependentInfo()

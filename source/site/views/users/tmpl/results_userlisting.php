@@ -71,11 +71,13 @@
 						if(!empty($this->userprofile))	:
 							foreach($this->userprofile[$user->id] as $up)	:
 								for($i =0 ; $i< count($up['value']); $i++ ) :	
-									if($up['value'][$i] == "")
+									if($up['value'][$i] == "") :
 										continue;
+										endif;
 
-									if($up['label'][$i]=='Name')
+									if($up['label'][$i]=='Name') :
 										continue;
+									endif;
 						?>
 					  			<div class="xiusMpInfo">
 						  			<div class="xiusMplabel"><?php echo JText::_($up['label'][$i]); ?></div>

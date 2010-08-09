@@ -1,8 +1,6 @@
 <?php
-
-
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' );
+if(!defined('_JEXEC')) die('Restricted access');
 jimport( 'joomla.plugin.plugin' );
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
@@ -88,7 +86,7 @@ class plgSystemxius_system extends JPlugin
 	function onBeforeXiusCacheUpdate()
 	{
 		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return;
+			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getLibraryPluginHandler();
@@ -121,10 +119,10 @@ class plgSystemxius_system extends JPlugin
 
 		//Don't run in admin
 		if($mainframe->isAdmin())
-			return;
+			return true;
 		
 		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return;
+			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getLibraryPluginHandler();
@@ -138,10 +136,10 @@ class plgSystemxius_system extends JPlugin
 
 		//Don't run in admin
 		if($mainframe->isAdmin())
-			return;
+			return true;
 		
 		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return;
+			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getLibraryPluginHandler();

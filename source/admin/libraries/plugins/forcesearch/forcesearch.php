@@ -1,7 +1,7 @@
 <?php
 
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 class Forcesearch extends XiusBase
 {
@@ -51,7 +51,7 @@ class Forcesearch extends XiusBase
 			return false;
 			
 		if(!$plgInstance->isAllRequirementSatisfy())
-			continue;
+			return false;
 			
 		$inputHtml = $plgInstance->renderSearchableHtml(unserialize($this->pluginParams->get('value')));
 		
@@ -144,12 +144,12 @@ class Forcesearch extends XiusBase
 	{		
 		$plgInstance = XiusFactory::getPluginInstanceFromId($pluginParams->get('infoid'));
 		if(!$plgInstance)
-			return;
+			return false;
 		
 		if(!$plgInstance->isAllRequirementSatisfy())
-			continue;
+			return false;
 		
 		$plgInstance->addSearchToQuery(&$query, unserialize($pluginParams->get('value')), $pluginParams->get('operator'), $join);
-		return;			
+		return true;			
    	}
 }

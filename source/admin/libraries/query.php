@@ -9,7 +9,7 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 /**
  * Query Element Class.
@@ -434,6 +434,7 @@ class XiusQuery
 		if ($this->_where) {
 			return $this->_where->convertWhereIntoString();
 		}
+		return true;	
 	} 
 }
 
@@ -455,6 +456,7 @@ class XiusCreateTable extends JObject
 								.$db->nameQuote($this->_tableName).' ( ';
 								
 		$this->_count = 0;
+		return true;
 	}
 	
 	

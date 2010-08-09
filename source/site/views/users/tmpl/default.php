@@ -3,7 +3,7 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 $css = JURI::base().'components/com_xius/assets/css/sp.css';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
@@ -36,10 +36,11 @@ jimport('joomla.html.pane');
 			<div class="xius_spLabel">
 			<?php
 			$xiustool = $data['tooltip'];
-			if(!empty($xiustool))
-			echo JHTML::_('tooltip',JText::_($xiustool), JText::_($data['label']), null, JText::_($data['label']));
-			else 
-			echo JText::_($data['label']);  
+			if(!empty($xiustool)) :
+				echo JHTML::_('tooltip',JText::_($xiustool), JText::_($data['label']), null, JText::_($data['label']));
+			else :
+				echo JText::_($data['label']); 
+			endif; 
 			?>
 			</div>
 			<div class="xius_spInput">

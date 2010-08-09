@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // Check to ensure this file is within the rest of the framework
-defined('_JEXEC') or die();
+if(!defined('_JEXEC')) die('Restricted access');
 
 function com_uninstall()
 {

@@ -21,8 +21,9 @@ if(XiusHelpersUtils::isAdmin($user->id)){
 					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'xiussort\');" >';
 					foreach($this->sortableFields as $sfields)	:
 						$selected = '';
-						if($this->sort == $sfields['key'])
+						if($this->sort == $sfields['key']):
 							$selected = ' selected=true ';
+						endif;
 
 						$html .= '<option value='.$sfields['key'].$selected.'>'.$sfields['value'];
 						$html .= '</option>';

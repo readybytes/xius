@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . 'defines.php');
 
 class ProximityGoogleapiHelper extends JController 
@@ -92,7 +92,6 @@ class ProximityGoogleapiHelper extends JController
 		if(empty($tableMapping))
 			return false;
 			
-		$columns =array();
 		
 		
 		$selectCacheCol		= $tableMapping[2]->cacheColumnName;
@@ -158,7 +157,8 @@ class ProximityGoogleapiHelper extends JController
 	function deleteInvalidGeocodeAddress($key)
 	{
 		if(!$key)
-			return;
+			return false;
+
 		$db = JFactory::getDBO();	
 		$query	= " DELETE FROM `#__xius_proximity_geocode` "
 				 ." WHERE `id` = ".$db->Quote($key);

@@ -5,7 +5,7 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
-defined( '_JEXEC' ) or die( 'Restricted access' );
+if(!defined('_JEXEC')) die('Restricted access');
 
 /* Google Maps Version 3 */
 class XiusGmap

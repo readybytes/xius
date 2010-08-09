@@ -7,10 +7,11 @@ $listid = 0;
 
 if(!empty( $this->list ))	:
 	$listid = $this->list->id;
-	if(empty($this->list->name))
+	if(empty($this->list->name)):
 		$name = 'LIST'.$listid;
-	else
+	else :
 		$name = $this->list->name;
+	endif;
 		
 	echo JText::_($name);
 

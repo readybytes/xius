@@ -6,17 +6,18 @@
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
+../packages/tmp/admin/libraries/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/admin/libraries/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
 ../packages/tmp/admin/libraries/usersearch.php:14:		/*XITODO : provide join operator and sorting condition
 ../packages/tmp/admin/libraries/usersearch.php:44:		 * XITODO : add block condition
 ../packages/tmp/admin/libraries/usersearch.php:128:		/*XITODO : pass info through parameter */
-../packages/tmp/admin/libraries/usersearch.php:172:		/*XITODO : update xius_cache table with new info id
-../packages/tmp/admin/libraries/usersearch.php:182:		/*XITODO : break insert user data query into parts
-../packages/tmp/admin/libraries/usersearch.php:225:		/*XITODO : pass info
-../packages/tmp/admin/libraries/usersearch.php:262:		/*XITODO : pass info
-../packages/tmp/admin/libraries/usersearch.php:367:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/admin/libraries/usersearch.php:439:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/admin/libraries/usersearch.php:173:		/*XITODO : update xius_cache table with new info id
+../packages/tmp/admin/libraries/usersearch.php:183:		/*XITODO : break insert user data query into parts
+../packages/tmp/admin/libraries/usersearch.php:224:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:261:		/*XITODO : pass info
+../packages/tmp/admin/libraries/usersearch.php:366:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/admin/libraries/usersearch.php:438:			// XITODO : test with 0,null,baln,blank array
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:221:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php.rej:15:  			// XITODO : Sorting according to distance
@@ -30,7 +31,7 @@
 ../packages/tmp/admin/libraries/plugins/base.php:158:		// XITODO : if any user group is not selected then what, is it should be public
 ../packages/tmp/admin/libraries/plugins/base.php:175:	/*XITODO : function will decide which user can search
 ../packages/tmp/admin/libraries/plugins/base.php:202:	// XITODO : function clean up
-../packages/tmp/admin/libraries/plugins/base.php:445:		// XITODO : is set $c->createCacheColumn
+../packages/tmp/admin/libraries/plugins/base.php:444:		// XITODO : is set $c->createCacheColumn
 ../packages/tmp/admin/libraries/plugins/base.php:550:		 * XITODO : Add all cache columns if one instance is 
 ../packages/tmp/admin/libraries/plugins/base.php:591:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:86:    	// XITODO : if not logged in then what to do
@@ -46,10 +47,10 @@
 ../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:92:		/*XITODO : pass only searchable information 
 ../packages/tmp/site/controllers/users.php:183:		//XITODO : unset old data first
-../packages/tmp/site/controllers/users.php:292:		/*XITODO : ask user for list details
-../packages/tmp/site/controllers/users.php:300:			/*XITODO : set visible info and published also */
+../packages/tmp/site/controllers/users.php:290:		/*XITODO : ask user for list details
+../packages/tmp/site/controllers/users.php:298:			/*XITODO : set visible info and published also */
 ../packages/tmp/site/models/users.php:39:		/*XITODO : get table name from cache object */ 
 ../packages/tmp/site/models/users.php:53:        /*XITODO : Add error message */
-../packages/tmp/install/extensions/xius_system/xius_system.php:154:		// XITODO: remove mainframe and use JApplication
+../packages/tmp/install/extensions/xius_system/xius_system.php:152:		// XITODO: remove mainframe and use JApplication
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:6:// XITODO : move css stament to tmpl 
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:23://XITODO : use proper name

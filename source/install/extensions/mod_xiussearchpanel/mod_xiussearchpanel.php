@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // XITODO : move css stament to tmpl 
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 $document =& JFactory::getDocument();
 if ($params->get('xius_layout','horizontal')=='vertical')
 	$document->addStyleSheet('modules/mod_xiussearchpanel/css/mod_xiussearchpanel_ver.css');
@@ -26,21 +26,23 @@ $displayHtml= UserSearchHelper::getSearchHtml();
 		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult';
 		$menu = &JSite::getMenu(); 
 		$itemid = $menu->getItems('link', $link);
-		if(empty($itemid))
+		if(empty($itemid)){
 			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
-			
-		if(!empty($itemid))
+		}
+
+		if(!empty($itemid)){
 			$link .= "&Itemid=".$itemid[0]->id;
-			
+		}	
+
 		$infoRange = $params->get('xius_info_range','all');
 		$range=array();
-		if( 'all' != strtolower($infoRange) )
+		if( 'all' != strtolower($infoRange) ){
 			$range = UserSearchHelper::getInfoRange($infoRange);
-				
+		}		
+
 			$count=0;
 			
 	
 	$mySess->clear('xiusModuleForm','XIUS');
 	endif;
 require(JModuleHelper::getLayoutPath('mod_xiussearchpanel'));
-?>

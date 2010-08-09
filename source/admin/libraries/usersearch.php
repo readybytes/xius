@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 
 class XiusLibrariesUsersearch
@@ -23,7 +23,7 @@ class XiusLibrariesUsersearch
 		$data['join'] = &$join;
 		$data['sort'] = &$sort;
 		$data['dir']  = &$dir;
-		$results = $dispatcher->trigger( 'onBeforeUserSearchQueryBuild', array( $data ) );
+		$dispatcher->trigger( 'onBeforeUserSearchQueryBuild', array( $data ) );
 		
 		$db = JFactory::getDBO();
 		$query = new XiusQuery();		
@@ -146,9 +146,10 @@ class XiusLibrariesUsersearch
 		foreach($info as $i){
 			if(is_array($i))
 				$instance = XiusFactory::getPluginInstanceFromId($i['id']);
-			else if(is_object($i))
-				$instance = XiusFactory::getPluginInstanceFromId($i->id);
-				
+			else if(is_object($i)){
+				 $instance = XiusFactory::getPluginInstanceFromId($i->id);
+			}
+
 			if(!$instance)
 				continue;
 				
@@ -195,8 +196,6 @@ class XiusLibrariesUsersearch
 	
 	function getTimestamp()
 	{
-		//$time = date('H:i:s');
-		$time =  microtime(true);//$date->getTimestamp();
 		$time = time();
 		return $time;
 	}

@@ -33,7 +33,8 @@ class XiusProximityAdminSelTest extends XiSelTestCase
     	$this->waitPageLoad();
 
     	$this->_DBO->addTable('#__xius_info');
-    	$this->_DBO->addTable('#__xius_proximity_geocode');    	
+    	$this->_DBO->addTable('#__xius_proximity_geocode');  
+    	$this->_DBO->filterOrder('#__xius_info','id');  	
 	}
 	
 	

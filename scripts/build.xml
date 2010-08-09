@@ -165,7 +165,8 @@
  PEAR_Sniffs_Functions_FunctionCallSignatureSniff
  Zend_Sniffs_Debug_CodeAnalyzerSniff
 -->
-<!--		<phpcodesniffer
+
+<phpcodesniffer
 			standard="PHPCS"  	showSniffs="false"  
 			file="${dir.tmp}" 	allowedFileExtensions="php,css,js" 
 			haltonwarning="false" 	haltonerror="false"
@@ -224,9 +225,9 @@
  Generic_Sniffs_PHP_DisallowShortOpenTagSniff
  Generic_Sniffs_Strings_UnnecessaryStringConcatSniff
 					">
-			<formatter type="report" outfile="${dir.report}/zend.phpcs.txt"  usefile="true"/>
-		</phpcodesniffer>
--->
+			<formatter type="default" outfile="${dir.report}/zend.phpcs.txt"  usefile="true"/>
+</phpcodesniffer>
+
 		<!--<phpcpd haltonerror="false">
 		   <fileset dir="${dir.tmp}" id="filestocpd">
 		     <include name="**/*.php" />

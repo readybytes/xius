@@ -1,7 +1,7 @@
 <?php
 
 // Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die();
+if(!defined('_JEXEC')) die('Restricted access');
 
 class JElementInfo extends JElement
 {
@@ -16,7 +16,10 @@ class JElementInfo extends JElement
 	function fetchElement($name, $value, &$node, $control_name)
 	{
 		$reqnone = false;
-		if(isset($node->_attributes->addnone))
+		// PHP 5.3 Specific
+		// we always give attribute addnone if and only if we need to show this
+		// other wise we don't set this attribute
+		if(isset($node->_attributes->addnone)|| isset($node->_attributes['addnone']))
 			$reqnone = true;
 			
 		$infoHtml = $this->getInfoHTML($name,$value,$control_name,$reqnone);

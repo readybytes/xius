@@ -1,7 +1,7 @@
 <?php
 
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 
 class Rangesearch extends XiusBase
 {
@@ -18,7 +18,7 @@ class Rangesearch extends XiusBase
 			JError::raiseError(500,JText::_("INVALID XML PARAMETER FILE"));
 			return false;
 		}	
-		parent::__construct(__CLASS__);
+		return (parent::__construct(__CLASS__));
 	}
 	
 

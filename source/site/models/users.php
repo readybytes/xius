@@ -3,7 +3,7 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-defined( '_JEXEC' ) or die( 'Restricted access' );
+if(!defined('_JEXEC')) die('Restricted access');
 jimport( 'joomla.application.component.model' );
 class XiusModelUsers extends JModel
 {
@@ -16,7 +16,7 @@ class XiusModelUsers extends JModel
 	{
         parent::__construct();
  
-        global $mainframe, $option;
+        global $mainframe;
  
         // Get pagination request variables
         $limit = $mainframe->getUserStateFromRequest('com_xius_user.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
