@@ -343,3 +343,7 @@ padding-right:50px;
 background-image: url("../images/up.png");
 background-repeat: no-repeat;
 }
+
+body #xius_result .inputbox{
+border:1px solid #e3e3e3;		
+}

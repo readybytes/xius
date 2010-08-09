@@ -12,11 +12,9 @@
 	width:100%;
     margin-top: 5px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 }
 .xiMod_left {
-font-weight:bold;
+    font-weight:bold;
 	margin: 0 0 0 0;
 	}
 
@@ -26,21 +24,21 @@ font-weight:bold;
 	margin: 0 0 0 1px;
 }
 .xiusMod_available input {
-	width: 90%;
+	width:75%;
 	margin: 0 0 0 0;
 }
 
 .xiusMod_available select {
-	width: 90%;
+	width:75%;
 	margin: 0 0 0 0;
 }
 
 .xiusMod_available input[type="checkbox"] {
-	width: 10%;
+	width: 15px;
 }
 
 .xiusMod_available input[type="radio"] {
-	width: 10%;
+	width: 15px;
 }
 .xiusModSearch{
 	}
@@ -56,9 +54,12 @@ font-weight:bold;
 }
 
 .xiusMod_available .xiusProximityInputbox{
-	width:50%;
+	width:40%;
 }
 .xiusMod_available .xiusProximitySelectbox {
-	width:40%;	
+	width:35%;
 }
 
+body #xiusMod_available .inputbox {
+	border:1px solid #e3e3e3;
+}

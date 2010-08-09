@@ -11,7 +11,7 @@ $document->addStyleSheet($css);
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 ?>
-<div class="xius_sp">
+<div class="xius_sp" id="xius_sp">
 <form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" method="post" name="userForm" id="userForm">
 
 <div class="xius_spHead">

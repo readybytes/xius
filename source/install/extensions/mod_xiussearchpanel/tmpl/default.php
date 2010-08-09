@@ -5,7 +5,7 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
-	<div class="xiusMod_available">
+	<div class="xiusMod_available" id="xiusMod_available">
 		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 		<?php 	
 			$count=0;

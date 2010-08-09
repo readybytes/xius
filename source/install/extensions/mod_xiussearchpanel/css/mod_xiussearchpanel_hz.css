@@ -13,9 +13,6 @@
 	width:45%;
     margin-top: 5px;
     margin-right: 3%;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 }
 .xiMod_left {
 	font-weight:bold;
@@ -40,11 +37,11 @@
 }
 
 .xiusMod_available input[type="checkbox"] {
-	width: 10%;
+	width: 15px;
 }
 
 .xiusMod_available input[type="radio"] {
-	width: 10%;
+	width: 15px;
 	display:inline-table; 
 	
 	
@@ -65,4 +62,8 @@
 }
 .xiusMod_available .xiusProximitySelectbox {
 	width:45%;
+}
+
+body #xiusMod_available .inputbox {
+	border:1px solid #e3e3e3;
 }

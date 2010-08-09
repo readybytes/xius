@@ -240,6 +240,7 @@
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:15:$mySess =& JFactory::getSession();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:9:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
+../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php.orig:9:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 ../packages/tmp/install/extensions/mod_xiuslisting/helper.php:13:		$user = JFactory::getUser();
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:29:				$link = JRoute::_($link, false);
 ../packages/tmp/install/extensions/xius_community/xius.php:45:		$lang =& JFactory::getLanguage();

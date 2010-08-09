@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 ?>
-<div class="xius_result"><a name="xiustop"></a>
+<div class="xius_result" id="xius_result"><a name="xiustop"></a>
 <form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
