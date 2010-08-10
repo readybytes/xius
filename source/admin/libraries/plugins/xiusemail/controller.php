@@ -22,61 +22,14 @@ class XiusPluginControllerXiusemail extends JController
 		parent::display();
     }
     
-    function emailUser($pluginId=null, $userId=null,$userSelected=null)
-    {
-   		if($pluginId === null)
-    		$pluginId = JRequest::getVar('pluginid',0,'GET');
-    	
-    	if($userId === null)
-    		$userId = JRequest::getVar('userid',0,'GET');
-
-    	if($userId=='selected' && $userSelected==null)
-    		$userSelected = JRequest::getVar('selected','no','GET');
-    	
-    	// add js file
-        $js = JURI::base().'administrator/components/com_xius/assets/js/xiusemail.js';
-        $css= JURI::base().'administrator/components/com_xius/assets/css/front/xiusemail.css';
-        $document =& JFactory::getDocument();
-        $document->addScript($js);
-        $document->addStyleSheet($css);
-        
-        $editor =& JFactory::getEditor(); 
-        
-    	// display the form for emailing
-    	echo '<div class="xius_email" >'
-			.'<form action="index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$pluginId.'&userid='.$userId.'&tmpl=component" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();"><h3>'
-			.'<div  class="xiusEmailHeader"><span>'.JText::_('XIUS EMAIL').'</span></div>';
-		if($userSelected == 'no')
-			echo '<div class="xiusEmailError"><span id="xiusErrorUserNotSelected">'.JText::_("YOU HAVE NOT SELECTED ANY USER TO EMAIL").'</span</div>';
-		else 	
-			echo '<div class="xiusEmailBox">'
-				.'<div class="xiusEmailEntity">'
-				.'<div class="xiusEmailLabel">'
-				.'<span>'.JText::_('XIUS EMAIL SUBJECT').'</span>'
-				.'</div>'
-				.'<div class="xiusEmailControl">'
-				.'<input type="text" name="xiusEmailSubjectEl" id="xiusEmailSubjectEl" value="" class="input_box" size="40" /><br/><br/>'
-				.'</div></div>'
-				.'<div class="xiusEmailEntity">'
-				.'<div class="xiusEmailLabel">'
-				.'<span>'.JText::_('XIUS EMAIL MESSAGE').'</span>'
-				.'</div>'
-				.'<div class="xiusEmailControl">'
-				.$editor->display( 'xiusEmailMessageEl', '', '525', '270', '60', '20' )
-				.'</div></div>'
-				.'</div>'
-				.'<input type="hidden" name="xiusSelectedUserid" id="xiusSelectedUserid" value="" />'
-				.'<div class="xiusEmailFooter"><input type="submit" name="send" value="'. JText::_('XIUS EMAIL SEND').'" /></div>'
-			//.'<input type="button" name="cancel" href="javascript:window.close();" value="'. JText::_('XIUS EMAIL CANCEL').'" />'
-			 	.'</h3></form>'
-				.'</div>';
-
-		$js="function xiusCheckEmailMessageExist(){
-		       		var content = ".$editor->getContent('xiusEmailMessageEl').";
-		       		return content;     			
-        		}
-        	";
-		$document->addScriptDeclaration($js);
+    function emailUser()
+    {   		
+    	require_once(dirname(__FILE__).DS.'views'.DS.'view.html.php');
+		$view= new XiusemailView();
+		$view->setLayout('email');		
+	
+		return $view->emailUser(); 	
+ 
     }
     
     function sendEmail($pluginId=null, $userId=null, $post=null)

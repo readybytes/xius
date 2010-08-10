@@ -20,4 +20,44 @@ class XiusemailView extends XiusBaseView
 	{
 		return false;
 	}
+	
+	function emailUser( $pluginId=null, $userId=null, $userSelected=null )
+	{
+		if($pluginId === null)
+    		$pluginId = JRequest::getVar('pluginid',0,'GET');
+    	
+    	if($userId === null)
+    		$userId = JRequest::getVar('userid',0,'GET');
+
+    	if($userId=='selected' && $userSelected==null)
+    			$userSelected = JRequest::getVar('selected','no','GET');
+    			
+		// add js file
+        $js = JURI::base().'administrator/components/com_xius/assets/js/xiusemail.js';
+        $css= JURI::base().'administrator/components/com_xius/assets/css/front/xiusemail.css';
+        $document =& JFactory::getDocument();
+        $document->addScript($js);
+        $document->addStyleSheet($css);
+        
+        $data=array();
+        $data['pluginId']		= $pluginId;
+        $data['userId']			= $userId;
+        $data['userSelected']	= $userSelected;
+        $data['editor'] 		=& JFactory::getEditor();
+         
+        $this->assignRef('data', $data);
+        
+        ob_start();
+        parent::display();       
+        
+        $js="function xiusCheckEmailMessageExist(){
+		       		var content = ".$data['editor']->getContent('xiusEmailMessageEl').";
+		       		return content;     			
+        		}
+        	";
+		$document->addScriptDeclaration($js);
+		$contents = ob_get_contents();
+ 		ob_end_flush();
+        return $contents;
+	}
 }

@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 // no direct access
-defined('_JEXEC') or die('Restricted access');
+if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . 'defines.php');
 
 class XiusPluginControllerProximity extends JController 
@@ -20,10 +20,11 @@ class XiusPluginControllerProximity extends JController
 	
     function display() 
 	{
-		parent::display();
+		return 'no Display Function';
     }
     
-    function getLocationMap($pluginId=null)
+    
+	function getLocationMap($pluginId=null)
     {   	
     	require_once( dirname(__FILE__) . DS . 'googlemaphelper.php' );
     	// use default
@@ -32,75 +33,15 @@ class XiusPluginControllerProximity extends JController
     	
     	$formName	= JRequest::getVar('fromFormName','userForm','GET');
     	$instance 	= XiusFactory::getPluginInstanceFromId($pluginId);
+    	    	
     	if(!$instance)
     		return false;
-    		
-    	$latitudeEle 		= $instance->get('pluginType').$instance->get('key').'_'.$formName.'_lat';
-    	$longitudeEle		= $instance->get('pluginType').$instance->get('key').'_'.$formName.'_long';
-    	    	    	
-    	$this->latitude 	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
-    	$this->longitude	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
-    	$this->type			= PROXIMITY_DEAFULT_MAP_TYPE;
-    	$this->zoom			= PROXIMITY_DEAFULT_MAP_ZOOM;
-    	
-    	$id		= '';
-    	echo '<div class="p-add-address">'
-			. '<form action="#" onsubmit="addAddressToMap'.$id.'(); return false;"><h3>'
-			. JText::_('Set Coordinates by address').' : '
-			. '<input type="text" name="xiusAddressNameEl'.$id.'" id="xiusAddressEl'.$id.'" value="" class="address_input" size="30" />'
-			. '<input type="submit" name="find" value="'. JText::_('Set').'" />'
-			. '</h3></form>'
-			. '</div>';
-		
-		echo '<div id="xiusmaps"><div><form action="#" name="xiusGmapForm">';
-		
-		$map	= new XiusGmap($id);
-		if ($this->type == 'marker') {
-			$map->loadCoordinatesJS();
-		}
-		$map->loadAPI();
-		echo '<div align="center" style="margin:0;padding:0">';
-		echo '<div id="xiusMap'.$id.'" style="margin:0;padding:0;width:'.PROXIMITY_MAP_WIDTH.'px;height:'.PROXIMITY_MAP_HEIGHT.'px"></div></div>';
-
-		echo $map->startJScData();
+   
+		require_once(dirname(__FILE__).DS.'views'.DS.'view.html.php');
+		$view= new ProximityView();
+		$view->setLayout( 'proximity' );		
 	
-		echo $map->addAjaxAPI('maps', '3.x', '{"other_params":"sensor=false"}');
-		echo $map->addAjaxAPI('search', '1');
+		return $view->getLocationMap($formName,$instance);
 
-		echo $map->createMap('xiusMap', 'mapXiusMap', 'xiusLatLng', 'xiusOptions','tstXiusMap', 'tstIntXiusMap', 'xiusGeoCoder', TRUE);
-		echo $map->cancelEventFunction();
-		echo $map->checkMapFunction();
-	
-		echo $map->startMapFunction();
-		
-		echo $map->setLatLng( $this->latitude, $this->longitude );
-		echo $map->startMapOptions();
-		echo $map->setMapOption('zoom', $this->zoom).','."\n";
-		echo $map->setCenterOpt().','."\n";
-		echo $map->setTypeControlOpt().','."\n";
-		echo $map->setNavigationControlOpt().','."\n";
-		echo $map->setMapOption('scaleControl', 1, true).','."\n";
-		echo $map->setMapOption('scrollwheel', 1).','."\n";
-		echo $map->setMapOption('disableDoubleClickZoom', 0).','."\n";
-		//	echo $map->setMapOption('googleBar', $this->map->googlebar).','."\n";// Not ready yet
-		//	echo $map->setMapOption('continuousZoom', $this->map->continuouszoom).','."\n";// Not ready yet
-		echo $map->setMapTypeOpt()."\n";
-		echo $map->endMapOptions();
-		echo $map->setMap();
-		
-		//echo $map->exportZoom($this->zoom, 'document.forms.xiusGmapForm.elements.zoom');
-		echo $map->exportMarker('Global', $this->type, $this->latitude, $this->longitude, "window.top.document.forms.$formName.elements.$latitudeEle", "window.top.document.forms.$formName.elements.$longitudeEle");
-		echo $map->setListener();
-		echo $map->setGeoCoder();
-		echo $map->endMapFunction();
-
-		echo $map->addAddressToMapFunction('Global', 'xiusAddressEl', $this->type, "window.top.document.forms.$formName.elements.$latitudeEle", "window.top.document.forms.$formName.elements.$longitudeEle");// no '.id.' - it is set in class
-
-		echo $map->setInitializeFunction();
-	
-		echo $map->endJScData();   	
-		echo JText::_("MESSAGE ON MAP");
-		echo '</form></div>';
-		echo '</div>';	
-    }
+   }
 }

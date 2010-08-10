@@ -35,7 +35,7 @@ class XiusFactory
 			assert(0);
 						
 		$classname = 'XiusModel'.$name;
-		$modelInstances[$name] =& new $classname;
+		$modelInstances[$name] = new $classname;
 		
 		return $modelInstances[$name];
 	}
