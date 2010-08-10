@@ -9,7 +9,7 @@ if(!empty($this->appliedInfo)) : ?>
 	<?php
 	echo JText::_('Applied Information');
 	?>
-	<img src="components/com_xius/assets/images/clear_all.png" title="Clear All Applied Info" onclick="xiusAddSubTask('xiusresetfilter')" />
+	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo JText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('xiusresetfilter')" />
 </div>
 <?php 
 	$count = 0;
@@ -42,7 +42,7 @@ $joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'xiu
 $joinhtml .= '<option value="AND" '.$andSelected.'>'.JText::_('MATCH ALL').'</option>';
 $joinhtml .= '<option value="OR" '.$orSelected.'>'.JText::_('MATCH ANY').'</option>';
 $joinhtml .= '</select>';
-echo '<b>'.JText::_('Join With').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
+echo '<b>'.JText::_('XIUS JOIN WITH').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
 echo $joinhtml;	
 ?>
 </div>

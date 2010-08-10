@@ -7,7 +7,7 @@
 <div class="xius_ul">
 <div class="xiusTotal">
 <span class="xiusTotalText" id="total_<?php echo $this->total;?>">
-	<?php echo sprintf(JText::_('About :  %s results found'),$this->total);?>
+	<?php echo sprintf(JText::_('Xius About results found'),$this->total);?>
 </span>
 </div>
 <?php 

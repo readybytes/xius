@@ -51,7 +51,7 @@ jimport('joomla.html.pane');
 		endforeach;
 		?>
 		<div class="xius_spMain">
-		<div class="xius_spLabel"><?php echo JText::_('Join With'); ?></div>
+		<div class="xius_spLabel"><?php echo JText::_('XIUS JOIN WITH'); ?></div>
 		<div class="xius_spInput">
 		<input type="radio" name="xius_join" value="AND" /><?php echo JText::_('MATCH ALL'); ?>
 		<input type="radio" name="xius_join" value="OR" /><?php echo JText::_('MATCH ANY'); ?>

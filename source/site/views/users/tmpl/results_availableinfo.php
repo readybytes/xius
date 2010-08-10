@@ -25,7 +25,7 @@
 						</div>
 						<div class="xius_aiImg">
 						<img class="xius_test_addinfo_<?php echo $data['infoid'];?>" src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-								alt="Add To Search" title="Add To Search" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);"/>
+								alt="<?php echo JText::_("XIUS ADD TO SEARCH");?>" title="<?php echo JText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);"/>
 						</div>
 					</div>	
 			<?php endforeach; ?>
