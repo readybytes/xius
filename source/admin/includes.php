@@ -52,7 +52,8 @@ XiusLoader::addAutoLoadFile('CConfig', XIUS_PATH_LIBRARY.DS.'community.php');
 XiusLoader::addAutoLoadFile('CApplications', XIUS_PATH_LIBRARY.DS.'community.php');
 XiusLoader::addAutoLoadFile('CUser', XIUS_PATH_LIBRARY.DS.'community.php');
 XiusLoader::addAutoLoadFile('CRoute', XIUS_PATH_LIBRARY.DS.'community.php');
-
+//Explicit JomSocial Dependency
+CConfig::getInstance();
 XiusLoader::addAutoLoadFile('CMessaging', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'messaging.php');
 require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
 

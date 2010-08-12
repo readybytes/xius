@@ -123,7 +123,8 @@ class XiusControllerUsers extends JController
 		global $mainframe;
 		$listId = JRequest::getVar('listid', 0);
 		$subtask = JRequest::getVar('subtask', ''); 
-		
+		$supplytask = JRequest::getVar('supplytask', '');
+		 
 		$user =& JFactory::getUser();
 		if(!$listId && $subtask != 'xiussavelist' 
 			&&	$subtask != 'xiusexport')
@@ -169,6 +170,9 @@ class XiusControllerUsers extends JController
 						$mainframe->redirect($url,$msg,false);
 						break;
 					}
+				if($supplytask==='displayresult')
+					break;
+					
 				$this->_processList($list);
 				break;
 		}

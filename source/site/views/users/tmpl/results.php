@@ -5,7 +5,12 @@
 **/
 ?>
 <div class="xius_result" id="xius_result"><a name="xiustop"></a>
-<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" name="userForm" id="userForm" method="post">
+<?php
+$listid=''; 
+if(isset($this->list) && isset($this->list->id) && !empty($this->list->id))
+	$listid = 'listid='.$this->list->id;
+?>
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult&task='.$this->task.'&'.$listid);?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
 $css = JURI::base().'components/com_xius/assets/css/gray.css';
