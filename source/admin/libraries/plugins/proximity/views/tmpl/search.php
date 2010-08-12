@@ -22,7 +22,7 @@ if(!defined('_JEXEC')) die('Restricted access');
          <div><input type="text" name="<?php echo $this->data['elePrefix']; ?>_address" id="<?php echo $this->data['elePrefix']; ?>_address"></div>
       </div>
       
-      <input class="inputbox" type="hidden" name="<?php echo $this->data['$elePrefi']; ?>_lat" id="<?php echo $this->data['elePrefix']; ?>_lat" value=<?php echo $this->data['latitude']; ?> />
+      <input class="inputbox" type="hidden" name="<?php echo $this->data['elePrefix']; ?>_lat" id="<?php echo $this->data['elePrefix']; ?>_lat" value=<?php echo $this->data['latitude']; ?> />
       <input class="inputbox" type="hidden" name="<?php echo $this->data['elePrefix']; ?>_long" id="<?php echo $this->data['elePrefix']; ?>_long" value=<?php echo $this->data['longitude']; ?> />
       
       <div class="xiusProximityLabel"><?php echo JText::_('DISTANCE'); ?></div>
