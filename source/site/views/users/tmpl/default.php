@@ -35,9 +35,10 @@ jimport('joomla.html.pane');
 			<div class="xius_spMain">
 			<div class="xius_spLabel">
 			<?php
-			$xiustool = $data['tooltip'];
-			if(!empty($xiustool)) :
-				echo JHTML::_('tooltip',JText::_($xiustool), JText::_($data['label']), null, JText::_($data['label']));
+			//echo JHTML::_('tooltip',JText::_($xiustool), JText::_($data['label']), null, JText::_($data['label']));
+			$xiustooltip = $data['tooltip'];
+			if(!empty($xiustooltip)) :
+				echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';			
 			else :
 				echo JText::_($data['label']); 
 			endif; 

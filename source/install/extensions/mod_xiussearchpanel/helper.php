@@ -39,7 +39,7 @@ class UserSearchHelper
 					if($inputHtml === false)
 						continue;
 							
-					$infohtml[]		= 	array('infoid' => $info->id , 'info' => $info , 'label' => $info->labelName , 'html' => $inputHtml);
+					$infohtml[]		= 	array('infoid' => $info->id , 'info' => $info , 'label' => $info->labelName , 'html' => $inputHtml, 'tooltip' => $plgInstance->getTooltip());
 					}
 			}
 		return $infohtml;		

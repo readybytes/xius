@@ -18,7 +18,15 @@
 				?> 
 					<div class="xius_aiMain" id="xius_Info_Ref<?php echo $data['infoid']; ?>">
 						<div class="xius_aiLabel">
-						<?php echo JHTML::_('tooltip',JText::_($data['tooltip']), JText::_($data['label']), null, JText::_($data['label'])); ?>
+						<?php
+						//echo JHTML::_('tooltip',JText::_($xiustooltip), JText::_($data['label']), null, JText::_($data['label']));
+							$xiustooltip = $data['tooltip'];
+							if(!empty($xiustooltip)) :
+								echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';
+							else :
+								echo JText::_($data['label']); 
+							endif;
+						?>
 						</div>
 						<div class="xius_aiInput">
 						<?php echo $data['html'];?>

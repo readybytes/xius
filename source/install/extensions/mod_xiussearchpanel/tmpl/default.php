@@ -19,7 +19,18 @@ if(!defined('_JEXEC')) die('Restricted access');
 				}
 			?> 
 				<div class="xiusMod_availablemain">
-				<div class="xiMod_left"><?php echo JText::_($data['label']);?></div>
+				
+				<div class="xiMod_left">
+					<?php
+						//echo JHTML::_('tooltip',JText::_($xiustooltip), JText::_($data['label']), null, JText::_($data['label']));
+						$xiustooltip = $data['tooltip'];
+						if(!empty($xiustooltip)) :
+						echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';						
+						else :
+							echo JText::_($data['label']); 
+						endif;
+					?>
+				</div>
 				<div class="xiMod_right"><?php echo $data['html'];?></div>
 			   	</div>	
 			<?php 
