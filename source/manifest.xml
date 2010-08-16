@@ -41,6 +41,8 @@
 			<file>defines.php</file>
 			<file>configuration.xml</file>
 			<file>configuration.ini</file>
+			<file>xiuslist.xml</file>
+			<file>xiuslist.ini</file>
 			<file>index.html</file>
 			<folder>controllers</folder>
 			<folder>helpers</folder>

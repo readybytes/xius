@@ -11,9 +11,7 @@ class XiusLibrariesUsersearch
 {	
 	function buildQuery($params,$join='AND',$sort='userid',$dir='ASC')
 	{
-		/*XITODO : provide join operator and sorting condition
-		 * provide conditional operator also
-		 * provide direction also
+		/*XITODO:  provide conditional operator also
 		 * */
 		/*Trigger event */
 		JPluginHelper::importPlugin( 'system' );
@@ -228,7 +226,9 @@ class XiusLibrariesUsersearch
 		
 		if($allInfo == null){
 			$filter = array();
-			$filter['published'] = true;
+			$user =& JFactory::getUser();
+			if(!XiusHelpersUtils::isAdmin($user->id))
+					$filter['published'] = true;
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
 		}
 		if(empty($allInfo))
@@ -264,7 +264,9 @@ class XiusLibrariesUsersearch
 		$sortableFields = array();
 		if($allInfo == null){
 			$filter = array();
-			$filter['published'] = true;
+			$user =& JFactory::getUser();
+			if(!XiusHelpersUtils::isAdmin($user->id))
+					$filter['published'] = true;
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
 		}
 		
