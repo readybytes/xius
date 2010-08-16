@@ -29,7 +29,7 @@ class XiusProximityEncoder
 		}
 
 		JError::raiseError(500,JText::_("ENCODER CLASS MISSING")." :$encoderClassName");
-		retunr false;
+		return false;
 	}	
 	
 	function getTableMapping()

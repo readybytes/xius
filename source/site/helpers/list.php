@@ -17,7 +17,7 @@ class XiusHelperList
 			
 		if(in_array('All', $allowedGroup)
 				||	in_array($user->usertype, $allowedGroup) 
-				||  !XiusHelpersUtils::isAdmin($user->id) )
+				||  XiusHelpersUtils::isAdmin($user->id) )
 			return true;
 		
 		return false;
