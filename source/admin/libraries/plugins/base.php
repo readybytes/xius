@@ -172,12 +172,8 @@ abstract class XiusBase extends JObject
 	{
 		return true;
 	}
-	/*XITODO : function will decide which user can search
-	 *  sort etc from which info 
-	 *  will be helpful for PROFILETYPE layouts etc at later
-	 *  break in 2 function : accessible according to core
-	 *  2 : according to plugin 
-	 */
+	
+	// XITODO : support for Profile type in accessibility
 	public function isAccessible($reset=false)
 	{
 		static $isAccessible = null;
@@ -441,9 +437,10 @@ abstract class XiusBase extends JObject
 			return false;
 
 		$columnDeatils = array();
-		// XITODO : is set $c->createCacheColumn
+		//  check is set $c->createCacheColumn
 		foreach($columns as $c){
-			if($c->createCacheColumn == false)
+			if(	!isset($c->createCacheColumn) 
+					|| $c->createCacheColumn == false)
 				continue;
 			
 			$columnDeatils[]  = " `{$c->cacheColumnName}` {$c->cacheSqlSpec} ";
@@ -549,6 +546,7 @@ abstract class XiusBase extends JObject
 		/**
 		 * XITODO : Add all cache columns if one instance is 
 		 * 			displaying multiple information
+		 * 		Not being used now
 		 * */
 		foreach($columns as $c){
 			if(!empty($c->cacheColumnName))

@@ -4,6 +4,13 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!defined('_JEXEC')) die('Restricted access');
+
+$document =& JFactory::getDocument();
+if ($params->get('xius_layout','horizontal')=='vertical')
+	$document->addStyleSheet('modules/mod_xiussearchpanel/css/mod_xiussearchpanel_ver.css');
+else
+	$document->addStyleSheet('modules/mod_xiussearchpanel/css/mod_xiussearchpanel_hz.css');
+
 ?>
 	<div class="xiusMod_available" id="xiusMod_available">
 		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>

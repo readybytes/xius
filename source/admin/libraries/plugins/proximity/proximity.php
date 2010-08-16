@@ -133,8 +133,6 @@ class Proximity extends XiusBase
 		$query->select(" {$sql} AS xius_proximity_distance");		
 		$conditions =  " $sql <= $distance ";
 		$query->where($conditions,$join);
-			// XITODO : Sorting according to distance
-			//$query->order(" xius_proximity_distance ");				
 		return true;
 				
 	}
@@ -150,7 +148,7 @@ class Proximity extends XiusBase
 
 	function _getArrangedValue($value)
 	{
-		if($value[0] == 'googlemap'){
+			if($value[0] == 'googlemap'){
 			$values['address']  	= $value[1];
 			$values['latitude']  	= $value[2];
 			$values['longitude'] 	= $value[3];
@@ -253,7 +251,6 @@ class Proximity extends XiusBase
 	{
 		if(!is_array($value) || count($value) < 6)
 			return false;
-
 		$value = $this->_getArrangedValue($value);
 		if(!$value)
 			return false;

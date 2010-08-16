@@ -46,9 +46,13 @@ class XiusLibrariesInfo
 	
 	function getAllInfo($reset=false)
 	{
-		static $allInfo;
-		
-		if(!$reset && isset($allInfo))
+		static $allInfo=null;
+		if($reset == true){
+			$allInfo=null;
+			return $allInfo;
+		}
+			
+		if( $allInfo != null && isset($allInfo))
 			return $allInfo;
 			
 		$iModel	= XiusFactory::getModel( 'info' );	

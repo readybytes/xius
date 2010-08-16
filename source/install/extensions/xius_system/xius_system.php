@@ -149,12 +149,11 @@ class plgSystemxius_system extends JPlugin
 	
 	function xiusOnAfterLoadAllInfo(&$allInfo)
 	{
-		// XITODO: remove mainframe and use JApplication
-		global $mainframe;
+		$app = JFactory::getApplication();
 
 		//Don't run in admin
-		if($mainframe->isAdmin())
-			return true;
+		if($app->isAdmin())
+				return true;
 		
 		return true;
 	}

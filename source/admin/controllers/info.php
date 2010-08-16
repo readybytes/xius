@@ -20,9 +20,6 @@ class XiusControllerInfo extends JController
 		$this->registerTask( 'searchable' , 'saveParamDoable' );
 		$this->registerTask( 'unsearchable' , 'saveParamDoable' );
 		
-		$this->registerTask( 'searchable' , 'saveParamDoable' );
-		$this->registerTask( 'unsearchable' , 'saveParamDoable' );
-		
 		$this->registerTask( 'visible' , 'saveParamDoable' );
 		$this->registerTask( 'invisible' , 'saveParamDoable' );
 		

@@ -22,10 +22,14 @@ class XiusProximityEncoder
 		}
 
 		require_once $encoderPath;
-		// XITODO : validate , class exists or not	
-		$instances = new $encoderClassName($params);
-				
-		return $instances;	
+		//  validate , class exists or not		
+		if(class_exists($encoderClassName,true)){
+			$instances = new $encoderClassName($params);
+			return $instances;
+		}
+
+		JError::raiseError(500,JText::_("ENCODER CLASS MISSING")." :$encoderClassName");
+		retunr false;
 	}	
 	
 	function getTableMapping()

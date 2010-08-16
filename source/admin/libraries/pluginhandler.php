@@ -65,9 +65,10 @@ class XiusLibrariesPluginhandler
 		$addresses	= ProximityGoogleapiHelper::getInvalidAddress($limit);
 		$geocodes 	= ProximityGoogleapiHelper::getGeocodes($addresses);
 		// XITODO : write message when geocodes are not found
-		if(!$geocodes)
+		if(!$geocodes){
+			JError::raiseError(JText::_('GEOCODES NOT FOUND'));
 			return false;
-			
+		}	
 		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocodes);
 		return true;
 	}

@@ -314,6 +314,7 @@ class XiusInformationProximityTest extends XiSelTestCase
   }
   
 // XITODO :: convert into unit test case
+	/*
   function testProximityWithMatchAny()
   {
   		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert17.sql');
@@ -369,6 +370,6 @@ class XiusInformationProximityTest extends XiSelTestCase
 		$avatar[] = "//img[@id='avatar_72']";
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);		
-  }
+  }*/
 }
 	

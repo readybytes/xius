@@ -66,7 +66,7 @@ class XiusHelpersUtils
 	
 	public function getDisplayInformationCount()
 	{
-		/*XITODO : -1 means display all information ,from configuration*/
+		/* -1 means display all information ,from configuration*/
 		return XIUS_ALL;
 	}
 	
