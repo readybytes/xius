@@ -73,6 +73,14 @@ class XiusModelConfiguration extends JModel
 		$config->load( $name );
 		
 		$registry	=& JRegistry::getInstance( 'xius_'.$name );
+		
+		// serialize the user type who can create list
+		// this is done in this onlyfor unilt testing
+		if(array_key_exists('xiusListCreator',$params)){
+			$temp 		= $params['xiusListCreator'];
+			$params['xiusListCreator'] = serialize($temp);		
+		}
+		
 		$registry->loadArray($params,'xius_'.$name);
 		// Get the complete INI string
 		$config->params	= $registry->toString( 'INI' , 'xius_'.$name );

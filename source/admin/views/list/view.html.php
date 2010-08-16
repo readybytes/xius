@@ -24,6 +24,63 @@ class XiusViewList extends JView
 		return parent::display($tpl);
     }
 	
+    /*
+     * view for list when editing the list
+     */
+	function editList($id,$tpl=null)
+	{		
+		$lModel 		= & XiusFactory::getModel('list');
+		$list 			= $lModel->getList($id);
+		
+		//$row			= & JTable::getInstance( 'profiletypes' , 'XiPTTable' );
+		//$row->load( $id );	
+		
+		$listxml 		= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'xiuslist';		
+		$paramsxmlpath 	= $listxml.'.xml';
+		$ini			= $listxml.'.ini';
+		$data			= JFile::read($ini);		
+		
+		if(JFile::exists($paramsxmlpath))
+			$config  = new JParameter($data,$paramsxmlpath);
+		else 
+			$config  = new JParameter('','');
+				
+		$config->bind($list->params);
+
+		//get editor for description of list
+		$editor 		=& JFactory::getEditor();
+		
+		// get sortable fields
+		$filter = array();
+		//$filter['published'] = true;
+		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$sortableFields 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
+		$sortableFields[] 	= array('key' => 'userid','value' => 'userid');
+		
+		// get the user info, who is owner of the list
+		$user = & JFactory::getUser($list->owner);
+		$infoName = array();
+		$conditions = unserialize($list->conditions);
+		foreach($conditions as $c){
+			$info = XiusLibrariesInfo::getInfo(array('id'=>$c['infoid']));
+			if($info || $info!=array())	
+				$infoName[$c['infoid']] = $info[0]->labelName;
+		}
+			
+		$this->assign( 'conditions' , $conditions ); 
+		$this->assign( 'list' , $list );
+		$this->assign( 'config' , $config );
+		$this->assign( 'editor' , $editor );
+		$this->assign( 'sortableFields' , $sortableFields );
+		$this->assign( 'user' , $user );
+		$this->assign( 'allInfo' , $allInfo );
+		$this->assign( 'infoName' , $infoName );
+		
+		// Set the titlebar text
+		JToolBarHelper::title( JText::_( 'XIUS EDIT LIST' ), 'list' );		
+		return parent::display($tpl);
+	}
+	
 	
 	/**
 	 * Private method to set the toolbar for this view

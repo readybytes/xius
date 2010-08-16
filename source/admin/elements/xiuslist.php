@@ -17,10 +17,10 @@ class JElementXiuslist extends JElement
 	{
 		$reqnone = false;
 		$reqall = false;
-		if(isset($node->_attributes->addnone))
+		if(isset($node->_attributes->addnone) || isset($node->_attributes['addnone']))
 			$reqnone = true;
 			
-		if(isset($node->_attributes->addall))
+		if(isset($node->_attributes->addall) || isset($node->_attributes['addall']))
 			$reqall = true;
 			
 		$ptypeHtml = $this->getXiuslistFieldHTML($name,$value,$control_name,$reqnone,$reqall);

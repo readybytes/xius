@@ -16,7 +16,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 </style>
 
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">
-<div>
+<div style="width:25%">
 <?php 
 jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));

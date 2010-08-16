@@ -270,17 +270,19 @@ class XiusControllerUsers extends JController
 		
 		$returndata = array();
 		
-		/* Check for admin only admin can save list	 */
-		if(!XiusHelpersUtils::isAdmin($user->id)){
-			$url = JRoute::_("index.php?option=com_xius&view=users",false);
-			$msg = JText::_('YOU CAN NOT SAVE LIST');
-			$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
-			return $returndata;
+		// check for user type whoic can save list, and admin will always can create list
+		$listCreator = unserialize(XiusHelpersUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
+		
+		// allow user to create list who can create
+		if(XiusHelperList::allowUserToAccessList($user,$listCreator)){
+			$returndata = array('id' => 0 ,  'success' => true);
+			return $returndata;			
 		}
 		
-		$returndata = array('id' => 0 ,  'success' => true);
-		return $returndata;
-		
+		$url = JRoute::_("index.php?option=com_xius&view=users",false);
+		$msg = JText::_('YOU CAN NOT SAVE LIST');
+		$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
+		return $returndata;		
 	}
 	
 		

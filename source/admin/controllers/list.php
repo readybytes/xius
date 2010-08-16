@@ -42,6 +42,127 @@ class XiusControllerList extends JController
 		$mainframe->redirect($link, $data['message']);
 	}
 	
+	function editList()
+	{
+		$id = JRequest::getVar('editId', 0 );		
+		
+		$viewName	= JRequest::getCmd( 'view' , 'list' );
+		
+		// Get the document object
+		$document	=& JFactory::getDocument();
+
+		// Get the view type
+		$viewType	= $document->getType();
+		
+		$view		=& $this->getView( $viewName , $viewType );		
+		
+		if($id){			
+			$layout		= JRequest::getCmd( 'layout' , 'list.edit' );
+			$view->setLayout( $layout );
+			echo $view->editList($id);
+			return;
+		}				
+		
+		// XITODO : when id is not set then what to do
+		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$mainframe->redirect($link);
+	}
+	
+	function save()
+	{
+		$method	= JRequest::getMethod();
+		if( $method == 'GET' )
+		{
+			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			return false;
+		}
+		
+		global $mainframe;
+		$data = $this->_processSave();
+		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$mainframe->redirect($link, $data['msg']);		
+	}
+	
+	function apply()
+	{
+		$method	= JRequest::getMethod();
+		if( $method == 'GET' )
+		{
+			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			return;
+		}
+		
+		global $mainframe;
+		
+		$data = $this->_processSave();
+		$link = JRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$data['id'], false);
+		$mainframe->redirect($link, $data['msg']);		
+	}
+	
+	function _processSave($post=null)
+	{
+		if($post == null)
+			$post	= JRequest::get('post');
+		
+		jimport('joomla.filesystem.file');
+
+		$infoTable	=& JTable::getInstance( 'list' , 'XiusTable' );
+		$infoTable->load($post['id']);
+				
+		$data = array();
+		
+		$registry	=& JRegistry::getInstance( 'xius' );
+		if(array_key_exists('xiusListViewGroup',$post['params'])){
+			$temp 		= $post['params']['xiusListViewGroup'];
+			$post['params']['xiusListViewGroup'] = serialize($temp);		
+		}
+		$registry->loadArray($post['params'],'xius_list_params');
+		
+		// Get the complete INI string
+		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
+		
+		$data['id'] 			= $post['id'];
+		$data['name'] 			= $post['xiusListName'];
+		$data['visibleinfo'] 	= $post['xiusListVisibleInfo'];
+		$data['sortinfo'] 		= $post['xiusListSortInfo'];
+		$data['sortdir'] 		= $post['xiusListSortDir'];
+		$data['join']	 		= $post['xiusListJoinWith'];
+		$data['description']	= $post['xiusListDescription'];
+		$data['published'] 		= $post['published'];
+		
+		unset($post['id']);
+		unset($post['labelName']);
+		unset($post['published']);
+		unset($post['params']);
+		
+		$iModel	= XiusFactory::getModel( 'list' );
+		$storedInfo['id'] = $iModel->store($data);
+			
+		if(!$storedInfo['id'])
+			$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
+		else
+			$storedInfo['msg'] = JText::_('INFO SAVED');
+			
+
+		$data['id'] = $storedInfo['id'];
+		
+		$list = array();
+		$list['id'] = $storedInfo['id'];
+		$list['data'] = $data;
+		/* XITODO : fork trigger */
+		
+		//JPluginHelper::importPlugin( 'system' );
+		
+		/*info reset required , b'coz it will return
+		 * old data and new info will not be added in cache
+		 */
+		//XiusLibrariesInfo::getAllInfo(true);
+		
+		//$dispatcher =& JDispatcher::getInstance();
+		//$dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
+			
+		return $storedInfo;
+	}
 	
 	function _remove($ids=null)
 	{

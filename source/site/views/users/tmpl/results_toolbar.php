@@ -11,10 +11,9 @@ JHTML::_('behavior.modal' , 'a.savelist' , $params);
 $user =& JFactory::getUser();
 
 /*only admin will see this icon */
-if(XiusHelpersUtils::isAdmin($user->id)){
-	foreach($this->toolbar as $tool)
-		echo $tool->value;
-}
+foreach($this->toolbar as $tool)
+	echo $tool->value;
+
 ?><div class="xiusTbRight">
 				<?php
 				if(!empty($this->sortableFields))	:

@@ -3,7 +3,7 @@
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die();
 
-class JElementJoomlaUserGroup extends JElement
+class JElementXiusJoomlaUserGroup extends JElement
 {
 	/**
 	 * Element name
@@ -12,18 +12,15 @@ class JElementJoomlaUserGroup extends JElement
 	 * @var		string
 	 */
 	// XITODO : change name of this element, add XIUS
-	var	$_name = 'JoomlaUserGroup';
+	var	$_name = 'XiusJoomlaUserGroup';
 
 	function fetchElement($name, $value, &$node, $control_name)
 	{
 		$value = unserialize($value);
 		if(!$value)
-			$value[]='Public';
+			$value[]='All';
 		//if($value)
-		$reqnone = false;
-		if(isset($node->_attributes->addnone))
-			$reqnone = true;
-		
+		$reqnone = false;		
 		$infoHtml = $this->getInfoHTML($name,$value,$control_name,$reqnone);
 
 		return $infoHtml;

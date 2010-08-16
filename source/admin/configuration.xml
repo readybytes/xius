@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<params>
+	<params addpath="/administrator/components/com_xius/elements">
 	<!--
 		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
 	-->
 	<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
+		
 		<param name="xiusDebugMode" type="radio" default="0" label="ENABLE DEBUG MODE" description="ENABLE DEBUG MODE.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+		
 		<param name="showSearchMenuTab" type="radio" default="0" label="SHOW USER SEARCH MENU.LABEL" description="SHOW USER SEARCH MENU.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+		
 		<param name="xiusReplaceSearch" type="radio" default="0" label="REPLACE JOM SOCIAL ADVANCE SEARCH.LABEL" description="REPLACE JOM SOCIAL ADVANCE SEARCH.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+		
 		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
 			<option value="none">No</option>
 			<option value="block">Yes</option>
 		</param>
+		
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="@spacer" type="spacer" default="Proximity Search Configuration" label="" description="" />
 		<param name="xiusProximityDefaultLat" type="text" default="28.635308" label="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.DESC" />
 		<param name="xiusProximityDefaultLong" type="text" default="77.22496" label="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.DESC" />
 		
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="@spacer" type="spacer" default="List Configuration" label="" description="" />
+		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.LABEL" description="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.DESC"></param>
+	
 	</params>
 </config>

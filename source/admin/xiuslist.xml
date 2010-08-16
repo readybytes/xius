@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/administrator/components/com_xius/elements">		
+		<param name="xiusListViewGroup" type="xiusJoomlaUserGroup" default="ALL" label="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.LABEL" description="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.DESC"></param>
+	
+	</params>
+</config>
