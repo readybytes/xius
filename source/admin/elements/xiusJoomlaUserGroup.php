@@ -19,18 +19,22 @@ class JElementXiusJoomlaUserGroup extends JElement
 		$value = unserialize($value);
 		if(!$value)
 			$value[]='All';
+			
+		$reqguest=false;
+		if(isset($node->_attributes->addguest)|| isset($node->_attributes['addguest']))
+			$reqguest = true;	
 		//if($value)
 		$reqnone = false;		
-		$infoHtml = $this->getInfoHTML($name,$value,$control_name,$reqnone);
+		$infoHtml = $this->getInfoHTML($name,$value,$control_name,$reqguest);
 
 		return $infoHtml;
 	}
 	
 	
-	function getInfoHTML($name,$value,$control_name='params',$reqnone=false)
+	function getInfoHTML($name,$value,$control_name='params',$reqguest=false)
 	{		
 		$group 	= $this->getJoomlaGroups();
-		$html 	= $this->getOptionHtml($group, $name, $value,$control_name, 'multiple="multiple" size="9"' );
+		$html 	= $this->getOptionHtml($group, $name, $value,$control_name, 'multiple="multiple" size="9"',$reqguest );
 		return $html;
 	}
 	
@@ -45,7 +49,7 @@ class JElementXiusJoomlaUserGroup extends JElement
 		return $db->loadObjectList(); 		
 	}
 	
-	function getOptionHtml($option, $name, $value,$control_name, $attribs = null)
+	function getOptionHtml($option, $name, $value,$control_name, $attribs = null,$reqguest=false)
 	{
 		if (is_array($attribs)) {
 			$attribs = JArrayHelper::toString($attribs);
@@ -59,9 +63,11 @@ class JElementXiusJoomlaUserGroup extends JElement
 			$selected	= ( in_array($op->value,$value)) ? ' selected="true"' : '';
 			$html .= '<option value="'.$op->value.'" '.$selected.'>'.$op->value.'</option>' ;
 			}
-		
-		$selected	= ( in_array('Guest Only',$value)) ? ' selected="true"' : '';
-		$html .= '<option value="Guest Only" '.$selected.'>Guest Only</option>' ;
+			
+		if($reqguest === true){
+			$selected	= ( in_array('Guest Only',$value)) ? ' selected="true"' : '';
+			$html .= '<option value="Guest Only" '.$selected.'>Guest Only</option>' ;
+		}
 		$html	.= '</select>';
 
 		return $html;

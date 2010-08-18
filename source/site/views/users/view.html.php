@@ -300,9 +300,11 @@ class XiusViewUsers extends JView
 
 		$user = JFactory::getUser();
 
-		if(!XiusHelpersUtils::isAdmin($user->id))
+		if(!XiusHelpersUtils::isAdmin($user->id)){
 			$filter['published'] = 1;
-
+			$filter['owner'] = $user->id;
+		}
+		
 		$lists = $lModel->getLists($filter,'AND',false);
 
 		$selectedListId = JRequest::getVar('listid', 0);
@@ -313,21 +315,74 @@ class XiusViewUsers extends JView
 		parent::display();
 	}
 
+	function savelist($selectedListId,$saveas)
+	{
+		$lModel =& XiusFactory::getModel('list','admin');
 
+		$filter = array();
+
+		$user = JFactory::getUser();
+
+		if(!XiusHelpersUtils::isAdmin($user->id))
+			$filter['published'] = 1;
+
+		$lists = $lModel->getLists($filter,'AND',false);
+				
+		//get editor for description of list
+		$data['editor']		= & JFactory::getEditor();
+		
+		$data['conditions'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$data['sortId'] 	= XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
+		$data['dir'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+		$data['join'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+
+		// get related data of conditions 
+		$infoName = array();		
+		foreach($data['conditions'] as $c){
+			$info = XiusLibrariesInfo::getInfo(array('id'=>$c['infoid']));
+			if($info || $info!=array())	
+				$data['infoName'][$c['infoid']] = $info[0]->labelName;
+		}
+		
+		// if saveas is xiussaveexisting
+		$data['listName'] 	= '';
+		$data['listDesc'] 	= '';
+		if($saveas === 'xiussaveexisting'){
+			$list = $lModel->getList($selectedListId);
+			$data['listName'] = $list->name;
+			$data['listDesc'] = $list->description;
+		}
+		
+		// XITODO : if user is admin then ??
+		$filter = array();
+		$filter['published'] = true;
+		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$data['sortableFields'] 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
+		$data['sortableFields'][] 	= array('key' => 'userid','value' => 'userid');
+		
+		$this->assign( 'saveas' , $saveas );
+		$this->assign( 'data' , $data );		
+		$this->assign('lists',$lists);
+		$this->assign('selectedListId',$selectedListId);
+		parent::display();
+	}
+	
 	function success($data)
 	{
 		$this->assign('data',$data);
+		global $mainframe;
+		$mainframe->redirect($data['url'],$data['msg']);
 
-		/*$document->addScriptDeclaration("
-		window.addEvent('domready', function() {
-			document.preview = SqueezeBox;
-		});");*/
- 		/*$resizeJs = "SqueezeBox.resize({size:{x: 200, y: 100}});";
- 		$document->addScriptDeclaration($resizeJs); */
-
-		$document = JFactory::getDocument();
-		$js = "window.setTimeout(\"window.parent.location.href = '".$data['url']."';parent.SqueezeBox.close()\", 1000);";
- 		$document->addScriptDeclaration($js);
+//		/*$document->addScriptDeclaration("
+//		window.addEvent('domready', function() {
+//			document.preview = SqueezeBox;
+//		});");*/
+// 		/*$resizeJs = "SqueezeBox.resize({size:{x: 200, y: 100}});";
+// 		$document->addScriptDeclaration($resizeJs); */
+//
+//		//$document = JFactory::getDocument();
+//		//$js = "window.setTimeout(\"window.parent.location.href = '".$data['url']."';parent.SqueezeBox.close()\", 1000);";
+// 		//$document->addScriptDeclaration($js);
 
 		parent::display();
 	}

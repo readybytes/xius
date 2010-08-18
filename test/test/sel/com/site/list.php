@@ -40,12 +40,15 @@ class XiusListTest extends XiSelTestCase
 		$this->waitForElement('sbox-window');
 		sleep(2);
 		
- 		$this->assertEquals("1", $this->getValue("name=listid value=1"));
+		$this->assertEquals("1", $this->getValue("name=listid value=1"));
         $this->assertEquals("off", $this->getValue("name=listid value=2"));
-        
-	    $this->type("xius_list_name", "Female From Afghanistan");
-    	$this->type("xius_list_desc", "All Female from afghanistan");
-    	$this->click("xiussavenew");
+        $this->clcik('xiusListSaveAs');
+ 		sleep(2);
+ 		$this->waitPageLoad();
+ 		
+	    $this->type("xiusListName", "Female From Afghanistan");
+    	$this->type("xiusListDesc", "All Female from afghanistan");
+    	$this->click("xiussave");
     	
 	    sleep(3);
 	    $this->waitPageLoad();

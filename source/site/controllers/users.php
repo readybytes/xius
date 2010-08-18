@@ -215,10 +215,10 @@ class XiusControllerUsers extends JController
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		
-		$subtask = JRequest::getVar('subtask', '');
-		
-		$listId = JRequest::getVar('listid', 0);
-		$listName = JRequest::getVar('xius_list_name', '');
+		$subtask 	= JRequest::getVar('subtask', '');
+		$saveas 	= JRequest::getVar('saveas', 'xiussavenew');
+		$listId 	= JRequest::getVar('listid', 0);
+		$listName 	= JRequest::getVar('xiusListName', '');
 		
 		$msg = '';
 		
@@ -243,7 +243,8 @@ class XiusControllerUsers extends JController
 				
 				if(!$listName){
 					$msg = JText::_('Please provide list name');
-					break;
+					$view->setLayout( 'results_savelist' );
+					return $view->displaySaveOption($msg);					
 				}
 				
 				$data = $this->_saveListChecks(true);
@@ -252,9 +253,16 @@ class XiusControllerUsers extends JController
 					$data = '';
 					$data =  $this->_saveList(true);
 				}
-				$view->setLayout( 'results_success' );
+				// no need to set laout for success the view will set different layout
+				//$view->setLayout( 'results_' );
 				return $view->success($data);
 				break;
+
+			case 'showListData' : // will show the params for saving list
+				$view->setLayout( 'results_savelist' );
+				return $view->savelist($listId,$saveas);
+				break;
+				
 			default :
 				break;
 		}
@@ -287,12 +295,17 @@ class XiusControllerUsers extends JController
 	
 		
 	
-	function _saveList($new = true , $data = null)
+	function _saveList($new = true , $data = null, $post=null)
 	{
 		$user =& JFactory::getUser();
 		
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-
+		
+		if($post == null)
+			$post = JRequest::get('POST');
+		
+		if(!$post && !$data)
+			return;
 		/*XITODO : ask user for list details
 		 * and whether to save this as a new list
 		 * or update existing one
@@ -300,7 +313,7 @@ class XiusControllerUsers extends JController
 		
 		if($data == null){
 			$listId = JRequest::getVar('listid', 0);
-			$listName = JRequest::getVar('xius_list_name', 'LIST'.$listId);
+			$listName = JRequest::getVar('xiusListName', 'LIST'.$listId);
 			/*XITODO : set visible info and published also */
 			$data = array();
 			
@@ -309,13 +322,20 @@ class XiusControllerUsers extends JController
 			if($new){
 				$data['id'] = 0;
 				$data['name'] = $listName;
-				$data['description'] = JRequest::getVar('xius_list_desc', '');
-				$data['published'] = JRequest::getVar('xius_list_publish', 1);
+				$data['description'] = JRequest::getVar('xiusListDesc', '');
+				$data['published'] = JRequest::getVar('xiusListPublish', 1);
+			}
+			else{
+				$data['id'] = $listId;
+				$data['name'] = $post['xiusListName'];
+				$data['description'] = $post['xiusListDesc'];
+				$data['published'] = $post['xiusListPublish'];
 			}
 			
-			$data['join'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
-			$data['sortinfo'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,'userid');
-			$data['sortdir'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+			
+			$data['join'] = $post['xiusListJoinWith'];
+			$data['sortinfo'] = $post['xiusListSortInfo'];
+			$data['sortdir'] = $post['xiusListSortDir'];
 			$data['owner'] = $user->id;
 			$data['conditions'] = serialize($conditions);
 		}

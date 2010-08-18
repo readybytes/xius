@@ -1,0 +1,117 @@
+.xiusPopup
+	{
+		
+	}
+	
+.xiusPopup .xiusPopupHeader
+	{   
+		height: 30px;
+		background-color: #333333;
+		background-image: none;
+		background-repeat: repeat;	
+		background-attachment: scroll;
+		background-position: 0% 0%;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+	
+.xiusPopup .xiusPopupHeader span
+	{   
+		color: #ffffff;
+		font-weight: bold;
+		font-size: 16px;
+		height: 30px;
+		line-height: 30px;
+		margin-left: 8px;
+		position: absolute;
+		top: 0pt;
+		left: 0pt;
+		z-index: 999;
+	}
+
+.xiusPopup .xiusPopupBox
+	{
+		margin-left: 5%;
+		margin-top: 4%;
+	}
+
+.xiusPopup .xiusPopupBox .xiusPopupEntity
+	{
+		
+		margin-top: 1%;
+	}
+
+.xiusPopup .xiusPopupBox .xiusPopupEntity .xiusPopupLabel
+	{
+		float: left;		
+		text-align:right;
+		padding-top: 0px;
+		padding-right: 10px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+		margin-top: 10px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}
+	
+.xiusPopup .xiusPopupBox .xiusPopupEntity .xiusPopupControl
+	{
+		witdth : 85 %;
+		padding-top: 0px;
+		padding-right: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;			
+	}
+	
+.xiusPopup .xiusPopupBox .xiusPopupEntity .xiusPopupControl a
+	{
+		font-size: xx-small;
+	}
+	
+.xiusPopup .xiusPopupBox .xiusPopupEntity .xiusPopupControl input,textarea
+	{
+		padding: 9px;
+		border: solid 1px #E5E5E5;
+		outline: 0;
+		width: 70%;
+		font: normal 13px/ 100% Verdana, Tahoma, sans-serif;
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+		margin-top: 2px;
+	}
+	
+.xiusPopup .xiusPopupFooter
+	{	
+		height: 30px;
+		margin-top: 1%;
+		margin-right: 10%;
+		text-align:right;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+	
+	
+.xius_Popup .xiusPopupBox .xiusPopupEntity .xiusPopupControl input:hover,input:focus,textarea:focus 
+	{
+		border-color: #C9C9C9;
+		-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+	}
+
+.xiusEmail .xiusEmailFooter input {
+	margin-left:1px;
+	width: auto;
+	padding: 9px 15px;
+	background: #D8DFEA;
+	border: 0;
+	font-size: 12px;
+	color: #275788;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+}

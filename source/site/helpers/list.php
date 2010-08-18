@@ -9,8 +9,13 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusHelperList 
 {
-	function allowUserToAccessList($user,$allowedGroup)
+	function allowUserToAccessList($user,$allowedGroup,$allowGuest=false)
 	{
+		// if guest user are not allowed to access list ( create)
+		// then check allowGuest is false and usertype is also false
+		if($allowGuest === false && !$user->usertype)
+			return false; 
+
 		// if user is not registered then he will  be treated as guest
 		if(!$user->usertype)
 			$user->usertype = 'Guest Only';

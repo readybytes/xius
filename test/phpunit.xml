@@ -41,7 +41,7 @@
 		<file>test/sel/com/site/joomlaSearch.php</file>
 		<file>test/sel/com/site/search.php</file>
 		<file>test/sel/com/site/sorting.php</file>
-		<file>test/sel/com/site/list.php</file>
+	<!--<file>test/sel/com/site/list.php</file>-->
 		<file>test/sel/com/site/pagination.php</file>
 		<file>test/sel/com/site/rangesearch.php</file>
 		<file>test/sel/com/site/slider.php</file>

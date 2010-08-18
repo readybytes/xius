@@ -39,6 +39,23 @@
 		form.submit();
 	}
 	
+	function xiusSaveListAs(url)
+	{		
+		var subtask = '';
+		if(document.getElementById('xiusListSaveAsNew').checked==true)
+			subtask = 'xiussavenew';
+		
+		if(document.getElementById('xiusListSaveAsExisting').checked==true){
+			subtask = 'xiussaveexisting';
+			var listid = document.getElementById('listid').value;
+			subtask = subtask + '&listid=' + listid;
+		}
+
+		window.parent.location.href = url + '&saveas=' + subtask;
+		//window.opener.location.href = url;
+		parent.SqueezeBox.close();
+	}
+	
 	function xiusApplySort(subtask) 
 	{
 		var form = document.userForm;
