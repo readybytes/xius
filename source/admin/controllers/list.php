@@ -106,17 +106,24 @@ class XiusControllerList extends JController
 		
 		jimport('joomla.filesystem.file');
 
-		$infoTable	=& JTable::getInstance( 'list' , 'XiusTable' );
-		$infoTable->load($post['id']);
-				
 		$data = array();
+		
+		$list	=& JTable::getInstance( 'list' , 'XiusTable' );
+		$list->load($post['id']);
+		$config = new JRegistry('xiuslist');		
+		$config->loadINI($list->params);
+		$params = $config->toArray('xiuslist');		
+		
+		// trigger evet before saving list
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
 		
 		$registry	=& JRegistry::getInstance( 'xius' );
 		if(array_key_exists('xiusListViewGroup',$post['params'])){
 			$temp 		= $post['params']['xiusListViewGroup'];
-			$post['params']['xiusListViewGroup'] = serialize($temp);		
-		}
-		$registry->loadArray($post['params'],'xius_list_params');
+			$params['xiusListViewGroup'] = serialize($temp);		
+		}				
+		$registry->loadArray($params,'xius_list_params');
 		
 		// Get the complete INI string
 		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
@@ -127,7 +134,7 @@ class XiusControllerList extends JController
 		$data['sortinfo'] 		= $post['xiusListSortInfo'];
 		$data['sortdir'] 		= $post['xiusListSortDir'];
 		$data['join']	 		= $post['xiusListJoinWith'];
-		$data['description']	= $post['xiusListDescription'];
+		$data['description']	= JRequest::getVar( 'xiusListDescription', '', 'post', 'string', JREQUEST_ALLOWRAW );
 		$data['published'] 		= $post['published'];
 		
 		unset($post['id']);

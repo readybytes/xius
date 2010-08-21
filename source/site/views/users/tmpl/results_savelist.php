@@ -12,7 +12,7 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 ?><div class="savemainbox">
-<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption'); ?>" name="saveListForm" id="saveListForm" method="post">
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption'); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 
 	<div class="leftbox">
 		<!--  START HEADER -->
@@ -32,7 +32,7 @@ if(!empty($this->msg))
 			</label>
 		</div>		
 		<div>
-			<input type="text" name="xiusListName" value="<?php echo $this->data['listName']; ?>" />
+			<input type="text" name="xiusListName" id="xiusListName" value="<?php echo $this->data['listName']; ?>" />
 		</div>
 		<!--  END NAME -->
 		
@@ -52,9 +52,11 @@ if(!empty($this->msg))
 				?>
 			</label>
 			<?php 
+			if(array_key_exists('conditions', $this->data) &&  $this->data['conditions']){
 				foreach($this->data['conditions'] as $condition)
 					if(array_key_exists($condition['infoid'],$this->data['infoName']))					
-						echo @$this->data['infoName'][$condition['infoid']].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';
+						echo $this->data['infoName'][$condition['infoid']].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';
+			}
 			?>
 		</div>
 		<!--  END CONDITION -->
@@ -93,7 +95,7 @@ if(!empty($this->msg))
 				<?php echo JText::_( 'SORTING DIRECTION' ); ?>:
 			</label>
 			<?php
-				if($this->data['dir']) : 
+				if(array_key_exists('dir',$this->data) && $this->data['dir']) : 
 					$ascselected = '';
 					$descselected = '';
 					if($this->data['dir'] === 'ASC')	:
@@ -121,10 +123,12 @@ if(!empty($this->msg))
 			<?php 
 				$orSelected = '';
 				$andSelected = '';
-				if($this->data['join'] == 'AND'):
-					$andSelected = ' selected=true ';
-				elseif($this->data['join'] == 'OR') :
-					$orSelected = ' selected=true ';
+				if(array_key_exists('join',$this->data)):
+					if($this->data['join'] == 'AND'):
+						$andSelected = ' selected=true ';
+					elseif($this->data['join'] == 'OR') :
+						$orSelected = ' selected=true ';
+					endif;
 				endif;
 			?>
 			<select id="xiusjoin" name="xiusListJoinWith" >
@@ -143,18 +147,28 @@ if(!empty($this->msg))
 			</label>
 		</div>		
 		<div>
-			<?php		
-				echo $this->data['editor']->display( 'xiusListDesc', $this->data['listDesc'], '480', '250', '50', '20' );
+			<?php
+			$val = '';	
+				if(array_key_exists('listDesc',$this->data))
+					$val = $this->data['listDesc'];
+				
+				echo $this->data['editor']->display( 'xiusListDesc',$val , '480', '250', '50', '20' );
 			?>			
 		</div>
 		<!--  END DESCRIPTION -->
+		
+		<!-- START PLUGIN PRIVACY -->
+		<?php 
+			foreach($this->data['xiusListPrivacy'] as $html)
+				echo $html;
+				
+		?>
 		
 		
 		
 		<div class="submit"><input type="submit" name = "xiussave" id = "xiussave" value=<?php echo JText::_('SAVE AS NEW')?> /></div>
 	</div>
 	
-	</div>
 
 <input type="hidden" name="subtask" value="<?php echo $this->saveas; ?>" />
 <input type="hidden" name="listid" value="<?php echo $this->selectedListId; ?>" />

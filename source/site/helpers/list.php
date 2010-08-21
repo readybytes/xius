@@ -27,4 +27,36 @@ class XiusHelperList
 		
 		return false;
 	} 
+	
+	function filterListAccordingToPrivacy($lists,$user)
+	{
+		if(!$user->usertype)
+			$user->usertype = 'Guest Only';
+			
+		$count 	= count($lists);
+		for( $i=0 ; $i < $count ; $i++ ){
+			//  owner of list will not blocked to viewlist
+			if($user->id == $lists[$i]->owner)
+				continue;
+
+			$config = new JParameter('','');
+			$config->bind($lists[$i]->params);
+			$joomlaPrivacy 	= $config->get('xiusListViewGroup','BLANK');
+			
+			//if joomla privacy param is blank then no need to unset, allowed to all
+			if($joomlaPrivacy === 'BLANK' || !$joomlaPrivacy)
+				continue;
+
+			$joomlaPrivacy = unserialize($joomlaPrivacy);
+
+			// check user is allowed to access list or not
+			if(XiusHelperList::allowUserToAccessList($user,$joomlaPrivacy,true))
+				continue;
+				
+			unset($lists[$i]);				
+		}
+		
+		$lists = array_values($lists);
+		return true;
+	}
 }

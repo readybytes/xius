@@ -93,7 +93,7 @@ class plgSystemxius_system extends JPlugin
 		return $pluginHandler->createGeocodeTable();		
 	}
 	
-	function onBeforeAllListDisplay($lists)
+	function xiusOnBeforeAllListDisplay($lists,$loggedinUser)
 	{
 		return true;
 	}

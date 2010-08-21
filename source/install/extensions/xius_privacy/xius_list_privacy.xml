@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<install version="1.5" type="plugin" group="system" method="upgrade">
+  <name>XIUS List Privacy Plugin</name>
+  <version>2.1.174</version>
+  <creationDate>Mar 2010</creationDate>
+  <author>Team Joomlaxi</author>
+  <authorEmail>shyam@joomlaxi.com</authorEmail>
+  <authorUrl>http://www.joomlaxi.com/</authorUrl>
+  <copyright>@Joomlaxi</copyright>
+  <license>GNU GPL v2.0</license>
+  <description>XIUS List Privacy Plugin</description>
+  <files>  	
+	<filename plugin="xius_list_privacy">xius_list_privacy.php</filename>
+  </files>
+</install>
+

@@ -330,27 +330,33 @@ class XiusViewUsers extends JView
 				
 		//get editor for description of list
 		$data['editor']		= & JFactory::getEditor();
-		
+		// get required data from session
 		$data['conditions'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$data['sortId'] 	= XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
 		$data['dir'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
 		$data['join'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 
 		// get related data of conditions 
-		$infoName = array();		
-		foreach($data['conditions'] as $c){
-			$info = XiusLibrariesInfo::getInfo(array('id'=>$c['infoid']));
-			if($info || $info!=array())	
-				$data['infoName'][$c['infoid']] = $info[0]->labelName;
+		$infoName = array();	
+		if($data['conditions']){	
+			foreach($data['conditions'] as $c){
+				$info = XiusLibrariesInfo::getInfo(array('id'=>$c['infoid']));
+				if($info || $info!=array())	
+					$data['infoName'][$c['infoid']] = $info[0]->labelName;
+			}
 		}
 		
 		// if saveas is xiussaveexisting
 		$data['listName'] 	= '';
 		$data['listDesc'] 	= '';
+		$tempParams=array();
 		if($saveas === 'xiussaveexisting'){
 			$list = $lModel->getList($selectedListId);
 			$data['listName'] = $list->name;
 			$data['listDesc'] = $list->description;
+			$tempConfig = new JRegistry('xiuslist');
+			$tempConfig->loadINI($list->params);
+			$tempParams = $tempConfig->toArray('xiuslist');
 		}
 		
 		// XITODO : if user is admin then ??
@@ -360,6 +366,11 @@ class XiusViewUsers extends JView
 		$data['sortableFields'] 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
 		$data['sortableFields'][] 	= array('key' => 'userid','value' => 'userid');
 		
+		
+		// triger event for displaying xius privacy html
+		$dispatcher =& JDispatcher::getInstance();
+		$data['xiusListPrivacy'] = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
+				 
 		$this->assign( 'saveas' , $saveas );
 		$this->assign( 'data' , $data );		
 		$this->assign('lists',$lists);
@@ -404,11 +415,14 @@ class XiusViewUsers extends JView
 			$filter['published'] = 1;
 
 		$lists = $lModel->getLists($filter,'AND',true);
+		
+		// filter list according to privacy set by joomla
+		XiusHelperList::filterListAccordingToPrivacy(&$lists,$user);
 		$pagination =& $lModel->getPagination($filter,'AND');
 
 		//  Trigger event 
 		$dispatcher =& JDispatcher::getInstance();
-		$dispatcher->trigger( 'onBeforeAllListDisplay', array( &$lists ) );
+		$dispatcher->trigger( 'xiusOnBeforeAllListDisplay', array( &$lists , $user ) );
 
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);

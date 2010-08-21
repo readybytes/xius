@@ -40,12 +40,19 @@
 	}
 	
 	function xiusSaveListAs(url)
-	{		
+	{
 		var subtask = '';
 		if(document.getElementById('xiusListSaveAsNew').checked==true)
 			subtask = 'xiussavenew';
 		
 		if(document.getElementById('xiusListSaveAsExisting').checked==true){
+			
+			var name = document.getElementById('listid').value;
+			if(trim(name) == '-1'){
+				alert('You have not selected any List or Not cretaed any list yet.')
+				return false;
+			}
+			
 			subtask = 'xiussaveexisting';
 			var listid = document.getElementById('listid').value;
 			subtask = subtask + '&listid=' + listid;
@@ -54,6 +61,16 @@
 		window.parent.location.href = url + '&saveas=' + subtask;
 		//window.opener.location.href = url;
 		parent.SqueezeBox.close();
+	}
+	
+	function xiusListValidation(){
+		var name = document.getElementById('xiusListName').value;
+		if(trim(name) == ''){
+			alert('Please enter the name of List');
+			return false;
+		}
+	
+		return true;			
 	}
 	
 	function xiusApplySort(subtask) 

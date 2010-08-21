@@ -44,9 +44,8 @@ class ProximityView extends XiusBaseView
         return $contents;
     }  
     
- function getLocationMap($formName,$instance)
-    {
-    	
+ 	function getLocationMap($formName,$instance)
+    {    	
     	require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'proximity'.DS.'googlemaphelper.php';
     	
     	$data=array();
@@ -55,8 +54,8 @@ class ProximityView extends XiusBaseView
     	   	
     	$data['latitude']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
     	$data['longitude']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
-    	$data['type']		 = PROXIMITY_DEAFULT_MAP_TYPE;
-    	$data['zoom']		 = PROXIMITY_DEAFULT_MAP_ZOOM;
+    	$data['type']		 = PROXIMITY_DEFAULT_MAP_TYPE;
+    	$data['zoom']		 = PROXIMITY_DEFAULT_MAP_ZOOM;
     	$data['width']		 = PROXIMITY_MAP_WIDTH;
     	$data['hight']		 = PROXIMITY_MAP_HEIGHT;
     	$data['id']			 = '';

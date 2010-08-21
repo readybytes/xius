@@ -310,8 +310,8 @@ class XiusControllerUsers extends JController
 		 * and whether to save this as a new list
 		 * or update existing one
 		 */
-		
-		if($data == null){
+		$params = array();
+		if($data === null){
 			$listId = JRequest::getVar('listid', 0);
 			$listName = JRequest::getVar('xiusListName', 'LIST'.$listId);
 			/*XITODO : set visible info and published also */
@@ -320,25 +320,41 @@ class XiusControllerUsers extends JController
 			$data['id'] = $listId;
 			
 			if($new){
-				$data['id'] = 0;
-				$data['name'] = $listName;
-				$data['description'] = JRequest::getVar('xiusListDesc', '');
-				$data['published'] = JRequest::getVar('xiusListPublish', 1);
+				$data['id'] 		= 0;
+				$data['name'] 		= $listName;
+				$data['description']= JRequest::getVar( 'xiusListDesc', '', 'post', 'string', JREQUEST_ALLOWRAW );
+				$data['published'] 	= JRequest::getVar('xiusListPublish', 1);
 			}
 			else{
+				// load table for getting params
+				$list	=& JTable::getInstance( 'list' , 'XiusTable' );
+				$list->load($listId);
+				$config = new JRegistry('xiuslist');
+				$config->loadINI($list->params);
+				$params = $config->toArray('xiuslist');
+		
 				$data['id'] = $listId;
 				$data['name'] = $post['xiusListName'];
 				$data['description'] = $post['xiusListDesc'];
 				$data['published'] = $post['xiusListPublish'];
-			}
-			
+			}			
 			
 			$data['join'] = $post['xiusListJoinWith'];
 			$data['sortinfo'] = $post['xiusListSortInfo'];
 			$data['sortdir'] = $post['xiusListSortDir'];
 			$data['owner'] = $user->id;
 			$data['conditions'] = serialize($conditions);
-		}
+		}		
+		
+		// trigger evet before saving list
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
+		
+		$registry	=& JRegistry::getInstance( 'xius' );		
+		$registry->loadArray($params,'xius_list_params');
+		
+		// Get the complete INI string
+		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
 		
 		if(!($id = XiusLibrariesList::saveList($data)))
 			$msg = JText::_('ERROR IN SAVE LIST');

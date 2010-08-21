@@ -67,6 +67,14 @@ class XiusViewList extends JView
 				$infoName[$c['infoid']] = $info[0]->labelName;
 		}
 			
+		$tempConfig = new JRegistry('xiuslist');
+		$tempConfig->loadINI($list->params);
+		$tempParams = $tempConfig->toArray('xiuslist');
+		// triger event for displaying xius privacy html
+		$dispatcher =& JDispatcher::getInstance();
+		$xiusListPrivacy = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
+		
+		$this->assign( 'xiusListPrivacy' , $xiusListPrivacy);
 		$this->assign( 'conditions' , $conditions ); 
 		$this->assign( 'list' , $list );
 		$this->assign( 'config' , $config );

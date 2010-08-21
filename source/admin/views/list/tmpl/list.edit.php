@@ -209,6 +209,14 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 	?>
 	</fieldset>
 
+<fieldset class="adminform">
+	<legend><?php echo JText::_( 'Plugins Parameters' ); ?></legend>
+
+		<?php 
+		foreach($this->xiusListPrivacy as $html)
+			echo $html;				
+		?>
+</fieldset>
 
 </div>
 </div>
