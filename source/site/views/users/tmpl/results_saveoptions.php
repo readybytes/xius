@@ -12,50 +12,43 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 $submitUrl = JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&subtask=showListData');
-?><div class="xiusPopup">
+?>
+<div id="xiusPopup">
 <form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&subtask=showListData'); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
-
 	<div class="xiusPopupHeader">
 		<span><?php echo JText::_("SAVE LIST"); ?></span>
 	</div>
-	
-	<div class="xiusPopupBox">
-	<div class="xiusPopupEntity">
-		<div class="xiusPopupLabel">
-		<input type="radio" id="xiusListSaveAsNew" name="xiusListSaveAs" value="xiussavenew" checked><span><?php echo JText::_('SAVE AS NEW LIST');?></span>
+	<div id="xiusPopupData">
+		<input type="radio" id="xiusListSaveAsNew" name="xiusListSaveAs" value="xiussavenew" checked><span><?php echo JText::_('SAVE AS NEW LIST');?></span><br />
 		<input type="radio" id="xiusListSaveAsExisting" name="xiusListSaveAs" value="xiussaveexisting"><span><?php echo JText::_('SAVE AS EXISTING');?></span>
-		</div>
-		<div class="xiusPopupControl">		
-		
-			<select name="listid" id="listid">		
-				<option value="-1" Selected="selected" ><?php echo JText::_('XIUS SELECT BELOW');?></option>
-				<?php
-				if(!empty($this->lists))	: 	
-					foreach($this->lists as $l)	:
-						$checked = '';
-						$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+			<div id="xiusSelect" class="xiusPopupControl">
+				<select name="listid" id="listid">		
+					<option value="-1" Selected="selected" ><?php echo JText::_('XIUS SELECT BELOW');?></option>
+					<?php
+						if(!empty($this->lists))	: 	
+							foreach($this->lists as $l)	:
+								$checked = '';
+								$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+					
+								if(empty($l->name)):
+									$name = 'LIST<br />';
+								else :
+									$name = $l->name;
+								endif;
+						
+								if($l->id == $this->selectedListId):
+									$checked = ' selected=true';
+								endif;
 			
-						if(empty($l->name)):
-							$name = 'LIST<br />';
-						else :
-							$name = $l->name;
-						endif;
-				
-						if($l->id == $this->selectedListId):
-							$checked = ' selected=true';
-						endif;
+								echo '<option value="'.$l->id.'" '.$checked.'>'.JText::_(JString::ucwords($name)).'<br />';	
+							endforeach;
+						 endif;	
+					?>
+				</select>
+			</div>
 	
-						echo '<option value="'.$l->id.'" '.$checked.'>'.JText::_(JString::ucwords($name)).'<br />';	
-					endforeach;
-				 endif;		
-		?>
-		</select>
-		
-		</div>
-	</div>
-	</div>	
-	<div class="xiusPopupFooter"><input type="submit" name = "xiusListSaveAs" id = "xiusListSaveAs" value="<?php echo JText::_('NEXT')?>"/></div>
-
+<div id="xiusPopupSubmit" style="float:right;"><input type="submit" name = "xiusListSaveAs" id = "xiusListSaveAs" value="<?php echo JText::_('NEXT')?>"/></div>
+</div>
 <input type="hidden" name="subtask" value="" />
 </form>
 </div>

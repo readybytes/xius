@@ -49,7 +49,7 @@ class plgSystemxius_list_privacy extends JPlugin
 		$htmlOption['member'] 	= JText::_("XIUS LIST PRIVACY MEMBER");
 		$htmlOption['friend'] 	= JText::_("XIUS LIST PRIVACY FRIEND");
 		$htmlOption['self'] 	= JText::_("XIUS LIST PRIVACY SELF");
-		$html = '';
+		$privacy['html'] = '';
 		
 		$selectedOption			= ''; 
 		if(array_key_exists($name,$params))
@@ -59,9 +59,11 @@ class plgSystemxius_list_privacy extends JPlugin
 			$select = '';
 			if($selectedOption !=='' && $selectedOption === $key)
 				$select = " checked ";
- 			$html .= '<input type="radio" name="'.$name.'" value="'.$key.'" '.$select.'/>'.$value;
+ 			$privacy['label'] = JText::_("LIST PRIVACY");
+			$privacy['html'] .= '<p><input type="radio" name="'.$name.'" value="'.$key.'" '.$select.'/>'.$value.'</p>';
+ 			
 		}
- 		return $html;
+ 		return $privacy;
 	}
 	
 	function xiusOnBeforeSaveList($postData, $params)

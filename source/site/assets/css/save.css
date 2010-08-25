@@ -1,66 +1,35 @@
-@CHARSET "UTF-8";
 /**
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-.savemainbox{
-overflow:hidden;
-margin: 3px;
-width:470px;
-}
-.savemainbox h3{
-text-align:center;
-}
-.savemainbox .leftbox{
-width:220px;
-padding:5px;
-border: solid 1px #E5E5E5;
-float:left;
-}
-.savemainbox .rightbox{
-width:225px;
-padding:5px;
-border: solid 1px #E5E5E5;
-float:right;
-}
-.savemainbox .lab{
-width:100px;
-float:left;
-}
-.savemainbox input, textarea { 
-	padding: 9px;
-	border: solid 1px black;
-	outline: 0;
-	width:180px;
-	font: normal 13px/100% Verdana, Tahoma, sans-serif;
-	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-	margin-top: 2px;
+#xiusSave{
+	overflow:hidden;
 	}
-.savemainbox input[type="radio"] {
-width:15px;
+
+#xiusSave .xiusSavelabel{
+	float:left;
+	width:30%;
+	text-align:right;
+	margin-right:10px;
+	/*margin-bottom:5px;*/
+	font-weight:bold;
 }
-.submit input {
-	width: auto;
-	padding: 6px 10px;
-	background: #E5E5E5;
-	border: 1px solid #9F9F9F;
-	font-size: 12px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	cursor: pointer;
-	text-align: right;
+
+#xiusSave .xiusSavehtml{
+	float:left;
+	width:50%;
+	margin-bottom:5px;
 }
-.savemainbox .subrightbox{
-margin:2px;
+               
+#xiusSave #xiussubmit{
+	float:left;
+	width:100%;
+	margin-left:30%;
 }
-.listloop{
-margin:3px;
-border: 1px solid #E5E5E5;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
+
+#xiusNewName{
 }
-.xius_error{
-color:red;
+
+#xiusSave div{
+	margin:0px;
 }
