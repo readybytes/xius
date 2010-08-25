@@ -149,7 +149,7 @@ class Forcesearch extends XiusBase
 		if(!$plgInstance->isAllRequirementSatisfy())
 			return false;
 		
-		$plgInstance->addSearchToQuery(&$query, unserialize($pluginParams->get('value')), $pluginParams->get('operator'), $join);
+		$plgInstance->addSearchToQuery($query, unserialize($pluginParams->get('value')), $pluginParams->get('operator'), $join);
 		return true;			
    	}
 }
