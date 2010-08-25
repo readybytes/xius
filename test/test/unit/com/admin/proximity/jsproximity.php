@@ -14,7 +14,7 @@ class XiusJSProximityTest extends XiUnitTestCase
 		{
 			$this->resetCachedData();			
 			$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert17.sql');			
- 			$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximtyTest/testProximityByBoth.start.sql');;
+ 			$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testProximityByBoth.start.sql');
  			
 			require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 			$data=array(array());

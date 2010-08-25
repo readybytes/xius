@@ -37,6 +37,7 @@
 		
 		<file>test/sel/com/admin/info.php</file>
 		<file>test/sel/com/admin/googleProximityTest.php</file>
+		<file>test/sel/com/admin/config.php</file>
 		
 		<file>test/sel/com/site/joomlaSearch.php</file>
 		<file>test/sel/com/site/search.php</file>
@@ -49,7 +50,9 @@
 		<file>test/sel/com/site/xiusemailSelTest.php</file>
 		<file>test/sel/com/site/googleProximity.php</file>
 		<file>test/sel/com/site/informationProximity.php</file>	
-		<file>test/unit/com/admin/proximity/jsproximity.php</file>	
+		<file>test/sel/com/site/forceSearch.php</file>	
+		<file>test/unit/com/admin/proximity/jsproximity.php</file>
+			
 	</testsuite>
 	
 	<listeners>

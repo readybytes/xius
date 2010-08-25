@@ -220,11 +220,12 @@ class Jsfields extends XiusBase
 		$filter['id'] = $this->key;
 		/*XITODO : Cache jomsocial fields */
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+
+		if(is_array($value) && $value!=array())
+				$value = implode(",",$value);
 		
-		if(empty($fieldInfo) || is_array($value)) {
-			$formatvalue = implode(',',$value);
-			return $formatvalue;
-		}
+		if(empty($fieldInfo))
+			return $value;
 		
 		if($fieldInfo[0]->type == 'date'){
 			$db 	= &JFactory::getDBO(); 
