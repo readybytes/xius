@@ -128,10 +128,11 @@ class ProximityGoogleapiHelper extends JController
 	{
 		$db = JFactory::getDBO();
 		foreach( $data as $key=>$value){
-			if(!array_key_exists('latitude',$value) 
+			if(is_array($value) &&
+					( !array_key_exists('latitude',$value) 
 					|| !array_key_exists('longitude',$value)
 					|| empty($value['latitude']) 
-					|| empty($value['longitude']) 
+					|| empty($value['longitude']))					
 					) 
 					{
 						ProximityGoogleapiHelper::deleteInvalidGeocodeAddress($key);

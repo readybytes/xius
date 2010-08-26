@@ -89,6 +89,10 @@ class XiusModelList extends JModel
 			
 		$lists	= $db->loadObjectList();
 		
+		// trigger evevnt
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'xiusOnAfterLoadList', array( &$lists ) );
+		
 		return $lists;
 	}
 	
@@ -110,19 +114,7 @@ class XiusModelList extends JModel
 		}
 		
 		return $filterSql;
-	}
-	
-	
-	function getList($id = 0)
-	{
-			
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$row	=& JTable::getInstance( 'list', 'XiusTable' );
-		
-		$row->load($id);
-		return $row;
-	}
-	
+	}	
 	
 	function updatePublish($id,$value)
 	{

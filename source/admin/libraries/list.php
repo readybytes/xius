@@ -34,4 +34,18 @@ class XiusLibrariesList
 		return $lModel->getLists($filter, $join, $reqPagination);
 			
 	}
+	
+	function getList($id = 0)
+	{
+		if($id === 0)
+			return false;
+
+		$filter	= array('id'=>$id);
+		$lModel = XiusFactory::getModel('list','admin');
+		$row	= $lModel->getLists($filter,'AND',false);
+		if(!$row)
+			return false;
+			
+		return $row[0];
+	}
 }

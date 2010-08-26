@@ -11,12 +11,13 @@ $document->addScript($js);
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
-$submitUrl = JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&subtask=showListData');
+$submitUrl = JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&subtask=saveListData');
 ?>
-<div id="xiusPopup">
-<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&subtask=showListData'); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
-	<div class="xiusPopupHeader">
-		<span><?php echo JText::_("SAVE LIST"); ?></span>
+<div class="xiusPopup">
+ <form action="<?php echo $submitUrl; ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
+  
+  	<div class="xiusPopupHeader">
+  		<span><?php echo JText::_("SAVE LIST"); ?></span>
 	</div>
 	<div id="xiusPopupData">
 		<input type="radio" id="xiusListSaveAsNew" name="xiusListSaveAs" value="xiussavenew" checked><span><?php echo JText::_('SAVE AS NEW LIST');?></span><br />

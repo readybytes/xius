@@ -305,7 +305,7 @@ class XiusViewUsers extends JView
 			$filter['owner'] = $user->id;
 		}
 		
-		$lists = $lModel->getLists($filter,'AND',false);
+		$lists = XiusLibrariesList::getLists($filter,'AND',false);
 
 		$selectedListId = JRequest::getVar('listid', 0);
 
@@ -315,10 +315,8 @@ class XiusViewUsers extends JView
 		parent::display();
 	}
 
-	function savelist($selectedListId,$saveas)
+	function saveListData($selectedListId,$saveas)
 	{
-		$lModel =& XiusFactory::getModel('list','admin');
-
 		$filter = array();
 
 		$user = JFactory::getUser();
@@ -326,7 +324,7 @@ class XiusViewUsers extends JView
 		if(!XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
-		$lists = $lModel->getLists($filter,'AND',false);
+		$lists = XiusLibrariesList::getLists($filter,'AND',false);
 				
 		//get editor for description of list
 		$data['editor']		= & JFactory::getEditor();
@@ -337,21 +335,14 @@ class XiusViewUsers extends JView
 		$data['join'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 
 		// get related data of conditions 
-		$infoName = array();	
-		if($data['conditions']){	
-			foreach($data['conditions'] as $c){
-				$info = XiusLibrariesInfo::getInfo(array('id'=>$c['infoid']));
-				if($info || $info!=array())	
-					$data['infoName'][$c['infoid']] = $info[0]->labelName;
-			}
-		}
+		$conditionHtml = XiusHelperList::formatConditions($data['conditions']);
 		
 		// if saveas is xiussaveexisting
 		$data['listName'] 	= '';
 		$data['listDesc'] 	= '';
 		$tempParams=array();
 		if($saveas === 'xiussaveexisting'){
-			$list = $lModel->getList($selectedListId);
+			$list = XiusLibrariesList::getList($selectedListId);
 			$data['listName'] = $list->name;
 			$data['listDesc'] = $list->description;
 			$tempConfig = new JRegistry('xiuslist');
@@ -371,33 +362,13 @@ class XiusViewUsers extends JView
 		$dispatcher =& JDispatcher::getInstance();
 		$data['xiusListPrivacy'] = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
 				 
+		$this->assign( 'conditionHtml',$conditionHtml);
 		$this->assign( 'saveas' , $saveas );
 		$this->assign( 'data' , $data );		
 		$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
 		parent::display();
 	}
-	
-	function success($data)
-	{
-		$this->assign('data',$data);
-		global $mainframe;
-		$mainframe->redirect($data['url'],$data['msg']);
-
-//		/*$document->addScriptDeclaration("
-//		window.addEvent('domready', function() {
-//			document.preview = SqueezeBox;
-//		});");*/
-// 		/*$resizeJs = "SqueezeBox.resize({size:{x: 200, y: 100}});";
-// 		$document->addScriptDeclaration($resizeJs); */
-//
-//		//$document = JFactory::getDocument();
-//		//$js = "window.setTimeout(\"window.parent.location.href = '".$data['url']."';parent.SqueezeBox.close()\", 1000);";
-// 		//$document->addScriptDeclaration($js);
-
-		parent::display();
-	}
-
 
 	function _showLists($owner = null)
 	{
@@ -417,12 +388,8 @@ class XiusViewUsers extends JView
 		$lists = $lModel->getLists($filter,'AND',true);
 		
 		// filter list according to privacy set by joomla
-		XiusHelperList::filterListAccordingToPrivacy(&$lists,$user);
+		XiusHelperList::filterListPrivacy(&$lists,$user);
 		$pagination =& $lModel->getPagination($filter,'AND');
-
-		//  Trigger event 
-		$dispatcher =& JDispatcher::getInstance();
-		$dispatcher->trigger( 'xiusOnBeforeAllListDisplay', array( &$lists , $user ) );
 
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);

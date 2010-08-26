@@ -147,7 +147,22 @@ class plgSystemxius_system extends JPlugin
 		
 	}
 	
-	function xiusOnAfterLoadAllInfo(&$allInfo)
+	function xiusOnAfterLoadList($lists)
+	{
+		$app = JFactory::getApplication();
+		//Don't run in admin
+		if($app->isAdmin())
+				return true;
+				
+		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
+			return false;
+		
+		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		return $pluginHandler->xiusOnAfterLoadList($lists);
+		
+	}
+	
+	function xiusOnAfterLoadAllInfo($allInfo)
 	{
 		$app = JFactory::getApplication();
 

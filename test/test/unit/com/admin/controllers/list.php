@@ -111,5 +111,39 @@ class XiusControllerListTest extends XiUnitTestCase
 		$result = $listController->_saveOrder($infoIds,1);
 		$this->assertTrue($result['success']);		
 	}
+	
+	function testSaveList()
+	{
+		$this->_DBO->addTable('#__xius_list');
+		$this->resetCachedData();		
+		require_once XIUS_COMPONENT_PATH_ADMIN.DS.'controllers'.DS.'list.php';		
+		$listController = new XiusControllerList();
+		
+		$post['id']	= 1; 
+		$post['xiusListName']='Male from Afghanistan';
+		$post['xiusListVisibleInfo']='';
+		$post['xiusListSortInfo']=3;
+		$post['xiusListSortDir']='ASC';
+		$post['xiusListJoinWith']='OR';
+		$post['xiusListDescription']='<b>Male from Afghanistan</b>';
+		$post['published']=0;
+		$post['params']['xiusListViewGroup'][] = 'All';
+		$post['xius_list_privacy'] = 'public';
+		$returnData = $listController->_processSave($post);
+		
+		unset($post);
+		$this->resetCachedData();
+		$post['id']	= 2; 
+		$post['xiusListName']='Register Date';
+		$post['xiusListVisibleInfo']='';
+		$post['xiusListSortInfo']=2;
+		$post['xiusListSortDir']='DESC';
+		$post['xiusListJoinWith']='OR';
+		$post['xiusListDescription']='<b>Register</b>';
+		$post['published']=1;		
+		$post['xius_list_privacy'] = 'public';
+		$post['params'] = array();
+		$returnData = $listController->_processSave($post);
+	}
 }
 ?>

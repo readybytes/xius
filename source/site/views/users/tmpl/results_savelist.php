@@ -54,14 +54,11 @@ if(!empty($this->msg))
 			</div>
 			<div class="xiusSavehtml">
 			<?php 
-			if(array_key_exists('conditions', $this->data) &&  $this->data['conditions']){
-				foreach($this->data['conditions'] as $condition)
-					if(array_key_exists($condition['infoid'],$this->data['infoName']))					
-						echo $this->data['infoName'][$condition['infoid']].'  '.$condition['operator'].'   '.$condition['value'].'';
-			}
-			else{
+			if(is_array($this->conditionHtml) && !empty($this->conditionHtml))
+ 				foreach($this->conditionHtml as $condition)							
+					echo $condition['label'].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';
+			else
 				echo JText::_('NO SEARCH CONDITION FOUND');
-			}
 			?>
 			</div>
 		</div>
@@ -158,20 +155,23 @@ if(!empty($this->msg))
 		
 		<!-- START PLUGIN PRIVACY -->
 		<div id="xiusPlugin">
-			<div class="xiusSavelabel">
-			<label>
-					<?php 
-							foreach($this->data['xiusListPrivacy'] as $html)
-							echo $html['label']; 
-					?>
-			</label>
-			</div>
-			<div class="xiusSavehtml">
-				<?php 
-					foreach($this->data['xiusListPrivacy'] as $html)
+						
+			<?php 
+				foreach($this->data['xiusListPrivacy'] as $html){
+					?>						
+					<div class="xiusSavelabel">
+						<label><?php 				
+							echo $html['label'];?> 
+						</label>
+					</div>
+					<div class="xiusSavehtml">
+						<?php 
 						echo $html['html'];
-				?>
-			</div>
+						?>
+					</div>
+					<?php 
+				}					
+			?>
 		</div>
 		<!-- END PLUGIN PRIVACY -->		
 		

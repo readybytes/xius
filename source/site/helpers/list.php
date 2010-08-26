@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusHelperList 
 {
-	function allowUserToAccessList($user,$allowedGroup,$allowGuest=false)
+	function isAccessibleToUser($user,$allowedGroup,$allowGuest=false)
 	{
 		// if guest user are not allowed to access list ( create)
 		// then check allowGuest is false and usertype is also false
@@ -17,8 +17,9 @@ class XiusHelperList
 			return false; 
 
 		// if user is not registered then he will  be treated as guest
-		if(!$user->usertype)
-			$user->usertype = 'Guest Only';
+		$usertype = 'Guest Only';
+		if($user->usertype) 
+			$usertype = $user->usertype;
 			
 		if(in_array('All', $allowedGroup)
 				||	in_array($user->usertype, $allowedGroup) 
@@ -28,11 +29,8 @@ class XiusHelperList
 		return false;
 	} 
 	
-	function filterListAccordingToPrivacy($lists,$user)
-	{
-		if(!$user->usertype)
-			$user->usertype = 'Guest Only';
-			
+	function filterListPrivacy(&$lists,$user)
+	{			
 		$count 	= count($lists);
 		for( $i=0 ; $i < $count ; $i++ ){
 			//  owner of list will not blocked to viewlist
@@ -50,7 +48,7 @@ class XiusHelperList
 			$joomlaPrivacy = unserialize($joomlaPrivacy);
 
 			// check user is allowed to access list or not
-			if(XiusHelperList::allowUserToAccessList($user,$joomlaPrivacy,true))
+			if(XiusHelperList::isAccessibleToUser($user,$joomlaPrivacy,true))
 				continue;
 				
 			unset($lists[$i]);				
@@ -58,5 +56,30 @@ class XiusHelperList
 		
 		$lists = array_values($lists);
 		return true;
+	}
+	
+	function formatConditions($conditions)
+	{
+		if(!$conditions || !is_array($conditions))
+			return false;
+			
+		$conditionHtml = array();
+		foreach($conditions as $c){
+			$instance = XiusFactory::getPluginInstanceFromId($c['infoid']);
+			if(!$instance)
+				continue;
+
+			$value = $instance->_getFormatAppliedData($c['value']);
+			if(!$value)
+				continue;
+			if(is_array($value))	
+				$value = implode(',',$value);
+				
+			$conditionHtml[$c['infoid']]['label'] 	= $instance->getData('labelName');
+			$conditionHtml[$c['infoid']]['operator']= $c['operator']; 
+			$conditionHtml[$c['infoid']]['value'] 	= $value;
+		}
+		
+		return $conditionHtml;
 	}
 }

@@ -104,10 +104,12 @@ class XiusControllerList extends JController
 		if($post == null)
 			$post	= JRequest::get('post');
 		
+		JPluginHelper::importPlugin( 'system' );
 		jimport('joomla.filesystem.file');
 
 		$data = array();
 		
+		// load existing data of table of this list
 		$list	=& JTable::getInstance( 'list' , 'XiusTable' );
 		$list->load($post['id']);
 		$config = new JRegistry('xiuslist');		
@@ -118,8 +120,10 @@ class XiusControllerList extends JController
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
 		
+		// serialize the joomla user privacy params
 		$registry	=& JRegistry::getInstance( 'xius' );
-		if(array_key_exists('xiusListViewGroup',$post['params'])){
+		if(is_array($post['params']) 
+				&& array_key_exists('xiusListViewGroup',$post['params'])){
 			$temp 		= $post['params']['xiusListViewGroup'];
 			$params['xiusListViewGroup'] = serialize($temp);		
 		}				
@@ -128,13 +132,14 @@ class XiusControllerList extends JController
 		// Get the complete INI string
 		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
 		
+		// get the required data
 		$data['id'] 			= $post['id'];
 		$data['name'] 			= $post['xiusListName'];
 		$data['visibleinfo'] 	= $post['xiusListVisibleInfo'];
 		$data['sortinfo'] 		= $post['xiusListSortInfo'];
 		$data['sortdir'] 		= $post['xiusListSortDir'];
 		$data['join']	 		= $post['xiusListJoinWith'];
-		$data['description']	= JRequest::getVar( 'xiusListDescription', '', 'post', 'string', JREQUEST_ALLOWRAW );
+		$data['description']	= JRequest::getVar( 'xiusListDescription', $post['xiusListDescription'], 'post', 'string', JREQUEST_ALLOWRAW );
 		$data['published'] 		= $post['published'];
 		
 		unset($post['id']);
@@ -148,25 +153,13 @@ class XiusControllerList extends JController
 		if(!$storedInfo['id'])
 			$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
 		else
-			$storedInfo['msg'] = JText::_('INFO SAVED');
-			
+			$storedInfo['msg'] = JText::_('INFO SAVED');			
 
 		$data['id'] = $storedInfo['id'];
-		
+				
 		$list = array();
 		$list['id'] = $storedInfo['id'];
-		$list['data'] = $data;
-		/* XITODO : fork trigger */
-		
-		//JPluginHelper::importPlugin( 'system' );
-		
-		/*info reset required , b'coz it will return
-		 * old data and new info will not be added in cache
-		 */
-		//XiusLibrariesInfo::getAllInfo(true);
-		
-		//$dispatcher =& JDispatcher::getInstance();
-		//$dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
+		$list['data'] = $data;		
 			
 		return $storedInfo;
 	}

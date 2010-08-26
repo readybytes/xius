@@ -72,5 +72,99 @@ class XiusControllerUsersTest extends XiUnitTestCase
 			$this->assertEquals($data['resultUrl'],$result['url'],'url shpuld be '.$data['resultUrl'].' but we get '.$result['url']);
 		}
 	}
+	
+	function testSaveListWithPrivacy()
+	{
+		$this->_DBO->addTable('#__xius_list');		
+		$this->_DBO->filterColumn('#__xius_list','ordering');
+		
+		$this->resetCachedData();
+		
+		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'users.php'; 
+		
+		$userController = new XiusControllerUsers();
+		
+		$datas = array();
+		$conditions1 = array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '='));
+		$url1 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=1',false);
+		$datas[] = array('info' => array('id' => 1 , 'owner' => 62 , 'name' => 'Male from Afghanistan' , 'sortinfo' => 8 , 'sortdir' => 'ASC' , 'join' => 'AND' , 'conditions' => serialize($conditions1) , 'published' => true , 'description' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1);
+		
+		$post['xius_list_privacy'] = 'member';
+		$list	= JTable::getInstance( 'list' , 'XiusTable' );
+		$list->load(1);
+		$config = new JRegistry('xiuslist');
+		$config->loadINI($list->params);
+		$params = $config->toArray('xiuslist');
+		
+		foreach($datas as $data){
+			$result = $userController->_saveList(true,$data['info'],$post,$params);
+			$this->assertEquals($data['resultId'],$result['id'],'info id during save should be '.$data['resultId'].' but we get '.$result['id']);
+			$this->assertEquals($data['resultUrl'],$result['url'],'url shpuld be '.$data['resultUrl'].' but we get '.$result['url']);
+		}		
+	}
+	
+	function testSaveListWithPrivacyNew()
+	{
+		$this->_DBO->addTable('#__xius_list');		
+		$this->_DBO->filterColumn('#__xius_list','ordering');
+		
+		$this->resetCachedData();
+		
+		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'users.php'; 
+		$url1 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=3',false);
+		// save as new list
+		$this->resetCachedData();
+		unset($post);
+		$params=null;		
+		$conditions = array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '='));
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions);
+		$user =& JFactory::getUser(62);
+		
+		$post['listid']				=	0;
+		$post['xiusListName']		= "Male Users";
+		$post['xiusListDesc']		= 'Show Male Users';
+		$post['xiusListPublish']	= 1;
+		$post['xiusListJoinWith']	= 'OR';
+		$post['xiusListSortInfo']	= 2;
+		$post['xiusListSortDir']	= 'DESC';
+		$post['xius_list_privacy'] 	= 'friend';
+		
+		$userController1 = new XiusControllerUsers();
+		$result = $userController1->_saveList(true,null,$post,null,$user);
+		$this->assertEquals(3,$result['id'],'info id during save should be 3 but we get '.$result['id']);
+		$this->assertEquals($url1,$result['url'],'url shpuld be '.$url1.' but we get '.$result['url']);
+	}
+	
+	function testSaveListChecks()
+	{
+		$unsuccess	 = array('id' => 0,
+							'url' => '/usr/bin/index.php?option=com_xius&view=users',
+							'msg' => 'You can not save list',
+							'success' => false,
+							);
+
+		$success	= array('id' => 0,
+  							'success' => true,
+							);
+		
+		$user = & JFactory::getUser(62);
+		$user->usertype = "Administrator";
+		$userController = new XiusControllerUsers();
+		$returnData		= $userController->_saveListChecks(true,$user);
+		$this->assertEquals($returnData , $unsuccess);
+		
+		// if user type is manager, must be succeed
+		$user->usertype = "Manager";
+		$userController = new XiusControllerUsers();
+		$returnData		= $userController->_saveListChecks(true,$user);
+		$this->assertEquals($returnData , $success);
+		
+		// if user type is super administrator, must be succeed
+		$user->usertype = "Super Administrator";
+		$userController = new XiusControllerUsers();
+		$returnData		= $userController->_saveListChecks(true,$user);
+		$this->assertEquals($returnData , $success);
+		
+	}
 }
 ?>

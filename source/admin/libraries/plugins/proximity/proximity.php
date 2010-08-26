@@ -264,8 +264,10 @@ class Proximity extends XiusBase
 	
 	public function _getFormatAppliedData($value)
 	{		
-		$value 		= $this->_getArrangedValue($value);
-		
+		$value 		= $this->validateValues($value);
+		if(!$value)
+			return false;
+			
 		$linkMap 	= "http://maps.google.com/maps/api/staticmap?center={$value['latitude']},{$value['longitude']}&zoom=7&size=".PROXIMITY_APPLIED_IFRAME_WIDTH."x".PROXIMITY_APPLIED_IFRAME_HEIGHT
 		 			."&maptype=roadmap&markers=size:large|color:Red|label:S|{$value['latitude']},{$value['longitude']}&sensor=false"
 					."";

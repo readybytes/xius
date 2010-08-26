@@ -70,7 +70,7 @@ class plgSystemxius_list_privacy extends JPlugin
 	{	
 		if(!$this->_loadXius())
 			return false;
-
+		
 		// is postdata of this plugin is set then, set it into postData[params]
 		if(array_key_exists($this->_name,$postData)){
 			$params[$this->_name] = $postData[$this->_name];
@@ -80,11 +80,18 @@ class plgSystemxius_list_privacy extends JPlugin
 		return true;
 	} 
 	
-	function xiusOnBeforeAllListDisplay($lists,$loggedinUser)
+	function xiusOnAfterLoadList($lists)
 	{
+		$app = JFactory::getApplication();
+
+		//Don't run in admin
+		if($app->isAdmin())
+				return true;
+		
 		if(!$this->_loadXius())
 			return false;
 
+		$loggedinUser = & JFactory::getUser();				
 		$count = count($lists);
 		for($i =0 ; $i < $count ; $i++ ){
 			$params = new JParameter('','');
@@ -102,7 +109,8 @@ class plgSystemxius_list_privacy extends JPlugin
 	
 	function _isListViewable($privacy,$loggedinUser,$ownerId)
 	{
-		if(XiusHelpersUtils::isAdmin($loggedinUser->id))
+		if(XiusHelpersUtils::isAdmin($loggedinUser->id) 
+				|| $ownerId === $loggedinUser->id)
 			return true;
 			
 		switch($privacy){
@@ -111,7 +119,7 @@ class plgSystemxius_list_privacy extends JPlugin
 							break;
 							
 			case 'member' : 
-							if(!$loggedinUser->usertype)
+							if(!$loggedinUser->usertype || $loggedinUser->usertype === 'Guest Only')
 								return false;
 								
 							return true;

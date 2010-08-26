@@ -6,11 +6,6 @@
 ?>
 <div class = "xiusToolbar">
 <?php
-$params	= array('size'=>array('x' => 500 , 'y' => 450));
-JHTML::_('behavior.modal' , 'a.savelist' , $params);
-$user =& JFactory::getUser();
-
-/*only admin will see this icon */
 foreach($this->toolbar as $tool)
 	echo $tool->value;
 

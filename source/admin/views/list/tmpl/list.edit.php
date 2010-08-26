@@ -169,9 +169,9 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 			</td>
 			<td>
 				<?php 
-					foreach($this->conditions as $condition)
-						if(array_key_exists($condition['infoid'],$this->infoName))					
-							echo @$this->infoName[$condition['infoid']].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';
+				if($this->conditionHtml)
+					foreach($this->conditionHtml as $condition)							
+						echo $condition['label'].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';						
 				?>
 			</td>
 		</tr>
@@ -212,10 +212,18 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 <fieldset class="adminform">
 	<legend><?php echo JText::_( 'Plugins Parameters' ); ?></legend>
 
+	<table class="admintable">
+
 		<?php 
-		foreach($this->xiusListPrivacy as $html)
-			echo $html;				
+			foreach($this->xiusListPrivacy as $html){
+				?><tr>
+				<td class="key"><label for="name"><?php echo $html['label']; ?></label></td> 
+				<td><?php echo $html['html'];?></td>
+				</tr>
+				<?php 
+			}					
 		?>
+	</table>
 </fieldset>
 
 </div>

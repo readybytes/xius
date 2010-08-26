@@ -132,8 +132,7 @@ class XiusControllerUsers extends JController
 			
 	
 		/*get list */
-		$lModel =& XiusFactory::getModel('list','admin');
-		$list = $lModel->getList($listId);
+		$list = XiusLibrariesList::getList($listId);
 		
 		$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList',false);
 		if(empty($list))
@@ -253,14 +252,14 @@ class XiusControllerUsers extends JController
 					$data = '';
 					$data =  $this->_saveList(true);
 				}
-				// no need to set laout for success the view will set different layout
-				//$view->setLayout( 'results_' );
-				return $view->success($data);
+				
+				global $mainframe;				
+				$mainframe->redirect($data['url'],$data['msg']);				
 				break;
 
-			case 'showListData' : // will show the params for saving list
+			case 'saveListData' : // will show the params for saving list
 				$view->setLayout( 'results_savelist' );
-				return $view->savelist($listId,$saveas);
+				return $view->saveListData($listId,$saveas);
 				break;
 				
 			default :
@@ -272,9 +271,10 @@ class XiusControllerUsers extends JController
 	}
 	
 
-	function _saveListChecks($new = true)
+	function _saveListChecks($new =true, $user = null)
 	{
-		$user =& JFactory::getUser();
+		if($user === null)
+			$user =& JFactory::getUser();
 		
 		$returndata = array();
 		
@@ -282,7 +282,7 @@ class XiusControllerUsers extends JController
 		$listCreator = unserialize(XiusHelpersUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
 		
 		// allow user to create list who can create
-		if(XiusHelperList::allowUserToAccessList($user,$listCreator)){
+		if(XiusHelperList::isAccessibleToUser($user,$listCreator)){
 			$returndata = array('id' => 0 ,  'success' => true);
 			return $returndata;			
 		}
@@ -295,12 +295,13 @@ class XiusControllerUsers extends JController
 	
 		
 	
-	function _saveList($new = true , $data = null, $post=null)
-	{
-		$user =& JFactory::getUser();
+	function _saveList($new = true , $data = null, $post=null,$params=null,$user=null)
+	{		
+		if($user === null)
+			$user =& JFactory::getUser();
 		
 		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		
+		// XITODO : do not user AllowRaw for all
 		if($post == null)
 			$post = JRequest::get('POST');
 		
@@ -310,33 +311,32 @@ class XiusControllerUsers extends JController
 		 * and whether to save this as a new list
 		 * or update existing one
 		 */
-		$params = array();
+		if($params === null)
+			$params = array();
+			
 		if($data === null){
-			$listId = JRequest::getVar('listid', 0);
-			$listName = JRequest::getVar('xiusListName', 'LIST'.$listId);
+			$listId 	= $post['listid'];
+			$listName 	= $post['xiusListName'];
 			/*XITODO : set visible info and published also */
 			$data = array();
-			
-			$data['id'] = $listId;
-			
-			if($new){
-				$data['id'] 		= 0;
-				$data['name'] 		= $listName;
-				$data['description']= JRequest::getVar( 'xiusListDesc', '', 'post', 'string', JREQUEST_ALLOWRAW );
-				$data['published'] 	= JRequest::getVar('xiusListPublish', 1);
-			}
-			else{
+			// if saving new list then list id must id must be zero
+			$data['id'] 		= 0;		
+			$data['name'] 		= $listName;
+
+			//$data['description']= $post['xiusListDesc'];
+			$data['description']= JRequest::getVar( 'xiusListDesc', $post['xiusListDesc'], 'post', 'string', JREQUEST_ALLOWRAW );
+			$data['published'] 	= $post['xiusListPublish'];
+
+			if(!$new){
 				// load table for getting params
 				$list	=& JTable::getInstance( 'list' , 'XiusTable' );
 				$list->load($listId);
 				$config = new JRegistry('xiuslist');
 				$config->loadINI($list->params);
 				$params = $config->toArray('xiuslist');
-		
+			
 				$data['id'] = $listId;
-				$data['name'] = $post['xiusListName'];
-				$data['description'] = $post['xiusListDesc'];
-				$data['published'] = $post['xiusListPublish'];
+				$data['name'] = $post['xiusListName'];				
 			}			
 			
 			$data['join'] = $post['xiusListJoinWith'];
@@ -347,10 +347,11 @@ class XiusControllerUsers extends JController
 		}		
 		
 		// trigger evet before saving list
+		JPluginHelper::importPlugin( 'system' );
 		$dispatcher =& JDispatcher::getInstance();
-		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
 		
-		$registry	=& JRegistry::getInstance( 'xius' );		
+		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
+		$registry	= new JRegistry( 'xius' );		
 		$registry->loadArray($params,'xius_list_params');
 		
 		// Get the complete INI string

@@ -47,3 +47,8 @@ define('XIUS_CACHE_END_TIME','cacheEndTime');
 
 define('XIUS_CRON_TIME_MULTIPLIER',5);
 define('XIUS_MICRO_TO_SECOND',(1000*1000));
+
+// Height and width of Pop up window for Saving List
+define('XIUSLIST_IFRAME_HEIGHT', 200);
+define('XIUSLIST_IFRAME_WIDTH', 400);
+ 

@@ -28,22 +28,19 @@ class XiusViewList extends JView
      * view for list when editing the list
      */
 	function editList($id,$tpl=null)
-	{		
-		$lModel 		= & XiusFactory::getModel('list');
-		$list 			= $lModel->getList($id);
+	{	
+		$list 			= XiusLibrariesList::getList($id);
 		
-		//$row			= & JTable::getInstance( 'profiletypes' , 'XiPTTable' );
-		//$row->load( $id );	
-		
+		// load xml file
 		$listxml 		= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'xiuslist';		
 		$paramsxmlpath 	= $listxml.'.xml';
 		$ini			= $listxml.'.ini';
 		$data			= JFile::read($ini);		
 		
+		// XITODO : raise error if xml file is not found
+		$config  = new JParameter('','');
 		if(JFile::exists($paramsxmlpath))
 			$config  = new JParameter($data,$paramsxmlpath);
-		else 
-			$config  = new JParameter('','');
 				
 		$config->bind($list->params);
 
@@ -59,30 +56,27 @@ class XiusViewList extends JView
 		
 		// get the user info, who is owner of the list
 		$user = & JFactory::getUser($list->owner);
-		$infoName = array();
-		$conditions = unserialize($list->conditions);
-		foreach($conditions as $c){
-			$info = XiusLibrariesInfo::getInfo(array('id'=>$c['infoid']));
-			if($info || $info!=array())	
-				$infoName[$c['infoid']] = $info[0]->labelName;
-		}
+		// format the conditions applied		
+		$conditions = unserialize($list->conditions);		
+		$conditionHtml = XiusHelperList::formatConditions($conditions);
 			
+		// load a temporary params from table, which can be used by other plugins
 		$tempConfig = new JRegistry('xiuslist');
 		$tempConfig->loadINI($list->params);
 		$tempParams = $tempConfig->toArray('xiuslist');
+
 		// triger event for displaying xius privacy html
 		$dispatcher =& JDispatcher::getInstance();
 		$xiusListPrivacy = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
 		
 		$this->assign( 'xiusListPrivacy' , $xiusListPrivacy);
-		$this->assign( 'conditions' , $conditions ); 
+		$this->assign( 'conditionHtml' , $conditionHtml ); 
 		$this->assign( 'list' , $list );
 		$this->assign( 'config' , $config );
 		$this->assign( 'editor' , $editor );
 		$this->assign( 'sortableFields' , $sortableFields );
 		$this->assign( 'user' , $user );
-		$this->assign( 'allInfo' , $allInfo );
-		$this->assign( 'infoName' , $infoName );
+		$this->assign( 'allInfo' , $allInfo );		
 		
 		// Set the titlebar text
 		JToolBarHelper::title( JText::_( 'XIUS EDIT LIST' ), 'list' );		
