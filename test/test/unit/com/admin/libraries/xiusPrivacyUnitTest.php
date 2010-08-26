@@ -76,7 +76,7 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Editor' => false,
     								'Author' => false,
     								'Publisher' => true,
-    								'Administrator' => false,
+    								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => false,
  									'Guest Only' => false
@@ -87,7 +87,7 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Editor' => false,
     								'Author' => true,
     								'Publisher' => false,
-    								'Administrator' => false,
+    								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => true,
 									'Guest Only' => true
@@ -97,7 +97,7 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Editor' => false,
     								'Author' => false,
     								'Publisher' => true,
-    								'Administrator' => false,
+    								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => false,
   									'Guest Only' => false

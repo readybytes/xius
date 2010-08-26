@@ -49,7 +49,7 @@ INSERT INTO `au_#__xius_proximity_geocode` (`id`, `address`, `latitude`, `longit
 (6, 'Indore,Madhya Pradesh,India', 22.725313, 75.865555, 1),
 (7, 'Noida,Uttar Pradesh,India', NULL, NULL, 1),
 (8, 'Shimla,Himachal Pradesh,India', 31.1, 77.17, 1),
-(9, 'Pune,Maharashtra,India', 18.5204303, 73.8567437, 1),
+(9, 'Pune,Maharashtra,India', 18.520469, 73.856621, 1),
 (10, 'Kolkata,West Bangal,India', NULL, NULL, 1),
 (12, 'Bikaner,Rajasthan,India', NULL, NULL, 0),
 (13, 'Nagpur,Maharashtra,India', NULL, NULL, 1),

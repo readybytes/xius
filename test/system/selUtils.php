@@ -28,6 +28,7 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
     $this->setBrowserUrl( JOOMLA_LOCATION);
     
     $filter['debug']=1;
+    // $filter['debug_lang']=1;
     $filter['error_reporting']=6143;
     $this->updateJoomlaConfig($filter);
   }
@@ -42,8 +43,23 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   function assertPostConditions()
   {
      // if we need DB based setup then do this
-     if(method_exists($this,'getSqlPath'))
-         $this->assertTrue($this->_DBO->verify());
+     	if(method_exists($this,'getSqlPath'))
+         	$this->assertTrue($this->_DBO->verify());
+
+        /* 	
+     	if(!$this->isTableExist("xius_lang"))
+        	return ;
+        
+        $db = JFactory::getDBO();
+     	$query="SELECT langstr FROM `#__xius_lang` " ;
+		$db->setQuery($query);		
+		$untranslatstr = $db->loadResultArray();
+		echo "\n Untranslated String in this page \n" ;
+		print_r( var_export($untranslatstr ));
+		$query="DROP TABLE `#__xius_lang` " ;;
+		$db->setQuery($query);
+		$db->query();
+		*/       	  
   }
   
   function adminLogin()
@@ -315,5 +331,16 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 			foreach($elememt as $ele)		
 				$this->assertTrue($this->isElementPresent($ele));
 		}			
+	}
+	
+	function isTableExist($tableName)
+	{
+		global $mainframe;
+
+		$tables	= array();
+	
+		$database = &JFactory::getDBO();
+		$tables	= $database->getTableList();
+		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 	}	
 }
