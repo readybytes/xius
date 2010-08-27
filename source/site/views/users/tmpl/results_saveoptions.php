@@ -13,7 +13,7 @@ if(!empty($this->msg))
 
 $submitUrl = JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption&subtask=saveListData');
 ?>
-<div class="xiusPopup">
+<div id="xiusPopup">
  <form action="<?php echo $submitUrl; ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
   
   	<div class="xiusPopupHeader">

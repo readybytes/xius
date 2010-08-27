@@ -14,6 +14,7 @@
 	<files folder="site">
 		<file>xius.php</file>
 		<file>includes.php</file>
+		<file>router.php</file>
 		<file>index.html</file>
 		<folder>controllers</folder>
 		<folder>helpers</folder>

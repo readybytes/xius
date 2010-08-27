@@ -34,8 +34,8 @@ foreach($this->toolbar as $tool)
 					endif;
 
 					$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="xiusApplySort(\'xiussortdir\');" >';
-					$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
-					$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
+					$dirhtml .= '<option value="ASC" '.$ascselected.'>'.JText::_('ASC').'</option>';
+					$dirhtml .= '<option value="DESC" '.$descselected.'>'.JText::_('DESC').'</option>';
 					$dirhtml .= '</select>';
 
 					echo $dirhtml;

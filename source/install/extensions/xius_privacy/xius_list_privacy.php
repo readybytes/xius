@@ -59,7 +59,7 @@ class plgSystemxius_list_privacy extends JPlugin
 			$select = '';
 			if($selectedOption !=='' && $selectedOption === $key)
 				$select = " checked ";
- 			$privacy['label'] = JText::_("LIST PRIVACY");
+ 			$privacy['label'] = JText::_("JOM SOCIAL LIST PRIVACY");
 			$privacy['html'] .= '<p><input type="radio" name="'.$name.'" value="'.$key.'" '.$select.'/>'.$value.'</p>';
  			
 		}

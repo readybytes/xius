@@ -115,8 +115,8 @@ if(!empty($this->msg))
 					endif;
 
 					$dirhtml = '<select id="xiussortdir" name="xiusListSortDir" >';
-					$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
-					$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
+					$dirhtml .= '<option value="ASC" '.$ascselected.'>'.JText::_('ASC').'</option>';
+					$dirhtml .= '<option value="DESC" '.$descselected.'>'.JText::_('DESC').'</option>';
 					$dirhtml .= '</select>';
 
 					echo $dirhtml;	
