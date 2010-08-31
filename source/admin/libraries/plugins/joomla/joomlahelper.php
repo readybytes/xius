@@ -32,20 +32,14 @@ class Joomlahelper
 	function getFieldsHTML($calleObject,$value='')
 	{
 		if($calleObject->get('key') == 'registerDate'){
-			
-			$document	=& JFactory::getDocument();
-			$document->addStyleSheet(JURI::root()."includes/js/calendar/calendar-mos.css");
-			$document->addScript(JURI::root()."includes/js/joomla.javascript.js");
-			$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
-			$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
 			// if module is displayin info
 			$mySess 	= & JFactory::getSession();
 			$formName	= $mySess->get('xiusModuleForm','','XIUS');
        		if($formName != '')
        			$formName .= "_{$formName}";
        			
-			$fieldHTML ='<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').$formName.'" style="width:125px; margin-right:4px" value="'.$value.'" />';
-			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\''.$calleObject->get('pluginType').$calleObject->get('key').$formName.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
+			JHTML::_('behavior.calendar');
+            $fieldHTML  = JHTML::_('calendar', $value, $calleObject->get('pluginType').$calleObject->get('key'), $calleObject->get('pluginType').$calleObject->get('key').$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));
 			return $fieldHTML;
 		}
 		

@@ -148,8 +148,7 @@
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:231:			$db 	= &JFactory::getDBO(); 
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:121:		$document	=& JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:139:			$mySess 	= & JFactory::getSession();
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:133:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:24:        $document =& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:30:        $mySess 			= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:35:       	$linkMap = JRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
@@ -185,8 +184,7 @@
 ../packages/tmp/admin/libraries/plugins/jsuser/jsuserhelper.php:36:			$document	=& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:14:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:16:		$userTable = new JTable('#__users','id', $db);
-../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:36:			$document	=& JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:42:			$mySess 	= & JFactory::getSession();
+../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:36:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:50:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:142:		$db = JFactory::getDBO();
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:43:		$db= & JFactory::getDBO();

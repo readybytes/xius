@@ -55,11 +55,8 @@ class XiusJoomlaTest extends XiUnitTestCase
 		$instance->load(4);
 		$searchHtml4 =  $viewClass->searchHtml($instance);
 		
-		$result4 = '<input class="inputbox" type="text" name="JoomlaregisterDate"'
-				.' id="JoomlaregisterDate" style="width:125px; margin-right:4px" value="" />'
-				.'<a href="javascript:void(0)" onclick="return showCalendar(\'JoomlaregisterDate\', \'dd-mm-y\');" >'
-				.'<img src="http://http/usr/bin/components/com_community/assets/calendar.png"></a>';
-				
+		$result4 = '<inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"/>'
+					.'<imgclass="calendar"src="/usr/bin/templates/system/images/calendar.png"alt="calendar"id="JoomlaregisterDate_img"/>';
 		$this->assertEquals($this->cleanWhiteSpaces($result4),$this->cleanWhiteSpaces($searchHtml4));
 	}
 	
