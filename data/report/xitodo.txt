@@ -1,12 +1,13 @@
 ../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
 ../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
 ../packages/tmp/admin/views/list/view.html.php:40:		// XITODO : raise error if xml file is not found
-../packages/tmp/admin/helpers/utils.php:137:		/*XITODO: Minimun time for updating cache
+../packages/tmp/admin/helpers/utils.php:138:		/*XITODO: Minimun time for updating cache
 ../packages/tmp/admin/controllers/list.php:66:		// XITODO : when id is not set then what to do
 ../packages/tmp/admin/controllers/info.php:248:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
+../packages/tmp/admin/libraries/view.php:27:		//XITODO : we can add here multiple templates, so from global params
 ../packages/tmp/admin/libraries/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/admin/libraries/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
@@ -32,18 +33,21 @@
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:39:    	// XITODO : if not logged in then what to do
 ../packages/tmp/admin/libraries/factory.php:70:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:133:	//XITODO : send parameters as array of args
-../packages/tmp/admin/libraries/factory.php:175:		//XITODO : skip load , let handles it by calle self
+../packages/tmp/admin/libraries/factory.php:206:		//XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:14:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
-../packages/tmp/site/views/users/view.html.php:246:        /*XITODO : arrange available info
-../packages/tmp/site/views/users/view.html.php:353:		// XITODO : if user is admin then ??
-../packages/tmp/site/views/users/view.html.php:375:		/*XITODO : get list according to owner*/
-../packages/tmp/site/views/users/tmpl/results.php:15:/*XITODO : pass variable for color */
-../packages/tmp/site/controllers/users.php:19:		/*XITODO : Collect all info here
-../packages/tmp/site/controllers/users.php:92:		/*XITODO : pass only searchable information 
-../packages/tmp/site/controllers/users.php:186:		//XITODO : unset old data first
-../packages/tmp/site/controllers/users.php:304:		// XITODO : do not user AllowRaw for all
-../packages/tmp/site/controllers/users.php:310:		/*XITODO : ask user for list details
-../packages/tmp/site/controllers/users.php:320:			/*XITODO : set visible info and published also */
+../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/list/view.html.php:100:		// XITODO : if user is admin then ??
+../packages/tmp/site/templates/default/results.php:15:/*XITODO : pass variable for color */
+../packages/tmp/site/helpers/results.php:143:        /*XITODO : arrange available info
+../packages/tmp/site/helpers/results.php:186:		// XITODO : trigger it in view
+../packages/tmp/site/controllers/users.php:14:		/*XITODO : Collect all info here
+../packages/tmp/site/controllers/users.php:37:		/*XITODO : pass only searchable information 
+../packages/tmp/site/controllers/list.php:43:		// XITODO : unset old data first
+../packages/tmp/site/controllers/list.php:92:		// XITODO : check access in function checkAccess		
+../packages/tmp/site/controllers/list.php:274:		// XITODO : do not user AllowRaw for all
+../packages/tmp/site/controllers/list.php:280:		/*XITODO : ask user for list details
+../packages/tmp/site/controllers/list.php:290:			/*XITODO : set visible info and published also */
+../packages/tmp/site/router.php:50://XITODO : handle list id
 ../packages/tmp/site/models/users.php:58:        /*XITODO : Add error message */

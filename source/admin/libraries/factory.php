@@ -143,6 +143,37 @@ class XiusFactory
         $buttonMap->set('link', $link);
         return $buttonMap;        	
 	}
+	
+	//Returns a MVCT object
+	static function getInstance($name, $type, $prefix='XiusSite', $refresh=false)
+	{
+		static $instance=array();
+
+		//generate class name
+		$className	= JString::ucfirst($prefix)
+					. JString::ucfirst($type)
+					. JString::ucfirst($name);
+
+		// Clean the name
+		$className	= preg_replace( '/[^A-Z0-9_]/i', '', $className );
+
+		//if already there is an object
+		if(isset($instance[$className]))
+			return $instance[$className];			
+		
+		//class_exists function checks if class exist,
+		// and also try auto-load class if it can
+		if(class_exists($className, true)===false)
+		{
+			self::getErrorObject()->setError("Class $className not found");
+			return false;
+		}
+
+		//create new object, class must be autoloaded
+		$instance[$className]= new $className();
+
+		return $instance[$className];
+	} 
 
 /*	
 	static public function getAllPluginInstanceFromProperty($pluginName,$bindArray = '',$isBindRequired = false)

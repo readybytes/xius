@@ -16,13 +16,13 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$this->resetCachedData();
 		
-		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'users.php'; 
+		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'list.php'; 
 		
-		$userController = new XiusControllerUsers();
+		$userController = new XiussiteControllerList();
 		
 		$datas = array();
 		$conditions1 = array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '='));
-		$url1 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=1',false);
+		$url1 = JRoute::_('index.php?option=com_xius&view=list&task=showList&listid=1',false);
 		$datas[] = array('info' => array('id' => 0 , 'owner' => 62 , 'name' => 'Male from Afghanistan' , 'sortinfo' => 4 , 'sortdir' => 'DESC' , 'join' => 'AND' , 'conditions' => serialize($conditions1) , 'published' => true , 'description' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1);
 		//print_r(var_export($conditions1));
 		
@@ -30,7 +30,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		//print_r(var_export(unserialize($c)));
 		
 		$conditions2 = array(array('infoid' => '4' , 'value' => '16-01-2010' , 'operator' => '='));
-		$url2 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=2',false);
+		$url2 = JRoute::_('index.php?option=com_xius&view=list&task=showList&listid=2',false);
 		$datas[] = array('info' => array('id' => 0 , 'owner' => 62 , 'name' => 'Register Date is 16-01-2010' , 'sortinfo' => 3 , 'sortdir' => 'ASC' , 'join' => 'AND' , 'conditions' => serialize($conditions2) , 'published' => true , 'description' => 'All members whose registeration date is 16 Jan 2010'),'resultId' => 2 , 'resultUrl' => $url2);
 		
 		$db = JFactory::getDBO();
@@ -52,13 +52,13 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$this->resetCachedData();
 		
-		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'users.php'; 
+		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'list.php'; 
 		
-		$userController = new XiusControllerUsers();
+		$userController = new XiussiteControllerList();
 		
 		$datas = array();
 		$conditions1 = array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '='));
-		$url1 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=1',false);
+		$url1 = JRoute::_('index.php?option=com_xius&view=list&task=showList&listid=1',false);
 		$datas[] = array('info' => array('id' => 1 , 'owner' => 62 , 'name' => 'Male from Afghanistan' , 'sortinfo' => 8 , 'sortdir' => 'ASC' , 'join' => 'AND' , 'conditions' => serialize($conditions1) , 'published' => true , 'description' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1);
 		//print_r(var_export($conditions1));
 		
@@ -80,13 +80,13 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$this->resetCachedData();
 		
-		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'users.php'; 
+		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'list.php'; 
 		
-		$userController = new XiusControllerUsers();
+		$userController = new XiussiteControllerList();
 		
 		$datas = array();
 		$conditions1 = array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '='));
-		$url1 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=1',false);
+		$url1 = JRoute::_('index.php?option=com_xius&view=list&task=showList&listid=1',false);
 		$datas[] = array('info' => array('id' => 1 , 'owner' => 62 , 'name' => 'Male from Afghanistan' , 'sortinfo' => 8 , 'sortdir' => 'ASC' , 'join' => 'AND' , 'conditions' => serialize($conditions1) , 'published' => true , 'description' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1);
 		
 		$post['xius_list_privacy'] = 'member';
@@ -110,8 +110,8 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$this->resetCachedData();
 		
-		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'users.php'; 
-		$url1 = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid=3',false);
+		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'list.php'; 
+		$url1 = JRoute::_('index.php?option=com_xius&view=list&task=showList&listid=3',false);
 		// save as new list
 		$this->resetCachedData();
 		unset($post);
@@ -129,7 +129,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$post['xiusListSortDir']	= 'DESC';
 		$post['xius_list_privacy'] 	= 'friend';
 		
-		$userController1 = new XiusControllerUsers();
+		$userController1 = new XiussiteControllerList();
 		$result = $userController1->_saveList(true,null,$post,null,$user);
 		$this->assertEquals(3,$result['id'],'info id during save should be 3 but we get '.$result['id']);
 		$this->assertEquals($url1,$result['url'],'url shpuld be '.$url1.' but we get '.$result['url']);
@@ -149,19 +149,17 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$user = & JFactory::getUser(62);
 		$user->usertype = "Administrator";
-		$userController = new XiusControllerUsers();
+		$userController = new XiussiteControllerList();
 		$returnData		= $userController->_saveListChecks(true,$user);
-		$this->assertEquals($returnData , $unsuccess);
+		$this->assertEquals($returnData , $success);
 		
 		// if user type is manager, must be succeed
 		$user->usertype = "Manager";
-		$userController = new XiusControllerUsers();
 		$returnData		= $userController->_saveListChecks(true,$user);
 		$this->assertEquals($returnData , $success);
 		
 		// if user type is super administrator, must be succeed
 		$user->usertype = "Super Administrator";
-		$userController = new XiusControllerUsers();
 		$returnData		= $userController->_saveListChecks(true,$user);
 		$this->assertEquals($returnData , $success);
 		

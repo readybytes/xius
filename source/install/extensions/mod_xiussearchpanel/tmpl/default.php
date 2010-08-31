@@ -43,7 +43,7 @@ else
 			<?php 
 			endforeach;
 			?>
-			<input type="hidden" name="subtask" value="xiussearch" />			
+			<input type="hidden" name="fromPanel" value="true" />			
 			<div class ="xiusModSearch"><input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="Search" /></div>
 		</form>
 	</div>

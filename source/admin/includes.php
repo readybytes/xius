@@ -30,6 +30,9 @@ require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'loader.php');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_HELPER,'Helpers');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_LIBRARY,'Libraries');
 
+$format	= JRequest::getCmd('format','html');
+XiusLoader::addAutoLoadViews(XIUS_COMPONENT_PATH_SITE.DS.'views', $format,'Xiussite');
+
 XiusLoader::addAutoLoadFolder(XIUS_PATH_MODEL,'model');
 XiusLoader::addAutoLoadFolder(XIUS_COMPONENT_PATH_SITE.DS.'models','model');
 XiusLoader::addAutoLoadFolder(XIUS_COMPONENT_PATH_SITE.DS.'helpers','helper');
@@ -40,6 +43,10 @@ XiusLoader::addAutoLoadFile('XiusError', XIUS_PATH_LIBRARY.DS.'error.php');
 XiusLoader::addAutoLoadFile('XiusQueryElement', XIUS_PATH_LIBRARY.DS.'query.php');
 XiusLoader::addAutoLoadFile('XiusQuery', XIUS_PATH_LIBRARY.DS.'query.php');
 XiusLoader::addAutoLoadFile('XiusCreateTable', XIUS_PATH_LIBRARY.DS.'query.php');
+
+// auto load classes for base controller, base view,and modal
+XiusLoader::addAutoLoadFile('XiusController', XIUS_PATH_LIBRARY.DS.'controller.php');
+XiusLoader::addAutoLoadFile('XiusView', XIUS_PATH_LIBRARY.DS.'view.php');
 
 XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');

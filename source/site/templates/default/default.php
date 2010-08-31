@@ -12,7 +12,7 @@ JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 ?>
 <div class="xius_sp" id="xius_sp">
-<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult');?>" method="post" name="userForm" id="userForm">
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=search');?>" method="post" name="userForm" id="userForm">
 
 <div class="xius_spHead">
 <?php echo JText::_('Search');?>
@@ -65,10 +65,10 @@ jimport('joomla.html.pane');
 		endif;
 		?>
 
-
+	<input type="hidden" name="fromPanel" value="true" />
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="users" />
-	<input type="hidden" name="task" value="<?php echo JRequest::getCmd('task','displaySearch');?>" />
+	<input type="hidden" name="task" value="search" />
 	<input type="hidden" name="subtask" value="xiussearch" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>

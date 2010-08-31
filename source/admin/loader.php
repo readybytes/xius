@@ -30,4 +30,19 @@ class XiusLoader
         {
         	JLoader::register($class, $file);
         }
+        
+		function addAutoLoadViews($baseFolders, $format, $prefix='Xius')
+		{
+			foreach(JFolder::folders($baseFolders) as $folder )
+			{
+				//e.g. XiController + Product
+				$className 	= JString::ucfirst($prefix)
+							. JString::ucfirst('View')
+							. JString::ucfirst($folder);
+	
+				if($format==='ajax') $format = 'html';
+				$fileName	= "view.$format.php";
+				JLoader::register($className, $baseFolders.DS.$folder.DS.$fileName);
+			}
+		}
 }

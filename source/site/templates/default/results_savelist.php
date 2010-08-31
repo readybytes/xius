@@ -12,7 +12,7 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 ?><div id="xiusSave">
-	<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=displaySaveOption'); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
+	<form action="<?php echo JRoute::_('index.php?option=com_xius&view=list&task='.$this->saveas,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 	
 	<!--  START HEADER -->
 		<h3>

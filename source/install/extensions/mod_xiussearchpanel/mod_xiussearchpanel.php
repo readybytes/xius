@@ -16,11 +16,11 @@ require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes
 require_once( dirname(__FILE__).DS.'helper.php' );
 $displayHtml= UserSearchHelper::getSearchHtml();
 	if(!empty($displayHtml)):
-		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult';
+		$link = 'index.php?option=com_xius&view=users&task=search';
 		$menu = &JSite::getMenu(); 
 		$itemid = $menu->getItems('link', $link);
 		if(empty($itemid)){
-			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
+			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&task=panel");
 		}
 
 		if(!empty($itemid)){

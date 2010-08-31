@@ -20,7 +20,7 @@ class XiusSliderTest extends XiSelTestCase
 	{
 		$this->loadSql();
 		// go to search panel
-		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&supplytask=displayresult');
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=search');
 		$this->waitPageLoad();
 		$this->windowMaximize();
 		$beforeToggle = $this->getElementHeight("//div[@class='xius_ai']");

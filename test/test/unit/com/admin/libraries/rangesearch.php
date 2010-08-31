@@ -65,11 +65,11 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
+		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		
 		$data = array(array());
-		XiusViewUsers::_getInitialData(&$data);
-		XiusViewUsers::_getTotalUsers(&$data);		
+		XiusHelperResults::_getInitialData(&$data);
+		XiusHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'],$totalUsers);
 	}

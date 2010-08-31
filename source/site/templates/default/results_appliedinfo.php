@@ -9,7 +9,7 @@ if(!empty($this->appliedInfo)) : ?>
 	<?php
 	echo JText::_('Applied Information');
 	?>
-	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo JText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('xiusresetfilter')" />
+	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo JText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
 </div>
 <?php 
 	$count = 0;
@@ -38,7 +38,7 @@ elseif($this->join == 'OR') :
 	$orSelected = ' selected=true ';
 endif;
 	
-$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'xiusjoin\');" >';
+$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'join\');" >';
 $joinhtml .= '<option value="AND" '.$andSelected.'>'.JText::_('MATCH ALL').'</option>';
 $joinhtml .= '<option value="OR" '.$orSelected.'>'.JText::_('MATCH ANY').'</option>';
 $joinhtml .= '</select>';

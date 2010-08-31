@@ -9,7 +9,7 @@ require_once  dirname(__FILE__).DS.'includes.php';
 
 //now decide what to do
 $view	= JRequest::getCmd('view', 		'users');
-$task 	= JRequest::getCmd('task', 		'displaySearch');
+$task 	= JRequest::getCmd('task', 		'panel');
 $format	= JRequest::getCmd('format',	'html');
 $plugin	= JRequest::getCmd('plugin',	'');
 $path		= JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.JString::strtolower($view).'.php';
@@ -38,7 +38,7 @@ if($plugin != ''){
 	return;
 }
 	
-$controllerClass = 'Xius'.'Controller'.JString::ucfirst(JString::strtolower($view));
+$controllerClass = 'Xiussite'.'Controller'.JString::ucfirst(JString::strtolower($view));
 
 
 // Test if the object really exists in the current context

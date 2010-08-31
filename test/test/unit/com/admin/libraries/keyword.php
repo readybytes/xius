@@ -29,7 +29,7 @@ class XiusKeywordTest extends XiUnitTestCase
 		$this->_DBO->loadSql($url);
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
-		$insertedRows = XiusControllerUsers::_runCron(array('limitStart'=>0,'limit'=>1000000));
+		$insertedRows = XiussiteControllerUsers::_runCron(array('limitStart'=>0,'limit'=>1000000));
 				
 		$value		  = 'admin';
 		$operator	  = XIUS_LIKE;
@@ -66,11 +66,11 @@ class XiusKeywordTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
+		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		
 		$data = array(array());
-		XiusViewUsers::_getInitialData(&$data);
-		XiusViewUsers::_getTotalUsers(&$data);		
+		XiusHelperResults::_getInitialData(&$data);
+		XiusHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'],58);
 	}

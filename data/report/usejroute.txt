@@ -20,7 +20,7 @@
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:92:        	$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid={$user->id}&tmpl=component";
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:122:        $linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=selected&tmpl=component";
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:131:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=all&tmpl=component";
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:19:		$link = 'index.php?option=com_xius&view=users&supplytask=displayresult';
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:23:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&layout=lists&task=displayList");
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:19:		$link = 'index.php?option=com_xius&view=users&task=search';
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:23:			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&task=panel");
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:17:				$link = 'index.php?option=com_xius&view=users&layout=lists&task=displayList';
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:22:					$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users");

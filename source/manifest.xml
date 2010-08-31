@@ -21,6 +21,7 @@
 		<folder>views</folder>
 		<folder>models</folder>
 		<folder>assets</folder>
+		<folder>templates</folder>
 	</files>
 
 	<languages>

@@ -10,7 +10,7 @@ $listid='';
 if(isset($this->list) && isset($this->list->id) && !empty($this->list->id))
 	$listid = 'listid='.$this->list->id;
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&supplytask=displayresult&task='.$this->task.'&'.$listid);?>" name="userForm" id="userForm" method="post">
+<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=search');?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
 $css = JURI::base().'components/com_xius/assets/css/gray.css';
@@ -45,7 +45,7 @@ echo $this->pagination->getPagesLinks();
 
 <input type="hidden" name="option" value="com_xius" />
 <input type="hidden" name="view" value="users" />
-<input type="hidden" name="task" value="<?php echo $this->task;?>" />
+<input type="hidden" name="task" value="search" />
 <input type="hidden" name="subtask" value="" />
 <input type="hidden" name="scanned" value="1" />
 </form>

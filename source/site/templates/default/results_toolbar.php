@@ -12,7 +12,7 @@ foreach($this->toolbar as $tool)
 ?><div class="xiusTbRight">
 				<?php
 				if(!empty($this->sortableFields))	:
-					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'xiussort\');" >';
+					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'sort\');" >';
 					foreach($this->sortableFields as $sfields)	:
 						$selected = '';
 						if($this->sort == $sfields['key']):
@@ -33,7 +33,7 @@ foreach($this->toolbar as $tool)
 						$descselected = ' selected=true ';
 					endif;
 
-					$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="xiusApplySort(\'xiussortdir\');" >';
+					$dirhtml = '<select id="xiussortdir" name="xiussortdir" onchange="xiusApplySort(\'sortdir\');" >';
 					$dirhtml .= '<option value="ASC" '.$ascselected.'>'.JText::_('ASC').'</option>';
 					$dirhtml .= '<option value="DESC" '.$descselected.'>'.JText::_('DESC').'</option>';
 					$dirhtml .= '</select>';

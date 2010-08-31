@@ -6,21 +6,21 @@
 		var form = document.userForm;
 		form.xiusdelinfo.value = infoid.id;
 		form.conditionvalue.value = document.getElementById(valueBoxId).value;
-		form.subtask.value = 'xiusdelinfo';
+		form.task.value = 'delinfo';
 		form.submit();
 	}
 
-	function xiusApplyJoin(subtask) 
+	function xiusApplyJoin(task) 
 	{
 		var form = document.userForm;
-		form.subtask.value = subtask;
+		form.task.value = task;
 		form.submit();
 	}
 
-	function xiusAddSubTask(subtask)
+	function xiusAddSubTask(task)
 	{
 		var form = document.userForm;
-		form.subtask.value = subtask;
+		form.task.value = task;
 		form.submit();
 	}
 	
@@ -28,22 +28,22 @@
 	{
 		var form = document.userForm;
 		form.xiusaddinfo.value = infoid;
-		form.subtask.value = 'xiusaddinfo';
+		form.task.value = 'addinfo';
 		form.submit();
 	}
 	
-	function xiusSaveList(subtask) 
+	function xiusSaveList(task) 
 	{
 		var form = document.saveListForm;
-		form.subtask.value = subtask;
+		form.task.value = task;
 		form.submit();
 	}
 	
 	function xiusSaveListAs(url)
 	{
-		var subtask = '';
+		var task = '';
 		if(document.getElementById('xiusListSaveAsNew').checked==true)
-			subtask = 'xiussavenew';
+			saveAs = '&saveas=newList';
 		
 		if(document.getElementById('xiusListSaveAsExisting').checked==true){
 			
@@ -53,12 +53,12 @@
 				return false;
 			}
 			
-			subtask = 'xiussaveexisting';
+			saveAs = '&saveas=existingList';
 			var listid = document.getElementById('listid').value;
-			subtask = subtask + '&listid=' + listid;
+			saveAs = saveAs + '&listid=' + listid;
 		}
 
-		window.parent.location.href = url + '&saveas=' + subtask;
+		window.parent.location.href = url + saveAs;
 		//window.opener.location.href = url;
 		parent.SqueezeBox.close();
 	}
@@ -76,7 +76,7 @@
 	function xiusApplySort(subtask) 
 	{
 		var form = document.userForm;
-		form.subtask.value = subtask;
+		form.task.value = subtask;
 		form.submit();
 	}
 	

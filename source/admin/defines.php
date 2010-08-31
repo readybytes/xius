@@ -22,6 +22,7 @@ define('XIUS_PATH_MODEL',		XIUS_COMPONENT_PATH_ADMIN.DS.'models');
 define('XIUS_PATH_LIBRARY',		XIUS_COMPONENT_PATH_ADMIN.DS.'libraries');
 define('XIUS_PATH_HELPER',		XIUS_COMPONENT_PATH_ADMIN.DS.'helpers');
 define('XIUS_PATH_ASSET',		XIUS_COMPONENT_PATH_ADMIN.DS.'assets');
+define('XIUS_PATH_TEMPLATE',	XIUS_COMPONENT_PATH_SITE.DS.'templates');
 
 define('XIUS_ALL',-1);
 
@@ -35,7 +36,7 @@ define('XIUSSEARCH','SEARCH');
 define('XIUSDEL','DELINFO');
 define('XIUSSORT','SORT');
 
-
+define('XIUS_LISTID','listid');
 define('XIUS_CONDITIONS','conditions');
 define('XIUS_VISIBLE','visible');
 define('XIUS_SORT','sort');

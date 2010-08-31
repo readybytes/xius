@@ -27,11 +27,11 @@ class XiusJSProximityTest extends XiUnitTestCase
 			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 			XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 			
-			require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
+			require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		
 			$newData = array(array());
-			XiusViewUsers::_getInitialData(&$newData);					
-			XiusViewUsers::_getTotalUsers(&$newData);		
+			XiusHelperResults::_getInitialData(&$newData);					
+			XiusHelperResults::_getTotalUsers(&$newData);		
 			$this->assertEquals($newData['total'],23);
 			
 			$this->resetCachedData();
@@ -43,8 +43,8 @@ class XiusJSProximityTest extends XiUnitTestCase
 			//XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 			
 			$newData = array(array());
-			XiusViewUsers::_getInitialData(&$newData);					
-			XiusViewUsers::_getTotalUsers(&$newData);		
+			XiusHelperResults::_getInitialData(&$newData);					
+			XiusHelperResults::_getTotalUsers(&$newData);		
 			$this->assertEquals($newData['total'],27);			
 		}
 }
