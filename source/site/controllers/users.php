@@ -32,18 +32,19 @@ class XiussiteControllerUsers extends XiusController
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
-		$view->setLayout( 'default' );
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
 
 		/*XITODO : pass only searchable information 
 		 * Trigger event before displaying search 
 		 */
-		return $view->displaySearch($allInfo);
+		return $view->displaySearch($allInfo,__FUNCTION__);
 	}
 	
 	function search()
 	{
-		$scanned = JRequest::getVar('fromPanel', 0,'POST'); 
-		if($scanned){			
+		$fromPanel = JRequest::getVar('fromPanel', 0,'POST'); 
+		if($fromPanel){			
 			$conditions = XiusLibrariesUsersearch::processSearchData();
 			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		
@@ -98,20 +99,21 @@ class XiussiteControllerUsers extends XiusController
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
-		
-		$view->setLayout( 'results' );
-		return $view->displayResult($fromTask,$list);
+			
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
+		return $view->displayResult($fromTask,$list,'result');
 	}
 	
-
-	function export($fromTask='search')
+	function export()
 	{
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$viewType	= 'csv';
 		$view		=& $this->getView( $viewName , $viewType );
-		return $view->exportUser($fromTask);
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
+		return $view->exportUser('export');
 	}	
-	
 	
 	function displayAdvanceSearch()
 	{

@@ -9,9 +9,9 @@ if(!defined('_JEXEC')) die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class XiusViewUsers extends JView
+class XiussiteViewUsers extends XiusView
 {
-	function exportUser($fromTask)
+	function exportUser($tmpl=null)
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();
@@ -20,7 +20,6 @@ class XiusViewUsers extends JView
 			$url = JRoute::_('index.php?option=com_xius&view=users',false);
 			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
 		}
-		$this->setLayout('userlist_csv');
 		$params = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sort = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
 		$dir = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,false);
@@ -98,7 +97,7 @@ class XiusViewUsers extends JView
 		$this->assignRef('users', $users);
 		$this->assignRef('userprofile', $userprofile);
 		$this->assignRef('fields', $fields);
-		parent::display();
+		parent::display($tmpl);
 	}
 }
 

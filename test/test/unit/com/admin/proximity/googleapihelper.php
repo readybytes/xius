@@ -14,7 +14,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 		// get the info details of Proximity information
 		$info = XiusLibrariesInfo::getInfo($filter);
 		$this->assertEquals($info[0]->id,8);
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
 		ProximityGoogleapiHelper::insertGeocodeRawData($info);
 	}
 	
@@ -22,7 +22,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 	{
 		$invalidAdd = $this->invalidAddressProvider();
 		//$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityGoogleAPITest/testInsertGeocodeRawData.start.sql');
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
 		// get first two invalid address
 		$address = ProximityGoogleapiHelper::getInvalidAddress(2);
 		$this->assertEquals($invalidAdd[0],$address[0]);
@@ -36,7 +36,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 	function testGetGeocodes()
 	{
 		$address = $this->invalidAddressProvider();
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
 		// get first two invalid address
 		$geocodes = ProximityGoogleapiHelper::getGeocodes($address);
 		$compare = $this->geocodeProvider();
@@ -46,7 +46,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 	function testUpdateGeocodesOfInvalidAddress()
 	{
 		$this->_DBO->addTable('#__xius_proximity_geocode');
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
 		$geocode = $this->geocodeProvider();
 		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocode);
 		
@@ -60,7 +60,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 	{
 		// when google api can not determine geocode of one address , othen shuol be update and invalicd must be deleted
 		$this->_DBO->addTable('#__xius_proximity_geocode');
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
 		$address = ProximityGoogleapiHelper::getInvalidAddress(5);
 		$geocodes = ProximityGoogleapiHelper::getGeocodes($address);
 		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocodes);		

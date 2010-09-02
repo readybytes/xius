@@ -11,7 +11,7 @@ $document->addScript($js);
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
-$submitUrl = JRoute::_('index.php?option=com_xius&view=list&task=showListData',false);
+$submitUrl = JRoute::_('index.php?option=com_xius&view=list&task=render',false);
 ?>
 <div id="xiusPopup">
  <form action="<?php echo $submitUrl; ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
@@ -51,6 +51,5 @@ $submitUrl = JRoute::_('index.php?option=com_xius&view=list&task=showListData',f
 <div id="xiusPopupSubmit" style="float:right;">
 	<input type="submit" name = "xiusListSaveAs" id = "xiusListSaveAs" value="<?php echo JText::_('NEXT')?>"/></div>
 </div>
-<input type="hidden" name="subtask" value="" />
 </form>
 </div>

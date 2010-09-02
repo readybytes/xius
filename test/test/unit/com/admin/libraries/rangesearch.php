@@ -37,7 +37,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$url	= dirname(__FILE__).'/sql/'.__CLASS__.'/testGetAvailableInfoForRangesearch.start.sql';
 		$this->_DBO->loadSql($url);
 	    
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
+		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
 		$insertedRows = XiusLibrariesUsersearch::updateCache();
 		
 		$this->searchUser(array(15,16),11);
@@ -65,7 +65,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
+		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		
 		$data = array(array());
 		XiusHelperResults::_getInitialData(&$data);

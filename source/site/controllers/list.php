@@ -18,13 +18,7 @@ class XiussiteControllerList extends XiusController
 		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,0,'XIUS');
 		
 		$user =& JFactory::getUser();
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-		
-		$view->setLayout( 'lists' );
-		return $view->_showLists($user->id);			
+		return $this->_showLists($user->id);		
 	}
 	
 	function _displayResult($fromTask,$list='')
@@ -34,41 +28,12 @@ class XiussiteControllerList extends XiusController
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		
-		$view->setLayout( 'results' );
-		return $view->displayResult($fromTask,$list);
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );		
+		return $view->displayResult($fromTask,$list,'result');
 	}
 	
- 	function _processList($list)
-	{
-		// XITODO : unset old data first
-		// check session if list is already loaded 
-		// then no need to load same list again and agian
-		if($list->id === XiusLibrariesUsersearch::getDataFromSession(XIUS_LISTID,0,'XIUS'))
-			return true;	
-		
-		//XiusLibrariesUsersearch::setDataInSession('listid',$listId,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,$list->id,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
-		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
-		return true;
-	}
-	
-	function _loadList($listId=null)
-	{
-		if(null === $listId)
-			$listId = JRequest::getVar('listid', 0);
-					
-		$user =& JFactory::getUser();
-		if(!$listId)
-			return $this->_showLists($user->id);			
-			
-		/*get list */
-		$list = XiusLibrariesList::getList($listId);
-		return $list;
-	}
+ 	
 	
 	function showlist()
 	{
@@ -108,8 +73,42 @@ class XiussiteControllerList extends XiusController
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		
-		$view->setLayout( 'lists' );
-		return $view->_showLists($owner);
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );		
+		return $view->showLists($owner,'lists');
+	}
+	
+
+	function _processList($list)
+	{
+		// XITODO : unset old data first
+		// check session if list is already loaded 
+		// then no need to load same list again and agian
+		if($list->id === XiusLibrariesUsersearch::getDataFromSession(XIUS_LISTID,0,'XIUS'))
+			return true;	
+		
+		//XiusLibrariesUsersearch::setDataInSession('listid',$listId,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,$list->id,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
+		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
+		return true;
+	}
+	
+	function _loadList($listId=null)
+	{
+		if(null === $listId)
+			$listId = JRequest::getVar('listid', 0);
+					
+		$user =& JFactory::getUser();
+		if(!$listId)
+			return $this->_showLists($user->id);			
+			
+		/*get list */
+		$list = XiusLibrariesList::getList($listId);
+		return $list;
 	}
 	
 	function displayResult($fromTask,$list='')
@@ -119,63 +118,12 @@ class XiussiteControllerList extends XiusController
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		
-		$view->setLayout( 'results' );
-		return $view->displayResult($fromTask,$list);
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
+		return $view->displayResult($fromTask,$list,'result');
 	}
 	
-	/*function join()
-	{
-		$list = $this->_loadList();
-		$join = JRequest::getVar('xiusjoin','AND','POST');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
-		return $this->_displayResult('showlist',$list);
-	}
-	
-	function delinfo()
-	{
-		$list = $this->_loadList();
-		XiusLibrariesUsersearch::deleteSearchData();
-		return $this->_displayResult('showlist',$list);
-	}
-	
-	function addinfo()
-	{
-		$list = $this->_loadList();
-		XiusLibrariesUsersearch::addSearchData();
-		return $this->_displayResult('showlist',$list);
-	}
-	
-	function sort()
-	{		
-		$list = $this->_loadList();
-		XiusLibrariesUsersearch::processSortData();
-		return $this->_displayResult('showlist',$list);
-	}
-	
-	function sortdir()
-	{		
-		$list = $this->_loadList();
-		XiusLibrariesUsersearch::processSortData();
-		return $this->_displayResult('showlist',$list);		
-	}
-	
-	function export()
-	{	
-		$viewName	= JRequest::getCmd('view', 'users');
-		$viewType	= 'csv';
-		$view		=& $this->getView( $viewName , $viewType );
-		return $view->exportUser('showlist');	
-	}
-	
-	function resetfilter()
-	{
-		$list = $this->_loadList();
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'','XIUS');
-		return $this->_displayResult('showlist',$list);
-	}*/
-	
-	function saveOption()
+	function listOption()
 	{				
 		$viewName	= JRequest::getCmd( 'view' , 'list' );
 		$document	=& JFactory::getDocument();
@@ -187,11 +135,12 @@ class XiussiteControllerList extends XiusController
 		$listName 	= JRequest::getVar('xiusListName', '');
 		
 		$msg = '';
-		$view->setLayout( 'results_saveoptions' );
-		return $view->saveOption($msg);
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
+		return $view->listOption($msg,'listoption');
 	}
 	
-	function showListData()
+	function render()
 	{
 		$listId 	= JRequest::getVar('listid', 0);
 		$saveas 	= JRequest::getVar('saveas', 'newList');
@@ -199,8 +148,9 @@ class XiussiteControllerList extends XiusController
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
-		$view->setLayout( 'results_savelist' );
-		return $view->saveList($listId,$saveas);		
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
+		return $view->saveList($listId,$saveas,'render');		
 	}
 	
 	function existingList()
@@ -218,12 +168,8 @@ class XiussiteControllerList extends XiusController
 			$data =  $this->_saveList(false);
 		}
 		
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );	
-		$view->setLayout( 'results_success' );
-		return $view->success($data);
+		global $mainframe;				
+		$mainframe->redirect($data['url'],$data['msg']);
 	}
 	
 	function newList()
@@ -240,7 +186,7 @@ class XiussiteControllerList extends XiusController
 		global $mainframe;				
 		$mainframe->redirect($data['url'],$data['msg']);		
 	}
-
+	
 	function _saveListChecks($new =true, $user = null)
 	{
 		if($user === null)
@@ -265,58 +211,52 @@ class XiussiteControllerList extends XiusController
 	
 		
 	
-	function _saveList($new = true , $data = null, $post=null,$params=null,$user=null)
+	function _saveList($new = true, $post=null,$params=null,$user=null)
 	{		
 		if($user === null)
 			$user =& JFactory::getUser();
 		
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		// XITODO : do not user AllowRaw for all
-		if($post == null)
+		if($post === null)
 			$post = JRequest::get('POST');
 		
-		if(!$post && !$data)
+		if(!$post)
 			return;
-		/*XITODO : ask user for list details
-		 * and whether to save this as a new list
-		 * or update existing one
-		 */
-		if($params === null)
-			$params = array();
-			
-		if($data === null){
-			$listId 	= $post['listid'];
-			$listName 	= $post['xiusListName'];
-			/*XITODO : set visible info and published also */
-			$data = array();
-			// if saving new list then list id must id must be zero
-			$data['id'] 		= 0;		
-			$data['name'] 		= $listName;
-
-			//$data['description']= $post['xiusListDesc'];
-			$data['description']= JRequest::getVar( 'xiusListDesc', $post['xiusListDesc'], 'post', 'string', JREQUEST_ALLOWRAW );
-			$data['published'] 	= $post['xiusListPublish'];
-
-			if(!$new){
-				// load table for getting params
-				$list	=& JTable::getInstance( 'list' , 'XiusTable' );
-				$list->load($listId);
-				$config = new JRegistry('xiuslist');
-				$config->loadINI($list->params);
-				$params = $config->toArray('xiuslist');
-			
-				$data['id'] = $listId;
-				$data['name'] = $post['xiusListName'];				
-			}			
-			
-			$data['join'] = $post['xiusListJoinWith'];
-			$data['sortinfo'] = $post['xiusListSortInfo'];
-			$data['sortdir'] = $post['xiusListSortDir'];
-			$data['owner'] = $user->id;
-			$data['conditions'] = serialize($conditions);
-		}		
 		
-		// trigger evet before saving list
+		if($params === null)
+			$params = array();				
+		
+		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		// XITODO : do not user AllowRaw for all
+		
+		/*XITODO : set visible info and published also */		
+		$listId 			= $post['listid'];
+		$listName 			= $post['xiusListName'];
+		
+		// if saving new list then list id must id must be zero		
+		$data['id'] 		= 0;
+		$data['name'] 		= $listName;
+		$data['description']= JRequest::getVar( 'xiusListDesc', $post['xiusListDesc'], 'post', 'string', JREQUEST_ALLOWRAW );
+		$data['published'] 	= $post['xiusListPublish'];
+
+		if(!$new){
+			// load table for getting params
+			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
+			$list->load($listId);
+			$config 		= new JRegistry('xiuslist');
+			$config->loadINI($list->params);
+			$params 		= $config->toArray('xiuslist');
+		
+			$data['id'] 	= $listId;
+			$data['name'] 	= $listName;;				
+		}	
+			
+		$data['join'] 		= $post['xiusListJoinWith'];
+		$data['sortinfo'] 	= $post['xiusListSortInfo'];
+		$data['sortdir'] 	= $post['xiusListSortDir'];
+		$data['owner'] 		= $user->id;
+		$data['conditions'] = serialize($conditions);
+				
+		// trigger event before saving list
 		JPluginHelper::importPlugin( 'system' );
 		$dispatcher =& JDispatcher::getInstance();
 		

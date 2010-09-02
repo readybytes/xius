@@ -83,7 +83,7 @@ abstract class XiusView extends JView
 		return $name;
 	}
 	
-	function displayResult($from,$list='')
+	function displayResult($from,$list='',$tmpl)
 	{
 		$data = array(array());
 		XiusHelperResults::_getInitialData($data);
@@ -135,7 +135,7 @@ abstract class XiusView extends JView
 
 		$this->assign('task', $from);
 		$this->assign('view', $this->getName());
-		parent::display();
+		parent::display($tmpl);
 	}
 	
 }

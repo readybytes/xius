@@ -133,7 +133,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	 */
 	function testIsAllRequirementSatisfy($className,$result=true)
 	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
+		//require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
 		$instance = new $className();
 		
 		if(!XiusHelpersUtils::isComponentExist('com_community'))

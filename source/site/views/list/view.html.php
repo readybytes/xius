@@ -12,7 +12,7 @@ jimport( 'joomla.application.component.view');
 class XiussiteViewList extends XiusView
 {
 	
-	function _showLists($owner = null)
+	function showLists($owner = null,$tmpl=null)
 	{
 		/*XITODO : get list according to owner*/
 		$lModel =& XiusFactory::getModel('list','admin');
@@ -36,10 +36,10 @@ class XiussiteViewList extends XiusView
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);
 		
-		return parent::display();
+		return parent::display($tmpl);
 	}
 	
-	function saveOption($msg = '')
+	function listOption($msg = '',$tmpl=null)
 	{
 		$lModel =& XiusFactory::getModel('list','admin');
 
@@ -59,10 +59,10 @@ class XiussiteViewList extends XiusView
 		$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
 		$this->assign('msg',$msg);
-		parent::display();
+		parent::display($tmpl);
 	}
 	
-	function saveList($selectedListId,$saveas)
+	function saveList($selectedListId,$saveas,$tmpl=null)
 	{
 		$filter = array();
 
@@ -114,7 +114,7 @@ class XiussiteViewList extends XiusView
 		$this->assign( 'data' , $data );		
 		$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
-		parent::display();
+		parent::display($tmpl);
 	}
 	
 

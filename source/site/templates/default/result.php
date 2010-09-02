@@ -6,9 +6,9 @@
 ?>
 <div class="xius_result" id="xius_result"><a name="xiustop"></a>
 <?php
-$listid=''; 
-if(isset($this->list) && isset($this->list->id) && !empty($this->list->id))
-	$listid = 'listid='.$this->list->id;
+//$listid=''; 
+//if(isset($this->list) && isset($this->list->id) && !empty($this->list->id))
+//	$listid = 'listid='.$this->list->id;
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=search');?>" name="userForm" id="userForm" method="post">
 <?php
@@ -19,21 +19,13 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 $document->addScript($js);
 JHTML::_('behavior.tooltip');
-if($this->task == 'displayList')
+if($this->task == 'showlist')
 	echo '<span class = "xiusListname">'.JTEXT::_(ucfirst($this->loadTemplate('listinfo'))).'</span>';
-echo $this->loadTemplate('appliedinfo');
 
-//jimport('joomla.application.module.helper');
-//$module =& JModuleHelper::getModule('mod_available_info');
-//echo JModuleHelper::renderModule($module);
-
-echo $this->loadTemplate('availableinfo');
-?>
-<?php
-echo $this->loadTemplate('toolbar');
-?>
-<?php
-echo $this->loadTemplate('userlisting');
+include_once('searched_fields.php');
+include_once('searchable_fields.php');
+include_once('toolbar.php');
+include_once('miniprofile.php');
 //include('userlisting.php');
 //include('pagination.php');
 ?>
@@ -46,8 +38,6 @@ echo $this->pagination->getPagesLinks();
 <input type="hidden" name="option" value="com_xius" />
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="search" />
-<input type="hidden" name="subtask" value="" />
-<input type="hidden" name="scanned" value="1" />
 </form>
 <a href="#xiustop" style="float:right;"><img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" /></a>
 </div>
