@@ -35,19 +35,21 @@
 ../packages/tmp/admin/libraries/factory.php:133:	//XITODO : send parameters as array of args
 ../packages/tmp/admin/libraries/factory.php:206:		//XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:14:	// XITODO : change name of this element, add XIUS
+../packages/tmp/site/views/users/view.csv.php:14:	// XITODO : break the function
 ../packages/tmp/site/views/users/view.csv.php:38:					/*	XITODO : Sort according to multiple columns name */
 ../packages/tmp/site/views/users/view.csv.php:83:						/* XITODO : multiple column support at all places */
 ../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/list/view.html.php:100:		// XITODO : if user is admin then ??
-../packages/tmp/site/templates/default/results.php:15:/*XITODO : pass variable for color */
+../packages/tmp/site/templates/default/list/default_list.php:10:// XITODO : cleanup code
+../packages/tmp/site/templates/default/default_result.php:10:/*XITODO : pass variable for color */
 ../packages/tmp/site/helpers/results.php:143:        /*XITODO : arrange available info
 ../packages/tmp/site/helpers/results.php:186:		// XITODO : trigger it in view
 ../packages/tmp/site/controllers/users.php:14:		/*XITODO : Collect all info here
-../packages/tmp/site/controllers/users.php:37:		/*XITODO : pass only searchable information 
-../packages/tmp/site/controllers/list.php:43:		// XITODO : unset old data first
-../packages/tmp/site/controllers/list.php:92:		// XITODO : check access in function checkAccess		
-../packages/tmp/site/controllers/list.php:274:		// XITODO : do not user AllowRaw for all
-../packages/tmp/site/controllers/list.php:280:		/*XITODO : ask user for list details
-../packages/tmp/site/controllers/list.php:290:			/*XITODO : set visible info and published also */
+../packages/tmp/site/controllers/users.php:38:		/*XITODO : pass only searchable information 
+../packages/tmp/site/controllers/list.php:67:		// XITODO : check access in function checkAccess		
+../packages/tmp/site/controllers/list.php:81:		// XITODO : unset old data first
+../packages/tmp/site/controllers/list.php:191:         // XITODO : Send back to the previous URL
+../packages/tmp/site/controllers/list.php:215:		// XITODO : do not user AllowRaw for all
+../packages/tmp/site/controllers/list.php:217:		/*XITODO : set visible info and published also */		
 ../packages/tmp/site/router.php:50://XITODO : handle list id
 ../packages/tmp/site/models/users.php:58:        /*XITODO : Add error message */
