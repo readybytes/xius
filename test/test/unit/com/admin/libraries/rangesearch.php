@@ -42,7 +42,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		
 		$this->searchUser(array(15,16),11);
 		$this->searchUser(array(0,16),46);
-		$this->searchUser(array(16,18),13);
+		$this->searchUser(array(16,18),14);
 		$this->searchUser(array(6),2);
 		$this->searchUser(array(),59);
 	}

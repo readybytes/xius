@@ -2,9 +2,12 @@
 /**
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
-**/ 
+**/
+?>
+<span class = "xiusListname">
+<?php 
 $listid = 0;
-
+// XITODO : cleanup code
 if(!empty( $this->list ))	:
 	$listid = $this->list->id;
 	if(empty($this->list->name)):
@@ -17,4 +20,7 @@ if(!empty( $this->list ))	:
 
 endif;
 ?>
+</span>
 <input type="hidden" name="listid" value="<?php echo $listid;?>" />
+<?php 
+echo $this->loadTemplate('result');

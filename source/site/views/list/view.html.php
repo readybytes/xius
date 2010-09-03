@@ -12,7 +12,7 @@ jimport( 'joomla.application.component.view');
 class XiussiteViewList extends XiusView
 {
 	
-	function showLists($owner = null,$tmpl=null)
+	function lists($owner = null,$tmpl='lists')
 	{
 		/*XITODO : get list according to owner*/
 		$lModel =& XiusFactory::getModel('list','admin');
@@ -39,7 +39,7 @@ class XiussiteViewList extends XiusView
 		return parent::display($tmpl);
 	}
 	
-	function listOption($msg = '',$tmpl=null)
+	function saveas($msg = '',$tmpl='saveas')
 	{
 		$lModel =& XiusFactory::getModel('list','admin');
 
@@ -62,7 +62,7 @@ class XiussiteViewList extends XiusView
 		parent::display($tmpl);
 	}
 	
-	function saveList($selectedListId,$saveas,$tmpl=null)
+	function edit($selectedListId,$isNew,$tmpl='edit')
 	{
 		$filter = array();
 
@@ -71,7 +71,7 @@ class XiussiteViewList extends XiusView
 		if(!XiusHelpersUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
-		$lists = XiusLibrariesList::getLists($filter,'AND',false);
+		//$lists = XiusLibrariesList::getLists($filter,'AND',false);
 				
 		//get editor for description of list
 		$data['editor']		= & JFactory::getEditor();
@@ -88,7 +88,7 @@ class XiussiteViewList extends XiusView
 		$data['listName'] 	= '';
 		$data['listDesc'] 	= '';
 		$tempParams=array();
-		if($saveas === 'xiussaveexisting'){
+		if($isNew === 'false'){
 			$list = XiusLibrariesList::getList($selectedListId);
 			$data['listName'] = $list->name;
 			$data['listDesc'] = $list->description;
@@ -110,9 +110,9 @@ class XiussiteViewList extends XiusView
 		$data['xiusListPrivacy'] = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
 				 
 		$this->assign( 'conditionHtml',$conditionHtml);
-		$this->assign( 'saveas' , $saveas );
+		$this->assign( 'isNew' , $isNew );
 		$this->assign( 'data' , $data );		
-		$this->assign('lists',$lists);
+		//$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
 		parent::display($tmpl);
 	}

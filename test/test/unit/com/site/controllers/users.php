@@ -58,7 +58,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$userController = new XiussiteControllerList();
 		$datas = array();		
 		$url1 = JRoute::_('index.php?option=com_xius&view=list&task=showList&listid=1',false);
-		$datas[] = array('info' => array('listid' => 1 , 'owner' => 62 , 'name' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND' , 'conditions' => serialize($conditions1) , 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1,
+		$datas[] = array('info' => array('listid' => 1 , 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND' , 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1,
 						'conditions' => array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '=')));
 		//print_r(var_export($conditions1));
 		

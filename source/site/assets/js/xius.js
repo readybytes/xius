@@ -43,7 +43,7 @@
 	{
 		var task = '';
 		if(document.getElementById('xiusListSaveAsNew').checked==true)
-			saveAs = '&saveas=newList';
+			saveAs = '&isnew=true';
 		
 		if(document.getElementById('xiusListSaveAsExisting').checked==true){
 			
@@ -53,7 +53,7 @@
 				return false;
 			}
 			
-			saveAs = '&saveas=existingList';
+			saveAs = '&isnew=false';
 			var listid = document.getElementById('listid').value;
 			saveAs = saveAs + '&listid=' + listid;
 		}

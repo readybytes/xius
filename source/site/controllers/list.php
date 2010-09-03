@@ -12,13 +12,25 @@ class XiussiteControllerList extends XiusController
 	{
 		$listId = JRequest::getVar('listid', 0);	
 		if($listId){
-			$list = $this->_loadList($listId);			
+			$list = $this->_getList($listId);			
 			return $this->_displayResult(__FUNCTION__,$list);		
 		}
 		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,0,'XIUS');
 		
 		$user =& JFactory::getUser();
-		return $this->_showLists($user->id);		
+		return $this->_lists($user->id);		
+	}
+	
+	function _lists($owner)
+	{
+		$viewName	= JRequest::getCmd( 'view' , 'list' );
+		$document	=& JFactory::getDocument();
+		$viewType	= $document->getType();
+		$view		=& $this->getView( $viewName , $viewType );
+		
+		$layout		= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );		
+		return $view->lists($owner);
 	}
 	
 	function _displayResult($fromTask,$list='')
@@ -30,10 +42,8 @@ class XiussiteControllerList extends XiusController
 		
 		$layout		= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );		
-		return $view->displayResult($fromTask,$list,'result');
-	}
-	
- 	
+		return $view->displayResult($fromTask,$list,'list');
+	} 	
 	
 	function showlist()
 	{
@@ -62,24 +72,11 @@ class XiussiteControllerList extends XiusController
 				break;
 			}
 				
-		$this->_processList($list);
+		$this->_loadListInSession($list);
 		return $this->_displayResult(__FUNCTION__,$list);
-	}
-	
-	function _showLists($owner)
-	{
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-		
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );		
-		return $view->showLists($owner,'lists');
-	}
-	
+	}	
 
-	function _processList($list)
+	function _loadListInSession($list)
 	{
 		// XITODO : unset old data first
 		// check session if list is already loaded 
@@ -97,7 +94,7 @@ class XiussiteControllerList extends XiusController
 		return true;
 	}
 	
-	function _loadList($listId=null)
+	function _getList($listId=null)
 	{
 		if(null === $listId)
 			$listId = JRequest::getVar('listid', 0);
@@ -123,67 +120,56 @@ class XiussiteControllerList extends XiusController
 		return $view->displayResult($fromTask,$list,'result');
 	}
 	
-	function listOption()
+	function saveas()
 	{				
 		$viewName	= JRequest::getCmd( 'view' , 'list' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 
-		$saveas 	= JRequest::getVar('saveas', 'savenew');
+		$saveas 	= JRequest::getVar('isnew', 'true');
 		$listId 	= JRequest::getVar('listid', 0);
 		$listName 	= JRequest::getVar('xiusListName', '');
 		
 		$msg = '';
 		$layout		= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );
-		return $view->listOption($msg,'listoption');
+		return $view->saveas($msg);
 	}
 	
-	function render()
+	function edit()
 	{
 		$listId 	= JRequest::getVar('listid', 0);
-		$saveas 	= JRequest::getVar('saveas', 'newList');
+		$isNew 	= JRequest::getVar('isnew', 'true');
 		$viewName	= JRequest::getCmd( 'view' , 'list' );
 		$document	=& JFactory::getDocument();
 		$viewType	= $document->getType();
 		$view		=& $this->getView( $viewName , $viewType );
 		$layout		= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );
-		return $view->saveList($listId,$saveas,'render');		
+		return $view->edit($listId,$isNew);		
 	}
 	
-	function existingList()
+	function save()
 	{
 		$listId 	= JRequest::getVar('listid', 0);
-//		if(!$listId){
-//			$msg = JText::_('Please select a list to save or save as a new');
-//			break;
-//			}
-//				
-		$data = $this->_saveListChecks(false);
-			
-		if($data['success'] == true){
-			$data = '';
-			$data =  $this->_saveList(false);
-		}
-		
-		global $mainframe;				
-		$mainframe->redirect($data['url'],$data['msg']);
-	}
-	
-	function newList()
-	{
-		$listId 	= JRequest::getVar('listid', 0);
+		$isNew  	= JRequest::getVar('isnew', 'true');
 		$listName 	= JRequest::getVar('xiusListName', '');				
-		$data = $this->_saveListChecks(true);
-				
-		if($data['success'] == true){
-			$data = '';
-			$data =  $this->_saveList(true);
+		global $mainframe;
+
+		if(!$isNew && !$listId){
+			$url = JRoute::_("index.php?option=com_xius&view=list",false);
+			$msg = JText::_('Please select a list to save or save as a new');
+			$mainframe->redirect($url,$msg);
 		}
+			
+		$data = $this->_saveListChecks($isNew);
 				
-		global $mainframe;				
+		if($data['success'] === true){
+			$data = '';
+			$data =  $this->_saveList($isNew);
+		}				
+			
 		$mainframe->redirect($data['url'],$data['msg']);		
 	}
 	
@@ -202,8 +188,8 @@ class XiussiteControllerList extends XiusController
 			$returndata = array('id' => 0 ,  'success' => true);
 			return $returndata;			
 		}
-		
-		$url = JRoute::_("index.php?option=com_xius&view=users",false);
+         // XITODO : Send back to the previous URL
+		$url = JRoute::_("index.php?option=com_xius&view=list",false);
 		$msg = JText::_('YOU CAN NOT SAVE LIST');
 		$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
 		return $returndata;		

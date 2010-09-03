@@ -11,7 +11,8 @@ jimport( 'joomla.application.component.view');
 
 class XiussiteViewUsers extends XiusView
 {
-	function exportUser($tmpl=null)
+	// XITODO : break the function
+	function export($tmpl='csv')
 	{
 		global $mainframe;
 		$user =& JFactory::getUser();

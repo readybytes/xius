@@ -11,7 +11,7 @@ jimport( 'joomla.application.component.view');
 
 class XiussiteViewUsers extends XiusView
 {
-	function displaySearch($allInfo,$tmpl=null)
+	function panel($allInfo,$tmpl='panel')
 	{
 		$infohtml = array();
 		if(!empty($allInfo)){
@@ -57,8 +57,8 @@ class XiussiteViewUsers extends XiusView
 		return parent::display($tmpl);
 	}
 
-	function displayAdvanceSearch()
-	{
-		parent::display();
-	}
+//	function displayAdvanceSearch()
+//	{
+//		parent::display();
+//	}
 }

@@ -38,7 +38,7 @@ class XiussiteControllerUsers extends XiusController
 		/*XITODO : pass only searchable information 
 		 * Trigger event before displaying search 
 		 */
-		return $view->displaySearch($allInfo,__FUNCTION__);
+		return $view->panel($allInfo);
 	}
 	
 	function search()
@@ -112,7 +112,7 @@ class XiussiteControllerUsers extends XiusController
 		$view		=& $this->getView( $viewName , $viewType );
 		$layout		= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );
-		return $view->exportUser('export');
+		return $view->export();
 	}	
 	
 	function displayAdvanceSearch()

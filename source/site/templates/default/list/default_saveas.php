@@ -11,7 +11,7 @@ $document->addScript($js);
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
-$submitUrl = JRoute::_('index.php?option=com_xius&view=list&task=render',false);
+$submitUrl = JRoute::_('index.php?option=com_xius&view=list&task=edit',false);
 ?>
 <div id="xiusPopup">
  <form action="<?php echo $submitUrl; ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">

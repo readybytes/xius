@@ -12,7 +12,7 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 ?><div id="xiusSave">
-	<form action="<?php echo JRoute::_('index.php?option=com_xius&view=list&task='.$this->saveas,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
+	<form action="<?php echo JRoute::_('index.php?option=com_xius&view=list&task=save&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 	
 	<!--  START HEADER -->
 		<h3>
@@ -198,7 +198,6 @@ if(!empty($this->msg))
 <div id="xiussubmit">				
 <input type="submit" name = "xiussave" id = "xiussave" value=<?php echo JText::_('SAVE AS NEW')?> />	
 </div>
-<input type="hidden" name="subtask" value="<?php echo $this->saveas; ?>" />
 <input type="hidden" name="listid" value="<?php echo $this->selectedListId; ?>" />
 </form>
 </div>
