@@ -8,7 +8,7 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 ?>
 <div class="">
-<form action="<?php echo JRoute::_('index.php?option=com_xius&view=list');?>" name="listForm" id="listForm" method="post">
+<form action="<?php echo JRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 <?php
 if(empty($this->lists))	:
 	echo JText::_('NO LISTS AVAILABLE');

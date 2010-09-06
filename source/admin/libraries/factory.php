@@ -145,7 +145,7 @@ class XiusFactory
 	}
 	
 	//Returns a MVCT object
-	static function getInstance($name, $type, $prefix='XiusSite', $refresh=false)
+	static function getInstance($name, $type, $prefix='Xiussite', $refresh=false)
 	{
 		static $instance=array();
 

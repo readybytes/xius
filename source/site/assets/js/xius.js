@@ -1,41 +1,83 @@
 //@Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 //@license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 
+	function isFromExternalUrl()
+	{
+		var form = document.userForm;
+		var value = form.isExternalUrl.value;
+		
+		return value;
+		/*if(value == true)
+			return true;
+		
+		return false;*/		
+	}
+	
 	function xiusDeleteInfo(infoid,valueBoxId)
 	{
+		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
 		form.xiusdelinfo.value = infoid.id;
 		form.conditionvalue.value = document.getElementById(valueBoxId).value;
-		form.task.value = 'delinfo';
+		
+		if(isExternalUrl)
+			form.xiustask.value = 'delinfo';
+		else 
+			form.task.value = 'delinfo';
+		
 		form.submit();
 	}
 
 	function xiusApplyJoin(task) 
 	{
+		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
-		form.task.value = task;
+		
+		if(isExternalUrl)
+			form.xiustask.value = task
+		else
+			form.task.value = task;
+		
 		form.submit();
 	}
 
 	function xiusAddSubTask(task)
 	{
+		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
-		form.task.value = task;
+		
+		if(isExternalUrl)
+			form.xiustask.value = task;
+		else
+				form.task.value = task;
+		
 		form.submit();
 	}
 	
 	function xiusAddInfo(infoid) 
 	{
+		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
 		form.xiusaddinfo.value = infoid;
-		form.task.value = 'addinfo';
+		
+		if(isExternalUrl)
+			form.xiustask.value = 'addinfo';
+		else
+			form.task.value = 'addinfo';
+		
 		form.submit();
 	}
 	
 	function xiusSaveList(task) 
 	{
+		var isExternalUrl = isFromExternalUrl();
 		var form = document.saveListForm;
-		form.task.value = task;
+		
+		if(isExternalUrl)
+			form.xiustask.value = task;
+		else
+			form.task.value = task;
+		
 		form.submit();
 	}
 	
@@ -75,8 +117,13 @@
 	
 	function xiusApplySort(subtask) 
 	{
+		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
-		form.task.value = subtask;
+		
+		if(isExternalUrl)
+			form.xiustask.value = subtask;
+		else
+			form.task.value = subtask;
 		form.submit();
 	}
 	

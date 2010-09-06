@@ -66,18 +66,31 @@ abstract class XiusController extends JController
 
 		return $name;
 	}
-	
+		
 	public function getView($name='')
 	{
+		static $view = null;
+		
+		if($view)
+			return $view;
+			
 		if(empty($name))
 			$name 	= $this->getName();
 
 		//get Instance from Factory
 		$view	= 	XiusFactory::getInstance($name,'View', $this->getPrefix());
 
-		if(!$view)
+		if(!$view){
 			$this->setError(JText::_("NOT ABLE TO GET INSTANCE OF VIEW : {$this->getName()}"));
-
+		}
+		
+		$layout	= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );
+		
+		/*
+		 *  if external URL is set in controller then also set it into view also
+		 */
+		$view->_isExternalUrl = $this->_isExternalUrl;  
 		return $view;
-	}
+	}	
 }

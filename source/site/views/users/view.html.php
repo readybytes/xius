@@ -52,7 +52,8 @@ class XiussiteViewUsers extends XiusView
 		$document->setTitle(JText::_('Search Panel'));
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplaySearchPanel',array( &$infohtml  ));
-		
+		$submitUrl	= $this->getXiUrl();
+		$this->assign('submitUrl', $submitUrl);
 		$this->assign( 'infohtml' , $infohtml );
 		return parent::display($tmpl);
 	}

@@ -8,7 +8,18 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiussiteControllerList extends XiusController
 {
+	function __construct($isExternal=false)
+	{
+		$this->_isExternalUrl = $isExternal;	
+		parent::__construct();
+	}
+	
 	function display()
+	{
+		return $this->lists();	
+	}
+	
+	function lists()
 	{
 		$listId = JRequest::getVar('listid', 0);	
 		if($listId){
@@ -18,30 +29,21 @@ class XiussiteControllerList extends XiusController
 		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,0,'XIUS');
 		
 		$user =& JFactory::getUser();
-		return $this->_lists($user->id);		
-	}
-	
-	function _lists($owner)
-	{
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
 		
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );		
-		return $view->lists($owner);
+		$view		=& $this->getView();
+
+		// set and reset the vars in current url
+		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));
+		return $view->lists($user->id);				
 	}
 	
 	function _displayResult($fromTask,$list='')
 	{
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-		
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );		
+		$view		=& $this->getView();
+		// set and reset the vars in current url
+		$view->setXiUrl(array('view'=>'users','task'=>'search',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		return $view->displayResult($fromTask,$list,'list');
 	} 	
 	
@@ -107,33 +109,19 @@ class XiussiteControllerList extends XiusController
 		$list = XiusLibrariesList::getList($listId);
 		return $list;
 	}
-	
-	function displayResult($fromTask,$list='')
-	{
-		$viewName	= JRequest::getCmd( 'view' , 'users' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-		
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );
-		return $view->displayResult($fromTask,$list,'result');
-	}
-	
+
 	function saveas()
 	{				
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
+		$view		=& $this->getView();
+		// set and reset the vars in current url
+		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'edit',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 
 		$saveas 	= JRequest::getVar('isnew', 'true');
 		$listId 	= JRequest::getVar('listid', 0);
 		$listName 	= JRequest::getVar('xiusListName', '');
 		
-		$msg = '';
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );
+		$msg = '';		
 		return $view->saveas($msg);
 	}
 	
@@ -141,12 +129,11 @@ class XiussiteControllerList extends XiusController
 	{
 		$listId 	= JRequest::getVar('listid', 0);
 		$isNew 	= JRequest::getVar('isnew', 'true');
-		$viewName	= JRequest::getCmd( 'view' , 'list' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );
+		
+		$view		=& $this->getView();
+		// set and reset the vars in current url
+		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'save',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		return $view->edit($listId,$isNew);		
 	}
 	

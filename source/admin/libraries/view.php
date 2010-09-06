@@ -18,6 +18,9 @@ abstract class XiusView extends JView
 	public $_model 			= null;
 	public $_form 			= null;
 	
+	public $_xiurl 			= null;
+	public $_isExternalUrl  = false;
+	
 	function __construct($config = array())
 	{
 		$template	= 'default';
@@ -132,10 +135,58 @@ abstract class XiusView extends JView
 		$this->assign('join', $data['join']);
 
 		$this->assign('list', $list);
-
+		$this->assign('submitUrl', $this->getXiUrl());
 		$this->assign('task', $from);
 		$this->assign('view', $this->getName());
-		parent::display($tmpl);
+		$this->display($tmpl);
+	}
+
+	function display($tmpl = null)
+	{
+		// set proper URI
+		if($this->_xiurl === null)
+		{
+			//then set something we desire
+			$this->_xiurl = $this->getXiUrl();
+		}
+		
+		
+		return parent::display($tmpl);
 	}
 	
+	
+	public function setXiUrl($vars)
+	{
+		if($this->_xiurl)
+			return true;
+
+		$currentURI =& JURI::getInstance();	
+		
+		foreach($vars as $key => $val){
+		
+			if($val === null){	
+				// del the var from url 
+				// these will not be used as URL for posting the form		
+				$currentURI->delVar($key);
+				continue;
+			}		
+			/*
+		 	* if external url is true, it means xius is triggred from othe components
+		 	* so set two var xiusview and xiustask
+		 	*/
+			if($this->_isExternalUrl === true 
+					&& ($key === 'view' || $key === 'task'))
+				$currentURI->setvar('xius'.$key,$val);
+			else
+				$currentURI->setvar($key,$val);		
+		}
+		
+		$this->_xiurl = $currentURI->toString();
+		return;
+	}
+	
+	public function getXiUrl()
+	{
+		return $this->_xiurl;
+	}	
 }

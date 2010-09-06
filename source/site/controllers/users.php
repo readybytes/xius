@@ -7,7 +7,12 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 class XiussiteControllerUsers extends XiusController
-{
+{	
+	function __construct($isExternal=false)
+	{
+		$this->_isExternalUrl = $isExternal;	
+		parent::__construct();
+	}
 	
 	function panel()
 	{
@@ -28,13 +33,15 @@ class XiussiteControllerUsers extends XiusController
 		else
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,$count);
 		
-		$viewName	= JRequest::getCmd( 'view' , 'users' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );
-
+		$view		=& $this->getView();
+		
+		/*
+		 * IMP : Set the URL where the Form must be submitted
+		 * so that URL can be set from external site
+		 */	
+		// set and reset the vars in current url
+		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'search',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		/*XITODO : pass only searchable information 
 		 * Trigger event before displaying search 
 		 */
@@ -95,13 +102,10 @@ class XiussiteControllerUsers extends XiusController
 	
 	function _displayResult($fromTask,$list='')
 	{
-		$viewName	= JRequest::getCmd( 'view' , 'users' );
-		$document	=& JFactory::getDocument();
-		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );
-			
-		$layout		= JRequest::getCmd( 'layout' , 'default' );
-		$view->setLayout( $layout );
+		$view		=& $this->getView();
+		// set and reset the vars in current url
+		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'search',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));		
 		return $view->displayResult($fromTask,$list,'result');
 	}
 	
