@@ -11,6 +11,15 @@
 		
 		<param name="@spacer" type="spacer" default="If you don't have Geocoding Table" label="" description="" />
 			<param name="xius_gmap_key" type="text" default="" label="GOOGLE API KEY.LABEL" description="GOOGLE API KEY.DESC"/>
-						 
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		
+		<param name="@spacer" type="spacer" default="Default Location Configuration" description="" />
+			<param name="xius_default_location" type="Radio" label="XIUS PROXIMITY LOCATION.LABLE" description="LOCATION.DES" default="none" >	
+				<option value="none">none</option>				
+				<option value="googlemap">Google Map</option>
+				<option value="addressbox">Address</option>
+				<option value="mylocation">My Location</option>
+			</param>		
+					 
 	</params>
 </config>

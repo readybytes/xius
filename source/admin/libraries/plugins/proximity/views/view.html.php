@@ -4,6 +4,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . '..' .DS . 'defines.php');
 require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'proximity'.DS.'proximityhelper.php';
 
 class ProximityView extends XiusBaseView
 {
@@ -23,14 +24,17 @@ class ProximityView extends XiusBaseView
         $js = JURI::base().'administrator/components/com_xius/assets/js/proximity.js';
         $document =& JFactory::getDocument();
         $document->addScript($js);
-       
-        $data['latitude'] 	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
-    	$data['longitude']	= XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
-       
-        $mySess 			= & JFactory::getSession();
+
+        $data = array();
+        $data['configLat']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
+    	$data['configLong']  = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
+    	ProximityHelper::setUserLatLong($calleObject, $data);
+        
+    	$mySess 			= & JFactory::getSession();
 		$data['formName']	= $mySess->get('xiusModuleForm','userForm','XIUS');
        	$data['elePrefix']  = $calleObject->get('pluginType').$calleObject->get('key')."_".$data['formName'];
-
+		$data['location']   = $calleObject->get('pluginParams')->get('xius_default_location',"none");
+       	
        
        	$linkMap = JRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
     	$buttonMap = XiusFactory::getModalButtonObject($data['elePrefix'].'_map_button',JText::_( 'SHOW GOOGLE MAP' ),$linkMap,PROXIMITY_IFRAME_WIDTH,PROXIMITY_IFRAME_HEIGHT);
