@@ -49,7 +49,8 @@
 		<file>test/sel/com/site/xiusPrivacySelTest.php</file>
 		<file>test/sel/com/site/xiusemailSelTest.php</file>
 		<file>test/sel/com/site/googleProximity.php</file>
-		<file>test/sel/com/site/informationProximity.php</file>	
+		<file>test/sel/com/site/informationProximity.php</file>
+		<file>test/sel/com/site/proximitydefault.php</file>	
 		<file>test/sel/com/site/forceSearch.php</file>	
 		<file>test/unit/com/admin/proximity/jsproximity.php</file>
 			

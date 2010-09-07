@@ -148,7 +148,7 @@ class Proximity extends XiusBase
 
 	function _getArrangedValue($value)
 	{
-			if($value[0] == 'googlemap'){
+			if($value[0] == 'googlemap' || $value[0] == 'mylocation'){
 			$values['address']  	= $value[1];
 			$values['latitude']  	= $value[2];
 			$values['longitude'] 	= $value[3];
@@ -210,6 +210,7 @@ class Proximity extends XiusBase
 			$infoId['country'] = $this->pluginParams->get('xius_proximity_country',-1);
 			$infoId['state'] = $this->pluginParams->get('xius_proximity_state',-1);
 			$infoId['zipcode'] = $this->pluginParams->get('xius_proximity_zipcode',-1);
+			
 			return $infoId;			
 		}
 		
