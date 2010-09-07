@@ -438,7 +438,9 @@ class XiusUserSearchTest extends XiUnitTestCase
 	{
 		$sqlPath = $this->getSqlPath().DS."testDeleteSearchData.start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		
+
+		$updatedRows = XiusLibrariesUsersearch::updateCache();
+
 		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$existconditions,'XIUS');
 		
 		$success = XiusLibrariesUsersearch::addSearchData($addInfoId,$post);

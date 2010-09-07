@@ -55,8 +55,10 @@ class XiusJoomlaTest extends XiUnitTestCase
 		$instance->load(4);
 		$searchHtml4 =  $viewClass->searchHtml($instance);
 		
-		$result4 = '<inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"/>'
-					.'<imgclass="calendar"src="/usr/bin/templates/system/images/calendar.png"alt="calendar"id="JoomlaregisterDate_img"/>';
+		$result4 = '<inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
+				.'/><imgclass="calendar"src="/usr/bin/templates/system/images'
+				.'/calendar.png"alt="calendar"id="JoomlaregisterDate_img"/>';
+
 		$this->assertEquals($this->cleanWhiteSpaces($result4),$this->cleanWhiteSpaces($searchHtml4));
 	}
 	

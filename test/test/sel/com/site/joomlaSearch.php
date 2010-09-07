@@ -26,7 +26,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->select("//select[@id='Joomlablock']", "label=No");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'name','Joomla_6'=>'username','Joomla_9'=>'123',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','Joomla_14'=>'');
+							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','JoomlalastvisitDate'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -51,7 +51,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->select("//select[@id='Joomlablock']", "label=No");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'name','Joomla_6'=>'username','Joomla_9'=>'123',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','Joomla_14'=>'');
+							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','JoomlalastvisitDate'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -81,7 +81,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->select("//select[@id='Joomlablock']", "label=No");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'','Joomla_6'=>'name','Joomla_9'=>'66',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','Joomla_14'=>'');
+							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','JoomlalastvisitDate'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		

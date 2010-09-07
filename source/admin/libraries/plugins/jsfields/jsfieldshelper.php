@@ -118,6 +118,12 @@ class Jsfieldshelper
 	 */
 	function getFieldsHTML($fieldInfo)
 	{
+		$document	=& JFactory::getDocument();
+		$document->addStyleSheet(JURI::root()."includes/js/calendar/calendar-mos.css");
+		$document->addScript(JURI::root()."includes/js/joomla.javascript.js");
+		$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
+		$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
+		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		
 		$fieldHTML = '';
@@ -135,8 +141,8 @@ class Jsfieldshelper
        		if($formName != '')
        			$formName .= "_{$formName}";
        			
-			JHTML::_('behavior.calendar');
-            $fieldHTML  = JHTML::_('calendar', $value, 'field'.$fieldInfo->id, 'field'.$fieldInfo->id.$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));
+			$fieldHTML ='<input class="inputbox" type="text" name="field'.$fieldInfo->id.'" id="field'.$fieldInfo->id.$formName.'" style="width:125px; margin-right:4px" value="'.$value.'" />';
+			$fieldHTML .= '<a href="javascript:void(0)" onclick="return showCalendar(\'field'.$fieldInfo->id.$formName.'\', \'dd-mm-y\');" ><img src="'.rtrim(JURI::root()).'components/com_community/assets/calendar.png"></a>';
 		}
 		else if($fieldInfo->type == 'profiletypes'){
 			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );

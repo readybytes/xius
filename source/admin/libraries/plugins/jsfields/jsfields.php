@@ -124,14 +124,11 @@ class Jsfields extends XiusBase
 	 */
 	function getTableMapping()
 	{
-		$specification = 'varchar(250) NOT NULL';
+		
 		$filter = array();
 		$filter['id'] = $this->key;
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
-		
-		if(!empty($fieldInfo) && $fieldInfo[0]->type === 'date')
-			$specification = "datetime NOT NULL";
-		
+
 		$tableInfo					= array();
 		$count = 0;
 		 
@@ -140,7 +137,7 @@ class Jsfields extends XiusBase
 		$object->tableAliasName 	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->originColumnName	= 'value';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
-		$object->cacheSqlSpec		= $specification;
+		$object->cacheSqlSpec		= $this->getCacheSqlSpec($fieldInfo);
 		$object->cacheLabelName		= $this->labelName;
 		$object->createCacheColumn	=	true;
 		$tableInfo[]=$object;
@@ -253,6 +250,15 @@ class Jsfields extends XiusBase
 		if($fieldInfo[0]->type == 'date')
 			return $value;
 		return $this->_getFormatData($value);
+	}
+	
+	function getCacheSqlSpec($fieldInfo){
+		$specification = 'varchar(250) NOT NULL';
+		
+		if(!empty($fieldInfo) && $fieldInfo[0]->type === 'date')
+			$specification = "datetime NOT NULL";
+			
+		return $specification;	
 	}
 	
 	

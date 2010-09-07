@@ -64,6 +64,30 @@ class XiusHelpersUsersearch
 			return true;
 		
 		return false;
-			
-	}	
+	}
+
+	function trimWhiteSpace($data)
+	{
+		//Handle object Data
+		if(is_object($data))
+			return $data;
+		
+		//Handle Scalar Data
+		if(is_scalar($data)){
+			if(is_string($data))
+				return JString::trim($data);
+			return $data;	
+		}
+		
+		//Handle Array data
+		foreach ($data as $key=>$value){
+		   if(is_array($value)){
+		   	$value		   = self::trimWhiteSpace($value);
+		   	$newdata[$key] = $value;
+		   }
+		   else
+		    $newdata[$key] = JString::trim($value);
+		}
+		return $newdata;		
+	}
 }

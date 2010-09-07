@@ -37,9 +37,9 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$url	= dirname(__FILE__).'/sql/'.__CLASS__.'/testGetAvailableInfoForRangesearch.start.sql';
 		$this->_DBO->loadSql($url);
 	    
-		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
-		$insertedRows = XiusLibrariesUsersearch::updateCache();
-		
+		// IMP : DO NOT UPDATE CACHE, AS Test data is time dependent
+ 		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
+ 		//$insertedRows = XiusLibrariesUsersearch::updateCache();
 		$this->searchUser(array(15,16),11);
 		$this->searchUser(array(0,16),46);
 		$this->searchUser(array(16,18),14);

@@ -138,7 +138,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 	function testSaveListChecks()
 	{
 		$unsuccess	 = array('id' => 0,
-							'url' => '/usr/bin/index.php?option=com_xius&view=users',
+							'url' => JRoute::_('index.php?option=com_xius&view=users',false),
 							'msg' => 'You can not save list',
 							'success' => false,
 							);

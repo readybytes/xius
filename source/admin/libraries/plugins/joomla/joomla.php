@@ -123,7 +123,7 @@ class Joomla extends XiusBase
 	
 	function getCacheSqlSpec($key)
 	{
-		if($key == 'registerDate')
+		if($key == 'registerDate' || $key == 'lastvisitDate')
 			return 'datetime NOT NULL'; 
 		
 		if($key == 'id')

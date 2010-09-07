@@ -72,6 +72,9 @@ class Rangesearch extends XiusBase
 		$object->originColumnName	= '';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec		= ' INT (31) NOT NULL DEFAULT 0 ';
+		if(JString::strtolower($this->pluginParams->get('rangesearchType','date')) === 'date-range')
+			$object->cacheSqlSpec		= ' DATE NOT NULL ';			
+		
 		$object->cacheLabelName		= $this->labelName;
 		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
@@ -156,7 +159,7 @@ class Rangesearch extends XiusBase
 
 		//apply search
 		foreach($columns as $c){
-			$conditions =  ' ( '.$db->nameQuote($c->cacheColumnName).' >= '.$db->Quote($value[0]).' AND '.$db->nameQuote($c->cacheColumnName).' <= '.$db->Quote($value[1]).' ) ';
+			$conditions =  $db->nameQuote($c->cacheColumnName).' BETWEEN '.$db->Quote($this->formatValue($value[0])).' AND '.$db->Quote($this->formatValue($value[1]));
 			$query->where($conditions,$join);				
 		}
 		return true;
@@ -167,6 +170,10 @@ class Rangesearch extends XiusBase
 		$value = $this->_getArrangedValue($value);
 		if( is_numeric($value[0]) && is_numeric($value[1]) )
 			return true;
+			
+		if( $this->_isDate($value[0]) && $this->_isDate($value[1]) )
+				return true;
+			
 
 		return false;
 	}
@@ -207,6 +214,33 @@ class Rangesearch extends XiusBase
 		
 		if(!$this->pluginParams)
 			$this->pluginParams	= new JParameter('','');	
+	}
+	
+	public function _isDate($date)
+	{
+		  // check the format first (may not be necessary as we use checkdate() below)
+		   if(!ereg ("^[0-9]{2}-[0-9]{2}-[0-9]{4}$", $date))
+		  		return FALSE;
+		  else{
+		      	 $arrDate = explode("-", $date);		// break up date by slash
+		     	 $intDay = $arrDate[0];
+		      	 $intMonth = $arrDate[1];
+		      	 $intYear = $arrDate[2];
+		      	 $intIsDate = checkdate($intMonth, $intDay, $intYear);
+		      	  if(!$intIsDate)
+		      	  	    return FALSE;
+		   		}
+		      return TRUE;
+	}
+	
+	function formatValue($value)
+	{
+		if(JString::strtolower($this->pluginParams->get('rangesearchType','date')) === 'date-range'){
+			jimport('joomla.utilities.date');
+			$dateFrom 	= new JDate($value);
+			return $dateFrom->toMySQL(); 
+		}
+		return $value;
 	}
 	
 }

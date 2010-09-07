@@ -31,24 +31,27 @@ class Joomlahelper
 	
 	function getFieldsHTML($calleObject,$value='')
 	{
-		if($calleObject->get('key') == 'registerDate'){
-			// if module is displayin info
-			$mySess 	= & JFactory::getSession();
-			$formName	= $mySess->get('xiusModuleForm','','XIUS');
-       		if($formName != '')
-       			$formName .= "_{$formName}";
-       			
-			JHTML::_('behavior.calendar');
-            $fieldHTML  = JHTML::_('calendar', $value, $calleObject->get('pluginType').$calleObject->get('key'), $calleObject->get('pluginType').$calleObject->get('key').$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));
-			return $fieldHTML;
-		}
-		
-		if($calleObject->get('key') == 'block'){			
-			$fieldHTML  = '<select class="selectbox" name="'.$calleObject->get('pluginType').$calleObject->get('key').'" id="'.$calleObject->get('pluginType').$calleObject->get('key').'" value="" />';
-			$fieldHTML .= "<option value=''>".JText::_('SELECT BELOW')."</option><option value='0'>".JText::_('NO')."</option><option value='1'>".JText::_('YES')."</option></select>";
-			return $fieldHTML;
-		}
-		return false;
+		$paramsType	=	$calleObject->get('pluginType');
+ 		$key		=	$calleObject->get('key');
+ 		$infoType	=	Joomla::getCacheSqlSpec($key);
+ 		
+ 		if($infoType == 'datetime NOT NULL' ){
+  			// if module is displayin info
+  			$mySess 	= & JFactory::getSession();
+  			$formName	= $mySess->get('xiusModuleForm','','XIUS');
+         		if($formName != '')
+         			$formName .= "_{$formName}";
+         			
+ 			JHTML::_('behavior.calendar');
+             $fieldHTML  = JHTML::_('calendar', $value, $paramsType.$key, $paramsType.$key.$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));
+  			return $fieldHTML;
+  		}
+  		
+ 		if($infoType == 'tinyint(4) NOT NULL'){			
+ 			$fieldHTML  = '<select class="selectbox" name="'.$paramsType.$key.'" id="'.$paramsType.$key.'" value="" />';
+  			$fieldHTML .= "<option value=''>".JText::_('SELECT BELOW')."</option><option value='0'>".JText::_('NO')."</option><option value='1'>".JText::_('YES')."</option></select>";
+  			return $fieldHTML;
+  		}
 	}
 	
 }

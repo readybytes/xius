@@ -7,7 +7,7 @@
 ../packages/tmp/admin/helpers/utils.php:42:		$database = &JFactory::getDBO();
 ../packages/tmp/admin/helpers/utils.php:45:		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 ../packages/tmp/admin/helpers/utils.php:76:		$user	=& JFactory::getUser($userid);		
-../packages/tmp/admin/helpers/utils.php:153:		$db= & JFactory::getDBO();
+../packages/tmp/admin/helpers/utils.php:152:		$db= & JFactory::getDBO();
 ../packages/tmp/admin/controllers/list.php:9:class XiusControllerList extends JController 
 ../packages/tmp/admin/controllers/list.php:33:		global $mainframe;
 ../packages/tmp/admin/controllers/list.php:39:		$cache = & JFactory::getCache('com_content');
@@ -130,7 +130,7 @@
 ../packages/tmp/admin/models/info.php:152:		$db 	=& JFactory::getDBO();
 ../packages/tmp/admin/models/info.php:183:		$db 	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/controller.php:15:abstract class XiusController extends JController
-../packages/tmp/admin/libraries/view.php:96:		$document = JFactory::getDocument();
+../packages/tmp/admin/libraries/view.php:99:		$document = JFactory::getDocument();
 ../packages/tmp/admin/libraries/query.php:453:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/pluginhandler.php:29:		$user =& JFactory::getUser();
 ../packages/tmp/admin/libraries/pluginhandler.php:111:		$user  = & JFactory::getUser();
@@ -145,13 +145,14 @@
 ../packages/tmp/admin/libraries/plugins/baseview.php:24:		global $option, $mainframe;
 ../packages/tmp/admin/libraries/plugins/baseview.php:27:			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:80:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:231:			$db 	= &JFactory::getDBO(); 
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:228:			$db 	= &JFactory::getDBO(); 
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:133:			$mySess 	= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:24:        $document =& JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:30:        $mySess 			= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:35:       	$linkMap = JRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:121:		$document	=& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:139:			$mySess 	= & JFactory::getSession();
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:25:        $document =& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:33:    	$mySess 			= & JFactory::getSession();
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:39:       	$linkMap = JRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
 ../packages/tmp/admin/libraries/plugins/proximity/controller.php:10:class XiusPluginControllerProximity extends JController 
 ../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:10:class ProximityGoogleapiHelper extends JController 
 ../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:79:		$db = JFactory::getDBO();
@@ -165,6 +166,8 @@
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:76:		$document	= & JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:653:		$link		= JRoute::_( $link );
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:108:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:14:		$userId	 = & JFactory::getUser()->id;
+../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:23:		$db	= & JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/base.php:187:		$user 		= & JFactory::getUser();		
 ../packages/tmp/admin/libraries/plugins/base.php:464:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/base.php:544:		$db =& JFactory::getDBO();
@@ -184,9 +187,9 @@
 ../packages/tmp/admin/libraries/plugins/jsuser/jsuserhelper.php:36:			$document	=& JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:14:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:16:		$userTable = new JTable('#__users','id', $db);
-../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:36:			$mySess 	= & JFactory::getSession();
+../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:40:  			$mySess 	= & JFactory::getSession();
 ../packages/tmp/admin/libraries/plugins/joomla/joomla.php:50:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:142:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:145:		$db = JFactory::getDBO();
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:43:		$db= & JFactory::getDBO();
 ../packages/tmp/site/views/users/view.csv.php:17:		global $mainframe;
 ../packages/tmp/site/views/users/view.csv.php:18:		$user =& JFactory::getUser();
@@ -196,23 +199,23 @@
 ../packages/tmp/site/views/list/view.html.php:23:			$user = JFactory::getUser();
 ../packages/tmp/site/views/list/view.html.php:25:			$user = JFactory::getUser($owner);
 ../packages/tmp/site/views/list/view.html.php:48:		$user = JFactory::getUser();
-../packages/tmp/site/views/list/view.html.php:69:		$user = JFactory::getUser();
-../packages/tmp/site/views/list/view.html.php:77:		$data['editor']		= & JFactory::getEditor();
+../packages/tmp/site/views/list/view.html.php:71:		$user = JFactory::getUser();
+../packages/tmp/site/views/list/view.html.php:79:		$data['editor']		= & JFactory::getEditor();
 ../packages/tmp/site/templates/default/default_profile.php:37:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/templates/default/default_profile.php:95:		JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/templates/default/users/default_csv.php:9:    JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/templates/default/users/default_csv.php:27:	JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/templates/default/users/default_panel.php:8:$document =& JFactory::getDocument();
-../packages/tmp/site/templates/default/users/default_panel.php:15:<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=search');?>" method="post" name="userForm" id="userForm">
+../packages/tmp/site/templates/default/users/default_panel.php:15:<form action="<?php echo JRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
 ../packages/tmp/site/templates/default/list/default_lists.php:7:$document =& JFactory::getDocument();
-../packages/tmp/site/templates/default/list/default_lists.php:11:<form action="<?php echo JRoute::_('index.php?option=com_xius&view=list');?>" name="listForm" id="listForm" method="post">
+../packages/tmp/site/templates/default/list/default_lists.php:11:<form action="<?php echo JRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 ../packages/tmp/site/templates/default/list/default_lists.php:17:		$url = JRoute::_('index.php?option=com_xius&view=list&task=showlist&listid='.$l->id,false);
 ../packages/tmp/site/templates/default/list/default_edit.php:8:$document =& JFactory::getDocument();
-../packages/tmp/site/templates/default/list/default_edit.php:15:	<form action="<?php echo JRoute::_('index.php?option=com_xius&view=list&task=save&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
+../packages/tmp/site/templates/default/list/default_edit.php:15:	<form action="<?php echo JRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 ../packages/tmp/site/templates/default/list/default_saveas.php:8:$document =& JFactory::getDocument();
-../packages/tmp/site/templates/default/list/default_saveas.php:14:$submitUrl = JRoute::_('index.php?option=com_xius&view=list&task=edit',false);
+../packages/tmp/site/templates/default/list/default_saveas.php:14:$submitUrl = JRoute::_($this->submitUrl,false);
 ../packages/tmp/site/templates/default/list/default_saveas.php:32:								$url = JRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
-../packages/tmp/site/templates/default/default_result.php:8:<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=search');?>" name="userForm" id="userForm" method="post">
+../packages/tmp/site/templates/default/default_result.php:8:<form action="<?php echo JRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 ../packages/tmp/site/templates/default/default_result.php:13:$document =& JFactory::getDocument();
 ../packages/tmp/site/helpers/profile.php:27:		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/helpers/profile.php:47:		JTable::addIncludePath(XIUS_PATH_TABLE);
@@ -221,31 +224,24 @@
 ../packages/tmp/site/helpers/toolbar.php:38:  			$csvurl = JRoute::_("index.php?option=com_xius&view=users&task=export&format=csv");
 ../packages/tmp/site/helpers/toolbar.php:39:  			$obj->value	= "<img src='".JURI::base()."components/com_xius/assets/images/excel.png' onClick=\"location.href='".JRoute::_($csvurl,false)."'\" title='Export TO CSV' />";
 ../packages/tmp/site/helpers/slide.php:99:	        $document =& JFactory::getDocument();
-../packages/tmp/site/controllers/users.php:32:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/users.php:99:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/users.php:121:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/list.php:20:		$user =& JFactory::getUser();
-../packages/tmp/site/controllers/list.php:27:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/list.php:39:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/list.php:50:		global $mainframe;
-../packages/tmp/site/controllers/list.php:53:		$user =& JFactory::getUser();
-../packages/tmp/site/controllers/list.php:60:		$url = JRoute::_('index.php?option=com_xius&view=list&task=display',false);
-../packages/tmp/site/controllers/list.php:62:			$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
-../packages/tmp/site/controllers/list.php:65:		$user =& JFactory::getUser();
-../packages/tmp/site/controllers/list.php:71:				$mainframe->redirect($url,$msg,false);
-../packages/tmp/site/controllers/list.php:102:		$user =& JFactory::getUser();
-../packages/tmp/site/controllers/list.php:114:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/list.php:126:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/list.php:145:		$document	=& JFactory::getDocument();
-../packages/tmp/site/controllers/list.php:158:		global $mainframe;
-../packages/tmp/site/controllers/list.php:161:			$url = JRoute::_("index.php?option=com_xius&view=list",false);
-../packages/tmp/site/controllers/list.php:163:			$mainframe->redirect($url,$msg);
-../packages/tmp/site/controllers/list.php:173:		$mainframe->redirect($data['url'],$data['msg']);		
-../packages/tmp/site/controllers/list.php:179:			$user =& JFactory::getUser();
-../packages/tmp/site/controllers/list.php:192:		$url = JRoute::_("index.php?option=com_xius&view=list",false);
-../packages/tmp/site/controllers/list.php:203:			$user =& JFactory::getUser();
-../packages/tmp/site/controllers/list.php:229:			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
-../packages/tmp/site/controllers/list.php:261:		$url = JRoute::_("index.php?option=com_xius&view=list&task=showList&listid=".$id,false);
+../packages/tmp/site/controllers/users.php:125:		$document	=& JFactory::getDocument();
+../packages/tmp/site/controllers/list.php:31:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/list.php:52:		global $mainframe;
+../packages/tmp/site/controllers/list.php:55:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/list.php:62:		$url = JRoute::_('index.php?option=com_xius&view=list&task=display',false);
+../packages/tmp/site/controllers/list.php:64:			$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
+../packages/tmp/site/controllers/list.php:67:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/list.php:73:				$mainframe->redirect($url,$msg,false);
+../packages/tmp/site/controllers/list.php:104:		$user =& JFactory::getUser();
+../packages/tmp/site/controllers/list.php:145:		global $mainframe;
+../packages/tmp/site/controllers/list.php:148:			$url = JRoute::_("index.php?option=com_xius&view=list",false);
+../packages/tmp/site/controllers/list.php:150:			$mainframe->redirect($url,$msg);
+../packages/tmp/site/controllers/list.php:160:		$mainframe->redirect($data['url'],$data['msg']);		
+../packages/tmp/site/controllers/list.php:166:			$user =& JFactory::getUser();
+../packages/tmp/site/controllers/list.php:179:		$url = JRoute::_("index.php?option=com_xius&view=list",false);
+../packages/tmp/site/controllers/list.php:190:			$user =& JFactory::getUser();
+../packages/tmp/site/controllers/list.php:216:			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
+../packages/tmp/site/controllers/list.php:248:		$url = JRoute::_("index.php?option=com_xius&view=list&task=showList&listid=".$id,false);
 ../packages/tmp/site/includes.php:18:$lang =& JFactory::getLanguage();
 ../packages/tmp/site/router.php:10:	$dbo = JFactory::getDBO();
 ../packages/tmp/site/models/users.php:19:        global $mainframe;
@@ -269,10 +265,10 @@
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:16:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
 ../packages/tmp/install/extensions/mod_xiuslisting/helper.php:13:		$user = JFactory::getUser();
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:29:				$link = JRoute::_($link, false);
-../packages/tmp/install/extensions/xius_community/xius.php:45:		$lang =& JFactory::getLanguage();
-../packages/tmp/install/extensions/xius_community/xius.php:50:							JRoute::_('index.php?option=com_xius'));
-../packages/tmp/install/extensions/xius_community/xius.php:51:		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', JText::_('ADVANCEDSEARCH'), JRoute::_('index.php?option=com_xius'));
-../packages/tmp/install/extensions/xius_community/xius.php:52:		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', JText::_('USERLIST'), JRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
+../packages/tmp/install/extensions/xius_community/xius.php:51:		$lang =& JFactory::getLanguage();
+../packages/tmp/install/extensions/xius_community/xius.php:57:							 JRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id));
+../packages/tmp/install/extensions/xius_community/xius.php:59:		//$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', JText::_('ADVANCEDSEARCH'), JRoute::_('index.php?option=com_xius'));
+../packages/tmp/install/extensions/xius_community/xius.php:60:	//	$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', JText::_('USERLIST'), JRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
 ../packages/tmp/install/uninstall.php:20:	$db			=& JFactory::getDBO();		
 ../packages/tmp/install/uninstall.php:34:	$db			=& JFactory::getDBO();
 ../packages/tmp/install/install.php:56:		JFactory::getApplication()->enqueueMessage($msg);

@@ -14,6 +14,7 @@
 		<file>test/unit/com/admin/libraries/joomla.php</file>
 		<file>test/unit/com/admin/libraries/keyword.php</file>
 		<file>test/unit/com/admin/libraries/rangesearch.php</file>
+		<file>test/unit/com/admin/libraries/daterangesearch.php</file>
 		<file>test/unit/com/admin/libraries/forcesearch.php</file>
 		<!--<file>test/unit/com/admin/libraries/cbuilder.php</file>-->
 		<file>test/unit/com/admin/libraries/usersearch.php</file>
@@ -35,6 +36,7 @@
 		<file>test/unit/com/site/controllers/users.php</file>
 		<file>test/unit/com/site/helpers/users.php</file>
 		<file>test/unit/com/site/helpers/xiusListFrontUnitTest.php</file>
+		<file>test/unit/com/site/trimwhitespace.php</file>
 		<file>test/sel/com/admin/info.php</file>
 		<file>test/sel/com/admin/googleProximityTest.php</file>
 		<file>test/sel/com/admin/config.php</file>

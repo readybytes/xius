@@ -346,10 +346,10 @@ class XiusLibrariesUsersearch
 			$data['infoid'] = $infoid;
 			
 			if(JString::stristr($keyNames[$i+1],'xiusinfo_'))
-				$data['value'] = $post[$keyNames[$i]];
+				$data['value'] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 			else{
 				while(!JString::stristr($keyNames[$i],'xiusinfo_')){
-					$data['value'][] = $post[$keyNames[$i]];
+					$data['value'][] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 					$i++;
 				}
 				$i--;
@@ -444,11 +444,11 @@ class XiusLibrariesUsersearch
 			if($start){
 				$searchdata['infoid'] = $addInfoId;
 				
-				if(JString::stristr($keyNames[$i+1],'xiusinfo_'))
-					$searchdata['value'] = $post[$keyNames[$i]];
+				if(JString::stristr($keyNames[$i+1],'xiusinfo_')) 
+					$searchdata['value'] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 				else{
 					while(!JString::stristr($keyNames[$i],'xiusinfo_')){
-						$searchdata['value'][] = $post[$keyNames[$i]];
+						$searchdata['value'][] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 						$i++;
 					}
 					$i--;
