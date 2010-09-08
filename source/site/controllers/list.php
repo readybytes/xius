@@ -54,7 +54,7 @@ class XiussiteControllerList extends XiusController
 		
 		$user =& JFactory::getUser();
 		if($listId === 0)
-			return $this->_showLists($user->id);			
+			return $this->lists($user->id);			
 			
 		/*get list */
 		$list = XiusLibrariesList::getList($listId);
@@ -133,7 +133,7 @@ class XiussiteControllerList extends XiusController
 		$view		=& $this->getView();
 		// set and reset the vars in current url
 		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'save',
-							'tmpl'=>null,'listid'=>null,'isnew'=>null));
+							'tmpl'=>null,'listid'=>$listId,'isnew'=>null));
 		return $view->edit($listId,$isNew);		
 	}
 	
@@ -144,8 +144,11 @@ class XiussiteControllerList extends XiusController
 		$listName 	= JRequest::getVar('xiusListName', '');				
 		global $mainframe;
 
-		if(!$isNew && !$listId){
-			$url = JRoute::_("index.php?option=com_xius&view=list",false);
+		if(!$isNew && !$listId){			
+			$this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
+							'tmpl'=>null,'listid'=>null,'isnew'=>null));
+		
+			$url = JRoute::_($this->getView()->getXiUrl(),false);
 			$msg = JText::_('Please select a list to save or save as a new');
 			$mainframe->redirect($url,$msg);
 		}
@@ -176,7 +179,10 @@ class XiussiteControllerList extends XiusController
 			return $returndata;			
 		}
          // XITODO : Send back to the previous URL
-		$url = JRoute::_("index.php?option=com_xius&view=list",false);
+        $this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
+								'tmpl'=>null,'listid'=>null,'isnew'=>null));
+		
+        $url = JRoute::_($this->getView()->getXiUrl(),false);		
 		$msg = JText::_('YOU CAN NOT SAVE LIST');
 		$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
 		return $returndata;		
@@ -211,7 +217,8 @@ class XiussiteControllerList extends XiusController
 		$data['description']= JRequest::getVar( 'xiusListDesc', $post['xiusListDesc'], 'post', 'string', JREQUEST_ALLOWRAW );
 		$data['published'] 	= $post['xiusListPublish'];
 
-		if(!$new){
+		// XITODO : convert string 'false' into bollean false
+		if($new==='false'){
 			// load table for getting params
 			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
 			$list->load($listId);
@@ -245,13 +252,15 @@ class XiussiteControllerList extends XiusController
 		else
 			$msg = JText::_('LIST SAVED SUCCESSFULLY');
 
-		$url = JRoute::_("index.php?option=com_xius&view=list&task=showList&listid=".$id,false);
+		$this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'showList',
+							'tmpl'=>null,'listid'=>$id,'isnew'=>null));
+			
+		$url = JRoute::_($this->getView()->getXiUrl(),false);
 		
 		$returndata = array();
 		$returndata['id']	= $id;
 		$returndata['url']	= $url;
 		$returndata['msg'] 	= $msg; 		
-		
 		return $returndata;
 	}	
 }

@@ -14,7 +14,7 @@ if(empty($this->lists))	:
 	echo JText::_('NO LISTS AVAILABLE');
 else	:
 	foreach($this->lists as $l)	:
-		$url = JRoute::_('index.php?option=com_xius&view=list&task=showlist&listid='.$l->id,false);
+		$url = JRoute::_($this->submitUrl.'&listid='.$l->id,false);
 		?>
 		<div class="listmain">
 		<div class="listtopleft">

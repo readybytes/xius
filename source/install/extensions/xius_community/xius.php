@@ -70,11 +70,13 @@ class plgCommunityxius extends JPlugin
 
 		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
 		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php';
+		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'controllers'.DS.'list.php';
 		
 		$xiusview = JRequest::getCmd('xiusview','users');
 		$xiustask = JRequest::getCmd('xiustask','panel');
+		$view = 'XiussiteController'.JString::ucfirst($xiusview);
 		
-		$obj = new XiussiteControllerUsers(true);		
+		$obj = new $view(true);		
 			
 		$obj->getView()->_isExternalUrl= true;
 		$content = $obj->execute($xiustask);

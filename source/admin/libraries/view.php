@@ -115,7 +115,7 @@ abstract class XiusView extends JView
 				$listid = $list->id;
 			}
 		
-		$toolbar =XiusHelperToolbar::getAdminToolbar($listid,$from);
+		$toolbar =XiusHelperToolbar::getAdminToolbar($listid,$from,array('isExternal'=>$this->_isExternalUrl,'xiurl'=>$this->getXiUrl()));
 		$this->assignRef('toolbar',$toolbar);
 		//calculate data for these users
 
@@ -147,10 +147,11 @@ abstract class XiusView extends JView
 		if($this->_xiurl === null)
 		{
 			//then set something we desire
+			// XITODO : if still $this->_xiurl  iss not set then what to do
 			$this->_xiurl = $this->getXiUrl();
 		}
 		
-		
+		$this->assign('submitUrl', $this->getXiUrl());
 		return parent::display($tmpl);
 	}
 	

@@ -1,83 +1,59 @@
 //@Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 //@license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 
-	function isFromExternalUrl()
+	function setExternalUrl(task)
 	{
 		var form = document.userForm;
 		var value = form.isExternalUrl.value;
 		
-		return value;
-		/*if(value == true)
-			return true;
+		if(value == true)
+			form.xiustask.value = task;
+		else
+			form.task.value = task;
 		
-		return false;*/		
+		return;	
 	}
 	
 	function xiusDeleteInfo(infoid,valueBoxId)
-	{
-		var isExternalUrl = isFromExternalUrl();
+	{		
 		var form = document.userForm;
 		form.xiusdelinfo.value = infoid.id;
 		form.conditionvalue.value = document.getElementById(valueBoxId).value;
 		
-		if(isExternalUrl)
-			form.xiustask.value = 'delinfo';
-		else 
-			form.task.value = 'delinfo';
-		
+		setExternalUrl('delinfo');
 		form.submit();
 	}
 
 	function xiusApplyJoin(task) 
-	{
-		var isExternalUrl = isFromExternalUrl();
+	{		
 		var form = document.userForm;
 		
-		if(isExternalUrl)
-			form.xiustask.value = task
-		else
-			form.task.value = task;
-		
+		setExternalUrl(task);	
 		form.submit();
 	}
 
 	function xiusAddSubTask(task)
 	{
-		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
 		
-		if(isExternalUrl)
-			form.xiustask.value = task;
-		else
-				form.task.value = task;
-		
+		setExternalUrl(task);		
 		form.submit();
 	}
 	
 	function xiusAddInfo(infoid) 
 	{
-		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
 		form.xiusaddinfo.value = infoid;
 		
-		if(isExternalUrl)
-			form.xiustask.value = 'addinfo';
-		else
-			form.task.value = 'addinfo';
-		
+		setExternalUrl('addinfo');	
 		form.submit();
 	}
 	
 	function xiusSaveList(task) 
 	{
-		var isExternalUrl = isFromExternalUrl();
 		var form = document.saveListForm;
 		
-		if(isExternalUrl)
-			form.xiustask.value = task;
-		else
-			form.task.value = task;
-		
+		setExternalUrl(task);	
 		form.submit();
 	}
 	
@@ -115,15 +91,11 @@
 		return true;			
 	}
 	
-	function xiusApplySort(subtask) 
+	function xiusApplySort(task) 
 	{
-		var isExternalUrl = isFromExternalUrl();
 		var form = document.userForm;
 		
-		if(isExternalUrl)
-			form.xiustask.value = subtask;
-		else
-			form.task.value = subtask;
+		setExternalUrl(task);
 		form.submit();
 	}
 	

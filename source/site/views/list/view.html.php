@@ -35,7 +35,7 @@ class XiussiteViewList extends XiusView
 
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);
-		$this->assign('submitUrl', $this->getXiUrl());
+
 		return parent::display($tmpl);
 	}
 	
@@ -59,7 +59,6 @@ class XiussiteViewList extends XiusView
 		$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
 		$this->assign('msg',$msg);
-		$this->assign('submitUrl', $this->getXiUrl());
 		
 		parent::display($tmpl);
 	}
@@ -116,7 +115,6 @@ class XiussiteViewList extends XiusView
 		$this->assign( 'data' , $data );		
 		//$this->assign('lists',$lists);
 		$this->assign('selectedListId',$selectedListId);
-		$this->assign('submitUrl', $this->getXiUrl());
 		
 		parent::display($tmpl);
 	}
