@@ -79,7 +79,7 @@ class XiusViewList extends JView
 		$this->assign( 'allInfo' , $allInfo );		
 		
 		// Set the titlebar text
-		JToolBarHelper::title( JText::_( 'XIUS EDIT LIST' ), 'list' );		
+		JToolBarHelper::title( XiusText::_( 'XIUS EDIT LIST' ), 'list' );		
 		return parent::display($tpl);
 	}
 	
@@ -95,15 +95,15 @@ class XiusViewList extends JView
 	{
 
 		// Set the titlebar text
-		JToolBarHelper::title( JText::_( 'LIST' ), 'list' );
+		JToolBarHelper::title( XiusText::_( 'LIST' ), 'list' );
 
 		// Add the necessary buttons
 		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 		JToolBarHelper::divider();
-		JToolBarHelper::publishList('publish', JText::_( 'PUBLISH' ));
-		JToolBarHelper::unpublishList('unpublish', JText::_( 'UNPUBLISH' ));
+		JToolBarHelper::publishList('publish', XiusText::_( 'PUBLISH' ));
+		JToolBarHelper::unpublishList('unpublish', XiusText::_( 'UNPUBLISH' ));
 		JToolBarHelper::divider();
-		JToolBarHelper::trash('remove', JText::_( 'DELETE' ));
+		JToolBarHelper::trash('remove', XiusText::_( 'DELETE' ));
 	}
 
 }

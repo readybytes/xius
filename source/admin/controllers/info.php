@@ -150,7 +150,7 @@ class XiusControllerInfo extends JController
 		$id = XiusLibrariesInfo::infoExist($data);
 		if($id && $data['id'] == 0){
 			$storedInfo['id'] = $id;
-			$storedInfo['msg'] = JText::_('INFO ALREADY EXIST');
+			$storedInfo['msg'] = XiusText::_('INFO ALREADY EXIST');
 			$infoTable->load($id);
 			$data = (array) $infoTable;
 		}
@@ -160,9 +160,9 @@ class XiusControllerInfo extends JController
 			
 			
 			if(!$storedInfo['id'])
-				$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
+				$storedInfo['msg'] = XiusText::_('ERROR IN SAVING INFO');
 			else
-				$storedInfo['msg'] = JText::_('INFO SAVED');
+				$storedInfo['msg'] = XiusText::_('INFO SAVED');
 		}	
 
 		$data['id'] = $storedInfo['id'];
@@ -192,13 +192,13 @@ class XiusControllerInfo extends JController
 		$method	= JRequest::getMethod();
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
 			return;
 		}
 		
 		global $mainframe;
 		$data = $this->_processSave();
-		$link = JRoute::_('index.php?option=com_xius&view=info', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $data['msg']);		
 		
 	}
@@ -210,14 +210,14 @@ class XiusControllerInfo extends JController
 		$method	= JRequest::getMethod();
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
 			return;
 		}
 		
 		global $mainframe;
 		
 		$data = $this->_processSave();
-		$link = JRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
 		$mainframe->redirect($link, $data['msg']);				
 	}	
 
@@ -231,7 +231,7 @@ class XiusControllerInfo extends JController
 		
 		$cache = & JFactory::getCache('com_content');
 		$cache->clean();	
-		$link = JRoute::_('index.php?option=com_xius&view=info', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $data['message']);
 	}
 	
@@ -259,12 +259,12 @@ class XiusControllerInfo extends JController
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$data['message']	= JText::_('ERROR IN REMOVING INFO');
+					$data['message']	= XiusText::_('ERROR IN REMOVING INFO');
 					return $data;
 				}
 			}
 			
-			$data['message'] = $count.' '.JText::_('INFO REMOVED');	;
+			$data['message'] = $count.' '.XiusText::_('INFO REMOVED');	;
 			$data['success'] = true;
 		}
 		
@@ -282,7 +282,7 @@ class XiusControllerInfo extends JController
 		$count			= count( $ids );
 
 		if (empty( $ids )) {
-			return JError::raiseWarning( 500, JText::_( 'No items selected' ) );
+			return JError::raiseWarning( 500, XiusText::_( 'No items selected' ) );
 		}
 		
 		$iModel	= XiusFactory::getModel( 'info' );
@@ -290,8 +290,8 @@ class XiusControllerInfo extends JController
 		{
 			$iModel->updatePublish($id,1);
 		}
-		$msg = JText::sprintf( $count.' ITEMS PUBLISHED' );
-		$link = JRoute::_('index.php?option=com_xius&view=info', false);
+		$msg = XiusText::sprintf( $count.' ITEMS PUBLISHED' );
+		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $msg);
 		return true;
 	}
@@ -306,7 +306,7 @@ class XiusControllerInfo extends JController
 		$count			= count( $ids );
 
 		if (empty( $ids )) {
-			return JError::raiseWarning( 500, JText::_( 'No items selected' ) );
+			return JError::raiseWarning( 500, XiusText::_( 'No items selected' ) );
 		}
 		
 		$iModel	= XiusFactory::getModel( 'info' );
@@ -314,8 +314,8 @@ class XiusControllerInfo extends JController
 		{
 			$iModel->updatePublish($id,0);
 		}
-		$msg = JText::sprintf( $count.' ITEMS UNPUBLISHED' );
-		$link = JRoute::_('index.php?option=com_xius&view=info', false);
+		$msg = XiusText::sprintf( $count.' ITEMS UNPUBLISHED' );
+		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $msg);
 		return true;
 	}
@@ -352,21 +352,21 @@ class XiusControllerInfo extends JController
 	{
 		global $mainframe;
 		
-		$link = JRoute::_('index.php?option=com_xius&view=info', false);		
+		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);		
 		
 		$id			= JRequest::getVar( 'cid', array(), 'post', 'array' );
 		
 		if( !isset( $id[0] ) )
-			$mainframe->redirect($link, JText::_('Please Select any information to update'));	
+			$mainframe->redirect($link, XiusText::_('Please Select any information to update'));	
 		
 		$id		= (int) $id[0];
 		
 		$subtask = JRequest::getWord( 'task' , '' );
 		
 		if($this->_saveParamDoable($id,$subtask))
-			$msg = JText::_('Params updated successfully');
+			$msg = XiusText::_('Params updated successfully');
 		else
-			$msg = JText::_('Unable to save params');
+			$msg = XiusText::_('Unable to save params');
 			
 		$mainframe->redirect($link, $msg);	
 	}

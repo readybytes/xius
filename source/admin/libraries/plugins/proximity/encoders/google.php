@@ -30,7 +30,7 @@ class ProximityGoogleEncoder extends XiusProximityEncoder
 		$object->originColumnName	= $originalLatColumn;
 		$object->cacheColumnName	= "proximity_google_latitude_$count";
 		$object->cacheSqlSpec		= 'float(10,6) DEFAULT NULL';
-		$object->cacheLabelName		= JText::_('LATITUDE');
+		$object->cacheLabelName		= XiusText::_('LATITUDE');
 		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
 		
@@ -40,7 +40,7 @@ class ProximityGoogleEncoder extends XiusProximityEncoder
 		$object->originColumnName	= $originalLongColumn;
 		$object->cacheColumnName	= 'proximity_google_longitude_'.$count;
 		$object->cacheSqlSpec		= 'float(10,6) DEFAULT NULL';
-		$object->cacheLabelName 	= JText::_('LONGITUDE');
+		$object->cacheLabelName 	= XiusText::_('LONGITUDE');
 		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
 		
@@ -50,7 +50,7 @@ class ProximityGoogleEncoder extends XiusProximityEncoder
 		$object->originColumnName	= 'address';
 		$object->cacheColumnName	= 'proximity_google_address_'.$count;
 		$object->cacheSqlSpec		= ' varchar(250) NOT NULL ';
-		$object->cacheLabelName 	= JText::_('ADDRESS');
+		$object->cacheLabelName 	= XiusText::_('ADDRESS');
 		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
 		

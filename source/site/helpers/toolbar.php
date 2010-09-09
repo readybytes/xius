@@ -44,11 +44,11 @@ class XiusHelperToolbar
   			$uri->setVar($prefix.'task','saveas');
   			$uri->setVar('tmpl','component');
   			$uri->setVar('listid',$listid);
-  			$url 		= JRoute::_($uri->toString());
+  			$url 		= XiusRoute::_($uri->toString());
  			$buttonMap = XiusFactory::getModalButtonObject('savelist','@',$url,XIUSLIST_IFRAME_WIDTH,XIUSLIST_IFRAME_HEIGHT);
   			
          	$obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'" onClick="return xiusCheckUserSelected()">'
-         					."<img src='". JURI::base()."components/com_xius/assets/images/save.png' title='".JText::_("Save This List")."' /></a>";
+         					."<img src='". JURI::base()."components/com_xius/assets/images/save.png' title='".XiusText::_("Save This List")."' /></a>";
  			$toolbar['savelist'] = $obj;		
  		}
  		
@@ -60,8 +60,8 @@ class XiusHelperToolbar
   			$uri->setVar($prefix.'view','users');
   			$uri->setVar($prefix.'task','export');  			
   			$uri->setVar('format','csv');
-  			$csvurl		= JRoute::_($uri->toString());  			 
-  			$obj->value	= "<img src='".JURI::base()."components/com_xius/assets/images/excel.png' onClick=\"location.href='".JRoute::_($csvurl,false)."'\" title='Export TO CSV' />";
+  			$csvurl		= XiusRoute::_($uri->toString());  			 
+  			$obj->value	= "<img src='".JURI::base()."components/com_xius/assets/images/excel.png' onClick=\"location.href='".XiusRoute::_($csvurl,false)."'\" title='Export TO CSV' />";
   			$toolbar['csv'] = $obj;
   		}
  		

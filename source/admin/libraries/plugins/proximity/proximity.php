@@ -22,7 +22,7 @@ class Proximity extends XiusBase
 		if(JFile::exists($paramsxmlpath))
 			$this->pluginParams = new JParameter($data,$paramsxmlpath);
 		else{
-			JError::raiseError(500,JText::_("INVALID XML PARAMETER FILE"));
+			JError::raiseError(500,XiusText::_("INVALID XML PARAMETER FILE"));
 			return false;
 		}
 		return true;
@@ -70,9 +70,9 @@ class Proximity extends XiusBase
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 			
-		$pluginsInfo['information'] = JText::_('BY INFORMATION');
-		//$pluginsInfo['database']	= JText::_('DATABASE');
-		$pluginsInfo['google'] 		= JText::_('BY GOOGLE API');
+		$pluginsInfo['information'] = XiusText::_('BY INFORMATION');
+		//$pluginsInfo['database']	= XiusText::_('DATABASE');
+		$pluginsInfo['google'] 		= XiusText::_('BY GOOGLE API');
 		return $pluginsInfo;
 	}
 	
@@ -92,9 +92,9 @@ class Proximity extends XiusBase
 	/*this function should call after setting key */
 	function getInfoName()
 	{
-		$plgName['information'] = JText::_('BY INFORMATION');
-		//$plgName['database'] 	= JText::_('DATABASE');
-		$plgName['google'] 		= JText::_('BY GOOGLE API');
+		$plgName['information'] = XiusText::_('BY INFORMATION');
+		//$plgName['database'] 	= XiusText::_('DATABASE');
+		$plgName['google'] 		= XiusText::_('BY GOOGLE API');
 		return $plgName[$this->key];
 	}
 	
@@ -239,7 +239,7 @@ class Proximity extends XiusBase
 	
 	public function getTempColumnName()
 	{
-		$tempColumn[JText::_('DISTANCE')] = "xius_proximity_distance";
+		$tempColumn[XiusText::_('DISTANCE')] = "xius_proximity_distance";
 		return $tempColumn;
 	}
 	
@@ -272,7 +272,7 @@ class Proximity extends XiusBase
 		$linkMap 	= "http://maps.google.com/maps/api/staticmap?center={$value['latitude']},{$value['longitude']}&zoom=7&size=".PROXIMITY_APPLIED_IFRAME_WIDTH."x".PROXIMITY_APPLIED_IFRAME_HEIGHT
 		 			."&maptype=roadmap&markers=size:large|color:Red|label:S|{$value['latitude']},{$value['longitude']}&sensor=false"
 					."";
-		$buttonMap 	= XiusFactory::getModalButtonObject('xius_show_location_map',JText::_( 'SHOW LOCATION' ),$linkMap,PROXIMITY_APPLIED_IFRAME_WIDTH,PROXIMITY_APPLIED_IFRAME_HEIGHT);
+		$buttonMap 	= XiusFactory::getModalButtonObject('xius_show_location_map',XiusText::_( 'SHOW LOCATION' ),$linkMap,PROXIMITY_APPLIED_IFRAME_WIDTH,PROXIMITY_APPLIED_IFRAME_HEIGHT);
         $fieldHtml     = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a>';
 		return array($fieldHtml);	
 	}	

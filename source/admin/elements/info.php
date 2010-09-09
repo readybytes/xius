@@ -37,7 +37,7 @@ class JElementInfo extends JElement
 			
 		if($reqnone) {
 			$selected	= ( JString::trim(-1) == $value ) ? ' selected="true"' : '';
-			$html	.= '<option value="" ' . $selected . '>' . JText::_('SELECT BELOW') . '</option>';
+			$html	.= '<option value="" ' . $selected . '>' . XiusText::_('SELECT BELOW') . '</option>';
 		}
 		
 		for( $i = 0; $i < count( $allInfo ); $i++ )

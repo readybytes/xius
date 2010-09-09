@@ -9,15 +9,32 @@ if(!defined('_JEXEC')) die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class XiusBaseView extends JView 
+class XiusBaseView extends XiusView 
 {
 
 	function __construct($filePath)
 	{
 		$config = array();
+		
+		$template	= 'default';
+		$prefix	=	$this->getPrefix();	
+		$xiustemplateBase = XIUS_PATH_TEMPLATE;		
+		$xiusPluginDir = 'xiusplugins';
+		
+		if(!isset($config['template_path']))
+			$config['template_path']	=	array();
+				
+		$path3 = $xiustemplateBase.DS.JString::strtolower($template).DS.$xiusPluginDir.DS.JString::strtolower($this->getName());
+		array_unshift($config['template_path'],$path3);
+
+		$path2 = $xiustemplateBase.DS.JString::strtolower($template).DS.$xiusPluginDir;
+		array_unshift($config['template_path'],$path2);
+		
 		$config['base_path']	 = dirname(dirname($filePath));
-		$config['template_path'] = $config['base_path'].DS.'views'.DS.'tmpl'; 
 		$config['layout'] 		 = 'search';
+		$path1 = $config['base_path'].DS.'views'.DS.'tmpl';
+		array_unshift($config['template_path'],$path1);		 
+		
 		parent::__construct($config);
 		
 		//Little Hack : if template  have a override for us
@@ -30,6 +47,26 @@ class XiusBaseView extends JView
 		else
 			$this->_addPath('template', $config['template_path'] );
 		
+	}
+	
+	/*
+	 * We need to override xiusview behaviour as they differ in
+	 * 	 
+	 */
+	function getName()
+	{
+		$name = $this->_name;
+
+		if (empty( $name ))
+		{
+			$r = null;
+			if (!preg_match('/(.*)View/i', get_class($this), $r)) {
+				JError::raiseError (500, "Can't get or parse class name.");
+			}
+			$name = strtolower( $r[1] );
+		}
+
+		return $name;
 	}
 	
 	function rawDataHtml(XiusBase $calleObject)

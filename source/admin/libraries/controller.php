@@ -81,7 +81,7 @@ abstract class XiusController extends JController
 		$view	= 	XiusFactory::getInstance($name,'View', $this->getPrefix());
 
 		if(!$view){
-			$this->setError(JText::_("NOT ABLE TO GET INSTANCE OF VIEW : {$this->getName()}"));
+			$this->setError(XiusText::_("NOT ABLE TO GET INSTANCE OF VIEW : {$this->getName()}"));
 		}
 		
 		$layout	= JRequest::getCmd( 'layout' , 'default' );

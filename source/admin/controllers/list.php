@@ -38,7 +38,7 @@ class XiusControllerList extends JController
 				
 		$cache = & JFactory::getCache('com_content');
 		$cache->clean();
-		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $data['message']);
 	}
 	
@@ -64,7 +64,7 @@ class XiusControllerList extends JController
 		}				
 		
 		// XITODO : when id is not set then what to do
-		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link);
 	}
 	
@@ -73,13 +73,13 @@ class XiusControllerList extends JController
 		$method	= JRequest::getMethod();
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
 			return false;
 		}
 		
 		global $mainframe;
 		$data = $this->_processSave();
-		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $data['msg']);		
 	}
 	
@@ -88,14 +88,14 @@ class XiusControllerList extends JController
 		$method	= JRequest::getMethod();
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
 			return;
 		}
 		
 		global $mainframe;
 		
 		$data = $this->_processSave();
-		$link = JRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$data['id'], false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$data['id'], false);
 		$mainframe->redirect($link, $data['msg']);		
 	}
 	
@@ -151,9 +151,9 @@ class XiusControllerList extends JController
 		$storedInfo['id'] = $iModel->store($data);
 			
 		if(!$storedInfo['id'])
-			$storedInfo['msg'] = JText::_('ERROR IN SAVING INFO');
+			$storedInfo['msg'] = XiusText::_('ERROR IN SAVING INFO');
 		else
-			$storedInfo['msg'] = JText::_('INFO SAVED');			
+			$storedInfo['msg'] = XiusText::_('INFO SAVED');			
 
 		$data['id'] = $storedInfo['id'];
 				
@@ -184,12 +184,12 @@ class XiusControllerList extends JController
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$data['message']	= JText::_('ERROR IN REMOVING LIST').' '. $id;
+					$data['message']	= XiusText::_('ERROR IN REMOVING LIST').' '. $id;
 					return $data;
 				}
 			}
 			
-			$data['message'] = $count.' '.JText::_('LIST REMOVED');	;
+			$data['message'] = $count.' '.XiusText::_('LIST REMOVED');	;
 			$data['success'] = true;
 		}
 		
@@ -207,18 +207,18 @@ class XiusControllerList extends JController
 		$count			= count( $ids );
 
 		if (empty( $ids )) {
-			return JError::raiseWarning( 500, JText::_( 'NO ITEMS SELECTED' ) );
+			return JError::raiseWarning( 500, XiusText::_( 'NO ITEMS SELECTED' ) );
 		}
 		
 		$result = $this->_updatePublish(1,$ids);
 
 		if($result['success'])
-			$msg = $count.' '.JText::_('ITEM UNPUBLISHED' );
+			$msg = $count.' '.XiusText::_('ITEM UNPUBLISHED' );
 		else
-			$msg = JText::_('Unable to unblish list');
+			$msg = XiusText::_('Unable to unblish list');
 		
-		$msg = $count. ' '. JText::_('ITEM PUBLISHED' );
-		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$msg = $count. ' '. XiusText::_('ITEM PUBLISHED' );
+		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg); 
 		return true;
 	}
@@ -233,17 +233,17 @@ class XiusControllerList extends JController
 		$count			= count( $ids );
 
 		if (empty( $ids )) {
-			return JError::raiseWarning( 500, JText::_( 'NO ITEMS SELECTED' ) );
+			return JError::raiseWarning( 500, XiusText::_( 'NO ITEMS SELECTED' ) );
 		}
 		
 		$result = $this->_updatePublish(0,$ids);
 
 		if($result['success'])
-			$msg = $count.' '.JText::_('ITEM UNPUBLISHED' );
+			$msg = $count.' '.XiusText::_('ITEM UNPUBLISHED' );
 		else
-			$msg = JText::_('Unable to unblish list');
+			$msg = XiusText::_('Unable to unblish list');
 			
-		$link = JRoute::_('index.php?option=com_xius&view=list', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg); 
 		return true;
 	}
@@ -262,12 +262,12 @@ class XiusControllerList extends JController
 		$lModel =& XiusFactory::getModel('list');
 		foreach($ids as $id)
 			if(!$lModel->updatePublish($id,$value)){
-				$data['msg'] = JText::_('Unable to publish/unpublish list');
+				$data['msg'] = XiusText::_('Unable to publish/unpublish list');
 				return $data;
 			}
 				
 		$data['success'] = true;
-		$data['msg'] = JText::_('Publish/Unpublish list');
+		$data['msg'] = XiusText::_('Publish/Unpublish list');
 		
 		return $data;
 	}
@@ -285,7 +285,7 @@ class XiusControllerList extends JController
 
  		$result = $this->_saveOrder($id,$direction);
  		
-		$mainframe->redirect( JRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
+		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
 	}
 	
 	
@@ -303,10 +303,10 @@ class XiusControllerList extends JController
 			if(!$table->move( $direction ))
 				$data = array('msg' => $table->getError() , 'success' => false );
 			else
-				$data = array('msg' => JText::_('Ordered List') , 'success' => true );	
+				$data = array('msg' => XiusText::_('Ordered List') , 'success' => true );	
 		}
 		else
-			$data = array('msg' => JText::_('Not ordered') , 'success' => false );
+			$data = array('msg' => XiusText::_('Not ordered') , 'success' => false );
 			
 		return $data;
 	}

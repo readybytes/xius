@@ -15,7 +15,7 @@ class Rangesearch extends XiusBase
 		if(JFile::exists($paramsxmlpath))
 			$this->pluginParams = new JParameter($data,$paramsxmlpath);
 		else{
-			JError::raiseError(500,JText::_("INVALID XML PARAMETER FILE"));
+			JError::raiseError(500,XiusText::_("INVALID XML PARAMETER FILE"));
 			return false;
 		}	
 		return (parent::__construct(__CLASS__));
@@ -133,7 +133,7 @@ class Rangesearch extends XiusBase
 	public function _getFormatAppliedData($value)
 	{
 		$value = $this->_getArrangedValue($value);
-		return JText::_('RANGESEARCH FROM')." $value[0] ".JText::_('RANGESEARCH TO')." $value[1]";	
+		return XiusText::_('RANGESEARCH FROM')." $value[0] ".XiusText::_('RANGESEARCH TO')." $value[1]";	
 	}	
 	
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')

@@ -7,7 +7,7 @@
 
 <div class="xius_ai">
 	<div class="xius_aiHead">
-		<div onclick="javascript:xiushideshowdiv();" style="cursor: pointer;"> <?php echo JText::_('Available Information'); ?>
+		<div onclick="javascript:xiushideshowdiv();" style="cursor: pointer;"> <?php echo XiusText::_('Available Information'); ?>
 		<div id="xiusSliderImg" class="<?php if(!$this->xiusSlideShow=='none'){ echo 'xiusSlideImgUp'; } else{ echo 'xiusSlideImgDown';} ?>">&nbsp;</div>
 	</div></div>
 <div id="xiushide" class="<?php if($this->xiusSlideShow=='none'){ echo 'xiusSliderHide'; } else{ echo 'xiusSlider'; } ?>">
@@ -19,12 +19,12 @@
 					<div class="xius_aiMain" id="xius_Info_Ref<?php echo $data['infoid']; ?>">
 						<div class="xius_aiLabel">
 						<?php
-						//echo JHTML::_('tooltip',JText::_($xiustooltip), JText::_($data['label']), null, JText::_($data['label']));
+						//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($data['label']), null, XiusText::_($data['label']));
 							$xiustooltip = $data['tooltip'];
 							if(!empty($xiustooltip)) :
-								echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';
+								echo '<span title="'.XiusText::_($xiustooltip).'">'.XiusText::_($data['label']).'</span>';
 							else :
-								echo JText::_($data['label']); 
+								echo XiusText::_($data['label']); 
 							endif;
 						?>
 						</div>
@@ -33,7 +33,7 @@
 						</div>
 						<div class="xius_aiImg">
 						<img class="xius_test_addinfo_<?php echo $data['infoid'];?>" src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-								alt="<?php echo JText::_("XIUS ADD TO SEARCH");?>" title="<?php echo JText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);"/>
+								alt="<?php echo XiusText::_("XIUS ADD TO SEARCH");?>" title="<?php echo XiusText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);"/>
 						</div>
 					</div>	
 			<?php endforeach; ?>

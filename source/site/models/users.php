@@ -41,7 +41,7 @@ class XiusModelUsers extends JModel
 		{
 			XiusLibrariesUsersearch::updateCache();
 			if(!XiusHelpersUtils::isTableExist('xius_cache')){
-	          	 JError::raiseWarning(JText::_('Cache table does not exist.'));
+	          	 JError::raiseWarning(XiusText::_('Cache table does not exist.'));
 			}			
 		}
 			
@@ -57,7 +57,7 @@ class XiusModelUsers extends JModel
         
         /*XITODO : Add error message */
         if($this->_db->_cursor === false) {
-          	 JError::raiseWarning(JText::_('cache table does not exist. Creating it ' ));
+          	 JError::raiseWarning(XiusText::_('cache table does not exist. Creating it ' ));
         }
         
         return $this->_users;

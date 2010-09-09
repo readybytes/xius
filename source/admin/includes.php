@@ -47,6 +47,8 @@ XiusLoader::addAutoLoadFile('XiusCreateTable', XIUS_PATH_LIBRARY.DS.'query.php')
 // auto load classes for base controller, base view,and modal
 XiusLoader::addAutoLoadFile('XiusController', XIUS_PATH_LIBRARY.DS.'controller.php');
 XiusLoader::addAutoLoadFile('XiusView', XIUS_PATH_LIBRARY.DS.'view.php');
+XiusLoader::addAutoLoadFile('XiusRoute', XIUS_PATH_LIBRARY.DS.'route.php');
+XiusLoader::addAutoLoadFile('XiusText', XIUS_PATH_LIBRARY.DS.'text.php');
 
 XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');

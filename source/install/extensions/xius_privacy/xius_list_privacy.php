@@ -45,10 +45,10 @@ class plgSystemxius_list_privacy extends JPlugin
 	function _xiusGetListPrivacyHtml($params)
 	{
 		$name = $this->_name;
-		$htmlOption['public'] 	= JText::_("XIUS LIST PRIVACY PUBLIC");
-		$htmlOption['member'] 	= JText::_("XIUS LIST PRIVACY MEMBER");
-		$htmlOption['friend'] 	= JText::_("XIUS LIST PRIVACY FRIEND");
-		$htmlOption['self'] 	= JText::_("XIUS LIST PRIVACY SELF");
+		$htmlOption['public'] 	= XiusText::_("XIUS LIST PRIVACY PUBLIC");
+		$htmlOption['member'] 	= XiusText::_("XIUS LIST PRIVACY MEMBER");
+		$htmlOption['friend'] 	= XiusText::_("XIUS LIST PRIVACY FRIEND");
+		$htmlOption['self'] 	= XiusText::_("XIUS LIST PRIVACY SELF");
 		$privacy['html'] = '';
 		
 		$selectedOption			= ''; 
@@ -59,7 +59,7 @@ class plgSystemxius_list_privacy extends JPlugin
 			$select = '';
 			if($selectedOption !=='' && $selectedOption === $key)
 				$select = " checked ";
- 			$privacy['label'] = JText::_("JOM SOCIAL LIST PRIVACY");
+ 			$privacy['label'] = XiusText::_("JOM SOCIAL LIST PRIVACY");
 			$privacy['html'] .= '<p><input type="radio" name="'.$name.'" value="'.$key.'" '.$select.'/>'.$value.'</p>';
  			
 		}

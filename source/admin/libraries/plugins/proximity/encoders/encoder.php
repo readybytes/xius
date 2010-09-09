@@ -17,7 +17,7 @@ class XiusProximityEncoder
 		
 		if(!JFile::exists($encoderPath))
 		{
-			JError::raiseError(500,JText::_("INVALID ENCODER FILE"));
+			JError::raiseError(500,XiusText::_("INVALID ENCODER FILE"));
 			return false;
 		}
 
@@ -28,7 +28,7 @@ class XiusProximityEncoder
 			return $instances;
 		}
 
-		JError::raiseError(500,JText::_("ENCODER CLASS MISSING")." :$encoderClassName");
+		JError::raiseError(500,XiusText::_("ENCODER CLASS MISSING")." :$encoderClassName");
 		return false;
 	}	
 	

@@ -5,15 +5,18 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 
+require_once(JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'route.php');
+require_once(JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'text.php');
+
 function com_install()
 {
 	/*if(installPlugin() == false){
-		JError::raiseError('INSTERR', JText::_("NOT ABLE TO INSTALL PLUGINS"));
+		JError::raiseError('INSTERR', XiusText::_("NOT ABLE TO INSTALL PLUGINS"));
 		return false;
 	}*/
 	
 	if(installExtensions() == false){
-		JError::raiseError('INSTERR', JText::_("NOT ABLE TO INSTALL EXTENSIONS"));
+		JError::raiseError('INSTERR', XiusText::_("NOT ABLE TO INSTALL EXTENSIONS"));
 		return false;
 	}
 	

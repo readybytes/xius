@@ -92,7 +92,7 @@ class XiusTableConditions extends JTable
 	 */
 	/*function check() {
 		if (trim($this->name) == '') {
-			$this->setError(JText::_('YOUR CONDITIONS MUST CONTAIN A NAME'));
+			$this->setError(XiusText::_('YOUR CONDITIONS MUST CONTAIN A NAME'));
 			return false;
 		}
 		return true;

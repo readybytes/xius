@@ -86,7 +86,7 @@ class XiusPluginControllerXiusemail extends JController
     	$users = array();
     	foreach($userName as $u)
     		$users[] = $u->name;
-    	XiusemailHelper::showResultMessage(JText::_("EMAIL SENT TO FOLLOWING USERS"),$users);
+    	XiusemailHelper::showResultMessage(XiusText::_("EMAIL SENT TO FOLLOWING USERS"),$users);
     	return true;    			
     }
 }

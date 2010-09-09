@@ -31,7 +31,7 @@ class ProximityDatabaseEncoder extends XiusProximityEncoder
 		$object->originColumnName	= $originalLatColumn;
 		$object->cacheColumnName	= "proximity_db_latitude_$count";
 		$object->cacheSqlSpec		= ' Float (10,6) NOT NULL DEFAULT 0 ';
-		$object->cacheLabelName		= JText::_('LATITUDE');
+		$object->cacheLabelName		= XiusText::_('LATITUDE');
 		$object->createCacheColumn	=	true;
 		$tableInfo[]=$object;
 		
@@ -41,7 +41,7 @@ class ProximityDatabaseEncoder extends XiusProximityEncoder
 		$object->originColumnName	= $originalLongColumn;
 		$object->cacheColumnName	= 'proximity_db_longitude_'.$count;
 		$object->cacheSqlSpec		= ' Float (10,6) NOT NULL DEFAULT 0 ';
-		$object->cacheLabelName 	= JText::_('LONGITUDE');
+		$object->cacheLabelName 	= XiusText::_('LONGITUDE');
 		$object->createCacheColumn	=	true;
 		$tableInfo[]=$object;
 		

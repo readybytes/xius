@@ -7,9 +7,9 @@ if(!empty($this->appliedInfo)) : ?>
 <div class="xiusAppliedinfo">
 <div class="xius_apiHead">
 	<?php
-	echo JText::_('Applied Information');
+	echo XiusText::_('Applied Information');
 	?>
-	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo JText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
+	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo XiusText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
 </div>
 <?php 
 	$count = 0;
@@ -17,7 +17,7 @@ if(!empty($this->appliedInfo)) : ?>
 		$count++; ?>
 		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 		<?php 
-		echo '<div class="applied"><div class="left"><div><b>'.JText::_($a['label']).'</b>';
+		echo '<div class="applied"><div class="left"><div><b>'.XiusText::_($a['label']).'</b>';
 		if(is_array($a['formatvalue']))	:	
 			foreach($a['formatvalue'] as $a_values) 
 				echo '<div>'.$a_values.'</div>';
@@ -39,10 +39,10 @@ elseif($this->join == 'OR') :
 endif;
 	
 $joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'join\');" >';
-$joinhtml .= '<option value="AND" '.$andSelected.'>'.JText::_('MATCH ALL').'</option>';
-$joinhtml .= '<option value="OR" '.$orSelected.'>'.JText::_('MATCH ANY').'</option>';
+$joinhtml .= '<option value="AND" '.$andSelected.'>'.XiusText::_('MATCH ALL').'</option>';
+$joinhtml .= '<option value="OR" '.$orSelected.'>'.XiusText::_('MATCH ANY').'</option>';
 $joinhtml .= '</select>';
-echo '<b>'.JText::_('XIUS JOIN WITH').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
+echo '<b>'.XiusText::_('XIUS JOIN WITH').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
 echo $joinhtml;	
 ?>
 </div>

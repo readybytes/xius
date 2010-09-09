@@ -59,9 +59,9 @@ class XiussiteControllerList extends XiusController
 		/*get list */
 		$list = XiusLibrariesList::getList($listId);
 		
-		$url = JRoute::_('index.php?option=com_xius&view=list&task=display',false);
+		$url = XiusRoute::_('index.php?option=com_xius&view=list&task=display',false);
 		if(empty($list))
-			$mainframe->redirect($url,JText::_('INVALID LIST ID'),false);
+			$mainframe->redirect($url,XiusText::_('INVALID LIST ID'),false);
 
 		// when no task is there 
 		$user =& JFactory::getUser();
@@ -69,7 +69,7 @@ class XiussiteControllerList extends XiusController
 		// XITODO : check access in function checkAccess		
 		if($list)
 			if(!XiusHelpersUtils::isAdmin($user->id) && !$list->published){					
-				$msg = JText::_('DO NOT HAVE ACCESS RIGHTS');
+				$msg = XiusText::_('DO NOT HAVE ACCESS RIGHTS');
 				$mainframe->redirect($url,$msg,false);
 				break;
 			}
@@ -148,8 +148,8 @@ class XiussiteControllerList extends XiusController
 			$this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
 							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		
-			$url = JRoute::_($this->getView()->getXiUrl(),false);
-			$msg = JText::_('Please select a list to save or save as a new');
+			$url = XiusRoute::_($this->getView()->getXiUrl(),false);
+			$msg = XiusText::_('Please select a list to save or save as a new');
 			$mainframe->redirect($url,$msg);
 		}
 			
@@ -182,8 +182,8 @@ class XiussiteControllerList extends XiusController
         $this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
 								'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		
-        $url = JRoute::_($this->getView()->getXiUrl(),false);		
-		$msg = JText::_('YOU CAN NOT SAVE LIST');
+        $url = XiusRoute::_($this->getView()->getXiUrl(),false);		
+		$msg = XiusText::_('YOU CAN NOT SAVE LIST');
 		$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
 		return $returndata;		
 	}
@@ -248,14 +248,14 @@ class XiussiteControllerList extends XiusController
 		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
 		
 		if(!($id = XiusLibrariesList::saveList($data)))
-			$msg = JText::_('ERROR IN SAVE LIST');
+			$msg = XiusText::_('ERROR IN SAVE LIST');
 		else
-			$msg = JText::_('LIST SAVED SUCCESSFULLY');
+			$msg = XiusText::_('LIST SAVED SUCCESSFULLY');
 
 		$this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'showList',
 							'tmpl'=>null,'listid'=>$id,'isnew'=>null));
 			
-		$url = JRoute::_($this->getView()->getXiUrl(),false);
+		$url = XiusRoute::_($this->getView()->getXiUrl(),false);
 		
 		$returndata = array();
 		$returndata['id']	= $id;

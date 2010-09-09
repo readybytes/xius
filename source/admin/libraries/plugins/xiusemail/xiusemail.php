@@ -21,7 +21,7 @@ class Xiusemail extends XiusBase
 		if(JFile::exists($paramsxmlpath))
 			$this->pluginParams = new JParameter($data,$paramsxmlpath);
 		else{
-			JError::raiseError(500,JText::_("INVALID XML PARAMETER FILE"));
+			JError::raiseError(500,XiusText::_("INVALID XML PARAMETER FILE"));
 			return false;
 		}
 		return (parent::__construct(__CLASS__));
@@ -54,7 +54,7 @@ class Xiusemail extends XiusBase
 
 	function getInfoName()
 	{
-		return JText::_('EMAIL');
+		return XiusText::_('EMAIL');
 	}
 	
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
@@ -90,9 +90,9 @@ class Xiusemail extends XiusBase
 		
         foreach( $data as $user ){
         	$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid={$user->id}&tmpl=component";
-        	$buttonMap = XiusFactory::getModalButtonObject('xius_email_button',JText::_('EMAIL'),$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
+        	$buttonMap = XiusFactory::getModalButtonObject('xius_email_button',XiusText::_('EMAIL'),$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
         	$user->email	= '<a id="'.$buttonMap->modalname.$user->id.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'
-        						.'<img src="'. JURI::base().'components/com_xius/assets/images/email.png" title="'.JText::_("XIUS EMAIL").'" /></a>&nbsp;';
+        						.'<img src="'. JURI::base().'components/com_xius/assets/images/email.png" title="'.XiusText::_("XIUS EMAIL").'" /></a>&nbsp;';
             }
 	}
 	
@@ -123,7 +123,7 @@ class Xiusemail extends XiusBase
 		$buttonMap = XiusFactory::getModalButtonObject('xius_emailselected_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
 		$obj= new stdClass();
         $obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'" onClick="return xiusCheckUserSelected()">'
-        				.'<img src="'. JURI::base().'components/com_xius/assets/images/emailselected.png" title="'.JText::_("XIUS EMAIL TO SELECTED").'" /></a>&nbsp;';
+        				.'<img src="'. JURI::base().'components/com_xius/assets/images/emailselected.png" title="'.XiusText::_("XIUS EMAIL TO SELECTED").'" /></a>&nbsp;';
    
 		$toolbar['selected'] = $obj;
 		
@@ -132,7 +132,7 @@ class Xiusemail extends XiusBase
         $buttonMap = XiusFactory::getModalButtonObject('xius_emailall_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
         $obj= new stdClass();
         $obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'
-        			  .'<img src="'. JURI::base().'components/com_xius/assets/images/emailall.png" title="'.JText::_("XIUS EMAIL ALL").'" /></a>&nbsp;';
+        			  .'<img src="'. JURI::base().'components/com_xius/assets/images/emailall.png" title="'.XiusText::_("XIUS EMAIL ALL").'" /></a>&nbsp;';
    
 		$toolbar['all'] = $obj;	
 	}

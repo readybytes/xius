@@ -5,7 +5,7 @@
 **/
 // Disallow direct access to this file
 if(!defined('_JEXEC')) die('Restricted access');
-//echo $this->pane->startPanel( JText::_('JOOMLAXI UPDATES') , 'xipt' );
+//echo $this->pane->startPanel( XiusText::_('JOOMLAXI UPDATES') , 'xipt' );
 
 ?>
 	<script src="http://widgets.twimg.com/j/2/widget.js"></script>

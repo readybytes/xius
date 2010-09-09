@@ -12,10 +12,10 @@ JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 ?>
 <div class="xius_sp" id="xius_sp">
-<form action="<?php echo JRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
+<form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
 
 <div class="xius_spHead">
-<?php echo JText::_('Search');?>
+<?php echo XiusText::_('Search');?>
 </div>
 		<?php
 		$count = 0;
@@ -25,7 +25,7 @@ jimport('joomla.html.pane');
 		?>
 			<!-- <div class="xiusNoInfo"> -->
 			<h3>
-			<?php echo JText::_('All Searchable Information Has Been Disabled By Administrator');?>
+			<?php echo XiusText::_('All Searchable Information Has Been Disabled By Administrator');?>
 			</h3>
 			<!-- </div> -->
 		<?php
@@ -35,12 +35,12 @@ jimport('joomla.html.pane');
 			<div class="xius_spMain">
 			<div class="xius_spLabel">
 			<?php
-			//echo JHTML::_('tooltip',JText::_($xiustool), JText::_($data['label']), null, JText::_($data['label']));
+			//echo JHTML::_('tooltip',XiusText::_($xiustool), XiusText::_($data['label']), null, XiusText::_($data['label']));
 			$xiustooltip = $data['tooltip'];
 			if(!empty($xiustooltip)) :
-				echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';			
+				echo '<span title="'.XiusText::_($xiustooltip).'">'.XiusText::_($data['label']).'</span>';			
 			else :
-				echo JText::_($data['label']); 
+				echo XiusText::_($data['label']); 
 			endif; 
 			?>
 			</div>
@@ -52,10 +52,10 @@ jimport('joomla.html.pane');
 		endforeach;
 		?>
 		<div class="xius_spMain">
-		<div class="xius_spLabel"><?php echo JText::_('XIUS JOIN WITH'); ?></div>
+		<div class="xius_spLabel"><?php echo XiusText::_('XIUS JOIN WITH'); ?></div>
 		<div class="xius_spInput">
-		<input type="radio" name="xius_join" value="AND" /><?php echo JText::_('MATCH ALL'); ?>
-		<input type="radio" name="xius_join" value="OR" /><?php echo JText::_('MATCH ANY'); ?>
+		<input type="radio" name="xius_join" value="AND" /><?php echo XiusText::_('MATCH ALL'); ?>
+		<input type="radio" name="xius_join" value="OR" /><?php echo XiusText::_('MATCH ANY'); ?>
 		</div>
 		</div>
 		<div class="xius_spSubmit">

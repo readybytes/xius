@@ -8,10 +8,10 @@
     header("Content-Disposition: attachment; filename=user.csv");
     JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 	if(!empty($this->users)) :
-		echo JText::_('Userid');
+		echo XiusText::_('Userid');
 		if(!empty($this->fields))	:
 			foreach($this->fields as $f)	:
-				echo ' ; '.JText::_($f);
+				echo ' ; '.XiusText::_($f);
 			endforeach;
 		endif;
 		foreach($this->users as $u)	:

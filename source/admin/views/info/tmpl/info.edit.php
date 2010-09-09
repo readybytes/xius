@@ -10,35 +10,35 @@ if(!defined('_JEXEC')) die('Restricted access'); ?>
 <?php 
 JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 JToolBarHelper::divider();
-JToolBarHelper::apply('apply', JText::_('APPLY'));
-JToolBarHelper::save('save',JText::_('SAVE'));
-JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
+JToolBarHelper::apply('apply', XiusText::_('APPLY'));
+JToolBarHelper::save('save',XiusText::_('SAVE'));
+JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 
 
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo JText::_($this->infoName);?>
+	<?php echo XiusText::_($this->infoName);?>
 </div>
 
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <div>
 <div class="col width-40" style="width:40%; float:left;">
 	<fieldset class="adminform">
-	<legend><?php echo JText::_( 'Details' ); ?></legend>
+	<legend><?php echo XiusText::_( 'Details' ); ?></legend>
 	<table class="admintable">
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo JText::_( 'NAME' ); ?>:
+					<?php echo XiusText::_( 'NAME' ); ?>:
 				</label>
 			</td>
 			<td>
-				<input type="text" name="labelName" value ="<?php echo JText::_($this->pluginArray['labelName']); ?>" />
+				<input type="text" name="labelName" value ="<?php echo XiusText::_($this->pluginArray['labelName']); ?>" />
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" class="key">
-				<?php echo JText::_( 'PUBLISHED' ); ?>:
+				<?php echo XiusText::_( 'PUBLISHED' ); ?>:
 			</td>
 			<td>
 				<?php echo JHTML::_('select.booleanlist',  'published', 'class="inputbox"', $this->pluginArray['published'] ); ?>
@@ -50,12 +50,12 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 	<br />
 	
 	<fieldset class="adminform">
-	<legend><?php echo JText::_( 'General Parameters' ); ?></legend>
+	<legend><?php echo XiusText::_( 'General Parameters' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
 		echo $pane->startPane('core-pane');
-		//echo $pane->startPanel(JText :: _('Core Fields Parameters'), 'coreparam-page');
+		//echo $pane->startPanel(XiusText:: _('Core Fields Parameters'), 'coreparam-page');
 		echo $this->paramsHtml;
 		//echo $pane->endPanel();
 		?>
@@ -69,7 +69,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 	
 
 <fieldset class="adminform">
-	<legend><?php echo JText::_( 'Plugin Parameters' ); ?></legend>
+	<legend><?php echo XiusText::_( 'Plugin Parameters' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));

@@ -6,24 +6,24 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
+JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 	
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo JText::_('SELECT DATA TO USE');?>
+	<?php echo XiusText::_('SELECT DATA TO USE');?>
 </div>
 <div id="error-notice" style="color: red; font-weight:700;"></div>
 <div style="clear: both;"></div>
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
 <?php 
 if(empty($this->rawDataHtml))
-	echo JText::_('NO INFO TO DISPLAY');
+	echo XiusText::_('NO INFO TO DISPLAY');
 else 
 {?>
 <table cellspacing="0" class="admintable" border="0" width="100%">
 	<tbody>
 		<tr>
-			<td class="key"><?php echo JText::_('INFO');?></td>
+			<td class="key"><?php echo XiusText::_('INFO');?></td>
 			<td>:</td>
 			<td>
 				<div>
@@ -39,7 +39,7 @@ else
 <div class="clr"></div>
 
 <div style="float:left; margin-left: 320px">
-	<input type="submit" name="infonext" value="<?php echo JText::_('NEXT');?>"/>
+	<input type="submit" name="infonext" value="<?php echo XiusText::_('NEXT');?>"/>
 </div>
 <?php }?>	
 	<input type="hidden" name="plugin" value="<?php echo $this->plugin;?>" />

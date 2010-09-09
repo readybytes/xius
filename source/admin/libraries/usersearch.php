@@ -29,7 +29,7 @@ class XiusLibrariesUsersearch
 		$tableName = $cache->getTableName();
 		
 		if(empty($tableName))
-			JError::raiseError(JText::_('NO TABLE TO SEARCH'));
+			JError::raiseError(XiusText::_('NO TABLE TO SEARCH'));
 			
 		if(!empty($tableName)) {
 			//$query->select($db->nameQuote('userid'));

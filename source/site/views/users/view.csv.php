@@ -18,8 +18,8 @@ class XiussiteViewUsers extends XiusView
 		$user =& JFactory::getUser();
 
 		if(!XiusHelpersUtils::isAdmin($user->id)){
-			$url = JRoute::_('index.php?option=com_xius&view=users',false);
-			$mainframe->redirect($url,JText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
+			$url = XiusRoute::_('index.php?option=com_xius&view=users',false);
+			$mainframe->redirect($url,XiusText::_('NOT HAVE PERMISSIONS TO EXPORT'),false);
 		}
 		$params = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sort = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);

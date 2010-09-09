@@ -69,7 +69,7 @@ class plgSystemxius_system extends JPlugin
 		if(!$xiusReplaceSearch)
 			return;
 			
-		$mainframe->redirect(JRoute::_("index.php?option=com_xius",false));			
+		$mainframe->redirect(XiusRoute::_("index.php?option=com_xius",false));			
 	}
 
 	function onAfterXiusCacheUpdate()

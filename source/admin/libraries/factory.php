@@ -19,7 +19,7 @@ class XiusFactory
 		if($location === 'admin'){
 			$modelAdminFile = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
 			if(!JFile::exists($modelAdminFile))
-				JError::raiseError(sprintf(JText::_('Not able to open model %s'),$name));
+				JError::raiseError(sprintf(XiusText::_('Not able to open model %s'),$name));
 			
 			include_once($modelAdminFile);
 		}
@@ -27,7 +27,7 @@ class XiusFactory
 
 			$modelSiteFile = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
 			if(!JFile::exists($modelSiteFile))
-				JError::raiseError(sprintf(JText::_('Not able to open model %s'),$name));
+				JError::raiseError(sprintf(XiusText::_('Not able to open model %s'),$name));
 			
 			include_once($modelSiteFile);
 		}
@@ -48,7 +48,7 @@ class XiusFactory
 		jimport( 'joomla.filesystem.file' );
 		if(!JFile::exists($pluginPath))
 		{
-			JError::raiseError(400,JText::_("INVALID PLUGIN FILE"));
+			JError::raiseError(400,XiusText::_("INVALID PLUGIN FILE"));
 			return false;
 		}
 
@@ -136,7 +136,7 @@ class XiusFactory
 		JHTML::_('behavior.modal', "a.{$name}");
         $buttonMap = new JObject();
         $buttonMap->set('modal', true);
-        $buttonMap->set('text', JText::_( $text ));
+        $buttonMap->set('text', XiusText::_( $text ));
         $buttonMap->set('name', 'image');
         $buttonMap->set('modalname', $name);
         $buttonMap->set('options', "{handler: 'iframe', size: {x: ".$width.", y: ".$height."}}");        
@@ -184,7 +184,7 @@ class XiusFactory
 		jimport( 'joomla.filesystem.file' );
 		if(!JFile::exists($pluginPath))
 		{
-			JError::raiseError(400,JText::_("INVALID PLUGIN FILE"));
+			JError::raiseError(400,XiusText::_("INVALID PLUGIN FILE"));
 			return false;
 		}
 

@@ -1,3 +1,3 @@
 ../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:619:		.'   } else if (google.maps.DirectionsStatus.INVALID_REQUEST) {'."\n"
-../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:620:		.'      alert("'. JText::_('INVALID_REQUEST').'");'."\n"
+../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:620:		.'      alert("'. XiusText::_('INVALID_REQUEST').'");'."\n"
 ../packages/tmp/languages/admin/en-GB.com_xius.ini:199:INVALID_REQUEST=Invalid requested

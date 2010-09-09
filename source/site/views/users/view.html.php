@@ -49,7 +49,7 @@ class XiussiteViewUsers extends XiusView
 		}
 
 		$document = JFactory::getDocument();
-		$document->setTitle(JText::_('Search Panel'));
+		$document->setTitle(XiusText::_('Search Panel'));
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplaySearchPanel',array( &$infohtml  ));
 		$submitUrl	= $this->getXiUrl();

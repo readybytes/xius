@@ -8,13 +8,13 @@ $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
 ?>
 <div class="">
-<form action="<?php echo JRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
+<form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 <?php
 if(empty($this->lists))	:
-	echo JText::_('NO LISTS AVAILABLE');
+	echo XiusText::_('NO LISTS AVAILABLE');
 else	:
 	foreach($this->lists as $l)	:
-		$url = JRoute::_($this->submitUrl.'&listid='.$l->id,false);
+		$url = XiusRoute::_($this->submitUrl.'&listid='.$l->id,false);
 		?>
 		<div class="listmain">
 		<div class="listtopleft">
@@ -25,14 +25,14 @@ else	:
 			$name = 'LIST';
 		endif;
 		
-		echo '<a href="'.$url.'">'.JText::_($name).'</a>'
+		echo '<a href="'.$url.'">'.XiusText::_($name).'</a>'
 		?></h1>
 		</div>
 		<div class="listtopright">
 		</div>
 		<div class="listdesc">
 		<?php
-		echo JText::_($l->description);
+		echo XiusText::_($l->description);
 		?><hr />
 		</div>
 		</div>

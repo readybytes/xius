@@ -39,12 +39,12 @@ class JElementXiuslist extends JElement
 		
 		if($reqall) {
 			$selected	= ( JString::trim(0) == $value ) ? ' selected="true"' : '';
-			$html	.= '<option value="' . 0 . '"' . $selected . '>' . JText::_("ALL") . '</option>';
+			$html	.= '<option value="' . 0 . '"' . $selected . '>' . XiusText::_("ALL") . '</option>';
 		}
 		
 		if($reqnone) {
 			$selected	= ( JString::trim(-1) == $value ) ? ' selected="true"' : '';
-			$html	.= '<option value="' . -1 . '"' . $selected . '>' . JText::_("NONE") . '</option>';
+			$html	.= '<option value="' . -1 . '"' . $selected . '>' . XiusText::_("NONE") . '</option>';
 		}
 		
 		for( $i = 0; $i < count( $options ); $i++ )

@@ -49,7 +49,7 @@ class Joomlahelper
   		
  		if($infoType == 'tinyint(4) NOT NULL'){			
  			$fieldHTML  = '<select class="selectbox" name="'.$paramsType.$key.'" id="'.$paramsType.$key.'" value="" />';
-  			$fieldHTML .= "<option value=''>".JText::_('SELECT BELOW')."</option><option value='0'>".JText::_('NO')."</option><option value='1'>".JText::_('YES')."</option></select>";
+  			$fieldHTML .= "<option value=''>".XiusText::_('SELECT BELOW')."</option><option value='0'>".XiusText::_('NO')."</option><option value='1'>".XiusText::_('YES')."</option></select>";
   			return $fieldHTML;
   		}
 	}

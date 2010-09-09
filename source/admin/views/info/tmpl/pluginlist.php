@@ -6,11 +6,11 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
+JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 	
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo JText::_('SELECT DATA TO USE');?>
+	<?php echo XiusText::_('SELECT DATA TO USE');?>
 </div>
 <div id="error-notice" style="color: red; font-weight:700;"></div>
 <div style="clear: both;"></div>
@@ -18,7 +18,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 <table cellspacing="0" class="admintable" border="0" width="100%">
 	<tbody>
 		<tr>
-			<td class="key"><?php echo JText::_('INFO');?></td>
+			<td class="key"><?php echo XiusText::_('INFO');?></td>
 			<td>:</td>
 			<td>
 				<div>
@@ -27,7 +27,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 						<select id="plugin" name="plugin">
 						<?php 
 						foreach($this->plugins as $p){?>
-					    	<option value = "<?php echo $p;?>"><?php echo JText::_($p);?></option>
+					    	<option value = "<?php echo $p;?>"><?php echo XiusText::_($p);?></option>
 					    <?php 
 						}
 					    ?>
@@ -45,7 +45,7 @@ JToolBarHelper::cancel( 'cancel', JText::_('CLOSE' ));
 <div class="clr"></div>
 
 <div style="float:left; margin-left: 320px">
-	<input type="submit" name="infonext" value="<?php echo JText::_('NEXT');?>"/>
+	<input type="submit" name="infonext" value="<?php echo XiusText::_('NEXT');?>"/>
 </div>	
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="<?php echo JRequest::getCmd( 'view' , 'info' );?>" />

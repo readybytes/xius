@@ -5,7 +5,7 @@
 **/
 ?>
 <div class="xius_result" id="xius_result"><a name="xiustop"></a>
-<form action="<?php echo JRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
+<form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
 $css = JURI::base().'components/com_xius/assets/css/gray.css';

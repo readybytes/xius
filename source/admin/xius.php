@@ -22,7 +22,7 @@ $path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.st
 if(file_exists($path))
 	require_once( $path );
 else
-	JError::raiseError( 500 , sprintf(JText::_( 'Invalid Controller %s. File does not exists in this context.' ),$view) );
+	JError::raiseError( 500 , sprintf(XiusText::_( 'Invalid Controller %s. File does not exists in this context.' ),$view) );
 
 //we assume that controller name will be after controller in admin
 $controllerClass = 'Xius'.'Controller'.JString::ucfirst(JString::strtolower($view));
@@ -31,7 +31,7 @@ $controllerClass = 'Xius'.'Controller'.JString::ucfirst(JString::strtolower($vie
 if( class_exists( $controllerClass ) )
 	$controller = new $controllerClass();
 else
-	JError::raiseError( 500 , sprintf(JText::_('Invalid Controller Object %s. Class definition does not exists in this context.' ),$controllerClass));
+	JError::raiseError( 500 , sprintf(XiusText::_('Invalid Controller Object %s. Class definition does not exists in this context.' ),$controllerClass));
 
 $controller->execute($task);
 

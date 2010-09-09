@@ -53,11 +53,11 @@ class plgCommunityxius extends JPlugin
 		$lang->load('com_xius', JPATH_SITE);
 		
 		$toolbar	=& CFactory::getToolbar();		
-		$toolbar->addGroup('XIUS_SEARCH', JText::_('SEARCH'),
-							 JRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id));
+		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
+							 XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id));
 		
-		//$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', JText::_('ADVANCEDSEARCH'), JRoute::_('index.php?option=com_xius'));
-	//	$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', JText::_('USERLIST'), JRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
+		//$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', XiusText::_('ADVANCEDSEARCH'), XiusRoute::_('index.php?option=com_xius'));
+	//	$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), XiusRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
 	}

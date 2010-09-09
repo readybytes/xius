@@ -54,11 +54,11 @@ class XiusControllerCpanel extends JController
 		
 		if($insertedRows == $limit['limit']){
 			$limitStart += $limit['limit'];
-    		$mainframe->redirect(JRoute::_("index.php?option=com_xius&view=cpanel&task=updateCache&limitStart=".$limitStart,false));
+    		$mainframe->redirect(XiusRoute::_("index.php?option=com_xius&view=cpanel&task=updateCache&limitStart=".$limitStart,false));
 		}
 		
-		$msg = JText::_('CACHE UPDATED SUCCESSFULLY');
-		$url = JRoute::_("index.php?option=com_xius&view=cpanel",false);
+		$msg = XiusText::_('CACHE UPDATED SUCCESSFULLY');
+		$url = XiusRoute::_("index.php?option=com_xius&view=cpanel",false);
 		$mainframe->redirect($url,$msg,false);
 		return true;
 	}

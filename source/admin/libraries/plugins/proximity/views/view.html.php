@@ -36,8 +36,8 @@ class ProximityView extends XiusBaseView
 		$data['location']   = $calleObject->get('pluginParams')->get('xius_default_location',"none");
        	
        
-       	$linkMap = JRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
-    	$buttonMap = XiusFactory::getModalButtonObject($data['elePrefix'].'_map_button',JText::_( 'SHOW GOOGLE MAP' ),$linkMap,PROXIMITY_IFRAME_WIDTH,PROXIMITY_IFRAME_HEIGHT);
+       	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
+    	$buttonMap = XiusFactory::getModalButtonObject($data['elePrefix'].'_map_button',XiusText::_( 'SHOW GOOGLE MAP' ),$linkMap,PROXIMITY_IFRAME_WIDTH,PROXIMITY_IFRAME_HEIGHT);
 
         $this->assignRef('buttonMap', $buttonMap);
 	    $this->assignRef('data', $data);

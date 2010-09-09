@@ -50,7 +50,7 @@ abstract class XiusBase extends JObject
 		jimport( 'joomla.filesystem.file' );
 		if(!JFile::exists($pluginPath))
 		{
-			JError::raiseError(400,JText::_("INVALID CONTROLLER FILE"));
+			JError::raiseError(400,XiusText::_("INVALID CONTROLLER FILE"));
 			return false;
 		}
 		
@@ -270,7 +270,7 @@ abstract class XiusBase extends JObject
 
 		$html = "<select id = 'rawdata' name = 'rawdata' >";
 		foreach($pluginsInfo as $k => $v){
-			$html .= "<option value='$k'>".JText::_($v)."</option>"; 
+			$html .= "<option value='$k'>".XiusText::_($v)."</option>"; 
 		}
 		
 		$html .= "</select>";
@@ -310,7 +310,7 @@ abstract class XiusBase extends JObject
 		if($plguinParamsHtml)
 			return $plguinParamsHtml;
 		
-		$plguinParamsHtml = "<div style=\"text-align: center; padding: 5px; \">".JText::_('There are no parameters for this item')."</div>";
+		$plguinParamsHtml = "<div style=\"text-align: center; padding: 5px; \">".XiusText::_('There are no parameters for this item')."</div>";
 		
 		return $plguinParamsHtml;
 	}
@@ -327,7 +327,7 @@ abstract class XiusBase extends JObject
 		if($paramsHtml)
 			return $paramsHtml;
 		
-		$paramsHtml = "<div style=\"text-align: center; padding: 5px; \">".JText::_('There are no parameters for this item')."</div>";
+		$paramsHtml = "<div style=\"text-align: center; padding: 5px; \">".XiusText::_('There are no parameters for this item')."</div>";
 		
 		return $paramsHtml;
 	}

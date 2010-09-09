@@ -35,7 +35,7 @@ class Joomla extends XiusBase
 					|| $k == 'activation' || $k == 'sendEmail')
 				continue;
 				
-			$pluginsInfo[$k] = JText::_($k);
+			$pluginsInfo[$k] = XiusText::_($k);
 		}
 		return $pluginsInfo;
 	}
@@ -186,8 +186,8 @@ class Joomla extends XiusBase
 	public function _getFormatAppliedData($value)
 	{
 		if($this->key === 'block'){
-			$val[0] = JText::_('UN-BLOCKED');
-			$val[1] = JText::_('BLOCKED');
+			$val[0] = XiusText::_('UN-BLOCKED');
+			$val[1] = XiusText::_('BLOCKED');
 			return $val[$value];
 		}
 			

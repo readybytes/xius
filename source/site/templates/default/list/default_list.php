@@ -16,7 +16,7 @@ if(!empty( $this->list ))	:
 		$name = $this->list->name;
 	endif;
 		
-	echo JText::_($name);
+	echo XiusText::_($name);
 
 endif;
 ?>

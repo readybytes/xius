@@ -5,9 +5,9 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 			<div class="p-add-address">
 			<form action="#" onsubmit="addAddressToMap<?php echo $this->data['id']; ?>(); return false;"><h3>
-			<?php echo JText::_('Set Coordinates by address'); ?>
+			<?php echo XiusText::_('Set Coordinates by address'); ?>
 			<input type="text" name="xiusAddressNameEl<?php echo $this->data['id']; ?> " id="xiusAddressEl<?php echo $this->data['id']; ?>" value="" class="address_input" size="30" />
-			<input type="submit" name="find" value="<?php echo JText::_('Set'); ?>" />
+			<input type="submit" name="find" value="<?php echo XiusText::_('Set'); ?>" />
 			</h3></form>
 			</div>
 		
@@ -62,7 +62,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 		echo $this->map->setInitializeFunction();
 	
 		echo $this->map->endJScData();   	
-		echo JText::_("MESSAGE ON MAP"); 
+		echo XiusText::_("MESSAGE ON MAP"); 
 		?>
 		</form>
 		</div>

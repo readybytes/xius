@@ -48,7 +48,7 @@ class XiusGmap
 	
 	function endJScData($noScriptText = 'GOOGLE MAP ENABLE JAVASCRIPT') {
 		return '//]]></script>'."\n"
-			. '<noscript><p class="p-noscript">'.JText::_($noScriptText).'</p><p>&nbsp;</p></noscript>'."\n\n";
+			. '<noscript><p class="p-noscript">'.XiusText::_($noScriptText).'</p><p>&nbsp;</p></noscript>'."\n\n";
 	}
 	
 	/*
@@ -536,7 +536,7 @@ class XiusGmap
 				.' });'."\n\n";
 			
 		$js .= ' function openMarkerInfo'.$name.$this->_id.'() {'."\n"
-				.'   infoXiusWindow'.$name.$this->_id.'.content = \''.JText::_('LOCATION SELECTED').'\'+\'<br/>\''.'+ markerXiusMarker'.$name.$this->_id.'.getPosition().toUrlValue(6);'."\n"
+				.'   infoXiusWindow'.$name.$this->_id.'.content = \''.XiusText::_('LOCATION SELECTED').'\'+\'<br/>\''.'+ markerXiusMarker'.$name.$this->_id.'.getPosition().toUrlValue(6);'."\n"
 				.'   infoXiusWindow'.$name.$this->_id.'.open('.$this->_map.', markerXiusMarker'.$name.$this->_id.' );'."\n"
 				.' }'."\n\n";
 		 $js .= ' function closeMarkerInfo'.$name.$this->_id.'() {'."\n"
@@ -576,7 +576,7 @@ class XiusGmap
 		}
 
 		$js .='         } else {'."\n"
-		.'            alert("'.JText::_('Geocode not found').' (" + status'.$this->_id.' + ")");'."\n"
+		.'            alert("'.XiusText::_('Geocode not found').' (" + status'.$this->_id.' + ")");'."\n"
 		.'         }'."\n"
 		.'      });'."\n"
 		.'   }'."\n"
@@ -609,21 +609,21 @@ class XiusGmap
 		
 		$js .='      '.$this->_dirdisplay.'.setDirections(response'.$this->_id.');'."\n"
 		.'   } else if (google.maps.DirectionsStatus.NOT_FOND) {'."\n"
-		.'      alert("'. JText::_('NOT_FOUND').'");'."\n"
+		.'      alert("'. XiusText::_('NOT_FOUND').'");'."\n"
 		.'   } else if (google.maps.DirectionsStatus.ZERO_RESULTS) {'."\n"
-		.'      alert("'. JText::_('ZERO_RESULTS').'");'."\n"
+		.'      alert("'. XiusText::_('ZERO_RESULTS').'");'."\n"
 		.'   } else if (google.maps.DirectionsStatus.MAX_WAYPOINTS_EXCEEDED) {'."\n"
-		.'      alert("'. JText::_('MAX_WAYPOINTS_EXCEEDED').'");'."\n"
+		.'      alert("'. XiusText::_('MAX_WAYPOINTS_EXCEEDED').'");'."\n"
 		.'   } else if (google.maps.DirectionsStatus.OVER_QUERY_LIMIT) {'."\n"
-		.'      alert("'. JText::_('OVER_QUERY_LIMIT').'");'."\n"
+		.'      alert("'. XiusText::_('OVER_QUERY_LIMIT').'");'."\n"
 		.'   } else if (google.maps.DirectionsStatus.INVALID_REQUEST) {'."\n"
-		.'      alert("'. JText::_('INVALID_REQUEST').'");'."\n"
+		.'      alert("'. XiusText::_('INVALID_REQUEST').'");'."\n"
 		.'   } else if (google.maps.DirectionsStatus.REQUEST_DENIED) {'."\n"
-		.'      alert("'. JText::_('REQUEST_DENIED').'");'."\n"
+		.'      alert("'. XiusText::_('REQUEST_DENIED').'");'."\n"
 		.'   } else if (google.maps.DirectionsStatus.UNKNOWN_ERROR) {'."\n"
-		.'      alert("'. JText::_('UNKNOWN_ERROR').'");'."\n"
+		.'      alert("'. XiusText::_('UNKNOWN_ERROR').'");'."\n"
 		.'   } else {'."\n"
-		.'      alert("'. JText::_('UNKNOWN_ERROR').'");'."\n"
+		.'      alert("'. XiusText::_('UNKNOWN_ERROR').'");'."\n"
 		.'   } '."\n"
 		.'  });'."\n"
 		.'}'."\n\n";
@@ -650,7 +650,7 @@ class XiusGmap
 		$status = 'width=640,height=480,menubar=yes,resizable=yes,scrollbars=yes,resizable=yes';
 		
 		$link 		= XiusMapsHelperRoute::getPrintRouteRoute( $idMap, $idMapAlias, $suffix);
-		$link		= JRoute::_( $link );
+		$link		= XiusRoute::_( $link );
 		$isThereQM 	= false;
 		$isThereQM 	= preg_match("/\?/i", $link);
 
@@ -666,7 +666,7 @@ class XiusGmap
 		}
 		
 		$output = '<div class="pmprintroutelink">'
-		.'<a href=\\u0022'.$link.'\\u0022 rel=\\u0022nofollow\\u0022 onclick=\\u0022window.open(this.href,\\\'xiusMapRoute\\\',\\\''.$status.'\\\'); return false;\\u0022 >'.JText::_('Print Route').'</a>'
+		.'<a href=\\u0022'.$link.'\\u0022 rel=\\u0022nofollow\\u0022 onclick=\\u0022window.open(this.href,\\\'xiusMapRoute\\\',\\\''.$status.'\\\'); return false;\\u0022 >'.XiusText::_('Print Route').'</a>'
 		.'</div>'
 		.'<div style="clear:both"></div>';
 		
@@ -675,8 +675,8 @@ class XiusGmap
 	}*/
 	
 	function getIconPrintScreen() {
-		$output = '<div class="pmprintscreen"><a class="pmprintscreena" href="javascript: void()" onclick="window.print();return false;">'.JText::_('Print').'</a>'
-		.'&nbsp; <a class="pmprintscreena" href="javascript: void window.close()">'.JText::_( 'Close Window' ). '</a></div><div style="clear:both;"></div>';
+		$output = '<div class="pmprintscreen"><a class="pmprintscreena" href="javascript: void()" onclick="window.print();return false;">'.XiusText::_('Print').'</a>'
+		.'&nbsp; <a class="pmprintscreena" href="javascript: void window.close()">'.XiusText::_( 'Close Window' ). '</a></div><div style="clear:both;"></div>';
 		return $output;
 	}
 	

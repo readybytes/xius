@@ -12,12 +12,12 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
 ?><div id="xiusSave">
-	<form action="<?php echo JRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
+	<form action="<?php echo XiusRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 	
 	<!--  START HEADER -->
 		<h3>
 			<?php
-				echo JText::_("Save As New"); 
+				echo XiusText::_("Save As New"); 
 			?>
 		</h3>
 	<!--  END HEADER -->
@@ -25,7 +25,7 @@ if(!empty($this->msg))
 	<!--  START NAME -->
 		<div id="xiusNewName">
 			<div class="xiusSavelabel">
-			<label><?php echo JText::_('Name'); ?></label>
+			<label><?php echo XiusText::_('Name'); ?></label>
 			</div>
 			<div class="xiusfl"><input type="text" name="xiusListName" id="xiusListName" value="<?php echo $this->data['listName']; ?>" /></div>
 			</div>
@@ -34,11 +34,11 @@ if(!empty($this->msg))
 		<!--  START PUBLISH -->
 		<div>
 			<div class="xiusSavelabel">		
-			<label><?php echo JText::_('Published'); ?></label>
+			<label><?php echo XiusText::_('Published'); ?></label>
 			</div>
 			<div class="xiusSavehtml">			
-			<input type="radio" name="xiusListPublish" value="0"><?php echo JText::_('NO');?>:
-			<input type="radio" name="xiusListPublish" value="1" checked="checked"><?php echo JText::_('YES');?>
+			<input type="radio" name="xiusListPublish" value="0"><?php echo XiusText::_('NO');?>:
+			<input type="radio" name="xiusListPublish" value="1" checked="checked"><?php echo XiusText::_('YES');?>
 			</div>
 		</div>
 		<!--  END PUBLISH -->
@@ -48,7 +48,7 @@ if(!empty($this->msg))
 			<div class="xiusSavelabel">
 			<label>
 				<?php 
-					echo JText::_('SEARCH CONDITION');
+					echo XiusText::_('SEARCH CONDITION');
 				?>
 			</label>
 			</div>
@@ -58,7 +58,7 @@ if(!empty($this->msg))
  				foreach($this->conditionHtml as $condition)							
 					echo $condition['label'].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';
 			else
-				echo JText::_('NO SEARCH CONDITION FOUND');
+				echo XiusText::_('NO SEARCH CONDITION FOUND');
 			?>
 			</div>
 		</div>
@@ -69,7 +69,7 @@ if(!empty($this->msg))
 			<div class="xiusSavelabel">
 			<label>
 				<?php 
-					echo JText::_('SORT RESULT ACCORDING TO');
+					echo XiusText::_('SORT RESULT ACCORDING TO');
 				?>
 			</label>
 			</div>
@@ -89,7 +89,7 @@ if(!empty($this->msg))
 					$html .= '</select>';
 					echo $html;
 				else : 
-					JText::_('NO INFORMATION AVAILABLE FOR SORTING');
+					XiusText::_('NO INFORMATION AVAILABLE FOR SORTING');
 				endif;
 			?>
 			</div>
@@ -100,7 +100,7 @@ if(!empty($this->msg))
 		<div id="xiusSorting">
 		<div class="xiusSavelabel">		
 			<label for="name">
-				<?php echo JText::_( 'SORTING DIRECTION' ); ?>:
+				<?php echo XiusText::_( 'SORTING DIRECTION' ); ?>:
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -115,8 +115,8 @@ if(!empty($this->msg))
 					endif;
 
 					$dirhtml = '<select id="xiussortdir" name="xiusListSortDir" >';
-					$dirhtml .= '<option value="ASC" '.$ascselected.'>'.JText::_('ASC').'</option>';
-					$dirhtml .= '<option value="DESC" '.$descselected.'>'.JText::_('DESC').'</option>';
+					$dirhtml .= '<option value="ASC" '.$ascselected.'>'.XiusText::_('ASC').'</option>';
+					$dirhtml .= '<option value="DESC" '.$descselected.'>'.XiusText::_('DESC').'</option>';
 					$dirhtml .= '</select>';
 
 					echo $dirhtml;	
@@ -130,7 +130,7 @@ if(!empty($this->msg))
 		<div>
 		<div class="xiusSavelabel">
 			<label for="name">
-				<?php echo JText::_( 'JOIN WITH' ); ?>:
+				<?php echo XiusText::_( 'JOIN WITH' ); ?>:
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -146,8 +146,8 @@ if(!empty($this->msg))
 				endif;
 			?>
 			<select id="xiusjoin" name="xiusListJoinWith" >
-			<option value="AND" <?php echo $andSelected; ?> ><?php echo JText::_('MATCH ALL'); ?></option>
-			<option value="OR"  <?php echo $orSelected; ?> ><?php echo JText::_('MATCH ANY'); ?></option>
+			<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH ALL'); ?></option>
+			<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH ANY'); ?></option>
 			</select>
 			</div>
 		</div>
@@ -180,7 +180,7 @@ if(!empty($this->msg))
 		<div class="xiusSavelabel">
 			<label>
 				<?php
-					echo JText::_('Description');
+					echo XiusText::_('Description');
 				?>
 			</label>
 		</div>
@@ -196,7 +196,7 @@ if(!empty($this->msg))
 		<!--  END DESCRIPTION -->
 	
 <div id="xiussubmit">				
-<input type="submit" name = "xiussave" id = "xiussave" value=<?php echo JText::_('SAVE AS NEW')?> />	
+<input type="submit" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE AS NEW')?> />	
 </div>
 <input type="hidden" name="listid" value="<?php echo $this->selectedListId; ?>" />
 </form>

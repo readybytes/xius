@@ -98,9 +98,9 @@ abstract class XiusView extends JView
 
 		$document = JFactory::getDocument();
         if(!empty($list) && !empty($list->name))
-			$document->setTitle(JText::_($list->name));
+			$document->setTitle(XiusText::_($list->name));
 		else
-			$document->setTitle(JText::_('Search Result'));
+			$document->setTitle(XiusText::_('Search Result'));
 
 		//collect user data from appropritae profile component
 		$xiusSlideShow  = xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');

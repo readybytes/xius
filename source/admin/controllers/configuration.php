@@ -32,14 +32,14 @@ class XiusControllerConfiguration extends JController
 		$user	=& JFactory::getUser();
 
 		if ( $user->get('guest')) {
-			JError::raiseError( 403, JText::_('ACCESS FORBIDDEN') );
+			JError::raiseError( 403, XiusText::_('ACCESS FORBIDDEN') );
 			return;
 		}
 		$method	= JRequest::getMethod();
 		
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , JText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
 			return;
 		}
 		
@@ -52,21 +52,21 @@ class XiusControllerConfiguration extends JController
 		// Try to save configurations
 		if( $cModel->save('config',$xiusparams) )
 		{
-			$message	= JText::_('CONFIGURATION UPDATED');
+			$message	= XiusText::_('CONFIGURATION UPDATED');
 		}
 		else
 		{
-			JError::raiseWarning( 100 , JText::_( 'UNABLE TO SAVE CONFIGURATION INTO DATABASE. PLEASE ENSURE THAT THE TABLE XIUS_CONFIG EXISTS' ) );
+			JError::raiseWarning( 100 , XiusText::_( 'UNABLE TO SAVE CONFIGURATION INTO DATABASE. PLEASE ENSURE THAT THE TABLE XIUS_CONFIG EXISTS' ) );
 		}
-		$link = JRoute::_('index.php?option=com_xius&view=configuration', false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=configuration', false);
 		$mainframe->redirect($link, $message);
 	}
 	
 	function runCron()
 	{
 		global $mainframe;
-		$link = JRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
-		$message = JText::_('CANT UPDATE CACHE NOW');
+		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
+		$message = XiusText::_('CANT UPDATE CACHE NOW');
 		
 		$cModel = XiusFactory::getModel('configuration');
 		$params	= $cModel->getParams();
@@ -83,7 +83,7 @@ class XiusControllerConfiguration extends JController
 		$time = XiusLibrariesUsersearch::getTimestamp();
 		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
-		$message = JText::_('CACHE UPDATED SUCCESSFULLY');
+		$message = XiusText::_('CACHE UPDATED SUCCESSFULLY');
 		$mainframe->redirect($link, $message);		
 	}
 	
@@ -97,7 +97,7 @@ class XiusControllerConfiguration extends JController
 		$user	=& JFactory::getUser();
 
 		if ( $user->get('guest')) {
-			JError::raiseError( 403, JText::_('ACCESS FORBIDDEN') );
+			JError::raiseError( 403, XiusText::_('ACCESS FORBIDDEN') );
 			return;
 		}
 		
@@ -108,13 +108,13 @@ class XiusControllerConfiguration extends JController
 		// Try to save configurations
 		if( $cModel->reset() )
 		{
-			$message = JText::_('CONFIGURATION HAS BEEN RESET TO DEFAULT SETTINGS');
+			$message = XiusText::_('CONFIGURATION HAS BEEN RESET TO DEFAULT SETTINGS');
 		}
 		else
 		{
-			JError::raiseWarning( 100 , JText::_( 'UNABLE TO RESET CONFIGURATION' ) );
+			JError::raiseWarning( 100 , XiusText::_( 'UNABLE TO RESET CONFIGURATION' ) );
 		}
-		$link = JRoute::_('index.php?option=com_xijc&view=configuration', false);
+		$link = XiusRoute::_('index.php?option=com_xijc&view=configuration', false);
 		$mainframe->redirect($link, $message);
 	}	*/
 }

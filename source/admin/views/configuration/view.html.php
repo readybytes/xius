@@ -37,7 +37,7 @@ class XiusViewConfiguration extends JView
 	{
 
 		// Set the titlebar text
-		JToolBarHelper::title( JText::_( 'Configuration' ), 'configuration' );
+		JToolBarHelper::title( XiusText::_( 'Configuration' ), 'configuration' );
 
 		// Add the necessary buttons
 		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');

@@ -19,7 +19,7 @@ function submitbutton( action )
 	switch( action )
 	{
 		case 'removeList':
-			if( !confirm( '<?php echo JText::_('Are you sure you want to delete this List?'); ?>' ) )
+			if( !confirm( '<?php echo XiusText::_('Are you sure you want to delete this List?'); ?>' ) )
 			{
 				break;
 			}
@@ -37,19 +37,19 @@ function submitbutton( action )
 	<thead>
 		<tr>
 			<th width="1%">
-				<?php echo JText::_( 'Num' ); ?>
+				<?php echo XiusText::_( 'Num' ); ?>
 			</th>
 			<th width="1%">
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->lists ); ?>);" />
 			</th>
 			<th width="25%" class="title">
-					<?php echo JText::_( 'List Name' ); ?>
+					<?php echo XiusText::_( 'List Name' ); ?>
 			</th>
 			<th width="5%">
-				<?php echo JText::_( 'Published' ); ?>
+				<?php echo XiusText::_( 'Published' ); ?>
 			</th>
 			<th width="5%" align="center">
-				<?php echo JText::_( 'ORDERING' ); ?>
+				<?php echo XiusText::_( 'ORDERING' ); ?>
 			</th>
 		</tr>
 	</thead>
@@ -78,7 +78,7 @@ function submitbutton( action )
 					$lname = 'LIST'.$list->id;
 					 ?>
 					<span class="editlinktip" title="<?php echo $lname; ?>" id="name<?php echo $list->id;?>">
-					<?php $link = JRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
+					<?php $link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
 						<A HREF="<?php echo $link; ?>"><?php echo $lname; ?></A>
 					</span>
 				</td>

@@ -17,11 +17,11 @@ if(!defined('_JEXEC')) die('Restricted access');
 ?>
       <div>
       	<input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusShowGoogleMap(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $defaultLat ?>&quot;, &quot;<?php echo $defaultLong; ?>&quot;);" value="googlemap"  <?php echo ($location=='googlemap')? "checked": "" ;?> /> 
-      		<?php echo JText::_('XIUS MAP'); ?>
+      		<?php echo XiusText::_('XIUS MAP'); ?>
       	<input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusShowAddressBox(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $defaultLat ?>&quot;, &quot;<?php echo $defaultLong; ?>&quot;);" value="addressbox" <?php echo $location; ?> <?php echo ($location=='addressbox')? "checked": "" ;?> />
-      		<?php echo JText::_('XIUS ADDRESS'); ?>
+      		<?php echo XiusText::_('XIUS ADDRESS'); ?>
       	 <input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusAddMyLocation(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $this->data['latitude'] ?>&quot;, &quot;<?php echo $this->data['longitude']; ?>&quot;);" value="mylocation" <?php echo $location; ?> <?php echo ($location=='mylocation')? "checked": "" ;?> />
-      			<?php echo JText::_('XIUS PROXIMITY MY LOCATION'); ?>
+      			<?php echo XiusText::_('XIUS PROXIMITY MY LOCATION'); ?>
       </div>
             
       <div id="<?php echo $elePrefix; ?>_gmap_option" style="<?php echo "display:".(($location=='googlemap')? "block": "none;")?>;">
@@ -29,19 +29,19 @@ if(!defined('_JEXEC')) die('Restricted access');
 	  </div>
 
 	  <div id="<?php echo $elePrefix; ?>_address_option" style="<?php echo "display:".(($location=='addressbox')? "block": "none;")?>;">
-         <div class="xiusProximityLabel"><?php echo JText::_('ADDRESS'); ?></div>
+         <div class="xiusProximityLabel"><?php echo XiusText::_('ADDRESS'); ?></div>
          <div><input type="text" name="<?php echo $elePrefix; ?>_address" id="<?php echo $elePrefix; ?>_address"></div>
       </div>
       
       <input class="inputbox" type="hidden" name="<?php echo $elePrefix; ?>_lat" id="<?php echo $elePrefix; ?>_lat" value=<?php echo $latitude; ?> />
       <input class="inputbox" type="hidden" name="<?php echo $elePrefix; ?>_long" id="<?php echo $elePrefix; ?>_long" value=<?php echo $longitude; ?> />
       
-      <div class="xiusProximityLabel"><?php echo JText::_('DISTANCE'); ?></div>
+      <div class="xiusProximityLabel"><?php echo XiusText::_('DISTANCE'); ?></div>
       
       <div><input class="xiusProximityInputbox" type="text" size="12" name="<?php echo $elePrefix; ?>_dis" id="<?php echo $elePrefix; ?>_dis" value="10" />
 		   <select class="xiusProximitySelectbox" name="<?php echo $elePrefix; ?>_dis_unit" id="<?php echo $elePrefix; ?>_dis_unit" >
-        		<option value="miles" selected><?php echo JText::_("MILES"); ?></option>
-      	   		<option value="kms" ><?php echo JText::_("KMS"); ?></option>
+        		<option value="miles" selected><?php echo XiusText::_("MILES"); ?></option>
+      	   		<option value="kms" ><?php echo XiusText::_("KMS"); ?></option>
 		   </select>
       </div>
 <?php 
