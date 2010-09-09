@@ -53,8 +53,6 @@
 			    <include name="**/*.php"/>
 			</fileset>
 		</analyze>
-
-		<exec command="/usr/local/bin/joomlaxi/zca  --recursive-search ${dir.tmp} > ${dir.report}/zend.ca.txt" escape="false" />
 		
 <!--
  Squiz_Sniffs_Objects_DisallowObjectStringIndexSniff
@@ -165,7 +163,7 @@
  PEAR_Sniffs_Functions_FunctionCallSignatureSniff
  Zend_Sniffs_Debug_CodeAnalyzerSniff
 -->
-
+<!--
 <phpcodesniffer
 			standard="PHPCS"  	showSniffs="false"  
 			file="${dir.tmp}" 	allowedFileExtensions="php,css,js" 
@@ -227,7 +225,7 @@
 					">
 			<formatter type="default" outfile="${dir.report}/zend.phpcs.txt"  usefile="true"/>
 </phpcodesniffer>
-
+-->
 		<!--<phpcpd haltonerror="false">
 		   <fileset dir="${dir.tmp}" id="filestocpd">
 		     <include name="**/*.php" />
