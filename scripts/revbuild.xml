@@ -45,12 +45,12 @@
                         tofile="${target}/source/install/extensions/xius_community/xius.xml" 
                          />
                          
-		<copy   file="${source}/plugins/system/xius_list_privacy.php" 
-                        tofile="${target}/source/install/extensions/xius_privacy/xius_list_privacy.php" 
+		<copy   file="${source}/plugins/xius/js_privacy.php" 
+                        tofile="${target}/source/install/extensions/xius_privacy/js_privacy.php" 
                          />
 
-		<copy   file="${source}/plugins/system/xius_list_privacy.xml" 
-                        tofile="${target}/source/install/extensions/xius_privacy/xius_list_privacy.xml" 
+		<copy   file="${source}/plugins/xius/js_privacy.xml" 
+                        tofile="${target}/source/install/extensions/xius_privacy/js_privacy.xml" 
                          />
 		<!-- Add module folders -->
 		<copy todir="${target}/source/install/extensions/mod_xiuslisting">

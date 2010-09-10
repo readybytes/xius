@@ -8,11 +8,11 @@ jimport('joomla.filesystem.folder');
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 	return;
 
-class plgSystemxius_list_privacy extends JPlugin
+class plgXiusjs_privacy extends JPlugin
 {
 	var $_debugMode = 0;
 		
-	function plgSystemxius_list_privacy( &$subject, $params )
+	function plgXiusjs_privacy( &$subject, $params )
 	{
 		parent::__construct( $subject, $params );
 	}
