@@ -8,11 +8,9 @@
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
-$css = JURI::base().'components/com_xius/assets/css/gray.css';
-$js = JURI::base().'components/com_xius/assets/js/xius.js';
-$document =& JFactory::getDocument();
-$document->addStyleSheet($css);
-$document->addScript($js);
+$this->loadAssets('css','gray.css');
+$this->loadAssets('js','xius.js');
+
 JHTML::_('behavior.tooltip');
 echo $this->loadTemplate('filtered');
 echo $this->loadTemplate('filters');

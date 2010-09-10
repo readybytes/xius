@@ -67,7 +67,7 @@
 			
 			var name = document.getElementById('listid').value;
 			if(trim(name) == '-1'){
-				alert('You have not selected any List or Not cretaed any list yet.')
+				alert('You have not selected any List or Not created any list yet.')
 				return false;
 			}
 			

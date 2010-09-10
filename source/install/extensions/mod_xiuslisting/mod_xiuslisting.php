@@ -14,20 +14,9 @@ $displayList= XiusListHelper::getListData();
 	<ul class="menu">
 				<?php 
 			foreach($displayList as $list):
-				$link = 'index.php?option=com_xius&view=users&layout=lists&task=displayList';
-				$menu = &JSite::getMenu(); 
-				$itemid = $menu->getItems('link', $link);
-				$link.='&listid='.$list->id;
-				if(empty($itemid)){
-					$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users");
-				}
+				$link = 'index.php?option=com_xius&view=list&task=showList';				
+				$link = XiusRoute::_($link, false);
 
-				if(!empty($itemid)){
-					$link .= "&Itemid=".$itemid[0]->id;
-				}
-
-				$link = JRoute::_($link, false);
-					
 				$name = $list->name;
 				if(empty($name)){
 					$name = 'LIST';

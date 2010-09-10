@@ -22,9 +22,8 @@ abstract class XiusView extends JView
 	public $_isExternalUrl  = false;
 	
 	function __construct($config = array())
-	{
-		$template	= 'default';
-
+	{		
+		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
 		// override the template path, so that default
 		// templates will be picked from here
 		//XITODO : we can add here multiple templates, so from global params
@@ -189,5 +188,47 @@ abstract class XiusView extends JView
 	public function getXiUrl()
 	{
 		return $this->_xiurl;
-	}	
+	}
+	
+	// XITODO : UNIT Test case for the following function
+	public function loadAssets($type,$filename)
+	{
+		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
+		$prefix	=	$this->getPrefix();	
+		$xiustemplateBase = XIUS_PATH_TEMPLATE;	
+		static $path = null;
+		
+		if($path === null || !array_key_exists($type, $path)){
+			$path[$type] =array();
+			
+			// load joomla template path
+			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
+			$path1 = $templateDir.DS.'com_xius'.DS.'assets'.DS.JString::strtolower($type);
+			array_push($path[$type],$path1);
+			
+			// load xius template path
+			$path2	=	$xiustemplateBase.DS.$template.DS.'assets'.DS.JString::strtolower($type);
+			array_push($path[$type],$path2);
+			
+			// load common path of assets
+			$path3 	= XIUS_PATH_SITE_ASSET.DS.JString::strtolower($type);
+			array_push($path[$type],$path3);
+		}
+		
+		$assetsPath = JPath::find($path[$type], $filename);
+		if($assetsPath === false){
+			return JError::raiseError( 500, 'Assets "' . $filename . '" not found' );
+		}
+		
+		$assetsPath = JString::str_ireplace(JPATH_ROOT,JURI::base(),$assetsPath);
+		$document =& JFactory::getDocument();
+		
+		switch($type){
+			case 'css':	$document->addStyleSheet($assetsPath);
+						break;
+			case 'js' : $document->addScript($assetsPath);
+						break;
+		}
+		return true;
+	}
 }

@@ -82,7 +82,7 @@ class XiusSearchTest extends XiSelTestCase
     	$this->isSearchElementPresent($element);
     	
     	// match any condition
-    	$this->select("xiusjoin", "label=Match Any");
+    	$this->select("xiusjoin", "label=Any");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_57']"));
 		// remove male

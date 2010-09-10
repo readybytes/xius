@@ -34,7 +34,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
-		$this->select("xiusjoin", "label=Match All");
+		$this->select("xiusjoin", "label=All");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
 	}
@@ -59,7 +59,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
-		$this->select("xiusjoin", "label=Match All");
+		$this->select("xiusjoin", "label=All");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
 		
@@ -89,7 +89,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
-		$this->select("xiusjoin", "label=Match All");
+		$this->select("xiusjoin", "label=All");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
 		
@@ -107,7 +107,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
     	
     	$this->isSearchElementPresent($element);
     	// match any
-		$this->select("xiusjoin", "label=Match Any");
+		$this->select("xiusjoin", "label=Any");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));		
 	}	

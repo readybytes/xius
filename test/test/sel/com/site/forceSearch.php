@@ -22,7 +22,7 @@ class XiusForceSearchSelTest extends XiSelTestCase
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
     	
-    	$this->select("xiusjoin", "label=Match Any");
+    	$this->select("xiusjoin", "label=Any");
        	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_6']"));
     	

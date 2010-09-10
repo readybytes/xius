@@ -69,6 +69,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 				<?php echo XiusText::_($this->user->usertype); ?>
 			</td>
 		</tr>
+		<!--
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
@@ -79,7 +80,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 				<input type="text" name="xiusListVisibleInfo" value ="<?php echo XiusText::_($this->list->visibleinfo); ?>" />
 			</td>
 		</tr>
-		
+		-->
 		<tr>
 			<td width="100" class="key">
 				<label for="name">

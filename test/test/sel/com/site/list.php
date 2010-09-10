@@ -184,7 +184,7 @@ class XiusListTest extends XiSelTestCase
 	
 	function checkListPagination()
 	{		
-    	$this->select('xiusjoin',"label=Match Any");
+    	$this->select('xiusjoin',"label=Any");
 		$this->waitPageLoad();
     	$this->select('field12',"label=Algeria");
     	$this->click("//img[@class='xius_test_addinfo_3']");

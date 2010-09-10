@@ -90,7 +90,7 @@ class XiusRangesearchTest extends XiSelTestCase
     	$this->assertTrue($this->isElementPresent("//span[@id='total_4']"));
     	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 2 To 8']"));
 	    
-		$this->click("//img[@title='Clear All Applied Info']");
+		$this->click("//img[@title='Clear All']");
     	$this->waitPageLoad();
     	
     	$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 2 To 8']"));
@@ -193,7 +193,7 @@ class XiusRangesearchTest extends XiSelTestCase
 		
 		$this->assertEquals($this->getXpathCount("//img[contains(@class, 'xius_test_remove_From 10 To 16')]"), 2);
 		
-		$this->select("//select[@id='xiusjoin']", "label=Match Any");
+		$this->select("//select[@id='xiusjoin']", "label=Any");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_44']"));		
 	}

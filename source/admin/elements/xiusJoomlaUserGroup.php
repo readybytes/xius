@@ -1,7 +1,9 @@
 <?php
-
-// Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die();
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+if(!defined('_JEXEC')) die('Restricted access');
 
 class JElementXiusJoomlaUserGroup extends JElement
 {

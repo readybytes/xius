@@ -3,8 +3,12 @@
 	<params addpath="/administrator/components/com_xius/elements">
 	<!--
 		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
-	-->
-	<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
+	-->		
+		<param name="@spacer" type="spacer" default="Template Configuration" label="" description="" />
+		<param name="xiusTemplates" type="xiusTemplates" default="default" label="SELECT TEMPLATE.LABEL" description="SELECT TEMPLATE.DESC"></param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+	
+		<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
 		
 		<param name="xiusDebugMode" type="radio" default="0" label="ENABLE DEBUG MODE" description="ENABLE DEBUG MODE.DESC">
 			<option value="0">No</option>

@@ -360,7 +360,7 @@ class XiusInformationProximityTest extends XiSelTestCase
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);	
 		
-		$this->select('xiusjoin',"label=Match Any");
+		$this->select('xiusjoin',"label=Any");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_27']"));
 		$avatar[] = "//img[@id='avatar_63']";
