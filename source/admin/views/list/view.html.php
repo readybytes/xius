@@ -58,7 +58,7 @@ class XiusViewList extends JView
 		$user = & JFactory::getUser($list->owner);
 		// format the conditions applied		
 		$conditions = unserialize($list->conditions);		
-		$conditionHtml = XiusHelperList::formatConditions($conditions);
+		$conditionHtml = XiussiteHelperList::formatConditions($conditions);
 			
 		// load a temporary params from table, which can be used by other plugins
 		$tempConfig = new JRegistry('xiuslist');

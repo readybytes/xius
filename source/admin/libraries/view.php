@@ -88,12 +88,12 @@ abstract class XiusView extends JView
 	function displayResult($from,$list='',$tmpl)
 	{
 		$data = array(array());
-		XiusHelperResults::_getInitialData($data);
-		XiusHelperResults::_getUsers($data);
-		XiusHelperResults::_getTotalUsers($data);
-		XiusHelperResults::_createUserProfile($data);
-		XiusHelperResults::_getAppliedInfo($data);
-		XiusHelperResults::_getAvailableInfo($data);
+		XiussiteHelperResults::_getInitialData($data);
+		XiussiteHelperResults::_getUsers($data);
+		XiussiteHelperResults::_getTotalUsers($data);
+		XiussiteHelperResults::_createUserProfile($data);
+		XiussiteHelperResults::_getAppliedInfo($data);
+		XiussiteHelperResults::_getAvailableInfo($data);
 
 		$document = JFactory::getDocument();
         if(!empty($list) && !empty($list->name))
@@ -105,7 +105,7 @@ abstract class XiusView extends JView
 		$xiusSlideShow  = xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 
-		$this->assignRef('users', XiusHelperProfile::getUserProfileData($data['users']));
+		$this->assignRef('users', XiussiteHelperProfile::getUserProfileData($data['users']));
 		
 		// get the list id for save list
 		$listid=0;
@@ -114,7 +114,7 @@ abstract class XiusView extends JView
 				$listid = $list->id;
 			}
 		
-		$toolbar =XiusHelperToolbar::getAdminToolbar($listid,$from,array('isExternal'=>$this->_isExternalUrl,'xiurl'=>$this->getXiUrl()));
+		$toolbar =XiussiteHelperToolbar::getAdminToolbar($listid,$from,array('isExternal'=>$this->_isExternalUrl,'xiurl'=>$this->getXiUrl()));
 		$this->assignRef('toolbar',$toolbar);
 		//calculate data for these users
 

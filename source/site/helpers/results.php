@@ -7,7 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusHelperResults
+class XiussiteHelperResults
 {
 	function _getInitialData(&$data)
 	{

@@ -21,8 +21,8 @@ class XiuscleanWhiteSpaceUnitTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
-		XiusHelperResults::_getInitialData(&$data);
-		XiusHelperResults::_getTotalUsers(&$data);		
+		XiussiteHelperResults::_getInitialData(&$data);
+		XiussiteHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'],$totalResultUserCount);
 	}
@@ -72,8 +72,8 @@ class XiuscleanWhiteSpaceUnitTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
-		XiusHelperResults::_getInitialData(&$data);
-		XiusHelperResults::_getTotalUsers(&$data);		
+		XiussiteHelperResults::_getInitialData(&$data);
+		XiussiteHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'],$totalResultUserCount);
 	}

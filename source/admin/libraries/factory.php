@@ -7,39 +7,35 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusFactory
-{	
-	
+{
+
 	function &getModel( $name ,$location='admin', $reset=false )
 	{
 		static $modelInstances = null;
-		
-		if(!$reset && isset($modelInstances[$name]))
-			return $modelInstances[$name];
-		
-		if($location === 'admin'){
-			$modelAdminFile = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
-			if(!JFile::exists($modelAdminFile))
-				JError::raiseError(sprintf(XiusText::_('Not able to open model %s'),$name));
-			
-			include_once($modelAdminFile);
-		}
-		else if($location === 'site'){	
 
-			$modelSiteFile = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'models'.DS. JString::strtolower( $name ) .'.php';
-			if(!JFile::exists($modelSiteFile))
-				JError::raiseError(sprintf(XiusText::_('Not able to open model %s'),$name));
-			
-			include_once($modelSiteFile);
+		//find class name
+		$className = 'Xius';
+		if($location === 'site'){
+			$className = 'Xiussite';
 		}
-		else
-			assert(0);
-						
-		$classname = 'XiusModel'.$name;
-		$modelInstances[$name] = new $classname;
-		
-		return $modelInstances[$name];
+
+		$className = $className.'Model'.JString::ucfirst($name);
+
+		//we might have conflicting model names in admin/site
+		if(!$reset && isset($modelInstances[$className]))
+			return $modelInstances[$className];
+
+		//check for classname
+		if(class_exists($className, true)===false)
+		{
+			JError::raiseError(500,XiusText::_("Class $className not found"));
+			return false;
+		}
+
+		$modelInstances[$className] = new $className;
+		return $modelInstances[$className];
 	}
-	
+
 	static public function getPluginInstance($pluginName,$bindArray = '',$isBindRequired = false)
 	{
 		$pluginClassName = $pluginName;
@@ -53,7 +49,7 @@ class XiusFactory
 		}
 
 		require_once $pluginPath;
-			
+
 		//$instance will comtain all plugin object according to info
 		//Every info will have different object
 		static $instances = array();
@@ -63,8 +59,8 @@ class XiusFactory
 		}
 		else
 			$instances[$pluginName] = new $pluginClassName();
-		
-		
+
+
 		/* load id when it's not 0
 		 * load 0 is handeled by load fn so it's time for relaxation*/
 		/*XITODO : skip load , let handles it by calle self
@@ -73,12 +69,12 @@ class XiusFactory
 		 */
 		if($isBindRequired && $bindArray)
 				$instances[$pluginName] = $instances[$pluginName]->bind($bindArray);
-		
-		
-		return $instances[$pluginName];	
+
+
+		return $instances[$pluginName];
 	}
-	
-	
+
+
 	/*it will create object and load information
 	 * like field -> Gender ( params , key )  will be loaded
 	 */
@@ -88,45 +84,45 @@ class XiusFactory
 		$filter['id']	= $id;
 		if($checkPublished)
 			$filter['published']	= 1;
-		
+
 		$info = XiusLibrariesInfo::getInfo($filter);
 		if($info){
 			$pluginObject = self::getPluginInstance($info[0]->pluginType);
 			$pluginObject->bind($info[0]);
 			return $pluginObject;
 		}
-		
+
 		return false;
 	}
-	
-	
+
+
  	function getLibraryPluginHandler()
     {
         static $instance =null;
-        
+
         if($instance==null)
             $instance = new XiusLibrariesPluginhandler();
-        
+
         return $instance;
     }
-	
-	
+
+
 	public function getErrorObject()
 	{
 		static $object;
 		if(isset($object))
 			return $object;
-			
+
 		$object = new XiusError();
 		return $object;
 	}
-	
+
 	public function getCacheObject()
 	{
 		static $object;
 		if(isset($object))
 			return $object;
-			
+
 		$object = new XiusCache();
 		return $object;
 	}
@@ -139,11 +135,11 @@ class XiusFactory
         $buttonMap->set('text', XiusText::_( $text ));
         $buttonMap->set('name', 'image');
         $buttonMap->set('modalname', $name);
-        $buttonMap->set('options', "{handler: 'iframe', size: {x: ".$width.", y: ".$height."}}");        
+        $buttonMap->set('options', "{handler: 'iframe', size: {x: ".$width.", y: ".$height."}}");
         $buttonMap->set('link', $link);
-        return $buttonMap;        	
+        return $buttonMap;
 	}
-	
+
 	//Returns a MVCT object
 	static function getInstance($name, $type, $prefix='Xiussite', $refresh=false)
 	{
@@ -159,13 +155,13 @@ class XiusFactory
 
 		//if already there is an object
 		if(isset($instance[$className]))
-			return $instance[$className];			
-		
+			return $instance[$className];
+
 		//class_exists function checks if class exist,
 		// and also try auto-load class if it can
 		if(class_exists($className, true)===false)
 		{
-			self::getErrorObject()->setError("Class $className not found");
+			JError::raiseError(500,XiusText::_("Class $className not found"));
 			return false;
 		}
 
@@ -173,9 +169,9 @@ class XiusFactory
 		$instance[$className]= new $className();
 
 		return $instance[$className];
-	} 
+	}
 
-/*	
+/*
 	static public function getAllPluginInstanceFromProperty($pluginName,$bindArray = '',$isBindRequired = false)
 	{
 		$pluginClassName = $pluginName;
@@ -189,7 +185,7 @@ class XiusFactory
 		}
 
 		require_once $pluginPath;
-			
+
 		//$instance will comtain all plugin object according to info
 		//Every info will have different object
 		static $instances = array();
@@ -199,8 +195,8 @@ class XiusFactory
 		}
 		else
 			$instances[$pluginName] = new $pluginClassName();
-		
-		
+
+
 		// load id when it's not 0
 		 // load 0 is handeled by load fn so it's time for relaxation
 		//XITODO : skip load , let handles it by calle self
@@ -209,9 +205,9 @@ class XiusFactory
 		 //
 		if($isBindRequired && $bindArray)
 				$instances[$pluginName] = $instances[$pluginName]->bind($bindArray);
-		
-		
-		return $instances[$pluginName];	
+
+
+		return $instances[$pluginName];
 	}
 */
 

@@ -13,24 +13,24 @@ class XiusLoader
 
         function addAutoLoadFolder($folder, $type, $prefix='Xius')
         {
-                foreach(JFolder::files($folder) as $file )
+                foreach(JFolder::files($folder,".php$") as $file )
                 {
                         if($file===strtolower('index.html'))
                         	continue;
-                      
+
                         $className      = JString::ucfirst($prefix)
-                                                . JString::ucfirst($type)
-                                                . JString::ucfirst(JFile::stripExt($file));
-                        
+                                          . JString::ucfirst($type)
+                                          . JString::ucfirst(JFile::stripExt($file));
+
                         JLoader::register($className, $folder.DS.$file);
                 }
         }
-        
+
         function addAutoLoadFile($class,$file)
         {
         	JLoader::register($class, $file);
         }
-        
+
 		function addAutoLoadViews($baseFolders, $format, $prefix='Xius')
 		{
 			foreach(JFolder::folders($baseFolders) as $folder )
@@ -39,7 +39,7 @@ class XiusLoader
 				$className 	= JString::ucfirst($prefix)
 							. JString::ucfirst('View')
 							. JString::ucfirst($folder);
-	
+
 				if($format==='ajax') $format = 'html';
 				$fileName	= "view.$format.php";
 				JLoader::register($className, $baseFolders.DS.$folder.DS.$fileName);

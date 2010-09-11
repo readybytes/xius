@@ -7,7 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusHelperProfile
+class XiussiteHelperProfile
 {
 	function getUserProfileData($users)
 	{

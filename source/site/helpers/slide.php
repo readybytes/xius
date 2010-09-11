@@ -1,7 +1,7 @@
 <?php /**
  * Handles mootools Fx.Slide
  */
-class XiusHelperSlide extends JObject
+class XiussiteHelperSlide extends JObject
 {
      /**
 		 * Slider mode: horizontal|vertical

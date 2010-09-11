@@ -13,17 +13,24 @@ define('XIUS_DEFINE','XIUS_DEFINE');
 
 //names which will not vary
 define('XIUS_COMPONENT_NAME','com_xius');
-	
+
 //all folder paths
 define('XIUS_COMPONENT_PATH_SITE',	JPATH_ROOT.DS.'components'.DS.XIUS_COMPONENT_NAME);
 define('XIUS_COMPONENT_PATH_ADMIN',	JPATH_ADMINISTRATOR.DS.'components'.DS.XIUS_COMPONENT_NAME);
+
+//admin
 define('XIUS_PATH_TABLE',		XIUS_COMPONENT_PATH_ADMIN.DS.'tables');
 define('XIUS_PATH_MODEL',		XIUS_COMPONENT_PATH_ADMIN.DS.'models');
+define('XIUS_PATH_VIEW',		XIUS_COMPONENT_PATH_ADMIN.DS.'views');
+define('XIUS_PATH_CONTROLLER',	XIUS_COMPONENT_PATH_ADMIN.DS.'controllers');
 define('XIUS_PATH_LIBRARY',		XIUS_COMPONENT_PATH_ADMIN.DS.'libraries');
 define('XIUS_PATH_HELPER',		XIUS_COMPONENT_PATH_ADMIN.DS.'helpers');
 define('XIUS_PATH_ASSET',		XIUS_COMPONENT_PATH_ADMIN.DS.'assets');
+
+//frontend
 define('XIUS_PATH_TEMPLATE',	XIUS_COMPONENT_PATH_SITE.DS.'templates');
 define('XIUS_PATH_SITE_ASSET',	XIUS_COMPONENT_PATH_SITE.DS.'assets');
+
 
 define('XIUS_ALL',-1);
 
@@ -53,4 +60,3 @@ define('XIUS_MICRO_TO_SECOND',(1000*1000));
 // Height and width of Pop up window for Saving List
 define('XIUSLIST_IFRAME_HEIGHT', 200);
 define('XIUSLIST_IFRAME_WIDTH', 400);
- 

@@ -212,7 +212,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$html8 = '<input type = "hidden" name="xiusinfo_81" id="xiusinfo_81" value="8"/>'
 				.'<input class="inputbox" type="text" name="field3" id="field3" style="width:125px; margin-right:4px" value="" />'
 				.'<a href="javascript:void(0)" onclick="return showCalendar(\'field3\', \'dd-mm-y\');" >'
-				.'<img src="http://http/usr/bin/components/com_community/assets/calendar.png"></a>'
+				.'<img src="/usr/bin/components/com_community/assets/calendar.png"></a>'
 				.'<input type = "hidden" name="xiusinfo_82" id="xiusinfo_82" value="8"/>';
 				
 		return array(

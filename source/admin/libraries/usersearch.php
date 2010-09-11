@@ -383,7 +383,7 @@ class XiusLibrariesUsersearch
 		if($conditionvalue == null)
 			$conditionvalue = JRequest::getVar('conditionvalue', '', 'POST');
 			
-		$value = XiusHelperUsers::getUnserializedData($conditionvalue);
+		$value = XiussiteHelperUsers::getUnserializedData($conditionvalue);
 		$conditions = array_values($conditions);
 		
 		$searchdata['infoid'] = $delInfoId;

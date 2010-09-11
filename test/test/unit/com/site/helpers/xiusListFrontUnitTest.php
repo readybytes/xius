@@ -17,19 +17,19 @@ class XiusListFrontUnitTest extends XiUnitTestCase
 		$lists = $lModel->getLists($filter,'AND',true);
 		
 		// filter list according to privacy set by joomla
-		XiusHelperList::filterListPrivacy(&$lists,$user);
+		XiussiteHelperList::filterListPrivacy(&$lists,$user);
 		$this->checkListExists($lists,array(1,3),array(2));
 		
 		$user->usertype = "Publisher";
-		XiusHelperList::filterListPrivacy(&$lists,$user);
+		XiussiteHelperList::filterListPrivacy(&$lists,$user);
 		$this->checkListExists($lists,array(3),array(1,2));
 		
 		$user->usertype = '';
-		XiusHelperList::filterListPrivacy(&$lists,$user);
+		XiussiteHelperList::filterListPrivacy(&$lists,$user);
 		$this->checkListExists($lists,array(3),array(1,2));
 		
 		$user->usertype = 'Super Administrator';
-		XiusHelperList::filterListPrivacy(&$lists,$user);
+		XiussiteHelperList::filterListPrivacy(&$lists,$user);
 		$this->checkListExists($lists,array(1,2,3),array());
 	}
 	

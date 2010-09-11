@@ -7,7 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusHelperToolbar 
+class XiussiteHelperToolbar 
 {
 	function getAdminToolbar($listid, $task, $submitUrl)
 	{
@@ -38,7 +38,7 @@ class XiusHelperToolbar
 		/*
 		 * get toolbar option for save list
 		 */
-		if(XiusHelperList::isAccessibleToUser($user,$listCreator)){
+		if(XiussiteHelperList::isAccessibleToUser($user,$listCreator)){
   			$obj 		= new stdClass();
   			$uri->setVar($prefix.'view','list');
   			$uri->setVar($prefix.'task','saveas');

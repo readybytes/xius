@@ -30,7 +30,7 @@ class XiussiteViewList extends XiusView
 		$lists = $lModel->getLists($filter,'AND',true);
 		
 		// filter list according to privacy set by joomla
-		XiusHelperList::filterListPrivacy(&$lists,$user);
+		XiussiteHelperList::filterListPrivacy(&$lists,$user);
 		$pagination =& $lModel->getPagination($filter,'AND');
 
 		$this->assign('lists',$lists);
@@ -83,7 +83,7 @@ class XiussiteViewList extends XiusView
 		$data['join'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 
 		// get related data of conditions 
-		$conditionHtml = XiusHelperList::formatConditions($data['conditions']);
+		$conditionHtml = XiussiteHelperList::formatConditions($data['conditions']);
 		
 		// if saveas is xiussaveexisting
 		$data['listName'] 	= '';

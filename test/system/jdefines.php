@@ -20,13 +20,18 @@ define('TIMEOUT_SEC',300000);
 define('JOOMLA_ADMIN_USERNAME', 'admin');
 define('JOOMLA_ADMIN_PASSWORD',	'ssv445');
 
-//these files should have been copied by phing during setup of joomla 
+//these files should have been copied by phing during setup of joomla
 define('XIUS_PKG',		JOOMLA_LOCATION.'/xius.zip');
+define('XIPT_PKG',		JOOMLA_LOCATION.'/xipt.zip');
+define('XIPT_PLG_SYS_PKG',		JOOMLA_LOCATION.'/plg_xipt_system.zip');
+define('XIPT_PLG_COM_PKG',		JOOMLA_LOCATION.'/plg_xipt_community.zip');
 
 $name = 'com_xius';
+if(!defined('JPATH_COMPONENT')){
 define( 'JPATH_COMPONENT',					JPATH_BASE.DS.'components'.DS.$name);
 define( 'JPATH_COMPONENT_SITE',				JPATH_SITE.DS.'components'.DS.$name);
 define( 'JPATH_COMPONENT_ADMINISTRATOR',	JPATH_ADMINISTRATOR.DS.'components'.DS.$name);
+}
 
 define('JOMSOCIAL_ZEND_PLUGIN', JOOMLA_LOCATION);
 define('JOMSOCIAL18_PKG', JOOMLA_LOCATION.'/com_community1.8.zip');

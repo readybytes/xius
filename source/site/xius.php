@@ -12,15 +12,8 @@ $view	= JRequest::getCmd('view', 		'users');
 $task 	= JRequest::getCmd('task', 		'panel');
 $format	= JRequest::getCmd('format',	'html');
 $plugin	= JRequest::getCmd('plugin',	'');
-$path		= JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.JString::strtolower($view).'.php';
 
-// Test if the controller really exists
-if(file_exists($path))
-	require_once( $path );
-else
-	JError::raiseError( 500 , sprintf(XiusText::_( 'Invalid Controller %s. File does not exists in this context.' ),$view) );
-
-/*IMP : discard this assumption b'coz view name always set after View 
+/*IMP : discard this assumption b'coz view name always set after View
 *we assume that controller name will be before , 'controller' in front
 */
 if($plugin != ''){
@@ -32,21 +25,19 @@ if($plugin != ''){
 	$controller = $pInst->getController($controllerClass);
 	if($controller == false)
 		JError::raiseError( 500 , sprintf(XiusText::_('Invalid Plugin Controller Object %s. Class definition does not exists in this context.' ),$controller));
-		
+
 	$controller->execute($task);
 	$controller->redirect();
 	return;
 }
-	
+
 $controllerClass = 'Xiussite'.'Controller'.JString::ucfirst(JString::strtolower($view));
 
 
 // Test if the object really exists in the current context
-if( class_exists( $controllerClass ) )
-	$controller = new $controllerClass();
-else
+if(class_exists( $controllerClass,true)===false)
 	JError::raiseError( 500 , sprintf(XiusText::_('Invalid Controller Object %s. Class definition does not exists in this context.' ),$controllerClass));
 
+$controller = new $controllerClass();
 $controller->execute($task);
-
 $controller->redirect();

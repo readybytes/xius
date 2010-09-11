@@ -32,8 +32,8 @@ abstract class XiusController extends JController
 
 		//init the controller
 		//$this->_addTaskMapping();
-	}	
-	
+	}
+
 /*
 	 * Collect prefix auto-magically
 	 */
@@ -50,7 +50,7 @@ abstract class XiusController extends JController
 		$this->_prefix  =  JString::strtolower($r[1]);
 		return $this->_prefix;
 	}
-	
+
 	function getName()
 	{
 		$name = $this->_name;
@@ -66,14 +66,16 @@ abstract class XiusController extends JController
 
 		return $name;
 	}
-		
+
+
 	public function getView($name='')
 	{
 		static $view = null;
-		
+
+		//XITODO : MUST check name of VIEW
 		if($view)
 			return $view;
-			
+
 		if(empty($name))
 			$name 	= $this->getName();
 
@@ -81,16 +83,15 @@ abstract class XiusController extends JController
 		$view	= 	XiusFactory::getInstance($name,'View', $this->getPrefix());
 
 		if(!$view){
-			$this->setError(XiusText::_("NOT ABLE TO GET INSTANCE OF VIEW : {$this->getName()}"));
+			JError::raiseError (500, XiusText::_("NOT ABLE TO GET INSTANCE OF VIEW : {$this->getName()}"));
+			return null;
 		}
-		
+
 		$layout	= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );
-		
-		/*
-		 *  if external URL is set in controller then also set it into view also
-		 */
-		$view->_isExternalUrl = $this->_isExternalUrl;  
+
+		// if external URL is set in controller then also set it into view also
+		$view->_isExternalUrl = $this->_isExternalUrl;
 		return $view;
-	}	
+	}
 }

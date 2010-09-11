@@ -11,64 +11,6 @@
 
 if(!defined('_JEXEC')) die('Restricted access');
 
-/**
- * Query Element Class.
- *
- * @package		Joomla.Framework
- * @subpackage	Database
- * @since		1.6
- */
-class XiusQueryElement
-{
-	/** @var string The name of the element */
-	protected $_name = null;
-
-	/** @var array An array of elements */
-	protected $_elements = null;
-
-	/** @var string Glue piece */
-	protected $_glue = null;
-
-	/**
-	 * Constructor.
-	 *
-	 * @param	string	The name of the element.
-	 * @param	mixed	String or array.
-	 * @param	string	The glue for elements.
-	 */
-	public function __construct($name, $elements, $glue=',')
-	{
-		$this->_elements	= array();
-		$this->_name		= $name;
-		$this->_glue		= $glue;
-
-		$this->append($elements);
-	}
-
-	public function __toString()
-	{
-		return PHP_EOL.$this->_name.' '.implode($this->_glue, $this->_elements);
-	}
-
-	/**
-	 * Appends element parts to the internal list.
-	 *
-	 * @param	mixed	String or array.
-	 */
-	public function append($elements)
-	{
-		if (is_array($elements)) {
-			$this->_elements = array_unique(array_merge($this->_elements, $elements));
-		} else {
-			$this->_elements = array_unique(array_merge($this->_elements, array($elements)));
-		}
-	}
-	
-	function convertWhereIntoString()
-	{
-		return implode($this->_glue, $this->_elements);
-	}
-}
 
 /**
  * Query Building Class.
@@ -84,7 +26,7 @@ class XiusQuery
 
 	/** @var object The select element */
 	protected $_select = null;
-	
+
 	/** @var object The delete element */
 	protected $_delete = null;
 
@@ -195,7 +137,7 @@ class XiusQuery
 		return $this;
 	}
 
-	
+
 	/**
 	 * @param	mixed	A string or an array of field names
 	 */
@@ -428,65 +370,12 @@ class XiusQuery
 
 		return $query;
 	}
-	
+
 	function convertWhereIntoString()
 	{
 		if ($this->_where) {
 			return $this->_where->convertWhereIntoString();
 		}
-		return true;	
-	} 
-}
-
-
-class XiusCreateTable extends JObject
-{
-	public $_tableName;
-	public $_query;
-	private $_count;
-	
-	function __construct($tableName)
-	{
-		if(empty($tableName))
-			return false;
-			
-		$db = JFactory::getDBO();
-		$this->_tableName	= 	$tableName;
-		$this->_query		=	'CREATE TABLE IF NOT EXISTS '
-								.$db->nameQuote($this->_tableName).' ( ';
-								
-		$this->_count = 0;
 		return true;
-	}
-	
-	
-	function finalizeQuery()
-	{
-		$this->_query .= ' )';
-	}
-	
-	
-	function appendColumns($columns)
-	{
-		if(empty($columns))
-			return false;
-		
-		foreach($columns as $c) {
-			
-			if($this->_count)
-				$this->_query .= ',';
-			
-			$this->_query .= $c;
-			$this->_count = $this->_count + 1;
-		}	
-		
-		return true;
-	}
-	
-	function __toString()
-	{
-		$query = '';
-		$query .= (string) $this->_query;
-		return $query;
 	}
 }

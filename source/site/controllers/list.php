@@ -91,8 +91,8 @@ class XiussiteControllerList extends XiusController
 		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
 		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiussiteHelperUsers::getUnserializedData($list->conditions),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiussiteHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
 		return true;
 	}
 	
@@ -174,7 +174,7 @@ class XiussiteControllerList extends XiusController
 		$listCreator = unserialize(XiusHelpersUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
 		
 		// allow user to create list who can create
-		if(XiusHelperList::isAccessibleToUser($user,$listCreator)){
+		if(XiussiteHelperList::isAccessibleToUser($user,$listCreator)){
 			$returndata = array('id' => 0 ,  'success' => true);
 			return $returndata;			
 		}

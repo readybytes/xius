@@ -109,7 +109,7 @@ class XiusLibrariesPluginhandler
 	function xiusOnAfterLoadList(&$lists)
 	{
 		$user  = & JFactory::getUser();
-		return XiusHelperList::filterListPrivacy($lists,$user);			
+		return XiussiteHelperList::filterListPrivacy($lists,$user);			
 	}
 	
 }
