@@ -23,7 +23,7 @@ function com_install()
 	
 	changePluginState('xius_system',true);
 	changePluginState('xius',true);
-	changePluginState('xius_list_privacy',true);
+	changePluginState('js_privacy',true);
 	return true;
 }	
 

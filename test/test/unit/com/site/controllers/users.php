@@ -89,7 +89,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 	{
 		$this->_DBO->addTable('#__xius_list');		
 		$this->_DBO->filterColumn('#__xius_list','ordering');
-		
+		JPluginHelper::importPlugin( 'xius' );	
 		$this->resetCachedData();
 		
 		require_once XIUS_COMPONENT_PATH_SITE.DS.'controllers'.DS.'list.php'; 
@@ -98,7 +98,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$datas = array();
 		$url1 = array('listid'=>1,'task'=>'showList','view'=>'list');		
-		$datas[] = array('info' => array('listid' => 1, 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND', 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan','xius_list_privacy' => 'member'),'resultId' => 1 , 'resultUrl' => $url1,
+		$datas[] = array('info' => array('listid' => 1, 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND', 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan','js_privacy' => 'member'),'resultId' => 1 , 'resultUrl' => $url1,
 						'conditions' => array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '=')));
 	
 		$list	= JTable::getInstance( 'list' , 'XiusTable' );
@@ -138,7 +138,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$post['xiusListJoinWith']	= 'OR';
 		$post['xiusListSortInfo']	= 2;
 		$post['xiusListSortDir']	= 'DESC';
-		$post['xius_list_privacy'] 	= 'friend';
+		$post['js_privacy'] 		= 'friend';
 		
 		$userController1 = new XiussiteControllerList();
 		$result = $userController1->_saveList(true,$post,null,$user);

@@ -237,7 +237,7 @@ class XiussiteControllerList extends XiusController
 		$data['conditions'] = serialize($conditions);
 				
 		// trigger event before saving list
-		JPluginHelper::importPlugin( 'system' );
+		JPluginHelper::importPlugin( 'xius' );
 		$dispatcher =& JDispatcher::getInstance();
 		
 		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );

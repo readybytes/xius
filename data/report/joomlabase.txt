@@ -226,9 +226,6 @@
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:85:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:94:		$loggedinUser = & JFactory::getUser();				
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:149:    	$db      = & JFactory::getDBO();
-../packages/tmp/install/extensions/xius_privacy/xius_list_privacy.php:85:		$app = JFactory::getApplication();
-../packages/tmp/install/extensions/xius_privacy/xius_list_privacy.php:94:		$loggedinUser = & JFactory::getUser();				
-../packages/tmp/install/extensions/xius_privacy/xius_list_privacy.php:149:    	$db      = & JFactory::getDBO();
 ../packages/tmp/install/extensions/xius_system/xius_system.php:47:		global $mainframe;
 ../packages/tmp/install/extensions/xius_system/xius_system.php:50:		if($mainframe->isAdmin())
 ../packages/tmp/install/extensions/xius_system/xius_system.php:64:		$oldTablePath = JTable::addIncludePath();

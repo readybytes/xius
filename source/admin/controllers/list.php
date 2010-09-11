@@ -104,7 +104,7 @@ class XiusControllerList extends JController
 		if($post == null)
 			$post	= JRequest::get('post');
 		
-		JPluginHelper::importPlugin( 'system' );
+		JPluginHelper::importPlugin( 'xius' );
 		jimport('joomla.filesystem.file');
 
 		$data = array();
