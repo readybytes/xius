@@ -42,9 +42,21 @@ div#profileToolbar {
 #xiusTbButton{
         border:1px solid #e3e3e3;
         background:#ffffff;
-        overflow:hidden;
 }
 
+div#xiusProfile #xiusActions {
+	position: absolute;
+    margin:0 2px;
+    border-bottom: 1px solid #e3e3e3;
+	border-left: 1px solid #e3e3e3;
+	border-right: 1px solid #e3e3e3;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;	
+    padding:2px 0 2px 5px;
+    cursor: pointer;
+    background:#ffffff;
+}
 div.xiusfl {
 	float: left;
 }
@@ -55,18 +67,17 @@ div.xiusfr {
 
 /** filters and filtered information**/
 div#xiusProfile div#xiusFilter {
-	    overflow-x:auto;
-	    background:#ffffff;
+	overflow-x:auto;
+	background:#ffffff;
         width:24%;
         border:1px solid #e3e3e3;
         float:left;
         padding:5px;
 }
 
-#xiusFiltered {
-       float:left;
-       border:1px solid #e3e3e3;
-       width: 150px;
+div#xiusProfile #xiusFiltered {
+        width: 100%;
+       margin-bottom:10px;
 }
 
 div#xiusClearAll {
@@ -75,17 +86,23 @@ div#xiusClearAll {
 	background: url("../images/clear_all.png") no-repeat;
 }
 
-div#xiusFdHead {
+div#xiusProfile div#xiusFdHead {
 	background:#c3c3c3;
 	color: #ffffff;
+        padding:3px;
+        font-weight:bold;
+        font-size:110%;       
 }
 
 div#xiusProfile  div.xiusFdData {
-	 margin-top:2px;
+	margin-top:5px;
+	border:1px solid #e3e3e3;
+        padding:2px;
 }
 
 span.xiusFdClear {
         float:right;
+        cursor:pointer;
 }
 div.xiusFdLabel {
         font-weight:bold;
@@ -95,28 +112,31 @@ div.xiusFdValue {
 }
 
 div#filters {
-	/*border:1px solid #e3e3e3;*/	
+	/*border:1px solid #e3e3e3;*/
+	width:100%
 }
 
-div#xiusFlHead {
+div#xiusProfile div#xiusFlHead {
     /*font-size:120%;*/
 	background:#c3c3c3;
 	color: #ffffff;
 	font-weight: bold;
-	width:100%;
+        font-size:110%;
+        padding:3px;
 }
 
 div#xiusFlForm {
    font-size:10px;
 }
 div#xiusProfile div.xiusFlData {
-        margin-top:5px;
+        margin-top:7px;
         border:1px solid #e3e3e3;
+        padding:2px;
 }
 
 div.xiusFlLabel {
        font-weight:bold;
-       width:150px;
+       width:100%;
 }
 
 div.xiusFlInput {
@@ -151,6 +171,7 @@ div#xiusProfile div#xiusMiniProfiles {
 
 div#xiusProfile div#xiusTotal {
 	text-align: right;
+	font-style: italic;
 }
 
 div#xiusMiniProfiles div.xiusMiniProfile {
@@ -168,6 +189,15 @@ div#xiusProfile div.xiusMiniProfile div.xiusHeader{
 div.xiusMpOptions{
 }
 
+div#xiusProfile span.xiusOptionsImg{
+	padding-right:16px;
+	background: url("../images/options.png") no-repeat;
+}
+
+div#xiusProfile div.xiusMpOptions img{
+
+}
+
 div#xiusProfile span.xiusCheckUser {
 	width:20px;
 	margin:2px;
@@ -181,6 +211,8 @@ div#xiusProfile div.xiusOnline {
 	border-left: 1px solid #e3e3e3;
 	border-right: 1px solid #e3e3e3;
 	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
 	width:auto;
 	float:left;
 }
@@ -194,6 +226,7 @@ div#xiusProfile div.xiusOffline {
 	border-right: 1px solid #e3e3e3;
 	-moz-border-radius:0 0 5px 5px;
 	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
 	width:auto;
 	float:left;
 }
@@ -206,12 +239,14 @@ div#xiusProfile div.xiusViewProfile {
 
 div#xiusProfile div.xiusWriteMsg {
 	padding:0 0 0 20px;
-	background: url("../images/msg.png") no-repeat;	
+	background: url("../images/msg.png") no-repeat;
+        border-bottom: 1px dashed #e3e3e3;	
 }
 
 div#xiusProfile div.xiusFriends {
 	padding:0 0 0 20px;
-	background: url("../images/friends.png") no-repeat;	
+	background: url("../images/friends.png") no-repeat;
+        border-bottom: 1px dashed #e3e3e3;	
 }
 
 div.xiusMpMiddle {
@@ -225,9 +260,10 @@ div#xiusProfile .xiusHeaderStatus {
 	width:100%;
 }
 	
-div.xiusAvatar {
-	width:20%;
+div#xiusProfile div.xiusAvatar {
+	width:14%;
 	float:left;
+        margin:5px;
 }
 
 div.xiusAvatar {
@@ -239,20 +275,20 @@ div.xiusAvatar {
 
 div.xiusMpData {
 	margin:5px;
-    width:85%;
-    float:left;
+        width:80%;
+        float:left;
 }
 
 div#xiusProfile div.xiusMpInfo {
 	margin-bottom:5px;
 	float:left;
-    width:49.5%;
+        width:49.5%;
 }
 
 div.xiusMplabel	{
-     float:left;
-     width:35%;
-     font-size:85%;
+       float:left;
+       width:35%;
+       font-size:85%;
 }
 div#xiusProfile div.xiusMpValue	{
       font-weight:bold;
@@ -268,7 +304,9 @@ div#xiusProfile div.xiusProfileAction {
 	border-bottom: 1px solid #e3e3e3;
 	border-left: 1px solid #e3e3e3;
 	border-right: 1px solid #e3e3e3;
-	-moz-border-radius:0 0 5px 5px;	
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;	
 	padding:2px;
 	margin-right:2px;
 	float:right;
@@ -282,6 +320,3 @@ div#xiusProfile .xiusMpActions {
 	position: absolute;
 }
 
-#xiusActions {
-	position: absolute;
-}

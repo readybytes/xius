@@ -11,6 +11,7 @@
 <div id="profileToolbar">
 <div id="xiusActions" class="xiusfl">
 <?php echo XiusText::_('OPTIONS'); ?>
+<span class="xiusOptionsImg">&nbsp;</span>
 <div id="xiusTbButton">
 <?php
 foreach($this->toolbar as $tool)

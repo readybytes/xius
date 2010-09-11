@@ -16,17 +16,17 @@
 						<div class="xiusFlLabel">
 						<div class="xiusFlImg">
 						<div class="xius_test_addinfo_<?php echo $data['infoid'];?>" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-								 title="<?php echo JText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
+								 title="<?php echo XiusText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
 						ADD
 						</div>
 						</div>
 						<?php
-						//echo JHTML::_('tooltip',JText::_($xiustooltip), JText::_($data['label']), null, JText::_($data['label']));
+						//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($data['label']), null, XiusText::_($data['label']));
 							$xiustooltip = $data['tooltip'];
 							if(!empty($xiustooltip)) :
-								echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';
+								echo '<span title="'.XiusText::_($xiustooltip).'">'.XiusText::_($data['label']).'</span>';
 							else :
-								echo JText::_($data['label']); 
+								echo XiusText::_($data['label']); 
 							endif;
 						?>
 						</div>

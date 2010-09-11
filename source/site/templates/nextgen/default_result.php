@@ -11,7 +11,9 @@ $js1 = JURI::base().'components/com_xius/assets/js/jquery.js';
 $js3 = JURI::base().'components/com_xius/assets/js/xius.js';
 $document =& JFactory::getDocument();
 $document->addStyleSheet($css);
+JHTML::_('behavior.mootools');
 $document->addScript($js1);
+$document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 $document->addScript($js2);
 $document->addScript($js3);
 ?><!--[if IE 6]>
@@ -25,6 +27,7 @@ $document->addScript($js3);
 			<div id="xiusFiltered">
 			<?php echo $this->loadTemplate('filtered');?>
 			</div>
+			
 			<div id="filters">
 			<?php	echo $this->loadTemplate('filters');?>
 			</div>
@@ -32,8 +35,12 @@ $document->addScript($js3);
 <?php echo $this->loadTemplate('toolbar'); ?>
 <div id="xiusMiniProfiles">
 <?php echo $this->loadTemplate('profile');?>
+<div class="pagination">
+<?php echo $this->pagination->getPagesLinks();?>
 </div>
-<?php echo $this->pagination->getPagesLinks();
+</div>
+
+<?php 
 	$viewName = 'view';
 	$taskName = 'task';
 	 

@@ -6,11 +6,12 @@
 if(!empty($this->appliedInfo)) : ?>
 <div id="xiusFdHead">
 	<?php
-	echo JText::_('FILTERED BY');
+	echo XiusText::_('FILTERED BY');
 	?>
-	<div id="xiusClearAll" title="<?php echo JText::_('XIUS CLEAR ALL APPLIED INFO');?>"  onclick="xiusAddSubTask('resetfilter')">
+	<div id="xiusClearAll" title="<?php echo XiusText::_('XIUS CLEAR ALL APPLIED INFO');?>"  onclick="xiusAddSubTask('resetfilter')">
+	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo XiusText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
 	<?php
-	echo XiusText::_('CLEAR ALL');
+	//echo XiusText::_('CLEAR ALL');
 	?> 
 	</div>
 </div>
@@ -22,7 +23,7 @@ if(!empty($this->appliedInfo)) : ?>
 		<div class="xiusFdData">
 			<div class="xiusFdLabel">
 				<?php 
-					echo JText::_($a['label']);
+					echo XiusText::_($a['label']);
 					if(is_array($a['formatvalue']))	:	
 						foreach($a['formatvalue'] as $a_values) 
 							echo $a_values;
@@ -33,8 +34,8 @@ if(!empty($this->appliedInfo)) : ?>
 				echo $a['formatvalue'];
 			endif;
 			
-			echo '<img class="xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.pg" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
-									alt="X" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/>';		
+			//echo '<img class="xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.pg" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
+			//						alt="X" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/>';		
 			?>
 			</div>
 		</div>	

@@ -1,11 +1,16 @@
-$(function(){
+jQuery(document).ready(function($){
 	
 	$('div.xiusFlData').children('.xiusFlLabel').children('.xiusFlImg').css("display", "none");
+	$('div.xiusFdData').children('.xiusFdLabel').children('.xiusFdClear').css("display", "none");
 	
 	$('#xiusTbButton').css("display","none");
-	$('div#xiusActions').hover(function(){
-		$('#xiusTbButton').slideToggle("fast");		
+	$('div#xiusActions').mousedown(function(){
+		$('#xiusTbButton').slideDown("fast");		
 	});	
+	
+	$('div#xiusActions').mouseleave(function(){
+		$('#xiusTbButton').slideUp("fast");		
+	});
 
 	
 //	$('div.xiusProfileAction').hover(
@@ -23,10 +28,7 @@ $(function(){
 //            }
 //        );
 
-/*
- *  slider for profile options
- */	
-
+/* slider for profile options */	
 	$('div.xiusProfileAction').mousedown(function(){
 		var $this = $(this);
 		var divID = $this.attr("id").replace("xiusProfileAction_", "xiusMpActions_");
@@ -43,15 +45,20 @@ $(function(){
 	$div.slideUp("fast");
 	});
 	
+/* filtered data clear button */
+	$('div.xiusFdData').hover(function(){
+		$(this).children('.xiusFdLabel').children('span.xiusFdClear').css("display", "block");
+	},function(){
+		$(this).children('.xiusFdLabel').children('span.xiusFdClear').css("display", "none");
+	});		
 	
-	
-	
-	$('div.xiusFlData').mouseover(function(){
+/* filter data add button */
+	$('div.xiusFlData').hover(function(){
 		$(this).children('.xiusFlLabel').children('.xiusFlImg').css("display", "block");
-	});
-	
-	$('div.xiusFlData').mouseout(function(){
-		$(this).children('.xiusFlLabel').children('.xiusFlImg').css("display", "none");
+		},
+		function(){
+			$(this).children('.xiusFlLabel').children('.xiusFlImg').css("display", "none");
 	});	
+	
 });
 	

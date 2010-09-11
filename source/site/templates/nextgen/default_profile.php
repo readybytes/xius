@@ -6,7 +6,7 @@
 ?>
 <div id="xiusTotal">
 <span class="xiusTotalText" id="total_<?php echo $this->total;?>">
-	<?php echo sprintf(JText::_('Xius About results found'),$this->total);?>
+	<?php echo sprintf(XiusText::_('Xius About results found'),$this->total);?>
 </span>
 </div>
 <?php 
@@ -22,27 +22,30 @@
 					
 				
 					<?php if($user->isOnline): ?>
-						<div class="xiusOnline" title="<?php echo JText::_('Online'); ?>"> 				
+						<div class="xiusOnline" title="<?php echo XiusText::_('Online'); ?>"> 				
 							<span>
-								<?php echo JText::_(JString::ucfirst($user->name));?>	 	
+								<?php echo XiusText::_(JString::ucfirst($user->name));?>	 	
 							</span>
 						</div>					
 					<?php else	: ?>
-						<div class="xiusOffline" title="<?php echo JText::_('Offline'); ?>"> 				
+						<div class="xiusOffline" title="<?php echo XiusText::_('Offline'); ?>"> 				
 							<span>
-						<?php echo JText::_(JString::ucfirst($user->name));?>
+						<?php echo XiusText::_(JString::ucfirst($user->name));?>
 							</span>
 						</div>
 					<?php endif; ?>
 					
 				<div class="xiusProfileAction" id="xiusProfileAction_<?php echo $user->id; ?>">
-					<?php echo JText::_('OPTION');?>
-					
+					<div class="xiusMpOptions">
+					<span class="xiusOptionsText"><?php echo XiusText::_('OPTION');?></span>
+<!--					<img src="components/com_xius/assets/images/options.png" />-->
+					<span class="xiusOptionsImg">&nbsp;</span>		
+					</div>
 					<div class="xiusMpActions" id="xiusMpActions_<?php echo $user->id; ?>">
 					<?php if(!empty($user->profileLink)) :?>
-					<div class="xiusViewProfile" title="<?php echo JText::_('VIEW USER PROFILE'); ?>">
+					<div class="xiusViewProfile" title="<?php echo XiusText::_('VIEW USER PROFILE'); ?>">
 						<a href="<?php echo $user->profileLink;?>" >
-							<?php echo JText::_('VIEW PROFILE'); ?>
+							<?php echo XiusText::_('VIEW PROFILE'); ?>
 						</a>
 					</div>
 					<?php endif; ?>
@@ -50,25 +53,25 @@
 					<?php if(!empty($user->messageHref)) :
 							$onlineUser = JFactory::getUser();
 					        if($onlineUser->id != 0 && $onlineUser->id != $user->id): ?>
-								<div class="xiusWriteMsg" title="<?php echo JText::_('WRITE MESSAGE'); ?>">
+								<div class="xiusWriteMsg" title="<?php echo XiusText::_('WRITE MESSAGE'); ?>">
 									<a <?php echo $user->messageHref; ?> >
-										<?php echo JText::_('MESSAGE'); ?>
+										<?php echo XiusText::_('MESSAGE'); ?>
 									</a>
 								</div>
 						<?php endif; ?>
 					<?php endif; ?>
 
 					<?php if(!empty($user->friendHref)) : ?>
-						<div class="xiusFriends" title="<?php echo JText::sprintf( ($user->friendCount) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $user->friendCount);?>">
+						<div class="xiusFriends" title="<?php echo XiusText::sprintf( ($user->friendCount) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $user->friendCount);?>">
 							<a <?php echo $user->friendHref; ?>>
-								<?php echo JText::_('FRIENDS'); ?>
+								<?php echo XiusText::_('FRIENDS'); ?>
 							</a>
 						</div>
 					<?php endif; ?>
 
 					<?php if(isset($user->email) && !empty($user->email)): 
 					           echo $user->email;
-							   echo JText::_('EMAIL'); 
+							   echo XiusText::_('EMAIL'); 
 					           endif; ?>
 						
 						</div>
@@ -83,7 +86,7 @@
 
 				<div class="xiusMpData"><?php if(!empty($user->status)) : ?>
 							<span class="xiusHeaderStatus">
-								<?php echo JText::_($user->status);?>
+								<?php echo XiusText::_($user->status);?>
 							</span>
 							
 					<?php endif; ?>
@@ -100,8 +103,8 @@
 									endif;
 						?>
 					  			<div class="xiusMpInfo">
-						  			<div class="xiusMplabel"><?php echo JText::_($up['label'][$i]); ?></div>
-						  			<div class="xiusMpValue"><?php echo JText::_($up['value'][$i]); ?></div>
+						  			<div class="xiusMplabel"><?php echo XiusText::_($up['label'][$i]); ?></div>
+						  			<div class="xiusMpValue"><?php echo XiusText::_($up['value'][$i]); ?></div>
 					  			</div>
 						<?php
 								endfor;

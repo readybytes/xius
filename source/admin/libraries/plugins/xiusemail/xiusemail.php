@@ -46,7 +46,7 @@ class Xiusemail extends XiusBase
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 
-		$pluginsInfo['Email'] = JTEXT::_('EMAIL');
+		$pluginsInfo['Email'] = XiusText::_('EMAIL');
 		
 		
 		return $pluginsInfo;
