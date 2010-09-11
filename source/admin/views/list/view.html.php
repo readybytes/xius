@@ -66,9 +66,10 @@ class XiusViewList extends JView
 		$tempParams = $tempConfig->toArray('xiuslist');
 
 		// triger event for displaying xius privacy html
-		$dispatcher =& JDispatcher::getInstance();
-		$xiusListPrivacy = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
-		
+		JPluginHelper::importPlugin('xius');
+		$dispatcher 			= & JDispatcher::getInstance();
+		$xiusListPrivacy	 	= $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
+				
 		$this->assign( 'xiusListPrivacy' , $xiusListPrivacy);
 		$this->assign( 'conditionHtml' , $conditionHtml ); 
 		$this->assign( 'list' , $list );

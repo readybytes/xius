@@ -24,6 +24,7 @@ function com_install()
 	changePluginState('xius_system',true);
 	changePluginState('xius',true);
 	changePluginState('js_privacy',true);
+	changePluginState('xipt_privacy',true);
 	return true;
 }	
 

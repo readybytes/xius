@@ -59,6 +59,7 @@ class XiusLibrariesInfo
 		$allInfo	=& $iModel->getAllInfo('','AND',false);
 		
 		// trigger event after loading all info
+		JPluginHelper::importPlugin('xius');
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'xiusOnAfterLoadAllInfo',array( &$allInfo ));
 		

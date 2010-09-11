@@ -103,7 +103,11 @@ class XiussiteControllerUsers extends XiusController
 	function _displayResult($fromTask,$list='')
 	{
 		$view		=& $this->getView();
-		// set and reset the vars in current url
+		
+		if(count(XiusLibrariesInfo::getInfo()) == 0)
+			  return $view->panel('');	
+		
+			// set and reset the vars in current url
 		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'search',
 							'tmpl'=>null,'listid'=>null,'isnew'=>null));		
 		return $view->displayResult($fromTask,$list,'result');

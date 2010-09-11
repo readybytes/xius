@@ -81,6 +81,24 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 
 </div>
 </div>
+
+<div>
+<div class="col width-60" style="width:60%; float:right;">
+<fieldset class="adminform">
+	<legend><?php echo JText::_( 'Profile Types Parameters' ); ?></legend>
+	<?php
+		jimport('joomla.html.pane');
+		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
+		echo $pane->startPane('core-pane');
+		foreach ( $this->privacyHtml as $html)
+			echo $html;
+		echo $pane->endPanel();
+		?>
+		
+	</fieldset>
+</div>
+</div>
+
 <div class="clr"></div>
 
 	<input type="hidden" name="option" value="com_xius" />

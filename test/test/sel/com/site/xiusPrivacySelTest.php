@@ -71,6 +71,43 @@ class XiusPrivacySelTest extends XiSelTestCase
 		$this->frontLogout();
 	}
 	
+	function xtestProfileTypePrivacy()
+	{
+		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testProfileType.start.sql');
+		
+		//testing for free member
+		$this->frontLogin();
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		$info = array('input'=>'field11','select'=>'field2','input'=>'joomla_24',
+						'input'=>'Rangesearch22_min','input'=>'Rangesearch22_max');
+		$this->assertFalse($this->isInformationExists($info));
+		$this->click('mod_login_logoutform');
+		
+		//testing for Paid Subscriber
+		$this->frontLogin('username85', 'password');
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		$info = array('input'=>'field10','select'=>'field2','input'=>'field3',
+						'input'=>'Rangesearch22_min','input'=>'Rangesearch22_max');
+		$this->assertFalse($this->isInformationExists($info));
+		$info= Array('select'=>'field12','input'=>'field11','select'=>'field2',
+						'input'=>'joomla_24');
+		$this->assertTrue($this->isInformationExists($info));
+		$this->click('mod_login_logoutform');
+		
+		//testing for Serious Joomla User
+		$this->frontLogin('username64', 'password');
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		$info = array('input'=>'field10','input'=>'field3','input'=>'joomla_24',
+						'input'=>'Rangesearch22_min','input'=>'Rangesearch22_max');
+		$this->assertFalse($this->isInformationExists($info));
+		$info= Array('select'=>'field12','input'=>'field11','select'=>'field2');
+		$this->assertTrue($this->isInformationExists($info));
+		$this->click('mod_login_logoutform');
+	}
+	
 	function isOptionPresent($information)
 	{
 		foreach($information as $info=>$val){

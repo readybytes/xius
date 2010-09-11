@@ -126,6 +126,12 @@ class XiusControllerInfo extends JController
 			$temp 		= $post['params']['isAccessible'];
 			$post['params']['isAccessible'] = serialize($temp);		
 		}
+
+		// trigger event before saving info
+		JPluginHelper::importPlugin('xius');
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'xiusOnBeforeSaveInfo', array(&$post) );
+		
 		$registry->loadArray($post['params'],'xius_params');
 		
 		// Get the complete INI string
