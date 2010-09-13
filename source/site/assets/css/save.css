@@ -33,3 +33,9 @@
 #xiusSave div{
 	margin:0px;
 }
+
+#xiusSave table.paramlist td.paramlist_key {
+ width:30%;
+ text-align: right;
+ font-weight: bold;
+}

@@ -107,6 +107,7 @@ class XiussiteViewList extends XiusView
 		
 		
 		// triger event for displaying xius privacy html
+		JPluginHelper::importPlugin('xius');
 		$dispatcher =& JDispatcher::getInstance();
 		$data['xiusListPrivacy'] = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
 				 

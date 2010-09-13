@@ -44,26 +44,18 @@ class plgXiusjs_privacy extends JPlugin
 	 */
 	function _xiusGetListPrivacyHtml($params)
 	{
-		$name = $this->_name;
-		$htmlOption['public'] 	= XiusText::_("XIUS LIST PRIVACY PUBLIC");
-		$htmlOption['member'] 	= XiusText::_("XIUS LIST PRIVACY MEMBER");
-		$htmlOption['friend'] 	= XiusText::_("XIUS LIST PRIVACY FRIEND");
-		$htmlOption['self'] 	= XiusText::_("XIUS LIST PRIVACY SELF");
-		$privacy['html'] = '';
-		
-		$selectedOption			= ''; 
-		if(array_key_exists($name,$params))
-			$selectedOption			= $params[$name];
-		
-		foreach($htmlOption as $key => $value){
-			$select = '';
-			if($selectedOption !=='' && $selectedOption === $key)
-				$select = " checked ";
- 			$privacy['label'] = XiusText::_("JOM SOCIAL LIST PRIVACY");
-			$privacy['html'] .= '<p><input type="radio" name="'.$name.'" value="'.$key.'" '.$select.'/>'.$value.'</p>';
- 			
-		}
- 		return $privacy;
+		$xmlPath 	= $includePath = JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.$this->_name.DS.'param.xml';
+        $iniPath    = dirname(__FILE__) . DS .$this->_name.DS.'param.ini';
+        $listData   = JFile::read($iniPath);
+        
+        if(JFile::exists($xmlPath))
+			$config = new JParameter($listData, $xmlPath);
+        else
+        	$config = new JParameter('','');
+           
+        $config->bind($params);
+        return $config->render();
+
 	}
 	
 	function xiusOnBeforeSaveList($postData, $params)

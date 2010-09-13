@@ -150,27 +150,19 @@ if(!empty($this->msg))
 		</div>
 		<!--  END JOIN WITH -->	
 		
+		<div style="clear:both;"></div>
 		<!-- START PLUGIN PRIVACY -->
 		<div id="xiusPlugin">
-						
-			<?php 
-				foreach($this->data['xiusListPrivacy'] as $html){
-					?>						
-					<div class="xiusSavelabel">
-						<label><?php 				
-							echo $html['label'];?> 
-						</label>
-					</div>
-					<div class="xiusSavehtml">
-						<?php 
-						echo $html['html'];
-						?>
-					</div>
-					<?php 
-				}					
-			?>
+				<div style="width:100%;" >
+				<?php 
+					foreach($this->data['xiusListPrivacy'] as $html)
+						if($html)
+							echo $html;
+				?>
+				</div>
 		</div>
 		<!-- END PLUGIN PRIVACY -->		
+		<div style="clear:both;"></div>
 		
 		<!--  START DESCRIPTION -->
 		<div>

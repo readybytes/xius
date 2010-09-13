@@ -216,13 +216,8 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	<table class="admintable">
 
 		<?php 
-			foreach($this->xiusListPrivacy as $html){
-				?><tr>
-				<td class="key"><label for="name"><?php echo $html['label']; ?></label></td> 
-				<td><?php echo $html['html'];?></td>
-				</tr>
-				<?php 
-			}					
+			foreach($this->xiusListPrivacy as $html)
+				 echo $html;
 		?>
 	</table>
 </fieldset>

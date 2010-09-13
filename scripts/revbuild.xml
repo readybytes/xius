@@ -52,6 +52,13 @@
 		<copy   file="${source}/plugins/xius/js_privacy.xml" 
                         tofile="${target}/source/install/extensions/xius_privacy/js_privacy.xml" 
                          />
+                  
+         <copy todir="${target}/source/install/extensions/xius_privacy/js_privacy">
+			<fileset dir="${source}/plugins/xius/js_privacy">
+				<include name="**/*.*" />
+			</fileset>
+        </copy>       
+                         
         
         <copy   file="${source}/plugins/xius/xipt_privacy.php" 
                         tofile="${target}/source/install/extensions/xipt_privacy/xipt_privacy.php" 

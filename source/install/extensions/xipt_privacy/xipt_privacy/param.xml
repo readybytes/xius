@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config>
  <params addpath="/plugins/xius/xipt_privacy" >
-       <param name="xipt_privacy" type="profiletypes" default="0" label="Accessible Profile type" description="PFOFILE TYPE SELECTION.Desc" />
+       <param name="xipt_privacy" type="profiletypes" default="0" label="ACCESSIBLE PROFILE TYPE" description="PFOFILE TYPE SELECTION.Desc" />
 	</params>
 </config>

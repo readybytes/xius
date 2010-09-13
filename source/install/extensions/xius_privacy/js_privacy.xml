@@ -11,6 +11,6 @@
   <description>XIUS JS Privacy Plugin</description>
   <files>  	
 	<filename plugin="js_privacy">js_privacy.php</filename>
+	<folder>js_privacy</folder>
   </files>
 </install>
-

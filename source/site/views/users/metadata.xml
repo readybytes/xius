@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<view title="User Listing">
-		<message><![CDATA[Display Users with different searching parameters.]]></message>
+	<view title="Search Pannel">
+	<name> Search Pannel </name>
+		<message><![CDATA[Display Search Pannel.]]></message>
 	</view>
 </metadata>

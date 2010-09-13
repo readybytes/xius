@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<view title="Show List">
+	<name>Show List</name>
+		<message><![CDATA[Display List.]]></message>
+	</view>
+</metadata>
