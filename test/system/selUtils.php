@@ -321,7 +321,7 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		foreach( $information as $key=>$val)
 			$this->type('//input[@id="'.$key.'"]', "$val"); 
 			
-	    $this->click("//input[@name='xius_join' and @value='$join']"); // match any
+	    $this->select("xiusjoin", "label=$join"); // match any
 	    $this->click("xiussearch");
 	    $this->waitPageLoad();			
 	}

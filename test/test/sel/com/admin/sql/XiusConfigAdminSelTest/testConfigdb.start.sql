@@ -12,5 +12,5 @@ INSERT INTO `#__xius_config` (`name`, `params`) VALUES
 
 INSERT INTO `au_#__xius_config` (`name`, `params`) VALUES
 ('cache', 'cacheStartTime=1282050943\ncacheEndTime=1282050944\n\n'),
-('config','xiusTemplates=default\nxiusKey=SSV445\nxiusDebugMode=1\nshowSearchMenuTab=1\nxiusReplaceSearch=1\nxiusSlideShow=none\nxiusProximityDefaultLat=25.346251\nxiusProximityDefaultLong=74.636383\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\n\n');;
+('config','xiusTemplates=default\nxiusKey=SSV445\nxiusDebugMode=1\nshowSearchMenuTab=1\nxiusReplaceSearch=1\nxiusSlideShow=none\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusProximityDefaultLat=25.346251\nxiusProximityDefaultLong=74.636383\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\n\n');;
 

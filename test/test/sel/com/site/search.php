@@ -41,7 +41,7 @@ class XiusSearchTest extends XiSelTestCase
 		$information = array('field11'=>'Jaipur', 'field10'=>'Rajasthan');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
-		$this->fillInfo($information, 'OR');
+		$this->fillInfo($information, 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_33']"));
 		
 		// condition 2
@@ -54,7 +54,7 @@ class XiusSearchTest extends XiSelTestCase
 		$information = array('field11'=>'Noida', 'field10'=>'Karnataka');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
-		$this->fillInfo($information, 'AND');
+		$this->fillInfo($information, 'All');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
 				
 	}
@@ -77,7 +77,7 @@ class XiusSearchTest extends XiSelTestCase
 		$information = array('field10'=>'Rajasthan');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
-		$this->fillInfo($information, 'AND');
+		$this->fillInfo($information, 'All');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_4']"));
 		
 		$this->assertTrue($this->isElementPresent("//select[@id='field2']"));
@@ -131,7 +131,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
-		$this->fillInfo($information, 'OR');
+		$this->fillInfo($information, 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_3']"));
 		
 		$this->type("Keyword_24", "Jaipur");
@@ -190,7 +190,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 		$this->click("//input[@value='Cricket']");
-    	$this->click("//input[@name='xius_join' and @value='OR']");
+    	$this->select("xiusjoin", "label=Any");
 	    $this->click("xiussearch");
     	$this->waitPageLoad();
 		
@@ -243,7 +243,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->waitPageLoad();
 		
 		$this->select("field19", "label=Paid Subscriber");
-		$this->click("//input[@name='xius_join' and @value='OR']"); // match any
+		$this->select("xiusjoin", "label=Any"); // match any
     	$this->click("xiussearch");
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_8']"));

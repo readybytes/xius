@@ -4,6 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!empty($this->appliedInfo)) : ?>
+<div id="xiusFiltered">
 <div id="xiusFdHead">
 	<?php
 	echo XiusText::_('FILTERED BY');
@@ -39,29 +40,16 @@ if(!empty($this->appliedInfo)) : ?>
 			?>
 			</div>
 		</div>	
-		<?php endforeach; ?>
-<div class="xijoin">
-<?php 
-$orSelected = '';
-$andSelected = '';
-if($this->join == 'AND'):
-	$andSelected = ' selected=true ';
-elseif($this->join == 'OR') :
-	$orSelected = ' selected=true ';
-endif;
-	
-$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'join\');" >';
-$joinhtml .= '<option value="AND" '.$andSelected.'>'.XiusText::_('MATCH ALL').'</option>';
-$joinhtml .= '<option value="OR" '.$orSelected.'>'.XiusText::_('MATCH ANY').'</option>';
-$joinhtml .= '</select>';
-echo '<b>'.XiusText::_('XIUS JOIN WITH').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
-echo $joinhtml;	
+		<?php endforeach; 
+
+		echo $this->loadTemplate('joinhtml');
+
 ?>
-</div>
 
 
 <input type="hidden" name="xiusdelinfo" value="" />
 <input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
+</div>
 <?php 
 endif;
 ?>

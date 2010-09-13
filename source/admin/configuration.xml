@@ -30,6 +30,16 @@
 			<option value="block">Yes</option>
 		</param>
 		
+		<param name="xiusEnableMatch" type="radio" default="1" label="SHOW MATCH ALL OR ANY.LABEL" description="SHOW MATCH ALL OR ANY.DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		
+		<param name="xiusDefaultMatch" type="radio" default="AND" label="DEFAULT CONDITION MATCH ALL OR ANY.LABEL" description="DEFAULT CONDITION MATCH ALL OR ANY.DESC">
+			<option value="AND">MATCH ALL</option>
+			<option value="OR">MATCH ANY</option>
+		</param>
+		
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="@spacer" type="spacer" default="Proximity Search Configuration" label="" description="" />
 		<param name="xiusProximityDefaultLat" type="text" default="28.635308" label="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.DESC" />

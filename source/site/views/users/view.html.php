@@ -52,6 +52,12 @@ class XiussiteViewUsers extends XiusView
 		$document->setTitle(XiusText::_('Search Panel'));
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplaySearchPanel',array( &$infohtml  ));
+		
+		$joinHtml['enable']  	= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch',true);
+		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusDefaultMatch','AND');
+		$this->assignRef('joinHtml', $joinHtml);
+		$this->assignRef('join', $joinHtml['defultMatch']);
+		
 		$submitUrl	= $this->getXiUrl();
 		$this->assign('submitUrl', $submitUrl);
 		$this->assign( 'infohtml' , $infohtml );

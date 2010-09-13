@@ -122,7 +122,7 @@ class XiusemailSelTest extends XiSelTestCase
 		// search without condition
 		$this->type("//input[@id='Joomla_21']", "gaurav.jain028@gmail.com");
 		$this->type("//input[@id='field11']", "Bhilwara");
-		$this->click("//input[@name='xius_join' and @value='AND']");
+		$this->select("xiusjoin", "label=All");
 		$this->click('xiussearch');
 		$this->waitPageLoad();
 		
@@ -150,7 +150,7 @@ class XiusemailSelTest extends XiSelTestCase
 
 		// search without condition
 		$this->type("//input[@id='Joomla_21']", "gaurav.jain028@gmail.com");
-		$this->click("//input[@name='xius_join' and @value='OR']");
+		$this->select("xiusjoin", "label=Any");
 		$this->click('xiussearch');
 		$this->waitPageLoad();
 		$this->type("//input[@id='Joomla_21']", "gaurav@readybytes.in");

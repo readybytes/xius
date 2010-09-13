@@ -27,27 +27,11 @@ if(!empty($this->appliedInfo)) : ?>
 		
 		echo '</div></div><div class="right"><img class="xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
 								alt="Remove" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';		
-	endforeach;?>
-<div class="xijoin">
-<?php 
-$orSelected = '';
-$andSelected = '';
-if($this->join == 'AND'):
-	$andSelected = ' selected=true ';
-elseif($this->join == 'OR') :
-	$orSelected = ' selected=true ';
-endif;
-	
-$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'join\');" >';
-$joinhtml .= '<option value="AND" '.$andSelected.'>'.XiusText::_('MATCH ALL').'</option>';
-$joinhtml .= '<option value="OR" '.$orSelected.'>'.XiusText::_('MATCH ANY').'</option>';
-$joinhtml .= '</select>';
-echo '<b>'.XiusText::_('XIUS JOIN WITH').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
-echo $joinhtml;	
+	endforeach;
+
+echo $this->loadTemplate('joinhtml');
+
 ?>
-</div>
-
-
 <input type="hidden" name="xiusdelinfo" value="" />
 <input type="hidden" id="conditionvalue" name="conditionvalue" value='' />
 </div>

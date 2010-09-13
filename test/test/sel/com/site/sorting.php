@@ -33,7 +33,7 @@ class XiusSortingTest extends XiSelTestCase
 		$this->click("//input[@name='field17[]' and @value='Checkbox11']");
 		
 		$information = array('field3'=>'birthday', 'field10'=>'Bihar');
-		$this->fillInfo($information, 'OR');
+		$this->fillInfo($information, 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_29']"));
 		
 		$element[] = "//img[@class='xius_test_remove_Checkbox,Checkbox2,Checkbox11']";

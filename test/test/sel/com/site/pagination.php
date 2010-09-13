@@ -24,7 +24,7 @@ class XiusPaginationTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 		
-		$this->fillInfo(array(), 'OR');
+		$this->fillInfo(array(), 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// sort according to state

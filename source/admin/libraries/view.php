@@ -104,6 +104,10 @@ abstract class XiusView extends JView
 		//collect user data from appropritae profile component
 		$xiusSlideShow  = xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
+		
+		$joinHtml['enable']  	= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','0');
+		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','0');
+		$this->assignRef('joinHtml', $joinHtml);
 
 		$this->assignRef('users', XiussiteHelperProfile::getUserProfileData($data['users']));
 		

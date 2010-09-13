@@ -76,7 +76,7 @@ class XiusForceSearchSelTest extends XiSelTestCase
 		
 		$this->select("//select[@name='field20']", "Single");
 		$this->select("//select[@id='field2']", "Male");
-		$this->click("//input[@name='xius_join' and @value='OR']");
+		$this->select("xiusjoin", "label=Any");
 				
 		$this->click("xiussearch");
     	$this->waitPageLoad();

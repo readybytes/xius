@@ -4,10 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!defined('_JEXEC')) die('Restricted access');
-$css = JURI::base().'components/com_xius/assets/css/sp.css';
-$document =& JFactory::getDocument();
-$document->addStyleSheet($css);
-//$document->addStyleSheet('components/com_community/templates/default/css/style.css');
+$this->loadAssets('css', 'sp.css');
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 ?>
@@ -50,14 +47,9 @@ jimport('joomla.html.pane');
 			</div>
 			<?php
 		endforeach;
+		
+		echo $this->loadTemplate('joinhtml');
 		?>
-		<div class="xius_spMain">
-		<div class="xius_spLabel"><?php echo XiusText::_('XIUS JOIN WITH'); ?></div>
-		<div class="xius_spInput">
-		<input type="radio" name="xius_join" value="AND" /><?php echo XiusText::_('MATCH ALL'); ?>
-		<input type="radio" name="xius_join" value="OR" /><?php echo XiusText::_('MATCH ANY'); ?>
-		</div>
-		</div>
 		<div class="xius_spSubmit">
 		<input type="submit" id="xiussearch" name="xiussearch" value="Search" />
 		</div>

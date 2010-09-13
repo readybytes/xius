@@ -3,9 +3,8 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-$css = JURI::base().'components/com_xius/assets/css/list.css';
-$document =& JFactory::getDocument();
-$document->addStyleSheet($css);
+$this->loadAssets('css', 'list.css');
+
 ?>
 <div class="">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">

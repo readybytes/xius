@@ -3,11 +3,8 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-$css = JURI::base().'components/com_xius/assets/css/save.css';
-$js = JURI::base().'components/com_xius/assets/js/xius.js';
-$document =& JFactory::getDocument();
-$document->addStyleSheet($css);
-$document->addScript($js);
+$this->loadAssets('css', 'save.css');
+$this->loadAssets('js', 'xius.js');
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 

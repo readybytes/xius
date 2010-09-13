@@ -55,7 +55,7 @@ class XiussiteControllerUsers extends XiusController
 			$conditions = XiusLibrariesUsersearch::processSearchData();
 			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		
-			$join = JRequest::getVar('xius_join','AND','POST');
+			$join = JRequest::getVar('xiusjoin','AND','POST');
 			XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		}
 		return $this->_displayResult(__FUNCTION__);

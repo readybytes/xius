@@ -30,7 +30,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
-		$this->fillInfo($information, 'OR');
+		$this->fillInfo($information, 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
@@ -55,7 +55,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
-		$this->fillInfo($information, 'OR');
+		$this->fillInfo($information, 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
@@ -85,7 +85,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
-		$this->fillInfo($information, 'OR');
+		$this->fillInfo($information, 'Any');
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
 		// match all
