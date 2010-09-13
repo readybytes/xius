@@ -12,7 +12,7 @@ class XiusJsfieldViewTest extends XiUnitTestCase
 		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'views' . DS . 'view.html.php';
 		$viewClass = new JsfieldsView();
 		
-		$this->assertEquals('search',$viewClass->getLayout(),"layout is not search , we get ".$viewClass->getLayout());
+		$this->assertEquals('default',$viewClass->getLayout(),"layout is not search , we get ".$viewClass->getLayout());
 		
 		$requiredTemplatePath[0] = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'views'.DS.'tmpl' . DS;
 		$diffArray = array_diff($requiredTemplatePath,$viewClass->_path['template']);

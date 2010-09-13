@@ -20,21 +20,40 @@ class JoomlaView extends XiusBaseView
 	{
 		if(!$calleObject->isAllRequirementSatisfy())
 			return false;
-			
-		$this->setLayout('search');
+
+		$layout  	= 	null;
+		$paramsType	=	$calleObject->get('pluginType');
+ 		$key		=	$calleObject->get('key');
+ 		$infoType	=	Joomla::getCacheSqlSpec($key);
+ 		$formName 	= 	'';
+ 		
+ 		if($infoType == 'datetime NOT NULL' ){
+  			// if module is displayin info
+  			$mySess 	= & JFactory::getSession();
+  			$formName	= $mySess->get('xiusModuleForm','','XIUS');
+         		if($formName != '')
+         			$formName .= "_{$formName}";
+
+         	$layout = 'date'; 			
+  		}
+  		else if($infoType == 'tinyint(4) NOT NULL'){			
+ 			$layout = 'tiny';
+  		}		
 		
+  		if($layout === null)
+  			return parent::searchHtml($calleObject,$value);
+  			
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
-		 */	
+		 */
+		
+  		$this->assign('paramsType',$paramsType);
+		$this->assign('key',$key);
+		$this->assign('formName',$formName);
+		$this->assign('value',$value);
 			
-		$fieldHtml = Joomlahelper::getFieldsHTML($calleObject,$value);
-		
-		if(false == $fieldHtml)
-			$fieldHtml = parent::searchHtml($calleObject,$value);
-		
-		$this->assign('fieldHtml',$fieldHtml);
 		ob_start();
-		$this->display();
+		$this->display($layout);
 		$contents = ob_get_clean();
 		return $contents;
 	}

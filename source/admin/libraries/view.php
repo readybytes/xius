@@ -65,6 +65,7 @@ abstract class XiusView extends JView
 		return $this->_prefix;
 	}
 	
+	
 	/*
 	 * We need to override joomla behaviour as they differ in
 	 * Model and Controller Naming	 

@@ -32,13 +32,10 @@ class XiusemailView extends XiusBaseView
     	if($userId=='selected' && $userSelected==null)
     			$userSelected = JRequest::getVar('selected','no','GET');
     			
-		// add js file
-        $js = JURI::base().'administrator/components/com_xius/assets/js/xiusemail.js';
-        $css= JURI::base().'administrator/components/com_xius/assets/css/front/xiusemail.css';
-        $document =& JFactory::getDocument();
-        $document->addScript($js);
-        $document->addStyleSheet($css);
-        
+		// load assets files
+    	$this->loadAssets('js'	,'xiusemail.js');
+    	$this->loadAssets('css'	,'xiusemail.css');
+    			
         $data=array();
         $data['pluginId']		= $pluginId;
         $data['userId']			= $userId;
@@ -48,13 +45,14 @@ class XiusemailView extends XiusBaseView
         $this->assignRef('data', $data);
         
         ob_start();
-        parent::display();       
+        parent::display('email');       
         
         $js="function xiusCheckEmailMessageExist(){
 		       		var content = ".$data['editor']->getContent('xiusEmailMessageEl').";
 		       		return content;     			
         		}
         	";
+        $document =& JFactory::getDocument();
 		$document->addScriptDeclaration($js);
 		$contents = ob_get_contents();
  		ob_end_flush();

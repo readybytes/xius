@@ -41,7 +41,7 @@ class plgCommunityxius extends JPlugin
 	function onSystemStart()
 	{
 		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
-		$showSearchMenuTab=XiusHelpersUtils::getConfigurationParams('showSearchMenuTab',0);
+		$showSearchMenuTab=XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0);
 		//$this->params->get('showSearchMenuTab', 0);
 
 			if(!$showSearchMenuTab){
@@ -54,10 +54,10 @@ class plgCommunityxius extends JPlugin
 
 		$toolbar	=& CFactory::getToolbar();
 		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
-							 XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id));
+							 XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&xiusview=users&xiustask=panel&userid='.$user->id));
 
-		//$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH', XiusText::_('ADVANCEDSEARCH'), XiusRoute::_('index.php?option=com_xius'));
-	//	$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), XiusRoute::_('index.php?option=com_xius&view=users&layout=lists&task=displayList'));
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&xiusview=users&xiustask=panel&userid='.$user->id));
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&xiusview=list&xiustask=lists&userid='.$user->id));
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
 	}

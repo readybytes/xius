@@ -38,9 +38,7 @@ class XiusPluginControllerProximity extends JController
     		return false;
    
 		require_once(dirname(__FILE__).DS.'views'.DS.'view.html.php');
-		$view= new ProximityView();
-		$view->setLayout( 'proximity' );		
-	
+		$view = new ProximityView();	
 		return $view->getLocationMap($formName,$instance);
 
    }

@@ -37,7 +37,7 @@ class XiusBaseView extends XiusView
 		array_unshift($config['template_path'],$path2);
 		
 		$config['base_path']	 = dirname(dirname($filePath));
-		$config['layout'] 		 = 'search';
+		$config['layout'] 		 = 'default';
 		$path1 = $config['base_path'].DS.'views'.DS.'tmpl';
 		array_unshift($config['template_path'],$path1);		 
 		
@@ -54,6 +54,7 @@ class XiusBaseView extends XiusView
 			$this->_addPath('template', $config['template_path'] );
 		
 	}
+	
 	
 	/*
 	 * We need to override xiusview behaviour as they differ in
@@ -100,11 +101,60 @@ class XiusBaseView extends XiusView
 	
 	
 	function searchHtml($calleObject,$value='')
-	{
+	{	
+		$this->assign('calleObject' , $calleObject);
+		$this->assign('value' , $value);
+		
+		ob_start();
+		$this->display('base_search');
+				
+		$contents = ob_get_clean();
+		return $contents;
+		
 		$inputHtml = '<input class="inputbox" type="text" name="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" id="'.$calleObject->get('pluginType').'_'.$calleObject->get('id').'" value = "'.$value.'"/>';
 		
 		return $inputHtml;
 	}
 	
+	public function loadAssets($type,$filename)
+	{
+		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
+		$prefix	=	$this->getPrefix();	
+		$xiustemplateBase = XIUS_PATH_TEMPLATE;	
+		static $path = null;
+		
+		if($path === null || !array_key_exists($type, $path)){
+			$path[$type] =array();
+			
+			// load joomla template path
+			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
+			$path1 = $templateDir.DS.'com_xius'.DS.'xiusplugins'.DS.'assets'.DS.JString::strtolower($type);
+			array_push($path[$type],$path1);
+			
+			// load xius template path
+			$path2	=	$xiustemplateBase.DS.$template.DS.'xiusplugins'.DS.'assets'.DS.JString::strtolower($type);
+			array_push($path[$type],$path2);
+			
+			// load common path of assets
+			$path3 	= XIUS_PATH_SITE_ASSET.DS.JString::strtolower($type);
+			array_push($path[$type],$path3);
+		}
+		
+		$assetsPath = JPath::find($path[$type], $filename);
+		if($assetsPath === false){
+			return JError::raiseError( 500, 'Assets "' . $filename . '" not found' );
+		}
+		
+		$assetsPath = JString::str_ireplace(JPATH_ROOT,JURI::base(),$assetsPath);
+		$document =& JFactory::getDocument();
+		
+		switch($type){
+			case 'css':	$document->addStyleSheet($assetsPath);
+						break;
+			case 'js' : $document->addScript($assetsPath);
+						break;
+		}
+		return true;
+	}
 	
 }

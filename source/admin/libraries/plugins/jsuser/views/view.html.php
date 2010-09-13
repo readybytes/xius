@@ -21,22 +21,36 @@ class JsuserView extends XiusBaseView
 		if(!$calleObject->isAllRequirementSatisfy())
 			return false;
 			
-		$this->setLayout('search');
-		
+		$layout  	= 	null;
+		$paramsType	=	$calleObject->get('pluginType');
+ 		$key		=	$calleObject->get('key'); 		
+ 		$formName 	= 	'';
+ 		
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
 		 */	
+		
+		if($key === 'posted_on'){
+			$mySess 	= & JFactory::getSession();
+  			$formName	= $mySess->get('xiusModuleForm','','XIUS');
+         		if($formName != '')
+         			$formName .= "_{$formName}";
+
+         	$layout = 'date'; 			
+		}		
+		
+		if($layout === null)
+  			return parent::searchHtml($calleObject,$value);
+  			
+		$this->assign('paramsType',$paramsType);
+		$this->assign('key',$key);
+		$this->assign('formName',$formName);
+		$this->assign('value',$value);
 			
-		$fieldHtml = Jsuserhelper::getFieldsHTML($calleObject,$value);
-		
-		if(false == $fieldHtml)
-			$fieldHtml = parent::searchHtml($calleObject,$value);
-		
-		$this->assign('fieldHtml',$fieldHtml);
 		ob_start();
-		$this->display();
+		$this->display($layout);
 		$contents = ob_get_clean();
-		return $contents;
+		return $contents;	
 	}
 	
 }

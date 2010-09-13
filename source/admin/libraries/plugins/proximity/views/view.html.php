@@ -17,14 +17,10 @@ class ProximityView extends XiusBaseView
     function searchHtml($calleObject)
     {
         if(!$calleObject->isAllRequirementSatisfy())
-            return false;
-           
-        $this->setLayout('search');
+            return false;       
         
-        $js = JURI::base().'administrator/components/com_xius/assets/js/proximity.js';
-        $document =& JFactory::getDocument();
-        $document->addScript($js);
-
+		$this->loadAssets('js','proximity.js');
+        
         $data = array();
         $data['configLat']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
     	$data['configLong']  = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
@@ -43,7 +39,7 @@ class ProximityView extends XiusBaseView
 	    $this->assignRef('data', $data);
    
         ob_start();
-        $this->display();
+        $this->display('search');
         $contents = ob_get_clean();
         return $contents;
     }  
@@ -72,7 +68,7 @@ class ProximityView extends XiusBaseView
     	$this->assignRef( 'data', $data );
     	$this->assign('map',$map);
     	
-    	return parent::display();
+    	return parent::display('proximity');
 		
     } 
 }

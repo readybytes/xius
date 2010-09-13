@@ -20,7 +20,7 @@ class XiusConfigAdminSelTest extends XiSelTestCase
     	$this->type("//input[@id='xiusparamsxiusKey']", "SSV445");
 
     	$this->click("//input[@id='xiusparamsxiusDebugMode1']","checked");
-    	$this->click("//input[@id='xiusparamsshowSearchMenuTab1']","checked");
+    	$this->click("//input[@id='xiusparamsintegrateJomSocial1']","checked");
     	$this->click("//input[@id='xiusparamsxiusReplaceSearch1']","checked");
     	    	
     	$this->type("//input[@id='xiusparamsxiusProximityDefaultLat']", 25.346251);

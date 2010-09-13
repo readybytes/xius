@@ -18,7 +18,7 @@ class RangesearchView extends XiusBaseView
 		if(!$calleObject->isAllRequirementSatisfy())
 			return false;
 			
-		$this->setLayout('search');
+		$layout='';
 		
 		$value0 = '';
 		$value1 = '';
@@ -35,18 +35,19 @@ class RangesearchView extends XiusBaseView
 		 * so i can easily get properties of info
 		 */
  		if(JString::strtolower($params->get('rangesearchType', 'date')) === 'date-range'){
-			JHTML::_('behavior.calendar');
-            $fieldHtml	 = XiusText::_('RANGESEARCH FROM').'<br/>'.JHTML::_('calendar', $value0, 'field'.$pluginType.$key.'_min', 'field'.$pluginType.$key.'_min', '%d-%m-%Y', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')).'<br />';
-			$fieldHtml	.= XiusText::_('RANGESEARCH TO').'<br/>'.JHTML::_('calendar', $value1, 'field'.$pluginType.$key.'_max', 'field'.$pluginType.$key.'_max', '%d-%m-%Y', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19'));
-      		}
+			$layout='daterange';
+      	}
 		else{
-			$fieldHtml	 = XiusText::_('RANGESEARCH FROM').'<br/><input class="inputbox" type="text" name="'.$pluginType.$key.'_min" id="'.$pluginType.$key.'_min" value="'.$value0.'" /><br />'; 
-			$fieldHtml	.= XiusText::_('RANGESEARCH TO').'<br/><input class="inputbox" type="text" name="'.$pluginType.$key.'_max" id="'.$pluginType.$key.'_max" value="'.$value1.'" />';			
-			}
+			$layout = 'search';
+		}
 		
-		$this->assign('fieldHtml',$fieldHtml);
+		$this->assign('pluginType',$pluginType);
+		$this->assign('key',$key);		
+		$this->assign('value0',$value0);
+		$this->assign('value1',$value1);		
+		
 		ob_start();
-		$this->display();
+		$this->display($layout);
 		$contents = ob_get_clean();
 		
 		return $contents;
