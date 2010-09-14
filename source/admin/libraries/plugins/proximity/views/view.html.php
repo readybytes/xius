@@ -22,14 +22,14 @@ class ProximityView extends XiusBaseView
 		$this->loadAssets('js','proximity.js');
         
         $data = array();
-        $data['configLat']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
-    	$data['configLong']  = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
+        $data['configLat']	 = $calleObject->get('pluginParams')->get('xiusProximityDefaultLat',28.635308);
+    	$data['configLong']  = $calleObject->get('pluginParams')->get('xiusProximityDefaultLong',77.22496);
     	ProximityHelper::setUserLatLong($calleObject, $data);
         
-    	$mySess 			= & JFactory::getSession();
-		$data['formName']	= $mySess->get('xiusModuleForm','userForm','XIUS');
-       	$data['elePrefix']  = $calleObject->get('pluginType').$calleObject->get('key')."_".$data['formName'];
-		$data['location']   = $calleObject->get('pluginParams')->get('xius_default_location',"none");
+    	$mySess 			 = & JFactory::getSession();
+		$data['formName']	 = $mySess->get('xiusModuleForm','userForm','XIUS');
+       	$data['elePrefix']   = $calleObject->get('pluginType').$calleObject->get('key')."_".$data['formName'];
+		$data['location']    = $calleObject->get('pluginParams')->get('xius_default_location',"none");
        	
        
        	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
@@ -52,10 +52,10 @@ class ProximityView extends XiusBaseView
     	$latitudeEle 		 = $instance->get('pluginType').$instance->get('key').'_'.$formName.'_lat';
     	$longitudeEle		 = $instance->get('pluginType').$instance->get('key').'_'.$formName.'_long';
     	   	
-    	$data['latitude']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLat',28.635308);
-    	$data['longitude']	 = XiusHelpersUtils::getConfigurationParams('xiusProximityDefaultLong',77.22496);
+    	$data['latitude']	 = $instance->get('pluginParams')->get('xiusProximityDefaultLat',28.635308);
+    	$data['longitude']	 = $instance->get('pluginParams')->get('xiusProximityDefaultLong',77.22496);
     	$data['type']		 = PROXIMITY_DEFAULT_MAP_TYPE;
-    	$data['zoom']		 = PROXIMITY_DEFAULT_MAP_ZOOM;
+    	$data['zoom']		 = $instance->get('pluginParams')->get('xiusProximityGmapZoom',PROXIMITY_DEFAULT_MAP_ZOOM);
     	$data['width']		 = PROXIMITY_MAP_WIDTH;
     	$data['hight']		 = PROXIMITY_MAP_HEIGHT;
     	$data['id']			 = '';

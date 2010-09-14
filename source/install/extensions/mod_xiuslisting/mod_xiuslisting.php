@@ -8,13 +8,19 @@ jimport( 'joomla.filesystem.folder' );
 require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 require_once( dirname(__FILE__).DS.'helper.php' );
 
+$url = 'index.php?option=com_xius&view=list&task=showList&listid=';
+if($params->get('integrateJS',0) == true){
+	$user		= CFactory::getUser();
+	$url = 'index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id.'&xiusview=list&xiustask=showList&listid=';
+}
+
 $displayList= XiusListHelper::getListData();
 	if(!empty($displayList)):?>
 	
 	<ul class="menu">
 				<?php 
 			foreach($displayList as $list):
-				$link = 'index.php?option=com_xius&view=list&task=showList';				
+				$link = $url.$list->id;				
 				$link = XiusRoute::_($link, false);
 
 				$name = $list->name;

@@ -30,18 +30,15 @@ class XiussiteHelperToolbar
 		 *  otherwise ad prefix xius 
 		 */
 		$uri = new JURI($submitUrl['xiurl']);
-		$prefix = '';
-		if($submitUrl['isExternal'] === true)
-			$prefix = 'xius'; 
-		
 		
 		/*
 		 * get toolbar option for save list
 		 */
 		if(XiussiteHelperList::isAccessibleToUser($user,$listCreator)){
   			$obj 		= new stdClass();
-  			$uri->setVar($prefix.'view','list');
-  			$uri->setVar($prefix.'task','saveas');
+  			$uri->setVar('view','list');
+  			$uri->setVar('task','saveas');
+  			$uri->setVar('usexius',1);
   			$uri->setVar('tmpl','component');
   			$uri->setVar('listid',$listid);
   			$url 		= XiusRoute::_($uri->toString());
@@ -57,8 +54,9 @@ class XiussiteHelperToolbar
  		 */
  		if( XiusHelpersUtils::isAdmin($user->id) == true){
   			$obj 		= new stdClass();
-  			$uri->setVar($prefix.'view','users');
-  			$uri->setVar($prefix.'task','export');  			
+  			$uri->setVar('view','users');
+  			$uri->setVar('task','export');
+  			$uri->setVar('usexius',1);  			
   			$uri->setVar('format','csv');
   			$csvurl		= XiusRoute::_($uri->toString());  			 
   			$obj->value	= "<img src='".JURI::base()."components/com_xius/assets/images/excel.png' onClick=\"location.href='".XiusRoute::_($csvurl,false)."'\" title='Export TO CSV' />";

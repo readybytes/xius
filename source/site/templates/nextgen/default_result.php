@@ -6,7 +6,10 @@
 ?>
 <?php 
 $this->loadAssets('css', 'nextgen.css');
-$this->loadAssets('js', 'jquery.js');
+//XITODO : move to loadAssest function
+if($this->loadJquery)
+	$this->loadAssets('js', 'jquery.js');
+	
 $this->loadAssets('js', 'xius_jquery.js');
 $this->loadAssets('js', 'xius.js');
 
@@ -20,7 +23,7 @@ $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</s
 
 <?php JHTML::_('behavior.tooltip'); ?>
 <div id="xiusProfile">
-	<form action="<?php echo JRoute::_('index.php?option=com_xius&view=users&task=search');?>" name="userForm" id="userForm" method="post">
+	<form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 		<div id="xiusFilter">
 			
 			<?php echo $this->loadTemplate('filtered');?>
@@ -38,18 +41,7 @@ $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</s
 </div>
 </div>
 
-<?php 
-	$viewName = 'view';
-	$taskName = 'task';
-	 
-	if($this->_isExternalUrl === true):
-		$viewName = 'xiusview';
-		$taskName = 'xiustask';
-	endif;
-	?>
-<input type="hidden" name="isExternalUrl" value="<?php echo $this->_isExternalUrl;?>" />
-<input type="hidden" name="<?php echo $viewName;?>" value="users" />
-<input type="hidden" name="<?php echo $taskName;?>" value="search" />
-</form>
+<input type="hidden" name="view" value="users" />
+<input type="hidden" name="task" value="search" />
 </form>
 </div>

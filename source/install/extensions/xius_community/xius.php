@@ -54,44 +54,21 @@ class plgCommunityxius extends JPlugin
 
 		$toolbar	=& CFactory::getToolbar();
 		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
-							 XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&xiusview=users&xiustask=panel&userid='.$user->id));
+							 XiusRoute::_('index.php?option=com_community&view=users&task=search&usexius=1'));
 
-		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&xiusview=users&xiustask=panel&userid='.$user->id));
-		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), XiusRoute::_('index.php?option=com_community&view=profile&task=app&app=xius&xiusview=list&xiustask=lists&userid='.$user->id));
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), XiusRoute::_('index.php?option=com_community&view=users&task=panel&usexius=1'));
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), XiusRoute::_('index.php?option=com_community&view=list&task=lists&usexius=1'));
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
 		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
 	}
 
 
-	function onAppDisplay()
-	{
+//	function onAppDisplay()
+//	{
 //		if(!$this->include_files())
 //			return 'User list component does not exits. Please verify !!!';
-
-		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
-		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php';
-		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'controllers'.DS.'list.php';
-
-		$xiusview = JRequest::getCmd('xiusview','users');
-		$xiustask = JRequest::getCmd('xiustask','panel');
-		$view = 'XiussiteController'.JString::ucfirst($xiusview);
-
-		$obj = new $view(true);
-
-		$obj->getView()->_isExternalUrl= true;
-		$content = $obj->execute($xiustask);
-		return $content;
-	}
-}
-
 //
-//class CommunityXiusController extends CommunityBaseController
-//{
-//	function execute($task='')
-//	{
 //		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
-//		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php';
-//		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'controllers'.DS.'list.php';
 //
 //		$xiusview = JRequest::getCmd('xiusview','users');
 //		$xiustask = JRequest::getCmd('xiustask','panel');
@@ -102,6 +79,58 @@ class plgCommunityxius extends JPlugin
 //		$obj->getView()->_isExternalUrl= true;
 //		$content = $obj->execute($xiustask);
 //		return $content;
-//
 //	}
-//}
+
+	function onBeforeControllerCreate(&$controller)
+	{
+		$isXius  = JRequest::getVar('usexius','0');
+
+		if($isXius ==='1')
+			$controller = 'CommunityXiusController';
+
+		return true;
+	}
+
+}
+
+//XITODO : check existance of this file
+require_once COMMUNITY_COM_PATH.DS.'controllers'.DS.'controller.php';
+
+class CommunityXiusController extends CommunityBaseController
+{
+	var $_methods = array();
+	function execute($task='')
+	{
+		//add default values
+		$this->xiusOrigTask = $task === '' ? 'panel' : $task;
+		$this->xiusOrigView = JRequest::getVar('view','users');
+
+		//need to hack it, as JomSocial is preety STUPID at few task
+		JRequest::setVar('view','search');
+		if(JRequest::getVar('tmpl',null)===null)
+			return	parent::execute('doTask');
+			
+		return $this->doTask();
+	}
+
+	function doTask()
+	{
+		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
+
+		$controllerClass = 'XiussiteController'.JString::ucfirst($this->xiusOrigView);
+
+		$controller = new $controllerClass(true);
+
+		$controller->getView()->_isExternalUrl= true;
+
+		echo $controller->execute($this->xiusOrigTask);
+		//set original view, so JS can pick correct active menu
+		JRequest::setVar('view',$this->xiusOrigView);
+	}
+	
+	function getView($viewName ='frontpage', $prefix = '', $viewType = '')
+	{
+		return parent::getView($viewName ='search', $prefix, $viewType);
+		
+	}
+}

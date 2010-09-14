@@ -1,18 +1,5 @@
 //@Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 //@license GNU/GPL http://www.gnu.org/copyleft/gpl.html
-
-	function setExternalUrl(task)
-	{
-		var form = document.userForm;
-		var value = form.isExternalUrl.value;
-		
-		if(value == true)
-			form.xiustask.value = task;
-		else
-			form.task.value = task;
-		
-		return;	
-	}
 	
 	function xiusDeleteInfo(infoid,valueBoxId)
 	{		
@@ -20,7 +7,7 @@
 		form.xiusdelinfo.value = infoid.id;
 		form.conditionvalue.value = document.getElementById(valueBoxId).value;
 		
-		setExternalUrl('delinfo');
+		form.task.value = 'delinfo';
 		form.submit();
 	}
 
@@ -28,7 +15,7 @@
 	{		
 		var form = document.userForm;
 		
-		setExternalUrl(task);	
+		form.task.value = task;	
 		form.submit();
 	}
 
@@ -36,7 +23,7 @@
 	{
 		var form = document.userForm;
 		
-		setExternalUrl(task);		
+		form.task.value = task;		
 		form.submit();
 	}
 	
@@ -45,7 +32,7 @@
 		var form = document.userForm;
 		form.xiusaddinfo.value = infoid;
 		
-		setExternalUrl('addinfo');	
+		form.task.value = 'addinfo';	
 		form.submit();
 	}
 	
@@ -53,7 +40,7 @@
 	{
 		var form = document.saveListForm;
 		
-		setExternalUrl(task);	
+		form.task.value = task;	
 		form.submit();
 	}
 	
@@ -95,7 +82,7 @@
 	{
 		var form = document.userForm;
 		
-		setExternalUrl(task);
+		form.task.value = task;
 		form.submit();
 	}
 	

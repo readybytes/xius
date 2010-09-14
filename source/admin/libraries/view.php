@@ -102,14 +102,15 @@ abstract class XiusView extends JView
 		else
 			$document->setTitle(XiusText::_('Search Result'));
 
-		//collect user data from appropritae profile component
-		$xiusSlideShow  = xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
-		$this->assignRef('xiusSlideShow', $xiusSlideShow);
+		//collect confuguration params
+		$xiusSlideShow  		= xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
+		$joinHtml['enable']  	= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch',1);
+		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','All');
+		$loadJquery				= xiusHelpersUtils::getConfigurationParams('xiusLoadJquery',1);
 		
-		$joinHtml['enable']  	= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','0');
-		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','0');
+		$this->assignRef('loadJquery', $loadJquery);
+		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 		$this->assignRef('joinHtml', $joinHtml);
-
 		$this->assignRef('users', XiussiteHelperProfile::getUserProfileData($data['users']));
 		
 		// get the list id for save list
@@ -179,12 +180,13 @@ abstract class XiusView extends JView
 		 	* if external url is true, it means xius is triggred from othe components
 		 	* so set two var xiusview and xiustask
 		 	*/
-			if($this->_isExternalUrl === true 
-					&& ($key === 'view' || $key === 'task'))
-				$currentURI->setvar('xius'.$key,$val);
-			else
-				$currentURI->setvar($key,$val);		
+			$currentURI->setvar($key,$val);		
 		}
+		
+		/*
+		 * always set usexius to true so that xius will be integrated with jom social 
+		 */
+		$currentURI->setvar('usexius',1);
 		
 		$this->_xiurl = $currentURI->toString();
 		return;

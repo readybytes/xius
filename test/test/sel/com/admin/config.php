@@ -10,6 +10,7 @@ class XiusConfigAdminSelTest extends XiSelTestCase
 	
 	function testConfigdb()
 	{
+		// XITODO : need to improve
 		$this->_DBO->addTable('#__xius_config');
 		$this->_DBO->filterColumn('#__xius_config','name');
 				
@@ -22,9 +23,7 @@ class XiusConfigAdminSelTest extends XiSelTestCase
     	$this->click("//input[@id='xiusparamsxiusDebugMode1']","checked");
     	$this->click("//input[@id='xiusparamsintegrateJomSocial1']","checked");
     	$this->click("//input[@id='xiusparamsxiusReplaceSearch1']","checked");
-    	    	
-    	$this->type("//input[@id='xiusparamsxiusProximityDefaultLat']", 25.346251);
-    	$this->type("//input[@id='xiusparamsxiusProximityDefaultLong']", 74.636383);
+    	 	
     	
     	$this->click("//td[@id='toolbar-save']/a/span");
     	$this->waitPageLoad();

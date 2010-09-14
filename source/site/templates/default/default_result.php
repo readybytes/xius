@@ -21,18 +21,8 @@ echo $this->loadTemplate('profile');
 <?php  echo $this->pagination->getPagesLinks(); ?>
 </div>
 
-<?php
-	$viewName = 'view';
-	$taskName = 'task';
-	 
-	if($this->_isExternalUrl === true):
-		$viewName = 'xiusview';
-		$taskName = 'xiustask';
-	endif;
-	?>
-<input type="hidden" name="isExternalUrl" value="<?php echo $this->_isExternalUrl;?>" />
-<input type="hidden" name="<?php echo $viewName;?>" value="users" />
-<input type="hidden" name="<?php echo $taskName;?>" value="search" />
+<input type="hidden" name="view" value="users" />
+<input type="hidden" name="task" value="search" />
 </form>
 <a href="#xiustop" style="float:right;"><img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" /></a>
 </div>

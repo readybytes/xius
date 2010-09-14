@@ -5,6 +5,8 @@
 **/
 // Disallow direct access to this file
 if(!defined('_JEXEC')) die('Restricted access');
+//XITODO : add all backend views
+JHTML::_('behavior.tooltip', '.hasTip');
 ?>
 <style type="text/css">
        #toolbar-updateCache

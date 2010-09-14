@@ -3,13 +3,10 @@
 	<params addpath="/administrator/components/com_xius/elements">
 	<!--
 		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
-	-->		
+	-->
+		<!--  START INTEGRATION PARAMETERS -->		
 		<param name="@spacer" type="spacer" default="Template Configuration" label="" description="" />
 		<param name="xiusTemplates" type="xiusTemplates" default="default" label="SELECT TEMPLATE.LABEL" description="SELECT TEMPLATE.DESC"></param>
-		<param name="@spacer" type="spacer" default="" label="" description="" />
-	
-		<!--  START INTEGRATION PARAMETERS -->
-		<param name="@spacer" type="spacer" default="Template Configuration" label="" description="" />
 		<param name="integrateJomSocial" type="radio" default="0" label="INTEGRATE WITH JOMSOCIAL.LABEL" description="INTEGRATE WITH JOMSOCIAL.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
@@ -18,6 +15,14 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
+			<option value="none">No</option>
+			<option value="block">Yes</option>
+		</param>
+		<param name="xiusLoadJquery" type="radio" default="0" label="LOAD JQUERY.LABEL" description="LOAD JQUERY.DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>		
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<!--  END INTEGRATION PARAMETERS -->
 		
@@ -26,12 +31,7 @@
 		<param name="xiusDebugMode" type="radio" default="0" label="ENABLE DEBUG MODE" description="ENABLE DEBUG MODE.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
-		</param>		
-		
-		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
-			<option value="none">No</option>
-			<option value="block">Yes</option>
-		</param>
+		</param>	
 		
 		<param name="xiusEnableMatch" type="radio" default="1" label="SHOW MATCH ALL OR ANY.LABEL" description="SHOW MATCH ALL OR ANY.DESC">
 			<option value="0">No</option>
@@ -42,11 +42,6 @@
 			<option value="AND">MATCH ALL</option>
 			<option value="OR">MATCH ANY</option>
 		</param>
-		
-		<param name="@spacer" type="spacer" default="" label="" description="" />
-		<param name="@spacer" type="spacer" default="Proximity Search Configuration" label="" description="" />
-		<param name="xiusProximityDefaultLat" type="text" default="28.635308" label="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.DESC" />
-		<param name="xiusProximityDefaultLong" type="text" default="77.22496" label="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.DESC" />
 		
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="@spacer" type="spacer" default="List Configuration" label="" description="" />

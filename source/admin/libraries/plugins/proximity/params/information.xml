@@ -12,7 +12,20 @@
 				<option value="googlemap">Google Map</option>
 				<option value="addressbox">Address</option>
 				<option value="mylocation">My Location</option>
-			</param>					
-	
+			</param>			
+			<param name="xiusProximityDefaultLat" type="text" default="28.635308" label="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.DESC" />
+			<param name="xiusProximityDefaultLong" type="text" default="77.22496" label="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.DESC" />
+			<param name="xiusProximityGmapZoom" type="list" label="DEFAULT ZOOM LEVEL FOR  GOOGLE MAP.LABEL" description="DEFAULT ZOOM LEVEL FOR  GOOGLE MAP.DESC">
+				<option value="2">2</option>
+				<option value="4">4</option>
+				<option value="6">6</option>
+				<option value="8">8</option>
+				<option value="10">10</option>
+				<option value="12">12</option>
+				<option value="14">14</option>
+				<option value="16">16</option>
+				<option value="18">18</option>
+				<option value="20">20</option>				
+			</param>								
 	</params>
 </config>
