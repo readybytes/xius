@@ -3,7 +3,7 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-$this->loadAssets('css', 'nextgen_lists.css');
+$this->loadAssets('css', 'lists.css');
 ?>
 <div id="xiusLists">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">

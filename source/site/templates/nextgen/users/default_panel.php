@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!defined('_JEXEC')) die('Restricted access');
-$this->loadAssets('css', 'sp.css');
+$this->loadAssets('css', 'panel.css');
 $document =& JFactory::getDocument();
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');

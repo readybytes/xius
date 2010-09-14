@@ -5,11 +5,14 @@
 **/
 ?>
 <?php 
-$this->loadAssets('css', 'nextgen.css');
+$this->loadAssets('css', 'result.css');
+if($this->loadJquery)
+		$this->loadAssets('js', 'jquery1.4.2.js');
+	
 //XITODO : move to loadAssest function
 	
-$this->loadAssets('js', 'xius_jquery.js');
-$this->loadAssets('js', 'xius.js');
+$this->loadAssets('js', 'menus.js');
+$this->loadAssets('js', 'result.js');
 
 $document =& JFactory::getDocument();
 JHTML::_('behavior.mootools');

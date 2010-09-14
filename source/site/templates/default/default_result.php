@@ -8,8 +8,8 @@
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
-$this->loadAssets('css','gray.css');
-$this->loadAssets('js','xius.js');
+$this->loadAssets('css','result.css');
+$this->loadAssets('js','result.js');
 
 JHTML::_('behavior.tooltip');
 echo $this->loadTemplate('filtered');

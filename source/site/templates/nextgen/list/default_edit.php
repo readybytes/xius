@@ -3,8 +3,8 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-$this->loadAssets('css', 'save.css');
-$this->loadAssets('js', 'xius.js');
+$this->loadAssets('css', 'lists.css');
+$this->loadAssets('js', 'result.js');
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 

@@ -108,9 +108,7 @@ abstract class XiusView extends JView
 		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','All');
 		$loadJquery				= xiusHelpersUtils::getConfigurationParams('xiusLoadJquery',1);
 		// load jquery package
-		if($this->loadJquery)
-		$this->loadAssets('js', 'jquery.js');
-	
+
 		$this->assignRef('loadJquery', $loadJquery);
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 		$this->assignRef('joinHtml', $joinHtml);

@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 $this->loadAssets('css', 'xiuspopup.css');
-$this->loadAssets('js', 'xius.js');
+$this->loadAssets('js', 'result.js');
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
