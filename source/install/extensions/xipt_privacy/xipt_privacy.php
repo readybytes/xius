@@ -22,9 +22,27 @@ class plgXiusxipt_privacy extends JPlugin
 		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'includes.xipt.php';
 		if(!JFile::exists($includePath))
 			return false;
-		
+
 		require_once $includePath;
+		
+		if(!$this->_pluginStatus())
+			return false;
+		
 		return true;
+	}
+	
+	/**  Check plugin enable then return true.
+	 *   If plugin disable or not installed then return false
+	 */
+	function _pluginStatus(){
+	
+		if(!(XiusHelpersUtils::isPluginInstalledAndEnabled('xipt_community','community')))
+			return false;
+			
+		if(!(XiusHelpersUtils::isPluginInstalledAndEnabled('xipt_system','system')))
+			return false;	
+
+		return true;	
 	}
 	
 	function xiusOnBeforeSaveInfo($postData)
@@ -93,7 +111,7 @@ class plgXiusxipt_privacy extends JPlugin
 		$app = JFactory::getApplication();
 		//Don't run in admin
 		if($app->isAdmin())
-				return true;
+			return true;
 		
 		if(!$this->_loadXipt())
 			return false;

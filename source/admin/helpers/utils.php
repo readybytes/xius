@@ -143,6 +143,29 @@ class XiusHelpersUtils
 		return true;
 	}
 	
+	function isPluginInstalledAndEnabled($pluginname,$type,$checkenable = false)
+	{
+		$db			=& JFactory::getDBO();
+		
+		$extraChecks = '';
+		if($checkenable)
+			$extraChecks = ' AND '.$db->nameQuote('published').'='.$db->Quote(true);
+			
+		$query	= 'SELECT * FROM ' . $db->nameQuote( '#__plugins' )
+	          .' WHERE '.$db->nameQuote('folder').'='.$db->Quote($type)
+	          .' AND '.$db->nameQuote('element').'='.$db->Quote($pluginname)
+	          . $extraChecks;
+
+		$db->setQuery($query);		
+		
+		$plugin	= $db->loadObjectList();
+		
+		if(!$plugin)
+			return false;
+			
+		return true;
+	}
+	
 /*
 	function getJoomlaUserGroupData($gid,$what='value')
 	{
