@@ -85,7 +85,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 <div>
 <div class="col width-60" style="width:60%; float:right;">
 <fieldset class="adminform">
-	<legend><?php echo JText::_( 'Profile Types Parameters' ); ?></legend>
+	<legend><?php echo JText::_( 'PRIVACY PARAMETER' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));

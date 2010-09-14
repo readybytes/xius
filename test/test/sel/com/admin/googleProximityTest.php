@@ -9,6 +9,9 @@ class XiusProximityAdminSelTest extends XiSelTestCase
 	
 	function testGoogleProximityBeforeCacheUpdate()
 	{
+		//Enable xipt_privacy plugin
+ 		$this->changePluginState('xipt_privacy',true);
+		
 		$this->_DBO->loadSql(dirname(__FILE__).'/../site/_proximityData/insert.sql');
 		$db= & JFactory::getDBO();
 		$sql = "DROP TABLE IF EXISTS `#__xius_proximity_geocode` ";
@@ -35,6 +38,9 @@ class XiusProximityAdminSelTest extends XiSelTestCase
     	$this->_DBO->addTable('#__xius_info');
     	$this->_DBO->addTable('#__xius_proximity_geocode');  
     	$this->_DBO->filterOrder('#__xius_info','id');  	
+    	
+    	//Disable xipt_privacy plugin
+ 		$this->changePluginState('xipt_privacy',false);
 	}
 	
 	

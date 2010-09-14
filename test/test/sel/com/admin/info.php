@@ -16,7 +16,10 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	}	
 	
   	function testAddForceSearch()
- 	{
+ 	{	
+ 		//Enable xipt_privacy plugin
+ 		$this->changePluginState('xipt_privacy',true);
+ 		
 	   	$this->_DBO->addTable('#__xius_info');
 		$this->_DBO->filterColumn('#__xius_info','ordering');
 		$this->_DBO->filterColumn('#__xius_info','id');
@@ -155,6 +158,9 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	   
 	    $this->click("//td[@id='toolbar-cancel']/a/span");
 	    $this->waitPageLoad();
+	    
+	    //Disable xipt_privacy plugin
+ 		$this->changePluginState('xipt_privacy',false);
 	}
 	
 }

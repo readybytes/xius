@@ -99,6 +99,65 @@ class plgXiusjs_privacy extends JPlugin
 		return true;
 	}
 	
+	
+	function onBeforeRenderInfoDisplay($data)
+	{
+		if(!$this->_loadXius())
+				return false;
+				
+		$param		  = array();	
+		$name		  = $this->_name;
+		$param[$name] = $data['params']->get($name);
+		
+		if($param[$name] == '')
+		  unset($param[$name]);
+
+		return $this->_xiusGetListPrivacyHtml($param);
+	}
+
+	function xiusOnBeforeSaveInfo($postData)
+	{	
+		if(!$this->_loadXius())
+			return false;
+		
+		// is postdata of this plugin is set then, set it into postData[params]
+		if(array_key_exists($this->_name ,$postData)){
+			$postData['params'][$this->_name] = $postData[$this->_name];
+		}
+		return true;
+	}
+
+/*	
+	function xiusOnAfterLoadAllInfo($allInfo, $loginuser=null)
+	 {
+		$app = JFactory::getApplication();
+		
+		//Don't run in admin
+		if($app->isAdmin())
+			return true;
+		
+		if(!$this->_loadXius())
+			return false;
+			
+		if($loginuser==null)
+			$loginuser=& JFactory::getUser();
+			
+		//$userId	 		 =	$loginuser->id;
+		$count = count($allInfo);
+		for($i =0 ; $i < $count ; $i++ ){
+			$params = new JParameter('','');
+			$params->bind($allInfo[$i]->params);
+			$privacy = $params->get($this->_name,'public');
+			$isViewable = $this->_isListViewable($privacy,$loginuser);
+			if($isViewable === true)
+				continue;
+			
+			unset($allInfo[$i]);
+		}
+		return true;		
+	}
+*/
+	
 	function _isListViewable($privacy,$loggedinUser,$ownerId)
 	{
 		if(XiusHelpersUtils::isAdmin($loggedinUser->id) 
@@ -138,6 +197,7 @@ class plgXiusjs_privacy extends JPlugin
 	
 	function _isFriend($userId, $otherUserId)
     {
+		//XITODO : Cache the results
     	$db      = & JFactory::getDBO();
         $query   = 'SELECT '. $db->nameQuote('connection_id').'  FROM ' . $db->nameQuote( '#__community_connection')
         			.' WHERE '. $db->nameQuote('connect_from').'='.$db->Quote($userId)
