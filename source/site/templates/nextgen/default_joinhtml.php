@@ -20,9 +20,15 @@ if($this->joinHtml['enable']):
 	$joinhtml .= '<option value="AND" '.$andSelected.'>'.XiusText::_('MATCH ALL').'</option>';
 	$joinhtml .= '<option value="OR" '.$orSelected.'>'.XiusText::_('MATCH ANY').'</option>';
 	$joinhtml .= '</select>';
-	echo '<b>'.XiusText::_('XIUS JOIN WITH').'</b>&nbsp;&nbsp;&nbsp;&nbsp;';
-	echo $joinhtml;	
 	?>
+	<div class="xius_spMain">
+	<div class="xius_spLabel">
+	<?php echo XiusText::_('XIUS JOIN WITH'); ?>
+	</div>
+	<div class="xius_spInput">
+	<?php echo $joinhtml; ?>	
+	</div>
+	</div>
 	</div>
 	<?php 
 else:

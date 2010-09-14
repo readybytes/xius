@@ -3,9 +3,9 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-$this->loadAssets('css', 'list.css');
+$this->loadAssets('css', 'nextgen_lists.css');
 ?>
-<div class="">
+<div id="xiusLists">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 <?php
 if(empty($this->lists))	:
@@ -14,25 +14,30 @@ else	:
 	foreach($this->lists as $l)	:
 		$url = XiusRoute::_($this->submitUrl.'&listid='.$l->id,false);
 		?>
-		<div class="listmain">
-		<div class="listtopleft">
-		<h1>
-		<?php
-		$name = $l->name;
-		if(empty($name)):
-			$name = 'LIST';
-		endif;
-		
-		echo '<a href="'.$url.'">'.XiusText::_($name).'</a>'
-		?></h1>
-		</div>
-		<div class="listtopright">
-		</div>
-		<div class="listdesc">
-		<?php
-		echo XiusText::_($l->description);
-		?><hr />
-		</div>
+		<div class="xiusListsBox">
+			
+			<div class="xiusListsHead">
+				<div class="listtopleft">
+				<h2>
+				<?php
+				$name = $l->name;
+				if(empty($name)):
+					$name = 'LIST';
+				endif;
+				
+				echo '<a href="'.$url.'">'.XiusText::_($name).'</a>'
+				?></h2>
+				</div>
+			
+				<div class="listtopright">
+				</div>
+			</div>	
+			<div class="xiusListDesc">
+				<?php
+				echo XiusText::_($l->description);
+				?>
+			</div>
+				
 		</div>
 		<?php
 	endforeach;

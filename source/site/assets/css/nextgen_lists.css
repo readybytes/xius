@@ -1,0 +1,49 @@
+/** list page css**/
+div#xiusLists div,
+div#xiusLists dl,
+div#xiusLists dt,
+div#xiusLists dd,
+div#xiusLists ul,
+div#xiusLists ol,
+div#xiusLists li,
+div#xiusLists h1,
+div#xiusLists h2,
+div#xiusLists h3,
+div#xiusLists h4,
+div#xiusLists h5,
+div#xiusLists h6,
+div#xiusLists pre,
+div#xiusLists form,
+div#xiusLists fieldset,
+div#xiusLists input,
+div#xiusLists textarea,
+div#xiusLists p,
+div#xiusLists blockquote,
+div#xiusLists th,
+div#xiusLists td {
+	margin: 0; 
+	padding: 0;
+}
+#xiusLists {
+	overflow:hidden;
+	width:100%;
+    margin: 0;
+    padding:0;
+} 
+
+#xiusLists .xiusListsBox {
+	margin: 5px 2px;
+	border:1px solid #e3e3e3;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#xiusLists .xiusListsHead {
+	border-bottom: 1px solid #e3e3e3;
+	padding:2px 5px;
+}
+
+#xiusLists .xiusListDesc{
+	padding:2px 5px;
+}
