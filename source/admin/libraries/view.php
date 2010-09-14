@@ -19,7 +19,7 @@ abstract class XiusView extends JView
 	public $_form 			= null;
 	
 	public $_xiurl 			= null;
-	public $_isExternalUrl  = false;
+	//public $_isExternalUrl  = false;
 	
 	function __construct($config = array())
 	{		
@@ -107,7 +107,10 @@ abstract class XiusView extends JView
 		$joinHtml['enable']  	= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch',1);
 		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','All');
 		$loadJquery				= xiusHelpersUtils::getConfigurationParams('xiusLoadJquery',1);
-		
+		// load jquery package
+		if($this->loadJquery)
+		$this->loadAssets('js', 'jquery.js');
+	
 		$this->assignRef('loadJquery', $loadJquery);
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 		$this->assignRef('joinHtml', $joinHtml);
@@ -120,7 +123,7 @@ abstract class XiusView extends JView
 				$listid = $list->id;
 			}
 		
-		$toolbar =XiussiteHelperToolbar::getAdminToolbar($listid,$from,array('isExternal'=>$this->_isExternalUrl,'xiurl'=>$this->getXiUrl()));
+		$toolbar =XiussiteHelperToolbar::getAdminToolbar($listid,$from,$this->getXiUrl());
 		$this->assignRef('toolbar',$toolbar);
 		//calculate data for these users
 

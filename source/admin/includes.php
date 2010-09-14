@@ -49,6 +49,8 @@ XiusLoader::addAutoLoadFile('XiusLibrariesUsersearch', XIUS_PATH_LIBRARY.DS.'use
 XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');
 
+XiusLoader::addAutoLoadFile('XiusAdminController', XIUS_PATH_LIBRARY.DS.'admincontroller.php');
+
 /*JomSocial community files */
 foreach(array('CFactory','CAssets','CConfig','CApplications','CUser','CRoute') as $className)
 	XiusLoader::addAutoLoadFile($className, XIUS_PATH_LIBRARY.DS.'community.php');

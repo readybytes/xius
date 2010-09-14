@@ -29,7 +29,7 @@ class XiussiteHelperToolbar
 		 *  if from internal url then reset view and task
 		 *  otherwise ad prefix xius 
 		 */
-		$uri = new JURI($submitUrl['xiurl']);
+		$uri = new JURI($submitUrl);
 		
 		/*
 		 * get toolbar option for save list

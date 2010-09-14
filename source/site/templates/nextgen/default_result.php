@@ -7,8 +7,6 @@
 <?php 
 $this->loadAssets('css', 'nextgen.css');
 //XITODO : move to loadAssest function
-if($this->loadJquery)
-	$this->loadAssets('js', 'jquery.js');
 	
 $this->loadAssets('js', 'xius_jquery.js');
 $this->loadAssets('js', 'xius.js');

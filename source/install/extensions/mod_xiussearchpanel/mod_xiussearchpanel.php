@@ -10,9 +10,8 @@ $mySess =& JFactory::getSession();
 $mySess->set('xiusModuleForm',"xiusMod{$module->id}",'XIUS');
 
 $url = 'index.php?option=com_xius&view=users&task=search';
-if($params->get('integrateJS',0) == true){
-	$user		= CFactory::getUser();
-	$url = 'index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id.'&xiusview=users&xiustask=search';
+if(XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0) == true){
+	$url = 'index.php?option=com_community&view=users&task=search&usexius=1';
 }
 		
 jimport( 'joomla.filesystem.folder' );
@@ -20,17 +19,7 @@ require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes
 require_once( dirname(__FILE__).DS.'helper.php' );
 $displayHtml= UserSearchHelper::getSearchHtml();
 	if(!empty($displayHtml)):
-		$link = $url;
-		$menu = &JSite::getMenu(); 
-		$itemid = $menu->getItems('link', $link);
-		if(empty($itemid)){
-			$itemid = $menu->getItems('link', "index.php?option=com_xius&view=users&task=panel");
-		}
-
-		if(!empty($itemid)){
-			$link .= "&Itemid=".$itemid[0]->id;
-		}	
-
+		$link = $url;		
 		$infoRange = $params->get('xius_info_range','all');
 		$range=array();
 		if( 'all' != strtolower($infoRange) ){

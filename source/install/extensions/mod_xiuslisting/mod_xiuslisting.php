@@ -9,9 +9,8 @@ require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes
 require_once( dirname(__FILE__).DS.'helper.php' );
 
 $url = 'index.php?option=com_xius&view=list&task=showList&listid=';
-if($params->get('integrateJS',0) == true){
-	$user		= CFactory::getUser();
-	$url = 'index.php?option=com_community&view=profile&task=app&app=xius&userid='.$user->id.'&xiusview=list&xiustask=showList&listid=';
+if(XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0) == true){	
+	$url = 'index.php?option=com_community&view=list&task=showList&usexius=1&listid=';
 }
 
 $displayList= XiusListHelper::getListData();

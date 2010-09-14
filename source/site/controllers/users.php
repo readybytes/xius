@@ -8,10 +8,9 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiussiteControllerUsers extends XiusController
 {	
-	function __construct($isExternal=false)
+	function __construct($config=array())
 	{
-		$this->_isExternalUrl = $isExternal;	
-		parent::__construct();
+		parent::__construct($config);
 	}
 	
 	function panel()

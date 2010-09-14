@@ -121,7 +121,7 @@ class CommunityXiusController extends CommunityBaseController
 
 		$controller = new $controllerClass(true);
 
-		$controller->getView()->_isExternalUrl= true;
+//		$controller->getView()->_isExternalUrl= true;
 
 		echo $controller->execute($this->xiusOrigTask);
 		//set original view, so JS can pick correct active menu

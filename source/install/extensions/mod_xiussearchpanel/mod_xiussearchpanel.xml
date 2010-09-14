@@ -30,10 +30,6 @@
 			<option value="horizontal">Horizontal</option>
 			<option value="vertical">Vertical</option>
 	</param>
-	<param name="integrateJS" type="radio" default="0" label="INTEGRATE WITH JOM SOCIAL.LABEL" description="INTEGRATE WITH JOM SOCIAL.DESC" >
-			<option value="0">No</option>
-			<option value="1">Yes</option>
-	</param>
 </params>
 </install> 
 
