@@ -45,7 +45,7 @@ class XiusemailView extends XiusBaseView
         $this->assignRef('data', $data);
         
         ob_start();
-        parent::display('email');       
+        $this->display('email');       
         
         $js="function xiusCheckEmailMessageExist(){
 		       		var content = ".$data['editor']->getContent('xiusEmailMessageEl').";
@@ -55,7 +55,23 @@ class XiusemailView extends XiusBaseView
         $document =& JFactory::getDocument();
 		$document->addScriptDeclaration($js);
 		$contents = ob_get_contents();
- 		ob_end_flush();
+ 		ob_end_clean();
         return $contents;
+	}
+	
+	function getIndividualEmailLink($pluginId, $userId)
+	{
+		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$pluginId}&userid={$userId}&tmpl=component";
+		$buttonMap = XiusFactory::getModalButtonObject('xius_email_button',XiusText::_('EMAIL'),$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
+		
+		$this->assign('pluginId',$pluginId);
+		$this->assign('userId',$userId);
+		$this->assign('buttonMap',$buttonMap );
+		
+		ob_start();
+		$this->display('individualemail'); 
+		$contents = ob_get_contents();
+ 		ob_end_clean();
+        return $contents;        
 	}
 }

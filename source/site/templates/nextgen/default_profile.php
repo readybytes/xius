@@ -71,7 +71,7 @@
 
 					<?php if(isset($user->email) && !empty($user->email)): 
 					           echo $user->email;
-							   echo XiusText::_('EMAIL'); 
+							    
 					           endif; ?>
 						
 						</div>

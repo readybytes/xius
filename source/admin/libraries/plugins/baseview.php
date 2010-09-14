@@ -16,7 +16,7 @@ class XiusBaseView extends XiusView
 	{
 		$config = array();
 		
-		$template	= 'default';
+		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
 		$prefix	=	$this->getPrefix();	
 		$xiustemplateBase = XIUS_PATH_TEMPLATE;		
 		$xiusPluginDir = 'xiusplugins';

@@ -27,8 +27,8 @@ class XiusPluginControllerXiusemail extends JController
     	require_once(dirname(__FILE__).DS.'views'.DS.'view.html.php');
 		$view= new XiusemailView();			
 	
-		return $view->emailUser(); 	
- 
+		echo  $view->emailUser();
+		return; 
     }
     
     function sendEmail($pluginId=null, $userId=null, $post=null)

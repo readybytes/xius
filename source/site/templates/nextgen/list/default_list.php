@@ -4,7 +4,15 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 ?>
-<span class = "xiusListname">
+<style>
+#xiusListName {
+	padding:2px;
+	font-style: italic;
+	font-weight: bold;
+}
+</style>
+
+<span id = "xiusListName">
 <?php 
 $listid = 0;
 // XITODO : cleanup code

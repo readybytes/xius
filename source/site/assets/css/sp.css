@@ -2,10 +2,9 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-.xius_sp{
+#xius_sp{
 	padding:5px;
 	margin:0px;
-	border:1px solid #d1d1d1;
 	-moz-border-radius:5px;
 }
 
@@ -23,7 +22,7 @@
 	color:#275788;
 }
 	
-.xius_spMain{
+#xius_sp .xius_spMain{
 	overflow:hidden;
 	border:1px solid rgb(209,209,209);
 	padding:5px;

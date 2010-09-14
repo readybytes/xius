@@ -88,16 +88,15 @@ class Xiusemail extends XiusBase
 		if(!$this->isAllRequirementSatisfy())
 			return;
 		
+		$view = $this->getViewName();
         foreach( $data as $user ){
-        	$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid={$user->id}&tmpl=component";
-        	$buttonMap = XiusFactory::getModalButtonObject('xius_email_button',XiusText::_('EMAIL'),$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
-        	$user->email	= '<a id="'.$buttonMap->modalname.$user->id.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'
-        						.'<img src="'. JURI::base().'components/com_xius/assets/images/email.png" title="'.XiusText::_("XIUS EMAIL").'" /></a>&nbsp;';
-            }
+        	$user->email = $view->getIndividualEmailLink($this->id,$user->id);
+        }
 	}
 	
 	function onBeforeDisplayResultToolbar($toolbar)
 	{
+		// XITODO : create tmpl for this also
 		$script = "function xiusCheckUserSelected(){
 					var flag = false;
     				for (var i = 0; true; i++) {
