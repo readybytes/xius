@@ -1,5 +1,5 @@
 /** list page css**/
-div#xiusLists div,
+body div#xiusLists div,
 div#xiusLists dl,
 div#xiusLists dt,
 div#xiusLists dd,
@@ -88,7 +88,7 @@ div#xiusLists td {
 	margin:0px;
 }
 
-#xiusSave table.paramlist td.paramlist_key {
+body #xiusSave table.paramlist td.paramlist_key {
  width:30%;
  text-align: right;
  font-weight: bold;

@@ -85,7 +85,7 @@ div#xiusProfile #xiusFiltered {
 div#xiusClearAll {
 	float:right;
 	cursor: pointer;
-	background: url("../images/clear_all.png") no-repeat;
+	background: url("../../../../assets/images/clear_all.png") no-repeat;
 }
 
 div#xiusProfile div#xiusFdHead {
@@ -193,7 +193,7 @@ div.xiusMpOptions{
 
 div#xiusProfile span.xiusOptionsImg{
 	padding-right:16px;
-	background: url("../images/options.png") no-repeat;
+	background: url("../../../../assets/images/options.png") no-repeat;
 }
 
 div#xiusProfile div.xiusMpOptions img{
@@ -235,19 +235,19 @@ div#xiusProfile div.xiusOffline {
 
 div#xiusProfile div.xiusViewProfile {
 	padding:0 0 0 20px;
-	background: url("../images/viewprofile.png") no-repeat;	
+	background: url("../../../../assets/images/viewprofile.png") no-repeat;	
 	border-bottom: 1px dashed #e3e3e3;
 }
 
 div#xiusProfile div.xiusWriteMsg {
 	padding:0 0 0 20px;
-	background: url("../images/msg.png") no-repeat;
+	background: url("../../../../assets/images/msg.png") no-repeat;
         border-bottom: 1px dashed #e3e3e3;	
 }
 
 div#xiusProfile div.xiusFriends {
 	padding:0 0 0 20px;
-	background: url("../images/friends.png") no-repeat;
+	background: url("../../../../assets/images/friends.png") no-repeat;
         border-bottom: 1px dashed #e3e3e3;	
 }
 
@@ -320,4 +320,6 @@ div#xiusProfile .xiusMpActions {
 	display:none;
 	padding:5px;
 	position: absolute;
+	width:100px;
+    margin-left:-20px
 }
