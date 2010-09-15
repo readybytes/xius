@@ -225,13 +225,13 @@
 ../packages/tmp/install/extensions/xius_system/xius_system.php:50:		if($mainframe->isAdmin())
 ../packages/tmp/install/extensions/xius_system/xius_system.php:64:		$oldTablePath = JTable::addIncludePath();
 ../packages/tmp/install/extensions/xius_system/xius_system.php:67:		JTable::addIncludePath($oldTablePath);
-../packages/tmp/install/extensions/xius_system/xius_system.php:82:		$mainframe->redirect(XiusRoute::_($url,false));			
-../packages/tmp/install/extensions/xius_system/xius_system.php:128:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:131:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:145:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:148:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:162:		$app = JFactory::getApplication();
-../packages/tmp/install/extensions/xius_system/xius_system.php:177:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xius_system/xius_system.php:81:		$mainframe->redirect(XiusRoute::_($url,false));			
+../packages/tmp/install/extensions/xius_system/xius_system.php:127:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:130:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:144:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:147:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:161:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xius_system/xius_system.php:176:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:9:$mySess =& JFactory::getSession();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:16:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>

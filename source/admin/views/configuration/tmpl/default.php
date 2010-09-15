@@ -14,17 +14,69 @@ JHTML::_('behavior.tooltip', '.hasTip');
            background-image:  url(../administrator/components/com_xius/assets/images/icon_update_cache.png);
            background-repeat:no-repeat;
            background-position: top center;
-        }
+        }     
 </style>
-
+<div>
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">
-<div style="width:25%">
-<?php 
-jimport('joomla.html.pane');
+
+<?php  
+/*jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
-		echo $pane->startPane('configuration-pane');
-		echo $this->params->render('xiusparams');?>
+		echo $pane->startPane('configuration-pane');*/
+?>
+<div class="col width-45" style="float:left;">
+<fieldset class="adminform">
+<legend><?php echo XiusText::_( 'BASIC CONFIGURATION' ); ?></legend>
+	<div>
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'TEMPLATE CONFIGURATION' ); ?></legend>
+		<?php echo $this->params->render('xiusparams','basicXiusTemplate');?>
+	</fieldset>
+	</div>
+
+	<div>
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'SEARCH CONFIGURATION' ); ?></legend>
+			<?php echo $this->params->render('xiusparams','basicXiusSearch');?>
+	</fieldset>
+	</div>
+	
+	<div>
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'LIST CONFIGURATION' ); ?></legend>
+		<?php echo $this->params->render('xiusparams','basicXiusList');?>
+	</fieldset>	
+	</div>
+</fieldset>
 </div>
+
+
+<div class="col width-45" style="float:right;">
+<fieldset class="adminform">
+<legend><?php echo XiusText::_( 'ADVANCE CONFIGURATION' ); ?></legend>
+	<div>
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'TEMPLATE CONFIGURATION' ); ?></legend>
+		<?php echo $this->params->render('xiusparams','advXiusTemplate');?>
+	</fieldset>
+	</div>
+
+	<div>
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'SEARCH CONFIGURATION' ); ?></legend>
+			<?php echo $this->params->render('xiusparams','advXiusSearch');?>
+	</fieldset>
+	</div>
+	
+	<div>
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'LIST CONFIGURATION' ); ?></legend>
+		<?php echo $this->params->render('xiusparams','advXiusList');?>
+	</fieldset>	
+	</div>
+</fieldset>
+</div>
+
 <div class="clr"></div>
 <input type="hidden" name="view" value="configuration" />
 <input type="hidden" name="task" value="" />
@@ -32,3 +84,4 @@ jimport('joomla.html.pane');
 <input type="hidden" name="boxchecked" value="0" />
 <?php echo JHTML::_( 'form.token' ); ?>
 </form>	
+</div>

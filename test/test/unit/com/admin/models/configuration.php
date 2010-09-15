@@ -63,14 +63,13 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 		$datas[] = array('resultparams' => array('xiusTemplates' => 'default',
 												'integrateJomSocial' => 0,
 												'xiusReplaceSearch' => 0,
-												'xiusSlideShow' => none,
-												'xiusLoadJquery' => 1,
+												'xiusSlideShow' => 'none',
+												'xiusLoadJquery' => 0,
 												'xiusKey' => 'AB2F4' ,
-												'xiusDebugMode' => 0,
-												'xiusUserLimit' => 1930,
+												'xiusDebugMode' =>0,
 												'xiusEnableMatch' => 1,
 												'xiusDefaultMatch' => 'AND',
-												'xiusListCreator' => 'a:1:{i:0;s:19:"Super Administrator";}'));
+												'xiusListCreator' => 'a:1:{i:0;s:19:"Super Administrator";}','xiusUserLimit' => 1930));
 		
 		foreach($datas as $d){
 			$params = $cModel->getParams();

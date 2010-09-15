@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<config>
-	<params addpath="/administrator/components/com_xius/elements">
+<config>	
 	<!--
 		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
 	-->
-		<!--  START INTEGRATION PARAMETERS -->		
-		<param name="@spacer" type="spacer" default="Template Configuration" label="" description="" />
-		<param name="xiusTemplates" type="xiusTemplates" default="default" label="SELECT TEMPLATE.LABEL" description="SELECT TEMPLATE.DESC"></param>
+		<!--  START INTEGRATION PARAMETERS -->
+	<params group="basicXiusTemplate" addpath="/administrator/components/com_xius/elements"> 	
+		<param name="xiusTemplates" type="xiusTemplates" default="default" label="SELECT TEMPLATE.LABEL" description="SELECT TEMPLATE.DESC" />	
 		<param name="integrateJomSocial" type="radio" default="0" label="INTEGRATE WITH JOMSOCIAL.LABEL" description="INTEGRATE WITH JOMSOCIAL.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
@@ -14,25 +13,31 @@
 		<param name="xiusReplaceSearch" type="radio" default="0" label="REPLACE JOM SOCIAL ADVANCE SEARCH.LABEL" description="REPLACE JOM SOCIAL ADVANCE SEARCH.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
-		</param>
+		</param>			
+	</params>
+	
+	<params group="advXiusTemplate">
 		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
 			<option value="none">No</option>
 			<option value="block">Yes</option>
-		</param>
+		</param>	
 		<param name="xiusLoadJquery" type="radio" default="0" label="LOAD JQUERY.LABEL" description="LOAD JQUERY.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
-		</param>		
-		<param name="@spacer" type="spacer" default="" label="" description="" />
+		</param>
+	</params>
+	
 		<!--  END INTEGRATION PARAMETERS -->
 		
+	<params group="basicXiusSearch">
 		<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
 		
 		<param name="xiusDebugMode" type="radio" default="0" label="ENABLE DEBUG MODE" description="ENABLE DEBUG MODE.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>	
-		
+	</params>		
+	<params group="advXiusSearch">
 		<param name="xiusEnableMatch" type="radio" default="1" label="SHOW MATCH ALL OR ANY.LABEL" description="SHOW MATCH ALL OR ANY.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
@@ -42,10 +47,9 @@
 			<option value="AND">MATCH ALL</option>
 			<option value="OR">MATCH ANY</option>
 		</param>
+	</params>
 		
-		<param name="@spacer" type="spacer" default="" label="" description="" />
-		<param name="@spacer" type="spacer" default="List Configuration" label="" description="" />
+	<params addpath="/administrator/components/com_xius/elements"  group="basicXiusList">
 		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.LABEL" description="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.DESC"></param>
-	
 	</params>
 </config>

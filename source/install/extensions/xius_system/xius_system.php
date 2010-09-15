@@ -73,11 +73,10 @@ class plgSystemxius_system extends JPlugin
 		 * If jom social is integrated with XIUS then redirect to js + XIUS URL
 		 * else to XIUS
 		 */
-		$user		= CFactory::getUser();
 		$integrateJS =XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0);	
 		$url = "index.php?option=com_xius";
 		if($integrateJS)
-			$url = "index.php?option=com_community&task=app&app=xius&xiusview=users&xiustask=panel&userid='.$user->id"; 
+			$url = "index.php?option=com_community&view=users&task=search&usexius=1"; 
 		
 		$mainframe->redirect(XiusRoute::_($url,false));			
 	}
