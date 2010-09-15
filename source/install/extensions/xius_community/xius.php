@@ -129,8 +129,10 @@ class CommunityXiusController extends CommunityBaseController
 	}
 	
 	function getView($viewName ='frontpage', $prefix = '', $viewType = '')
-	{
-		return parent::getView($viewName ='search', $prefix, $viewType);
+	{		
+		$view =  parent::getView($viewName ='search', $prefix, $viewType);		
+		$view->setTitle(" ");
+		return $view;
 		
 	}
 }

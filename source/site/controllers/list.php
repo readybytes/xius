@@ -32,7 +32,7 @@ class XiussiteControllerList extends XiusController
 		$view		=& $this->getView();
 
 		// set and reset the vars in current url
-		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
+		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'showList',
 							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		return $view->lists($user->id);				
 	}
