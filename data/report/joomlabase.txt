@@ -198,7 +198,7 @@
 ../packages/tmp/site/helpers/profile.php:47:		JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/helpers/toolbar.php:15:		$user = JFactory::getUser();		
 ../packages/tmp/site/helpers/slide.php:99:	        $document =& JFactory::getDocument();
-../packages/tmp/site/controllers/users.php:128:		$document	=& JFactory::getDocument();
+../packages/tmp/site/controllers/users.php:127:		$document	=& JFactory::getDocument();
 ../packages/tmp/site/controllers/list.php:30:		$user =& JFactory::getUser();
 ../packages/tmp/site/controllers/list.php:51:		global $mainframe;
 ../packages/tmp/site/controllers/list.php:54:		$user =& JFactory::getUser();

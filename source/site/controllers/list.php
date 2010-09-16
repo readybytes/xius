@@ -52,7 +52,7 @@ class XiussiteControllerList extends XiusController
 		$listId = JRequest::getVar('listid', 0);	 
 		
 		$user =& JFactory::getUser();
-		if($listId === 0)
+		if($listId == 0)
 			return $this->lists($user->id);			
 			
 		/*get list */

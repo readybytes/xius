@@ -121,7 +121,7 @@ class InsertUserTest extends XiUnitTestCase
 		return $data;
 	}
 	
-	function testPerformanceOn25000()
+	function xtestPerformanceOn25000()
 	{
 		$this->resetCachedData();
 		$this->insertUser(122);
@@ -197,11 +197,11 @@ class InsertUserTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
+		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		$startTime 		= $profiler->getmicrotime();
 		$data = array(array());
-		XiusViewUsers::_getInitialData(&$data);
-		XiusViewUsers::_getUsers(&$data);		
+		XiussiteHelperResults::_getInitialData(&$data);
+		XiussiteHelperResults::_getUsers(&$data);		
 		$endTime 		= $profiler->getmicrotime();
 			
 		// perrmace measurement in getting results
@@ -220,7 +220,7 @@ class InsertUserTest extends XiUnitTestCase
 		//print_r(var_export($db->getLog()));
 		$noOfqueries	= 5; 	
 		$this->assertFalse( $noOfqueries < ($endTicker - $startTicker) );
-		XiusViewUsers::_getTotalUsers(&$data);	
+		XiussiteHelperResults::_getTotalUsers(&$data);	
 		return $data;	
 	}
 	
