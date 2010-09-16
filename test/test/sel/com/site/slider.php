@@ -25,7 +25,7 @@ class XiusSliderTest extends XiSelTestCase
 		$this->windowMaximize();
 		$beforeToggle = $this->getElementHeight("//div[@class='xius_ai']");
 		$this->click("//div[@class='xius_aiHead']/div");
-		$afterToggle=$this->getElementHeight("//div[@class='xius_ai']");
+		$afterToggle=$this->getElementHeight("//div[@class='xius_ai_full']");
 		$this->assertTrue($beforeToggle<$afterToggle);
 		//$this->assertTrue(!$this->isElementPresent("id('slide1')/div[1]/div[1]/span]"));	
 	}

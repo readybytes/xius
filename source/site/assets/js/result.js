@@ -109,10 +109,12 @@
 	{
 		document.getElementById("xiushide").setAttribute("class", "xiusSliderHide");
 		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgDown");	
+		document.getElementById("xius_ai").setAttribute("class", "xius_ai");
 	}
 
 	function xiusshowdiv()
 	{
 		document.getElementById("xiushide").setAttribute("class", "xiusSlider");
 		document.getElementById("xiusSliderImg").setAttribute("class", "xiusSlideImgUp");
+		document.getElementById("xius_ai").setAttribute("class", "xius_ai_full");
 	}

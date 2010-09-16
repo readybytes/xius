@@ -5,7 +5,7 @@
 **/  
 ?>
 
-<div class="xius_ai">
+<div class="<?php if($this->xiusSlideShow=='none'){ echo 'xius_ai'; } else{ echo 'xius_ai_full';} ?>" id="xius_ai";>
 	<div class="xius_aiHead">
 		<div onclick="javascript:xiushideshowdiv();" style="cursor: pointer;"> <?php echo XiusText::_('Available Information'); ?>
 		<div id="xiusSliderImg" class="<?php if(!$this->xiusSlideShow=='none'){ echo 'xiusSlideImgUp'; } else{ echo 'xiusSlideImgDown';} ?>">&nbsp;</div>
@@ -41,3 +41,4 @@
 
 	<input type="hidden" name="xiusaddinfo" value="" />
 </div></div>
+<?php 

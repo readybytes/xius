@@ -103,7 +103,8 @@ class XiussiteViewList extends XiusView
 		$filter['published'] = true;
 		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
 		$data['sortableFields'] 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
-		$data['sortableFields'][] 	= array('key' => 'userid','value' => 'userid');
+		//As we will not be able to sort as per userid.
+		//$data['sortableFields'][] 	= array('key' => 'userid','value' => 'userid');
 		
 		
 		// triger event for displaying xius privacy html

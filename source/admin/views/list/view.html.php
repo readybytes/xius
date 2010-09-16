@@ -52,7 +52,7 @@ class XiusViewList extends JView
 		//$filter['published'] = true;
 		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
 		$sortableFields 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
-		$sortableFields[] 	= array('key' => 'userid','value' => 'userid');
+		//$sortableFields[] 	= array('key' => 'userid','value' => 'userid');
 		
 		// get the user info, who is owner of the list
 		$user = & JFactory::getUser($list->owner);
@@ -110,4 +110,3 @@ class XiusViewList extends JView
 	}
 
 }
-?>
