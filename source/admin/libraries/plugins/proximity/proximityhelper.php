@@ -36,8 +36,24 @@ class ProximityHelper
 	
 	function setUserLatLong($callObject,& $data)
 	{
-		$userinfo = self :: getUserInfo($callObject);		
-		$data['latitude'] 	= (!is_null($userinfo[0])) ? $userinfo[0] : $data['configLat']	;
-    	$data['longitude']	= (!is_null($userinfo[1])) ? $userinfo[1] : $data['configLong'];
+		
+		$userinfo = self :: getUserInfo($callObject);
+
+		//Set default values
+		$data['latitude']  = $data['configLat']	;
+		$data['longitude'] = $data['configLong'];
+
+		// if User location information does not exist
+		if($userinfo==false || count($userinfo) != 2){			
+			return;
+		}
+
+		if(!is_null($userinfo[0]))
+			$data['latitude'] 	= $userinfo[0] ;
+	
+		if(!is_null($userinfo[1]))
+			$data['longitude']	= $userinfo[1] ;
+
+		return;
 	}
 }

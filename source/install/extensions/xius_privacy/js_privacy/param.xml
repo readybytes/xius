@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	 <params addpath="/plugins/xius/js_privacy" >	
-		<param name="js_privacy" type="jsprivacy" default="ALL" addguest="true" label="JOM SOCIAL LIST PRIVACY" description=" "></param>
+	 <params>	
+		<param name="js_privacy" type="radio" default="public" label="JOM SOCIAL LIST PRIVACY" description=" ">
+			<option value="public">Public</option>
+			<option value="member">Member</option>
+			<option value="friend">Friend</option>
+			<option value="self">Private</option>
+		</param>
+		
 	</params>
 </config>

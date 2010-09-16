@@ -210,9 +210,8 @@ class XiusPluginBaseTest extends XiUnitTestCase
 				.'<input type = "hidden" name="xiusinfo_72" id="xiusinfo_72" value="7"/>';
 		
 		$html8 = '<input type = "hidden" name="xiusinfo_81" id="xiusinfo_81" value="8"/>'
-				.'<input class="inputbox" type="text" name="field3" id="field3" style="width:125px; margin-right:4px" value="" />'
-				.'<a href="javascript:void(0)" onclick="return showCalendar(\'field3\', \'dd-mm-y\');" >'
-				.'<img src="/usr/bin/components/com_community/assets/calendar.png"></a>'
+				.'<inputtype="text"name="field3"id="field3"value=""class="inputbox"maxlength="19"/>'
+				.'<imgclass="calendar"src="/usr/bin/templates/system/images/calendar.png"alt="calendar"id="field3_img"/>'
 				.'<input type = "hidden" name="xiusinfo_82" id="xiusinfo_82" value="8"/>';
 				
 		return array(
