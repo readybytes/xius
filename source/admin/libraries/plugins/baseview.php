@@ -27,7 +27,7 @@ class XiusBaseView extends XiusView
 		$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
 		
 		//XITODO : needs improment
-		$path4 = $templateDir.DS.'com_xius'.DS.$xiusPluginDir.DS.JString::strtolower($this->getName());
+		$path4 = $templateDir.DS.'html'.DS.'com_xius'.DS.$xiusPluginDir.DS.JString::strtolower($this->getName());
 		array_unshift($config['template_path'],$path4);
 		 
 		$path3 = $xiustemplateBase.DS.JString::strtolower($template).DS.$xiusPluginDir.DS.JString::strtolower($this->getName());

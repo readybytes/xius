@@ -114,9 +114,8 @@ class XiussiteControllerUsers extends XiusController
 	
 	function export()
 	{
-		$viewName	= JRequest::getCmd( 'view' , 'users' );
 		$viewType	= 'csv';
-		$view		=& $this->getView( $viewName , $viewType );
+		$view		=& $this->getView();
 		$layout		= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );
 		return $view->export();
