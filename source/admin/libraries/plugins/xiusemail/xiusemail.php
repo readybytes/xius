@@ -96,43 +96,7 @@ class Xiusemail extends XiusBase
 	
 	function onBeforeDisplayResultToolbar($toolbar)
 	{
-		// XITODO : create tmpl for this also
-		$script = "function xiusCheckUserSelected(){
-					var flag = false;
-    				for (var i = 0; true; i++) {
-			    		var str = 'xiusCheckUser' + i;
-			    		var cbx = document.getElementById(str);
-			    		if (!cbx) break;
-			        	if(cbx.checked == true)
-				           	flag = true;
-				        } // for
-    				var a = document.getElementById('xius_emailselected_button');
-    				if(flag==false){	
-    					a.href+='&selected=no';
-    					return false;
-    				}   
-    				a.href+='&selected=yes';
-    				return true;    			
-    			}";
-		
-		$document =& JFactory::getDocument();        				
-		$document->addScriptDeclaration($script);
-		
-        $linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=selected&tmpl=component";
-		$buttonMap = XiusFactory::getModalButtonObject('xius_emailselected_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
-		$obj= new stdClass();
-        $obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'" onClick="return xiusCheckUserSelected()">'
-        				.'<img src="'. JURI::base().'components/com_xius/assets/images/emailselected.png" title="'.XiusText::_("XIUS EMAIL TO SELECTED").'" /></a>&nbsp;';
-   
-		$toolbar['selected'] = $obj;
-		
-		// to send mail to all users
-		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$this->id}&userid=all&tmpl=component";
-        $buttonMap = XiusFactory::getModalButtonObject('xius_emailall_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
-        $obj= new stdClass();
-        $obj->value = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'
-        			  .'<img src="'. JURI::base().'components/com_xius/assets/images/emailall.png" title="'.XiusText::_("XIUS EMAIL ALL").'" /></a>&nbsp;';
-   
-		$toolbar['all'] = $obj;	
+		$view = $this->getViewName();
+		$view->_setAdminToolbar($this->id);
 	}
 }

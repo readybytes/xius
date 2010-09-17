@@ -6,7 +6,7 @@
 ?>
 <div class = "xiusToolbar">
 <?php
-foreach($this->toolbar as $tool)
+foreach($this->xiusToolbar as $tool)
 	echo $tool->value;
 
 ?><div class="xiusTbRight">

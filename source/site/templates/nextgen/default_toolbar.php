@@ -9,7 +9,7 @@
     </style>
 <![endif]-->
 <div id="profileToolbar">
-<?php if($this->toolbar):?>
+<?php if($this->xiusToolbar):?>
 	<div id="xiusActions" class="xiusfl">
 		<?php echo XiusText::_('OPTION'); ?>
 		<span class="xiusOptionsImg">&nbsp;</span>

@@ -74,4 +74,21 @@ class XiusemailView extends XiusBaseView
  		ob_end_clean();
         return $contents;        
 	}
+	
+	function _setAdminToolbar($id)
+	{
+		// button for email to selected
+        $linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
+		$buttonMapSel 	= XiusFactory::getModalButtonObject('xius_emailselected_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
+		$this->assign('buttonMapSel',$buttonMapSel);
+		$html  			= $this->loadTemplate('xiusemail_selected'); 			  			
+  		XiussiteHelperToolbar::addToAdminToolbar('selected',$html);
+        		
+		// to send mail to all users
+		$linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=all&tmpl=component";
+        $buttonMapAll 	= XiusFactory::getModalButtonObject('xius_emailall_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);
+        $this->assign('buttonMapAll',$buttonMapAll);
+        $html  			= $this->loadTemplate('xiusemail_all'); 			  			
+  		XiussiteHelperToolbar::addToAdminToolbar('all',$html);        	
+	}
 }

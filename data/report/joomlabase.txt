@@ -113,8 +113,9 @@
 ../packages/tmp/admin/models/info.php:183:		$db 	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/admincontroller.php:15:abstract class XiusAdminController extends JController
 ../packages/tmp/admin/libraries/view.php:99:		$document = JFactory::getDocument();
-../packages/tmp/admin/libraries/view.php:213:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/admin/libraries/view.php:232:		$document =& JFactory::getDocument();
+../packages/tmp/admin/libraries/view.php:164:		$user = JFactory::getUser();		
+../packages/tmp/admin/libraries/view.php:262:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
+../packages/tmp/admin/libraries/view.php:281:		$document =& JFactory::getDocument();
 ../packages/tmp/admin/libraries/createtable.php:21:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/route.php:11:class XiusRoute extends JRoute
 ../packages/tmp/admin/libraries/pluginhandler.php:29:		$user =& JFactory::getUser();
@@ -158,10 +159,10 @@
 ../packages/tmp/admin/libraries/plugins/base.php:544:		$db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:43:        $data['editor'] 		=& JFactory::getEditor();
 ../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:55:        $document =& JFactory::getDocument();
+../packages/tmp/admin/libraries/plugins/xiusemail/views/tmpl/default_xiusemail_selected.php:26:$document =& JFactory::getDocument();        				
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:9:class XiusPluginControllerXiusemail extends JController 
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:37:    	$loggedInUser 	= JFactory::getUser();
 ../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:32:		$loggedInUser =& JFactory::getUser();
-../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:118:		$document =& JFactory::getDocument();        				
 ../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:20:    	$db = & JFactory::getDBO();	
 ../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:45:    	$document = JFactory::getDocument();
 ../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:71:    	$db = & JFactory::getDBO();	
@@ -196,7 +197,6 @@
 ../packages/tmp/site/templates/nextgen/default_result.php:17:$document =& JFactory::getDocument();
 ../packages/tmp/site/helpers/profile.php:27:		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/helpers/profile.php:47:		JTable::addIncludePath(XIUS_PATH_TABLE);
-../packages/tmp/site/helpers/toolbar.php:15:		$user = JFactory::getUser();		
 ../packages/tmp/site/helpers/slide.php:99:	        $document =& JFactory::getDocument();
 ../packages/tmp/site/controllers/users.php:127:		$document	=& JFactory::getDocument();
 ../packages/tmp/site/controllers/list.php:30:		$user =& JFactory::getUser();

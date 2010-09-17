@@ -121,14 +121,13 @@ abstract class XiusView extends JView
 				$listid = $list->id;
 			}
 		
-		$toolbar =XiussiteHelperToolbar::getAdminToolbar($listid,$from,$this->getXiUrl());
-		$this->assignRef('toolbar',$toolbar);
 		//calculate data for these users
 
 		// trigger event onBeforMiniProfileDisplae
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeMiniProfileDisplay', array( &$data ) );
-		
+		$toolbar = $this->_setAdminToolbar($listid,$from);
+		$this->assign('xiusToolbar', $toolbar);
 		$this->assignRef('userprofile', $data['userprofile']);
 		$this->assignRef('sortableFields', $data['sortableFields']);
 		$this->assignRef('pagination', $data['pagination']);
@@ -147,6 +146,56 @@ abstract class XiusView extends JView
 		$this->display($tmpl);
 	}
 
+	/*
+	 * this function will return the admin toolbar content
+	 */
+	function _setAdminToolbar($listid, $task, $option = null)
+	{	
+		$args = array();
+		$args[]=& $toolbar;		
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger( 'onBeforeDisplayResultToolbar', array($args) );
+			
+		static $toolbarAdded = null;		
+		if($toolbarAdded != null)
+			return;
+		
+		$toolbarAdded = true;
+		$user = JFactory::getUser();		
+		
+		// if logged in user's user type is in list creator user type 
+		//then he will be having the option of saving and exporting list		
+		$listCreator = unserialize(XiusHelpersUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
+ 		
+		if($option === null)				
+			$option = JRequest::getVar('option','xius','GET');
+					
+		/*
+		 * get toolbar option for save list
+		 */
+		if(XiussiteHelperList::isAccessibleToUser($user,$listCreator)){  			
+  			$url 		= XiusRoute::_('index.php?option='.$option.'&view=list&task=saveas&usexius=1&tmpl=component&listid='.$listid,false);
+ 			$buttonMap 	= XiusFactory::getModalButtonObject('savelist','@',$url,XIUSLIST_IFRAME_WIDTH,XIUSLIST_IFRAME_HEIGHT);
+  			$this->assign('buttonMap',$buttonMap); 			
+ 			
+  			$html	= $this->loadTemplate('toolbar_savelist'); 		
+ 			XiussiteHelperToolbar::addToAdminToolbar('savelist',$html); 			
+ 		} 		
+ 		/*
+ 		 * get toolbar option for exporting the list in csv format
+ 		 */
+ 		if( XiusHelpersUtils::isAdmin($user->id) == true){  			
+  			$url 		= XiusRoute::_('index.php?option='.$option.'&view=users&task=export&usexius=1&format=csv',false);  			 
+  			$this->assign('url',$url);  			 			
+ 			$html  = $this->loadTemplate('toolbar_export'); 			  			
+  			XiussiteHelperToolbar::addToAdminToolbar('csv',$html);
+  		}
+
+  		return XiussiteHelperToolbar::addToAdminToolbar();
+  	}	
+	
+  	
+  	
 	function display($tmpl = null)
 	{
 		// set proper URI

@@ -12,8 +12,8 @@
 ../packages/tmp/admin/models/info.php:143:		/*XITODO : check key should not be added already*/
 ../packages/tmp/admin/libraries/admincontroller.php:58:		//XITODO : MUST check name of VIEW
 ../packages/tmp/admin/libraries/view.php:29:		//XITODO : we can add here multiple templates, so from global params
-../packages/tmp/admin/libraries/view.php:156:			// XITODO : if still $this->_xiurl  iss not set then what to do
-../packages/tmp/admin/libraries/view.php:201:	// XITODO : UNIT Test case for the following function
+../packages/tmp/admin/libraries/view.php:205:			// XITODO : if still $this->_xiurl  iss not set then what to do
+../packages/tmp/admin/libraries/view.php:250:	// XITODO : UNIT Test case for the following function
 ../packages/tmp/admin/libraries/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/admin/libraries/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
@@ -40,7 +40,6 @@
 ../packages/tmp/admin/libraries/plugins/base.php:547:		 * XITODO : Add all cache columns if one instance is 
 ../packages/tmp/admin/libraries/plugins/base.php:589:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:38:    	// XITODO : if not logged in then what to do
-../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:99:		// XITODO : create tmpl for this also
 ../packages/tmp/admin/libraries/factory.php:66:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:129:	//XITODO : send parameters as array of args
 ../packages/tmp/admin/libraries/factory.php:202:		//XITODO : skip load , let handles it by calle self
