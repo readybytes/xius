@@ -206,7 +206,7 @@ div#xiusProfile span.xiusCheckUser {
 	float:left;
 }
 div#xiusProfile div.xiusOnline {
-	padding:2px 2px 2px 20px;
+	padding:2px 5px 2px 20px;
 	margin:0 0 2px 2px;
 	background: url("../images/status.png") no-repeat 0 1px;	
 	border-bottom: 1px solid #e3e3e3;
@@ -220,7 +220,7 @@ div#xiusProfile div.xiusOnline {
 }
 
 div#xiusProfile div.xiusOffline {
-	padding:2px 2px 2px 20px;
+	padding:2px 5px 2px 20px;
 	margin:0 0 2px 2px;
 	background: url("../images/status-offline.png") no-repeat 0 1px;	
 	border-bottom: 1px solid #e3e3e3;

@@ -9,16 +9,18 @@
     </style>
 <![endif]-->
 <div id="profileToolbar">
-<div id="xiusActions" class="xiusfl">
-<?php echo XiusText::_('OPTIONS'); ?>
-<span class="xiusOptionsImg">&nbsp;</span>
-<div id="xiusTbButton">
-<?php
-foreach($this->toolbar as $tool)
-	echo $tool->value;
-?>
-</div>
-</div>
+<?php if($this->toolbar):?>
+	<div id="xiusActions" class="xiusfl">
+		<?php echo XiusText::_('OPTION'); ?>
+		<span class="xiusOptionsImg">&nbsp;</span>
+		<div id="xiusTbButton">
+		<?php
+		foreach($this->toolbar as $tool)
+			echo $tool->value;
+		?>
+		</div>
+	</div>
+<?php endif;?>
 <div class="xiusfr">
 				<?php
 				if(!empty($this->sortableFields))	:
