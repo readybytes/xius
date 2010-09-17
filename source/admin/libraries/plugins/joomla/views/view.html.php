@@ -32,7 +32,7 @@ class JoomlaView extends XiusBaseView
   			$mySess 	= & JFactory::getSession();
   			$formName	= $mySess->get('xiusModuleForm','','XIUS');
          		if($formName != '')
-         			$formName .= "_{$formName}";
+         			$formName = "_{$formName}";
 
          	$layout = 'date'; 			
   		}

@@ -15,7 +15,7 @@
 		<span class="xiusOptionsImg">&nbsp;</span>
 		<div id="xiusTbButton">
 		<?php
-		foreach($this->toolbar as $tool)
+		foreach($this->xiusToolbar as $tool)
 			echo $tool->value;
 		?>
 		</div>

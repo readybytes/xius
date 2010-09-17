@@ -118,12 +118,6 @@ class Jsfieldshelper
 	 */
 	function getFieldsHTML($fieldInfo)
 	{
-		$document	=& JFactory::getDocument();
-		$document->addStyleSheet(JURI::root()."includes/js/calendar/calendar-mos.css");
-		$document->addScript(JURI::root()."includes/js/joomla.javascript.js");
-		$document->addScript(JURI::root()."includes/js/calendar/calendar_mini.js");
-		$document->addScript(JURI::root()."includes/js/calendar/lang/calendar-en-GB.js");
-		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		
 		$fieldHTML = '';
@@ -139,7 +133,7 @@ class Jsfieldshelper
 			$mySess 	= & JFactory::getSession();
 			$formName	= $mySess->get('xiusModuleForm','','XIUS');
        		if($formName != '')
-       			$formName .= "_{$formName}";
+       			$formName = "_{$formName}";
        			
      		$fieldHTML = JHTML::_('behavior.calendar');
 			$fieldHTML .= JHTML::_('calendar',$fieldInfo->value, "field".$fieldInfo->id, "field".$fieldInfo->id.$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));

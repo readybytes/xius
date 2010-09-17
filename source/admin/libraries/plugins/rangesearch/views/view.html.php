@@ -34,8 +34,13 @@ class RangesearchView extends XiusBaseView
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
 		 */
+		$formName= '';
  		if(JString::strtolower($params->get('rangesearchType', 'date')) === 'date-range'){
 			$layout='daterange';
+			$mySess 	= & JFactory::getSession();
+  			$formName	= $mySess->get('xiusModuleForm','','XIUS');
+         		if($formName != '')
+         			$formName = "_{$formName}";
       	}
 		else{
 			$layout = 'search';
@@ -45,6 +50,7 @@ class RangesearchView extends XiusBaseView
 		$this->assign('key',$key);		
 		$this->assign('value0',$value0);
 		$this->assign('value1',$value1);		
+		$this->assign('formName',$formName);
 		
 		ob_start();
 		$this->display($layout);

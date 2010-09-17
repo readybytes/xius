@@ -7,5 +7,5 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 echo JHTML::_('behavior.calendar');
-echo XiusText::_('RANGESEARCH FROM').'<br/>'.JHTML::_('calendar', $this->value0, 'field'.$this->pluginType.$this->key.'_min', 'field'.$this->pluginType.$this->key.'_min', '%d-%m-%Y', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')).'<br />';
-echo XiusText::_('RANGESEARCH TO').'<br/>'.JHTML::_('calendar', $this->value1, 'field'.$this->pluginType.$this->key.'_max', 'field'.$this->pluginType.$this->key.'_max', '%d-%m-%Y', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19'));
+echo XiusText::_('RANGESEARCH FROM').'<br/>'.JHTML::_('calendar', $this->value0, $this->pluginType.$this->key.'_min', $this->pluginType.$this->key.$this->formName.'_min', '%d-%m-%Y', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')).'<br />';
+echo XiusText::_('RANGESEARCH TO').'<br/>'.JHTML::_('calendar', $this->value1, $this->pluginType.$this->key.'_max', $this->pluginType.$this->key.$this->formName.'_max', '%d-%m-%Y', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19'));

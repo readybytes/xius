@@ -13,14 +13,13 @@ jimport( 'joomla.filesystem.folder' );
 require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 require_once( dirname(__FILE__).DS.'helper.php' );
 
-$url = 'index.php?option=com_xius&view=users&task=search';
+$link = 'index.php?option=com_xius&view=users&task=search';
 if(XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0) == true){
-	$url = 'index.php?option=com_community&view=users&task=search&usexius=1';
+	$link = 'index.php?option=com_community&view=users&task=search&usexius=1';
 }
 
 $displayHtml= UserSearchHelper::getSearchHtml();
 	if(!empty($displayHtml)):
-		$link = $url;		
 		$infoRange = $params->get('xius_info_range','all');
 		$range=array();
 		if( 'all' != strtolower($infoRange) ){
