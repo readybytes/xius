@@ -7,6 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
+<div id="xiusSave">
 <a 
 	id="<?php echo $this->buttonMap->modalname; ?>" 
 	class="<?php echo $this->buttonMap->modalname; ?>"
@@ -15,10 +16,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 	rel="<?php echo $this->buttonMap->options; ?>" 
 	onClick="return xiusCheckUserSelected()"
 >
-		<img 
-			src='<?php echo JURI::base()."components/com_xius/assets/images/save.png"; ?>' 
-			title='<?php echo XiusText::_("Save This List");?>' 
-		/>
-</a>
+<?php echo XiusText::_("Save This List");?></a></div>
 <?php 
  			

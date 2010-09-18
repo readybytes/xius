@@ -32,3 +32,21 @@ function xiusCheckEmailSubjectExist(){
 		return false;
 	return true;
 }
+
+function xiusCheckUserSelected(){
+	var flag = false;
+	for (var i = 0; true; i++) {
+		var str = 'xiusCheckUser' + i;
+		var cbx = document.getElementById(str);
+		if (!cbx) break;
+    	if(cbx.checked == true)
+           	flag = true;
+        } // for
+	var a = document.getElementById('xius_emailselected_button');
+	if(flag==false){	
+		a.href+='&selected=no';
+		return false;
+	}   
+	a.href+='&selected=yes';
+	return true;    			
+}

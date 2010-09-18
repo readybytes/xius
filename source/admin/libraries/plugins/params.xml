@@ -18,7 +18,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="tooltip" type="textarea" rows="4" cols="50" label="TOOLTIP" description="TOOLTIP.DESC">
+		<param name="tooltip" type="textarea" rows="4" cols="25" label="TOOLTIP" description="TOOLTIP.DESC">
 		</param>
 		<!--<param name="template" type="text" default="" label="TEMPLATE" description="TEMPLATE.DESC" />-->
 	</params>

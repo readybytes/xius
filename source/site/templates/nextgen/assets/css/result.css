@@ -39,8 +39,9 @@ div#profileToolbar {
 	float:right;
 }
 
-#xiusTbButton{
-        border:1px solid #e3e3e3;
+div#xiusProfile div#xiusTbButton{
+		margin:0 0 0 -2px;
+		padding:5px;       
         background:#ffffff;
 }
 
@@ -237,18 +238,21 @@ div#xiusProfile div.xiusViewProfile {
 	padding:0 0 0 20px;
 	background: url("../../../../assets/images/viewprofile.png") no-repeat;	
 	border-bottom: 1px dashed #e3e3e3;
+	height:20px;
 }
 
 div#xiusProfile div.xiusWriteMsg {
 	padding:0 0 0 20px;
 	background: url("../../../../assets/images/msg.png") no-repeat;
-        border-bottom: 1px dashed #e3e3e3;	
+    border-bottom: 1px dashed #e3e3e3;	
+	height:20px;
 }
 
 div#xiusProfile div.xiusFriends {
 	padding:0 0 0 20px;
 	background: url("../../../../assets/images/friends.png") no-repeat;
-        border-bottom: 1px dashed #e3e3e3;	
+    border-bottom: 1px dashed #e3e3e3;	
+	height:20px;
 }
 
 div.xiusMpMiddle {
@@ -322,4 +326,64 @@ div#xiusProfile .xiusMpActions {
 	position: absolute;
 	width:100px;
     margin-left:-20px
+}
+
+
+
+/** for tool bar buttons */
+div#xiusProfile #xiusCsv {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/excel.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+    height: 20px;
+}
+
+div#xiusProfile #xiusCsv:hover {
+	padding:4px 0 0 25px;
+	background: #e3e3e3 url("../../../../assets/images/excel.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+    height: 20px;
+}
+
+div#xiusProfile #xiusSave {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/save.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+    height: 20px;
+}
+
+div#xiusProfile #xiusSave:hover {
+	padding:4px 0 0 25px;
+	background: #e3e3e3 url("../../../../assets/images/save.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+    height: 20px;
+    text-decoration: none;
+}
+
+div#xiusProfile #xiusEmailToAll {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/emailall") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+     height: 20px;
+}
+
+div#xiusProfile #xiusEmailToAll:hover {
+	padding:4px 0 0 25px;
+	background: #e3e3e3 url("../../../../assets/images/emailall") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+     height: 20px;
+}
+
+div#xiusProfile #xiusEmailToSelected {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/emailselected.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+     height: 20px;
+}
+
+div#xiusProfile #xiusEmailToSelected:hover {
+	padding:4px 0 0 25px;
+	background: #e3e3e3 url("../../../../assets/images/emailselected.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+     height: 20px;
 }

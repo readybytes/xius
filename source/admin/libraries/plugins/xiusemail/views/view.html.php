@@ -77,6 +77,7 @@ class XiusemailView extends XiusBaseView
 	
 	function _setAdminToolbar($id)
 	{
+		$this->loadAssets('js', 'xiusemail.js');
 		// button for email to selected
         $linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
 		$buttonMapSel 	= XiusFactory::getModalButtonObject('xius_emailselected_button','@',$linkMap,XIUSEMAIL_IFRAME_WIDTH,XIUSEMAIL_IFRAME_HEIGHT);

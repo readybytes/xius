@@ -8,9 +8,10 @@
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
 
-<img 
-	src='<?php echo JURI::base()."components/com_xius/assets/images/excel.png";?>'
+<div id="xiusCsv">
+<a href="#"  
 	onClick="location.href='<?php echo $this->url; ?>'" 
 	title='<?php echo XiusText::_('EXPORT TO CSV'); ?>' 
-/>
+><?php echo XiusText::_('EXPORT TO CSV'); ?>
+</a></div>
 <?php 
