@@ -38,8 +38,8 @@
 ../packages/tmp/admin/controllers/info.php:361:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);		
 ../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:35:       	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
 ../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:64:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$pluginId}&userid={$userId}&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:81:        $linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:88:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=all&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:81:        $linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:88:		$linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=all&tmpl=component";
 ../packages/tmp/admin/libraries/plugins/xiusemail/views/tmpl/default_email.php:11:		<form action="<?php echo XiusRoute::_('index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$this->data['pluginId'].'&userid='.$this->data['userId'].'&tmpl=component'); ?>" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();">
 ../packages/tmp/site/views/users/view.csv.php:21:			$url = XiusRoute::_('index.php?option=com_xius&view=users',false);
 ../packages/tmp/site/templates/default/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);

@@ -73,3 +73,4 @@
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy/profiletypes.php:38:		require_once JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'libraries'.DS.'profiletypes.php';
 ../packages/tmp/install/install.php:8:require_once(JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'route.php');
 ../packages/tmp/install/install.php:9:require_once(JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'text.php');
+../packages/tmp/languages/admin/en-GB.com_xius.ini:259:ADVANCE CONFIGURATION DESCRIPTION=This configuration is for advance users only, please do not change it until you require advance functionality.

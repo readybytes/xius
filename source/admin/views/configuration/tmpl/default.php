@@ -16,6 +16,18 @@ JHTML::_('behavior.tooltip', '.hasTip');
            background-position: top center;
         }     
 </style>
+<script type="text/javascript" src="<?php echo JURI::root().'components/com_xius/assets/js/jquery1.4.2.js';?>" ></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+			$("div#xiusAdvanceTemplate").css("display","none");
+			$("input#advanceConfig").click(function(){
+			$("div#xiusAdvanceTemplate").slideToggle();
+		});	
+	});
+	
+</script>
+<script type="text/javascript">jQuery.noConflict();</script>
+
 <div>
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">
 
@@ -28,9 +40,9 @@ JHTML::_('behavior.tooltip', '.hasTip');
 <fieldset class="adminform">
 <legend><?php echo XiusText::_( 'BASIC CONFIGURATION' ); ?></legend>
 	<div>
-	<fieldset class="adminform">
+	<fieldset class="adminform" id="xiusBasicTemplate">
 		<legend><?php echo XiusText::_( 'TEMPLATE CONFIGURATION' ); ?></legend>
-		<?php echo $this->params->render('xiusparams','basicXiusTemplate');?>
+		<?php echo $this->params->render('xiusparams','basicXiusTemplate');?>		
 	</fieldset>
 	</div>
 
@@ -50,25 +62,21 @@ JHTML::_('behavior.tooltip', '.hasTip');
 </fieldset>
 </div>
 
-
-<div class="col width-45" style="float:right;">
+<div class="col width-45" style="float:right;" >
 <fieldset class="adminform">
-<legend><?php echo XiusText::_( 'ADVANCE CONFIGURATION' ); ?></legend>
-	<div>
+<legend><input type="checkbox" id="advanceConfig"><?php echo XiusText::_( 'ADVANCE CONFIGURATION' ); ?></legend>
+	<?php echo XiusText::_('ADVANCE CONFIGURATION DESCRIPTION');?>
+	<div id="xiusAdvanceTemplate">
 	<fieldset class="adminform">
 		<legend><?php echo XiusText::_( 'TEMPLATE CONFIGURATION' ); ?></legend>
 		<?php echo $this->params->render('xiusparams','advXiusTemplate');?>
 	</fieldset>
-	</div>
 
-	<div>
 	<fieldset class="adminform">
 		<legend><?php echo XiusText::_( 'SEARCH CONFIGURATION' ); ?></legend>
 			<?php echo $this->params->render('xiusparams','advXiusSearch');?>
 	</fieldset>
-	</div>
-	
-	<div>
+
 	<fieldset class="adminform">
 		<legend><?php echo XiusText::_( 'LIST CONFIGURATION' ); ?></legend>
 		<?php echo $this->params->render('xiusparams','advXiusList');?>

@@ -9,14 +9,14 @@
 		<param name="integrateJomSocial" type="radio" default="0" label="INTEGRATE WITH JOMSOCIAL.LABEL" description="INTEGRATE WITH JOMSOCIAL.DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
-		</param>
-		<param name="xiusReplaceSearch" type="radio" default="0" label="REPLACE JOM SOCIAL ADVANCE SEARCH.LABEL" description="REPLACE JOM SOCIAL ADVANCE SEARCH.DESC">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
-		</param>			
+		</param>					
 	</params>
 	
 	<params group="advXiusTemplate">
+		<param name="xiusReplaceSearch" type="radio" default="1" label="REPLACE JOM SOCIAL ADVANCE SEARCH.LABEL" description="REPLACE JOM SOCIAL ADVANCE SEARCH.DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
 		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
 			<option value="none">No</option>
 			<option value="block">Yes</option>
