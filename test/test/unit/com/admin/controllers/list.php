@@ -128,7 +128,7 @@ class XiusControllerListTest extends XiUnitTestCase
 		$post['xiusListDescription']='<b>Male from Afghanistan</b>';
 		$post['published']=0;
 		$post['params']['xiusListViewGroup'][] = 'All';
-		$post['js_privacy'] = 'public';
+		$post['params']['js_privacy'] = 'public';
 		$returnData = $listController->_processSave($post);
 		
 		unset($post);
@@ -141,8 +141,8 @@ class XiusControllerListTest extends XiUnitTestCase
 		$post['xiusListJoinWith']='OR';
 		$post['xiusListDescription']='<b>Register</b>';
 		$post['published']=1;		
-		$post['js_privacy'] = 'public';
 		$post['params'] = array();
+		$post['params']['js_privacy'] = 'public';
 		$returnData = $listController->_processSave($post);
 	}
 }

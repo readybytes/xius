@@ -64,8 +64,8 @@ class plgXiusjs_privacy extends JPlugin
 			return false;
 		
 		// is postdata of this plugin is set then, set it into postData[params]
-		if(array_key_exists($this->_name,$postData)){
-			$params[$this->_name] = $postData[$this->_name];
+		if(array_key_exists($this->_name,$postData['params'])){
+			$params[$this->_name] = $postData['params'][$this->_name];
 			return true;
 		}
 

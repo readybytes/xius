@@ -22,7 +22,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$user = & JFactory::getUser(62);
 		$datas = array();
 		$url1 = array('listid'=>1,'task'=>'showList','view'=>'list');
-		$datas[] = array('info' => array('listid' => 0 , 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 4 , 'xiusListSortDir' => 'DESC' , 'xiusListJoinWith' => 'AND' , 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1,
+		$datas[] = array('info' => array('listid' => 0 , 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 4 , 'xiusListSortDir' => 'DESC' , 'xiusListJoinWith' => 'AND' ,'params' => Array('js_privacy' => 'public'), 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1,
 					'conditions' => array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '=')));
 		//print_r(var_export($conditions1));
 		
@@ -30,7 +30,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		//print_r(var_export(unserialize($c)));
 
 		$url2 = array('listid'=>2,'task'=>'showList','view'=>'list');		
-		$datas[] = array('info' => array('listid' => 0 , 'xiusListName' => 'Register Date is 16-01-2010' , 'xiusListSortInfo' => 3 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND' , 'xiusListPublish' => true , 'xiusListDesc' => 'All members whose registeration date is 16 Jan 2010'),'resultId' => 2 , 'resultUrl' => $url2,
+		$datas[] = array('info' => array('listid' => 0 , 'xiusListName' => 'Register Date is 16-01-2010' , 'xiusListSortInfo' => 3 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND' , 'params' => Array('js_privacy' => 'public'), 'xiusListPublish' => true , 'xiusListDesc' => 'All members whose registeration date is 16 Jan 2010'),'resultId' => 2 , 'resultUrl' => $url2,
 					'conditions' => array(array('infoid' => '4' , 'value' => '16-01-2010' , 'operator' => '=')));
 		
 		$db = JFactory::getDBO();
@@ -69,7 +69,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$userController = new XiussiteControllerList();
 		$datas = array();
 		$url1 = array('listid'=>1,'task'=>'showList','view'=>'list');		
-		$datas[] = array('info' => array('listid' => 1 , 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND' , 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1,
+		$datas[] = array('info' => array('listid' => 1 , 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND' ,'params' => Array('js_privacy' => 'public'), 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan'),'resultId' => 1 , 'resultUrl' => $url1,
 						'conditions' => array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '=')));
 		//print_r(var_export($conditions1));
 		
@@ -98,7 +98,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$datas = array();
 		$url1 = array('listid'=>1,'task'=>'showList','view'=>'list');		
-		$datas[] = array('info' => array('listid' => 1, 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND', 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan','js_privacy' => 'member'),'resultId' => 1 , 'resultUrl' => $url1,
+		$datas[] = array('info' => array('listid' => 1, 'xiusListName' => 'Male from Afghanistan' , 'xiusListSortInfo' => 8 , 'xiusListSortDir' => 'ASC' , 'xiusListJoinWith' => 'AND', 'params' => Array('js_privacy' => 'member'), 'xiusListPublish' => true , 'xiusListDesc' => 'All Male from Afghanistan','js_privacy' => 'member'),'resultId' => 1 , 'resultUrl' => $url1,
 						'conditions' => array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '=')));
 	
 		$list	= JTable::getInstance( 'list' , 'XiusTable' );
@@ -138,7 +138,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$post['xiusListJoinWith']	= 'OR';
 		$post['xiusListSortInfo']	= 2;
 		$post['xiusListSortDir']	= 'DESC';
-		$post['js_privacy'] 		= 'friend';
+		$post['params']['js_privacy'] 		= 'friend';
 		
 		$userController1 = new XiussiteControllerList();
 		$result = $userController1->_saveList(true,$post,null,$user);

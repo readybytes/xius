@@ -64,7 +64,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
 		
 		// remove id
-		$remove = array('email'=>0,'123'=>0,'username'=>58,'name'=>58);
+		$remove = array('email'=>0,'123'=>0,'username'=>56,'name'=>56);
 		$this->removeCondition($remove);		
 	}
 		

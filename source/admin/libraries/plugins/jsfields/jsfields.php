@@ -247,7 +247,7 @@ class Jsfields extends XiusBase
 		$filter['id'] = $this->key;
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
 		
-		if($fieldInfo[0]->type == 'date')
+		if($fieldInfo != array() && $fieldInfo[0]->type == 'date')
 			return $value;
 		return $this->_getFormatData($value);
 	}
