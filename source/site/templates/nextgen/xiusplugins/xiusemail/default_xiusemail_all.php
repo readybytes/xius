@@ -19,4 +19,4 @@ if(!defined('_JEXEC')) die('Restricted access');
        	<?php echo XiusText::_("XIUS EMAIL ALL");?>
 </a>
 </div>
-<?php
+<?php 

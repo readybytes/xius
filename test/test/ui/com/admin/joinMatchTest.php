@@ -19,7 +19,7 @@ class XiusJoinMatchTest extends XiSelTestCase
 		$this->assertTrue($value === 'OR');
 		$this->click("xiussearch");
    		$this->waitPageLoad();
-		$this->assertTrue($this->isElementPresent("//span[@id='total_705']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));
 		
 		$this->adminLogin();
     	$this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_xius&view=configuration");
@@ -37,6 +37,6 @@ class XiusJoinMatchTest extends XiSelTestCase
 		$this->assertTrue($value === 'AND');
 		$this->click("xiussearch");
    		$this->waitPageLoad();
-		$this->assertTrue($this->isElementPresent("//span[@id='total_2']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_28']"));
 	}
 }

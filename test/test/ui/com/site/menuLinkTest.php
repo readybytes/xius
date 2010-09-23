@@ -33,7 +33,7 @@ class XiusMenuLinkTest extends XiSelTestCase
 		$this->select("field2", "label=Female");
 		$this->click("xiussearch");
 		$this->waitPageLoad();
-		$this->assertTrue($this->isElementPresent("//span[@id='total_63']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_29']"));
 		$this->assertTrue($this->isTextPresent("Refined By"));	
 
 		// test for display all list
@@ -52,13 +52,13 @@ class XiusMenuLinkTest extends XiSelTestCase
 		$this->assertTrue($this->isTextPresent("All male from 09/05/2009 to 19/05/2009"));
 		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_Male']"));
 		$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_From 09-05-2009 To 19-05-2009']"));
-		$this->assertTrue($this->isElementPresent("//span[@id='total_114']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
 		
 		// test clear all
 		$this->click("//img[@title='Clear All']");
 		$this->waitPageLoad();
 		$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_Male']"));
 		$this->assertFalse($this->isElementPresent("//img[@class='xius_test_remove_From 09-05-2009 To 19-05-2009']"));
-		$this->assertTrue($this->isElementPresent("//span[@id='total_3860']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 	}
 }

@@ -39,7 +39,7 @@ class XiusJsIntegrationTest extends XiSelTestCase
 		$this->click("xiussearch");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
-		$this->assertTrue($this->isTextPresent("Refined By"));;
+		$this->assertTrue($this->isTextPresent("Refined By"));
 		
 		$this->click("xiusSliderImg");
 		$this->type("field11", "bhilwara");

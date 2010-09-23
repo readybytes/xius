@@ -37,7 +37,7 @@ class XiusProximityEncoderTest extends XiUnitTestCase
 	 */
 	function testGetUserDataGoogle($compare)
 	{
-		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'testGetTableMappingGoogle.start.sql');
+		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testGetTableMappingGoogle.start.sql');
 		$instance = XiusFactory::getPluginInstanceFromId(8);
 		if($instance)
 			$this->assertTrue(true);
