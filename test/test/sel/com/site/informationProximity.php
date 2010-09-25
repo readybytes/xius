@@ -17,7 +17,7 @@ class XiusInformationProximityTest extends XiSelTestCase
    * We will upgrade JomSocial to 1.8
    * @return unknown_type
    */
-  function testCommunityInstall()
+  function xtestCommunityInstall()
   {
 	   // setup default location 
 	  $this->adminLogin();

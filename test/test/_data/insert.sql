@@ -256,3 +256,110 @@ INSERT INTO `#__community_connection` (`connection_id`, `connect_from`, `connect
 (72, 80, 2424, 1, 0, NULL, ''),
 (74, 68, 66, 1, 0, '2010-09-23 03:54:56', ''),
 (75, 66, 68, 1, 0, '2010-09-23 03:54:56', '');;
+
+
+TRUNCATE TABLE `#__xipt_aclrules`;;
+TRUNCATE TABLE `#__xipt_aec`;;
+TRUNCATE TABLE `#__xipt_applications` ;;
+TRUNCATE TABLE `#__xipt_profilefields` ;;
+TRUNCATE TABLE `#__xipt_profiletypes`;;
+TRUNCATE TABLE `#__xipt_settings` ;;
+TRUNCATE TABLE `#__xipt_users` ;;
+
+
+INSERT INTO `#__xipt_aclrules` (`id`, `rulename`, `aclname`, `coreparams`, `aclparams`, `published`) VALUES
+(1, 'Not allowed to write PM', 'writemessages', 'core_profiletype=1\ncore_display_message=Not allowed to write PM\ncore_redirect_url=index.php?option=com_community\n\n', 'writemessage_limit=0\nother_profiletype=0\n\n', 0);;
+
+INSERT INTO `#__xipt_aec` (`id`, `planid`, `profiletype`) VALUES
+(1, 3, 2),
+(2, 0, 0),
+(3, 10, 3);;
+
+INSERT INTO `#__xipt_applications` (`id`, `applicationid`, `profiletype`) VALUES
+(1, 92, 1);;
+
+INSERT INTO `#__xipt_profilefields` (`id`, `fid`, `pid`, `category`) VALUES
+(1, 22, 1, 0),
+(2, 22, 3, 0),
+(3, 22, 4, 0),
+(4, 23, 1, 0),
+(5, 23, 4, 0),
+(6, 24, 1, 0),
+(7, 24, 4, 0),
+(8, 25, 1, 0),
+(9, 25, 4, 0),
+(10, 26, 1, 0),
+(11, 26, 4, 0),
+(12, 27, 1, 0),
+(13, 27, 4, 0);;
+
+INSERT INTO `#__xipt_profiletypes` (`id`, `name`, `ordering`, `published`, `tip`, `privacy`, `template`, `jusertype`, `avatar`, `approve`, `allowt`, `group`, `watermark`, `params`, `watermarkparams`, `visible`) VALUES
+(1, 'Free Member', 1, 1, '<p>If you are just want to explore the site, choose this type. Its free.</p>', 'members', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 0, 'images/profiletype/watermark_1.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=1\n\n', 1),
+(2, 'Paid Subscriber', 2, 1, '<p>If you wish to subscribe for the paid components and services, choose this account type.</p>', 'members', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 1, 0, 'images/profiletype/watermark_2.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=2\n\n', 1),
+(3, 'Serious Joomla User', 3, 1, '<p>Serious Joomla User, are the users who really want to motivate the joomla developers to enhance the joomla experience. When you subscribe to this plan, you support us by paying few $$.</p>', 'friends', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 0, 'images/profiletype/watermark_3.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=3\n\n', 1),
+(4, 'Moderator', 4, 1, '<p>The members are moderating the website.</p>', 'friends', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 0, 'images/profiletype/watermark_4.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=4\n\n', 1);;
+
+INSERT INTO `#__xipt_settings` (`name`, `params`) VALUES
+('settings', 'show_ptype_during_reg=1\nallow_user_to_change_ptype_after_reg=1\ndefaultProfiletypeID=1\nguestProfiletypeID=1\njspt_show_radio=1\njspt_fb_show_radio=0\nallow_templatechange=1\nshow_watermark=0\njspt_block_dis_app=0\naec_integrate=0\naec_message=b\njspt_restrict_reg_check=0\njspt_prevent_username=\njspt_allowed_email=\njspt_prevent_email=\n\n');;
+
+INSERT INTO `#__xipt_users` (`userid`, `profiletype`, `template`) VALUES
+(62, 1, 'default'),
+(63, 1, 'blueface'),
+(64, 2, 'blueface'),
+(65, 3, 'blueface'),
+(66, 4, 'blueface'),
+(67, 2, 'blueface'),
+(68, 3, 'blueface'),
+(69, 1, 'blueface'),
+(70, 1, 'blueface'),
+(71, 1, 'default'),
+(72, 1, 'default'),
+(73, 1, 'default'),
+(74, 1, 'default'),
+(75, 1, 'default'),
+(76, 1, 'default'),
+(77, 1, 'default'),
+(78, 1, 'default'),
+(79, 1, 'default'),
+(80, 1, 'default'),
+(81, 1, 'default'),
+(82, 1, 'default'),
+(83, 1, 'default'),
+(84, 1, 'default'),
+(85, 1, 'default'),
+(86, 1, 'default'),
+(87, 1, 'default'),
+(88, 1, 'default'),
+(89, 1, 'default'),
+(90, 1, 'default'),
+(91, 1, 'default'),
+(92, 1, 'default'),
+(93, 1, 'default'),
+(94, 1, 'default'),
+(95, 1, 'default'),
+(96, 1, 'default'),
+(97, 1, 'default'),
+(98, 1, 'default'),
+(99, 1, 'default'),
+(100, 1, 'default'),
+(101, 1, 'default'),
+(102, 1, 'default'),
+(103, 1, 'default'),
+(104, 1, 'default'),
+(105, 1, 'default'),
+(106, 1, 'default'),
+(107, 1, 'default'),
+(108, 1, 'default'),
+(109, 1, 'default'),
+(110, 1, 'default'),
+(111, 1, 'default'),
+(112, 1, 'default'),
+(113, 1, 'default'),
+(114, 1, 'default'),
+(115, 1, 'default'),
+(116, 1, 'default'),
+(117, 1, 'default'),
+(118, 1, 'default'),
+(119, 1, 'default'),
+(120, 1, 'default'),
+(251, 1, 'default');;
