@@ -1,32 +1,28 @@
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:36:       	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
+../packages/tmp/admin/libraries/plugins/xiusemail/views/tmpl/default_email.php:11:		<form action="<?php echo XiusRoute::_('index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$this->data['pluginId'].'&userid='.$this->data['userId'].'&tmpl=component'); ?>" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();">
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:64:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$pluginId}&userid={$userId}&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:82:        $linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:89:		$linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=all&tmpl=component";
 ../packages/tmp/admin/views/configuration/view.html.php:43:		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');
-../packages/tmp/admin/views/info/view.html.php:99:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
-../packages/tmp/admin/views/info/tmpl/default.php:31:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
-../packages/tmp/admin/views/info/tmpl/default.php:92:					<?php $link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$info->id, false); ?>
 ../packages/tmp/admin/views/info/tmpl/pluginlist.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/info/tmpl/pluginlist.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
-../packages/tmp/admin/views/info/tmpl/info.add.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-../packages/tmp/admin/views/info/tmpl/info.add.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
+../packages/tmp/admin/views/info/tmpl/default.php:31:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
+../packages/tmp/admin/views/info/tmpl/default.php:92:					<?php $link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$info->id, false); ?>
 ../packages/tmp/admin/views/info/tmpl/info.edit.php:11:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/info/tmpl/info.edit.php:23:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
-../packages/tmp/admin/views/list/view.html.php:104:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
+../packages/tmp/admin/views/info/tmpl/info.add.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
+../packages/tmp/admin/views/info/tmpl/info.add.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
+../packages/tmp/admin/views/info/view.html.php:99:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/list/tmpl/default.php:81:					<?php $link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
 ../packages/tmp/admin/views/list/tmpl/list.edit.php:11:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/list/tmpl/list.edit.php:23:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=list" method="post" name="adminForm">
-../packages/tmp/admin/views/cpanel/view.html.php:49:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
+../packages/tmp/admin/views/list/view.html.php:104:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:9:<form action="<?php echo JURI::base();?>index.php?option=com_xius" method="post" name="adminForm">
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:14:				<?php echo $this->addIcon('xius-config.png','index.php?option=com_xius&view=configuration', XiusText::_('CONFIGURATION'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:15:				<?php echo $this->addIcon('info.png','index.php?option=com_xius&view=info', XiusText::_('INFO'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:16:				<?php echo $this->addIcon('userlist.png','index.php?option=com_xius&view=list', XiusText::_('list'));?>
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:17:				<?php echo $this->addIcon('icon-updates.gif','index.php?option=com_xius&view=cpanel&task=updates', XiusText::_('UPDATES'));?>
-../packages/tmp/admin/controllers/list.php:41:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-../packages/tmp/admin/controllers/list.php:67:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-../packages/tmp/admin/controllers/list.php:82:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-../packages/tmp/admin/controllers/list.php:98:		$link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$data['id'], false);
-../packages/tmp/admin/controllers/list.php:222:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-../packages/tmp/admin/controllers/list.php:247:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-../packages/tmp/admin/controllers/list.php:289:		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
-../packages/tmp/admin/controllers/cpanel.php:57:    		$mainframe->redirect(XiusRoute::_("index.php?option=com_xius&view=cpanel&task=updateCache&limitStart=".$limitStart,false));
-../packages/tmp/admin/controllers/cpanel.php:61:		$url = XiusRoute::_("index.php?option=com_xius&view=cpanel",false);
+../packages/tmp/admin/views/cpanel/view.html.php:49:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/controllers/configuration.php:61:		$link = XiusRoute::_('index.php?option=com_xius&view=configuration', false);
 ../packages/tmp/admin/controllers/configuration.php:68:		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
 ../packages/tmp/admin/controllers/info.php:207:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
@@ -36,15 +32,20 @@
 ../packages/tmp/admin/controllers/info.php:324:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 ../packages/tmp/admin/controllers/info.php:352:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
 ../packages/tmp/admin/controllers/info.php:361:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);		
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:35:       	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:64:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$pluginId}&userid={$userId}&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:81:        $linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:88:		$linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=all&tmpl=component";
-../packages/tmp/admin/libraries/plugins/xiusemail/views/tmpl/default_email.php:11:		<form action="<?php echo XiusRoute::_('index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$this->data['pluginId'].'&userid='.$this->data['userId'].'&tmpl=component'); ?>" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();">
-../packages/tmp/site/views/users/view.csv.php:21:			$url = XiusRoute::_('index.php?option=com_xius&view=users',false);
-../packages/tmp/site/templates/default/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+../packages/tmp/admin/controllers/cpanel.php:57:    		$mainframe->redirect(XiusRoute::_("index.php?option=com_xius&view=cpanel&task=updateCache&limitStart=".$limitStart,false));
+../packages/tmp/admin/controllers/cpanel.php:61:		$url = XiusRoute::_("index.php?option=com_xius&view=cpanel",false);
+../packages/tmp/admin/controllers/list.php:41:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
+../packages/tmp/admin/controllers/list.php:67:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
+../packages/tmp/admin/controllers/list.php:82:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
+../packages/tmp/admin/controllers/list.php:98:		$link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$data['id'], false);
+../packages/tmp/admin/controllers/list.php:222:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
+../packages/tmp/admin/controllers/list.php:247:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
+../packages/tmp/admin/controllers/list.php:289:		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
 ../packages/tmp/site/templates/nextgen/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+../packages/tmp/site/templates/linkedin/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+../packages/tmp/site/templates/default/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
+../packages/tmp/site/views/users/view.csv.php:21:			$url = XiusRoute::_('index.php?option=com_xius&view=users',false);
 ../packages/tmp/site/controllers/list.php:61:		$url = XiusRoute::_('index.php?option=com_xius&view=list&task=display',false);
-../packages/tmp/install/extensions/xius_system/xius_system.php:77:		$url = "index.php?option=com_xius";
-../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:16:$url = 'index.php?option=com_xius&view=users&task=search';
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:11:$url = 'index.php?option=com_xius&view=list&task=showList&listid=';
+../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:16:$link = 'index.php?option=com_xius&view=users&task=search';
+../packages/tmp/install/extensions/xius_system/xius_system.php:77:		$url = "index.php?option=com_xius";
