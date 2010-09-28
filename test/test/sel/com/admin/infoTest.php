@@ -25,7 +25,7 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 		$this->_DBO->filterColumn('#__xius_info','id');
 				
 		$this->adminLogin();
-	    $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_xius&view=info");
+	    $this->open(JOOMLA_LOCATION."administrator/index.php?option=com_xius&view=info");
 	    $this->waitPageLoad();
       
 		//1. add force search info for date fields

@@ -1,6 +1,6 @@
 <?php
 
-class ScreenshotTest extends XiSelTestCase 
+class XiusScreenshotTest extends XiSelTestCase 
 { 
   function getSqlPath()
   {
@@ -12,7 +12,7 @@ class ScreenshotTest extends XiSelTestCase
   	parent::setUp();
 	$filter['debug']=0;
     $filter['error_reporting']=6143;
-    $filter['list_limit']=10;
+    $filter['list_limit']=20;
     $this->updateJoomlaConfig($filter);
   }
   
@@ -37,7 +37,7 @@ class ScreenshotTest extends XiSelTestCase
  	foreach($templates as $t)
  	{
  		$this->selectTemplate($t);
- 		$this->takeScreenshots($t);
+ 		
  	}
  }
  
@@ -73,9 +73,14 @@ class ScreenshotTest extends XiSelTestCase
  {
  		$this->open(JOOMLA_LOCATION."administrator/index.php?option=com_templates");
  		$order= $this->getTemplateOrder($template);
-		$this->click("cb$order");
+		
+ 		if($order == -1)
+ 			return ;
+ 			
+ 		$this->click("cb".$order);
 		$this->click("link=Default");
   		$this->waitPageLoad();
+  		$this->takeScreenshots($template);
  }
  
  function takeScreenshots($template)
@@ -87,12 +92,13 @@ class ScreenshotTest extends XiSelTestCase
     
     $this->select("field2", "label=Male");
   //	$this->select("field12", "label=Afghanistan");
-  	$this->click("//input[@name='xius_join' and @value='OR']");
+  	$this->select("xiusjoin", "label=Any");
   	$this->click("xiussearch");
   	$this->waitPageLoad();
   	$this->captureScreen(JString::strtolower($template)."_result");
   	
-  	$this->open(JOOMLA_LOCATION."/index.php?option=com_xius&view=users&layout=lists&task=displayList&Itemid=60");
+  	//$this->open(JOOMLA_LOCATION."index.php?option=com_xius&view=users&layout=list&task=showList&Itemid=60");
+  	$this->open(JOOMLA_LOCATION."index.php?option=com_xius&view=list&task=display");
   	$this->captureScreen(JString::strtolower($template)."_userList");
 
   	$this->frontLogin();
@@ -101,10 +107,10 @@ class ScreenshotTest extends XiSelTestCase
     $this->waitPageLoad();
    	$this->select("field2", "label=Male");
   //	$this->select("field12", "label=Afghanistan");
-  	$this->click("//input[@name='xius_join' and @value='OR']");
+  	$this->select("xiusjoin", "label=Any");
   	$this->click("xiussearch");
   	$this->waitPageLoad();
-  	$this->click("//img[@title='Save']");
+  	$this->click("//img[@title='Save This List']");
   	$this->captureScreen(JString::strtolower($template)."_saveOption");
 	$this->frontLogout();
  }  
@@ -117,8 +123,8 @@ function getTemplateOrder($template)
 	$rows = array();
 	$tBaseDir = JPATH_SITE.DS.'templates';
 	$rows = TemplatesHelper::parseXMLTemplateFiles($tBaseDir);
-
-  	for($i = 0; $i < count($rows); $i++)  {
+	
+	for($i = 0; $i < count($rows); $i++)  {
   		//echo "Matching template given $template comapring to {$rows[$i]->directory} \n";
 		if($rows[$i]->directory == $template)
 			return $i;
