@@ -53,8 +53,9 @@
 
 					echo $dirhtml;
 				endif;
-
-				echo $this->pagination->getLimitBox(); ?>
+				echo XiusText::_(' Showing : ');
+				echo $this->pagination->getLimitBox(); 
+				echo sprintf(XiusText::_('OF TOTAL'),$this->total);?>
 	 </div>
 
 

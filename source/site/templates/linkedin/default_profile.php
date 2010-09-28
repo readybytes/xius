@@ -6,6 +6,7 @@
 ?>
 <div id="xiusProfile">
 <?php 
+$count=0;
 foreach($this->users as $user) :
 ?>
 <div class="miniProfile">

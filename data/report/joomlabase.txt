@@ -188,7 +188,7 @@
 ../packages/tmp/site/templates/linkedin/users/default_panel.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/templates/linkedin/users/default_csv.php:9:    JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/templates/linkedin/users/default_csv.php:27:	JTable::addIncludePath(XIUS_PATH_TABLE);
-../packages/tmp/site/templates/linkedin/default_profile.php:55:							$onlineUser = JFactory::getUser();
+../packages/tmp/site/templates/linkedin/default_profile.php:56:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/templates/default/users/default_csv.php:9:    JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
 ../packages/tmp/site/templates/default/users/default_csv.php:27:	JTable::addIncludePath(XIUS_PATH_TABLE);
 ../packages/tmp/site/templates/default/default_profile.php:37:							$onlineUser = JFactory::getUser();

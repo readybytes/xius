@@ -37,8 +37,9 @@ $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</s
 </div>
 <?php echo $this->loadTemplate('toolbar'); ?>
 <?php echo $this->loadTemplate('profile');?>
-<?php //echo $this->pagination->getPagesLinks();?>
-
+<div class="xiusfr">
+<?php echo $this->pagination->getPagesLinks();?>
+</div>
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="search" />
 </form>
