@@ -141,9 +141,7 @@ class XiusModelList extends JModel
 	 */
 	function store($data)
 	{
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$row	=& JTable::getInstance( 'list', 'XiusTable' );
-		
+		$row = & XiusFactory::getTableInstance ( 'list');
 		$row->load( $data['id'] );
 
 		// Bind the form fields to the fields value table

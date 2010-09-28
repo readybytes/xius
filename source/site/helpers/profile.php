@@ -24,8 +24,6 @@ class XiussiteHelperProfile
 
 	function jomSocialProfileData($users, &$userData)
 	{
-		JTable::addIncludePath( JPATH_ROOT .DS.'administrator'.DS.'components'.DS.'com_community' . DS . 'tables' );
-
 		foreach($users as $user){
 
 			$cuser = CFactory::getUser($user->userid);
@@ -44,7 +42,6 @@ class XiussiteHelperProfile
 			$userData[] = $data;
 		}
 		
-		JTable::addIncludePath(XIUS_PATH_TABLE);
 	}
 
 }

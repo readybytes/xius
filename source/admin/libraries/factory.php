@@ -170,6 +170,20 @@ class XiusFactory
 
 		return $instance[$className];
 	}
+	
+	function getTableInstance( $type, $prefix = 'XiusTable')
+	{
+		$type = preg_replace('/[^A-Z0-9_\.-]/i', '', $type);
+		$tableClass = $prefix.ucfirst($type);
+		if (!class_exists($tableClass,true))
+		{
+			JError::raiseWarning( 0, 'Table class ' . $tableClass . ' not found in file.' );
+			return false;
+		}
+		$db = JFactory::getDBO();
+		$instance = new $tableClass($db);
+		return $instance;
+	}
 
 /*
 	static public function getAllPluginInstanceFromProperty($pluginName,$bindArray = '',$isBindRequired = false)

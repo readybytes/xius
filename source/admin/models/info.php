@@ -126,10 +126,7 @@ class XiusModelInfo extends JModel
 	
 	function getInfo($id = 0)
 	{
-			
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$row	=& JTable::getInstance( 'info', 'XiusTable' );
-		
+		$row = & XiusFactory::getTableInstance ( 'info');
 		$row->load($id);
 		return $row;
 	}

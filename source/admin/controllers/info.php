@@ -248,8 +248,9 @@ class XiusControllerInfo extends JController
 			$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 	
 		$count	= count($ids);
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$row	=& JTable::getInstance( 'info' , 'XiusTable' );
+
+		$row = XiusFactory::getTableInstance ( 'info');
+		
 		
 		/*XITODO : check if info is used anywhere,
 		 * if true , then don't delete it

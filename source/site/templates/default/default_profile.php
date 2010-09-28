@@ -91,7 +91,6 @@
 				</div>
 			</div>
 		   </div>
-	<?php endforeach;
-		JTable::addIncludePath(XIUS_PATH_TABLE);
-	?>
+	<?php endforeach; ?>
 </div>
+<?php 

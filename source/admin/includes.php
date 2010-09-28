@@ -23,11 +23,11 @@ jimport('joomla.application.component.model');
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'defines.php';
 
 JModel::addIncludePath(XIUS_PATH_MODEL);
-JTable::addIncludePath(XIUS_PATH_TABLE);
 
 require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'loader.php');
 
 // Autoload MVCT
+XiusLoader::addAutoLoadFolder(XIUS_PATH_TABLE, 'table');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_CONTROLLER,	'controller');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_MODEL,		'model');
 XiusLoader::addAutoLoadViews( XIUS_PATH_VIEW , 		JRequest::getCmd('format','html'));

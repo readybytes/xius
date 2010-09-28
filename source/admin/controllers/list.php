@@ -171,8 +171,8 @@ class XiusControllerList extends JController
 			$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
 
 		$count	= count($ids);
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.DS.'tables');
-		$row	=& JTable::getInstance( 'list', 'XiusTable' );
+
+		$row	= XiusFactory::getTableInstance ( 'list');
 
 		$data = array();
 		$data['message'] = '';

@@ -61,10 +61,10 @@ class plgSystemxius_system extends JPlugin
 		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
 			return;
 			
-		$oldTablePath = JTable::addIncludePath();
+
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$xiusReplaceSearch=XiusHelpersUtils::getConfigurationParams('xiusReplaceSearch',0);
-		JTable::addIncludePath($oldTablePath);
+
 
 		if(!$xiusReplaceSearch)
 			return;
