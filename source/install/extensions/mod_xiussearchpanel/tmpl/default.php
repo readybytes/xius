@@ -18,12 +18,6 @@ else
 			$count=0;
 			foreach($displayHtml as $data):
 				$count++;
-				if(count($range)>0){
-					 if( $range['start']!=0 && $count < $range['start'])
-						continue;
-					 if($range['end']!=0 && $count > $range['end']) 
-						break;
-				}
 			?> 
 				<div class="xiusMod_availablemain">
 				

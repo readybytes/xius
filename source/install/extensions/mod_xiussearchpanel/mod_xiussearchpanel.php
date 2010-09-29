@@ -18,17 +18,14 @@ if(XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0) == true){
 	$link = 'index.php?option=com_community&view=users&task=search&usexius=1';
 }
 
-$displayHtml= UserSearchHelper::getSearchHtml();
-	if(!empty($displayHtml)):
-		$infoRange = $params->get('xius_info_range','all');
-		$range=array();
-		if( 'all' != strtolower($infoRange) ){
-			$range = UserSearchHelper::getInfoRange($infoRange);
-		}		
+$infoRange = $params->get('xius_info_range','all');
+$range = UserSearchHelper::getInfoRange($infoRange);
 
-			$count=0;
 			
-	
-	$mySess->clear('xiusModuleForm','XIUS');
-	endif;
+$displayHtml= UserSearchHelper::getSearchHtml($range);
+if(empty($displayHtml))
+	echo XiusText::_("SEARCHABLE INFORMATION ARE NOT AVAILABLE"); 
+
+$mySess->clear('xiusModuleForm','XIUS');
+
 require(JModuleHelper::getLayoutPath('mod_xiussearchpanel'));
