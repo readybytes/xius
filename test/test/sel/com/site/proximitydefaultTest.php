@@ -9,7 +9,6 @@ class XiusProximityDefaultTest extends XiSelTestCase
 	
 	function loadSqlFiles()
 	{
-		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testMyLocation.start.sql');
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testproximitydefault.start.sql');
 	}
 		
@@ -34,6 +33,7 @@ class XiusProximityDefaultTest extends XiSelTestCase
 		$this->waitPageLoad();
 		$this->assertTrue($this->isTextPresent("Show Location"));
 		$this->assertTrue($this->isElementPresent("//span[@id='total_5']"));
+		$this->assertTrue($this->isTextPresent("administrator"));
 		$this->frontLogout();
 	}
 	
@@ -55,6 +55,7 @@ class XiusProximityDefaultTest extends XiSelTestCase
 		$this->waitPageLoad();
 		$this->assertTrue($this->isTextPresent("Show Location"));
 		$this->assertTrue($this->isElementPresent("//span[@id='total_5']"));
+		$this->assertTrue($this->isTextPresent("administrator"));
 		$this->frontLogout();	
 	}
 }

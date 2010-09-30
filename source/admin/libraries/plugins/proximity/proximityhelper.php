@@ -48,10 +48,10 @@ class ProximityHelper
 			return;
 		}
 
-		if(!is_null($userinfo[0]))
+		if(!is_null($userinfo[0]) && $userinfo[0] !== '')
 			$data['latitude'] 	= $userinfo[0] ;
 	
-		if(!is_null($userinfo[1]))
+		if(!is_null($userinfo[1]) && $userinfo[1] !== '')
 			$data['longitude']	= $userinfo[1] ;
 
 		return;

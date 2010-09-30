@@ -23,8 +23,10 @@ $range = UserSearchHelper::getInfoRange($infoRange);
 
 			
 $displayHtml= UserSearchHelper::getSearchHtml($range);
-if(empty($displayHtml))
-	echo XiusText::_("SEARCHABLE INFORMATION ARE NOT AVAILABLE"); 
+if(empty($displayHtml)){
+	echo XiusText::_("SEARCHABLE INFORMATION ARE NOT AVAILABLE");
+	return ;
+} 
 
 $mySess->clear('xiusModuleForm','XIUS');
 

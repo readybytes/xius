@@ -22,7 +22,18 @@ INSERT INTO `#__xius_config` (`name`, `params`) VALUES
 INSERT INTO `au_#__xius_config` (`name`, `params`) VALUES
 ('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=AND\n\n');;
 
-TRUNCATE TABLE `#__xius_cache` ;;
+DROP TABLE IF EXISTS `#__xius_cache` ;;
+
+CREATE TABLE IF NOT EXISTS `#__xius_cache` (
+  `userid` int(21) NOT NULL,
+  `jsfields2_0` varchar(250) NOT NULL,
+  `jsfields11_0` varchar(250) NOT NULL,
+  `jsfields12_0` varchar(250) NOT NULL,
+  `joomlaregisterDate_0` datetime NOT NULL,
+  `joomlausername_0` varchar(250) NOT NULL,
+  `joomlablock_0` tinyint(4) NOT NULL,
+  `rangesearch4_0` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 
 INSERT INTO `#__xius_cache` (`userid`, `jsfields2_0`, `jsfields11_0`, `jsfields12_0`, `joomlaregisterDate_0`, `joomlausername_0`, `joomlablock_0`, `rangesearch4_0`) VALUES

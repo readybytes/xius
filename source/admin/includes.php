@@ -37,6 +37,7 @@ XiusLoader::addAutoLoadFolder(XIUS_PATH_HELPER,		'helpers');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_LIBRARY,'');
 
 //Add explicit files XITODO : Add them in auto loading
+XiusLoader::addAutoLoadFile('XiusRoute', XIUS_PATH_LIBRARY.DS.'route.php');
 XiusLoader::addAutoLoadFile('XiusQueryElement', XIUS_PATH_LIBRARY.DS.'queryelement.php');
 XiusLoader::addAutoLoadFile('XiusCreateTable', XIUS_PATH_LIBRARY.DS.'createtable.php');
 XiusLoader::addAutoLoadFile('XiusLibrariesInfo', XIUS_PATH_LIBRARY.DS.'info.php');

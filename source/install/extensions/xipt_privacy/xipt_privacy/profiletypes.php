@@ -43,7 +43,7 @@ class JElementProfiletypes extends JElement
 						
 		$html		.= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.'][]" multiple="multiple" size="9">';
 		$selected	 = ( in_array(0,$value)) ? ' selected="true"' : '';
-		$html		.= '<option value="' . 0 . '"' . $selected . '>' . JText::_("ALL") . '</option>';
+		$html		.= '<option value="' . 0 . '"' . $selected . '>' . XiusText::_("ALL") . '</option>';
 	
 		foreach($options as $op){
 			$selected	 = ( in_array($op->id,$value)) ? ' selected="true"' : '';
@@ -51,7 +51,7 @@ class JElementProfiletypes extends JElement
 			}
 			
 		$selected	= ( in_array(-1,$value)) ? ' selected="true"' : '';
-		$html	.= '<option value="' . -1 . '"' . $selected . '>' . JText::_("NONE") . '</option>';		
+		$html	.= '<option value="' . -1 . '"' . $selected . '>' . XiusText::_("NONE") . '</option>';		
 		$html	.= '</select>';	
 		$html   .= '<span id="errprofiletypemsg" style="display: none;">&nbsp;</span>';
 		

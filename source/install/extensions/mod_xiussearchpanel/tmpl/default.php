@@ -13,7 +13,7 @@ else
 
 ?>
 	<div class="xiusMod_available" id="xiusMod_available">
-		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>" method=post>
+		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo XiusRoute::_($link,false);?>" method=post>
 		<?php 	
 			$count=0;
 			foreach($displayHtml as $data):
@@ -23,12 +23,12 @@ else
 				
 				<div class="xiMod_left">
 					<?php
-						//echo JHTML::_('tooltip',JText::_($xiustooltip), JText::_($data['label']), null, JText::_($data['label']));
+						//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($data['label']), null, XiusText::_($data['label']));
 						$xiustooltip = $data['tooltip'];
 						if(!empty($xiustooltip)) :
-						echo '<span title="'.JText::_($xiustooltip).'">'.JText::_($data['label']).'</span>';						
+						echo '<span title="'.XiusText::_($xiustooltip).'">'.XiusText::_($data['label']).'</span>';						
 						else :
-							echo JText::_($data['label']); 
+							echo XiusText::_($data['label']); 
 						endif;
 					?>
 				</div>
