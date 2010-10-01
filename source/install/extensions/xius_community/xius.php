@@ -104,11 +104,15 @@ class CommunityXiusController extends CommunityBaseController
 		//add default values
 		$this->xiusOrigTask = $task === '' ? 'panel' : $task;
 		$this->xiusOrigView = JRequest::getVar('view','users');
-
+		$this->xiusOrigFormat = JRequest::getVar('format','html');
+	
 		//need to hack it, as JomSocial is preety STUPID at few task
-		JRequest::setVar('view','search');
-		if(JRequest::getVar('tmpl',null)===null)
+		if(JRequest::getVar('tmpl',null)===null
+				&& $this->xiusOrigFormat === 'html' )
+		{
+			JRequest::setVar('view','search');
 			return	parent::execute('doTask');
+		}
 			
 		return $this->doTask();
 	}
@@ -116,12 +120,8 @@ class CommunityXiusController extends CommunityBaseController
 	function doTask()
 	{
 		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
-
 		$controllerClass = 'XiussiteController'.JString::ucfirst($this->xiusOrigView);
-
 		$controller = new $controllerClass(true);
-
-//		$controller->getView()->_isExternalUrl= true;
 
 		echo $controller->execute($this->xiusOrigTask);
 		//set original view, so JS can pick correct active menu
@@ -129,10 +129,10 @@ class CommunityXiusController extends CommunityBaseController
 	}
 	
 	function getView($viewName ='frontpage', $prefix = '', $viewType = '')
-	{		
-		$view =  parent::getView($viewName ='search', $prefix, $viewType);		
+	{	
+		//just before view
+		$view =  parent::getView('search', $prefix, $viewType);
 		$view->setTitle(" ");
 		return $view;
-		
 	}
 }
