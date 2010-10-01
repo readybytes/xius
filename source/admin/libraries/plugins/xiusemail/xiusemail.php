@@ -29,11 +29,11 @@ class Xiusemail extends XiusBase
 	
 	function isAllRequirementSatisfy()
 	{
-		$loggedInUser =& JFactory::getUser();
-		if(XiusHelpersUtils::isAdmin($loggedInUser->id)==false)
-			return false;
+//		$loggedInUser =& JFactory::getUser();
+//		if(XiusHelpersUtils::isAdmin($loggedInUser->id)==false)
+//			return false;
 			
-		return true;	
+		return $this->isAccessible();	
 	}
 	
 	public function isSortable()

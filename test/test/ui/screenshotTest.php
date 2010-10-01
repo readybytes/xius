@@ -43,7 +43,7 @@ class XiusScreenshotTest extends XiSelTestCase
  
  function importDatabase()
  {
- 	$url= dirname(__FILE__). '/com/site/_data';
+ 	$url= JPATH_ROOT. '/test/test/sel/com/site/_data';
   	$this->_DBO->loadSql($url.DS.'insert.sql');
   	$this->_DBO->loadSql($url.DS.'updateCache.sql');
  }
