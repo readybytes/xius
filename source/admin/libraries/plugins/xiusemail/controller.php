@@ -69,13 +69,13 @@ class XiusPluginControllerXiusemail extends JController
     	$user = XiusemailHelper::getUserDataFromCache($userId, $columnName);
     	
     	// email configuration
-    	$serderEmail  	= $loggedInUser->email;
+    	$senderEmail  	= $loggedInUser->email;
     	$recipient = array();
     	foreach($user as $u)
     		$recipient[] = $u->$columnName;
-    
+
     	$message = JRequest::getVar( 'xiusEmailMessageEl', '', 'post', 'string', JREQUEST_ALLOWRAW );
-    	$sent=JUtility::sendMail($serderEmail, $loggedInUser->name, $recipient, $post['xiusEmailSubjectEl'], $message,1 );
+    	$sent=JUtility::sendMail($senderEmail, $loggedInUser->name,$senderEmail, $post['xiusEmailSubjectEl'], $message,1,null,$recipient );
     	if(is_object($sent)){
     		XiusemailHelper::showResultMessage('',array());
     		return false;

@@ -276,4 +276,9 @@ class Proximity extends XiusBase
         $fieldHtml     = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a>';
 		return array($fieldHtml);	
 	}	
+	
+	public function isKeywordCompatible()
+	{
+		return false;
+	}
 }
