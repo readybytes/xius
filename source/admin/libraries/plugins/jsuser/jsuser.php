@@ -151,9 +151,14 @@ class Jsuser extends XiusBase
 	/* formatting displaying output */
 	public function _getFormatData($value)
 	{
+		if($this->key === 'thumb' || $this->key === 'avatar'){
+			$value= '<img src="' .JURI::base().$value. '"/>';
+			return $value;
+		}
+		
 		if($this->key != 'posted_on')
 			return parent::_getFormatData($value);
-		
+
 		$value = split('-',$value);
 		$finalvalue = '';
 			
