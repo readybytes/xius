@@ -23,7 +23,7 @@ class XiusexportView extends XiusBaseView
 		/*
  		 * get toolbar option for exporting the list in csv format
  		 */
-		$option = JRequest::getVar('option','xius','GET');
+		$option = JRequest::getVar('option','xius');
 		$url 	= XiusRoute::_("index.php?option={$option}&view=users&task=export&plugin=xiusexport&pluginid={$id}&usexius=1&format=csv",false);  			 
   		$this->assign('url',$url);  			 			
  		$html  = $this->loadTemplate('toolbar_export'); 			  			

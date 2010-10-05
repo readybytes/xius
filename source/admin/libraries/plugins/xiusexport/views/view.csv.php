@@ -98,7 +98,7 @@ class XiusexportView extends XiusBaseView
 		$this->assignRef('users', $users);
 		$this->assignRef('userprofile', $userprofile);
 		$this->assignRef('fields', $fields);
-		XiusView::display($tmpl);
+		$this->display($tmpl);
 	}
 }
 

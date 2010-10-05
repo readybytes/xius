@@ -181,16 +181,7 @@ abstract class XiusView extends JView
   			$html	= $this->loadTemplate('toolbar_savelist'); 		
  			XiussiteHelperToolbar::addToAdminToolbar('savelist',$html); 			
  		} 		
- 		/*
- 		 * get toolbar option for exporting the list in csv format
- 		 */
- 		if( XiusHelpersUtils::isAdmin($user->id) == true){  			
-  			$url 		= XiusRoute::_('index.php?option='.$option.'&view=users&task=export&usexius=1&format=csv',false);  			 
-  			$this->assign('url',$url);  			 			
- 			$html  = $this->loadTemplate('toolbar_export'); 			  			
-  			XiussiteHelperToolbar::addToAdminToolbar('csv',$html);
-  		}
-
+ 		
   		return XiussiteHelperToolbar::addToAdminToolbar();
   	}	
 	

@@ -9,8 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 ?>
 
 <div id="xiusCsv">
-<a href="#"  
-	onClick="location.href='<?php echo $this->url; ?>'" 
+<a href="<?php echo $this->url;?>"	
 	title='<?php echo XiusText::_('EXPORT TO CSV'); ?>' 
 ><?php echo XiusText::_('EXPORT TO CSV'); ?>
 </a></div>
