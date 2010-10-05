@@ -2,7 +2,7 @@
 <config>
 	<params>
 		<param name="rangesearchType" type="list" default="date" label="INFORMATION TYPE.LABEL" description="INFORMATION TYPE.DESC">
-			<option value="date">Date</option>
+			<option value="date">Age-Search</option>
 			<option value="integer">Integer</option>
 			<option value="date-range">Date-Range</option>
 		</param>
