@@ -121,7 +121,7 @@ class plgXiusxipt_privacy extends JPlugin
 			
 		$userId	 		 =	$loginuser->id;
 		$profileId 		 =	XiPTLibraryProfiletypes::getUserData($userId);
-		$this->_setDisplayData(&$allInfo, $profileId);		
+		$this->_setDisplayData($allInfo, $profileId);		
 		return true;
 	}
 	
@@ -174,13 +174,13 @@ class plgXiusxipt_privacy extends JPlugin
 		$loggedinUser	= & JFactory::getUser();
 		$userId	 		= $loggedinUser->id;
 		$profileId		= XiPTLibraryProfiletypes::getUserData($userId);	
-		$this->_setDisplayData(&$lists, $profileId);
+		$this->_setDisplayData($lists, $profileId);
 
 		$lists = array_values($lists);
 		return true;
 	}
 	
-	function _setDisplayData($data, $profileId)
+	function _setDisplayData(&$data, $profileId)
 	{
 		$count = count($data);
 		for($i =0 ; $i < $count ; $i++ ){		

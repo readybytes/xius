@@ -30,8 +30,8 @@ class XiussiteViewList extends XiusView
 		$lists = $lModel->getLists($filter,'AND',true);
 		
 		// filter list according to privacy set by joomla
-		XiussiteHelperList::filterListPrivacy(&$lists,$user);
-		$pagination =& $lModel->getPagination($filter,'AND');
+		XiussiteHelperList::filterListPrivacy($lists,$user);
+		$pagination = $lModel->getPagination($filter,'AND');
 
 		$this->assign('lists',$lists);
 		$this->assign('pagination', $pagination);
