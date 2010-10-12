@@ -7,6 +7,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+// XITODO:: Change Class name
 class ProximityHelper
 {	
 	function getUserInfo($callObject){

@@ -177,17 +177,17 @@ class XiusInformationProximityTest extends XiSelTestCase
 	    // search from module
 	    $this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
   	  	$this->waitPageLoad();
- 		$this->click("//input[@id='Proximityinformation_xiusMod45_option' and @value='googlemap']");
-       	$this->click("//a[@id='Proximityinformation_xiusMod45_map_button']");		
+ 		$this->click("//input[@id='Proximityinformation_xiusMod46_option' and @value='googlemap']");
+       	$this->click("//a[@id='Proximityinformation_xiusMod46_map_button']");		
 	  	sleep(12);		
 	     $this->type("xiusAddressEl", "Bhilwara,Rajasthan,India");
 	    $this->click("find");
 	    $this->click("sbox-btn-close");
 	    sleep(2);
-	    $this->type("Proximityinformation_xiusMod45_dis", "400");
-	    $this->select("//select[@id='Proximityinformation_xiusMod45_dis_unit']", "label=Kms");
+	    $this->type("Proximityinformation_xiusMod46_dis", "400");
+	    $this->select("//select[@id='Proximityinformation_xiusMod46_dis_unit']", "label=Kms");
 	    
-	    $this->click("//input[@id='xiusMod45Search']");
+	    $this->click("//input[@id='xiusMod46Search']");
       	$this->waitPageLoad();
 	    $this->assertTrue($this->isElementPresent("//span[@id='total_22']"));
   		

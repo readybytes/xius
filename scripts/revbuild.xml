@@ -87,6 +87,11 @@
 			</fileset>
                 </copy>
 
+		<copy todir="${target}/source/install/extensions/mod_xiusproximity">
+			<fileset dir="${source}/modules/mod_xiusproximity">
+				<include name="**/*.*" />
+			</fileset>
+        </copy>
 
 		<!-- first copy -->
 		<copy todir="${target}/source/install">

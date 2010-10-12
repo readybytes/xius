@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install type="module" version="1.5.0" method="upgrade">
+	<name>Xius Proximity Search</name>
+ 	<version>@global.version@.@svn.lastrevision@</version>
+    	<creationDate>Sep 2010</creationDate>
+    	<author>JoomlaXi.com</author>
+    	<authorEmail>shyam@joomlaxi.com</authorEmail>
+    	<authorUrl>http://www.joomlaxi.com</authorUrl>
+    	<copyright>2010 JoomlaXi.com</copyright>
+    	<copyrightHolder>JoomlaXi.com</copyrightHolder>
+    	<license>GNU General Public License v2</license>
+	<description>Displays Proximity Search</description>
+	<files>
+		<file module="mod_xiusproximity">mod_xiusproximity.php</file>
+		<file>index.html</file>
+		<file>helper.php</file>
+		<file>mod_xiusproximity.xml</file>
+		<folder>css</folder>
+		<folder>tmpl</folder>
+	</files>
+	<params>
+		
+		<param name="xius_proximity" type="radio" default="information" label="PROXIMITY.LABEL" description="PROXIMITY.DESC">
+		<option value="information">information</option>
+		<option value="google">google</option>
+		</param>
+		
+		<param name="xius_proximity_params" type="radio" default="map" label="PROXIMITYPARAMS.LABEL" description="PROXIMITYPARAMS.DESC">
+		<option value="googlemap">Map</option>
+		<option value="address">Address</option>
+		<option value="mylocation">My Location</option>
+		</param>
+		
+		<param name="xius_distance" type="radio" default="miles" label="DISTANCE.LABEL" description="DISTANCE.DESC">
+		<option value="miles">Miles</option>
+		<option value="kms">Kms</option>
+		</param>
+		
+		<param name="xius_color" type="radio" default="blue" label="COLOR.LABEL" description="COLOR.DESC">
+		<option value="blue">Blue</option>
+		<option value="gray">Gray</option>
+		</param>
+		
+</params>
+</install> 
+

@@ -65,20 +65,20 @@ class XiusCalendarTest extends XiSelTestCase
  	function calendarTestwithModule(){
  		
  		// Testing in Xius Search module
-		$this->click("JoomlaregisterDate_xiusMod45_img");	
+		$this->click("JoomlaregisterDate_xiusMod46_img");	
 		$this->assertTrue($this->isTextPresent("Select a date "));
-		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod45']");
+		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod46']");
 		
-		$this->click("field3_xiusMod45_img");
+		$this->click("field3_xiusMod46_img");
 		$this->assertTrue($this->isTextPresent("Select a date "));
-		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod45']");
+		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod46']");
 		
-		$this->click("Rangesearch14_xiusMod45_min_img");
+		$this->click("Rangesearch14_xiusMod46_min_img");
 		$this->assertTrue($this->isTextPresent("Select a date "));
-		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod45']");
+		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod46']");
 		
-		$this->click("Rangesearch14_xiusMod45_max_img");
+		$this->click("Rangesearch14_xiusMod46_max_img");
 		$this->assertTrue($this->isTextPresent("Select a date "));
-		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod45']");
+		$this->mouseDown("//input[@id='JoomlaregisterDate_xiusMod46']");
 	}
 }	

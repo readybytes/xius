@@ -38,9 +38,17 @@ class ProximityView extends XiusBaseView
 
         $this->assignRef('buttonMap', $buttonMap);
 	    $this->assignRef('data', $data);
-   
+   		
         ob_start();
-        $this->display('search');
+		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
+    	// 	if module is asking for html
+		if('mod_xiusproximity' === $mySess->get('xiusModuleName',false,'XIUS')){
+			$this->addTemplatePath(JPATH_ROOT.DS.'modules'.DS.'mod_xiusproximity'.DS.'tmpl');
+			$this->display('mod_proximity');
+		}
+		else
+        	$this->display('search');
+        	
         $contents = ob_get_clean();
         return $contents;
     }  
