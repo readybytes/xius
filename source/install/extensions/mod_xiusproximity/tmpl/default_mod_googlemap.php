@@ -20,8 +20,8 @@ defined('_JEXEC') or die('Restricted access');
 			  		<?php echo $this->buttonMap->text ;?>
 		  		</a>
 
-		  		<input  type="hidden" name="<?php echo $elePrefix;?>_dummy"
- 					 	id="<?php echo $elePrefix;?>_dummy" 
+		  		<input  type="hidden" name="<?php echo $this->data['elePrefix'];?>_dummy"
+ 					 	id="<?php echo $this->data['elePrefix'];?>_dummy" 
  					 	value=""
 						/>
 		</div>
