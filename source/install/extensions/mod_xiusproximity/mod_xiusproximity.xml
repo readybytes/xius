@@ -25,7 +25,7 @@
 		<option value="google">google</option>
 		</param>
 		
-		<param name="xius_proximity_params" type="radio" default="map" label="PROXIMITYPARAMS.LABEL" description="PROXIMITYPARAMS.DESC">
+		<param name="xius_proximity_params" type="radio" default="googlemap" label="PROXIMITYPARAMS.LABEL" description="PROXIMITYPARAMS.DESC">
 		<option value="googlemap">Map</option>
 		<option value="address">Address</option>
 		<option value="mylocation">My Location</option>

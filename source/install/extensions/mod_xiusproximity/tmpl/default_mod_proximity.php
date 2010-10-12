@@ -10,7 +10,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 		//XITODO:: cleanup code
 
 		$moduleParam= ModXiusProximity::setModuleParams();
-		$location	= $moduleParam->get('xius_proximity_params','map');
+		$location	= $moduleParam->get('xius_proximity_params','googlemap');
 		$latitude	= ($location=='mylocation')?$this->data['latitude']:$this->data['configLat'];
 		$longitude	= ($location=='mylocation')?$this->data['longitude']:$this->data['configLong'];
 		$elePrefix	= $this->data['elePrefix'];
