@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>proximity</name>
+ 		<title>Proximity Search</title>
+ 		<description>Proximity Search provides searching of users according to My Location, Address, Google Map.</description>
+	</params>
+</config>

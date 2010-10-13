@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>xiusexport</name>
+ 		<title>XiUS-Export</title>
+ 		<description>User can export the searched results to CSV format.</description>
+	</params>
+</config>

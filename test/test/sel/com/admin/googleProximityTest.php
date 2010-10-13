@@ -23,7 +23,7 @@ class XiusProximityAdminSelTest extends XiSelTestCase
 		$this->waitPageLoad();
         $this->click("link=Create Information");
     	$this->waitPageLoad();
-    	$this->select("plugin", "label=proximity");
+    	$this->select("plugin", "label=Proximity Search");
     	$this->click("infonext");
     	$this->waitPageLoad();
     	$this->select("rawdata", "label=By Google API");

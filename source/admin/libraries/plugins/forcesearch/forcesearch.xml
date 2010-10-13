@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>forcesearch</name>
+ 		<title>Force Search</title>
+ 		<description>Forcesearch plugin helps you apply certain rules whenever search is performed.</description>
+	</params>
+</config>

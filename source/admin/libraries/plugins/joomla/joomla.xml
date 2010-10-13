@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>joomla</name>
+ 		<title>Joomla User Table</title>
+ 		<description>With Joomla plugin, you can search according to various Joomla fields like Name,E-mail etc.</description>
+	</params>
+</config>

@@ -53,8 +53,25 @@ class XiusHelpersUtils
 		jimport( 'joomla.filesystem.folder' );
 		$plugins = array();
 		$plugins = JFolder::folders($path);
-		return $plugins;
-	}	
+		
+		$pluginInfo= Array();
+		foreach ($plugins as $plugin)
+		{
+			$xmlPath= $path.DS.$plugin.DS.$plugin.'.xml';
+			if(JFile::exists($xmlPath)===false)
+				continue;
+
+			$xml = JFactory::getXMLParser('Simple');
+			if(!$xml->loadFile($xmlPath))
+				continue;
+
+			$params =  $xml->document;
+			$pluginInfo[$plugin]['name']	= trim($params->getElementByPath( 'params/name' )->data());
+			$pluginInfo[$plugin]['title']	= $params->getElementByPath( 'params/title' )->data();
+			$pluginInfo[$plugin]['desc']	= $params->getElementByPath( 'params/description' )->data();
+		}
+		return $pluginInfo;
+	}
 	
 	
 	public function getDebugMode()

@@ -8,7 +8,20 @@ if(!defined('_JEXEC')) die('Restricted access');
 JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
+
+<script type="text/javascript" src="<?php echo JURI::root().'components/com_xius/assets/js/jquery1.4.2.js';?>" ></script>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	$("select#plugin").change(function(){
+			var optionvalue = $("select option:selected").val();
+
+			$('div#xiusOptionHelper').children('div').css("display", "none");
+			$('div#'+optionvalue).css("display", "block");
+	});
+});
 	
+</script>
+
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
 	<?php echo XiusText::_('SELECT DATA TO USE');?>
 </div>
@@ -27,17 +40,30 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 						<select id="plugin" name="plugin">
 						<?php 
 						foreach($this->plugins as $p){?>
-					    	<option value = "<?php echo $p;?>"><?php echo XiusText::_($p);?></option>
+					    	<option value = "<?php echo $p['name'];?>"><?php echo XiusText::_($p['title']);?></option>
 					    <?php 
 						}
 					    ?>
-						
-						</select>
+					    </select>
 						<?php 
 					}
 				?>
 				</div>
 			</td>
+			
+			<td>
+			<div id="xiusOptionHelper" style= "margin-right: 15%; background-color:#F9F9F9; border:1px solid #efefef; width:500px; float:right;">
+				<?php 
+						foreach($this->plugins as $p){ ?>
+							<div  id= <?php echo $p['name']; ?>  style= "display:<?php echo ($p['name']==='forcesearch')?"block":"none";?>">
+							<h3 > <?php echo $p['title']; ?> </h3>
+							<?php echo $p['desc']; ?>
+							</div> <?php
+				}	
+				?>
+			</div>
+			</td>
+			
 		</tr>
 	</tbody>
 </table>
@@ -53,3 +79,4 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	<input type="hidden" name="task" value="add" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+<?php 
