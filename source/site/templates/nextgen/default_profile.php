@@ -86,7 +86,7 @@
 
 				<div class="xiusMpData"><?php if(!empty($user->status)) : ?>
 							<span class="xiusHeaderStatus">
-								<?php echo XiusText::_($user->status);?>
+								<?php echo $user->status;?>
 							</span>
 							
 					<?php endif; ?>

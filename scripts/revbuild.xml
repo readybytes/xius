@@ -73,6 +73,18 @@
 				<include name="**/*.*" />
 			</fileset>
         </copy>
+                   
+        <copy   file="${source}/plugins/xius/xipt_fieldselection.php" 
+                        tofile="${target}/source/install/extensions/xipt_fieldselection/xipt_fieldselection.php" 
+                         />
+		<copy   file="${source}/plugins/xius/xipt_fieldselection.xml" 
+                        tofile="${target}/source/install/extensions/xipt_fieldselection/xipt_fieldselection.xml" 
+                         />                
+       <copy todir="${target}/source/install/extensions/xipt_fieldselection/xipt_fieldselection">
+			<fileset dir="${source}/plugins/xius/xipt_fieldselection">
+				<include name="**/*.*" />
+			</fileset>
+        </copy>    
                                               
 		<!-- Add module folders -->
 		<copy todir="${target}/source/install/extensions/mod_xiuslisting">

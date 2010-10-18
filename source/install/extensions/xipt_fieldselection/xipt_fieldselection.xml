@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<install version="1.5" type="plugin" group="xius" method="upgrade">
+  <name>XiUS Dynamic filtering of XiPT-fields Plugin</name>
+  <version>@global.version@.@svn.lastrevision@</version>
+  <creationDate>Sept 2010</creationDate>
+  <author>Team Joomlaxi</author>
+  <authorEmail>shyam@joomlaxi.com</authorEmail>
+  <authorUrl>http://www.joomlaxi.com/</authorUrl>
+  <copyright>@Joomlaxi</copyright>
+  <license>GNU GPL v2.0</license>
+  <description>XIUS XiProfileType Fields Selection Plugin</description>
+  <files>  	
+	<filename plugin="xipt_fieldselection">xipt_fieldselection.php</filename>
+	<folder>xipt_fieldselection</folder>
+ </files>
+</install>
