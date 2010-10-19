@@ -16,8 +16,8 @@ defined('_JEXEC') or die('Restricted access');
 		  			title="<?php echo $this->buttonMap->text ; ?>" 
 		  			href="<?php echo $this->buttonMap->link ;?>"
 		  			rel="<?php  echo $this->buttonMap->options ;?>"  >
-	
-			  		<?php echo $this->buttonMap->text ;?>
+					<?php echo XiusText::_("MAP"); ?>
+			  		<?php //echo $this->buttonMap->text ;?>
 		  		</a>
 
 		  		<input  type="hidden" name="<?php echo $this->data['elePrefix'];?>_dummy"

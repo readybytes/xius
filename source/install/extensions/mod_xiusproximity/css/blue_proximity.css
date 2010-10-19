@@ -51,16 +51,16 @@ div#xiusProximity div#keywordHtml{
 }
 
 div#xiusProximity div#keywordHtml input{
-	width:160px;
+	width:90%;
 	border:1px solid #BECFE3;
 	font-size: 16px;
-	color:#2A65A6;
+	color:#C3D2DF;
 	padding:2px;
 }
 
 div#xiusProximity div#proximityDiv{
 	float:left;
-	width:48%;
+	width:55%;
 }
 
 div#xiusProximity div#proximityLabel{
@@ -70,7 +70,7 @@ div#xiusProximity div#proximityLabel{
 
 
 div#xiusProximity div#proximityHtml{
-	font-size: 16px;
+	font-size: 100%;
 	color:#2A65A6;
 	overflow: hidden;
 	margin-top:3px;
@@ -80,8 +80,8 @@ div#xiusProximity div#proximityHtml input{
 }
 
 div#xiusProximity div#searchButton{
-	float:right;
-	width: 25%;
+	float:left;
+	width: 20%;
 }
 	
 div#xiusProximity div#searchButton input{
@@ -89,47 +89,49 @@ div#xiusProximity div#searchButton input{
 	-webkit-border-radius:16px;
 	-moz-box-shadow:0 1px 0 0 #FFFFFF inset;
 	-webkit-box-shadow:0 1px 0 0 #FFFFFF inset;
-	background:#E7EEF5 url("globe.png") no-repeat scroll 20px 2px;
+	background:#E7EEF5 url("globe.png") no-repeat scroll 8px 2px;
 	border:1px solid #BECFE3;
 	color:#2A65A6;
 	font-family:"lucida grande",sans-serif;
 	font-size:14px;
 	font-weight:normal;
 	line-height:1;
-	padding:5px 0 6px;
+	padding:5px 0 6px 10px;
 	text-align:center;
-	width:150px;
+	width:80%;
 }
 
 div#xiusProximity div#xiusProxiMap{
-	float:left;
 	margin-top: 4px;
+        margin-left: 5px;
 }
 
 div#xiusProximity div#xiusProxiMap a{
 	color:#2A65A6;
+	font-size: 15px;
 }
 
 div#xiusProxiAddress{
-	float: left;
+/*	float: left;*/
 }
 div#xiusProximity div#proximityHtml input#xiusAddress{
 	border:1px solid #BECFE3;
 	font-size: 16px;
-	color:#2A65A6;
+	color:#C3D2DF;
 	padding:2px;
-	width:160px;
+	width:40%;
 }	
 	
 div#xiusProximity div#xiusProxiDistance {
 	float:left;
 	margin-left: 5px;
+	font-size: 15px;
 }
 
 div#xiusProximity div#proximityHtml input#xiusDistance {
-	width:35px;
+	width:40px;
 	border:0px solid #ffffff;
-	font-size: 16px;
+	font-size: 14px;
 	color:#2A65A6;
 }
 
@@ -137,15 +139,16 @@ div#xiusProximity div#proximityHtml input#xiusDistanceInput{
 	width:35px;
 	border:1px solid #BECFE3;
 	font-size: 16px;
-	color:#2A65A6;
+	color:#C3D2DF;
 	padding:2px;
 	margin-left:5px;
 }
 
 div#xiusProximity div#xiusProxiLocation{
 	float:left;
-	margin-top: 5px;
+	margin-top: 3px;
 	margin-left:5px;
+	font-size: 15px;
 }
 
 div#xiusProximity div#xiusProxiError{

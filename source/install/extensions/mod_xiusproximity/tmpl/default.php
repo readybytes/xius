@@ -17,52 +17,43 @@ $document->addStyleSheet('modules/mod_xiusproximity/css/'.$params->get('xius_col
 
 <script><!--
 jQuery(document).ready(function($){
-	$('div#keywordHtml').children('input.inputbox').attr('value','find');
-	$('div#xiusProxiAddress').children('input#xiusAddress').attr('value','near');
+	$('div#keywordHtml').children('input.inputbox').attr('value','<?php echo XiusText::_("FIND");?>');
+	$('div#xiusProxiAddress').children('input#xiusAddress').attr('value','<?php echo XiusText::_("NEAR");?>');
 	
 	$('div#keywordHtml').children('input.inputbox').focus(function(){
-		if($(this).attr('value') == 'find'){
+		if($(this).attr('value') == '<?php echo XiusText::_("FIND");?>'){
 			$(this).attr('value','')
 		}
 	});
 
 	$('div#keywordHtml').children('input.inputbox').blur(function(){
 		if($(this).attr('value') == ''){
-			$(this).attr('value','find')
+			$(this).attr('value','<?php echo XiusText::_("FIND");?>')
 		}
 	});
 	
 	$('div#xiusProxiAddress').children('input#xiusAddress').focus(function(){
-		if($(this).attr('value') == 'near'){
+		if($(this).attr('value') == '<?php echo XiusText::_("NEAR")?>'){
 			$(this).attr('value','')
 		}
 	});
 
 	$('div#xiusProxiAddress').children('input#xiusAddress').blur(function(){
 		if($(this).attr('value') == ''){
-			$(this).attr('value','near')
+			$(this).attr('value','<?php echo XiusText::_("NEAR");?>')
 		}
 	});
 
 	$('div#xiusProximity').children('form').submit(function(){
 		var address = $('div#xiusProxiAddress').children('input#xiusAddress');
-		if(address.attr('value') == 'near'){
+		if(address.attr('value') == '<?php echo XiusText::_("NEAR");?>'){
 			address.attr('value','');
 		}
 		var keyword = $('div#keywordHtml').children('input.inputbox');
-		if(keyword.attr('value') == 'find'){
+		if(keyword.attr('value') == '<?php echo XiusText::_("FIND");?>'){
 			keyword.attr('value','');
 		}	
 	});
-
-	$('input#xiusDistanceInput').css("border","0px");
-
-	$('input#xiusDistanceInput').hover(function(){		
-			$(this).css("border","1px solid");
-		},
-			function(){
-			$(this).css("border","0px");		
-		});
 
 });
 </script>
@@ -74,19 +65,17 @@ jQuery(document).ready(function($){
 	 ||isset($displayProximity['html'])):  ?>
 		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
 			<div id="xiusKeyword">
-			<!--<div id="keywordLabel"><?php //echo JText::_($displayKeyword['label']);?></div>	-->
 			<div id="keywordHtml"><?php if($displayKeyword['html']) echo $displayKeyword['html'];?></div>
 			</div>
 			
 			<div id="proximityDiv">
-				<!--<div id="proximityLabel"><?php //echo JText::_($displayProximity['label']); ?></div>-->
 				<div id="proximityHtml"><?php if($displayProximity['html']) echo $displayProximity['html'];?></div>
 			</div>
 			
 			<input type="hidden" name="fromPanel" value="true" />
 			
 			<div id="searchButton">
-			 <input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="Search" />
+			 <input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('SEARCH'); ?>" />
 			</div>
 
 		</form>

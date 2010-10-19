@@ -10,6 +10,9 @@
     	<copyrightHolder>JoomlaXi.com</copyrightHolder>
     	<license>GNU General Public License v2</license>
 	<description>Displays Proximity Search</description>
+	<languages>
+		<language tag="en-GB">en-GB.mod_xiusproximity.ini</language>
+	</languages>
 	<files>
 		<file module="mod_xiusproximity">mod_xiusproximity.php</file>
 		<file>index.html</file>
@@ -21,8 +24,8 @@
 	<params>
 		
 		<param name="xius_proximity" type="radio" default="information" label="PROXIMITY.LABEL" description="PROXIMITY.DESC">
-		<option value="information">information</option>
-		<option value="google">google</option>
+		<option value="information">Information</option>
+		<option value="google">Google</option>
 		</param>
 		
 		<param name="xius_proximity_params" type="radio" default="googlemap" label="PROXIMITYPARAMS.LABEL" description="PROXIMITYPARAMS.DESC">
