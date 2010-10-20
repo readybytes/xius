@@ -16,6 +16,7 @@
 		<file>test/unit/com/admin/libraries/rangesearchTest.php</file>
 		<file>test/unit/com/admin/libraries/daterangesearchTest.php</file>
 		<file>test/unit/com/admin/libraries/forcesearchTest.php</file>
+		<file>test/unit/com/admin/libraries/XiusonlineTest.php</file>
 		<!--<file>test/unit/com/admin/libraries/cbuilderTest.php</file>-->
 		<file>test/unit/com/admin/libraries/usersearchTest.php</file>
 		<file>test/unit/com/admin/libraries/cacheTest.php</file>
