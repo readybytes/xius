@@ -21,26 +21,30 @@ jQuery(document).ready(function($){
 	$('div#xiusProxiAddress').children('input#xiusAddress').attr('value','<?php echo XiusText::_("NEAR");?>');
 	
 	$('div#keywordHtml').children('input.inputbox').focus(function(){
+		$(this).css('color','#2A65A6');
 		if($(this).attr('value') == '<?php echo XiusText::_("FIND");?>'){
-			$(this).attr('value','')
+			$(this).attr('value','');
 		}
 	});
 
 	$('div#keywordHtml').children('input.inputbox').blur(function(){
 		if($(this).attr('value') == ''){
-			$(this).attr('value','<?php echo XiusText::_("FIND");?>')
+			$(this).attr('value','<?php echo XiusText::_("FIND");?>');
+			$(this).css('color','#C3D2DF');
 		}
 	});
 	
 	$('div#xiusProxiAddress').children('input#xiusAddress').focus(function(){
+		$(this).css('color','#2A65A6');
 		if($(this).attr('value') == '<?php echo XiusText::_("NEAR")?>'){
-			$(this).attr('value','')
+			$(this).attr('value','');
 		}
 	});
 
 	$('div#xiusProxiAddress').children('input#xiusAddress').blur(function(){
 		if($(this).attr('value') == ''){
-			$(this).attr('value','<?php echo XiusText::_("NEAR");?>')
+			$(this).attr('value','<?php echo XiusText::_("NEAR");?>');
+			$(this).css('color','#C3D2DF');
 		}
 	});
 

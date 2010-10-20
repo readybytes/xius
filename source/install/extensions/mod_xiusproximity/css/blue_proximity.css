@@ -101,9 +101,10 @@ div#xiusProximity div#searchButton input{
 	width:80%;
 }
 
-div#xiusProximity div#xiusProxiMap{
+div#xiusProximity div#proximityHtml div#xiusProxiMap{
 	margin-top: 4px;
-        margin-left: 5px;
+    margin-left: 5px;
+    float:left;
 }
 
 div#xiusProximity div#xiusProxiMap a{
@@ -111,9 +112,12 @@ div#xiusProximity div#xiusProxiMap a{
 	font-size: 15px;
 }
 
-div#xiusProxiAddress{
-/*	float: left;*/
+div#xiusProximity div#xiusProxiAddress{
+	float: left;
+	width:40%;
+	margin-left:5px;
 }
+
 div#xiusProximity div#proximityHtml input#xiusAddress{
 	border:1px solid #BECFE3;
 	font-size: 16px;
@@ -130,7 +134,7 @@ div#xiusProximity div#xiusProxiDistance {
 
 div#xiusProximity div#proximityHtml input#xiusDistance {
 	width:40px;
-	border:0px solid #ffffff;
+	border:0px solid;
 	font-size: 14px;
 	color:#2A65A6;
 }
@@ -146,7 +150,7 @@ div#xiusProximity div#proximityHtml input#xiusDistanceInput{
 
 div#xiusProximity div#xiusProxiLocation{
 	float:left;
-	margin-top: 3px;
+	margin-top: 5px;
 	margin-left:5px;
 	font-size: 15px;
 }
