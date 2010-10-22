@@ -1,8 +1,26 @@
+<?php 
 /**
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 
+
+/* for blue template */ 
+if($params->get('xius_color', 'blue')=="blue"){
+	$border = '#BECFE3'; 
+	$color = '#2A65A6';
+	$background = '#E7EEF5';
+	$globeimage = JURI::base().'modules/mod_xiusproximity/css/globe.png';
+}
+else{
+	/* for gray template */
+	$border = '#CFCFCF';
+	$color = '#5F5F5F';
+	$background = '#EFEFEF';
+	$globeimage = JURI::base().'modules/mod_xiusproximity/css/grayglobe.png';
+}
+?>
+<style type="text/css">
 div#xiusProximity div,
 div#xiusProximity dl,
 div#xiusProximity dt,
@@ -30,7 +48,7 @@ div#xiusProximity td {
 }
 
 div#xiusProximity {
-	border: 1px solid #CFCFCF;
+	border: 1px solid <?php echo $border; ?>;
 	width: 600px;
 	padding:5px;
 	overflow:hidden;
@@ -46,10 +64,10 @@ div#xiusProximity div#keywordHtml{
 }
 
 div#xiusProximity div#keywordHtml input{
-	width:100px;
-	border:1px solid #CFCFCF;
+	width:110px;
+	border:1px solid <?php echo $border; ?>;
 	font-size: 16px;
-	color:#5F5F5F;
+	color:<?php echo $color; ?>;
 	padding:2px;
 }
 
@@ -59,7 +77,7 @@ div#xiusProximity div#proximityDiv{
 }
 
 div#xiusProximity div#proximityHtml{
-	color:#5F5F5F;
+	color:<?php echo $color; ?>;
 	overflow: hidden;
 	margin-top:3px;
 }
@@ -75,10 +93,10 @@ div#xiusProximity div#xiusProxiDistance {
 }
 
 div#xiusProximity div#proximityHtml input#xiusDistanceInput{
-	width:100px;
-	border:1px solid #CFCFCF;
+	width:40px;
+	border:1px solid <?php echo $border; ?>;
 	font-size: 16px;
-	color:#5F5F5F;
+	color:<?php echo $color; ?>;
 	padding:2px;
 	margin-left:5px;
 }
@@ -88,7 +106,7 @@ div#xiusProximity div#proximityHtml input#xiusDistance {
 	border:0px;
     background:transparent;
 	font-size: 14px;
-	color:#5F5F5F;
+	color:<?php echo $color; ?>;
 }
 
 div#xiusProximity div#proximityHtml div#xiusProxiMap{
@@ -98,7 +116,7 @@ div#xiusProximity div#proximityHtml div#xiusProxiMap{
 }
 
 div#xiusProximity div#xiusProxiMap a{
-	color:#5F5F5F;
+	color:<?php echo $color; ?>;
 	font-size: 15px;
 }
 
@@ -109,9 +127,9 @@ div#xiusProximity div#xiusProxiAddress{
 }
 
 div#xiusProximity div#proximityHtml input#xiusAddress{
-	border:1px solid #CFCFCF;
+	border:1px solid <?php echo $border; ?>;
 	font-size: 16px;
-	color:#5F5F5F;
+	color:<?php echo $color; ?>;
 	padding:2px;
 	width:100px;
 }	
@@ -131,9 +149,9 @@ div#xiusProximity div#searchButton{
 div#xiusProximity div#searchButton input{
 	-moz-box-shadow:0 1px 0 0 #FFFFFF inset;
 	-webkit-box-shadow:0 1px 0 0 #FFFFFF inset;
-	background:#EFEFEF url("grayglobe.png") no-repeat scroll 5px 2px;
-	border:1px solid #CFCFCF;
-	color:#5F5F5F;
+	background:<?php echo $background; ?> url("<?php echo $globeimage ;?>") no-repeat scroll 5px 2px;
+	border:1px solid <?php echo $border; ?>;
+	color:<?php echo $color; ?>;
 	font-family:"lucida grande",sans-serif;
 	font-size:14px;
 	font-weight:normal;
@@ -146,3 +164,5 @@ div#xiusProximity div#searchButton input{
 div#xiusProximity div#xiusProxiError{
 	color:red;
 }
+
+</style>

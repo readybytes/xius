@@ -11,56 +11,12 @@ JHTML::_('behavior.mootools');
 $js = JURI::base().'components/com_xius/assets/js/jquery1.4.2.js';
 $document->addScript($js);
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>');
-$document->addStyleSheet('modules/mod_xiusproximity/css/'.$params->get('xius_color', 'blue').'_proximity.css');
+//$document->addStyleSheet('modules/mod_xiusproximity/css/'.$params->get('xius_color', 'blue').'_proximity.css');
 // XITODO : Move scripts to module's js file
+require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_css.php');
+require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_js.php');
 ?>
 
-<script><!--
-jQuery(document).ready(function($){
-	$('div#keywordHtml').children('input.inputbox').attr('value','<?php echo XiusText::_("FIND");?>');
-	$('div#xiusProxiAddress').children('input#xiusAddress').attr('value','<?php echo XiusText::_("NEAR");?>');
-	
-	$('div#keywordHtml').children('input.inputbox').focus(function(){
-		$(this).css('color','#2A65A6');
-		if($(this).attr('value') == '<?php echo XiusText::_("FIND");?>'){
-			$(this).attr('value','');
-		}
-	});
-
-	$('div#keywordHtml').children('input.inputbox').blur(function(){
-		if($(this).attr('value') == ''){
-			$(this).attr('value','<?php echo XiusText::_("FIND");?>');
-			$(this).css('color','#C3D2DF');
-		}
-	});
-	
-	$('div#xiusProxiAddress').children('input#xiusAddress').focus(function(){
-		$(this).css('color','#2A65A6');
-		if($(this).attr('value') == '<?php echo XiusText::_("NEAR")?>'){
-			$(this).attr('value','');
-		}
-	});
-
-	$('div#xiusProxiAddress').children('input#xiusAddress').blur(function(){
-		if($(this).attr('value') == ''){
-			$(this).attr('value','<?php echo XiusText::_("NEAR");?>');
-			$(this).css('color','#C3D2DF');
-		}
-	});
-
-	$('div#xiusProximity').children('form').submit(function(){
-		var address = $('div#xiusProxiAddress').children('input#xiusAddress');
-		if(address.attr('value') == '<?php echo XiusText::_("NEAR");?>'){
-			address.attr('value','');
-		}
-		var keyword = $('div#keywordHtml').children('input.inputbox');
-		if(keyword.attr('value') == '<?php echo XiusText::_("FIND");?>'){
-			keyword.attr('value','');
-		}	
-	});
-
-});
-</script>
 
 	<div id="xiusProximity">
 	<?php 

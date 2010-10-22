@@ -31,27 +31,22 @@ div#xiusProximity td {
 
 div#xiusProximity {
 	border: 1px solid #becfe3;
-	width: 100%;
-	padding:10px;
+	width: 600px;
+	padding:5px;
 	overflow:hidden;
 }
 
 div#xiusProximity div#xiusKeyword{
 	float:left;
-	width:25%;
-}
-
-div#xiusProximity div#xiusKeyword div#keywordLabel{
-        color:#2a65a6;
-        margin:2% 2% 2% 20%;
+	width:100px;
+        margin:3px 15px 0px 0px;
 }
 
 div#xiusProximity div#keywordHtml{
-	margin-top:3px;
 }
 
 div#xiusProximity div#keywordHtml input{
-	width:90%;
+	width:100px;
 	border:1px solid #BECFE3;
 	font-size: 16px;
 	color:#C3D2DF;
@@ -60,17 +55,10 @@ div#xiusProximity div#keywordHtml input{
 
 div#xiusProximity div#proximityDiv{
 	float:left;
-	width:55%;
+	width:360px;
 }
-
-div#xiusProximity div#proximityLabel{
-	color:#2a65a6;
-	margin:2%;
-}
-
 
 div#xiusProximity div#proximityHtml{
-	font-size: 100%;
 	color:#2A65A6;
 	overflow: hidden;
 	margin-top:3px;
@@ -79,26 +67,28 @@ div#xiusProximity div#proximityHtml{
 div#xiusProximity div#proximityHtml input{
 }
 
-div#xiusProximity div#searchButton{
-	float:left;
-	width: 20%;
-}
 	
-div#xiusProximity div#searchButton input{
-	-moz-border-radius:16px;
-	-webkit-border-radius:16px;
-	-moz-box-shadow:0 1px 0 0 #FFFFFF inset;
-	-webkit-box-shadow:0 1px 0 0 #FFFFFF inset;
-	background:#E7EEF5 url("globe.png") no-repeat scroll 8px 2px;
+div#xiusProximity div#xiusProxiDistance {
+	float:left;
+	margin-left: 5px;
+	font-size: 15px;
+}
+
+div#xiusProximity div#proximityHtml input#xiusDistanceInput{
+	width:100px;
 	border:1px solid #BECFE3;
+	font-size: 16px;
+	color:#C3D2DF;
+	padding:2px;
+	margin-left:5px;
+}
+
+div#xiusProximity div#proximityHtml input#xiusDistance {
+	width:40px;
+	border:0px;
+    background:transparent;
+	font-size: 14px;
 	color:#2A65A6;
-	font-family:"lucida grande",sans-serif;
-	font-size:14px;
-	font-weight:normal;
-	line-height:1;
-	padding:5px 0 6px 10px;
-	text-align:center;
-	width:80%;
 }
 
 div#xiusProximity div#proximityHtml div#xiusProxiMap{
@@ -114,7 +104,7 @@ div#xiusProximity div#xiusProxiMap a{
 
 div#xiusProximity div#xiusProxiAddress{
 	float: left;
-	width:40%;
+	width:100px;
 	margin-left:5px;
 }
 
@@ -123,30 +113,8 @@ div#xiusProximity div#proximityHtml input#xiusAddress{
 	font-size: 16px;
 	color:#C3D2DF;
 	padding:2px;
-	width:40%;
+	width:100px;
 }	
-	
-div#xiusProximity div#xiusProxiDistance {
-	float:left;
-	margin-left: 5px;
-	font-size: 15px;
-}
-
-div#xiusProximity div#proximityHtml input#xiusDistance {
-	width:40px;
-	border:0px solid;
-	font-size: 14px;
-	color:#2A65A6;
-}
-
-div#xiusProximity div#proximityHtml input#xiusDistanceInput{
-	width:35px;
-	border:1px solid #BECFE3;
-	font-size: 16px;
-	color:#C3D2DF;
-	padding:2px;
-	margin-left:5px;
-}
 
 div#xiusProximity div#xiusProxiLocation{
 	float:left;
@@ -155,6 +123,28 @@ div#xiusProximity div#xiusProxiLocation{
 	font-size: 15px;
 }
 
+div#xiusProximity div#searchButton{
+	float:left;
+	width: 112px;
+}
+	
+div#xiusProximity div#searchButton input{
+	-moz-box-shadow:0 1px 0 0 #FFFFFF inset;
+	-webkit-box-shadow:0 1px 0 0 #FFFFFF inset;
+	background:#E7EEF5 url("globe.png") no-repeat scroll 5px 2px;
+	border:1px solid #BECFE3;
+	color:#2A65A6;
+	font-family:"lucida grande",sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:1;
+	padding:5px 0 6px 20px;
+	text-align:center;
+	width:110px;
+}
+
 div#xiusProximity div#xiusProxiError{
 	color:red;
 }
+
+</style>
