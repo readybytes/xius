@@ -17,23 +17,24 @@ if(!defined('_JEXEC')) die('Restricted access');
 		$userId		= $this->data['userId']	;
 ?>
 <div id="xiusProxiDistance">      
-<?php echo XiusText::_('WITHIN');?>
-<input type="text" name="<?php echo $elePrefix;?>_dis"
-						id="xiusDistanceInput"
-						value="10" />
-<input name="<?php echo $elePrefix;?>_dis_unit" id="xiusDistance" 
-value="<?php echo $moduleParam->get('xius_distance','miles');?>" readonly="readonly" /> <?php echo XiusText::_('FROM'); ?> </div>
 <?php 
 		echo $this->loadTemplate('mod_'.$location);
 
 ?>
+
 <input type="hidden" name="<?php echo $elePrefix;?>_lat"
  						id="<?php echo $elePrefix ;?>_lat"
  						value="<?php echo $latitude;?>" />
 <input type="hidden" name="<?php echo $elePrefix;?>_long"
  					 	id="<?php echo $elePrefix;?>_long"
  					 	value="<?php echo $longitude;?>"/>
-			 	
+
+<?php echo XiusText::_('WITHIN');?>
+<input type="text" name="<?php echo $elePrefix;?>_dis"
+						id="xiusDistanceInput"
+						value="10" />
+
+<input name="<?php echo $elePrefix;?>_dis_unit" id="xiusDistance" 
+value="<?php echo $moduleParam->get('xius_distance','miles');?>" readonly="readonly" /> <?php echo XiusText::_('FROM'); ?> </div>
 
 <?php 
-

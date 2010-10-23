@@ -38,6 +38,7 @@
 		<file>test/unit/com/site/helpers/usersTest.php</file>
 		<file>test/unit/com/site/helpers/xiusListFrontUnitTest.php</file>
 		<file>test/unit/com/site/trimwhitespaceTest.php</file>
+		<file>test/unit/com/site/proximitymoduleTest.php</file>
 		<file>test/unit/com/site/xiusFrontSelTemplateTest.php</file>
 		<file>test/sel/com/admin/infoTest.php</file>
 		<file>test/sel/com/admin/googleProximityTest.php</file>

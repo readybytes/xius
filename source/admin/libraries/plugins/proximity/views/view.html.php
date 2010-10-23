@@ -26,12 +26,12 @@ class ProximityView extends XiusBaseView
     	$data['configLong']  = $calleObject->get('pluginParams')->get('xiusProximityDefaultLong',77.22496);
     	ProximityHelper::setUserLatLong($calleObject, $data);
         
-    	$mySess 			 = & JFactory::getSession();
+    	$mySess 			 =  JFactory::getSession();
 		$data['formName']	 = $mySess->get('xiusModuleForm','userForm','XIUS');
        	$data['elePrefix']   = $calleObject->get('pluginType').$calleObject->get('key')."_".$data['formName'];
 		$data['location']    = $calleObject->get('pluginParams')->get('xius_default_location',"none");
        	
-		$data['userId']	 = & JFactory::getUser()->id;
+		$data['userId']	 =  JFactory::getUser()->id;
        
        	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
     	$buttonMap = XiusFactory::getModalButtonObject($data['elePrefix'].'_map_button',XiusText::_( 'SHOW GOOGLE MAP' ),$linkMap,PROXIMITY_IFRAME_WIDTH,PROXIMITY_IFRAME_HEIGHT);
@@ -40,11 +40,15 @@ class ProximityView extends XiusBaseView
 	    $this->assignRef('data', $data);
    		
         ob_start();
+
 		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
     	// 	if module is asking for html
 		if('mod_xiusproximity' === $mySess->get('xiusModuleName',false,'XIUS')){
+	        $currentPath= $this->_path;			
 			$this->addTemplatePath(JPATH_ROOT.DS.'modules'.DS.'mod_xiusproximity'.DS.'tmpl');
 			$this->display('mod_proximity');
+
+			$this->_path = $currentPath;
 		}
 		else
         	$this->display('search');
