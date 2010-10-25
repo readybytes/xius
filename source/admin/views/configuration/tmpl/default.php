@@ -16,7 +16,10 @@ JHTML::_('behavior.tooltip', '.hasTip');
            background-position: top center;
         }     
 </style>
+
+<?php JHTML::_('behavior.mootools'); ?>
 <script type="text/javascript" src="<?php echo JURI::root().'components/com_xius/assets/js/jquery1.4.2.js';?>" ></script>
+<script type="text/javascript">jQuery.noConflict();</script>
 <script type="text/javascript">
 	jQuery(document).ready(function($){
 			$("div#xiusAdvanceTemplate").css("display","none");
@@ -26,7 +29,6 @@ JHTML::_('behavior.tooltip', '.hasTip');
 	});
 	
 </script>
-<script type="text/javascript">jQuery.noConflict();</script>
 
 <div>
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">

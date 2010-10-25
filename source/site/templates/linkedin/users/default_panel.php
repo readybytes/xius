@@ -50,9 +50,11 @@ jimport('joomla.html.pane');
 		endforeach;
 ?>		
 		<div class="clr"></div>
-		<?php 	
-		echo $this->loadTemplate('joinhtml');
-		?>
+		
+		<div style="display:none;">
+		<?php 	echo $this->loadTemplate('joinhtml');	?>
+		</div>
+		
 		<div id="xiusSpSubmit">
 		<input type="submit" id="xiussearch" name="xiussearch" value="Search" />
 		</div>

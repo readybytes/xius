@@ -3,24 +3,19 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-?>
-<?php 
+
+JHTML::_('behavior.mootools');
+JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+
 $this->loadAssets('css', 'result.css');
 if($this->loadJquery)
 		$this->loadAssets('js', 'jquery1.4.2.js');
 	
 //XITODO : move to loadAssest function
-	
 $this->loadAssets('js', 'menus.js');
 $this->loadAssets('js', 'result.js');
 
-$document =& JFactory::getDocument();
-JHTML::_('behavior.mootools');
-$document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
-
-?><!--[if IE 6]>
-	
-  <![endif]-->
+?>
 
 <?php JHTML::_('behavior.tooltip'); ?>
 <div id="xiusProfile">
