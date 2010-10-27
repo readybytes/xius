@@ -22,7 +22,7 @@
 ../packages/tmp/admin/libraries/plugins/base.php:589:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:38:    	// XITODO : if not logged in then what to do
 ../packages/tmp/admin/libraries/plugins/proximity/views/tmpl/default_search.php:10:		//XITODO:: cleanup code
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:43:		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:44:		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:118:		// XITODO : need to clean up magic constants
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:128:		// XITODO :: Temporary fix for having clause need to fix it
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:159:		//XITODO : check value od value[0]
@@ -54,9 +54,9 @@
 ../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
 ../packages/tmp/site/templates/default/default_result.php:10:/*XITODO : pass variable for color */
 ../packages/tmp/site/templates/default/list/default_list.php:10:// XITODO : cleanup code
-../packages/tmp/site/templates/nextgen/default_result.php:12://XITODO : move to loadAssest function
+../packages/tmp/site/templates/nextgen/default_result.php:14://XITODO : move to loadAssest function
 ../packages/tmp/site/templates/nextgen/list/default_list.php:18:// XITODO : cleanup code
-../packages/tmp/site/templates/linkedin/default_result.php:12://XITODO : move to loadAssest function
+../packages/tmp/site/templates/linkedin/default_result.php:13://XITODO : move to loadAssest function
 ../packages/tmp/site/templates/linkedin/list/default_list.php:18:// XITODO : cleanup code
 ../packages/tmp/site/controllers/users.php:18:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:44:		/*XITODO : pass only searchable information 
@@ -73,5 +73,7 @@
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:15:// XITODO : Move scripts to module's js file
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:70:		// XITODO : clean up the following code
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection/addJS.php:22:		//XITODO:: use diffrent way for load JS files (not use required once)
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:135:			// XITODO: get variable by JRequest
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:200:		//XITODO : Cache the results
 ../packages/tmp/install/extensions/xius_community/xius.php:96://XITODO : check existance of this file

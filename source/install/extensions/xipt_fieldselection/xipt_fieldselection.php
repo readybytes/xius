@@ -77,6 +77,25 @@ class plgXiusxipt_fieldselection extends JPlugin
 		return $hiddenInfoId;
 	}
 	
+	
+	function _addScript($hiddenInfoId, $profileTypeInfoId)
+	{
+		ob_start();
+			?>			
+			<script language="javascript">
+					var hiddenFields= new Array();
+					var profileTypeInfoId = "<?php echo $profileTypeInfoId;?>"; 
+					<?php
+						foreach ($hiddenInfoId as $profileType => $fields){	?>
+						  hiddenFields[<?php echo $profileType;?>] = new Array(<?php echo  implode("," , $fields); ?>);
+							<?php
+						}
+						?>
+			</script>
+	<?php
+		
+	}
+	
 	/**
 	 * Filtered all available ifo accoding to XiPT Profile field Privacy
 	 * @param $allInfo
@@ -110,26 +129,20 @@ class plgXiusxipt_fieldselection extends JPlugin
 				}		
 			$hiddenInfoId = $this->_setDisplayInfo($allInfo, $visibleFields, $profileTypes);
 		
-			ob_start();
-			?>			
-			<script language="javascript">
-					var hiddenFields= new Array();
-					var profileTypeInfoId = "<?php echo $profileTypeInfoId;?>"; 
-					<?php
-						foreach ($hiddenInfoId as $profileType => $fields){	?>
-						  hiddenFields[<?php echo $profileType;?>] = new Array(<?php echo  implode("," , $fields); ?>);
-							<?php
-						}
-						?>
-			</script>
-	<?php
+			if(JRequest::getVar('profileType') === null)
+				JRequest::setVar('profileType',0,'POST');
+			
+			// XITODO: get variable by JRequest
+			if(!empty($_POST[$profileTypeInfoId]))
+			   JRequest::setVar('profileType',$_POST[$profileTypeInfoId],'POST');	
+			
+		// Script Variable Set	
+		$this->_addScript($hiddenInfoId, $profileTypeInfoId);
 		
-		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
-		$path 	  	= JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_fieldselection'.DS.$template.'.php';
-		require_once $path;
+		require_once JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_fieldselection'.DS.'addJS.php';
+
 		return true;
 		}
-
 		return false;
 	}
 }
