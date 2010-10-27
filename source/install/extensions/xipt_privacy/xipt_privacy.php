@@ -108,19 +108,17 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function xiusOnAfterLoadAllInfo($allInfo, $loginuser=null)
 	{
-		$app = JFactory::getApplication();
 		//Don't run in admin
-		if($app->isAdmin())
+		if(JFactory::getApplication()->isAdmin())
 			return true;
 		
 		if(!$this->_loadXipt())
 			return false;
 			
 		if($loginuser==null)
-			$loginuser=& JFactory::getUser();
+			$loginuser= JFactory::getUser();
 			
-		$userId	 		 =	$loginuser->id;
-		$profileId 		 =	XiPTLibraryProfiletypes::getUserData($userId);
+		$profileId 		 =	XiPTLibraryProfiletypes::getUserData($loginuser->id);
 		$this->_setDisplayData($allInfo, $profileId);		
 		return true;
 	}
@@ -133,11 +131,9 @@ class plgXiusxipt_privacy extends JPlugin
 	{
 		if(!$this->_loadXipt())
 			return false;
-				
-		$app = JFactory::getApplication();
 		
 		// run only Back-End
-		if($app->isSite())
+		if(JFactory::getApplication()->isSite())
 				return false;
 					
 		return $this->_xiusGetProfileTypes($params);
@@ -148,9 +144,8 @@ class plgXiusxipt_privacy extends JPlugin
 		if(!$this->_loadXipt())
 			return false;
 			
-		$app = JFactory::getApplication();
 		// run only Back-End
-		if($app->isSite())
+		if(JFactory::getApplication()->isSite())
 				return false;
 		
 		// is postdata of this plugin is set then, set it into postData[params]
@@ -162,25 +157,22 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function xiusOnAfterLoadList($lists)
 	{
-		$app = JFactory::getApplication();
-
 		//Don't run in admin
-		if($app->isAdmin())
+		if(JFactory::getApplication()->isAdmin())
 				return true;
 		
 		if(!$this->_loadXipt())
 			return false;
 
-		$loggedinUser	= & JFactory::getUser();
-		$userId	 		= $loggedinUser->id;
-		$profileId		= XiPTLibraryProfiletypes::getUserData($userId);	
-		$this->_setDisplayData($lists, $profileId);
+		$userId		= JFactory::getUser()->id;
+		$profileId	= XiPTLibraryProfiletypes::getUserData($userId);	
+		$this->_setDisplayData($lists, $profileId, true);
 
 		$lists = array_values($lists);
 		return true;
 	}
 	
-	function _setDisplayData(&$data, $profileId)
+	function _setDisplayData(&$data, $profileId, $list=false)
 	{
 		$count = count($data);
 		for($i =0 ; $i < $count ; $i++ ){		
@@ -191,10 +183,21 @@ class plgXiusxipt_privacy extends JPlugin
 			if(!$profileTypeInfo)
 				continue;
 			
+			if($list && $this->_isListViewable($data[$i]->owner))
+				continue ;
+
 			if(in_array($profileId, $profileTypeInfo) || in_array("0", $profileTypeInfo))
 				continue;
 					
 			unset($data[$i]);		
 		}
 	}
+	
+	function _isListViewable($ownerId)
+	{
+		$userId		= JFactory::getUser()->id;
+		if(XiusHelpersUtils::isAdmin($userId) 
+				|| $ownerId === $userId)
+			return true;
+	}		
 }
