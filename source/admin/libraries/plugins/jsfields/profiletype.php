@@ -11,8 +11,7 @@ class ProfiletypesHelper
 {
 	function formatData($value=0)
 	{
-	    $pID = $value;
-		return $pID;
+	  return $value;
 	}
 	/*
 	 * Convert stored profileType ID to profileTypeName
@@ -20,13 +19,10 @@ class ProfiletypesHelper
 	 * */
 	function getFieldData( $value = 0 )
 	{
-		$pID = $value;
-		
-		if(!$pID)
+		if(!$value)
 			return '';
 		
-		$pName = XiPTLibraryProfiletypes::getProfiletypeName($pID);
-		return $pName;
+		return XiPTLibraryProfiletypes::getProfiletypeName($value);
 	}
 	
 	/*
@@ -37,6 +33,7 @@ class ProfiletypesHelper
 		$class	    = '';
 		$disabled   = '';
 		
+		$profileTypeInfoId = JRequest::getVar('profileType',0);
 		
 		$filter	= array('published'=>1);
 		// user can change profiletype, add information
@@ -50,7 +47,9 @@ class ProfiletypesHelper
 				$selected = '';			
 				
 				if(isset($field->value) && $field->value == $pType->id)
-					$selected = " selected = selected ";		
+					$selected = " selected = selected ";
+
+					$selected=($pType->id==$profileTypeInfoId) ? "selected" : '';
 					
 				$html	.= '<option value="' . $pType->id . '" '.$selected.'>' .$pType->name  . '</option>';
 			}

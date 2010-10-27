@@ -20,7 +20,7 @@ foreach($this->users as $user) :
 </div>
 <div class="miniProfileInfos">
 <h2 class=mPName><?php  
-echo XiusText::_(JString::ucfirst($user->name));
+echo JString::ucfirst($user->name);
 ?>
 </h2>
 

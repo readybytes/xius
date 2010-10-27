@@ -24,7 +24,7 @@
 					<?php if($user->isOnline): ?>
 						<div class="xiusOnline" title="<?php echo XiusText::_('Online'); ?>"> 				
 							<span>
-								<?php echo XiusText::_(JString::ucfirst($user->name));?>	 	
+								<?php echo JString::ucfirst($user->name);?>	 	
 							</span>
 						</div>					
 					<?php else	: ?>

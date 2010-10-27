@@ -33,7 +33,7 @@ class XiusProximityDefaultTest extends XiSelTestCase
 		$this->waitPageLoad();
 		$this->assertTrue($this->isTextPresent("Show Location"));
 		$this->assertTrue($this->isElementPresent("//span[@id='total_5']"));
-		$this->assertTrue($this->isTextPresent("administrator"));
+		$this->assertTrue($this->isTextPresent("Administrator"));
 		$this->frontLogout();
 	}
 	

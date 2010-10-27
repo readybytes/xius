@@ -19,7 +19,7 @@
 				<input type="checkbox" name="xiusCheckUser" id="xiusCheckUser<?php echo $count++; ?>" value="<?php echo $user->id; ?>" > 
 				<?php endif; ?>
 				
-				<?php echo XiusText::_(JString::ucfirst($user->name));?>
+				<?php echo JString::ucfirst($user->name);?>
 				<?php if(!empty($user->status)) : ?>
 						<span class="xiusHeaderStatus">
 							<?php echo $user->status;?>
