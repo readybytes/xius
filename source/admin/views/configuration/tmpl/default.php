@@ -7,6 +7,9 @@
 if(!defined('_JEXEC')) die('Restricted access');
 //XITODO : add all backend views
 JHTML::_('behavior.tooltip', '.hasTip');
+
+// load jquery
+XiusHelpersUtils::loadJQuery();
 ?>
 <style type="text/css">
        #toolbar-updateCache
@@ -17,9 +20,6 @@ JHTML::_('behavior.tooltip', '.hasTip');
         }     
 </style>
 
-<?php JHTML::_('behavior.mootools'); ?>
-<script type="text/javascript" src="<?php echo JURI::root().'components/com_xius/assets/js/jquery1.4.2.js';?>" ></script>
-<script type="text/javascript">jQuery.noConflict();</script>
 <script type="text/javascript">
 	jQuery(document).ready(function($){
 			$("div#xiusAdvanceTemplate").css("display","none");

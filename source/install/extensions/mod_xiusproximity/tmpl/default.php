@@ -6,13 +6,10 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 //Call XIUS Functions
-$document =& JFactory::getDocument();
-JHTML::_('behavior.mootools');
-$js = JURI::base().'components/com_xius/assets/js/jquery1.4.2.js';
-$document->addScript($js);
-$document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>');
-//$document->addStyleSheet('modules/mod_xiusproximity/css/'.$params->get('xius_color', 'blue').'_proximity.css');
-// XITODO : Move scripts to module's js file
+
+// load jquery
+XiusHelpersUtils::loadJQuery();
+
 require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_css.php');
 require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_js.php');
 ?>

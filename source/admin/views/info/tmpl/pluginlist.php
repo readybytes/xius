@@ -7,9 +7,11 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
+
+// load jquery
+XiusHelpersUtils::loadJQuery();
 ?>
 
-<script type="text/javascript" src="<?php echo JURI::root().'components/com_xius/assets/js/jquery1.4.2.js';?>" ></script>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 	$("select#plugin").change(function(){
