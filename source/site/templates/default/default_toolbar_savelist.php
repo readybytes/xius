@@ -12,7 +12,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 	title="<?php echo $this->buttonMap->text; ?>" 
 	href="<?php echo $this->buttonMap->link; ?>"
 	rel="<?php echo $this->buttonMap->options; ?>" 
-	onClick="return xiusCheckUserSelected()"
 	>
     		<img 
 				src='<?php echo JURI::base()."components/com_xius/assets/images/save.png"; ?>' 

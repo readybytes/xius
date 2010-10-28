@@ -197,4 +197,18 @@ class XiusHelpersUtils
 	}
 */
 	
+	
+	function loadJQuery()
+	{
+		static $loaded=false;
+		
+		$loadJquery	= self::getConfigurationParams('xiusLoadJquery',1);		
+		if($loaded || $loadJquery)
+			return true;
+		
+		JHTML::script('jquery1.4.2.js','components/com_xius/assets/js/', true);
+		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+		$loaded = true;
+		return true;
+	}
 }

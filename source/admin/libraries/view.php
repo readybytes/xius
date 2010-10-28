@@ -103,10 +103,10 @@ abstract class XiusView extends JView
 			$document->setTitle(XiusText::_('Search Result'));
 
 		//collect confuguration params
-		$xiusSlideShow  		= xiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
-		$joinHtml['enable']  	= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch',1);
-		$joinHtml['defultMatch']= xiusHelpersUtils::getConfigurationParams('xiusEnableMatch','All');
-		$loadJquery				= xiusHelpersUtils::getConfigurationParams('xiusLoadJquery',1);
+		$xiusSlideShow  		= XiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
+		$joinHtml['enable']  	= XiusHelpersUtils::getConfigurationParams('xiusEnableMatch',1);
+		$joinHtml['defultMatch']= XiusHelpersUtils::getConfigurationParams('xiusEnableMatch','All');
+		$loadJquery				= XiusHelpersUtils::getConfigurationParams('xiusLoadJquery',1);
 		// load jquery package
 
 		$this->assignRef('loadJquery', $loadJquery);

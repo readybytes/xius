@@ -5,11 +5,12 @@
 **/
 
 JHTML::_('behavior.mootools');
-JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
 $this->loadAssets('css', 'result.css');
-if($this->loadJquery)
-		$this->loadAssets('js', 'jquery1.4.2.js');
+if($this->loadJquery){
+	$this->loadAssets('js', 'jquery1.4.2.js');
+	JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+}
 	
 //XITODO : move to loadAssest function
 $this->loadAssets('js', 'menus.js');

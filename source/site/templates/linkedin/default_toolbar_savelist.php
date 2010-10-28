@@ -14,7 +14,6 @@ if(!defined('_JEXEC')) die('Restricted access');
  	title="<?php echo $this->buttonMap->text; ?>" 
 	href="<?php echo $this->buttonMap->link; ?>"
 	rel="<?php echo $this->buttonMap->options; ?>" 
-	onClick="return xiusCheckUserSelected()"
 >
 <?php echo XiusText::_("Save This List");?></a></div>
 <?php 
