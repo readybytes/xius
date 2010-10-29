@@ -84,7 +84,6 @@ class plgXiusxipt_fieldselection extends JPlugin
 	
 	function _addScriptParam($hiddenInfoId, $profileTypeInfoId)
 	{
-		$m=array(implode("," , array(45)));
 		ob_start();
 			?>			
 			<script language="javascript">

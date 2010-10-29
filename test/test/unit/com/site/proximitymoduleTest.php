@@ -13,7 +13,7 @@ class XiusProximityModule extends XiUnitTestCase {
 	function testProximityModule($post, $result, $query , $proximity=null)
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.DS.__FUNCTION__.'.start.sql');
-		$url= dirname(__FILE__).'/sql/'.__CLASS__.'/enablemodule.start.sql/';
+		$url= dirname(__FILE__).'/sql/'.__CLASS__.'/enablemodule.start.sql';
 		$this->_DBO->loadSql($url);		
 		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert.sql');
 		
