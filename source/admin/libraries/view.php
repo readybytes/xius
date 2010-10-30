@@ -39,6 +39,9 @@ abstract class XiusView extends JView
 		//give preference to last given path
 
 		//VERY IMP : These order should be maintained
+		$path = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
+		array_unshift($config['template_path'], $path);
+					
 		$path1 = $xiustemplateBase.DS.JString::strtolower($template).DS.JString::strtolower($this->getName());
 		array_unshift($config['template_path'],$path1);
 
@@ -124,7 +127,7 @@ abstract class XiusView extends JView
 		//calculate data for these users
 
 		// trigger event onBeforMiniProfileDisplae
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeMiniProfileDisplay', array( &$data ) );
 		$toolbar = $this->_setAdminToolbar($listid,$from);
 		$this->assign('xiusToolbar', $toolbar);
@@ -153,7 +156,7 @@ abstract class XiusView extends JView
 	{	
 		$args = array();
 		$args[]=& $toolbar;		
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplayResultToolbar', array($args) );
 			
 		static $toolbarAdded = null;		
@@ -207,7 +210,7 @@ abstract class XiusView extends JView
 		if($this->_xiurl)
 			return true;
 
-		$currentURI =& JURI::getInstance();	
+		$currentURI = JURI::getInstance();	
 		
 		foreach($vars as $key => $val){
 		

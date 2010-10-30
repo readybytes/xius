@@ -138,6 +138,22 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 
 		return $version;
   	}
+  	
+function changeModuleState($modname, $action=1)
+  	{
+  	
+		$db			= JFactory::getDBO();
+		$query	= 'UPDATE ' . $db->nameQuote( '#__modules' )
+				. ' SET '.$db->nameQuote('published').'='.$db->Quote($action)
+	          	.' WHERE '.$db->nameQuote('module').'='.$db->Quote($modname);
+
+		$db->setQuery($query);		
+		
+		if(!$db->query())
+			return false;
+			
+		return true;
+ 	 }
 
 }
 

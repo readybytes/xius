@@ -39,6 +39,7 @@ class XiusProximityModule extends XiUnitTestCase {
 		XiussiteHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'], $result);
+		$this->changeModuleState('mod_xiusproximity', false);
 	}
 	
 	function getConditions() {
