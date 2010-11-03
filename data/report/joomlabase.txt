@@ -122,10 +122,11 @@
 ../packages/tmp/admin/libraries/usersearch.php:204:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 ../packages/tmp/admin/libraries/usersearch.php:229:			$user =& JFactory::getUser();
 ../packages/tmp/admin/libraries/usersearch.php:267:			$user =& JFactory::getUser();
-../packages/tmp/admin/libraries/view.php:99:		$document = JFactory::getDocument();
-../packages/tmp/admin/libraries/view.php:164:		$user = JFactory::getUser();		
-../packages/tmp/admin/libraries/view.php:253:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/admin/libraries/view.php:272:		$document =& JFactory::getDocument();
+../packages/tmp/admin/libraries/view.php:42:		$path = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
+../packages/tmp/admin/libraries/view.php:102:		$document = JFactory::getDocument();
+../packages/tmp/admin/libraries/view.php:167:		$user = JFactory::getUser();		
+../packages/tmp/admin/libraries/view.php:256:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
+../packages/tmp/admin/libraries/view.php:275:		$document =& JFactory::getDocument();
 ../packages/tmp/admin/libraries/createtable.php:21:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/admincontroller.php:15:abstract class XiusAdminController extends JController
 ../packages/tmp/admin/libraries/pluginhandler.php:29:		$user =& JFactory::getUser();
@@ -137,6 +138,7 @@
 ../packages/tmp/admin/helpers/utils.php:93:		$user	=& JFactory::getUser($userid);		
 ../packages/tmp/admin/helpers/utils.php:165:		$db			=& JFactory::getDBO();
 ../packages/tmp/admin/helpers/utils.php:192:		$db= & JFactory::getDBO();
+../packages/tmp/admin/helpers/utils.php:210:		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:45:		$db= & JFactory::getDBO();
 ../packages/tmp/admin/tables/list.php:18:class XiusTableList extends JTable
 ../packages/tmp/admin/tables/list.php:61:	 * Overrides Joomla's JTable store method so that we can define proper values
@@ -175,10 +177,8 @@
 ../packages/tmp/site/views/list/view.html.php:78:		$data['editor']		= & JFactory::getEditor();
 ../packages/tmp/site/views/users/view.html.php:51:		$document = JFactory::getDocument();
 ../packages/tmp/site/templates/default/default_profile.php:37:							$onlineUser = JFactory::getUser();
-../packages/tmp/site/templates/nextgen/default_result.php:8:JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 ../packages/tmp/site/templates/nextgen/users/default_panel.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/templates/nextgen/default_profile.php:54:							$onlineUser = JFactory::getUser();
-../packages/tmp/site/templates/linkedin/default_result.php:11:		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 ../packages/tmp/site/templates/linkedin/users/default_panel.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/site/templates/linkedin/default_profile.php:56:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/includes.php:30:$lang =& JFactory::getLanguage();
@@ -200,8 +200,7 @@
 ../packages/tmp/site/models/users.php:18:        global $mainframe;
 ../packages/tmp/site/models/users.php:21:        $limit = $mainframe->getUserStateFromRequest('com_xius_user.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
 ../packages/tmp/site/router.php:10:	$dbo = JFactory::getDBO();
-../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:9:$document =& JFactory::getDocument();
-../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:26:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
+../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:23:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
 ../packages/tmp/install/extensions/mod_xiusproximity/mod_xiusproximity.php:9:$mySess =& JFactory::getSession();
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:112:		if(JFactory::getApplication()->isAdmin())
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:119:			$loginuser= JFactory::getUser();
@@ -210,8 +209,8 @@
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:161:		if(JFactory::getApplication()->isAdmin())
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:167:		$userId		= JFactory::getUser()->id;
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:198:		$userId		= JFactory::getUser()->id;
-../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection/addJS.php:4:$document= JFactory::getDocument(); 
-../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:106:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:99:        JFactory::getDocument()->addScriptDeclaration($content);
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:109:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:77:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:86:		$loggedinUser = & JFactory::getUser();				
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:133:		$app = JFactory::getApplication();

@@ -1,14 +1,14 @@
-jQuery(document).ready(function($) {
+jomsQuery(document).ready(function($) {
 
-	jQuery.xius.getProfileTypesFields($);
+	jomsQuery.xius.getProfileTypesFields($);
 
 	// when change applied on select list of ProfileTypes
 		$("select#" + profileTypeInfoId).change(function() {
-			jQuery.xius.getProfileTypesFields($);
+			jomsQuery.xius.getProfileTypesFields($);
 		});
 	});
 
-jQuery
+jomsQuery
 		.extend( {
 			xius : {
 				getProfileTypesFields : function($) {

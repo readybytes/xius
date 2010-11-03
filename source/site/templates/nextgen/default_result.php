@@ -4,8 +4,6 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 
-// load jquery
-XiusHelpersUtils::loadJQuery();
 
 $this->loadAssets('css', 'result.css');
 $this->loadAssets('js', 'menus.js');

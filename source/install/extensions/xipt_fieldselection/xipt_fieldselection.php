@@ -85,17 +85,18 @@ class plgXiusxipt_fieldselection extends JPlugin
 	function _addScriptParam($hiddenInfoId, $profileTypeInfoId)
 	{
 		ob_start();
-			?>			
-			<script language="javascript">
-					var hiddenFields= new Array();
-					var profileTypeInfoId = "<?php echo $profileTypeInfoId;?>"; 
-					<?php
-						foreach ($hiddenInfoId as $profileType => $fields): ?>
-							hiddenFields[<?php echo $profileType;?>] = [<?php echo  implode("," , $fields); ?>];
-						<?php endforeach; ?>
-			</script>
-	<?php
-		
+			?>
+			var hiddenFields= new Array();
+			var profileTypeInfoId = "<?php echo $profileTypeInfoId;?>"; 
+			<?php
+				foreach ($hiddenInfoId as $profileType => $fields): ?>
+					hiddenFields[<?php echo $profileType;?>] = [<?php echo  implode("," , $fields); ?>];
+				<?php endforeach; ?>
+	
+		<?php
+		$content = ob_get_contents();
+		ob_clean();
+        JFactory::getDocument()->addScriptDeclaration($content);
 	}
 	
 	/**
@@ -138,15 +139,14 @@ class plgXiusxipt_fieldselection extends JPlugin
 			if(!empty($_POST[$profileTypeInfoId]))
 			   JRequest::setVar('profileType',$_POST[$profileTypeInfoId],'POST');	
 			
-		// Script Variable Set	
-		$this->_addScriptParam($hiddenInfoId, $profileTypeInfoId);
-		
-		// load jquery
-		XiusHelpersUtils::loadJQuery();
-		//jquery function
-		JHTML::script('default.js', 'plugins/xius/xipt_fieldselection/');
-		
-		return true;
+			// Script Variable Set	
+			$this->_addScriptParam($hiddenInfoId, $profileTypeInfoId);
+			
+			// load jquery
+			$js='plugins/xius/xipt_fieldselection/default.js';
+			CAssets::attach($js, 'js' , JURI::base());
+					
+			return true;
 		}
 		return false;
 	}
