@@ -211,4 +211,9 @@ class XiusHelpersUtils
 		$loaded = true;
 		return true;
 	}
+	
+    function getUrlpathFromFilePath($filepath)
+       {
+               return preg_replace('#[/\\\\]+#', '/', $filepath);
+       }
 }

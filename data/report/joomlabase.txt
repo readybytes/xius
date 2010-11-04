@@ -126,7 +126,7 @@
 ../packages/tmp/admin/libraries/view.php:102:		$document = JFactory::getDocument();
 ../packages/tmp/admin/libraries/view.php:167:		$user = JFactory::getUser();		
 ../packages/tmp/admin/libraries/view.php:256:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/admin/libraries/view.php:275:		$document =& JFactory::getDocument();
+../packages/tmp/admin/libraries/view.php:276:		$document = JFactory::getDocument();
 ../packages/tmp/admin/libraries/createtable.php:21:		$db = JFactory::getDBO();
 ../packages/tmp/admin/libraries/admincontroller.php:15:abstract class XiusAdminController extends JController
 ../packages/tmp/admin/libraries/pluginhandler.php:29:		$user =& JFactory::getUser();

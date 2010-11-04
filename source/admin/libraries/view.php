@@ -270,9 +270,10 @@ abstract class XiusView extends JView
 		if($assetsPath === false){
 			return JError::raiseError( 500, 'Assets "' . $filename . '" not found' );
 		}
-		
-		$assetsPath = JString::str_ireplace(JPATH_ROOT,JURI::base(),$assetsPath);
-		$document =& JFactory::getDocument();
+		$assetsPath = JString::str_ireplace(JPATH_ROOT,'',$assetsPath);				
+		$assetsPath = XiusHelpersUtils::getUrlpathFromFilePath($assetsPath);
+		$assetsPath = JURI::base().$assetsPath;
+		$document = JFactory::getDocument();
 		
 		switch($type){
 			case 'css':	$document->addStyleSheet($assetsPath);
