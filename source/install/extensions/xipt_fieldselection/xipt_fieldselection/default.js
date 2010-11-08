@@ -18,8 +18,7 @@ jomsQuery
 							.val();
 
 					if ($('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain'))
-						$(
-								'div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
+						$('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
 								.css("display", "block");
 
 					if (optionvalue === '')
@@ -35,11 +34,9 @@ jomsQuery
 							if ("field" + hiddenFields[optionvalue][i] === profileTypeInfoId)
 								continue;
 
-							if ($('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain'))
-								$("#field" + hiddenFields[optionvalue][i])
-										.parent()
-										.parent('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
-										.css("display", "none");
+							 elementId = document.getElementsByName("field" + hiddenFields[optionvalue][i]);
+							 $(elementId).parents('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
+							 .css("display", "none");
 						}
 					}
 				}
