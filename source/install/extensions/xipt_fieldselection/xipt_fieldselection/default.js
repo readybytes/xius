@@ -33,10 +33,15 @@ jomsQuery
 
 							if ("field" + hiddenFields[optionvalue][i] === profileTypeInfoId)
 								continue;
+							
+							fieldName ="field" + hiddenFields[optionvalue][i];
+							if(document.getElementsByName(fieldName).length == 0)
+								fieldName = fieldName + "[]";
 
-							 elementId = document.getElementsByName("field" + hiddenFields[optionvalue][i]);
+							 elementId = document.getElementsByName(fieldName);
 							 $(elementId).parents('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
 							 .css("display", "none");
+							 
 						}
 					}
 				}

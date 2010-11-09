@@ -45,6 +45,7 @@ class XiusDynamicFilterXiptFields extends XiSelTestCase
     	$this->assertFalse($this->isTextPresent("About me"));
     	
     	$this->filterByUrl();
+    	$this->otherCases();
     	
     	//Disable xipt plugins
 		$this->changePluginState('xipt_community', false);
@@ -84,5 +85,29 @@ class XiusDynamicFilterXiptFields extends XiSelTestCase
     	$this->assertFalse($this->isTextPresent("Birthday"));
     	$this->assertFalse($this->isTextPresent("Hometown"));
     	$this->assertFalse($this->isTextPresent("About me"));
+	}
+	
+	function otherCases()
+	{
+		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/otherprofilefields.start.sql');
+		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/newinfo.start.sql');
+		
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&profileType=50');
+    	$this->waitPageLoad();
+    	// Test hide radio button, checbox and multi-list
+    	$this->select("field20", "label=Free Member");
+    	$this->assertFalse($this->isTextPresent("Chekbox"));
+    	$this->assertFalse($this->isTextPresent("Multi"));
+    	$this->assertFalse($this->isTextPresent("RADIO"));
+    	
+    	$this->select("field20", "label=Paid Subscriber");
+    	$this->assertTrue($this->isTextPresent("Chekbox"));
+    	$this->assertFalse($this->isTextPresent("Multi"));
+    	$this->assertTrue($this->isTextPresent("RADIO"));
+    	
+    	$this->select("field20", "label=Serious Joomla User");
+    	$this->assertFalse($this->isTextPresent("Chekbox"));
+    	$this->assertTrue($this->isTextPresent("Multi"));
+    	$this->assertFalse($this->isTextPresent("RADIO"));
 	}
 }
