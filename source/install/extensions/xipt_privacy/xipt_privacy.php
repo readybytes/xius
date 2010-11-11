@@ -8,6 +8,8 @@ jimport('joomla.filesystem.folder');
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xipt'))
 	return;
 
+require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'xiptwrapper.php';
+	
 class plgXiusxipt_privacy extends JPlugin
 {
 	var $_debugMode = 0;
@@ -18,13 +20,10 @@ class plgXiusxipt_privacy extends JPlugin
 	}
 	
 	function _loadXipt()
-	{				
-		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'includes.xipt.php';
-		if(!JFile::exists($includePath))
+	{
+		if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xipt'))
 			return false;
 
-		require_once $includePath;
-		
 		if(!$this->_pluginStatus())
 			return false;
 		
@@ -85,7 +84,7 @@ class plgXiusxipt_privacy extends JPlugin
 	function _xiusGetProfileTypes($param)
 	{
 		$name				= $this->_name;
-		$profileTypes		= XiPTLibraryProfiletypes::getProfiletypeArray();
+		$profileTypes		= XiptWrapper::getProfileTypeIds();
 							
 		$html 	= $this->_getProfileTypeHtml($profileTypes, $name, $param, 'multiple="multiple" size="9"');
 		return $html;
@@ -118,7 +117,7 @@ class plgXiusxipt_privacy extends JPlugin
 		if($loginuser==null)
 			$loginuser= JFactory::getUser();
 			
-		$profileId 		 =	XiPTLibraryProfiletypes::getUserData($loginuser->id);
+		$profileId 		 =	XiptWrapper::getUserInfo($loginuser->id);
 		$this->_setDisplayData($allInfo, $profileId);		
 		return true;
 	}
@@ -165,7 +164,7 @@ class plgXiusxipt_privacy extends JPlugin
 			return false;
 
 		$userId		= JFactory::getUser()->id;
-		$profileId	= XiPTLibraryProfiletypes::getUserData($userId);	
+		$profileId	= XiptWrapper::getUserInfo($userId);	
 		$this->_setDisplayData($lists, $profileId, true);
 
 		$lists = array_values($lists);

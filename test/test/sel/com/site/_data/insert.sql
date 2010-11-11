@@ -914,47 +914,31 @@ INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `n
 (3891, 'users', '63', 0, 'name64', 0);;
 
 
-
-TRUNCATE TABLE `#__xipt_aclrules`;;
-
-INSERT INTO `#__xipt_aclrules` (`id`, `rulename`, `aclname`, `coreparams`, `aclparams`, `published`) VALUES
-(1, 'Not allowed to write PM', 'writemessages', 'core_profiletype=1\ncore_display_message=Not allowed to write PM\ncore_redirect_url=index.php?option=com_community\n\n', 'writemessage_limit=0\nother_profiletype=0\n\n', 0);;
-
-TRUNCATE TABLE `#__xipt_aec`;;
-
-INSERT INTO `#__xipt_aec` (`id`, `planid`, `profiletype`) VALUES
-(1, 3, 2),
-(2, 0, 0),
-(3, 10, 3);;
-
-
-TRUNCATE TABLE `#__xipt_applications`  ;;
-
-INSERT INTO `#__xipt_applications` (`id`, `applicationid`, `profiletype`) VALUES
-(1, 92, 1);;
-
 TRUNCATE TABLE  `#__xipt_profilefields` ;;
-INSERT INTO `#__xipt_profilefields` (`id`, `fid`, `pid`, `category`) VALUES
-(1, 22, 1, 0),
-(2, 22, 3, 0),
-(3, 22, 4, 0),
-(4, 23, 1, 0),
-(5, 23, 4, 0),
-(6, 24, 1, 0),
-(7, 24, 4, 0),
-(8, 25, 1, 0),
-(9, 25, 4, 0),
-(10, 26, 1, 0),
-(11, 26, 4, 0),
-(12, 27, 1, 0),
-(13, 27, 4, 0);;
+INSERT INTO `#__xipt_profilefields` (`id`, `fid`, `pid`) VALUES
+(1, 22, 1),
+(2, 22, 3),
+(3, 22, 4),
+(4, 23, 1),
+(5, 23, 4),
+(6, 24, 1),
+(7, 24, 4),
+(8, 25, 1),
+(9, 25, 4),
+(10, 26, 1),
+(11, 26, 4),
+(12, 27, 1),
+(13, 27, 4);;
 
-TRUNCATE TABLE  `#__xipt_profiletypes` ;;
-INSERT INTO `#__xipt_profiletypes` (`id`, `name`, `ordering`, `published`, `tip`, `privacy`, `template`, `jusertype`, `avatar`, `approve`, `allowt`, `group`, `watermark`, `params`, `watermarkparams`, `visible`) VALUES
-(1, 'Free Member', 1, 1, '<p>If you are just want to explore the site, choose this type. Its free.</p>', 'members', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 0, 'images/profiletype/watermark_1.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=1\n\n', 1),
-(2, 'Paid Subscriber', 2, 1, '<p>If you wish to subscribe for the paid components and services, choose this account type.</p>', 'members', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 1, 0, 'images/profiletype/watermark_2.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=2\n\n', 1),
-(3, 'Serious Joomla User', 3, 1, '<p>Serious Joomla User, are the users who really want to motivate the joomla developers to enhance the joomla experience. When you subscribe to this plan, you support us by paying few $$.</p>', 'friends', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 0, 'images/profiletype/watermark_3.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=3\n\n', 1),
-(4, 'Moderator', 4, 1, '<p>The members are moderating the website.</p>', 'friends', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, 0, 'images/profiletype/watermark_4.png', '', 'enableWaterMark=0\nxiText=P\nxiWidth=40\nxiHeight=40\nxiThumbWidth=20\nxiThumbHeight=20\nxiFontName=monofont\nxiFontSize=26\nxiTextColor=FFFFFF\nxiBackgroundColor=9CD052\nxiWatermarkPosition=tl\ndemo=4\n\n', 1);;
+TRUNCATE TABLE `#__xipt_profiletypes`;;
+
+INSERT INTO `#__xipt_profiletypes` (`id`, `name`, `ordering`, `published`, `tip`, `privacy`, `template`, `jusertype`, `avatar`, `approve`, `allowt`, `group`, `watermark`, `params`, `watermarkparams`, `visible`, `config`) VALUES
+(1, 'Free Member', 0, 1, 'If you are just want to explore the site, choose this type. Its free.', 'privacyprofile=20\n\n', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, '4', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
+(2, 'Paid Subscriber', 1, 1, 'If you wish to subscribe for the paid components and services, choose this account type.', 'privacyprofile=30\n\n', 'default', 'Registered', 'images/profiletype/avatar_2.gif', 0, 1, '1', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
+(3, 'Serious Joomla User', 2, 1, 'Serious Joomla User, are the users who really want to motivate the joomla developers to enhance the joomla experience. When you subscribe to this plan, you support us by paying few $$.', 'privacyprofile=30\n\n', 'default', 'Registered', 'images/profiletype/avatar_3.png', 0, 0, '0', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
+(4, 'Moderator', 3, 0, 'The members are moderating the website.', 'privacyprofile=30\n\n', 'default', 'Registered', '/images/avatar/a1f960fb81d15c26035a6808.jpg', 1, 0, '0', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n');;
+
+
 
 TRUNCATE TABLE  `#__xipt_settings` ;;
 INSERT INTO `#__xipt_settings` (`name`, `params`) VALUES

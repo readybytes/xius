@@ -22,11 +22,12 @@ class XiusJsIntegrationTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_community');
 		$this->waitPageLoad();
 		//integrate with Jom socail
-		$this->click("link=Search");
+		$path = XiusRoute::_(JPATH_BASE.'/index.php/jomsocial/users/panel.html?usexius=1');
+		$path= str_replace("/var/www", "", $path);
+		$this->click("//a[@href='$path']");
 		$this->waitPageLoad();
 		$this->jsIntegration();
 		$this->frontLogout();
-				
 	}
 	
 	function jsIntegration()  

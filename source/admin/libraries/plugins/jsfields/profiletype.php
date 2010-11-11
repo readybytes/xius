@@ -5,7 +5,8 @@
 **/
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
-require_once (JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'includes.xipt.php');
+
+require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'xiptwrapper.php';
 
 class ProfiletypesHelper
 {
@@ -22,7 +23,7 @@ class ProfiletypesHelper
 		if(!$value)
 			return '';
 		
-		return XiPTLibraryProfiletypes::getProfiletypeName($value);
+		return XiptWrapper::getProfileTypeName($value);
 	}
 	
 	/*
@@ -37,7 +38,7 @@ class ProfiletypesHelper
 		
 		$filter	= array('published'=>1);
 		// user can change profiletype, add information
-		$pTypes = XiPTLibraryProfiletypes::getProfiletypeArray($filter);
+		$pTypes = XiptWrapper::getProfileTypeIds($filter);
 		
 		$html	= '<select id="field'.$field->id.'" name="field' . $field->id  . '" '.$disabled.' class="hasTip select'.$class.' inputbox" title="' . $field->name . '::' . htmlentities( $field->tips ). '">';
 	

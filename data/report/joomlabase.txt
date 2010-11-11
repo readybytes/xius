@@ -202,15 +202,15 @@
 ../packages/tmp/site/router.php:10:	$dbo = JFactory::getDBO();
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:23:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
 ../packages/tmp/install/extensions/mod_xiusproximity/mod_xiusproximity.php:9:$mySess =& JFactory::getSession();
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:112:		if(JFactory::getApplication()->isAdmin())
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:119:			$loginuser= JFactory::getUser();
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:136:		if(JFactory::getApplication()->isSite())
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:148:		if(JFactory::getApplication()->isSite())
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:161:		if(JFactory::getApplication()->isAdmin())
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:167:		$userId		= JFactory::getUser()->id;
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:198:		$userId		= JFactory::getUser()->id;
-../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:99:        JFactory::getDocument()->addScriptDeclaration($content);
-../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:109:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:111:		if(JFactory::getApplication()->isAdmin())
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:118:			$loginuser= JFactory::getUser();
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:135:		if(JFactory::getApplication()->isSite())
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:147:		if(JFactory::getApplication()->isSite())
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:160:		if(JFactory::getApplication()->isAdmin())
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:166:		$userId		= JFactory::getUser()->id;
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:197:		$userId		= JFactory::getUser()->id;
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:95:        JFactory::getDocument()->addScriptDeclaration($content);
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:105:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:77:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:86:		$loggedinUser = & JFactory::getUser();				
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:133:		$app = JFactory::getApplication();

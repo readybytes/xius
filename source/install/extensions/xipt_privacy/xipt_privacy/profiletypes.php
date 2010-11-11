@@ -35,11 +35,11 @@ class JElementProfiletypes extends JElement
 	
 	function getProfiletypeFieldHTML($name,$value,$control_name='params',$reqnone=false,$reqall=false)
 	{	
-		require_once JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'libraries'.DS.'profiletypes.php';
+		require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'xiptwrapper.php';
 		$required			='1';
 		$html				= '';
 		$class				= ($required == 1) ? ' required' : '';
-		$options			= XiPTLibraryProfiletypes::getProfiletypeArray();
+		$options			= XiptWrapper::getProfileTypeIds();
 						
 		$html		.= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.'][]" multiple="multiple" size="9">';
 		$selected	 = ( in_array(0,$value)) ? ' selected="true"' : '';
