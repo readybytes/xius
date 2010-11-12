@@ -23,7 +23,7 @@ class InstallTest extends XiSelTestCase
 
   function _setupXipt()
   {
-  	//INSTALL XIPT 2.2 FIRST
+  	//INSTALL XIPT 3.0 FIRST
     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
     $this->waitPageLoad();
 
@@ -31,16 +31,8 @@ class InstallTest extends XiSelTestCase
     $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
     $this->waitPageLoad();
     $this->assertTrue($this->isTextPresent("Install Component Success"));
-
-    $this->type("install_url", XIPT_PLG_SYS_PKG);
-    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
-    $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Install Plugin Success"));
-
-    $this->type("install_url", XIPT_PLG_COM_PKG);
-    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
-    $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Install Plugin Success"));
+    $this->assertTrue($this->isTextPresent("Supportive Plugin/Module xipt_community Installed Successfully"));
+    $this->assertTrue($this->isTextPresent("Supportive Plugin/Module xipt_system Installed Successfully"));
   }
 
 

@@ -22,7 +22,7 @@
 		<folder>tmpl</folder>
 	</files>
 	<params>
-		
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMXIUSMODULECLASSSUFFIX" />
 		<param name="xius_proximity" type="radio" default="information" label="PROXIMITY.LABEL" description="PROXIMITY.DESC">
 		<option value="information">Information</option>
 		<option value="google">Google</option>

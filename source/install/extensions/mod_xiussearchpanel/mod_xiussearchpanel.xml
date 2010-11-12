@@ -25,6 +25,7 @@
 		<file>tmpl/index.html</file>
 	</files>
 	<params>
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMXIUSMODULECLASSSUFFIX" />
 		<param name="xius_info_range" type="text" default="All" label="INFORMATION RANGE.LABEL" description="INFORMATION RANGE.DESC" />
 		<param name="xius_layout" type="list" default="horizontal" label="LAYOUT.LABEL" description="LAYOUT.DESC">
 			<option value="horizontal">Horizontal</option>

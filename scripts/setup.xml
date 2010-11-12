@@ -77,9 +77,5 @@
 	<target name="copy_xipt">
 		<copy 	file="${pkg.new.location}/com_xipt.zip" 
 				tofile="${joomla.rootpath}/${joomla.folder}/xipt.zip" />
-		<copy 	file="${pkg.new.location}/plg_xipt_system.zip" 
-				tofile="${joomla.rootpath}/${joomla.folder}/plg_xipt_system.zip" />
-		<copy 	file="${pkg.new.location}/plg_xipt_community.zip" 
-				tofile="${joomla.rootpath}/${joomla.folder}/plg_xipt_community.zip" />
 	</target>
 </project>
