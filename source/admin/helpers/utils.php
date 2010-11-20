@@ -213,7 +213,24 @@ class XiusHelpersUtils
 	}
 	
     function getUrlpathFromFilePath($filepath)
-       {
-               return preg_replace('#[/\\\\]+#', '/', $filepath);
-       }
+    {
+    	return preg_replace('#[/\\\\]+#', '/', $filepath);
+    }
+       
+	function getJSVersion()
+	{	
+		$CMP_PATH_ADMIN	= JPATH_ROOT . DS. 'administrator' .DS.'components' . DS . 'com_community';
+	
+		$parser		= JFactory::getXMLParser('Simple');
+		$xml		= $CMP_PATH_ADMIN . DS . 'community.xml';
+	
+		$parser->loadFile( $xml );
+	
+		$doc		=& $parser->document;
+		$element	=& $doc->getElementByPath( 'version' );
+		$version	= $element->data();
+	
+		return $version;
+	}   
+     
 }
