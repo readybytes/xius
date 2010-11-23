@@ -106,11 +106,12 @@
 ../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:163:		$db = JFactory::getDBO();	
 ../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:15:		$userId	 = & JFactory::getUser()->id;
 ../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:24:		$db	= & JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields20.php:30:			$db 	= &JFactory::getDBO(); 
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
 ../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:133:			$mySess 	= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:80:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:228:			$db 	= &JFactory::getDBO(); 
+../packages/tmp/admin/libraries/plugins/jsfields/base.php:80:		$db = JFactory::getDBO();
+../packages/tmp/admin/libraries/plugins/jsfields/base.php:228:			$db 	= &JFactory::getDBO(); 
 ../packages/tmp/admin/libraries/cache.php:21:		$this->db =& JFactory::getDBO();
 ../packages/tmp/admin/libraries/route.php:12:class XiusRoute extends JRoute
 ../packages/tmp/admin/libraries/route.php:37:	   $config =& JFactory::getConfig();
@@ -139,6 +140,7 @@
 ../packages/tmp/admin/helpers/utils.php:165:		$db			=& JFactory::getDBO();
 ../packages/tmp/admin/helpers/utils.php:192:		$db= & JFactory::getDBO();
 ../packages/tmp/admin/helpers/utils.php:210:		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+../packages/tmp/admin/helpers/utils.php:224:		$parser		= JFactory::getXMLParser('Simple');
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:45:		$db= & JFactory::getDBO();
 ../packages/tmp/admin/tables/list.php:18:class XiusTableList extends JTable
 ../packages/tmp/admin/tables/list.php:61:	 * Overrides Joomla's JTable store method so that we can define proper values

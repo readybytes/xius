@@ -28,7 +28,8 @@
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:159:		//XITODO : check value od value[0]
 ../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:10:// XITODO:: Change Class name
 ../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:34:		//XITODO:: load row with field name
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields.php:218:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields20.php:16:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
 ../packages/tmp/admin/libraries/usersearch.php:14:		/*XITODO:  provide conditional operator also
 ../packages/tmp/admin/libraries/usersearch.php:42:		 * XITODO : add block condition

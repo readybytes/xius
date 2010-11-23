@@ -17,7 +17,7 @@ echo $this->loadTemplate('filters');
 echo $this->loadTemplate('toolbar');
 echo $this->loadTemplate('profile');
 ?>
-<div>
+<div class="pagination">
 <?php  echo $this->pagination->getPagesLinks(); ?>
 </div>
 

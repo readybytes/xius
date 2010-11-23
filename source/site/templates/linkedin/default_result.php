@@ -31,7 +31,7 @@ $this->loadAssets('js', 'result.js');
 </div>
 <?php echo $this->loadTemplate('toolbar'); ?>
 <?php echo $this->loadTemplate('profile');?>
-<div class="xiusfr">
+<div class="xiusfr pagination">
 <?php echo $this->pagination->getPagesLinks();?>
 </div>
 <input type="hidden" name="view" value="users" />
