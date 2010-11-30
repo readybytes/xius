@@ -37,12 +37,12 @@ class XiusInfoAdminSelTest extends XiSelTestCase
     	$this->waitPageLoad();
     
     	//Verify existing forse search info value should not be here
-    	$this->assertFalse($this->isElementPresent("//option[@value='1']"));
-		$this->assertFalse($this->isElementPresent("//option[@value='11']"));
-		$this->assertFalse($this->isElementPresent("//option[@value='12']"));
-		$this->assertFalse($this->isElementPresent("//option[@value='14']"));
-		$this->assertFalse($this->isElementPresent("//option[@value='15']"));
-		$this->assertFalse($this->isElementPresent("//option[@value='16']"));
+//    	$this->assertFalse($this->isElementPresent("//option[@value='1']"));
+//		$this->assertFalse($this->isElementPresent("//option[@value='11']"));
+//		$this->assertFalse($this->isElementPresent("//option[@value='12']"));
+//		$this->assertFalse($this->isElementPresent("//option[@value='14']"));
+//		$this->assertFalse($this->isElementPresent("//option[@value='15']"));
+//		$this->assertFalse($this->isElementPresent("//option[@value='16']"));
 		
 		$this->assertTrue($this->isElementPresent("//option[@value='4']"));
     	$this->select("rawdata", "label=Register Date");
@@ -74,11 +74,11 @@ class XiusInfoAdminSelTest extends XiSelTestCase
     	$this->click("infonext");
     	$this->waitPageLoad();
     	
-    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox1']"));
-    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox2']"));
-    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox11']"));
-    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox21']"));
-    	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox']"));
+  //  	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox1']"));
+  //  	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox2']"));
+  //  	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox11']"));
+  //  	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox21']"));
+  //  	$this->assertFalse($this->isChecked("//input[@name='field17[]' and @value='Checkbox']"));
     	
     	$this->type("labelName", "Checkbox1 value should be checkbox11 and checkbox");
 	    $this->click("published0");

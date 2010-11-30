@@ -112,6 +112,11 @@ class Forcesearch extends XiusBase
 	
 		$fsQuery = new XiusQuery();
 		foreach($forceSearchInfo as $fsi){
+			// check for each ForceSearch Info is accessible to Joomla User type or not
+			$forceSearchInstance = XiusFactory::getPluginInstanceFromId($fsi->id);
+			if(!$forceSearchInstance->checkConfiguration('isSearchable'))
+				continue;
+				
 			$plgInstance = XiusFactory::getPluginInstance($fsi->pluginType);
 			if(!$plgInstance)
 				break;

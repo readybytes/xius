@@ -1,36 +1,35 @@
-../packages/tmp/admin/views/list/view.html.php:40:		// XITODO : raise error if xml file is not found
-../packages/tmp/admin/views/list/view.html.php:61:		//XITODO :: Autoloading form back ens to fron end	
-../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
-../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
-../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
-../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
-../packages/tmp/admin/includes.php:39://Add explicit files XITODO : Add them in auto loading
+../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
+../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:69:		// XITODO : clean up the following code
+../packages/tmp/install/extensions/xius_privacy/js_privacy.php:200:		//XITODO : Cache the results
+../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:135:			// XITODO: get variable by JRequest
+../packages/tmp/install/extensions/xius_community/xius.php:96://XITODO : check existance of this file
+../packages/tmp/admin/controllers/info.php:256:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/controllers/list.php:66:		// XITODO : when id is not set then what to do
-../packages/tmp/admin/controllers/info.php:255:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/libraries/factory.php:66:		/*XITODO : skip load , let handles it by calle self
 ../packages/tmp/admin/libraries/factory.php:129:	//XITODO : send parameters as array of args
 ../packages/tmp/admin/libraries/factory.php:216:		//XITODO : skip load , let handles it by calle self
-../packages/tmp/admin/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
-../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:21:	// XITODO : break the function
-../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:40:					/*	XITODO : Sort according to multiple columns name */
-../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:85:						/* XITODO : multiple column support at all places */
-../packages/tmp/admin/libraries/plugins/baseview.php:29:		//XITODO : needs improment
 ../packages/tmp/admin/libraries/plugins/base.php:158:		// XITODO : if any user group is not selected then what, is it should be public
 ../packages/tmp/admin/libraries/plugins/base.php:176:	// XITODO : support for Profile type in accessibility
 ../packages/tmp/admin/libraries/plugins/base.php:198:	// XITODO : function clean up
 ../packages/tmp/admin/libraries/plugins/base.php:547:		 * XITODO : Add all cache columns if one instance is 
 ../packages/tmp/admin/libraries/plugins/base.php:589:		/*XITODO : never initialize params again
 ../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:38:    	// XITODO : if not logged in then what to do
-../packages/tmp/admin/libraries/plugins/proximity/views/tmpl/default_search.php:10:		//XITODO:: cleanup code
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:44:		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
+../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:21:	// XITODO : break the function
+../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:40:					/*	XITODO : Sort according to multiple columns name */
+../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:85:						/* XITODO : multiple column support at all places */
+../packages/tmp/admin/libraries/plugins/jsfields/jsfields20.php:16:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
+../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:10:// XITODO:: Change Class name
+../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:34:		//XITODO:: load row with field name
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:118:		// XITODO : need to clean up magic constants
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:128:		// XITODO :: Temporary fix for having clause need to fix it
 ../packages/tmp/admin/libraries/plugins/proximity/proximity.php:159:		//XITODO : check value od value[0]
-../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:10:// XITODO:: Change Class name
-../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:34:		//XITODO:: load row with field name
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields20.php:16:		/*XITODO : Cache jomsocial fields */
-../packages/tmp/admin/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
-../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:44:		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
+../packages/tmp/admin/libraries/plugins/proximity/views/tmpl/default_search.php:10:		//XITODO:: cleanup code
+../packages/tmp/admin/libraries/plugins/baseview.php:29:		//XITODO : needs improment
+../packages/tmp/admin/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
+../packages/tmp/admin/libraries/pluginhandler.php:12:	// XITODO :: What is use of $data here
+../packages/tmp/admin/libraries/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/admin/libraries/usersearch.php:14:		/*XITODO:  provide conditional operator also
 ../packages/tmp/admin/libraries/usersearch.php:42:		 * XITODO : add block condition
 ../packages/tmp/admin/libraries/usersearch.php:126:		/*XITODO : pass info through parameter */
@@ -40,23 +39,23 @@
 ../packages/tmp/admin/libraries/usersearch.php:261:		/*XITODO : pass info
 ../packages/tmp/admin/libraries/usersearch.php:368:		/*XITODO : only delete same infoid verses value pair
 ../packages/tmp/admin/libraries/usersearch.php:440:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/admin/libraries/admincontroller.php:58:		//XITODO : MUST check name of VIEW
 ../packages/tmp/admin/libraries/view.php:29:		//XITODO : we can add here multiple templates, so from global params
 ../packages/tmp/admin/libraries/view.php:199:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/admin/libraries/view.php:244:	// XITODO : UNIT Test case for the following function
-../packages/tmp/admin/libraries/admincontroller.php:58:		//XITODO : MUST check name of VIEW
-../packages/tmp/admin/libraries/pluginhandler.php:12:	// XITODO :: What is use of $data here
-../packages/tmp/admin/libraries/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
-../packages/tmp/admin/helpers/utils.php:154:		/*XITODO: Minimun time for updating cache
-../packages/tmp/admin/elements/xiusTemplates.php:19:	// XITODO : change name of this element, add XIUS
-../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
+../packages/tmp/admin/libraries/cache.php:90:	/*XITODO : Modify fn to check that column name
+../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
+../packages/tmp/admin/includes.php:39://Add explicit files XITODO : Add them in auto loading
+../packages/tmp/admin/views/list/view.html.php:40:		// XITODO : raise error if xml file is not found
+../packages/tmp/admin/views/list/view.html.php:61:		//XITODO :: Autoloading form back ens to fron end	
+../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
+../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
+../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
 ../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
 ../packages/tmp/admin/models/info.php:140:		/*XITODO : check key should not be added already*/
-../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
-../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
-../packages/tmp/site/templates/default/default_result.php:10:/*XITODO : pass variable for color */
-../packages/tmp/site/templates/default/list/default_list.php:10:// XITODO : cleanup code
-../packages/tmp/site/templates/nextgen/list/default_list.php:18:// XITODO : cleanup code
-../packages/tmp/site/templates/linkedin/list/default_list.php:18:// XITODO : cleanup code
+../packages/tmp/admin/elements/xiusTemplates.php:19:	// XITODO : change name of this element, add XIUS
+../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
+../packages/tmp/admin/helpers/utils.php:154:		/*XITODO: Minimun time for updating cache
 ../packages/tmp/site/controllers/users.php:18:		/*XITODO : Collect all info here
 ../packages/tmp/site/controllers/users.php:44:		/*XITODO : pass only searchable information 
 ../packages/tmp/site/controllers/list.php:68:		// XITODO : check access in function checkAccess		
@@ -65,12 +64,13 @@
 ../packages/tmp/site/controllers/list.php:207:		// XITODO : do not user AllowRaw for all
 ../packages/tmp/site/controllers/list.php:209:		/*XITODO : set visible info and published also */		
 ../packages/tmp/site/controllers/list.php:219:		// XITODO : convert string 'false' into bollean false
+../packages/tmp/site/router.php:50://XITODO : handle list id
+../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
+../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
+../packages/tmp/site/models/users.php:57:        /*XITODO : Add error message */
+../packages/tmp/site/templates/default/list/default_list.php:10:// XITODO : cleanup code
+../packages/tmp/site/templates/default/default_result.php:10:/*XITODO : pass variable for color */
+../packages/tmp/site/templates/linkedin/list/default_list.php:18:// XITODO : cleanup code
+../packages/tmp/site/templates/nextgen/list/default_list.php:18:// XITODO : cleanup code
 ../packages/tmp/site/helpers/results.php:143:        /*XITODO : arrange available info
 ../packages/tmp/site/helpers/results.php:186:		// XITODO : trigger it in view
-../packages/tmp/site/models/users.php:57:        /*XITODO : Add error message */
-../packages/tmp/site/router.php:50://XITODO : handle list id
-../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
-../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:69:		// XITODO : clean up the following code
-../packages/tmp/install/extensions/xipt_fieldselection/xipt_fieldselection.php:135:			// XITODO: get variable by JRequest
-../packages/tmp/install/extensions/xius_privacy/js_privacy.php:200:		//XITODO : Cache the results
-../packages/tmp/install/extensions/xius_community/xius.php:96://XITODO : check existance of this file

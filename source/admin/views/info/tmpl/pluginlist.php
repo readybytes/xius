@@ -57,7 +57,7 @@ jQuery(document).ready(function($){
 			<div id="xiusOptionHelper" style= "margin-right: 15%; background-color:#F9F9F9; border:1px solid #efefef; width:500px; float:right;">
 				<?php 
 						foreach($this->plugins as $p){ ?>
-							<div  id= <?php echo $p['name']; ?>  style= "display:<?php echo ($p['name']==='forcesearch')?"block":"none";?>">
+							<div  id= <?php echo $p['name']; ?>  style= "display:<?php echo ($p['name']==='customtable')?"block":"none";?>">
 							<h3 > <?php echo $p['title']; ?> </h3>
 							<?php echo $p['desc']; ?>
 							</div> <?php

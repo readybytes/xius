@@ -22,6 +22,7 @@
 		<file>test/unit/com/admin/libraries/cacheTest.php</file>
 		<file>test/unit/com/admin/libraries/jsuserTest.php</file>
 		<file>test/unit/com/admin/libraries/xiusPrivacyUnitTest.php</file>
+		<file>test/unit/com/admin/libraries/customTableTest.php</file>
 		<file>test/unit/com/admin/helpers/utilsTest.php</file>		
 		
 		<file>test/unit/com/admin/controllers/infoTest.php</file>

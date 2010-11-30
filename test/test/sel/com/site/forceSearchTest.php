@@ -98,5 +98,53 @@ class XiusForceSearchSelTest extends XiSelTestCase
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_5']"));
     }
+    
+    function testMultipleInstance()
+    {
+    	// registerd user
+    	$this->frontLogin("username10","password");
+    	    	
+    	$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		$this->click("xiussearch");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_7']"));
+    	$this->frontLogout();
+    	
+    	// manager
+    	$this->frontLogin("username30","password");    	
+    	
+    	$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		$this->click("xiussearch");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_5']"));
+    	$this->frontLogout();
+    	
+    	// publisher user
+    	$this->frontLogin("username40","password");
+    	    	
+    	$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		$this->click("xiussearch");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
+    	$this->frontLogout();
+    	
+    	// administrator user
+    	$this->frontLogin("username20","password");
+    	    	
+    	$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->waitPageLoad();
+		
+		$this->click("xiussearch");
+    	$this->waitPageLoad();
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_9']"));
+    	$this->frontLogout();
+    	
+    }
 }
 ?>
