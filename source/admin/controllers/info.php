@@ -153,7 +153,8 @@ class XiusControllerInfo extends JController
 		
 		$storedInfo = array();
 		
-		$id = XiusLibrariesInfo::infoExist($data);
+//		$id = XiusLibrariesInfo::infoExist($data);
+		$id =false;
 		if($id && $data['id'] == 0){
 			$storedInfo['id'] = $id;
 			$storedInfo['msg'] = XiusText::_('INFO ALREADY EXIST');
