@@ -50,7 +50,7 @@ class ProfiletypesHelper
 				if(isset($field->value) && $field->value == $pType->id)
 					$selected = " selected = selected ";
 
-					$selected=($pType->id==$profileTypeInfoId) ? "selected" : '';
+					$selected = (isset($profileTypeInfoId) && $pType->id==$profileTypeInfoId) ? "selected" : $selected;
 					
 				$html	.= '<option value="' . $pType->id . '" '.$selected.'>' .$pType->name  . '</option>';
 			}
