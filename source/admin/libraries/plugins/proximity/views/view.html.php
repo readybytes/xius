@@ -24,6 +24,8 @@ class ProximityView extends XiusBaseView
         $data = array();
         $data['configLat']	 = $calleObject->get('pluginParams')->get('xiusProximityDefaultLat',28.635308);
     	$data['configLong']  = $calleObject->get('pluginParams')->get('xiusProximityDefaultLong',77.22496);
+    	$data['configDist']	 = $calleObject->get('pluginParams')->get('xiusDefaultDistance',10);
+    	$data['configUnit']  = $calleObject->get('pluginParams')->get('xiusDefaultDistanceUnit', XiusText::_("MILES"));
     	ProximityHelper::setUserLatLong($calleObject, $data);
         
     	$mySess 			 =  JFactory::getSession();

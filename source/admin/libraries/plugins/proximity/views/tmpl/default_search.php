@@ -39,10 +39,21 @@ if(!defined('_JEXEC')) die('Restricted access');
       
       <div class="xiusProximityLabel"><?php echo XiusText::_('DISTANCE'); ?></div>
       
-      <div><input class="xiusProximityInputbox" type="text" size="12" name="<?php echo $elePrefix; ?>_dis" id="<?php echo $elePrefix; ?>_dis" value="10" />
-		   <select class="xiusProximitySelectbox" name="<?php echo $elePrefix; ?>_dis_unit" id="<?php echo $elePrefix; ?>_dis_unit" >
-        		<option value="miles" selected><?php echo XiusText::_("MILES"); ?></option>
-      	   		<option value="kms" ><?php echo XiusText::_("KMS"); ?></option>
-		   </select>
+      <div>
+		<input  class="xiusProximityInputbox" 
+				type="text" size="12" 
+				name="<?php echo $elePrefix; ?>_dis" 
+				id="<?php echo $elePrefix; ?>_dis" 
+				value="<?php echo $this->data['configDist']; ?>" />
+
+	   <select 
+				class="xiusProximitySelectbox" 
+				name="<?php echo $elePrefix; ?>_dis_unit" 
+				id="<?php echo $elePrefix; ?>_dis_unit">
+			   		<option value="miles" <?php echo ($this->data['configUnit']== 'miles') ? "SELECTED" : "" ; ?> >
+        		    	<?php echo XiusText::_("MILES"); ?> </option>
+	      	   		<option value="kms" <?php echo ($this->data['configUnit']== 'kms') ? "SELECTED" : "" ; ?> >
+    	  	   			<?php echo XiusText::_("KMS"); ?> </option>
+	   </select>
       </div>
 <?php 

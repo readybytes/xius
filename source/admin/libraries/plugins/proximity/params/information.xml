@@ -15,7 +15,12 @@
 			</param>			
 			<param name="xiusProximityDefaultLat" type="text" default="28.635308" label="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LATITUDE FOR PROXIMITY SEARCH.DESC" />
 			<param name="xiusProximityDefaultLong" type="text" default="77.22496" label="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.LABEL" description="DEFAULT GOOGLE MAP LONGITUDE FOR PROXIMITY SEARCH.DESC" />
-			<param name="xiusProximityGmapZoom" type="list" label="DEFAULT ZOOM LEVEL FOR  GOOGLE MAP.LABEL" description="DEFAULT ZOOM LEVEL FOR  GOOGLE MAP.DESC">
+			<param name="xiusDefaultDistance" type="text" label="XIUS PROXIMITY DEFAULT DISTANCE.LABLE" description="DISTANCE.DES" default="10" />		
+			<param name="xiusDefaultDistanceUnit" type="list" label="XIUS PROXIMITY DEFAULT DISTANCE UNIT.LABLE" description="DISTANCE UNIT.DES" >	
+				<option value="miles">Miles</option>				
+				<option value="kms">Kms</option>
+			</param>
+			<param name="xiusProximityGmapZoom" type="list" label="DEFAULT ZOOM LEVEL FOR GOOGLE MAP.LABEL" description="DEFAULT ZOOM LEVEL FOR  GOOGLE MAP.DESC">
 				<option value="2">2</option>
 				<option value="4">4</option>
 				<option value="6">6</option>
