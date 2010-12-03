@@ -71,7 +71,7 @@ class Rangesearch extends XiusBase
 		$object->tableAliasName 	= '';
 		$object->originColumnName	= '';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
-		$object->cacheSqlSpec		= ' INT (31) NOT NULL DEFAULT 0 ';
+		$object->cacheSqlSpec		= ' FLOAT (31) NOT NULL DEFAULT 0 ';
 		if(JString::strtolower($this->pluginParams->get('rangesearchType','date')) === 'date-range')
 			$object->cacheSqlSpec		= ' DATE NOT NULL ';			
 		
