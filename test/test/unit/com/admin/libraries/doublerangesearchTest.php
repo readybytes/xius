@@ -47,13 +47,12 @@ class XiusDoubleRangesearchUnitTest extends XiUnitTestCase
 		
 		$conditions3[]=$conditions2[1];
 		$conditions3[]=$conditions2[2];
-		$conditions3[]=$conditions2[3];
 		
 		$join3		  =	'AND';
 		$totalUser3	  =	 20;
 		
 		$conditions4[]=$conditions2[2];
-		$conditions4[]=$conditions2[3];
+
 		
 		$join4		  =	'AND';
 		$totalUser4	  =	 21;
