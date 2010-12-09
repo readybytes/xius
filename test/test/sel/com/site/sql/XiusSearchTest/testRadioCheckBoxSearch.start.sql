@@ -1,3 +1,7 @@
+TRUNCATE TABLE `#__xius_config`;;
+INSERT INTO `#__xius_config` (`name`, `params`) VALUES
+('cache', 'cacheStartTime=1282050943\ncacheEndTime=1282050944\n\n'),
+('config', 'xiusTemplates=default\nintegrateJomSocial=1\nxiusKey=SSV445\nxiusDebugMode=1\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\nxiusReplaceSearch=1\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=AND\n\n');;
 
 
 TRUNCATE TABLE `#__community_fields`;;

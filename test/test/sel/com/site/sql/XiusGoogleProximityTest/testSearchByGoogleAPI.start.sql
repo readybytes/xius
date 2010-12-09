@@ -9,5 +9,5 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 
 TRUNCATE TABLE `#__xius_config`;;
 INSERT INTO `#__xius_config` (`name`, `params`) VALUES
-('config', 'xiusKey=AB2F4\nxiusDebugMode=0\nshowSearchMenuTab=0\nxiusReplaceSearch=0\nxiusSlideShow=block\n\n');;
+('config', 'xiusKey=AB2F4\nxiusDebugMode=0\nshowSearchMenuTab=0\nxiusReplaceSearch=0\nxiusSlideShow=block\nxiusDefaultMatch=AND\n\n');;
 
