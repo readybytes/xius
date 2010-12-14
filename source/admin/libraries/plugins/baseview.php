@@ -128,7 +128,7 @@ class XiusBaseView extends XiusView
 			
 			// load joomla template path
 			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-			$path1 = $templateDir.DS.'com_xius'.DS.'xiusplugins'.DS.'assets'.DS.JString::strtolower($type);
+			$path1 = $templateDir.DS.'html'.DS.'com_xius'.DS.'xiusplugins'.DS.'assets'.DS.JString::strtolower($type);
 			array_push($path[$type],$path1);
 			
 			// load xius template path

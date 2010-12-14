@@ -254,7 +254,8 @@ abstract class XiusView extends JView
 			
 			// load joomla template path
 			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-			$path1 = $templateDir.DS.'com_xius'.DS.'assets'.DS.JString::strtolower($type);
+			//css is specified by templates
+			$path1 = $templateDir.DS.'html'.DS.'com_xius'.DS.'assets'.DS.JString::strtolower($type);
 			array_push($path[$type],$path1);
 			
 			// load xius template path
