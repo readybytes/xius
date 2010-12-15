@@ -4,7 +4,15 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 ?>
-<div class="xius_result" id="xius_result"><a name="xiustop"></a>
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(document).ready(function($){
+$("img:[title='BackToTop']").click(function(){ 
+	$(window).scrollTop(0);
+	});
+});
+</script>
+<div class="xius_result" id="xius_result">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 <?php
 /*XITODO : pass variable for color */
@@ -24,5 +32,5 @@ echo $this->loadTemplate('profile');
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="search" />
 </form>
-<a href="#xiustop" style="float:right;"><img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" /></a>
+<img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" title="BackToTop" style="float:right;"/>
 </div>
