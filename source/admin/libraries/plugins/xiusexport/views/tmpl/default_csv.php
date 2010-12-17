@@ -11,7 +11,7 @@
 		echo XiusText::_('Userid');
 		if(!empty($this->fields))	:
 			foreach($this->fields as $f)	:
-				echo ' ; '.XiusText::_($f);
+				echo ' , '.XiusText::_($f);
 			endforeach;
 		endif;
 		foreach($this->users as $u)	:
@@ -19,7 +19,7 @@
 			echo "\n".$u->userid;
 			 if(!empty($this->userprofile)) :
 				foreach($this->userprofile[$u->userid] as $up) :
-					echo ';'.$up['value'];
+					echo ','.$up['value'];
 				endforeach;
  			endif;
 		endforeach;
