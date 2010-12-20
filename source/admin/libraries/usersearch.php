@@ -13,8 +13,6 @@ class XiusLibrariesUsersearch
 	{
 		/*XITODO:  provide conditional operator also
 		 * */
-		/*Trigger event */
-		JPluginHelper::importPlugin( 'system' );
 		$dispatcher =& JDispatcher::getInstance();
 		$data = array();
 		$data['conditions'] = &$params;

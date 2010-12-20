@@ -15,6 +15,9 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 
   function assertPreConditions()
   {
+  	//import System plugins 
+  	JPluginHelper::importPlugin( 'system' );
+  	
     // this will be a assert for every test
     if(method_exists($this,'getSqlPath'))
         $this->assertEquals($this->_DBO->getErrorLog(),'');
