@@ -4,7 +4,7 @@
 		colors="true" 
 		syntaxCheck="false"
 		bootstrap="bootstrap.php"
-		stopOnFailure="true" 
+		stopOnFailure="false" 
 		coverage-html="./reports" >
 	<testsuite name="AllTest">
 		<file>test/unit/com/admin/libraries/xiusFactoryTest.php</file>
