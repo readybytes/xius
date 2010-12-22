@@ -54,7 +54,7 @@ class ProximityGoogleapiHelper extends JController
 	{		
 		if(!array($addresses))
 			return false;
-			
+		$data = Array();
 		foreach($addresses as $ad){
 			if(!isset($ad->address) || !$ad->address)
 				continue;
