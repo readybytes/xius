@@ -48,6 +48,7 @@ XiusLoader::addAutoLoadFile('XiusLibrariesUsersearch', XIUS_PATH_LIBRARY.DS.'use
 
 // auto load classes for base controller, base view,and modal
 XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
+XiusLoader::addAutoLoadFile('XiptWrapper', JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'xiptwrapper.php');
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');
 
 XiusLoader::addAutoLoadFile('XiusAdminController', XIUS_PATH_LIBRARY.DS.'admincontroller.php');
