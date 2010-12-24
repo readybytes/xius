@@ -107,8 +107,9 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function xiusOnAfterLoadAllInfo($allInfo, $loginuser=null)
 	{
-		//Don't run in admin
-		if(JFactory::getApplication()->isAdmin())
+		//Don't run when user is  admin or cache upadate time.
+		if(JFactory::getApplication()->isAdmin() ||
+		   JFactory::getSession()->get('updateCache', false) )
 			return true;
 		
 		if(!$this->_loadXipt())

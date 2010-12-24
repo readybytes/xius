@@ -172,6 +172,10 @@ class XiusLibrariesUsersearch
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeXiusCacheUpdate' );
 		
+		// Set session variable thaht use in privacy plugings.
+		// Check: Not any information unset during cache update 
+		JFactory::getSession()->set('updateCache', true);
+		
 		$cache = XiusFactory::getCacheObject();
 		if(!$cache->createTable(true))
 			return false;
@@ -183,6 +187,9 @@ class XiusLibrariesUsersearch
 		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
 		
 		$result =  $cache->insertIntoTable($getDataQuery);
+		
+		// Unset session variable
+		JFactory::getSession()->clear('updateCache', true);
 		
 		// trigger the event onAfterXiusCacheUpdate		
 		$dispatcher->trigger( 'onAfterXiusCacheUpdate' );
