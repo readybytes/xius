@@ -157,6 +157,22 @@ function changeModuleState($modname, $action=1)
 			
 		return true;
  	 }
+ 
+function changePluginState($pluginname, $action=1)
+  {
+  	
+		$db			=& JFactory::getDBO();
+		$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
+				. ' SET '.$db->nameQuote('published').'='.$db->Quote($action)
+	          	.' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
+
+		$db->setQuery($query);		
+		
+		if(!$db->query())
+			return false;
+			
+		return true;
+  }
 
 }
 
