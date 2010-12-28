@@ -105,8 +105,8 @@ class XiusCustomTableTest extends XiUnitTestCase
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 		
 		$data = array(array());
-		XiussiteHelperResults::_getInitialData(&$data);
-		XiussiteHelperResults::_getTotalUsers(&$data);		
+		XiusHelperResults::_getInitialData(&$data);
+		XiusHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'],3);		
 	}	

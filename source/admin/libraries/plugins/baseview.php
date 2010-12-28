@@ -16,7 +16,7 @@ class XiusBaseView extends XiusView
 	{
 		$config = array();
 		
-		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
+		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
 		$prefix	=	$this->getPrefix();	
 		$xiustemplateBase = XIUS_PATH_TEMPLATE;		
 		$xiusPluginDir = 'xiusplugins';
@@ -118,7 +118,7 @@ class XiusBaseView extends XiusView
 	
 	public function loadAssets($type,$filename)
 	{
-		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
+		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
 		$prefix	=	$this->getPrefix();	
 		$xiustemplateBase = XIUS_PATH_TEMPLATE;	
 		static $path = null;

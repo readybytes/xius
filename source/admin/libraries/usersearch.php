@@ -128,7 +128,7 @@ class XiusLibrariesUsersearch
 			return false;
 		// sorting thr info according to their dependent info
 		// so that the current info query will be created after their dependent info
-		$info  = XiusHelpersUsersearch::getSortedInfo($info);
+		$info  = XiusHelperUsersearch::getSortedInfo($info);
 		$query = new XiusQuery();
 		
 		/*This should always be on top
@@ -232,7 +232,7 @@ class XiusLibrariesUsersearch
 		if($allInfo == null){
 			$filter = array();
 			$user =& JFactory::getUser();
-			if(!XiusHelpersUtils::isAdmin($user->id))
+			if(!XiusHelperUtils::isAdmin($user->id))
 					$filter['published'] = true;
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
 		}
@@ -270,7 +270,7 @@ class XiusLibrariesUsersearch
 		if($allInfo == null){
 			$filter = array();
 			$user =& JFactory::getUser();
-			if(!XiusHelpersUtils::isAdmin($user->id))
+			if(!XiusHelperUtils::isAdmin($user->id))
 					$filter['published'] = true;
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
 		}
@@ -331,7 +331,8 @@ class XiusLibrariesUsersearch
 		$infoid = 0;
 		$keyNames = array_keys($post);
 		
-		for( $i=0 ; $i < count($keyNames) ; $i++){
+		$count = count($keyNames);
+		for( $i=0 ; $i < $count ; $i++){
 			if(JString::stristr($keyNames[$i],'xiusinfo_')){
 				if($infoid && $infoid == $post[$keyNames[$i]])
 					$infoid = 0;
@@ -351,10 +352,10 @@ class XiusLibrariesUsersearch
 			$data['infoid'] = $infoid;
 			
 			if(JString::stristr($keyNames[$i+1],'xiusinfo_'))
-				$data['value'] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
+				$data['value'] = XiusHelperUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 			else{
 				while(!JString::stristr($keyNames[$i],'xiusinfo_')){
-					$data['value'][] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
+					$data['value'][] = XiusHelperUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 					$i++;
 				}
 				$i--;
@@ -388,7 +389,7 @@ class XiusLibrariesUsersearch
 		if($conditionvalue == null)
 			$conditionvalue = JRequest::getVar('conditionvalue', '', 'POST');
 			
-		$value = XiussiteHelperUsers::getUnserializedData($conditionvalue);
+		$value = XiusHelperUsers::getUnserializedData($conditionvalue);
 		$conditions = array_values($conditions);
 		
 		$searchdata['infoid'] = $delInfoId;
@@ -430,7 +431,7 @@ class XiusLibrariesUsersearch
 		$infoid = 0;
 		
 		$keyNames = array_keys($post);
-		
+		//XiTODO:: invoke count only one time
 		for( $i=0 ; $i < count($keyNames) ; $i++){		
 			if(JString::stristr($keyNames[$i],'xiusinfo_')){
 				if($addInfoId && $post[$keyNames[$i]] == $infoid && $start)
@@ -450,10 +451,10 @@ class XiusLibrariesUsersearch
 				$searchdata['infoid'] = $addInfoId;
 				
 				if(JString::stristr($keyNames[$i+1],'xiusinfo_')) 
-					$searchdata['value'] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
+					$searchdata['value'] = XiusHelperUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 				else{
 					while(!JString::stristr($keyNames[$i],'xiusinfo_')){
-						$searchdata['value'][] = XiusHelpersUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
+						$searchdata['value'][] = XiusHelperUsersearch::trimWhiteSpace($post[$keyNames[$i]]);
 						$i++;
 					}
 					$i--;

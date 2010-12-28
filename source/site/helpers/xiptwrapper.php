@@ -12,7 +12,7 @@ if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xipt'))
 
 require_once JPATH_ROOT.DS.'components'.DS.'com_xipt'.DS.'api.xipt.php';
 
-class XiptWrapper
+class XiusHelperXiptwrapper
 {
 	/*
 	 * Get Profile Type Name

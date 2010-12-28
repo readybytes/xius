@@ -14,7 +14,7 @@ require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes
 require_once( dirname(__FILE__).DS.'helper.php' );
 
 $link = 'index.php?option=com_xius&view=users&task=search';
-if(XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0) == true){
+if(XiusHelperUtils::getConfigurationParams('integrateJomSocial',0) == true){
 	$link = 'index.php?option=com_community&view=users&task=search&usexius=1';
 }
 

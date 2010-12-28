@@ -200,8 +200,8 @@ class InsertUserTest extends XiUnitTestCase
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		$startTime 		= $profiler->getmicrotime();
 		$data = array(array());
-		XiussiteHelperResults::_getInitialData(&$data);
-		XiussiteHelperResults::_getUsers(&$data);		
+		XiusHelperResults::_getInitialData(&$data);
+		XiusHelperResults::_getUsers(&$data);		
 		$endTime 		= $profiler->getmicrotime();
 			
 		// perrmace measurement in getting results
@@ -220,7 +220,7 @@ class InsertUserTest extends XiUnitTestCase
 		//print_r(var_export($db->getLog()));
 		$noOfqueries	= 5; 	
 		$this->assertFalse( $noOfqueries < ($endTicker - $startTicker) );
-		XiussiteHelperResults::_getTotalUsers(&$data);	
+		XiusHelperResults::_getTotalUsers(&$data);	
 		return $data;	
 	}
 	

@@ -10,7 +10,6 @@ if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 
 class plgXiusjs_privacy extends JPlugin
 {
-	var $_debugMode = 0;
 		
 	function plgXiusjs_privacy( &$subject, $params )
 	{
@@ -160,7 +159,7 @@ class plgXiusjs_privacy extends JPlugin
 	
 	function _isListViewable($privacy,$loggedinUser,$ownerId)
 	{
-		if(XiusHelpersUtils::isAdmin($loggedinUser->id) 
+		if(XiusHelperUtils::isAdmin($loggedinUser->id) 
 				|| $ownerId === $loggedinUser->id)
 			return true;
 			

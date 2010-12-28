@@ -29,8 +29,8 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		// get the user data according to search condition
 		
 		$data = array(array());
-		XiussiteHelperResults::_getInitialData(&$data);
-		XiussiteHelperResults::_getTotalUsers(&$data);		
+		XiusHelperResults::_getInitialData(&$data);
+		XiusHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'], $result);
 	}

@@ -23,7 +23,7 @@ abstract class XiusView extends JView
 	
 	function __construct($config = array())
 	{		
-		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
+		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
 		// override the template path, so that default
 		// templates will be picked from here
 		//XITODO : we can add here multiple templates, so from global params
@@ -92,12 +92,12 @@ abstract class XiusView extends JView
 	function displayResult($from,$list='',$tmpl)
 	{
 		$data = array(array());
-		XiussiteHelperResults::_getInitialData($data);
-		XiussiteHelperResults::_getUsers($data);
-		XiussiteHelperResults::_getTotalUsers($data);
-		XiussiteHelperResults::_createUserProfile($data);
-		XiussiteHelperResults::_getAppliedInfo($data);
-		XiussiteHelperResults::_getAvailableInfo($data);
+		XiusHelperResults::_getInitialData($data);
+		XiusHelperResults::_getUsers($data);
+		XiusHelperResults::_getTotalUsers($data);
+		XiusHelperResults::_createUserProfile($data);
+		XiusHelperResults::_getAppliedInfo($data);
+		XiusHelperResults::_getAvailableInfo($data);
 
 		$document = JFactory::getDocument();
         if(!empty($list) && !empty($list->name))
@@ -106,16 +106,16 @@ abstract class XiusView extends JView
 			$document->setTitle(XiusText::_('Search Result'));
 
 		//collect confuguration params
-		$xiusSlideShow  		= XiusHelpersUtils::getConfigurationParams('xiusSlideShow','none');
-		$joinHtml['enable']  	= XiusHelpersUtils::getConfigurationParams('xiusEnableMatch',1);
-		$joinHtml['defultMatch']= XiusHelpersUtils::getConfigurationParams('xiusEnableMatch','All');
-		$loadJquery				= XiusHelpersUtils::getConfigurationParams('xiusLoadJquery',1);
+		$xiusSlideShow  		= XiusHelperUtils::getConfigurationParams('xiusSlideShow','none');
+		$joinHtml['enable']  	= XiusHelperUtils::getConfigurationParams('xiusEnableMatch',1);
+		$joinHtml['defultMatch']= XiusHelperUtils::getConfigurationParams('xiusEnableMatch','All');
+		$loadJquery				= XiusHelperUtils::getConfigurationParams('xiusLoadJquery',1);
 		// load jquery package
 
 		$this->assignRef('loadJquery', $loadJquery);
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 		$this->assignRef('joinHtml', $joinHtml);
-		$this->assignRef('users', XiussiteHelperProfile::getUserProfileData($data['users']));
+		$this->assignRef('users', XiusHelperProfile::getUserProfileData($data['users']));
 		
 		// get the list id for save list
 		$listid=0;
@@ -168,7 +168,7 @@ abstract class XiusView extends JView
 		
 		// if logged in user's user type is in list creator user type 
 		//then he will be having the option of saving and exporting list		
-		$listCreator = unserialize(XiusHelpersUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
+		$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
  		
 		if($option === null)				
 			$option = JRequest::getVar('option','xius','GET');
@@ -176,16 +176,16 @@ abstract class XiusView extends JView
 		/*
 		 * get toolbar option for save list
 		 */
-		if(XiussiteHelperList::isAccessibleToUser($user,$listCreator)){  			
+		if(XiusHelperList::isAccessibleToUser($user,$listCreator)){  			
   			$url 		= XiusRoute::_('index.php?option='.$option.'&view=list&task=saveas&usexius=1&tmpl=component&listid='.$listid,false);
  			$buttonMap 	= XiusFactory::getModalButtonObject('savelist','@',$url,XIUSLIST_IFRAME_WIDTH,XIUSLIST_IFRAME_HEIGHT);
   			$this->assign('buttonMap',$buttonMap); 			
  			
   			$html	= $this->loadTemplate('toolbar_savelist'); 		
- 			XiussiteHelperToolbar::addToAdminToolbar('savelist',$html); 			
+ 			XiusHelperToolbar::addToAdminToolbar('savelist',$html); 			
  		} 		
  		
-  		return XiussiteHelperToolbar::addToAdminToolbar();
+  		return XiusHelperToolbar::addToAdminToolbar();
   	}	
 	
   	
@@ -244,7 +244,7 @@ abstract class XiusView extends JView
 	// XITODO : UNIT Test case for the following function
 	public function loadAssets($type,$filename)
 	{
-		$template	= XiusHelpersUtils::getConfigurationParams('xiusTemplates','default');
+		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
 		$prefix	=	$this->getPrefix();	
 		$xiustemplateBase = XIUS_PATH_TEMPLATE;	
 		static $path = null;
@@ -272,7 +272,7 @@ abstract class XiusView extends JView
 			return JError::raiseError( 500, 'Assets "' . $filename . '" not found' );
 		}
 		$assetsPath = JString::str_ireplace(JPATH_ROOT,'',$assetsPath);				
-		$assetsPath = XiusHelpersUtils::getUrlpathFromFilePath($assetsPath);
+		$assetsPath = XiusHelperUtils::getUrlpathFromFilePath($assetsPath);
 		$assetsPath = JURI::base().$assetsPath;
 		$document = JFactory::getDocument();
 		

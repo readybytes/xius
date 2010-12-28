@@ -47,7 +47,6 @@
 			<file>xiuslist.ini</file>
 			<file>index.html</file>
 			<folder>controllers</folder>
-			<folder>helpers</folder>
 			<folder>libraries</folder>
 			<folder>models</folder>
 			<folder>tables</folder>

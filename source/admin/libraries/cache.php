@@ -97,7 +97,7 @@ class XiusCache
 		
 		if(empty($info))
 			return false;
-		$info 	= XiusHelpersUsersearch::getSortedInfo($info);
+		$info 	= XiusHelperUsersearch::getSortedInfo($info);
 
 		$this->createQuery = new XiusCreateTable($this->_tableName);
 		

@@ -21,7 +21,6 @@ abstract class XiusBase extends JObject
 	protected $pluginType;
 	protected $oredring		=	0;
 	protected $published	=	1;
-	protected $debugMode	= 	false;
 	
 	function __construct($className)
 	{		
@@ -38,7 +37,6 @@ abstract class XiusBase extends JObject
 		if(!$this->pluginParams)
 			$this->pluginParams	= new JParameter('','');
 			
-		$this->debugMode = XiusHelpersUtils::getDebugMode();
 		$this->key		 = '';
 		$this->id		 = 0;
 	}
@@ -150,7 +148,7 @@ abstract class XiusBase extends JObject
 		if(!$userGroup)
 			$userGroup = 'Guest Only';
 		
-		if(	true == XiusHelpersUtils::isAdmin($user->id))
+		if(	true == XiusHelperUtils::isAdmin($user->id))
 			return true;
 			
 		$accessibleGroup = unserialize($this->params->get('isAccessible'));
@@ -208,7 +206,7 @@ abstract class XiusBase extends JObject
 		if(array_key_exists($what,$config) &&  isset($config[$what]))
 			return $config[$what];
 			
-		$config[$what] = XiusHelpersUtils::getValueFromXiusParams($this->params,$what,false);
+		$config[$what] = XiusHelperUtils::getValueFromXiusParams($this->params,$what,false);
 		if($config[$what]==true)
 			$config[$what] = $this->isAccessible();
 		
@@ -235,13 +233,13 @@ abstract class XiusBase extends JObject
 
 	public function isExportable()
 	{
-		$isExportable = XiusHelpersUtils::getValueFromXiusParams($this->params,'isExportable',false);
+		$isExportable = XiusHelperUtils::getValueFromXiusParams($this->params,'isExportable',false);
 		return $isExportable;
 	}
 
 	final public function getTooltip()
 	{
-		return XiusHelpersUtils::getValueFromXiusParams($this->params,'tooltip',false);
+		return XiusHelperUtils::getValueFromXiusParams($this->params,'tooltip',false);
 	}
 	
 

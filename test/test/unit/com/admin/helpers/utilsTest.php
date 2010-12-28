@@ -13,7 +13,7 @@ class XiusUtilsTest extends XiUnitTestCase
 	 */
 	function testIsComponentExist($comName,$checkBoth,$result)
 	{
-		$this->assertEquals($result,XiusHelpersUtils::isComponentExist($comName,$checkBoth),"component $comName for checkBoth = $checkBoth  should be $result");	
+		$this->assertEquals($result,XiusHelperUtils::isComponentExist($comName,$checkBoth),"component $comName for checkBoth = $checkBoth  should be $result");	
 	}
 	
 	
@@ -32,7 +32,7 @@ class XiusUtilsTest extends XiUnitTestCase
 	 */
 	function testGetValueFromXiusParams($paramName,$what,$default,$result)
 	{
-		$this->assertEquals($result,XiusHelpersUtils::getValueFromXiusParams($paramName,$what,$default));
+		$this->assertEquals($result,XiusHelperUtils::getValueFromXiusParams($paramName,$what,$default));
 	}
 	
 	
@@ -56,7 +56,7 @@ class XiusUtilsTest extends XiUnitTestCase
 		$data[] = array('configname' => 'cache','what' => 'cacheEndTime' , 'value' => 1274243748);
 		
 		foreach($data as $d){
-			$result = XiusHelpersUtils::getOtherConfigParams($d['configname'],$d['what']);
+			$result = XiusHelperUtils::getOtherConfigParams($d['configname'],$d['what']);
 			$this->assertEquals($d['value'],$result,"value for ".$d['what']." should be ".$d['value']." but we get ".$result);
 		}
 	}
@@ -71,7 +71,7 @@ class XiusUtilsTest extends XiUnitTestCase
 		$data[] = array('what' => 'nxiusDebugMode' , 'value' => 0);
 		
 		foreach($data as $d){
-			$result = XiusHelpersUtils::getConfigurationParams($d['what']);
+			$result = XiusHelperUtils::getConfigurationParams($d['what']);
 			$this->assertEquals($d['value'],$result,"value for ".$d['what']." should be ".$d['value']." but we get ".$result);
 		}
 	}
@@ -84,7 +84,7 @@ class XiusUtilsTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		$this->assertEquals($result,XiusHelpersUtils::verifyCronRunRequired($key,$currentTime));
+		$this->assertEquals($result,XiusHelperUtils::verifyCronRunRequired($key,$currentTime));
 	}
 	
 

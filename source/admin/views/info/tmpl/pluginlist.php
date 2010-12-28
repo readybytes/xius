@@ -9,7 +9,7 @@ JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 
 // load jquery
-XiusHelpersUtils::loadJQuery();
+XiusHelperUtils::loadJQuery();
 ?>
 
 <script type="text/javascript">

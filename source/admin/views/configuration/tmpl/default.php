@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 JHTML::_('behavior.tooltip', '.hasTip');
 
 // load jquery
-XiusHelpersUtils::loadJQuery();
+XiusHelperUtils::loadJQuery();
 ?>
 <style type="text/css">
        #toolbar-updateCache

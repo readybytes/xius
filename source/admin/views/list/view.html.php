@@ -60,7 +60,7 @@ class XiusViewList extends JView
 		$conditions = unserialize($list->conditions);	
 		//XITODO :: Autoloading form back ens to fron end	
 		require_once  JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-		$conditionHtml = XiussiteHelperList::formatConditions($conditions);
+		$conditionHtml = XiusHelperList::formatConditions($conditions);
 			
 		// load a temporary params from table, which can be used by other plugins
 		$tempConfig = new JRegistry('xiuslist');

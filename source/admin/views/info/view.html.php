@@ -30,7 +30,7 @@ class XiusViewInfo extends JView
 
     function add($plugin,$tpl = null)
 	{
-		$plugins = XiusHelpersUtils::getAvailablePlugins();
+		$plugins = XiusHelperUtils::getAvailablePlugins();
 		
 		if($plugin) {
 		

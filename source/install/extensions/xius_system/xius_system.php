@@ -10,8 +10,6 @@ if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 
 class plgSystemxius_system extends JPlugin
 {
-	var $_debugMode = 0;
-		
 	function plgSystemxius_system( &$subject, $params )
 	{
 		parent::__construct( $subject, $params );
@@ -63,7 +61,7 @@ class plgSystemxius_system extends JPlugin
 			
 
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-		$xiusReplaceSearch=XiusHelpersUtils::getConfigurationParams('xiusReplaceSearch',0);
+		$xiusReplaceSearch=XiusHelperUtils::getConfigurationParams('xiusReplaceSearch',0);
 
 
 		if(!$xiusReplaceSearch)
@@ -73,7 +71,7 @@ class plgSystemxius_system extends JPlugin
 		 * If jom social is integrated with XIUS then redirect to js + XIUS URL
 		 * else to XIUS
 		 */
-		$integrateJS =XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0);	
+		$integrateJS =XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);	
 		$url = "index.php?option=com_xius";
 		if($integrateJS)
 			$url = "index.php?option=com_community&view=users&task=panel&usexius=1"; 

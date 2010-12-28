@@ -20,7 +20,7 @@ class Jsuser extends XiusBase
 	function isAllRequirementSatisfy()
 	{
 		/*it will return false if community component does not exist */
-		$isExist = XiusHelpersUtils::isComponentExist('com_community',true) ? true : false;
+		$isExist = XiusHelperUtils::isComponentExist('com_community',true) ? true : false;
 		return $isExist;
 	}
 	

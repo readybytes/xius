@@ -497,7 +497,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	function testGetSortedInfo()
     {
 		$info = XiusLibrariesUsersearch::getAllInfo();
-        $info = XiusHelpersUsersearch::getSortedInfo($info);
+        $info = XiusHelperUsersearch::getSortedInfo($info);
        	foreach($info as $in)
        		$sequence[]=$in->id;
         

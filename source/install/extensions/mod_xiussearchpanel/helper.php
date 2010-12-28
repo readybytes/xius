@@ -13,7 +13,7 @@ class UserSearchHelper
 		$filter = array();
 		$filter['published'] = true;
 		
-		$count = XiusHelpersUtils::getDisplayInformationCount();
+		$count = XIUS_ALL ;
 		
 		if($count === XIUS_ALL || $count === 0)
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);

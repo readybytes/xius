@@ -36,10 +36,10 @@ class XiussiteModelUsers extends JModel
 
 		//Check table existance
 
-		if(!XiusHelpersUtils::isTableExist('xius_cache'))
+		if(!XiusHelperUtils::isTableExist('xius_cache'))
 		{
 			XiusLibrariesUsersearch::updateCache();
-			if(!XiusHelpersUtils::isTableExist('xius_cache')){
+			if(!XiusHelperUtils::isTableExist('xius_cache')){
 	          	 JError::raiseWarning(XiusText::_('Cache table does not exist.'));
 			}
 		}

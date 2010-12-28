@@ -25,7 +25,7 @@ class XiussiteControllerUsers extends XiusController
 		$filter = array();
 		$filter['published'] = true;
 		
-		$count = XiusHelpersUtils::getDisplayInformationCount();
+		$count = XIUS_ALL; 
 		
 		if($count === XIUS_ALL || $count === 0)
 			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
@@ -133,7 +133,7 @@ class XiussiteControllerUsers extends XiusController
 
 	function runCron()
 	{
-		if(XiusHelpersUtils::verifyCronRunRequired() == false)
+		if(XiusHelperUtils::verifyCronRunRequired() == false)
 			return;
 			
 		$time = XiusLibrariesUsersearch::getTimestamp();

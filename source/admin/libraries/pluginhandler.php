@@ -28,7 +28,7 @@ class XiusLibrariesPluginhandler
 
 		$user =& JFactory::getUser();
 
-		if(XiusHelpersUtils::isAdmin($user->id))
+		if(XiusHelperUtils::isAdmin($user->id))
 			return true;
 			
 		$filter = 	array('pluginType' => 'Forcesearch');
@@ -109,7 +109,7 @@ class XiusLibrariesPluginhandler
 	function xiusOnAfterLoadList(&$lists)
 	{
 		$user  = & JFactory::getUser();
-		return XiussiteHelperList::filterListPrivacy($lists,$user);			
+		return XiusHelperList::filterListPrivacy($lists,$user);			
 	}
 	
 }

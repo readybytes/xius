@@ -18,7 +18,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		
 		$info = $instance->getAvailableInfo();
 		
-		if(!XiusHelpersUtils::isComponentExist('com_community'))
+		if(!XiusHelperUtils::isComponentExist('com_community'))
 			$this->assertFalse($info);
 		else {
 		
@@ -136,7 +136,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		//require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
 		$instance = new $className();
 		
-		if(!XiusHelpersUtils::isComponentExist('com_community'))
+		if(!XiusHelperUtils::isComponentExist('com_community'))
 			$this->assertFalse($instance->isAllRequirementSatisfy());
 		else 
 			$this->assertEquals($result,$instance->isAllRequirementSatisfy(),"All Requirement should be satisfy = $result");

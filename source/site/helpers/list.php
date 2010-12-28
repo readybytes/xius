@@ -7,7 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiussiteHelperList 
+class XiusHelperList 
 {
 	function isAccessibleToUser($user,$allowedGroup,$allowGuest=false)
 	{
@@ -23,7 +23,7 @@ class XiussiteHelperList
 			
 		if(in_array('All', $allowedGroup)
 				||	in_array($user->usertype, $allowedGroup) 
-				||  XiusHelpersUtils::isAdmin($user->id) )
+				||  XiusHelperUtils::isAdmin($user->id) )
 			return true;
 		
 		return false;
@@ -48,7 +48,7 @@ class XiussiteHelperList
 			$joomlaPrivacy = unserialize($joomlaPrivacy);
 
 			// check user is allowed to access list or not
-			if(XiussiteHelperList::isAccessibleToUser($user,$joomlaPrivacy,true))
+			if(XiusHelperList::isAccessibleToUser($user,$joomlaPrivacy,true))
 				continue;
 				
 			unset($lists[$i]);				

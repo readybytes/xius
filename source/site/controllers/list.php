@@ -67,7 +67,7 @@ class XiussiteControllerList extends XiusController
 
 		// XITODO : check access in function checkAccess		
 		if($list)
-			if(!XiusHelpersUtils::isAdmin($user->id) && !$list->published){					
+			if(!XiusHelperUtils::isAdmin($user->id) && !$list->published){					
 				$msg = XiusText::_('DO NOT HAVE ACCESS RIGHTS');
 				$mainframe->redirect($url,$msg,false);
 				break;
@@ -90,8 +90,8 @@ class XiussiteControllerList extends XiusController
 		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
 		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
 		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiussiteHelperUsers::getUnserializedData($list->conditions),'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiussiteHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
+		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
 		return true;
 	}
 	
@@ -170,10 +170,10 @@ class XiussiteControllerList extends XiusController
 		$returndata = array();
 		
 		// check for user type whoic can save list, and admin will always can create list
-		$listCreator = unserialize(XiusHelpersUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
+		$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
 		
 		// allow user to create list who can create
-		if(XiussiteHelperList::isAccessibleToUser($user,$listCreator)){
+		if(XiusHelperList::isAccessibleToUser($user,$listCreator)){
 			$returndata = array('id' => 0 ,  'success' => true);
 			return $returndata;			
 		}

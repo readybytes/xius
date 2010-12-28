@@ -69,8 +69,8 @@ class XiusKeywordTest extends XiUnitTestCase
 		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		
 		$data = array(array());
-		XiussiteHelperResults::_getInitialData(&$data);
-		XiussiteHelperResults::_getTotalUsers(&$data);		
+		XiusHelperResults::_getInitialData(&$data);
+		XiusHelperResults::_getTotalUsers(&$data);		
 		
 		$this->assertEquals($data['total'],58);
 	}

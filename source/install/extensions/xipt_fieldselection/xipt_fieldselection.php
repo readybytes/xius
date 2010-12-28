@@ -8,7 +8,6 @@ jimport('joomla.filesystem.folder');
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xipt'))
 	return;
 
-require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'xiptwrapper.php';
 
 class plgXiusxipt_fieldselection extends JPlugin
 {		
@@ -36,10 +35,10 @@ class plgXiusxipt_fieldselection extends JPlugin
 	 */
 	function _pluginStatus(){
 		
-		if(!(XiusHelpersUtils::isPluginInstalledAndEnabled('xipt_community','community')))
+		if(!(XiusHelperUtils::isPluginInstalledAndEnabled('xipt_community','community')))
 			return false;
 			
-		if(!(XiusHelpersUtils::isPluginInstalledAndEnabled('xipt_system','system')))
+		if(!(XiusHelperUtils::isPluginInstalledAndEnabled('xipt_system','system')))
 			return false;	
 
 		return true;	
@@ -110,9 +109,9 @@ class plgXiusxipt_fieldselection extends JPlugin
 		if(!$this->_loadXipt())
 			return false;
 			
-		$profileTypes = XiptWrapper::getProfileTypeIds();
-		$jsfields = XiptWrapper::getJSProfileFields();
-		$jsfields = array_values($jsfields);
+		$profileTypes = XiusHelperXiptwrapper::getProfileTypeIds();
+		$jsfields 	  = XiusHelperXiptwrapper::getJSProfileFields();
+		$jsfields 	  = array_values($jsfields);
 		
 		//check Profile Type info create or not
 		foreach ($jsfields as $field){
@@ -124,7 +123,7 @@ class plgXiusxipt_fieldselection extends JPlugin
 			$visibleFields=array();
 			foreach($profileTypes as $profileType){
 				$visibleFields[$profileType->id] = $jsfields;
-				if(!(XiptWrapper::filterProfileTypeFields($visibleFields[$profileType->id], $profileType->id,'getViewableProfile')))
+				if(!(XiusHelperXiptwrapper::filterProfileTypeFields($visibleFields[$profileType->id], $profileType->id,'getViewableProfile')))
 						continue ;	
 				}		
 			$hiddenInfoId = $this->_setDisplayInfo($allInfo, $visibleFields, $profileTypes);

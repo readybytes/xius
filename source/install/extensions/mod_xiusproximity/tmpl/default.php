@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 //Call XIUS Functions
 
 // load jquery
-XiusHelpersUtils::loadJQuery();
+XiusHelperUtils::loadJQuery();
 
 require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_css.php');
 require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_js.php');

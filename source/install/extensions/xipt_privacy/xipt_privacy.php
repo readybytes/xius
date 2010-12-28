@@ -8,11 +8,8 @@ jimport('joomla.filesystem.folder');
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xipt'))
 	return;
 
-require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'xiptwrapper.php';
-	
 class plgXiusxipt_privacy extends JPlugin
 {
-	var $_debugMode = 0;
 		
 	function plgXiusxipt_privacy( &$subject, $params )
 	{
@@ -35,10 +32,10 @@ class plgXiusxipt_privacy extends JPlugin
 	 */
 	function _pluginStatus(){
 	
-		if(!(XiusHelpersUtils::isPluginInstalledAndEnabled('xipt_community','community')))
+		if(!(XiusHelperUtils::isPluginInstalledAndEnabled('xipt_community','community')))
 			return false;
 			
-		if(!(XiusHelpersUtils::isPluginInstalledAndEnabled('xipt_system','system')))
+		if(!(XiusHelperUtils::isPluginInstalledAndEnabled('xipt_system','system')))
 			return false;	
 
 		return true;	
@@ -84,7 +81,7 @@ class plgXiusxipt_privacy extends JPlugin
 	function _xiusGetProfileTypes($param)
 	{
 		$name				= $this->_name;
-		$profileTypes		= XiptWrapper::getProfileTypeIds();
+		$profileTypes		= XiusHelperXiptwrapper::getProfileTypeIds();
 							
 		$html 	= $this->_getProfileTypeHtml($profileTypes, $name, $param, 'multiple="multiple" size="9"');
 		return $html;
@@ -118,7 +115,7 @@ class plgXiusxipt_privacy extends JPlugin
 		if($loginuser==null)
 			$loginuser= JFactory::getUser();
 			
-		$profileId 		 =	XiptWrapper::getUserInfo($loginuser->id);
+		$profileId 		 =	XiusHelperXiptwrapper::getUserInfo($loginuser->id);
 		$this->_setDisplayData($allInfo, $profileId);		
 		return true;
 	}
@@ -165,7 +162,7 @@ class plgXiusxipt_privacy extends JPlugin
 			return false;
 
 		$userId		= JFactory::getUser()->id;
-		$profileId	= XiptWrapper::getUserInfo($userId);	
+		$profileId	= XiusHelperXiptwrapper::getUserInfo($userId);	
 		$this->_setDisplayData($lists, $profileId, true);
 
 		$lists = array_values($lists);
@@ -196,7 +193,7 @@ class plgXiusxipt_privacy extends JPlugin
 	function _isListViewable($ownerId)
 	{
 		$userId		= JFactory::getUser()->id;
-		if(XiusHelpersUtils::isAdmin($userId) 
+		if(XiusHelperUtils::isAdmin($userId) 
 				|| $ownerId === $userId)
 			return true;
 	}		

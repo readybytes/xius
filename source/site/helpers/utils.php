@@ -6,8 +6,13 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusHelpersUtils
+class XiusHelperUtils
 {
+	/*
+	 * Check Component Exists or not
+	 * $comName have componentname.
+	 * $bothReq have true then check Component exists at both-end (front & back)
+	 */
 	function isComponentExist($comName,$bothReq=false)
 	{
 		$frontcompath = JPATH_ROOT.DS.'components'.DS.$comName;
@@ -25,7 +30,9 @@ class XiusHelpersUtils
 			
 		return false;
 	}
-	
+	/*
+	 * return XiUS Param Value
+	 */
 	
 	function getValueFromXiusParams($paramName,$what,$default='')
 	{
@@ -39,8 +46,8 @@ class XiusHelpersUtils
 	
 		$tables	= array();
 		
-		$database = &JFactory::getDBO();
-		$tables	= $database->getTableList();
+		$database = JFactory::getDBO();
+		$tables	  = $database->getTableList();
 	
 		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 	}
@@ -73,21 +80,6 @@ class XiusHelpersUtils
 		return $pluginInfo;
 	}
 	
-	
-	public function getDebugMode()
-	{
-		$debugMode = self::getConfigurationParams('"xiusDebugMode"',false);
-		return $debugMode;
-	}
-	
-	
-	public function getDisplayInformationCount()
-	{
-		/* -1 means display all information ,from configuration*/
-		return XIUS_ALL;
-	}
-	
-	
  	function isAdmin($userid)
 	{
 		$user	=& JFactory::getUser($userid);		
@@ -95,14 +87,7 @@ class XiusHelpersUtils
 	}
 	
 	
-	function getUserLimit()
-	{
-		$userLimit = self::getConfigurationParams('xiusUserLimit',2000);
-		return $userLimit;
-		//return XIUS_USER_LIMIT;
-	}
-	
-	
+	// XiTODO:: Remove it, When implementing automatic cache updation.
 	function getOtherConfigParams($configname , $what , $default = 0)
 	{
 		$cModel = XiusFactory::getModel('configuration');
@@ -111,14 +96,6 @@ class XiusHelpersUtils
 		$result = $params->get($what,$default);
 		return $result;
 	}
-	
-	
-	function getKeyForCacheUpdate()
-	{
-		$key = self::getConfigurationParams('xiusKey',0);
-		return $key;
-	}
-	
 	
 	function getConfigurationParams($what,$default=0)
 	{
@@ -134,14 +111,15 @@ class XiusHelpersUtils
 		if($secureKey == null)
 			$secureKey=JRequest::getVar('xiuskey', 0, 'GET','string');
 		
-		$setKey = XiusHelpersUtils::getKeyForCacheUpdate();
+		//get xiuskey for cache update
+		$setKey = XiusHelperUtils::getConfigurationParams('xiusKey',0);
 		
 		if($secureKey != $setKey)
 			return false;
 			
-		$startTime = XiusHelpersUtils::getOtherConfigParams('cache',XIUS_CACHE_START_TIME,0);
+		$startTime = XiusHelperUtils::getOtherConfigParams('cache',XIUS_CACHE_START_TIME,0);
 		
-		$endTime = XiusHelpersUtils::getOtherConfigParams('cache',XIUS_CACHE_END_TIME,0);
+		$endTime = XiusHelperUtils::getOtherConfigParams('cache',XIUS_CACHE_END_TIME,0);
 		
 		if($currentTime == null)
 			$currentTime = XiusLibrariesUsersearch::getTimestamp();
@@ -159,19 +137,23 @@ class XiusHelpersUtils
 			
 		return true;
 	}
-	
+
+	/*
+	 * Check Plugin status.
+	 * Here only use XiPT Plugins Enable or not  
+	 */
 	function isPluginInstalledAndEnabled($pluginname,$type,$checkenable = false)
 	{
-		$db			=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		
 		$extraChecks = '';
 		if($checkenable)
 			$extraChecks = ' AND '.$db->nameQuote('published').'='.$db->Quote(true);
 			
 		$query	= 'SELECT * FROM ' . $db->nameQuote( '#__plugins' )
-	          .' WHERE '.$db->nameQuote('folder').'='.$db->Quote($type)
-	          .' AND '.$db->nameQuote('element').'='.$db->Quote($pluginname)
-	          . $extraChecks;
+	          		.' WHERE '.$db->nameQuote('folder').'='.$db->Quote($type)
+	          		.' AND '.$db->nameQuote('element').'='.$db->Quote($pluginname)
+	          		. $extraChecks;
 
 		$db->setQuery($query);		
 		
@@ -182,21 +164,6 @@ class XiusHelpersUtils
 			
 		return true;
 	}
-	
-/*
-	function getJoomlaUserGroupData($gid,$what='value')
-	{
-		if(!$gid)
-			return false;
-			
-		$db= & JFactory::getDBO();
-		$sql = ' SELECT '.$what.' FROM '.$db->nameQuote('#__core_acl_aro_groups') 
-				.' WHERE '.$db->nameQuote('id').' = '.$db->Quote($gid);
-		$db->setQuery($sql);
-		return $db->loadResult();
-	}
-*/
-	
 	
 	function loadJQuery()
 	{

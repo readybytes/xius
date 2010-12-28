@@ -24,13 +24,13 @@ class XiussiteViewList extends XiusView
 		else
 			$user = JFactory::getUser($owner);
 
-		if(!XiusHelpersUtils::isAdmin($user->id))
+		if(!XiusHelperUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
 		$lists = $lModel->getLists($filter,'AND',true);
 		
 		// filter list according to privacy set by joomla
-		XiussiteHelperList::filterListPrivacy($lists,$user);
+		XiusHelperList::filterListPrivacy($lists,$user);
 		$pagination = $lModel->getPagination($filter,'AND');
 
 		$this->assign('lists',$lists);
@@ -47,7 +47,7 @@ class XiussiteViewList extends XiusView
 
 		$user = JFactory::getUser();
 
-		if(!XiusHelpersUtils::isAdmin($user->id)){
+		if(!XiusHelperUtils::isAdmin($user->id)){
 			$filter['published'] = 1;
 			$filter['owner'] = $user->id;
 		}
@@ -69,7 +69,7 @@ class XiussiteViewList extends XiusView
 
 		$user = JFactory::getUser();
 
-		if(!XiusHelpersUtils::isAdmin($user->id))
+		if(!XiusHelperUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
 		//$lists = XiusLibrariesList::getLists($filter,'AND',false);
@@ -83,7 +83,7 @@ class XiussiteViewList extends XiusView
 		$data['join'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 
 		// get related data of conditions 
-		$conditionHtml = XiussiteHelperList::formatConditions($data['conditions']);
+		$conditionHtml = XiusHelperList::formatConditions($data['conditions']);
 		
 		// if saveas is xiussaveexisting
 		$data['listName'] 	= '';

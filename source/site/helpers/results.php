@@ -7,15 +7,14 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiussiteHelperResults
+class XiusHelperResults
 {
 	function _getInitialData(&$data)
 	{
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		$sortId = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
-		$dir = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
-		//$sortInfo = XiusLibrariesUsersearch::collectSortParams();
-		$join = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$conditions 	 = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$sortId 		 = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
+		$dir 			 = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+		$join 			 = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortId);
 
 		if(!$plgSortInstance)
@@ -25,45 +24,44 @@ class XiussiteHelperResults
 			if(empty($cacheColumns))
 				$sort = 'userid';
 			else {
-				foreach($cacheColumns as $c){
+			// XiTODO:: Clean this
+				foreach($cacheColumns as $c)
 					$sort = $c->cacheColumnName;
-				}
 			}
 		}
 		/*collect all info */
         $filter = array();
-		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$filter['published']= true;
+		$allInfo 			= XiusLibrariesInfo::getInfo($filter,'AND',false);
 
-		$data['allInfo']=$allInfo;
-		$data['conditions']=$conditions;
-		$data['sortId']=$sortId;
-		$data['sort']=$sort;
-		$data['dir']=$dir;
-		$data['join']=$join;
+		$data['allInfo']	= $allInfo;
+		$data['conditions']	= $conditions;
+		$data['sortId']		= $sortId;
+		$data['sort']		= $sort;
+		$data['dir']		= $dir;
+		$data['join']		= $join;
 	}
 
 	function _getUsers(&$data)
 	{
-		$model =& XiusFactory::getModel('users','site');
-		$users =& $model->getUsers($data['conditions'],$data['join'],$data['sort'],$data['dir']);
-        $pagination =& $model->getPagination($data['conditions'],$data['join'],$data['sort'],$data['dir']);
+		$model 		= XiusFactory::getModel('users','site');
+		$users 		= $model->getUsers($data['conditions'],$data['join'],$data['sort'],$data['dir']);
+        $pagination = $model->getPagination($data['conditions'],$data['join'],$data['sort'],$data['dir']);
 
-        $data['users']= $users;
-        $data['pagination']=$pagination;
+        $data['users']		= $users;
+        $data['pagination'] = $pagination;
 	}
 
 	function _getTotalUsers(&$data)
 	{
-		$model =& XiusFactory::getModel('users','site');
-		$total =& $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
+		$model 		   = XiusFactory::getModel('users','site');
+		$data['total'] = $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
 
-		$data['total']=$total;
 	}
 
 	function _createUserProfile(&$data)
 	{
-        $userprofile = array();
+        $userprofile 	= array();
         $sortableFields = XiusLibrariesUsersearch::getSortableFields($data['allInfo']);
 
         if(!empty($data['allInfo'])){
@@ -88,8 +86,8 @@ class XiussiteHelperResults
 				$plgInstance->getDisplayData($userprofile,$data, $info);
 			}
         }
-        $data['userprofile']=$userprofile;
-		$data['sortableFields']= $sortableFields;
+        $data['userprofile']	= $userprofile;
+		$data['sortableFields'] = $sortableFields;
 	}
 
 	function _getAppliedInfo(&$data)
@@ -127,10 +125,11 @@ class XiussiteHelperResults
 					continue;
 
 				$appliedData = array();
-				$appliedData['label'] = $plgInstance->get('labelName');
+				
+				$appliedData['label'] 		= $plgInstance->get('labelName');
 				$appliedData['formatvalue'] = $plgInstance->_getFormatAppliedData($c['value']);
-				$appliedData['infoid'] = $c['infoid'];
-				$appliedData['value'] = $c['value'];
+				$appliedData['infoid'] 		= $c['infoid'];
+				$appliedData['value'] 		= $c['value'];
 
 				$appliedInfo[] = $appliedData;
         	}
@@ -174,17 +173,17 @@ class XiussiteHelperResults
 					continue;
 
 				$infohtml['infoid'] = $ai->id;
-				$infohtml['info'] = $ai;
-				$infohtml['label'] = $ai->labelName;
-				$infohtml['html'] = $inputHtml;
-				$infohtml['tooltip'] = $plgInstance->getTooltip();
+				$infohtml['info'] 	= $ai;
+				$infohtml['label'] 	= $ai->labelName;
+				$infohtml['html'] 	= $inputHtml;
+				$infohtml['tooltip']= $plgInstance->getTooltip();
 
 				array_push($availableInfo,$infohtml);
         	}
         }
 
 		// XITODO : trigger it in view
-        $dispatcher =& JDispatcher::getInstance();
+        $dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplayAvailableInfo',array( &$availableInfo ));
 		
         $data['availableInfo']=$availableInfo;

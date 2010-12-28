@@ -16,6 +16,18 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   	require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
   	$this->parentSetup();
   }
+
+  function click($elem)
+  {
+  	$this->assertTrue($this->isElementPresent($elem)," Element $elem was not found");
+  	parent::click($elem);
+  }
+  
+  function type($elem, $data)
+  {
+  	$this->assertTrue($this->isElementPresent($elem));
+  	parent::type($elem, $data);
+  }
   
   function parentSetup()
   {

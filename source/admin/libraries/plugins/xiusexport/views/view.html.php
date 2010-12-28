@@ -27,7 +27,6 @@ class XiusexportView extends XiusBaseView
 		$url 	= XiusRoute::_("index.php?option={$option}&view=users&task=export&plugin=xiusexport&pluginid={$id}&usexius=1&format=csv",false);  			 
   		$this->assign('url',$url);  			 			
  		$html  = $this->loadTemplate('toolbar_export'); 			  			
-  		XiussiteHelperToolbar::addToAdminToolbar('csv',$html);
+  		XiusHelperToolbar::addToAdminToolbar('csv',$html);
 	}
 }
-?>

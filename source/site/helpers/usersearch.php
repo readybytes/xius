@@ -6,14 +6,13 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class XiusHelpersUsersearch
+class XiusHelperUsersearch
 {
-
+	/*
+	 * get the dependent information of all the information
+	 */
 	function getDependentInfo($info)
 	{
-		/*
-		 * get the dependent information of al the information
-		 */
 		foreach($info as $i){
 			if(is_array($i))
 				$instance = XiusFactory::getPluginInstanceFromId($i['id']);
@@ -33,8 +32,9 @@ class XiusHelpersUsersearch
 	{
 		$returnInfo = array();
 		//$origInfo	= clone($info);
+		//XiTODO:: remove magic num 
 		$availInfo	= array(-1);
-		$dependentInfo  = XiusHelpersUsersearch::getDependentInfo($info);
+		$dependentInfo  = XiusHelperUsersearch::getDependentInfo($info);
 		
 		while(count($info)>0)
 		{
@@ -43,7 +43,9 @@ class XiusHelpersUsersearch
 			for($i=0 ; $i<$count ; $i++)
 			{
 				$dependOn = $dependentInfo[$info[$i]->id];
-				if(XiusHelpersUsersearch::isDependAleardyExists($dependOn,$availInfo))
+				// is Depend Aleardy Exists
+				$diff 	  = array_diff($dependOn,$availInfo);
+				if(empty($diff))
 				{
 					$availInfo[] = $info[$i]->id;
 					$returnInfo[] = clone($info[$i]);
@@ -55,15 +57,6 @@ class XiusHelpersUsersearch
 		}
 						
 		return $returnInfo;
-	}
-	
-	function isDependAleardyExists($depend, $availInfo)
-	{
-		$diff = array_diff($depend, $availInfo);
-		if(empty($diff))
-			return true;
-		
-		return false;
 	}
 
 	function trimWhiteSpace($data)

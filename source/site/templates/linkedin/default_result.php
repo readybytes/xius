@@ -6,7 +6,7 @@
 $this->loadAssets('css', 'result.css');
 
 // load jquery
-XiusHelpersUtils::loadJQuery();
+XiusHelperUtils::loadJQuery();
 
 $this->loadAssets('js', 'menus.js');
 $this->loadAssets('js', 'result.js');

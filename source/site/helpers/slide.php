@@ -1,7 +1,7 @@
 <?php /**
  * Handles mootools Fx.Slide
  */
-class XiussiteHelperSlide extends JObject
+class XiusHelperSlide extends JObject
 {
      /**
 		 * Slider mode: horizontal|vertical
@@ -96,7 +96,7 @@ class XiussiteHelperSlide extends JObject
 	        $script="window.addEvent('domready',
 	                 function(){".$js."})";
 	        // add event handler to document
-	        $document =& JFactory::getDocument();
+	        $document = JFactory::getDocument();
 	        $document->addScriptDeclaration($script);
 	    }
 	}

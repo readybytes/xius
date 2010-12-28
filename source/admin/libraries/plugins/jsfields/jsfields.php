@@ -7,7 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 require_once dirname(__FILE__).DS.'base.php';
-$jsVersion  = XiusHelpersUtils::getJSVersion();
+$jsVersion  = XiusHelperUtils::getJSVersion();
 $pluginPath = dirname(__FILE__).DS; 
 if(JString::stristr($jsVersion, '2.0'))
 	$name = 'jsfields20';

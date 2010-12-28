@@ -178,7 +178,7 @@ class XiusListTest extends XiSelTestCase
     	$this->waitForElement('sbox-window');
     	sleep(2);
     	$this->click("xiusListSaveAs");
-    	$this->waitPageload(50000); 
+    	$this->waitPageload(); 
     	$this->type("xiusListName", "user list");
     	
     	//visible for JS friends

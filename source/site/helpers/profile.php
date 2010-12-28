@@ -7,7 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiussiteHelperProfile
+class XiusHelperProfile
 {
 	function getUserProfileData($users)
 	{
@@ -15,18 +15,19 @@ class XiussiteHelperProfile
 		$userData = array();
 		self::jomSocialProfileData($users, $userData);
 		
-		$args = array();
+		$args 	= array();
 		$args[] = & $userData; 
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplayProfileLink',array( $args ));
 		return $userData;
 	}
 
 	function jomSocialProfileData($users, &$userData)
 	{
+		//XITODO:: Some info nt required when cache speedup
 		foreach($users as $user){
 
-			$cuser = CFactory::getUser($user->userid);
+			$cuser 	= CFactory::getUser($user->userid);
 			$data	= new stdClass();
 			$data->id 		 	= $user->userid;
 			$data->name 		= $cuser->getDisplayName();

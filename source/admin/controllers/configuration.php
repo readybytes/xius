@@ -72,7 +72,7 @@ class XiusControllerConfiguration extends JController
 		$params	= $cModel->getParams();
 		$xiusKey = $params->get('xiusKey','AB2F4');
 		
-		if(XiusHelpersUtils::verifyCronRunRequired($xiusKey) == false)
+		if(XiusHelperUtils::verifyCronRunRequired($xiusKey) == false)
 			$mainframe->redirect($link, $message);
 	
 		$time = XiusLibrariesUsersearch::getTimestamp();

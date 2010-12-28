@@ -7,7 +7,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiussiteHelperToolbar 
+class XiusHelperToolbar 
 {
 	static function addToAdminToolbar($name='',$html='')
   	{

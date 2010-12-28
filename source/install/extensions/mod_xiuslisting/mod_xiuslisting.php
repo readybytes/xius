@@ -9,7 +9,7 @@ require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes
 require_once( dirname(__FILE__).DS.'helper.php' );
 
 $url = 'index.php?option=com_xius&view=list&task=showList&listid=';
-if(XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0) == true){	
+if(XiusHelperUtils::getConfigurationParams('integrateJomSocial',0) == true){	
 	$url = 'index.php?option=com_community&view=list&task=showList&usexius=1&listid=';
 }
 

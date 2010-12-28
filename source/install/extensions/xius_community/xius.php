@@ -10,7 +10,6 @@ if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 
 class plgCommunityxius extends JPlugin
 {
-	var $_debugMode = 0;
 	var $name 		= "Show JomSocial User Lists";
 	var $_name		= 'xius';
 	var $_path		= '';
@@ -41,7 +40,7 @@ class plgCommunityxius extends JPlugin
 	function onSystemStart()
 	{
 		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
-		$showSearchMenuTab=XiusHelpersUtils::getConfigurationParams('integrateJomSocial',0);
+		$showSearchMenuTab=XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);
 		//$this->params->get('showSearchMenuTab', 0);
 
 			if(!$showSearchMenuTab){
