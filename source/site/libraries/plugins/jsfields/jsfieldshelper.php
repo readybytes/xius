@@ -140,7 +140,7 @@ class Jsfieldshelper
   
 		}
 		else if($fieldInfo->type == 'profiletypes'){
-			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+			require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
 			return ProfiletypesHelper::getFieldHTML($fieldInfo);			
 		}
 		else

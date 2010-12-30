@@ -156,7 +156,7 @@ class InsertUserTest extends XiUnitTestCase
 		$startTime = $profiler->getmicrotime();
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
-		$insertedRows = XiusLibrariesUsersearch::updateCache();
+		$insertedRows = XiusLibUsersearch::updateCache();
 		
 		$endTime = $profiler->getmicrotime();
 				
@@ -192,9 +192,9 @@ class InsertUserTest extends XiUnitTestCase
 		
 		// build the condition and  compare
 		//$startTime 		= $profiler->getmicrotime();
-		$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
+		$conditions		= XiusLibUsersearch::processSearchData($post);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');

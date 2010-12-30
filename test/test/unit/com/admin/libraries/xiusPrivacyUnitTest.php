@@ -16,7 +16,7 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
 		$this->resetCachedData();
 		$filter = array();
 		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
 		$access= array();
 		if(empty($allInfo))
 			$this->assertTrue(0);

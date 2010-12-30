@@ -50,7 +50,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 		echo $this->map->setMapTypeOpt()."\n";
 		echo $this->map->endMapOptions();
 		echo $this->map->setMap();
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'proximity'.DS.'googlemaphelper.php';
+		require_once XIUS_PLUGINS_PATH.DS.'proximity'.DS.'googlemaphelper.php';
 		//echo $this->map->exportZoom(zoom, 'document.forms.xiusGmapForm.elements.zoom');
 		echo $this->map->exportMarker('Global', $this->data['type'], $this->data['latitude'], $this->data['longitude'], "window.top.document.forms.$this->formName.elements.$this->latitudeEle", "window.top.document.forms.$this->formName.elements.$this->longitudeEle");
 		echo $this->map->setListener();

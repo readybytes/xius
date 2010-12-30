@@ -7,7 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 
-class XiusLibrariesList
+class XiusLibList
 {	
 	function saveList($data)
 	{

@@ -14,7 +14,7 @@ class XiusJuserTest extends XiUnitTestCase
 		 * it will not run individually ,
 		 * b'coz joomla file system does not load
 		 */
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsuser' . DS . 'jsuser.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'jsuser' . DS . 'jsuser.php';
 		$instance = new Jsuser();
 		
 		$info = $instance->getAvailableInfo();
@@ -50,9 +50,9 @@ class XiusJuserTest extends XiUnitTestCase
 	
 	function testViewSearchHtml()
 	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsuser' . DS . 'jsuser.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'jsuser' . DS . 'jsuser.php';
 		$instance = new Jsuser();
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsuser' . DS . 'views' . DS . 'view.html.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'jsuser' . DS . 'views' . DS . 'view.html.php';
 		$instance->load(1);
 		$viewClass = new JsuserView();
 		$searchHtml5 =  $viewClass->searchHtml($instance);

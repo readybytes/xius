@@ -89,7 +89,7 @@ class XiusBaseView extends XiusView
 		
 		$info = $calleObject->getAvailableInfo();
 		/*unset already exist info */
-		$availableInfo = XiusLibrariesInfo::getInfo();
+		$availableInfo = XiusLibInfo::getInfo();
 		$calleObject->removeExistingInfo($info,$availableInfo);
 		
 		$this->assign('info',$info);

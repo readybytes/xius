@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'jsfieldshelper.php';
 
 class Keyword extends XiusBase
 {
@@ -45,7 +45,7 @@ class Keyword extends XiusBase
 			return false;
 		
 		// get all information available
-		$allInfo = XiusLibrariesInfo::getInfo(array(),'AND',false);
+		$allInfo = XiusLibInfo::getInfo(array(),'AND',false);
 		
 		if(!empty($allInfo)){
 			$strQuery = $this->_addSearchToQuery($allInfo, $value);		

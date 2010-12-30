@@ -10,7 +10,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	function testGetAvailableInfoForForcesearch()
 	{
 		$this->resetCachedData();
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'forcesearch' . DS . 'forcesearch.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'forcesearch' . DS . 'forcesearch.php';
 		$instance = new Forcesearch();
 		
 		$info = $instance->getAvailableInfo();
@@ -42,7 +42,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		
-		$query = XiusLibrariesUsersearch::buildQuery($conditions,$join);
+		$query = XiusLibUsersearch::buildQuery($conditions,$join);
 		$strQuery = $query->__toString();
 		
 		$db = JFactory::getDBO();
@@ -94,7 +94,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		
-		$query = XiusLibrariesUsersearch::buildQuery($conditions,$join);
+		$query = XiusLibUsersearch::buildQuery($conditions,$join);
 		$strQuery = $query->__toString();
 		
 		$db = JFactory::getDBO();
@@ -137,7 +137,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		
-		$query = XiusLibrariesUsersearch::buildQuery($conditions,$join);
+		$query = XiusLibUsersearch::buildQuery($conditions,$join);
 		$strQuery = $query->__toString();
 		
 		$db = JFactory::getDBO();

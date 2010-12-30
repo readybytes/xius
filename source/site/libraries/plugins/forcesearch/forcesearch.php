@@ -21,7 +21,7 @@ class Forcesearch extends XiusBase
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 	
-		$allInfo = XiusLibrariesInfo::getAllInfo();
+		$allInfo = XiusLibInfo::getAllInfo();
 		
 		if(empty($allInfo))
 			return false;
@@ -66,7 +66,7 @@ class Forcesearch extends XiusBase
 		
 		$key = $postdata['key'];
 			
-		$searchArray	=	XiusLibrariesUsersearch::processSearchData($postdata);
+		$searchArray	=	XiusLibUsersearch::processSearchData($postdata);
 		
 		if(count($searchArray) > 0){
 			$pluginParamArray = $searchArray[0] ; //array('value' => $searchArray[0]->value);
@@ -85,7 +85,7 @@ class Forcesearch extends XiusBase
 	{
 		$filter = array();
 		$filter['id'] = $this->key;
-		$fieldInfo = XiusLibrariesInfo::getInfo($filter);
+		$fieldInfo = XiusLibInfo::getInfo($filter);
 		
 		if(!empty($fieldInfo))
 			return $fieldInfo[0]->labelName;
@@ -105,7 +105,7 @@ class Forcesearch extends XiusBase
 	{
 		// get all information available
 		$filter = 	array('pluginType' => 'Forcesearch','published' => true);
-		$forceSearchInfo	=	XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$forceSearchInfo	=	XiusLibInfo::getInfo($filter,'AND',false);
 		
 		if(count($forceSearchInfo) == 0)
 			return false;

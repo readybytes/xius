@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'jsfieldshelper.php';
 
 class JsfieldsBase extends XiusBase
 {
@@ -186,7 +186,7 @@ class JsfieldsBase extends XiusBase
 		}
 
 		if($fieldInfo[0]->type == 'profiletypes'){
-			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+			require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
 			return ProfiletypesHelper::formatData($value);		
 		}
 		
@@ -232,7 +232,7 @@ class JsfieldsBase extends XiusBase
 		}		
 		
 		if($fieldInfo[0]->type == 'profiletypes'){
-			require_once( JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'profiletype.php' );
+			require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
 			return ProfiletypesHelper::getFieldData($value);			
 		}
 		

@@ -9,7 +9,7 @@ class XiusKeywordTest extends XiUnitTestCase
 	
 	function testGetAvailableInfoForKeyword()
 	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'keyword' . DS . 'keyword.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'keyword' . DS . 'keyword.php';
 		$instance = new Keyword();
 		
 		$info = $instance->getAvailableInfo();
@@ -37,7 +37,7 @@ class XiusKeywordTest extends XiUnitTestCase
 		$plgInstance  = XiusFactory::getPluginInstanceFromId(24);
 		
 		//require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'keyword'.DS.'keyword.php');
-		$allInfo      = XiusLibrariesInfo::getInfo(array(),'AND',false);
+		$allInfo      = XiusLibInfo::getInfo(array(),'AND',false);
 		$strQuery     = $plgInstance->_addSearchToQuery($allInfo,$value);
 		$compareQuery = "`jsfields2_0` LIKE '%admin%' OR `jsfields11_0` LIKE '%admin%' OR `jsfields12_0` LIKE '%admin%' OR DATE_FORMAT(`joomlaregisterDate_0`, '%d-%m-%Y') LIKE 'admin' OR `joomlausername_0` LIKE '%admin%' OR `joomlaname_0` LIKE '%admin%' OR `jsfields17_0` LIKE '%admin%' OR `jsfields3_0` LIKE '%admin%' OR `joomlaid_0` LIKE '%admin%' OR `joomlaemail_0` LIKE '%admin%' OR `joomlausertype_0` LIKE '%admin%' OR `joomlablock_0` LIKE '%admin%' OR `joomlagid_0` LIKE '%admin%' OR `joomlalastvisitDate_0` LIKE '%admin%' OR `jsfields4_0` LIKE '%admin%' OR `jsfields5_0` LIKE '%admin%' OR `jsfields7_0` LIKE '%admin%' OR `jsfields8_0` LIKE '%admin%' OR `jsfields9_0` LIKE '%admin%' OR `jsfields10_0` LIKE '%admin%' OR `jsfields13_0` LIKE '%admin%' OR `jsfields15_0` LIKE '%admin%' OR `jsfields16_0` LIKE '%admin%'";
 		$this->assertEquals($strQuery, $compareQuery);
@@ -61,9 +61,9 @@ class XiusKeywordTest extends XiUnitTestCase
 		
 		// build the condition and  compare
 		//$startTime 		= $profiler->getmicrotime();
-		$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
+		$conditions		= XiusLibUsersearch::processSearchData($post);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
 		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');

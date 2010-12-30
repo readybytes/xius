@@ -25,7 +25,7 @@ class XiussiteControllerList extends XiusController
 			$list = $this->_getList($listId);			
 			return $this->_displayResult(__FUNCTION__,$list);		
 		}
-		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,0,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_LISTID,0,'XIUS');
 		
 		$user =& JFactory::getUser();
 		
@@ -56,7 +56,7 @@ class XiussiteControllerList extends XiusController
 			return $this->lists($user->id);			
 			
 		/*get list */
-		$list = XiusLibrariesList::getList($listId);
+		$list = XiusLibList::getList($listId);
 		
 		$url = XiusRoute::_('index.php?option=com_xius&view=list&task=display',false);
 		if(empty($list))
@@ -82,16 +82,16 @@ class XiussiteControllerList extends XiusController
 		// XITODO : unset old data first
 		// check session if list is already loaded 
 		// then no need to load same list again and agian
-		if($list->id === XiusLibrariesUsersearch::getDataFromSession(XIUS_LISTID,0,'XIUS'))
+		if($list->id === XiusLibUsersearch::getDataFromSession(XIUS_LISTID,0,'XIUS'))
 			return true;	
 		
-		//XiusLibrariesUsersearch::setDataInSession('listid',$listId,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_LISTID,$list->id,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
-		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
+		//XiusLibUsersearch::setDataInSession('listid',$listId,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_LISTID,$list->id,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_SORT,$list->sortinfo,'XIUS');	
+		XiusLibUsersearch::setDataInSession(XIUS_DIR,$list->sortdir,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,$list->join,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,XiusHelperUsers::getUnserializedData($list->conditions),'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_VISIBLE,XiusHelperUsers::getUnserializedData($list->visibleinfo),'XIUS');
 		return true;
 	}
 	
@@ -105,7 +105,7 @@ class XiussiteControllerList extends XiusController
 			return $this->_showLists($user->id);			
 			
 		/*get list */
-		$list = XiusLibrariesList::getList($listId);
+		$list = XiusLibList::getList($listId);
 		return $list;
 	}
 
@@ -203,7 +203,7 @@ class XiussiteControllerList extends XiusController
 		if($params === null)
 			$params = array();				
 		
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		// XITODO : do not user AllowRaw for all
 		
 		/*XITODO : set visible info and published also */		
@@ -246,7 +246,7 @@ class XiussiteControllerList extends XiusController
 		// Get the complete INI string
 		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
 		
-		if(!($id = XiusLibrariesList::saveList($data)))
+		if(!($id = XiusLibList::saveList($data)))
 			$msg = XiusText::_('ERROR IN SAVE LIST');
 		else
 			$msg = XiusText::_('LIST SAVED SUCCESSFULLY');

@@ -38,13 +38,13 @@ class XiussiteModelUsers extends JModel
 
 		if(!XiusHelperUtils::isTableExist('xius_cache'))
 		{
-			XiusLibrariesUsersearch::updateCache();
+			XiusLibUsersearch::updateCache();
 			if(!XiusHelperUtils::isTableExist('xius_cache')){
 	          	 JError::raiseWarning(XiusText::_('Cache table does not exist.'));
 			}
 		}
 
-        $query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);
+        $query = XiusLibUsersearch::buildQuery($params,$join,$sort,$dir);
 		$strQuery = $query->__toString();
 
         if($reqPagination)
@@ -67,7 +67,7 @@ class XiussiteModelUsers extends JModel
         if ($this->_totalusers)
         	return $this->_totalusers;
 
-		$query = XiusLibrariesUsersearch::buildQuery($params,$join,$sort,$dir);
+		$query = XiusLibUsersearch::buildQuery($params,$join,$sort,$dir);
 		$strQuery = $query->__toString();
 
         $this->_totalusers = $this->_getListCount($strQuery);

@@ -28,9 +28,9 @@ class XiussiteControllerUsers extends XiusController
 		$count = XIUS_ALL; 
 		
 		if($count === XIUS_ALL || $count === 0)
-			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+			$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
 		else
-			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,$count);
+			$allInfo = XiusLibInfo::getInfo($filter,'AND',true,0,$count);
 		
 		$view		=& $this->getView();
 		
@@ -51,11 +51,11 @@ class XiussiteControllerUsers extends XiusController
 	{
 		$fromPanel = JRequest::getVar('fromPanel', 0,'POST'); 
 		if($fromPanel){			
-			$conditions = XiusLibrariesUsersearch::processSearchData();
-			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+			$conditions = XiusLibUsersearch::processSearchData();
+			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		
 			$join = JRequest::getVar('xiusjoin','AND','POST');
-			XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+			XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		}
 		return $this->_displayResult(__FUNCTION__);
 	}
@@ -63,39 +63,39 @@ class XiussiteControllerUsers extends XiusController
 	function join()
 	{
 		$join = JRequest::getVar('xiusjoin','AND','POST');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		return $this->_displayResult('search');
 	}
 	
 	function addinfo()
 	{
-		XiusLibrariesUsersearch::addSearchData();
+		XiusLibUsersearch::addSearchData();
 		return $this->_displayResult('search');
 	}
 	
 	function delinfo()
 	{
-		XiusLibrariesUsersearch::deleteSearchData();
+		XiusLibUsersearch::deleteSearchData();
 		return $this->_displayResult('search');
 	}
 	
 	function sort()
 	{
-		XiusLibrariesUsersearch::processSortData();
+		XiusLibUsersearch::processSortData();
 		return $this->_displayResult('search');
 	}
 
 	function sortdir()
 	{
-		XiusLibrariesUsersearch::processSortData();
+		XiusLibUsersearch::processSortData();
 		return $this->_displayResult('search');
 	}
 	
 	function resetfilter()
 	{
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
 		$join = JRequest::getVar('xius_join','AND','POST');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		return $this->_displayResult('search');
 	}	
 	
@@ -103,7 +103,7 @@ class XiussiteControllerUsers extends XiusController
 	{
 		$view		=& $this->getView();
 		
-		if(count(XiusLibrariesInfo::getInfo()) == 0)
+		if(count(XiusLibInfo::getInfo()) == 0)
 			  return $view->panel('');	
 		
 			// set and reset the vars in current url
@@ -136,13 +136,13 @@ class XiussiteControllerUsers extends XiusController
 		if(XiusHelperUtils::verifyCronRunRequired() == false)
 			return;
 			
-		$time = XiusLibrariesUsersearch::getTimestamp();
-		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
+		$time = XiusLibUsersearch::getTimestamp();
+		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
-		XiusLibrariesUsersearch::updateCache();
+		XiusLibUsersearch::updateCache();
 		
-		$time = XiusLibrariesUsersearch::getTimestamp();
-		XiusLibrariesUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
+		$time = XiusLibUsersearch::getTimestamp();
+		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
 		return;
 	}
@@ -154,7 +154,7 @@ class XiussiteControllerUsers extends XiusController
 			if(!$cache->createTable(true))
 				return false;
 		}
-		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
+		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		return $cache->insertIntoTable($getDataQuery,true,$limit);		
 	}
 	

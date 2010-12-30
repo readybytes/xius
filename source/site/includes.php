@@ -26,6 +26,9 @@ XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_MODEL,		'model',		'Xiussite');
 XiusLoader::addAutoLoadViews (XIUS_PATH_SITE_VIEW,		JRequest::getCmd('format','html'),	'Xiussite');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_HELPER,	'helper');
 
+// Auto XiUS Plugin Helper classes
+//XiusLoader::addAutoLoadPluginHelper(XIUS_PLUGINS_PATH, 'helper');
+
 /*Load Langauge file*/
 $lang =& JFactory::getLanguage();
 if($lang){

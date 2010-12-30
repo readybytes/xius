@@ -31,7 +31,7 @@ class JElementInfo extends JElement
 	function getInfoHTML($name,$value,$control_name='params',$reqnone=false)
 	{
 		$html				= '';
-		$allInfo = XiusLibrariesInfo::getAllInfo();
+		$allInfo = XiusLibInfo::getAllInfo();
 		
 		$html	.= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']" title="' . "Select Information" . '::' . "Please Select respective information" . '">';
 			

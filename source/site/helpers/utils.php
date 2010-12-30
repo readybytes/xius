@@ -55,16 +55,16 @@ class XiusHelperUtils
 
 	public function getAvailablePlugins()
 	{
-		$path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins';
+		//$path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins';
 	
 		jimport( 'joomla.filesystem.folder' );
 		$plugins = array();
-		$plugins = JFolder::folders($path);
+		$plugins = JFolder::folders(XIUS_PLUGINS_PATH);
 		
 		$pluginInfo= Array();
 		foreach ($plugins as $plugin)
 		{
-			$xmlPath= $path.DS.$plugin.DS.$plugin.'.xml';
+			$xmlPath= XIUS_PLUGINS_PATH.DS.$plugin.DS.$plugin.'.xml';
 			if(JFile::exists($xmlPath)===false)
 				continue;
 
@@ -122,7 +122,7 @@ class XiusHelperUtils
 		$endTime = XiusHelperUtils::getOtherConfigParams('cache',XIUS_CACHE_END_TIME,0);
 		
 		if($currentTime == null)
-			$currentTime = XiusLibrariesUsersearch::getTimestamp();
+			$currentTime = XiusLibUsersearch::getTimestamp();
 		
 		$timeGap = $currentTime - $endTime;
 		$totalRunTime = $endTime - $startTime;

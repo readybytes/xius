@@ -11,10 +11,10 @@ class XiusHelperResults
 {
 	function _getInitialData(&$data)
 	{
-		$conditions 	 = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		$sortId 		 = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
-		$dir 			 = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
-		$join 			 = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$conditions 	 = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$sortId 		 = XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
+		$dir 			 = XiusLibUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+		$join 			 = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortId);
 
 		if(!$plgSortInstance)
@@ -32,7 +32,7 @@ class XiusHelperResults
 		/*collect all info */
         $filter = array();
 		$filter['published']= true;
-		$allInfo 			= XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$allInfo 			= XiusLibInfo::getInfo($filter,'AND',false);
 
 		$data['allInfo']	= $allInfo;
 		$data['conditions']	= $conditions;
@@ -62,7 +62,7 @@ class XiusHelperResults
 	function _createUserProfile(&$data)
 	{
         $userprofile 	= array();
-        $sortableFields = XiusLibrariesUsersearch::getSortableFields($data['allInfo']);
+        $sortableFields = XiusLibUsersearch::getSortableFields($data['allInfo']);
 
         if(!empty($data['allInfo'])){
         	foreach($data['allInfo'] as $info){

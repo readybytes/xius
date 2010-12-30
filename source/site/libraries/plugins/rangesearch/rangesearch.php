@@ -32,7 +32,7 @@ class Rangesearch extends XiusBase
 		if(!$this->isAllRequirementSatisfy())
 			return false;
 	
-		$allInfo = XiusLibrariesInfo::getAllInfo();
+		$allInfo = XiusLibInfo::getAllInfo();
 		
 		if(empty($allInfo))
 			return false;
@@ -116,7 +116,7 @@ class Rangesearch extends XiusBase
 	{
 		$filter = array();
 		$filter['id'] = $this->key;
-		$fieldInfo = XiusLibrariesInfo::getInfo($filter);
+		$fieldInfo = XiusLibInfo::getInfo($filter);
 		
 		if(!empty($fieldInfo))
 			return $fieldInfo[0]->labelName;

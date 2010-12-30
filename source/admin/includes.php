@@ -24,7 +24,7 @@ require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'def
 
 JModel::addIncludePath(XIUS_PATH_MODEL);
 
-require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'loader.php');
+require_once(XIUS_COMPONENT_PATH_SITE.DS.'libraries'.DS.'base'.DS.'loader.php');
 
 // Autoload MVCT
 XiusLoader::addAutoLoadFolder(XIUS_PATH_TABLE, 'table');
@@ -33,25 +33,32 @@ XiusLoader::addAutoLoadFolder(XIUS_PATH_MODEL,		'model');
 XiusLoader::addAutoLoadViews( XIUS_PATH_VIEW , 		JRequest::getCmd('format','html'));
 XiusLoader::addAutoLoadFolder(XIUS_PATH_HELPER,		'Helper');
 
-//Load libraray
-XiusLoader::addAutoLoadFolder(XIUS_PATH_LIBRARY,'');
+// Auto XiUS Plugin Helper classes
+//XiusLoader::addAutoLoadPluginHelper(XIUS_PLUGINS_PATH, 'helper');
 
-//Add explicit files XITODO : Add them in auto loading
-XiusLoader::addAutoLoadFile('XiusRoute', XIUS_PATH_LIBRARY.DS.'route.php');
-XiusLoader::addAutoLoadFile('XiusQueryElement', XIUS_PATH_LIBRARY.DS.'queryelement.php');
-XiusLoader::addAutoLoadFile('XiusCreateTable', XIUS_PATH_LIBRARY.DS.'createtable.php');
-XiusLoader::addAutoLoadFile('XiusLibrariesInfo', XIUS_PATH_LIBRARY.DS.'info.php');
-XiusLoader::addAutoLoadFile('XiusLibrariesList', XIUS_PATH_LIBRARY.DS.'list.php');
-XiusLoader::addAutoLoadFile('XiusLibrariesPluginhandler', XIUS_PATH_LIBRARY.DS.'pluginhandler.php');
-XiusLoader::addAutoLoadFile('XiusLibrariesUsersearch', XIUS_PATH_LIBRARY.DS.'usersearch.php');
+//Load libraray
+//XiusLoader::addAutoLoadFolder(XIUS_PATH_LIBRARY,'');
+
+// Auto-load Base folder
+XiusLoader::addAutoLoadFolder(XIUS_PATH_BASE, '');
+//XiusLoader::addAutoLoadFile('XiusRoute', XIUS_PATH_BASE.DS.'route.php');
+//XiusLoader::addAutoLoadFile('XiusQueryElement', XIUS_PATH_BASE.DS.'queryelement.php');
+//XiusLoader::addAutoLoadFile('XiusCreateTable', XIUS_PATH_BASE.DS.'createtable.php');
+//XiusLoader::addAutoLoadFile('XiusAdminController', XIUS_PATH_BASE.DS.'admincontroller.php');
+//Auto load lib folder
+XiusLoader::addAutoLoadFolder(XIUS_PATH_LIB, 'Lib');
+
+//XiusLoader::addAutoLoadFile('XiusLibInfo', XIUS_PATH_LIBRARY.DS.'info.php');
+//XiusLoader::addAutoLoadFile('XiusLibList', XIUS_PATH_LIBRARY.DS.'list.php');
+//XiusLoader::addAutoLoadFile('XiusLibPluginhandler', XIUS_PATH_LIBRARY.DS.'pluginhandler.php');
+//XiusLoader::addAutoLoadFile('XiusLibUsersearch', XIUS_PATH_LIBRARY.DS.'usersearch.php');
 
 
 // auto load classes for base controller, base view,and modal
 XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
 XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');
 
-XiusLoader::addAutoLoadFile('XiusAdminController', XIUS_PATH_LIBRARY.DS.'admincontroller.php');
-XiusLoader::addAutoLoadFolder(XIUS_PATH_ELEMENTS, 'Element', 'J');
+
 
 /*JomSocial community files */
 foreach(array('CFactory','CAssets','CConfig','CApplications','CUser','CRoute') as $className)

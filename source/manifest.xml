@@ -17,6 +17,7 @@
 		<file>router.php</file>
 		<file>index.html</file>
 		<folder>controllers</folder>
+		<folder>libraries</folder>
 		<folder>helpers</folder>
 		<folder>views</folder>
 		<folder>models</folder>
@@ -39,7 +40,6 @@
 		<files folder="admin">
 			<file>xius.php</file>
 			<file>includes.php</file>
-			<file>loader.php</file>
 			<file>defines.php</file>
 			<file>configuration.xml</file>
 			<file>configuration.ini</file>
@@ -47,7 +47,6 @@
 			<file>xiuslist.ini</file>
 			<file>index.html</file>
 			<folder>controllers</folder>
-			<folder>libraries</folder>
 			<folder>models</folder>
 			<folder>tables</folder>
 			<folder>views</folder>

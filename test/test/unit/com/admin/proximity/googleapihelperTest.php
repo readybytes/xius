@@ -12,7 +12,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 		$filter['pluginType'] = 'Proximity';
 		$filter['key'] = 'google';
 		// get the info details of Proximity information
-		$info = XiusLibrariesInfo::getInfo($filter);
+		$info = XiusLibInfo::getInfo($filter);
 		$this->assertEquals($info[0]->id,8);
 		require_once( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
 		ProximityGoogleapiHelper::insertGeocodeRawData($info);

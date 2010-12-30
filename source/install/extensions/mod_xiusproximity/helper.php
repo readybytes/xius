@@ -37,7 +37,7 @@ class ModXiusProximity
 	
 	function getSearchHtml($filter)
 	{
-		$info = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$info = XiusLibInfo::getInfo($filter,'AND',false);
 	
 		$infohtml = array();
 		if(empty($info))

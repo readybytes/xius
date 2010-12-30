@@ -16,9 +16,9 @@ class UserSearchHelper
 		$count = XIUS_ALL ;
 		
 		if($count === XIUS_ALL || $count === 0)
-			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+			$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
 		else
-			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',true,0,$count);
+			$allInfo = XiusLibInfo::getInfo($filter,'AND',true,0,$count);
 			
 			$infohtml = array();
 			if(!empty($allInfo)){

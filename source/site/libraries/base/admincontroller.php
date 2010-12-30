@@ -12,7 +12,7 @@ jimport( 'joomla.application.component.view' );
 /**
  */
 
-abstract class XiusAdminController extends JController
+abstract class XiusAdmincontroller extends JController
 {
 	function __construct($options = array())
 	{

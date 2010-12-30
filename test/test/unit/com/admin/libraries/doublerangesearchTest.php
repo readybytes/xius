@@ -19,7 +19,7 @@ class XiusDoubleRangesearchUnitTest extends XiUnitTestCase
 						
 		$this->resetCachedData();
 
-		$query		= XiusLibrariesUsersearch::buildQuery($conditions,$join);
+		$query		= XiusLibUsersearch::buildQuery($conditions,$join);
 		$strQuery	= $query->__toString();
 
 		$db = JFactory::getDBO();

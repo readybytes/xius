@@ -17,7 +17,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		
 		$this->resetCachedData();
 		
-		$value = XiusLibrariesUsersearch::getMiniProfileDisplayFields($userid);
+		$value = XiusLibUsersearch::getMiniProfileDisplayFields($userid);
 		$this->assertEquals($value,$result);
 		$diffArrayAcToV = array_diff($value,$result);
 		$this->assertTrue((count($diffArrayAcToV) == 0));
@@ -45,7 +45,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	{	
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		$query = XiusLibrariesUsersearch::buildQuery($conditions,$join,$sort,$dir);
+		$query = XiusLibUsersearch::buildQuery($conditions,$join,$sort,$dir);
 		$strQuery = $query->__toString();
 		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces($strQuery));
 	}
@@ -110,7 +110,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	function testCreateTableQuery()
 	{
 		$db = JFactory::getDBO();
-		$query = XiusLibrariesUsersearch::createTableQuery();
+		$query = XiusLibUsersearch::createTableQuery();
 		$reqQuery = "CREATE TABLE IF NOT EXISTS `#__xius_cache`"
 					." ( `userid` int(21) NOT NULL,"
 					."`jsfields2_0` varchar(250) NOT NULL,"
@@ -127,7 +127,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	
 	function testBuildInsertUserdataQuery()
 	{
-		$query = XiusLibrariesUsersearch::buildInsertUserdataQuery();
+		$query = XiusLibUsersearch::buildInsertUserdataQuery();
 		$reqQuery = "SELECT juser.`id` as userid,jsfields2_0.value as jsfields2_0,"
 					."jsfields11_0.value as jsfields11_0,jsfields12_0.value as jsfields12_0,"
 					."joomlauserregisterDate_0.registerDate as joomlaregisterDate_0,"
@@ -155,9 +155,9 @@ class XiusUserSearchTest extends XiUnitTestCase
 		
 		$filter = array();
 		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
 		
-		$sortableFields = XiusLibrariesUsersearch::getSortableFields($allInfo);
+		$sortableFields = XiusLibUsersearch::getSortableFields($allInfo);
 		
 		$result = array(1,2,3,5,6,8);
 		
@@ -185,7 +185,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		$conditions		= XiusLibrariesUsersearch::processSearchData($data);
+		$conditions		= XiusLibUsersearch::processSearchData($data);
 		
 		//echo "result should be ".print_r(var_export($resultConditions))." but we get ".print_r(var_export($conditions));
 		$this->assertEquals($resultConditions,$conditions);
@@ -220,9 +220,9 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS."testDeleteSearchData.start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$toArray,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$toArray,'XIUS');
 		
-		$position = XiusLibrariesUsersearch::checkSearchDataExistance($fromArray,$toArray);
+		$position = XiusLibUsersearch::checkSearchDataExistance($fromArray,$toArray);
 		
 		$this->assertEquals($resultPosition,$position,"postion should be $resultPosition but we get $position");
 	}
@@ -293,13 +293,13 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$existConditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$existConditions,'XIUS');
 		
-		$success = XiusLibrariesUsersearch::deleteSearchData($existConditions,$delInfoId,$conditionValue);
+		$success = XiusLibUsersearch::deleteSearchData($existConditions,$delInfoId,$conditionValue);
 		
 		$this->assertEquals($result,$success,"result should be $result but we get $success");
 		
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		
 		//echo "result should be ".print_r(var_export($resultConditions))." but we get ".print_r(var_export($conditions));
 		$this->assertEquals($resultConditions,$conditions);
@@ -439,13 +439,13 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS."testDeleteSearchData.start.sql";
 		$this->_DBO->loadSql($sqlPath);
 
-		$updatedRows = XiusLibrariesUsersearch::updateCache();
+		$updatedRows = XiusLibUsersearch::updateCache();
 
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$existconditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$existconditions,'XIUS');
 		
-		$success = XiusLibrariesUsersearch::addSearchData($addInfoId,$post);
+		$success = XiusLibUsersearch::addSearchData($addInfoId,$post);
 		
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		
 		//echo "result should be ".print_r(var_export($resultConditions))." but we get ".print_r(var_export($conditions));
 		$this->assertEquals($resultConditions,$conditions);
@@ -496,7 +496,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 	
 	function testGetSortedInfo()
     {
-		$info = XiusLibrariesUsersearch::getAllInfo();
+		$info = XiusLibUsersearch::getAllInfo();
         $info = XiusHelperUsersearch::getSortedInfo($info);
        	foreach($info as $in)
        		$sequence[]=$in->id;

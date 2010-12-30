@@ -45,4 +45,22 @@ class XiusLoader
 				JLoader::register($className, $baseFolders.DS.$folder.DS.$fileName);
 			}
 		}
+		
+        function addAutoLoadPluginHelper($pluginPath, $type, $prefix='Xius')
+        {
+        		$plugins = array();
+				$plugins = JFolder::folders(XIUS_PLUGINS_PATH);
+				foreach($plugins as $plugin)
+                {  
+                	$path = $pluginPath.DS.$plugin.DS.strtolower($plugin.'helper.php');
+                	if(JFile::exists($path))
+                	{
+                		$className = JString::ucfirst($prefix)
+                                    .JString::ucfirst($type)
+                                    .JString::ucfirst(JFile::stripExt($plugin));
+
+                        JLoader::register($className, $path);
+                        }
+                }
+        }
 }

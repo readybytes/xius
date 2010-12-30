@@ -13,7 +13,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		 * it will not run individually ,
 		 * b'coz joomla file system does not load
 		 */
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'jsfields' . DS . 'jsfields.php';
+		require_once XIUS_PLUGINS_PATH. DS . 'jsfields' . DS . 'jsfields.php';
 		$instance = new Jsfields();
 		
 		$info = $instance->getAvailableInfo();
@@ -48,7 +48,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 	 */
 	function testToArray($compareArray,$className)
 	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
+		require_once  XIUS_PLUGINS_PATH . DS . strtolower($className) . DS . strtolower($className).'.php';
 		$instance = new $className();
 		$instanceArray = $instance->toArray();
 		
@@ -91,7 +91,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 			
 		$this->assertTrue(is_array($from),"from is not an array");
 		
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . strtolower($className) . DS . strtolower($className).'.php';
+		require_once  XIUS_PLUGINS_PATH . DS . strtolower($className) . DS . strtolower($className).'.php';
 		$instance = new $className();
 		
 		//$ignoreArray = array('debugMode','params','pluginParams');
@@ -111,7 +111,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		
 		$bindArray1 = array();
 		
-		$paramsxmlpath = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'params.xml';
+		$paramsxmlpath =  XIUS_PLUGINS_PATH . DS . 'params.xml';
 		$bindArray1['id']			=	0 ;
 		$bindArray1['labelName']	=	'hello';
 		//$bindArray1['params']		=	new JParameter('',$paramsxmlpath);
@@ -236,7 +236,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$instance = XiusFactory::getPluginInstance($pluginType);
 		
 		$totalInfo = $instance->getAvailableInfo();
-		$existingInfo = XiusLibrariesInfo::getInfo();
+		$existingInfo = XiusLibInfo::getInfo();
 		
 		$instance->removeExistingInfo($totalInfo,$existingInfo);
 		//$this->assertFalse(array_key_exists($result,$totalInfo),$result." should not be exist in ".$pluginType);

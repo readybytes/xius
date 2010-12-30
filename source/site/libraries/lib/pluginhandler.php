@@ -7,18 +7,18 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 
-class XiusLibrariesPluginhandler
+class XiusLibPluginhandler
 {
 	// XITODO :: What is use of $data here
 	function onUsInfoUpdated($data)
 	{
-		return XiusLibrariesUsersearch::updateCache();
+		return XiusLibUsersearch::updateCache();
 	}
 	
 
 	function onCronRun()
 	{
-		return XiusLibrariesUsersearch::updateCache();
+		return XiusLibUsersearch::updateCache();
 	}
 	
 	
@@ -32,7 +32,7 @@ class XiusLibrariesPluginhandler
 			return true;
 			
 		$filter = 	array('pluginType' => 'Forcesearch');
-		$forceSearchInfo	=	XiusLibrariesInfo::getInfo($filter,'AND',false);
+		$forceSearchInfo	=	XiusLibInfo::getInfo($filter,'AND',false);
 		
 		if(count($forceSearchInfo) == 0)
 			return true;
@@ -49,12 +49,12 @@ class XiusLibrariesPluginhandler
 	
 	function getGeocodesOfInvalidAddress()
 	{
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once ( XIUS_PLUGINS_PATH.DS. 'proximity' .DS.'googleapihelper.php');
 		
 		$filter['pluginType'] = 'Proximity';
 		$filter['key'] = 'google';
 		// get the info details of Proximity information
-		$info = XiusLibrariesInfo::getInfo($filter);
+		$info = XiusLibInfo::getInfo($filter);
 		if(!$info)
 			return false;
 			
@@ -75,7 +75,7 @@ class XiusLibrariesPluginhandler
 	
 	function createGeocodeTable()
 	{
-		require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+		require_once ( XIUS_PLUGINS_PATH.DS. 'proximity' .DS.'googleapihelper.php');
 		$val= ProximityGoogleapiHelper::createGeocodeTable();
 		return $val;
 	}
@@ -85,7 +85,7 @@ class XiusLibrariesPluginhandler
 	{
 		$filter = array();
 		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);		
+		$allInfo = XiusLibInfo::getInfo($filter,'AND',false);		
 	 	if(empty($allInfo))
 	 		return false;
 	 		

@@ -3,8 +3,8 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . '..' .DS . 'defines.php');
-require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
-require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'proximity'.DS.'proximityhelper.php';
+require_once XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once XIUS_PLUGINS_PATH.DS.'proximity'.DS.'proximityhelper.php';
 
 class ProximityView extends XiusBaseView
 {
@@ -61,7 +61,7 @@ class ProximityView extends XiusBaseView
     
  	function getLocationMap($formName,$instance)
     {    	
-    	require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'proximity'.DS.'googlemaphelper.php';
+    	require_once XIUS_PLUGINS_PATH.DS.'proximity'.DS.'googlemaphelper.php';
     	
     	$data=array();
     	$latitudeEle 		 = $instance->get('pluginType').$instance->get('key').'_'.$formName.'_lat';
@@ -74,7 +74,7 @@ class ProximityView extends XiusBaseView
     	$data['width']		 = PROXIMITY_MAP_WIDTH;
     	$data['hight']		 = PROXIMITY_MAP_HEIGHT;
     	$data['id']			 = '';
-    	
+    	//XiTODO:: Why pass data_id 	
     	$map				 = new XiusGmap($data['id']);
     	
     	$this->assign('formName',$formName);

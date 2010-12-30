@@ -23,9 +23,9 @@ class XiusJSProximityTest extends XiUnitTestCase
 			$post= array('xiusinfo_111'=>11, 'value'=>$data, 'xiusinfo_112'=>11);
 			
 						
-			$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-			XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
+			$conditions		= XiusLibUsersearch::processSearchData($post);
+			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+			XiusLibUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 			
 			//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');
 		
@@ -38,9 +38,9 @@ class XiusJSProximityTest extends XiUnitTestCase
 			
 			
 			$post			= array('xiusinfo_111'=>11, 'value'=>$data, 'xiusinfo_112'=>11, 'xiusinfo_151'=>15, 'Rangesearch14_min'=>18, 'Rangesearch14_max'=>25, 'xiusinfo_152'=>15);
-			$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-			//XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
+			$conditions		= XiusLibUsersearch::processSearchData($post);
+			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+			//XiusLibUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 			
 			$newData = array(array());
 			XiusHelperResults::_getInitialData(&$newData);					

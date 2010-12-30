@@ -85,7 +85,7 @@ abstract class XiusBase extends JObject
 		if($id) {
 			$filter = array();
 			$filter['id'] = $id;
-			$info = XiusLibrariesInfo::getInfo($filter);
+			$info = XiusLibInfo::getInfo($filter);
 			if($info)
 				$this->bind($info[0]);
 		}
@@ -427,7 +427,7 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	function appendCreateQuery(XiusCreateTable &$createQuery)
+	function appendCreateQuery(XiusCreatetable &$createQuery)
 	{
 		$columns = $this->getTableMapping();
 		

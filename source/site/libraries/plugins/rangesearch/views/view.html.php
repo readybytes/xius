@@ -3,7 +3,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+require_once XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'jsfieldshelper.php';
 
 class RangesearchView extends XiusBaseView 
 {

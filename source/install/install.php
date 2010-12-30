@@ -5,8 +5,8 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 
-require_once(JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'route.php');
-require_once(JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'text.php');
+require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'base'.DS.'route.php');
+require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'base'.DS.'text.php');
 
 function com_install()
 {

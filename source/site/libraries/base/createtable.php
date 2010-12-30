@@ -7,7 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 
-class XiusCreateTable extends JObject
+class XiusCreatetable extends JObject
 {
 	public $_tableName;
 	public $_query;

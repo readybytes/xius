@@ -7,7 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 
-class XiusLibrariesUsersearch
+class XiusLibUsersearch
 {	
 	function buildQuery($params,$join='AND',$sort='userid',$dir='ASC')
 	{
@@ -106,7 +106,7 @@ class XiusLibrariesUsersearch
 	
 	function getAllInfo($filter = '',$join = 'AND')
 	{
-		$info = XiusLibrariesInfo::getInfo($filter,$join);
+		$info = XiusLibInfo::getInfo($filter,$join);
 		return $info;
 	}
 	
@@ -184,7 +184,7 @@ class XiusLibrariesUsersearch
 		 * provide limit , for huge amount of users say 1,00,000
 		 * then in first rount process 1000 users then again 1000 etc.
 		 */
-		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
+		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		
 		$result =  $cache->insertIntoTable($getDataQuery);
 		
@@ -234,7 +234,7 @@ class XiusLibrariesUsersearch
 			$user =& JFactory::getUser();
 			if(!XiusHelperUtils::isAdmin($user->id))
 					$filter['published'] = true;
-			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
+			$allInfo = XiusLibInfo::getInfo($filter,'AND');
 		}
 		if(empty($allInfo))
 			return $displayFields;
@@ -272,7 +272,7 @@ class XiusLibrariesUsersearch
 			$user =& JFactory::getUser();
 			if(!XiusHelperUtils::isAdmin($user->id))
 					$filter['published'] = true;
-			$allInfo = XiusLibrariesInfo::getInfo($filter,'AND');
+			$allInfo = XiusLibInfo::getInfo($filter,'AND');
 		}
 		
 		if(empty($allInfo))
@@ -305,15 +305,15 @@ class XiusLibrariesUsersearch
 		
 		switch($what){
 			case 'SEARCH':
-				return XiusLibrariesUsersearch::processSearch();
+				return XiusLibUsersearch::processSearch();
 				break;
 
 			case 'DELINFO':
-				return XiusLibrariesUsersearch::deleteSearchData();
+				return XiusLibUsersearch::deleteSearchData();
 				break;
 				
 			case 'SORT':
-				return XiusLibrariesUsersearch::processSort();
+				return XiusLibUsersearch::processSort();
 				break;
 		}
 		
@@ -375,7 +375,7 @@ class XiusLibrariesUsersearch
 		 * don't delete all infoid
 		 */
 		if($conditions == null)
-			$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+			$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		
 		if(!$conditions)
 			return false;
@@ -396,13 +396,13 @@ class XiusLibrariesUsersearch
 		$searchdata['value'] = $value;
 		$searchdata['operator'] = XIUS_EQUAL;
 		
-		$position = XiusLibrariesUsersearch::checkSearchDataExistance($searchdata,$conditions);
+		$position = XiusLibUsersearch::checkSearchDataExistance($searchdata,$conditions);
 		if($position)
 			unset($conditions[$position-1]);
 			
 		$conditions = array_values($conditions);
 	       
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		return true;
 	}
 	
@@ -421,7 +421,7 @@ class XiusLibrariesUsersearch
 		if(!$post)
 			return;
 			
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		if(!$conditions)
 			$conditions = array();
 
@@ -461,13 +461,13 @@ class XiusLibrariesUsersearch
 				}
 				$searchdata['operator'] = XIUS_EQUAL;
 				
-				$result = XiusLibrariesUsersearch::checkSearchDataExistance($searchdata,$conditions);
+				$result = XiusLibUsersearch::checkSearchDataExistance($searchdata,$conditions);
 				if(!$result)
 					array_push($conditions,$searchdata);
 				
 				$start = false;
 				$conditions = array_values($conditions);
-				XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+				XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 				return;
 			}
 		}
@@ -525,8 +525,8 @@ class XiusLibrariesUsersearch
 		$sort = JRequest::getVar('xiussort', 'userid', 'POST');
 		$dir = JRequest::getVar('xiussortdir', 'ASC', 'POST');
 		
-		XiusLibrariesUsersearch::setDataInSession(XIUS_SORT,$sort,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_DIR,$dir,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_SORT,$sort,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_DIR,$dir,'XIUS');
 	}
 }
 

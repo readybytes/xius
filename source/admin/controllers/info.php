@@ -153,7 +153,7 @@ class XiusControllerInfo extends JController
 		
 		$storedInfo = array();
 		
-//		$id = XiusLibrariesInfo::infoExist($data);
+//		$id = XiusLibInfo::infoExist($data);
 		$id =false;
 		if($id && $data['id'] == 0){
 			$storedInfo['id'] = $id;
@@ -184,7 +184,7 @@ class XiusControllerInfo extends JController
 		/*info reset required , b'coz it will return
 		 * old data and new info will not be added in cache
 		 */
-		XiusLibrariesInfo::getAllInfo(true);
+		XiusLibInfo::getAllInfo(true);
 		
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );

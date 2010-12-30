@@ -33,7 +33,7 @@ class JElementXiuslist extends JElement
 	{	
 		require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
 		$html				= '';
-		$options			= XiusLibrariesList::getLists('','AND',false);
+		$options			= XiusLibList::getLists('','AND',false);
 		
 		$html	.= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']" title="' . "Select Account Type" . '::' . "Please Select your account type" . '">';
 		

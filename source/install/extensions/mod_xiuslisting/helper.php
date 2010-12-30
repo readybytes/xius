@@ -16,6 +16,6 @@ class XiusListHelper
 		if(!XiusHelperUtils::isAdmin($user->id))
 			$filter['published'] = 1; 
 			
-		return XiusLibrariesList::getLists($filter, 'AND', false);
+		return XiusLibList::getLists($filter, 'AND', false);
 	}
 }

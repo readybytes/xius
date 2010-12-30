@@ -29,7 +29,7 @@ class XiusViewList extends JView
      */
 	function editList($id,$tpl=null)
 	{	
-		$list 			= XiusLibrariesList::getList($id);
+		$list 			= XiusLibList::getList($id);
 		
 		// load xml file
 		$listxml 		= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'xiuslist';		
@@ -50,8 +50,8 @@ class XiusViewList extends JView
 		// get sortable fields
 		$filter = array();
 		//$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
-		$sortableFields 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
+		$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
+		$sortableFields 	= XiusLibUsersearch::getSortableFields($allInfo);
 		//$sortableFields[] 	= array('key' => 'userid','value' => 'userid');
 		
 		// get the user info, who is owner of the list

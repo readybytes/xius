@@ -163,7 +163,7 @@ class Proximity extends XiusBase
 		static $latitude  = null;
 		static $longitude = null;
 		if(!$latitude || !$longitude){		
-			require_once ( XIUS_PATH_LIBRARY .DS. 'plugins' .DS. 'proximity' .DS.'googleapihelper.php');
+			require_once ( XIUS_PLUGINS_PATH.DS. 'proximity' .DS.'googleapihelper.php');
 			$geocodes  = ProximityGoogleapiHelper::_getGeocodes($value[1]);
 			$latitude  = $geocodes['latitude'];
 			$longitude = $geocodes['longitude'];
@@ -226,7 +226,7 @@ class Proximity extends XiusBase
 	
 	public function isSortable()
 	{
-		$conditions = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		if(!is_array($conditions) || empty($conditions))
 			return false;
 

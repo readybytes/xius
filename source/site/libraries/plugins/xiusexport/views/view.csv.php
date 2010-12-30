@@ -23,10 +23,10 @@ class XiusexportView extends XiusBaseView
 	{
 		global $mainframe;
 	
-		$params = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		$sort = XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
-		$dir = XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,false);
-		//$sortInfo = XiusLibrariesUsersearch::collectSortParams();
+		$params = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$sort = XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
+		$dir = XiusLibUsersearch::getDataFromSession(XIUS_DIR,false);
+		//$sortInfo = XiusLibUsersearch::collectSortParams();
 		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sort);
 
 		if(!$plgSortInstance)
@@ -43,7 +43,7 @@ class XiusexportView extends XiusBaseView
 			}
 		}
 
-		$join = XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$join = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 		$model =& XiusFactory::getModel('users','site');
 		$users =& $model->getUsers($params,$join,$sort,$dir,false);
 
@@ -52,7 +52,7 @@ class XiusexportView extends XiusBaseView
         /*collect all info */
         $filter = array();
 		$filter['published'] = true;
-        $allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
+        $allInfo = XiusLibInfo::getInfo($filter,'AND',false);
 		$fields = array();
         if(!empty($allInfo)){
         	foreach($allInfo as $info){

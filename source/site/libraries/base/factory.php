@@ -40,7 +40,7 @@ class XiusFactory
 	{
 		$pluginClassName = $pluginName;
 		$pluginName = strtolower($pluginName);
-		$pluginPath	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . $pluginName . DS . $pluginName.'.php';
+		$pluginPath	= XIUS_PLUGINS_PATH. DS . $pluginName . DS . $pluginName.'.php';
 		jimport( 'joomla.filesystem.file' );
 		if(!JFile::exists($pluginPath))
 		{
@@ -85,7 +85,7 @@ class XiusFactory
 		if($checkPublished)
 			$filter['published']	= 1;
 
-		$info = XiusLibrariesInfo::getInfo($filter);
+		$info = XiusLibInfo::getInfo($filter);
 		if($info){
 			$pluginObject = self::getPluginInstance($info[0]->pluginType);
 			$pluginObject->bind($info[0]);
@@ -101,7 +101,7 @@ class XiusFactory
         static $instance =null;
 
         if($instance==null)
-            $instance = new XiusLibrariesPluginhandler();
+            $instance = new XiusLibPluginhandler();
 
         return $instance;
     }

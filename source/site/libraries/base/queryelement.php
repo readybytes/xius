@@ -8,7 +8,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 
-class XiusQueryElement
+class XiusQueryelement
 {
 	/** @var string The name of the element */
 	protected $_name = null;

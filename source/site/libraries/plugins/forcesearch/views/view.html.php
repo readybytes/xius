@@ -29,7 +29,7 @@ class ForcesearchView extends XiusBaseView
 		
 		$info = $calleObject->getAvailableInfo();
 		/*unset already exist info */
-		$availableInfo = XiusLibrariesInfo::getInfo();
+		$availableInfo = XiusLibInfo::getInfo();
 		//$calleObject->removeExistingInfo($info,$availableInfo);
 		
 		$this->assign('info',$info);

@@ -93,13 +93,13 @@ class XiusCache
 	function buildCreateTableQuery($info = null)
 	{
 		if($info == null)
-			$info = XiusLibrariesUsersearch::getAllInfo();
+			$info = XiusLibUsersearch::getAllInfo();
 		
 		if(empty($info))
 			return false;
 		$info 	= XiusHelperUsersearch::getSortedInfo($info);
 
-		$this->createQuery = new XiusCreateTable($this->_tableName);
+		$this->createQuery = new XiusCreatetable($this->_tableName);
 		
 		$columns = array();
 		$columns[0] = $this->db->nameQuote('userid').' int(21) NOT NULL';

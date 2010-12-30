@@ -52,7 +52,7 @@ class XiussiteViewList extends XiusView
 			$filter['owner'] = $user->id;
 		}
 		
-		$lists = XiusLibrariesList::getLists($filter,'AND',false);
+		$lists = XiusLibList::getLists($filter,'AND',false);
 
 		$selectedListId = JRequest::getVar('listid', 0);
 
@@ -72,15 +72,15 @@ class XiussiteViewList extends XiusView
 		if(!XiusHelperUtils::isAdmin($user->id))
 			$filter['published'] = 1;
 
-		//$lists = XiusLibrariesList::getLists($filter,'AND',false);
+		//$lists = XiusLibList::getLists($filter,'AND',false);
 				
 		//get editor for description of list
 		$data['editor']		= & JFactory::getEditor();
 		// get required data from session
-		$data['conditions'] = XiusLibrariesUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-		$data['sortId'] 	= XiusLibrariesUsersearch::getDataFromSession(XIUS_SORT,false);
-		$data['dir'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_DIR,'ASC');
-		$data['join'] 		= XiusLibrariesUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+		$data['conditions'] = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
+		$data['sortId'] 	= XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
+		$data['dir'] 		= XiusLibUsersearch::getDataFromSession(XIUS_DIR,'ASC');
+		$data['join'] 		= XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 
 		// get related data of conditions 
 		$conditionHtml = XiusHelperList::formatConditions($data['conditions']);
@@ -90,7 +90,7 @@ class XiussiteViewList extends XiusView
 		$data['listDesc'] 	= '';
 		$tempParams=array();
 		if($isNew === 'false'){
-			$list = XiusLibrariesList::getList($selectedListId);
+			$list = XiusLibList::getList($selectedListId);
 			$data['listName'] = $list->name;
 			$data['listDesc'] = $list->description;
 			$tempConfig = new JRegistry('xiuslist');
@@ -101,8 +101,8 @@ class XiussiteViewList extends XiusView
 		// XITODO : if user is admin then ??
 		$filter = array();
 		$filter['published'] = true;
-		$allInfo = XiusLibrariesInfo::getInfo($filter,'AND',false);
-		$data['sortableFields'] 	= XiusLibrariesUsersearch::getSortableFields($allInfo);
+		$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
+		$data['sortableFields'] 	= XiusLibUsersearch::getSortableFields($allInfo);
 		//As we will not be able to sort as per userid.
 		//$data['sortableFields'][] 	= array('key' => 'userid','value' => 'userid');
 		

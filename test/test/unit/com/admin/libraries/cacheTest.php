@@ -43,7 +43,7 @@ class XiusCacheTest extends XiUnitTestCase
 		
 		$cache = new XiusCache();
 		
-		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
+		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		
 		//$limit = array('limitStart' => 0 , 'limit' => 23);
 		
@@ -70,7 +70,7 @@ class XiusCacheTest extends XiUnitTestCase
 		
 		$cache = new XiusCache();
 		
-		$getDataQuery = XiusLibrariesUsersearch::buildInsertUserdataQuery();
+		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		
 		$limit = array('limitStart' => 0 , 'limit' => 23);
 		
@@ -172,7 +172,7 @@ class XiusCacheTest extends XiUnitTestCase
 		/*XITODO : Update cache table also */
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		$query = XiusLibrariesUsersearch::buildQuery($conditions,$join,$sort,$dir);
+		$query = XiusLibUsersearch::buildQuery($conditions,$join,$sort,$dir);
 		$strQuery = $query->__toString();
 
 		$db = JFactory::getDBO();

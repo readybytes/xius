@@ -15,7 +15,7 @@ class XiusInfoTest extends XiUnitTestCase
 	{
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		$resultInfo = XiusLibrariesInfo::getInfo($filter,$join,$reqPagination,$limitStart,$limit);
+		$resultInfo = XiusLibInfo::getInfo($filter,$join,$reqPagination,$limitStart,$limit);
 		
 		foreach($resultInfo as $r){
 			$rArray[0] = (array) $r;
@@ -66,7 +66,7 @@ class XiusInfoTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		$infoResult = XiusLibrariesInfo::infoExist($data);
+		$infoResult = XiusLibInfo::infoExist($data);
 		$this->assertEquals($result,$infoResult,"result should be $result but we get $infoResult");
 	}
 	

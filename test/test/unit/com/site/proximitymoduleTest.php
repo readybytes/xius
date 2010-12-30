@@ -17,9 +17,9 @@ class XiusProximityModule extends XiUnitTestCase {
 		$this->_DBO->loadSql($url);		
 		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert.sql');
 		
-		$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
+		$conditions		= XiusLibUsersearch::processSearchData($post);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		
 		// for google Proximity

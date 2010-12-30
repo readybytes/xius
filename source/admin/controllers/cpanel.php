@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
  
-class XiusControllerCpanel extends XiusAdminController 
+class XiusControllerCpanel extends XiusAdmincontroller 
 {
     
 	function __construct($config = array())

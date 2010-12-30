@@ -16,9 +16,9 @@ class XiuscleanWhiteSpaceUnitTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 
 		$this->resetCachedData();
-		$post		= XiusLibrariesUsersearch::processSearchData($conditions);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$post,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+		$post		= XiusLibUsersearch::processSearchData($conditions);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$post,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
 		XiusHelperResults::_getInitialData(&$data);
@@ -67,9 +67,9 @@ class XiuscleanWhiteSpaceUnitTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 
 		$this->resetCachedData();
-		$post		= XiusLibrariesUsersearch::processSearchData($conditions);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$post,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
+		$post		= XiusLibUsersearch::processSearchData($conditions);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$post,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'views'.DS.'users'.DS.'view.html.php');
 		XiusHelperResults::_getInitialData(&$data);

@@ -9,7 +9,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 	
 	function testGetAvailableInfoForRangesearch()
 	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'rangesearch' . DS . 'rangesearch.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'rangesearch' . DS . 'rangesearch.php';
 		$instance = new Rangesearch();
 		
 		$info = $instance->getAvailableInfo();
@@ -39,7 +39,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 	    
 		// IMP : DO NOT UPDATE CACHE, AS Test data is time dependent
  		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
- 		//$insertedRows = XiusLibrariesUsersearch::updateCache();
+ 		//$insertedRows = XiusLibUsersearch::updateCache();
 		$this->searchUser(array(15,16),11);
 		$this->searchUser(array(0,16),46);
 		$this->searchUser(array(16,18),14);
@@ -60,9 +60,9 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		
 		// build the condition and  compare
 		//$startTime 		= $profiler->getmicrotime();
-		$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
+		$conditions		= XiusLibUsersearch::processSearchData($post);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		
 		// get the user data according to search condition
 		//require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'results.php');

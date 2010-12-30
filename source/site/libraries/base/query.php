@@ -129,7 +129,7 @@ class XiusQuery
 	{
 		$this->_type = 'select';
 		if (is_null($this->_select)) {
-			$this->_select = new XiusQueryElement('SELECT', $columns);
+			$this->_select = new XiusQueryelement('SELECT', $columns);
 		} else {
 			$this->_select->append($columns);
 		}
@@ -144,7 +144,7 @@ class XiusQuery
 	public function delete()
 	{
 		$this->_type = 'delete';
-		$this->_delete = new XiusQueryElement('DELETE', array(), '');
+		$this->_delete = new XiusQueryelement('DELETE', array(), '');
 		return $this;
 	}
 
@@ -154,7 +154,7 @@ class XiusQuery
 	public function insert($tables)
 	{
 		$this->_type = 'insert';
-		$this->_insert = new XiusQueryElement('INSERT INTO', $tables);
+		$this->_insert = new XiusQueryelement('INSERT INTO', $tables);
 		return $this;
 	}
 
@@ -164,7 +164,7 @@ class XiusQuery
 	public function update($tables)
 	{
 		$this->_type = 'update';
-		$this->_update = new XiusQueryElement('UPDATE', $tables);
+		$this->_update = new XiusQueryelement('UPDATE', $tables);
 		return $this;
 	}
 
@@ -174,7 +174,7 @@ class XiusQuery
 	public function from($tables)
 	{
 		if (is_null($this->_from)) {
-			$this->_from = new XiusQueryElement('FROM', $tables);
+			$this->_from = new XiusQueryelement('FROM', $tables);
 		} else {
 			$this->_from->append($tables);
 		}
@@ -191,7 +191,7 @@ class XiusQuery
 		if (is_null($this->_join)) {
 			$this->_join = array();
 		}
-		$this->_join[] = new XiusQueryElement(strtoupper($type) . ' JOIN', $conditions);
+		$this->_join[] = new XiusQueryelement(strtoupper($type) . ' JOIN', $conditions);
 
 		return $this;
 	}
@@ -244,7 +244,7 @@ class XiusQuery
 	{
 		if (is_null($this->_set)) {
 			$glue = strtoupper($glue);
-			$this->_set = new XiusQueryElement('SET', $conditions, "\n\t$glue ");
+			$this->_set = new XiusQueryelement('SET', $conditions, "\n\t$glue ");
 		} else {
 			$this->_set->append($conditions);
 		}
@@ -260,7 +260,7 @@ class XiusQuery
 	{
 		if (is_null($this->_where)) {
 			$glue = strtoupper($glue);
-			$this->_where = new XiusQueryElement('WHERE', $conditions, " $glue ");
+			$this->_where = new XiusQueryelement('WHERE', $conditions, " $glue ");
 		} else {
 			$this->_where->append($conditions);
 		}
@@ -274,7 +274,7 @@ class XiusQuery
 	public function group($columns)
 	{
 		if (is_null($this->_group)) {
-			$this->_group = new XiusQueryElement('GROUP BY', $columns);
+			$this->_group = new XiusQueryelement('GROUP BY', $columns);
 		} else {
 			$this->_group->append($columns);
 		}
@@ -290,7 +290,7 @@ class XiusQuery
 	{
 		if (is_null($this->_having)) {
 			$glue = strtoupper($glue);
-			$this->_having = new XiusQueryElement('HAVING', $conditions, " $glue ");
+			$this->_having = new XiusQueryelement('HAVING', $conditions, " $glue ");
 		} else {
 			$this->_having->append($conditions);
 		}
@@ -304,7 +304,7 @@ class XiusQuery
 	public function order($columns)
 	{
 		if (is_null($this->_order)) {
-			$this->_order = new XiusQueryElement('ORDER BY', $columns);
+			$this->_order = new XiusQueryelement('ORDER BY', $columns);
 		} else {
 			$this->_order->append($columns);
 		}

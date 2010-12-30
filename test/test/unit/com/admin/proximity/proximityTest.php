@@ -13,7 +13,7 @@ class XiusProximityTest extends XiUnitTestCase
 		 * it will not run individually ,
 		 * b'coz joomla file system does not load
 		 */
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'proximity' . DS . 'proximity.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'proximity' . DS . 'proximity.php';
 		$instance = new Proximity();
 		
 		$info = $instance->getAvailableInfo();

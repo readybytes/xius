@@ -19,12 +19,12 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		XiusLibrariesUsersearch::updateCache();
+		XiusLibUsersearch::updateCache();
 						
 		// build the condition and  compare
-		$conditions		= XiusLibrariesUsersearch::processSearchData($post);
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
+		$conditions		= XiusLibUsersearch::processSearchData($post);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 		
 		// get the user data according to search condition
 		

@@ -10,7 +10,7 @@ class XiusCustomTableTest extends XiUnitTestCase
 
 	function testGetAvailableInfo()
 	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'customtable' . DS . 'customtable.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		$instance = new Customtable();
 		
 		if(!$instance->isAllRequirementSatisfy())
@@ -29,7 +29,7 @@ class XiusCustomTableTest extends XiUnitTestCase
 	function testGetTableMapping()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'customtable' . DS . 'customtable.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
 		$instance = new Customtable();
 		$instance->load(6);
@@ -54,7 +54,7 @@ class XiusCustomTableTest extends XiUnitTestCase
 	function testGetUserData()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'customtable' . DS . 'customtable.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
 		$instance = new Customtable();
 		$instance->load(6);
@@ -69,7 +69,7 @@ class XiusCustomTableTest extends XiUnitTestCase
 	function testGetColumnspec()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'customtable' . DS . 'customtable.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
 		$instance = new Customtable();
 		$instance->load(6);
@@ -85,9 +85,9 @@ class XiusCustomTableTest extends XiUnitTestCase
 	function testCacheTableCreated()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'customtable' . DS . 'customtable.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
-		XiusLibrariesUsersearch::updateCache();
+		XiusLibUsersearch::updateCache();
 		
 		$this->_DBO->addTable('#__xius_cache');
 	}
@@ -95,14 +95,14 @@ class XiusCustomTableTest extends XiUnitTestCase
 	function testSearch()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries' . DS . 'plugins' . DS . 'customtable' . DS . 'customtable.php';
+		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
-		XiusLibrariesUsersearch::updateCache();
+		XiusLibUsersearch::updateCache();
 		$post			= array('xiusinfo_61'=>6,'Customtable_6'=>'user','xiusinfo_62'=>6);
 		
-		$conditions		= XiusLibrariesUsersearch::processSearchData($post);				
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
+		$conditions		= XiusLibUsersearch::processSearchData($post);				
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 		
 		$data = array(array());
 		XiusHelperResults::_getInitialData(&$data);

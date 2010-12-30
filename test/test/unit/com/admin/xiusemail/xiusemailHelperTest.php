@@ -39,8 +39,8 @@ class XiusemailHelperTest extends XiUnitTestCase
 		$condition[0]["value"]	= 'Bhilwara';
 		$condition[0]["operator"]= '=';
 		
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$condition,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');		
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$condition,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');		
 		$this->assertEquals(XiusemailHelper::getResultedUserId(), array(62,84,90,108,115));
 		$this->resetCachedData();
 		
@@ -53,8 +53,8 @@ class XiusemailHelperTest extends XiUnitTestCase
 		$condition[1]["value"]	= 'gaurav.jain028@gmail.com';
 		$condition[1]["operator"]= '=';
 		
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$condition,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$condition,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
 		$this->assertEquals(XiusemailHelper::getResultedUserId(), array(62));
 		$this->resetCachedData();
 		
@@ -67,8 +67,8 @@ class XiusemailHelperTest extends XiUnitTestCase
 		$condition[1]["value"]	= 'gaurav.jain028@gmail.com';
 		$condition[1]["operator"]= '=';
 		
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$condition,'XIUS');
-		XiusLibrariesUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$condition,'XIUS');
+		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'OR','XIUS');
 		$this->assertEquals(XiusemailHelper::getResultedUserId(), array(62,84,90,108,115));
 		$this->resetCachedData();		
 	}

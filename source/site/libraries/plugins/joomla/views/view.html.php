@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'joomla'.DS.'joomlahelper.php';
+require_once XIUS_PLUGINS_PATH.DS.'joomla'.DS.'joomlahelper.php';
 
 class JoomlaView extends XiusBaseView 
 {

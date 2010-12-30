@@ -36,7 +36,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$db = JFactory::getDBO();
 		
 		foreach($datas as $data){
-			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$data['conditions']);
+			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$data['conditions']);
 			$result = $userController->_saveList('true',$data['info'],null,$user);
 			$this->assertEquals($data['resultId'],$result['id'],'info id during save should be '.$data['resultId'].' but we get '.$result['id']);
 			$this->matchUrls($data['resultUrl'],$result['url']);
@@ -78,7 +78,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$db = JFactory::getDBO();
 		
 		foreach($datas as $data){
-			XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$data['conditions']);
+			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$data['conditions']);
 			$result = $userController->_saveList('false',$data['info'],null,JFactory::getUser(62));
 			$this->assertEquals($data['resultId'],$result['id'],'info id during save should be '.$data['resultId'].' but we get '.$result['id']);
 			$this->matchUrls($data['resultUrl'],$result['url']);
@@ -128,7 +128,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		unset($post);
 		$params=null;		
 		$conditions = array(array('infoid' => '1' , 'value' => 'Male' , 'operator' => '='),array('infoid' => '3' , 'value' => 'Afghanistan' , 'operator' => '='));
-		XiusLibrariesUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions);
+		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions);
 		$user =& JFactory::getUser(62);
 		
 		$post['listid']				=	0;
