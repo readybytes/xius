@@ -1,7 +1,7 @@
 ../packages/tmp/admin/views/list/view.html.php:48:		$editor 		=& JFactory::getEditor();
 ../packages/tmp/admin/views/list/view.html.php:58:		$user = & JFactory::getUser($list->owner);
 ../packages/tmp/admin/views/cpanel/view.html.php:55:		$lang		=& JFactory::getLanguage();
-../packages/tmp/admin/includes.php:65:$lang =& JFactory::getLanguage();
+../packages/tmp/admin/includes.php:66:$lang =& JFactory::getLanguage();
 ../packages/tmp/admin/controllers/list.php:9:class XiusControllerList extends JController
 ../packages/tmp/admin/controllers/list.php:33:		global $mainframe;
 ../packages/tmp/admin/controllers/list.php:39:		$cache = & JFactory::getCache('com_content');
