@@ -9,8 +9,6 @@
 ../packages/tmp/admin/controllers/info.php:256:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/admin/elements/xiusTemplates.php:19:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
-../packages/tmp/admin/models/info.php:79:	/*XITODO : Cache function for same filter */
-../packages/tmp/admin/models/info.php:140:		/*XITODO : check key should not be added already*/
 ../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
 ../packages/tmp/site/templates/default/default_result.php:18:/*XITODO : pass variable for color */
@@ -74,6 +72,8 @@
 ../packages/tmp/site/helpers/profile.php:27:		//XITODO:: Some info nt required when cache speedup
 ../packages/tmp/site/helpers/usersearch.php:35:		//XiTODO:: remove magic num 
 ../packages/tmp/site/models/users.php:57:        /*XITODO : Add error message */
+../packages/tmp/site/models/info.php:79:	/*XITODO : Cache function for same filter */
+../packages/tmp/site/models/info.php:140:		/*XITODO : check key should not be added already*/
 ../packages/tmp/site/router.php:50://XITODO : handle list id
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:66:		// XITODO : clean up the following code

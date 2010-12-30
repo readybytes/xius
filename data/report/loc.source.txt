@@ -1,6 +1,6 @@
 phploc 1.2.0 by Sebastian Bergmann.
 
-Directories:                               89
+Directories:                               88
 Files:                                    217
 
 Lines of Code (LOC):                    18423
