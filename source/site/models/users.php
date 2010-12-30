@@ -5,7 +5,7 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiussiteModelUsers extends JModel
+class XiusModelUsers extends JModel
 {
 	protected $_totalusers = null;
 	protected $_pagination = null;

@@ -21,8 +21,8 @@ define('XIUS_PLUGINS_PATH',	XIUS_COMPONENT_PATH_SITE.DS.'libraries'.DS.'plugins'
 
 //XITODO:: change name formate
 //admin
-define('XIUS_PATH_TABLE',		XIUS_COMPONENT_PATH_ADMIN.DS.'tables');
-define('XIUS_PATH_MODEL',		XIUS_COMPONENT_PATH_ADMIN.DS.'models');
+define('XIUS_TABLE_PATH',		XIUS_COMPONENT_PATH_SITE.DS.'tables');
+define('XIUS_MODEL_PATH',		XIUS_COMPONENT_PATH_SITE.DS.'models');
 define('XIUS_PATH_VIEW',		XIUS_COMPONENT_PATH_ADMIN.DS.'views');
 define('XIUS_PATH_CONTROLLER',	XIUS_COMPONENT_PATH_ADMIN.DS.'controllers');
 //define('XIUS_PATH_LIBRARY',		XIUS_COMPONENT_PATH_ADMIN.DS.'libraries');

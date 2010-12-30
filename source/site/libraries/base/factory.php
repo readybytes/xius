@@ -16,7 +16,7 @@ class XiusFactory
 		//find class name
 		$className = 'Xius';
 		if($location === 'site'){
-			$className = 'Xiussite';
+			$className = 'Xius';
 		}
 
 		$className = $className.'Model'.JString::ucfirst($name);
