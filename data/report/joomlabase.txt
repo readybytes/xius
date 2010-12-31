@@ -57,124 +57,6 @@
 ../packages/tmp/admin/controllers/info.php:361:		global $mainframe;
 ../packages/tmp/admin/controllers/info.php:368:			$mainframe->redirect($link, XiusText::_('Please Select any information to update'));	
 ../packages/tmp/admin/controllers/info.php:379:		$mainframe->redirect($link, $msg);	
-../packages/tmp/admin/libraries/factory.php:183:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/joomla/views/view.html.php:32:  			$mySess 	= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/joomla/joomla.php:50:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:14:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/joomla/joomlahelper.php:16:		$userTable = new JTable('#__users','id', $db);
-../packages/tmp/admin/libraries/plugins/jsuser/views/view.html.php:34:			$mySess 	= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/jsuser/jsuserhelper.php:14:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsuser/jsuserhelper.php:16:		$userTable = new JTable('#__community_users','userid', $db);
-../packages/tmp/admin/libraries/plugins/jsuser/jsuser.php:56:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/xiusexport/views/view.csv.php:24:		global $mainframe;
-../packages/tmp/admin/libraries/plugins/xiusexport/controller.php:9:class XiusPluginControllerXiusexport extends JController 
-../packages/tmp/admin/libraries/plugins/rangesearch/views/view.html.php:40:			$mySess 	= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/rangesearch/rangesearch.php:145:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/customtable/elements/tablecolumns.php:37:		$db     = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/customtable/customtable.php:28:		$db     = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/customtable/customtable.php:49:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/customtable/customtable.php:115:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/baseview.php:27:		$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/admin/libraries/plugins/baseview.php:47:		global $option, $mainframe;
-../packages/tmp/admin/libraries/plugins/baseview.php:50:			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
-../packages/tmp/admin/libraries/plugins/baseview.php:130:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/admin/libraries/plugins/baseview.php:149:		$document =& JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/base.php:187:		$user 		= & JFactory::getUser();		
-../packages/tmp/admin/libraries/plugins/base.php:464:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/base.php:544:		$db =& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/xiusemail/views/tmpl/default_xiusemail_selected.php:26:$document =& JFactory::getDocument();        				
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:43:        $data['editor'] 		=& JFactory::getEditor();
-../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:55:        $document =& JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/xiusemail/xiusemail.php:32://		$loggedInUser =& JFactory::getUser();
-../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:9:class XiusPluginControllerXiusemail extends JController 
-../packages/tmp/admin/libraries/plugins/xiusemail/controller.php:37:    	$loggedInUser 	= JFactory::getUser();
-../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:20:    	$db = & JFactory::getDBO();	
-../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:45:    	$document = JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/xiusemail/helper.php:71:    	$db = & JFactory::getDBO();	
-../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:58:		$document	= & JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:65:		$document	= & JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:70:		$document	= & JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/proximity/googlemaphelper.php:76:		$document	= & JFactory::getDocument();
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:31:    	$mySess 			 =  JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:36:		$data['userId']	 =  JFactory::getUser()->id;
-../packages/tmp/admin/libraries/plugins/proximity/controller.php:10:class XiusPluginControllerProximity extends JController 
-../packages/tmp/admin/libraries/plugins/proximity/proximity.php:108:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:10:class ProximityGoogleapiHelper extends JController 
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:79:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:109:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:121:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:129:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/proximity/googleapihelper.php:163:		$db = JFactory::getDBO();	
-../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:15:		$userId	 = & JFactory::getUser()->id;
-../packages/tmp/admin/libraries/plugins/proximity/proximityhelper.php:24:		$db	= & JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfields20.php:30:			$db 	= &JFactory::getDBO(); 
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:56:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:106:		$db	=& JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/jsfieldshelper.php:133:			$mySess 	= & JFactory::getSession();
-../packages/tmp/admin/libraries/plugins/jsfields/base.php:80:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/plugins/jsfields/base.php:228:			$db 	= &JFactory::getDBO(); 
-../packages/tmp/admin/libraries/cache.php:21:		$this->db =& JFactory::getDBO();
-../packages/tmp/admin/libraries/route.php:12:class XiusRoute extends JRoute
-../packages/tmp/admin/libraries/route.php:37:	   $config =& JFactory::getConfig();
-../packages/tmp/admin/libraries/route.php:39:	   if(JFactory::getApplication()->isAdmin())
-../packages/tmp/admin/libraries/usersearch.php:24:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/usersearch.php:81:		$mySess =& JFactory::getSession();
-../packages/tmp/admin/libraries/usersearch.php:89:		$mySess =& JFactory::getSession();
-../packages/tmp/admin/libraries/usersearch.php:98:		$mySess =& JFactory::getSession();
-../packages/tmp/admin/libraries/usersearch.php:177:		JFactory::getSession()->set('updateCache', true);
-../packages/tmp/admin/libraries/usersearch.php:192:		JFactory::getSession()->clear('updateCache', true);
-../packages/tmp/admin/libraries/usersearch.php:209:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
-../packages/tmp/admin/libraries/usersearch.php:234:			$user =& JFactory::getUser();
-../packages/tmp/admin/libraries/usersearch.php:272:			$user =& JFactory::getUser();
-../packages/tmp/admin/libraries/view.php:42:		$path = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
-../packages/tmp/admin/libraries/view.php:102:		$document = JFactory::getDocument();
-../packages/tmp/admin/libraries/view.php:167:		$user = JFactory::getUser();		
-../packages/tmp/admin/libraries/view.php:256:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/admin/libraries/view.php:277:		$document = JFactory::getDocument();
-../packages/tmp/admin/libraries/createtable.php:21:		$db = JFactory::getDBO();
-../packages/tmp/admin/libraries/admincontroller.php:15:abstract class XiusAdminController extends JController
-../packages/tmp/admin/libraries/pluginhandler.php:29:		$user =& JFactory::getUser();
-../packages/tmp/admin/libraries/pluginhandler.php:111:		$user  = & JFactory::getUser();
-../packages/tmp/admin/helpers/utils.php:38:		global $mainframe;
-../packages/tmp/admin/helpers/utils.php:42:		$database = &JFactory::getDBO();
-../packages/tmp/admin/helpers/utils.php:45:		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
-../packages/tmp/admin/helpers/utils.php:64:			$xml = JFactory::getXMLParser('Simple');
-../packages/tmp/admin/helpers/utils.php:93:		$user	=& JFactory::getUser($userid);		
-../packages/tmp/admin/helpers/utils.php:165:		$db			=& JFactory::getDBO();
-../packages/tmp/admin/helpers/utils.php:192:		$db= & JFactory::getDBO();
-../packages/tmp/admin/helpers/utils.php:210:		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
-../packages/tmp/admin/helpers/utils.php:224:		$parser		= JFactory::getXMLParser('Simple');
-../packages/tmp/admin/elements/xiusJoomlaUserGroup.php:45:		$db= & JFactory::getDBO();
-../packages/tmp/admin/tables/list.php:18:class XiusTableList extends JTable
-../packages/tmp/admin/tables/list.php:61:	 * Overrides Joomla's JTable store method so that we can define proper values
-../packages/tmp/admin/tables/list.php:68:		$db		=& JFactory::getDBO();		
-../packages/tmp/admin/tables/configuration.php:12:class XiusTableConfiguration extends JTable
-../packages/tmp/admin/tables/info.php:9:class XiusTableInfo extends JTable
-../packages/tmp/admin/tables/info.php:47:	 * Overrides Joomla's JTable store method so that we can define proper values
-../packages/tmp/admin/tables/conditions.php:19:class XiusTableConditions extends JTable 
-../packages/tmp/admin/tables/conditions.php:59:	 * Overrides Joomla's JTable store method so that we can define proper values
-../packages/tmp/admin/models/list.php:18:    	global $mainframe;
-../packages/tmp/admin/models/list.php:21:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-../packages/tmp/admin/models/list.php:22:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius.limitstart', 'limitstart', 0, 'int' );
-../packages/tmp/admin/models/list.php:34:		global $mainframe;
-../packages/tmp/admin/models/list.php:38:			$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-../packages/tmp/admin/models/list.php:39:			$limitstart	= $mainframe->getUserStateFromRequest('com_xius_listlimitstart', 'limitstart', 0, 'int');
-../packages/tmp/admin/models/list.php:44:			$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/list.php:76:		$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/list.php:104:		$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/list.php:122:		$db =& JFactory::getDBO();
-../packages/tmp/admin/models/info.php:22:		global $mainframe;
-../packages/tmp/admin/models/info.php:28:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-../packages/tmp/admin/models/info.php:29:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius_infolimitstart', 'limitstart', 0, 'int' );
-../packages/tmp/admin/models/info.php:46:		global $mainframe;
-../packages/tmp/admin/models/info.php:50:			$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-../packages/tmp/admin/models/info.php:51:			$limitstart	= $mainframe->getUserStateFromRequest('com_xius_infolimitstart', 'limitstart', 0, 'int');
-../packages/tmp/admin/models/info.php:56:			$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/info.php:88:		$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/info.php:109:		$db			=& JFactory::getDBO();
-../packages/tmp/admin/models/info.php:137:		$infoTable	=& JTable::getInstance( 'info' , 'XiusTable' );
-../packages/tmp/admin/models/info.php:149:		$db 	=& JFactory::getDBO();
-../packages/tmp/admin/models/info.php:180:		$db 	=& JFactory::getDBO();
 ../packages/tmp/site/views/list/view.html.php:23:			$user = JFactory::getUser();
 ../packages/tmp/site/views/list/view.html.php:25:			$user = JFactory::getUser($owner);
 ../packages/tmp/site/views/list/view.html.php:48:		$user = JFactory::getUser();
@@ -288,6 +170,7 @@
 ../packages/tmp/site/helpers/utils.php:177:		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 ../packages/tmp/site/helpers/utils.php:191:		$parser		= JFactory::getXMLParser('Simple');
 ../packages/tmp/site/helpers/slide.php:99:	        $document = JFactory::getDocument();
+../packages/tmp/site/elements/xiusJoomlaUserGroup.php:45:		$db= & JFactory::getDBO();
 ../packages/tmp/site/tables/list.php:18:class XiusTableList extends JTable
 ../packages/tmp/site/tables/list.php:61:	 * Overrides Joomla's JTable store method so that we can define proper values
 ../packages/tmp/site/tables/list.php:68:		$db		=& JFactory::getDBO();		

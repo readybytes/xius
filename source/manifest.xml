@@ -23,6 +23,7 @@
 		<folder>models</folder>
 		<folder>tables</folder>
 		<folder>assets</folder>
+		<folder>elements</folder>
 		<folder>templates</folder>
 	</files>
 
@@ -49,8 +50,6 @@
 			<file>index.html</file>
 			<folder>controllers</folder>
 			<folder>views</folder>
-<!--			<folder>assets</folder>-->
-			<folder>elements</folder>
 		</files>
 		
 		<files>

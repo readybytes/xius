@@ -6,7 +6,7 @@
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die();
 
-class JElementProfiletypes extends JElement
+class JElementProfiletype extends JElement
 {
 	/**
 	 * Element name

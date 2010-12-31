@@ -4,7 +4,7 @@
 		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
 	-->
 		<!--  START INTEGRATION PARAMETERS -->
-	<params group="basicXiusTemplate" addpath="/administrator/components/com_xius/elements"> 	
+	<params group="basicXiusTemplate" addpath="/components/com_xius/elements"> 	
 		<param name="xiusTemplates" type="xiusTemplates" default="default" label="SELECT TEMPLATE.LABEL" description="SELECT TEMPLATE.DESC" />	
 		<param name="integrateJomSocial" type="radio" default="0" label="INTEGRATE WITH JOMSOCIAL.LABEL" description="INTEGRATE WITH JOMSOCIAL.DESC">
 			<option value="0">No</option>
@@ -49,7 +49,7 @@
 		</param>
 	</params>
 		
-	<params addpath="/administrator/components/com_xius/elements"  group="basicXiusList">
+	<params addpath="/components/com_xius/elements"  group="basicXiusList">
 		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.LABEL" description="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.DESC"></param>
 	</params>
 </config>

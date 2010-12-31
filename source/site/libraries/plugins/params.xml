@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<params addpath="/administrator/components/com_xius/elements" >
+	<params addpath="/components/com_xius/elements" >
 		<param name="isSearchable" type="radio" default="1" label="IS INFORMATION CAN BE USED AS SEARCHABLE FOR YOUR SITE MEMBERS" description="IS INFORMATION CAN BE USED AS SEARCHABLE FOR YOUR SITE MEMBERS.DESC">
 			<option value="1">Yes</option>
 			<option value="0">No</option>

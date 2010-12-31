@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<params addpath="/administrator/components/com_xius/elements" >
+	<params addpath="/components/com_xius/elements" >
 			
 		<param name="@spacer" type="spacer" default="Select the respective Information " description="" />
 			<param name="xius_proximity_country" type="info" default="0"  label="COUNTRY.LABEL" description="COUNTRY.DESC"/>
