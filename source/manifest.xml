@@ -31,12 +31,12 @@
 	</languages>
 	
 	<administration>
-		<menu link="option=com_xius" img="components/com_xius/assets/images/icon-joomlaxiusersearch.png">JoomlaXi User Search</menu>
+		<menu link="option=com_xius" img="../components/com_xius/assets/images/icon-joomlaxiusersearch.png">JoomlaXi User Search</menu>
 		<submenu>
-			<menu view="cpanel" img="components/com_xius/assets/images/icon-control-panel.png">Control Panel</menu>
-			<menu view="configuration" img="components/com_xius/assets/images/icon-xius-config.gif">Configuration</menu>
-			<menu view="info" img="components/com_xius/assets/images/icon-info.png">Information</menu>
-			<menu view="list" img="components/com_xius/assets/images/icon-userlist.png">List</menu>
+			<menu view="cpanel" img="../components/com_xius/assets/images/icon-control-panel.png">Control Panel</menu>
+			<menu view="configuration" img="../components/com_xius/assets/images/icon-xius-config.gif">Configuration</menu>
+			<menu view="info" img="../components/com_xius/assets/images/icon-info.png">Information</menu>
+			<menu view="list" img="../components/com_xius/assets/images/icon-userlist.png">List</menu>
 		</submenu>
 		<files folder="admin">
 			<file>xius.php</file>
@@ -49,7 +49,7 @@
 			<file>index.html</file>
 			<folder>controllers</folder>
 			<folder>views</folder>
-			<folder>assets</folder>
+<!--			<folder>assets</folder>-->
 			<folder>elements</folder>
 		</files>
 		

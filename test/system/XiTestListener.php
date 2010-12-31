@@ -70,7 +70,11 @@ class XiDBCheck
          $this->log[]=  "\n auTable :".var_export($auTable,true);
          $this->log[]=  "\n logTable :".var_export($logTable,true);
         $count=count($auTable);
-        $isError = false;	
+        $isError = false;
+
+        $logCount=count($logTable);
+        $auCount=count($auTable);
+	
         for($i=0 ; $i<$count;$i++)
         {    
         	$auArr = $auTable[$i];
@@ -100,6 +104,16 @@ class XiDBCheck
             
         }
         
+	if($logCount != $auCount)	
+	{		
+		$error = "Table count is not same Log Count : $logCount and AuCount : $auCount";
+		$this->errorLog[]=$error;
+		$this->log[]= $error;
+        //Fix error in testcases before we enable this error check  
+		//$isError = true;
+	}
+
+
         if($isError)
         	return false;
         	
@@ -210,22 +224,31 @@ class XiTestListener implements PHPUnit_Framework_TestListener
   public function startTest(PHPUnit_Framework_Test $test)
   {
     static $i=1;
-    $testName      = $test->getName();    
+    static $className = "";
+    $testName      = $test->getName();
+
+    $newClassName = get_class($test);
+    if($newClassName != $className){
+    	echo "\n\n      --$newClassName--";
+    	$className = $newClassName;
+    }
+    printf("\n %3d",$i);
+	echo ": $testName "; $i++;
+
+	$test->startTime = time();
 
     // this two variables must be defined by test
     if(!method_exists($test,'getSqlPath'))
         return;
-        
-    $sqlPath       = $test->getSqlPath(); 
-    $test->_DBO    =& new XiDBCheck();
+
+    $sqlPath       = $test->getSqlPath();
+    $test->_DBO    = new XiDBCheck();
     //load end sql
     $dbDump        =  $sqlPath.'/'.$testName.'.start.sql';
     if(file_exists($dbDump))
     	$test->_DBO->loadSql($dbDump);
-    //else
-    //	echo "\n File does not exist for ". $dbDump . "\n";
 
-    echo "\n Test $i : $testName "; $i++;
+    
   }
  
   public function endTest(PHPUnit_Framework_Test $test, $time)
@@ -244,9 +267,10 @@ class XiTestListener implements PHPUnit_Framework_TestListener
     	$test->_DBO->loadSql($dbDump);
     
     $errors = $test->_DBO->getErrorLog();
-    if($errors){
-         $sqlPath       = $test->getSqlPath();   
+    if(!empty($errors)){
+         $sqlPath       = $test->getSqlPath();
          $logfile       =  $sqlPath.'/'.$testName.'.errlog';
+         echo "\n Gold Table Verification failed for $testName, \n see $logfile for details";
          if(!file_put_contents($logfile,$errors))
          	echo $errors;
     }
@@ -257,7 +281,7 @@ class XiTestListener implements PHPUnit_Framework_TestListener
          if(!file_put_contents($logfile,$logs))
          	echo $logs;
     }
-  } 
-  
+    $test->endTime = time();
+    echo "[".($test->endTime-$test->startTime)."]";
+  }
 }
-?>

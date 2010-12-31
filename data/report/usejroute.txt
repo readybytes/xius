@@ -34,6 +34,11 @@
 ../packages/tmp/admin/controllers/info.php:326:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 ../packages/tmp/admin/controllers/info.php:354:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
 ../packages/tmp/admin/controllers/info.php:363:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);		
+../packages/tmp/admin/libraries/plugins/xiusemail/views/tmpl/default_email.php:11:		<form action="<?php echo XiusRoute::_('index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$this->data['pluginId'].'&userid='.$this->data['userId'].'&tmpl=component'); ?>" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();">
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:64:		$linkMap = "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$pluginId}&userid={$userId}&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:82:        $linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=selected&tmpl=component";
+../packages/tmp/admin/libraries/plugins/xiusemail/views/view.html.php:89:		$linkMap 		= "index.php?option=com_xius&task=emailUser&plugin=xiusemail&pluginid={$id}&userid=all&tmpl=component";
+../packages/tmp/admin/libraries/plugins/proximity/views/view.html.php:38:       	$linkMap = XiusRoute::_('index.php?option=com_xius&task=getLocationMap&fromFormName='.$data['formName'].'&plugin=proximity&pluginid='.$calleObject->get('id').'&tmpl=component');
 ../packages/tmp/site/templates/default/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
 ../packages/tmp/site/templates/nextgen/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);
 ../packages/tmp/site/templates/linkedin/list/default_saveas.php:29:								$url = XiusRoute::_('index.php?option=com_xius&view=users&task=displayList&listid='.$l->id,false);

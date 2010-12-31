@@ -14,7 +14,7 @@ XiusHelperUtils::loadJQuery();
 <style type="text/css">
        #toolbar-updateCache
        {
-           background-image:  url(../administrator/components/com_xius/assets/images/icon_update_cache.png);
+           background-image:  url(../components/com_xius/assets/images/icon_update_cache.png);
            background-repeat:no-repeat;
            background-position: top center;
         }     
