@@ -18,9 +18,7 @@ class ForcesearchView extends XiusBaseView
 	
 	function rawDataHtml(XiusBase $calleObject)
 	{
-		if(!$calleObject->isAllRequirementSatisfy())
-			return false;
-			
+
 		$this->setLayout('rawdata');
 		
 		/*In $this->key , I will store field id for my understanding
@@ -28,9 +26,6 @@ class ForcesearchView extends XiusBaseView
 		 */
 		
 		$info = $calleObject->getAvailableInfo();
-		/*unset already exist info */
-		$availableInfo = XiusLibInfo::getInfo();
-		//$calleObject->removeExistingInfo($info,$availableInfo);
 		
 		$this->assign('info',$info);
 		ob_start();

@@ -18,13 +18,11 @@ class Forcesearch extends XiusBase
 	 */ 
 	public function getAvailableInfo()
 	{
-		if(!$this->isAllRequirementSatisfy())
-			return false;
-	
 		$allInfo = XiusLibInfo::getAllInfo();
 		
-		if(empty($allInfo))
+		if(empty($allInfo)){
 			return false;
+		}
 
 		$pluginsInfo = array();
 			
@@ -47,11 +45,13 @@ class Forcesearch extends XiusBase
 	{
 		$plgInstance = XiusFactory::getPluginInstanceFromId($this->key);
 
-		if(!$plgInstance)
+		if(!$plgInstance){
 			return false;
+			}
 			
-		if(!$plgInstance->isAllRequirementSatisfy())
+		if(!$plgInstance->isAllRequirementSatisfy()){
 			return false;
+			}
 			
 		$inputHtml = $plgInstance->renderSearchableHtml(unserialize($this->pluginParams->get('value')));
 		
@@ -61,6 +61,7 @@ class Forcesearch extends XiusBase
 	
 	function collectParamsFromPost(&$key,&$pluginParams,$postdata)
 	{
+		//XiTODO:: Apply assert
 		if(count($postdata) == 0)
 			return true;	
 		
@@ -70,8 +71,8 @@ class Forcesearch extends XiusBase
 		
 		if(count($searchArray) > 0){
 			$pluginParamArray = $searchArray[0] ; //array('value' => $searchArray[0]->value);
-			$pluginParamArray['value'] =	serialize($pluginParamArray['value']); 
-			$registry	=& JRegistry::getInstance( 'xius' );
+			$pluginParamArray['value'] = serialize($pluginParamArray['value']); 
+			$registry	= JRegistry::getInstance( 'xius' );
 			$registry->loadArray($pluginParamArray,'xius_pluginParams');
 			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
 		}
@@ -117,20 +118,14 @@ class Forcesearch extends XiusBase
 			if(!$forceSearchInstance->checkConfiguration('isSearchable'))
 				continue;
 				
-			$plgInstance = XiusFactory::getPluginInstance($fsi->pluginType);
-			if(!$plgInstance)
-				break;
-					
-			$plgInstance->bind($fsi);
-		
-			$pluginParams = $plgInstance->getData('pluginParams');
-			
+			$pluginParams = $forceSearchInstance->getData('pluginParams');
 			$this->_addSearchToQuery($fsQuery,$pluginParams,'AND');
 		}
 			
 		$strQuery	=	$fsQuery->convertWhereIntoString();	
-		if(!$strQuery)
+		if(!$strQuery){
 			return false;
+		}
 
 		$prevQuery	=	$query->convertWhereIntoString();
 		if(!$prevQuery){
@@ -148,11 +143,13 @@ class Forcesearch extends XiusBase
 	function _addSearchToQuery(XiusQuery &$query,$pluginParams,$join='AND')
 	{		
 		$plgInstance = XiusFactory::getPluginInstanceFromId($pluginParams->get('infoid'));
-		if(!$plgInstance)
+		if(!$plgInstance){
 			return false;
+		}
 		
-		if(!$plgInstance->isAllRequirementSatisfy())
+		if(!$plgInstance->isAllRequirementSatisfy()){
 			return false;
+			}
 		
 		$plgInstance->addSearchToQuery($query, unserialize($pluginParams->get('value')), $pluginParams->get('operator'), $join);
 		return true;			

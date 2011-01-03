@@ -39,6 +39,7 @@ class XiusViewInfo extends JView
 			 * Eq :- never create info for Gender Twice etc.*/
 			
 			$rawDataHtml = '';
+			//XiTODO:: is it required??
 			if($plugins){
 					/*call plugin field render function */
 					$pluginObject = XiusFactory::getPluginInstance($plugin);
@@ -49,7 +50,7 @@ class XiusViewInfo extends JView
 			$this->assign( 'rawDataHtml' , $rawDataHtml );
 			$this->assign( 'plugin' , $plugin );
 		}
-		
+		//XiTODO:: Why assign this.
 		$this->assign( 'plugins' , $plugins );
 		JToolBarHelper::title( XiusText::_( 'GENERATE INFO' ), 'info' );
 		parent::display($tpl);

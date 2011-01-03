@@ -115,6 +115,7 @@
 ../packages/tmp/site/libraries/plugins/baseview.php:50:			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
 ../packages/tmp/site/libraries/plugins/baseview.php:130:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
 ../packages/tmp/site/libraries/plugins/baseview.php:149:		$document =& JFactory::getDocument();
+../packages/tmp/site/libraries/plugins/forcesearch/views/tmpl/rawdata.php:9:	JFactory::getApplication()->enqueueMessage("NOTHING_EXISTING_INFORMATION");
 ../packages/tmp/site/libraries/plugins/base.php:185:		$user 		= & JFactory::getUser();		
 ../packages/tmp/site/libraries/plugins/base.php:462:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/plugins/base.php:542:		$db =& JFactory::getDBO();

@@ -2,7 +2,9 @@
 ../packages/tmp/admin/views/list/view.html.php:61:		//XITODO :: Autoloading form back ens to fron end	
 ../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
 ../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
-../packages/tmp/admin/views/info/view.html.php:68:		//XITODO:: import plugin in xius.php
+../packages/tmp/admin/views/info/view.html.php:42:			//XiTODO:: is it required??
+../packages/tmp/admin/views/info/view.html.php:53:		//XiTODO:: Why assign this.
+../packages/tmp/admin/views/info/view.html.php:69:		//XITODO:: import plugin in xius.php
 ../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
 ../packages/tmp/admin/defines.php:22://XITODO:: change name formate
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
@@ -42,6 +44,7 @@
 ../packages/tmp/site/libraries/plugins/customtable/customtable.php:8://XiTODO:: Change class name
 ../packages/tmp/site/libraries/plugins/customtable/customtable.php:53:		//XITODO : Assert Here
 ../packages/tmp/site/libraries/plugins/baseview.php:29:		//XITODO : needs improment
+../packages/tmp/site/libraries/plugins/forcesearch/forcesearch.php:61:		//XiTODO:: Apply assert
 ../packages/tmp/site/libraries/plugins/base.php:156:		// XITODO : if any user group is not selected then what, is it should be public
 ../packages/tmp/site/libraries/plugins/base.php:174:	// XITODO : support for Profile type in accessibility
 ../packages/tmp/site/libraries/plugins/base.php:196:	// XITODO : function clean up
