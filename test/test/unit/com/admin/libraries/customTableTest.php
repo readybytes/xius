@@ -40,9 +40,9 @@ class XiusCustomTableTest extends XiUnitTestCase
 		 
 		$object	= new stdClass();
 		$object->tableName			= 'xius_dummy_customtable';
-		$object->tableAliasName 	= "Customtablexius_dummy_customtablename_0";
+		$object->tableAliasName 	= "Customtablexius_dummy_customtablename";
 		$object->originColumnName	= 'name';
-		$object->cacheColumnName	= 'customtablexius_dummy_customtablename_0';
+		$object->cacheColumnName	= 'customtablexius_dummy_customtablename';
 		$object->cacheSqlSpec 		= 'text NOT NULL ';
 		$object->cacheLabelName		= 'Custom Name';
 		$object->createCacheColumn	= true;
@@ -61,8 +61,8 @@ class XiusCustomTableTest extends XiUnitTestCase
 		$query = new XiusQuery();
 		$instance->getUserData($query);
 		$str = $query->__toString();
-		$comparestr = "SELECTjuser.`id`asuserid,Customtablexius_dummy_customtablename_0.nameascustomtablexius_dummy_customtablename_0FROM`#__users`"
-						."asjuserLEFTJOINxius_dummy_customtableasCustomtablexius_dummy_customtablename_0ON(Customtablexius_dummy_customtablename_0.`id`=juser.`id`)";
+		$comparestr = "SELECTjuser.`id`asuserid,Customtablexius_dummy_customtablename.nameascustomtablexius_dummy_customtablenameFROM`#__users`"
+						."asjuserLEFTJOINxius_dummy_customtableasCustomtablexius_dummy_customtablenameON(Customtablexius_dummy_customtablename.`id`=juser.`id`)";
 		$this->assertEquals($this->cleanWhiteSpaces($str), $comparestr); 
 	}
 	

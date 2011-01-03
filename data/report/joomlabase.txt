@@ -106,10 +106,10 @@
 ../packages/tmp/site/libraries/plugins/xiusexport/controller.php:9:class XiusPluginControllerXiusexport extends JController 
 ../packages/tmp/site/libraries/plugins/rangesearch/views/view.html.php:40:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/site/libraries/plugins/rangesearch/rangesearch.php:145:		$db = JFactory::getDBO();
-../packages/tmp/site/libraries/plugins/customtable/elements/tablecolumns.php:37:		$db     = JFactory::getDBO();
-../packages/tmp/site/libraries/plugins/customtable/customtable.php:28:		$db     = JFactory::getDBO();
-../packages/tmp/site/libraries/plugins/customtable/customtable.php:49:		$db = JFactory::getDBO();
-../packages/tmp/site/libraries/plugins/customtable/customtable.php:115:		$db = JFactory::getDBO();
+../packages/tmp/site/libraries/plugins/customtable/elements/tablecolumns.php:38:		$db     = JFactory::getDBO();
+../packages/tmp/site/libraries/plugins/customtable/customtable.php:33:		$tables = JFactory::getDBO()->getTableList();	
+../packages/tmp/site/libraries/plugins/customtable/customtable.php:63:		$db = JFactory::getDBO();
+../packages/tmp/site/libraries/plugins/customtable/customtable.php:120:		$db 	= JFactory::getDBO();
 ../packages/tmp/site/libraries/plugins/baseview.php:27:		$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
 ../packages/tmp/site/libraries/plugins/baseview.php:47:		global $option, $mainframe;
 ../packages/tmp/site/libraries/plugins/baseview.php:50:			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
@@ -149,11 +149,12 @@
 ../packages/tmp/site/libraries/plugins/jsfields/jsfieldshelper.php:133:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:80:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:228:			$db 	= &JFactory::getDBO(); 
-../packages/tmp/site/libraries/base/factory.php:183:		$db = JFactory::getDBO();
+../packages/tmp/site/libraries/base/factory.php:184:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/base/cache.php:21:		$this->db =& JFactory::getDBO();
 ../packages/tmp/site/libraries/base/route.php:12:class XiusRoute extends JRoute
 ../packages/tmp/site/libraries/base/route.php:37:	   $config =& JFactory::getConfig();
 ../packages/tmp/site/libraries/base/route.php:39:	   if(JFactory::getApplication()->isAdmin())
+../packages/tmp/site/libraries/base/query.php:387:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/base/view.php:42:		$path = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
 ../packages/tmp/site/libraries/base/view.php:102:		$document = JFactory::getDocument();
 ../packages/tmp/site/libraries/base/view.php:167:		$user = JFactory::getUser();		

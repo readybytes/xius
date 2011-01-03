@@ -199,7 +199,7 @@ abstract class XiusView extends JView
 			// XITODO : if still $this->_xiurl  iss not set then what to do
 			$this->_xiurl = $this->getXiUrl();
 		}
-		
+		// XiTODO:: Clean This
 		$this->assign('submitUrl', $this->getXiUrl());
 		return parent::display($tmpl);
 	}

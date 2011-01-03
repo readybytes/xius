@@ -36,6 +36,7 @@ class XiusFactory
 		return $modelInstances[$className];
 	}
 
+	//XITODO:: Try to make Autoload all internal plaugin
 	static public function getPluginInstance($pluginName,$bindArray = '',$isBindRequired = false)
 	{
 		$pluginClassName = $pluginName;

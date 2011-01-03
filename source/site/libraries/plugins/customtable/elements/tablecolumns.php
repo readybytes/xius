@@ -22,11 +22,12 @@ class JElementTablecolumns extends JElement
 	
 	function getTableHTML($name,$value,$control_name='params')
 	{
-		$pluginId = JRequest::getVar('editId', 0);
+		$pluginId  = JRequest::getVar('editId', 0);
 		$tableName = null;
+		
 		if($pluginId){
 			$pluinInstance = XiusFactory::getPluginInstanceFromId($pluginId);
-			$tableName    = $pluinInstance->getData('key'); 
+			$tableName     = $pluinInstance->getData('key'); 
 		}
 		else
 			$tableName = JRequest::getVar('rawdata', null);
@@ -38,9 +39,8 @@ class JElementTablecolumns extends JElement
 		$query = " SHOW COLUMNS FROM ".$db->replacePrefix($tableName);
 		$db->setQuery($query);
 		$columns = $db->loadObjectList();	
-
-		$html  = '';		
-		$html .= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']">';
+		
+		$html = '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']">';
 		
 		foreach($columns as $c){		    
 		    $selected	= ( JString::trim($c->Field) == $value ) ? ' selected="true"' : '';

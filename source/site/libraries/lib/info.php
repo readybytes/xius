@@ -58,6 +58,7 @@ class XiusLibInfo
 		$iModel	= XiusFactory::getModel( 'info' );	
 		$allInfo	=& $iModel->getAllInfo('','AND',false);
 		
+		//XiTODO:: import plugin in xius.php
 		// trigger event after loading all info
 		JPluginHelper::importPlugin('xius');
 		$dispatcher =& JDispatcher::getInstance();

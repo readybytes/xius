@@ -21,10 +21,11 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 
 
 DROP TABLE IF EXISTS `#__xius_cache`;;
+DROP TABLE IF EXISTS `au_#__xius_cache`;;
 CREATE TABLE IF NOT EXISTS `au_#__xius_cache` (
   `userid` int(21) NOT NULL,
-  `customtablexius_dummy_customtabledob_0` date NOT NULL,
-  `customtablexius_dummy_customtablename_0` text NOT NULL,
+  `customtablexius_dummy_customtabledob` date NOT NULL,
+  `customtablexius_dummy_customtablename` text NOT NULL,
   `joomlaname_0` varchar(250) NOT NULL,
   `joomlaemail_0` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `au_#__xius_cache` (
 -- Dumping data for table `j341_xius_cache`
 --
 TRUNCATE TABLE `au_#__xius_cache`;;
-INSERT INTO `au_#__xius_cache` (`userid`, `customtablexius_dummy_customtabledob_0`, `customtablexius_dummy_customtablename_0`, `joomlaname_0`, `joomlaemail_0`) VALUES
+INSERT INTO `au_#__xius_cache` (`userid`, `customtablexius_dummy_customtabledob`, `customtablexius_dummy_customtablename`, `joomlaname_0`, `joomlaemail_0`) VALUES
 (62, '1987-11-10', 'User62', 'Administrator', 'shyam@joomlaxi.com'),
 (63, '1987-11-10', 'User63', 'Moderator', 'er.ssverma@gmail.com'),
 (64, '1988-08-18', 'User64', 'Shannon', 'shannon@nomadsworld.com'),
@@ -54,5 +55,3 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (67, 'edge', 'edge', 'clover97field@yahoo.com', '8b17ca2204170265edad7bf350b0602e:B0TGnxbQ4AsK3NZCGtjNYfmhlopImwsz', 'Registered', 0, 0, 18, '2009-03-17 06:00:03', '2009-03-23 05:25:54', '', '\n'),
 (68, 'Frank', 'Twinkiez', 'devowriter@gmail.com', '14846f5b3ddbbfd632f95d6e775d0709:zhZXAN27fqjsAOLGmC6RwxPSYudxLy8o', 'Registered', 0, 0, 18, '2009-03-17 13:55:57', '2009-04-05 14:34:45', '', '\n'),
 (70, 'Mapelibebuime', 'Mapelibebuime', 'balsekata@gmail.com', '1055d2b4e2e255f6cbe714b0478bdc8a:butHxVXf1AniOggicqW1y2yL5ThaT4ks', 'Registered', 1, 0, 18, '2009-03-22 00:51:13', '0000-00-00 00:00:00', '62bd348000c2c758bcc96e1aa1f63096', '\n');;
-
-

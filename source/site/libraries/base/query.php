@@ -56,6 +56,10 @@ class XiusQuery
 
 	/** @var object The where element */
 	protected $_order = null;
+	
+	/** @var object The where element */
+	protected $_limit = 0;
+	protected $_offset = 0;
 
 	/**
 	 * Clear data from the query or a specific clause of the query.
@@ -377,5 +381,11 @@ class XiusQuery
 			return $this->_where->convertWhereIntoString();
 		}
 		return true;
+	}
+	function dbLoadQuery($queryPrefix="", $querySuffix="")
+	{
+		$db = JFactory::getDBO();
+		$db->setQuery($queryPrefix.(string)$this.$querySuffix, $this->_offset,$this->_limit);
+		return $db;
 	}
 }

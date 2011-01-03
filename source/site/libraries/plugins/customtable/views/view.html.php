@@ -18,9 +18,6 @@ class CustomtableView extends XiusBaseView
 	
 	function rawDataHtml(XiusBase $calleObject)
 	{
-		if(!$calleObject->isAllRequirementSatisfy())
-			return false;
-			
 		$this->setLayout('rawdata');
 		$info = $calleObject->getAvailableInfo();
 		

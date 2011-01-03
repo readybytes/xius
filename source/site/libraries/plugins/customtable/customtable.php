@@ -5,6 +5,7 @@
 **/
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
+//XiTODO:: Change class name
 class Customtable extends XiusBase
 {
 	function __construct()
@@ -22,11 +23,14 @@ class Customtable extends XiusBase
 			
 		return (parent::__construct(__CLASS__));
 	}
+	/*
+	 * return All table name that exists in your Data-Base
+	 */
 	
 	public function getAvailableInfo()
 	{
-		$db     = JFactory::getDBO();
-		$tables = $db->getTableList();	
+		//give all available table
+		$tables = JFactory::getDBO()->getTableList();	
 		
 		if(empty($tables))
 			return false;
@@ -46,16 +50,17 @@ class Customtable extends XiusBase
 		if($this->validateValues($value) == false)
 			return false;
 		
-		$db = JFactory::getDBO();
-		if(is_array($value))
-			return false;
+		//XITODO : Assert Here
+//		if(is_array($value))
+//			return false;
 
 		//get all cache columns 
 		$columns = $this->getTableMapping();
 		
 		if(!$columns)
 			return false;
-			
+
+		$db = JFactory::getDBO();
 		foreach($columns as $c){
 			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 			
@@ -90,13 +95,13 @@ class Customtable extends XiusBase
 	function getTableMapping()
 	{
 		$tableInfo					= array();
-		$count = 0;
+		//$count = 0;
 		 
 		$object	= new stdClass();
 		$object->tableName			= $this->key;
-		$object->tableAliasName 	= $this->pluginType.$this->key.$this->pluginParams->get('customSearchColumn')."_$count";
+		$object->tableAliasName 	= $this->pluginType.$this->key.$this->pluginParams->get('customSearchColumn');//."_$count";
 		$object->originColumnName	= $this->pluginParams->get('customSearchColumn');
-		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.$this->pluginParams->get('customSearchColumn').'_'.$count;
+		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.$this->pluginParams->get('customSearchColumn');//.'_'.$count;
 		$object->cacheSqlSpec 		= $this->getCacheSqlSpec($this->key);
 		$object->cacheLabelName		= $this->labelName;
 		$object->createCacheColumn	= true;
@@ -112,9 +117,9 @@ class Customtable extends XiusBase
 	
 	function getCacheSqlSpec($key)
 	{
-		$db = JFactory::getDBO();
-		$table   = $db->replacePrefix($key);
-		$column  = $this->pluginParams->get('customSearchColumn');
+		$db 	= JFactory::getDBO();
+		$table  = $db->replacePrefix($key);
+		$column = $this->pluginParams->get('customSearchColumn');
 		
 		static $specs = null;
 		if(isset($specs[$table])){
