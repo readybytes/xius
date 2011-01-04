@@ -20,9 +20,6 @@ class Joomla extends XiusBase
 	
 	public function getAvailableInfo()
 	{
-		if(!$this->isAllRequirementSatisfy())
-			return false;
-			 
 		$fields = Joomlahelper::getJoomlaFields();
 		
 		if(empty($fields))
@@ -44,23 +41,26 @@ class Joomla extends XiusBase
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{
 		// if input values are are not valid then discard this		
-		if($this->validateValues($value) == false)
+		if($this->validateValues($value) == false){
 			return false;
+		}
 		
 		$db = JFactory::getDBO();
-		if(is_array($value))
+		if(is_array($value)){
 			return false;
+		}
 
 		//get all cache columns 
 		$columns = $this->getTableMapping();
 		
-		if(!$columns)
+		if(empty($columns)){
 			return false;
+		}
 			
 		foreach($columns as $c){
 			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 			
-			if($this->key == 'registerDate')
+			if($this->key == 'registerDate' || $this->key == 'lastvisitDate')
 				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
 
 			if($this->key == 'block' && $operator != XIUS_LIKE)
@@ -111,26 +111,25 @@ class Joomla extends XiusBase
 	
 	function getInfoName()
 	{
-		//$filter = array();
-		$filter = $this->key;
-		$fieldInfo = Joomlahelper::getJoomlaFields($filter);
-		
-		if(!empty($fieldInfo))
-			return $fieldInfo;
-			
-		return false;
+		if(empty($this->key)){
+			return false;
+		}
+		return	$this->key;
 	}
 	
 	function getCacheSqlSpec($key)
 	{
-		if($key == 'registerDate' || $key == 'lastvisitDate')
+		if($key == 'registerDate' || $key == 'lastvisitDate'){
 			return 'datetime NOT NULL'; 
+		}
 		
-		if($key == 'id')
+		if($key == 'id'){
 			return 'int(21) NOT NULL';
+		}
 			
-		if($key == 'block')
+		if($key == 'block'){
 			return 'tinyint(4) NOT NULL';
+		}
 	
 		return parent::getCacheSqlSpec($key);
 	}
@@ -151,8 +150,9 @@ class Joomla extends XiusBase
 	/* formatting displaying output */
 	public function _getFormatData($value)
 	{
-		if($this->key != 'registerDate')
+		if($this->key != 'registerDate' && $this->key != 'lastvisitDate'){
 			return parent::_getFormatData($value);
+		}
 		
 		$value = split('-',$value);
 		$finalvalue = '';

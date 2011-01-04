@@ -37,6 +37,7 @@
 ../packages/tmp/site/libraries/lib/info.php:61:		//XiTODO:: import plugin in xius.php
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
+../packages/tmp/site/libraries/plugins/joomla/joomla.php:49:		//XiTODO:: Y required this.??
 ../packages/tmp/site/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
 ../packages/tmp/site/libraries/plugins/xiusexport/views/view.csv.php:21:	// XITODO : break the function
 ../packages/tmp/site/libraries/plugins/xiusexport/views/view.csv.php:40:					/*	XITODO : Sort according to multiple columns name */
@@ -44,7 +45,7 @@
 ../packages/tmp/site/libraries/plugins/customtable/customtable.php:8://XiTODO:: Change class name
 ../packages/tmp/site/libraries/plugins/customtable/customtable.php:53:		//XITODO : Assert Here
 ../packages/tmp/site/libraries/plugins/baseview.php:29:		//XITODO : needs improment
-../packages/tmp/site/libraries/plugins/forcesearch/forcesearch.php:61:		//XiTODO:: Apply assert
+../packages/tmp/site/libraries/plugins/forcesearch/forcesearch.php:64:		//XiTODO:: Apply assert
 ../packages/tmp/site/libraries/plugins/base.php:156:		// XITODO : if any user group is not selected then what, is it should be public
 ../packages/tmp/site/libraries/plugins/base.php:174:	// XITODO : support for Profile type in accessibility
 ../packages/tmp/site/libraries/plugins/base.php:196:	// XITODO : function clean up

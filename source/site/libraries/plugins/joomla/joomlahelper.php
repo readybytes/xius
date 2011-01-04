@@ -11,19 +11,18 @@ class Joomlahelper
 
 	function getJoomlaFields($filter = '')
 	{
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 			
 		$userTable = new JTable('#__users','id', $db);
 		$allColumns = $userTable->_db->getTableFields('#__users');
 		
-		if(empty($allColumns))
+		if(empty($allColumns) || empty($allColumns['#__users']) ){
 			return false;
+		}
 			
-		if(empty($allColumns['#__users']))
-			return false;
-			
-		if(!empty($filter))
+		if(!empty($filter)){
 			return $filter;
+		}
 			
 		return $allColumns['#__users'];
 	}	

@@ -18,9 +18,6 @@ class JoomlaView extends XiusBaseView
 	
 	function searchHtml($calleObject,$value='')
 	{
-		if(!$calleObject->isAllRequirementSatisfy())
-			return false;
-
 		$layout  	= 	null;
 		$paramsType	=	$calleObject->get('pluginType');
  		$key		=	$calleObject->get('key');
@@ -29,7 +26,7 @@ class JoomlaView extends XiusBaseView
  		
  		if($infoType == 'datetime NOT NULL' ){
   			// if module is displayin info
-  			$mySess 	= & JFactory::getSession();
+  			$mySess 	= JFactory::getSession();
   			$formName	= $mySess->get('xiusModuleForm','','XIUS');
          		if($formName != '')
          			$formName = "_{$formName}";
