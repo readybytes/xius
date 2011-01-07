@@ -13,7 +13,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$this->resetCachedData();
 		
 		$cache = new XiusCache();
-		$cache->createTable(true);
+		$cache->createTable();
 		
 		//Test column exist or not
 		$columns = array('userid' => true,'jsfields2_0' => true , 'jsfields11_0' => true ,'jsfields12_0' => true ,'joomlaregisterDate_0' => true ,'joomlaregisterDate_0' => true ,'joomlausername_0' => true ,'joomlaname_0' => true ,'jsfields17_0' => true , 'jsfields3_0' => true ,'jsfields4_0' => false , 'joomlaactivation_0' => false );
@@ -253,7 +253,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$this->resetCachedData();
 		
 		$cache = new XiusCache();
-		$result = $cache->createTable(false);
+		$result = $cache->createTable();
 	
 		$this->assertFalse($result);
 		

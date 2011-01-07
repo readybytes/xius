@@ -9,60 +9,68 @@ class XiusCache
 {
 	var $db				= null;
 	var $_tableName		= null;
-	var $createQuery	= null;
-	var $insertQuery	= null;
+	var $_insertQuery	= null;
 	var $error 			= null;
-	
 	
 	function __construct()
 	{
-		$this->_tableName = '#__xius_cache';
-		
-		$this->db =& JFactory::getDBO();
-		$this->error = XiusFactory::getErrorObject();
-		
-		$this->insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
+		$this->db 	 	    = JFactory::getDBO();
+		$this->_tableName   = '#__xius_cache';
+		$this->_insertQuery = 'INSERT INTO '
+							   .$this->db->nameQuote($this->_tableName).' ( ';
+		$this->error 	    = XiusFactory::getErrorObject();
+
 	}
-	
 	
 	function getTableName()
 	{
 		return $this->_tableName;
 	}
 	
-	function createTable($droptableReq = true)
+	function createTable()
 	{
-		if($droptableReq)
-			$this->dropTable();
-			
-		if($this->buildCreateTableQuery() == false)
+		$this->dropTable();
+		
+		// Build Query	
+		$createQuery = new XiusQuery();
+		$createQuery = $this->buildCreateTableQuery();
+
+		if(empty($createQuery))
+		{
 			return false;	
-			
-		$this->db->setQuery($this->createQuery->__toString());
-		if($this->db->query())
-			return true;
-			
+		}
+		// Set query on Data-Base Object and Execute query
+		if ($createQuery->dbLoadQuery()->query())
+		{
+			$createQuery->clear('create');
+			return true;	
+		}
+	
 		$this->error->setError($this->db->ErrorMsg());
 		return false;
 	}
 
+	/*
+	 * Insert Into XiUS cache Table
+	 */
 	function insertIntoTable(XiusQuery $query,$limitReq=false,$limit = array())
 	{
-		$this->insertQuery	.= $query->__toString();
+		$this->_insertQuery	.= $query->__toString();
 		
 		/*Bound result set starting from some users
 		 * Limit should be configurable
 		 */
+		if($limitReq){
+			$this->_insertQuery .= ' LIMIT '.$limit['limitStart'].' , '.$limit['limit'];
+		}
 		
-		if($limitReq)
-			$this->insertQuery .= ' LIMIT '.$limit['limitStart'].' , '.$limit['limit'];
-		
-		$this->insertQuery .= ' )';
+		$this->_insertQuery .= ' )';
 
-		$this->db->setQuery($this->insertQuery);
+		// Insert query, set on Data-Base Object
+		$this->db->setQuery($this->_insertQuery);
 		
 		// clear the insert query
-		$this->insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
+		$this->_insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
 			
 		if($this->db->query()){
 			$affectedRows = $this->db->getAffectedRows();
@@ -73,7 +81,9 @@ class XiusCache
 		return false;
 	}
 	
-	
+	/*
+	 * Drop XiUS cache Table
+	 */
 	function dropTable()
 	{
 		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->nameQuote($this->_tableName);
@@ -85,38 +95,46 @@ class XiusCache
 		$this->error->setError($this->db->ErrorMsg());
 		return false;
 	}
-	
-	
-	/*XITODO : Modify fn to check that column name
-	 * should be unique
+	/*
+	 * Create XiUS-Cache Query 
 	 */
-	function buildCreateTableQuery($info = null)
+	function buildCreateTableQuery($allInfo = null)
 	{
-		if($info == null)
-			$info = XiusLibUsersearch::getAllInfo();
-		
-		if(empty($info))
-			return false;
-		$info 	= XiusHelperUsersearch::getSortedInfo($info);
+		if($allInfo == null){
+			$allInfo = XiusLibUsersearch::getAllInfo();
 
-		$this->createQuery = new XiusCreatetable($this->_tableName);
+			if(empty($allInfo)){
+				return false;
+			}
+		}
+
+		// Get independent  Information
+		$allInfo     = XiusHelperUsersearch::getSortedInfo($allInfo);
 		
-		$columns = array();
-		$columns[0] = $this->db->nameQuote('userid').' int(21) NOT NULL';
-		
-		$this->createQuery->appendColumns($columns);
-		
-		foreach($info as $i){
-			$instance = XiusFactory::getPluginInstanceFromId($i->id);
-			if(!$instance)
+		$columns 	 = array();
+		$columns[] = " `userid` int(21) NOT NULL";
+
+		foreach($allInfo as $info)
+		{			
+			$instance = XiusFactory::getPluginInstanceFromId($info->id);
+			
+			if(empty($instance)){
 				continue;
+			}
+			// Get Colums according to Plugin-Table-Mapping 	
+			$pluginColumns = $instance->getTableMapping();
+			
+			foreach($pluginColumns as $c)
+			{
+				if(empty($pluginColumns) && !isset($c->createCacheColumn ))
+					continue;
 				
-			$instance->appendCreateQuery($this->createQuery);
+				$columns[]  = " `{$c->cacheColumnName}` {$c->cacheSqlSpec} ";
+			}
 		}
 		
-		$this->createQuery->finalizeQuery();
-		
-		return $this->createQuery->__toString();
+		$query = new XiusQuery();
+		return $query->create($this->db->nameQuote($this->_tableName),$columns);
 	}
 	
 }

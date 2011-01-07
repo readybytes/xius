@@ -151,7 +151,7 @@ class XiussiteControllerUsers extends XiusController
 	{
 		$cache = XiusFactory::getCacheObject();
 		if($limit['limitStart'] == 0) {
-			if(!$cache->createTable(true))
+			if(!$cache->createTable())
 				return false;
 		}
 		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();

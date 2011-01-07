@@ -427,27 +427,6 @@ abstract class XiusBase extends JObject
 	}
 	
 	
-	function appendCreateQuery(XiusCreatetable &$createQuery)
-	{
-		$columns = $this->getTableMapping();
-		
-		if(empty($columns))
-			return false;
-
-		$columnDeatils = array();
-		//  check is set $c->createCacheColumn
-		foreach($columns as $c){
-			if(	!isset($c->createCacheColumn) 
-					|| $c->createCacheColumn == false)
-				continue;
-			
-			$columnDeatils[]  = " `{$c->cacheColumnName}` {$c->cacheSqlSpec} ";
-		}		
-		$createQuery->appendColumns($columnDeatils);
-		return true;
-	}
-	
-	
 	/*function update query	 */
 	public function addSearchToQuery(XiusQuery &$query,$value,$operator='=',$join='AND')
 	{

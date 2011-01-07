@@ -110,15 +110,6 @@ class XiusLibUsersearch
 		return $info;
 	}
 	
-	
-	function createTableQuery()
-	{
-		$info = self::getAllInfo();
-		$cache = XiusFactory::getCacheObject();
-		return $cache->buildCreateTableQuery($info);
-	}
-	
-	
 	function buildInsertUserdataQuery()
 	{
 		/*XITODO : pass info through parameter */
@@ -177,8 +168,9 @@ class XiusLibUsersearch
 		JFactory::getSession()->set('updateCache', true);
 		
 		$cache = XiusFactory::getCacheObject();
-		if(!$cache->createTable(true))
+		if(!$cache->createTable()){
 			return false;
+		}
 			
 		/*XITODO : break insert user data query into parts
 		 * provide limit , for huge amount of users say 1,00,000

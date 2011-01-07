@@ -109,8 +109,10 @@ class XiusUserSearchTest extends XiUnitTestCase
 	
 	function testCreateTableQuery()
 	{
-		$db = JFactory::getDBO();
-		$query = XiusLibUsersearch::createTableQuery();
+		$query = new XiusQuery();
+		$cache = new XiusCache();
+		$query = $cache->buildCreateTableQuery();
+
 		$reqQuery = "CREATE TABLE IF NOT EXISTS `#__xius_cache`"
 					." ( `userid` int(21) NOT NULL,"
 					."`jsfields2_0` varchar(250) NOT NULL,"
@@ -120,9 +122,11 @@ class XiusUserSearchTest extends XiUnitTestCase
 					."`joomlausername_0` varchar(250) NOT NULL,"
 					."`joomlaname_0` varchar(250) NOT NULL,"
 					."`jsfields17_0` varchar(250) NOT NULL,"
-					."`jsfields3_0` datetime NOT NULL )";
-		
-		$this->assertEquals($this->cleanWhiteSpaces($reqQuery),$this->cleanWhiteSpaces($query));
+					."`jsfields3_0` datetime NOT NULL )ENGINE=MyISAM DEFAULT CHARSET=utf8";
+
+		$this->assertEquals($this->cleanWhiteSpaces($reqQuery),$this->cleanWhiteSpaces($query->__toString()));
+		//Clear Create query cache
+		$query->clear('create');
 	}
 	
 	function testBuildInsertUserdataQuery()

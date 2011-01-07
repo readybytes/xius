@@ -9,10 +9,8 @@
 defined('_JEXEC') or die();
 
 jimport( 'joomla.application.component.view' );
-/**
- */
 
-abstract class XiusController extends XiusAdmincontroller
+class XiusController extends JController
 {
 	function __construct($options = array())
 	{
@@ -22,16 +20,18 @@ abstract class XiusController extends XiusAdmincontroller
 	function execute( $task )
 	{
 		$plugin	= JRequest::getCmd('plugin',	'');
-		if($plugin != ''){
-			$pInst = XiusFactory::getPluginInstance($plugin);
-			
-			if($pInst == false)
-				JError::raiseError( 500 , sprintf(XiusText::_('Invalid XIUS Plugin Object %s. Class definition does not exists in this context.' )));
 
+		if($plugin != '')
+		{
+			$pluginInstance = XiusFactory::getPluginInstance($plugin);
+			// Error:: When Not get Plugin instance
+			XiusError::assert($pluginInstance);
 			$controllerClass = 'Xius'.'PluginController'.JString::ucfirst(JString::strtolower($plugin));
-			$controller = $pInst->getController($controllerClass);
-			if($controller == false)
-				JError::raiseError( 500 , sprintf(XiusText::_('Invalid Plugin Controller Object %s. Class definition does not exists in this context.' ),$controller));
+			$controller 	 = $pluginInstance->getController($controllerClass);
+			
+			if($controller == false){
+				XiusError::assert(false, "Invalid Plugin Controller Object $controller Class definition does not exists in this context.", 1);
+			}
 
 			$controller->execute($task);
 			$controller->redirect();
@@ -40,5 +40,51 @@ abstract class XiusController extends XiusAdmincontroller
 		
 		parent::execute($task);
 	}
+	
+	public function getPrefix()
+	{
+		if(isset($this->_prefix) && empty($this->_prefix)===false){
+			return $this->_prefix;
+		}
+		
+		$temp = null;
+		if (!preg_match('/(.*)Controller/i', get_class($this), $temp)) {
+			XiError::raiseError (500, "XiusController::getName() : Can't get or parse class name.");
+		}
+		$this->_prefix  =  JString::strtolower($temp[1]);
+		return $this->_prefix;
+	}
 
+	function getName()
+	{
+		if (empty( $this->_name))
+		{
+			$temp = null;
+			if(!preg_match('/Controller(.*)/i', get_class($this), $temp)) {
+				JError::raiseError (500, "XiController : Can't get or parse class name.");
+			}
+			$this->_name = strtolower( $temp[1] );
+		}
+		return $this->_name;
+	}
+
+
+	public function getView($name='')
+	{
+		static $view = null;
+
+		if(empty($name)){
+			$name 	= $this->getName();
+		}
+
+		if($view && $view->getName() == $name){
+			return $view;
+		}
+		
+		//get Instance from Factory
+		$view	= XiusFactory::getInstance($name,'View', $this->getPrefix());
+		$layout	= JRequest::getCmd( 'layout' , 'default' );
+		$view->setLayout( $layout );		
+		return $view;
+	}
 }

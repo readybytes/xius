@@ -6,12 +6,24 @@
 
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusError extends JObject
+class XiusError extends JError
 {
-
+	const ERROR   = 1;
+	const WARNING = 2;
+	
 	function __construct()
 	{
-		parent::__construct();
+	}
+
+	
+	function assert($condition, $msg = '', $type = self::ERROR)
+	{
+		if($condition)
+			return true;
+		if($type == self::ERROR)
+			self::raiseError('XIUS-ERROR', $msg);
+
+		self::raiseWarning('XIUS-WARNING', $msg);
 	}
 	
 	

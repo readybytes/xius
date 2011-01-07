@@ -29,6 +29,9 @@ class XiusQuery
 
 	/** @var object The delete element */
 	protected $_delete = null;
+	
+	/** @var object The where element */
+	protected $_create = 0;
 
 	/** @var object The update element */
 	protected $_update = null;
@@ -60,6 +63,7 @@ class XiusQuery
 	/** @var object The where element */
 	protected $_limit = 0;
 	protected $_offset = 0;
+	
 
 	/**
 	 * Clear data from the query or a specific clause of the query.
@@ -72,6 +76,10 @@ class XiusQuery
 			case 'select':
 				$this->_select = null;
 				$this->_type = null;
+				break;
+			case 'create':
+				$this->_create = null;
+				$this->_type   = null;
 				break;
 			case 'delete':
 				$this->_delete = null;
@@ -140,6 +148,16 @@ class XiusQuery
 
 		return $this;
 	}
+	
+	/**
+	 * @param	mixed	A string or array of table names
+	 */
+	public function create($table, $columns)
+	{
+		$this->_type = 'create';
+		$this->_create = new XiusQueryelement("CREATE TABLE IF NOT EXISTS $table (", $columns);
+		return $this;
+	}
 
 
 	/**
@@ -155,20 +173,20 @@ class XiusQuery
 	/**
 	 * @param	mixed	A string or array of table names
 	 */
-	public function insert($tables)
+	public function insert($table)
 	{
 		$this->_type = 'insert';
-		$this->_insert = new XiusQueryelement('INSERT INTO', $tables);
+		$this->_insert = new XiusQueryelement('INSERT INTO', $table);
 		return $this;
 	}
 
 	/**
 	 * @param	mixed	A string or array of table names
 	 */
-	public function update($tables)
+	public function update($table)
 	{
 		$this->_type = 'update';
-		$this->_update = new XiusQueryelement('UPDATE', $tables);
+		$this->_update = new XiusQueryelement('UPDATE', $table);
 		return $this;
 	}
 
@@ -369,6 +387,12 @@ class XiusQuery
 				if ($this->_where) {
 					$query .= (string) $this->_where;
 				}
+				break;
+				
+			case 'create':
+				//finalizing query
+				$this->_create .=" ) ENGINE=MyISAM DEFAULT CHARSET=utf8";
+				$query .= (string) $this->_create;
 				break;
 		}
 
