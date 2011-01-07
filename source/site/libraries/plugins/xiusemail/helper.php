@@ -30,8 +30,8 @@ class XiusemailHelper
     function getResultedUserId()
     {
     	$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
-    	$join = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
-    	$model =& XiusFactory::getModel('users','site');
+    	$join  = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
+    	$model = XiusModel::getModel('users');
 		$users =& $model->getUsers($conditions,$join,'userid','ASC',false);
 		$userid= array();
 		foreach($users as $u)

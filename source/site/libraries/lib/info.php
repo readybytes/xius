@@ -38,7 +38,7 @@ class XiusLibInfo
 	
 	/*public function getInfo($filter = '',$join = 'AND',$reqPagination = false,$limitStart=0 , $limit=0)
 	{
-		$iModel	= XiusFactory::getModel( 'info' );	
+		$iModel	= XiusModel::getModel( 'info' );	
 		$allInfo		=& $iModel->getAllInfo($filter,$join,$reqPagination,$limitStart, $limit);
 		return $allInfo;
 	}*/
@@ -55,7 +55,7 @@ class XiusLibInfo
 		if( $allInfo != null && isset($allInfo))
 			return $allInfo;
 			
-		$iModel	= XiusFactory::getModel( 'info' );	
+		$iModel	= XiusModel::getModel( 'info' );	
 		$allInfo	=& $iModel->getAllInfo('','AND',false);
 		
 		//XiTODO:: import plugin in xius.php

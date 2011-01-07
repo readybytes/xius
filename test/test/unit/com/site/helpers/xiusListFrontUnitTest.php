@@ -9,7 +9,7 @@ class XiusListFrontUnitTest extends XiUnitTestCase
 	
 	function testFilterListPrivacy()
 	{
-		$lModel =& XiusFactory::getModel('list','admin');
+		$lModel = XiusModel::getModel('list');
 
 		$filter = array();
 		$user = & JFactory::getUser(63);

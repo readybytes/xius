@@ -102,8 +102,8 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 		$fields = Jsfieldshelper::getAllJomsocialFields(true);
 
 		$allInfo = XiusLibInfo::getAllInfo(true);
-		XiusFactory::getModel('users','site',true);
-		XiusFactory::getModel('configuration','admin',true);
+		XiusModel::getModel('users',true);
+		XiusModel::getModel('configuration',true);
 	}
 
 	function updateJoomlaConfig($filter)

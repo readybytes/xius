@@ -13,17 +13,18 @@ class XiusError extends JError
 	
 	function __construct()
 	{
+		//parent::__construct();
 	}
 
-	
 	function assert($condition, $msg = '', $type = self::ERROR)
 	{
 		if($condition)
 			return true;
+			
 		if($type == self::ERROR)
-			self::raiseError('XIUS-ERROR', $msg);
+			self::raiseError('XIUS-ERROR', XiusText_($msg));
 
-		self::raiseWarning('XIUS-WARNING', $msg);
+		self::raiseWarning('XIUS-WARNING', XiusText_($msg));
 	}
 	
 	

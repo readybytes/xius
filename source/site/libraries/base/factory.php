@@ -9,32 +9,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 class XiusFactory
 {
 
-	function &getModel( $name ,$location='admin', $reset=false )
-	{
-		static $modelInstances = null;
-
-		//find class name
-		$className = 'Xius';
-		if($location === 'site'){
-			$className = 'Xius';
-		}
-
-		$className = $className.'Model'.JString::ucfirst($name);
-
-		//we might have conflicting model names in admin/site
-		if(!$reset && isset($modelInstances[$className]))
-			return $modelInstances[$className];
-
-		//check for classname
-		if(class_exists($className, true)===false)
-		{
-			JError::raiseError(500,XiusText::_("Class $className not found"));
-			return false;
-		}
-
-		$modelInstances[$className] = new $className;
-		return $modelInstances[$className];
-	}
 
 	//XITODO:: Try to make Autoload all internal plaugin
 	static public function getPluginInstance($pluginName,$bindArray = '',$isBindRequired = false)

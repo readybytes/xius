@@ -15,7 +15,7 @@ class XiussiteViewList extends XiusView
 	function lists($owner = null,$tmpl='lists')
 	{
 		/*XITODO : get list according to owner*/
-		$lModel =& XiusFactory::getModel('list','admin');
+		$lModel = XiusModel::getModel('list');
 
 		$filter = array();
 
@@ -41,7 +41,7 @@ class XiussiteViewList extends XiusView
 	
 	function saveas($msg = '',$tmpl='saveas')
 	{
-		$lModel =& XiusFactory::getModel('list','admin');
+		$lModel = XiusModel::getModel('list');
 
 		$filter = array();
 

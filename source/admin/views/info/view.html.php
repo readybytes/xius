@@ -13,10 +13,10 @@ class XiusViewInfo extends JView
 {
 	function display($tpl = null)
 	{
-		$iModel	= XiusFactory::getModel( 'info' );
+		$iModel	= XiusModel::getModel( 'info' );
 		
-		$allInfo		=& $iModel->getAllInfo();
-		$pagination	=& $iModel->getPagination();
+		$allInfo	= $iModel->getAllInfo();
+		$pagination	= $iModel->getPagination();
 		
 		$this->setToolbar();
 		// Load tooltips

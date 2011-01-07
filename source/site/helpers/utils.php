@@ -90,7 +90,7 @@ class XiusHelperUtils
 	// XiTODO:: Remove it, When implementing automatic cache updation.
 	function getOtherConfigParams($configname , $what , $default = 0)
 	{
-		$cModel = XiusFactory::getModel('configuration');
+		$cModel = XiusModel::getModel('configuration');
 		$params	= $cModel->getOtherParams($configname);
 		
 		$result = $params->get($what,$default);
@@ -99,7 +99,7 @@ class XiusHelperUtils
 	
 	function getConfigurationParams($what,$default=0)
 	{
-		$cModel = XiusFactory::getModel('configuration');
+		$cModel = XiusModel::getModel('configuration');
 		$params	= $cModel->getParams();
 		$result = $params->get($what,$default);
 		return $result;

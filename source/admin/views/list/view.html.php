@@ -13,7 +13,7 @@ class XiusViewList extends JView
 {
     function display($tpl = null)
     {
-		$lModel =& XiusFactory::getModel('list');
+		$lModel = XiusModel::getModel('list');
 		
 		$lists = $lModel->getLists();
 		$pagination = $lModel->getPagination();

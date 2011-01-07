@@ -148,7 +148,7 @@ class XiusControllerList extends JController
 		unset($post['published']);
 		unset($post['params']);
 
-		$iModel	= XiusFactory::getModel( 'list' );
+		$iModel	= XiusModel::getModel( 'list' );
 		$storedInfo['id'] = $iModel->store($data);
 
 		if(!$storedInfo['id'])
@@ -260,7 +260,7 @@ class XiusControllerList extends JController
 		$data['success'] = false;
 		$data['msg'] = '';
 
-		$lModel =& XiusFactory::getModel('list');
+		$lModel = XiusModel::getModel('list');
 		foreach($ids as $id)
 			if(!$lModel->updatePublish($id,$value)){
 				$data['msg'] = XiusText::_('Unable to publish/unpublish list');

@@ -26,14 +26,14 @@
 ../packages/tmp/site/controllers/list.php:219:		// XITODO : convert string 'false' into bollean false
 ../packages/tmp/site/libraries/lib/usersearch.php:14:		/*XITODO:  provide conditional operator also
 ../packages/tmp/site/libraries/lib/usersearch.php:40:		 * XITODO : add block condition
-../packages/tmp/site/libraries/lib/usersearch.php:127:		/*XITODO : pass info through parameter */
-../packages/tmp/site/libraries/lib/usersearch.php:172:		/*XITODO : update xius_cache table with new info id
-../packages/tmp/site/libraries/lib/usersearch.php:187:		/*XITODO : break insert user data query into parts
-../packages/tmp/site/libraries/lib/usersearch.php:231:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:270:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:378:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/site/libraries/lib/usersearch.php:438:		//XiTODO:: invoke count only one time
-../packages/tmp/site/libraries/lib/usersearch.php:450:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/site/libraries/lib/usersearch.php:115:		/*XITODO : pass info through parameter */
+../packages/tmp/site/libraries/lib/usersearch.php:160:		/*XITODO : update xius_cache table with new info id
+../packages/tmp/site/libraries/lib/usersearch.php:175:		/*XITODO : break insert user data query into parts
+../packages/tmp/site/libraries/lib/usersearch.php:219:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:258:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:366:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/site/libraries/lib/usersearch.php:426:		//XiTODO:: invoke count only one time
+../packages/tmp/site/libraries/lib/usersearch.php:438:			// XITODO : test with 0,null,baln,blank array
 ../packages/tmp/site/libraries/lib/info.php:61:		//XiTODO:: import plugin in xius.php
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
@@ -48,8 +48,8 @@
 ../packages/tmp/site/libraries/plugins/base.php:156:		// XITODO : if any user group is not selected then what, is it should be public
 ../packages/tmp/site/libraries/plugins/base.php:174:	// XITODO : support for Profile type in accessibility
 ../packages/tmp/site/libraries/plugins/base.php:196:	// XITODO : function clean up
-../packages/tmp/site/libraries/plugins/base.php:547:		 * XITODO : Add all cache columns if one instance is 
-../packages/tmp/site/libraries/plugins/base.php:589:		/*XITODO : never initialize params again
+../packages/tmp/site/libraries/plugins/base.php:524:		 * XITODO : Add all cache columns if one instance is 
+../packages/tmp/site/libraries/plugins/base.php:566:		/*XITODO : never initialize params again
 ../packages/tmp/site/libraries/plugins/xiusemail/controller.php:38:    	// XITODO : if not logged in then what to do
 ../packages/tmp/site/libraries/plugins/proximity/views/tmpl/default_search.php:10:		//XITODO:: cleanup code
 ../packages/tmp/site/libraries/plugins/proximity/views/view.html.php:46:		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
@@ -61,10 +61,10 @@
 ../packages/tmp/site/libraries/plugins/proximity/proximityhelper.php:34:		//XITODO:: load row with field name
 ../packages/tmp/site/libraries/plugins/jsfields/jsfields20.php:16:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
-../packages/tmp/site/libraries/base/factory.php:39:	//XITODO:: Try to make Autoload all internal plaugin
-../packages/tmp/site/libraries/base/factory.php:67:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/site/libraries/base/factory.php:130:	//XITODO : send parameters as array of args
-../packages/tmp/site/libraries/base/factory.php:217:		//XITODO : skip load , let handles it by calle self
+../packages/tmp/site/libraries/base/factory.php:13:	//XITODO:: Try to make Autoload all internal plaugin
+../packages/tmp/site/libraries/base/factory.php:41:		/*XITODO : skip load , let handles it by calle self
+../packages/tmp/site/libraries/base/factory.php:104:	//XITODO : send parameters as array of args
+../packages/tmp/site/libraries/base/factory.php:191:		//XITODO : skip load , let handles it by calle self
 ../packages/tmp/site/libraries/base/view.php:29:		//XITODO : we can add here multiple templates, so from global params
 ../packages/tmp/site/libraries/base/view.php:199:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/site/libraries/base/view.php:202:		// XiTODO:: Clean This

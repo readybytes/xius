@@ -44,7 +44,7 @@ class XiusHelperResults
 
 	function _getUsers(&$data)
 	{
-		$model 		= XiusFactory::getModel('users','site');
+		$model 		=  XiusModel::getModel('users');
 		$users 		= $model->getUsers($data['conditions'],$data['join'],$data['sort'],$data['dir']);
         $pagination = $model->getPagination($data['conditions'],$data['join'],$data['sort'],$data['dir']);
 
@@ -54,7 +54,7 @@ class XiusHelperResults
 
 	function _getTotalUsers(&$data)
 	{
-		$model 		   = XiusFactory::getModel('users','site');
+		$model 		   =  XiusModel::getModel('users');
 		$data['total'] = $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
 
 	}

@@ -201,7 +201,7 @@ class XiusLibUsersearch
 		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 		$config->load( 'cache' );
 		
-		$cModel = XiusFactory::getModel('configuration','admin');
+		$cModel = XiusModel::getModel('configuration');
 		
 		$params = $cModel->getOtherParams('cache');
 		$params->set($what,$value);
