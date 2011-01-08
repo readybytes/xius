@@ -1,5 +1,5 @@
-../packages/tmp/admin/views/list/view.html.php:40:		// XITODO : raise error if xml file is not found
-../packages/tmp/admin/views/list/view.html.php:61:		//XITODO :: Autoloading form back ens to fron end	
+../packages/tmp/admin/views/list/view.html.php:39:		// XITODO : raise error if xml file is not found
+../packages/tmp/admin/views/list/view.html.php:60:		//XITODO :: Autoloading form back ens to fron end	
 ../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
 ../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
 ../packages/tmp/admin/views/info/view.html.php:42:			//XiTODO:: is it required??
@@ -34,7 +34,7 @@
 ../packages/tmp/site/libraries/lib/usersearch.php:366:		/*XITODO : only delete same infoid verses value pair
 ../packages/tmp/site/libraries/lib/usersearch.php:426:		//XiTODO:: invoke count only one time
 ../packages/tmp/site/libraries/lib/usersearch.php:438:			// XITODO : test with 0,null,baln,blank array
-../packages/tmp/site/libraries/lib/info.php:61:		//XiTODO:: import plugin in xius.php
+../packages/tmp/site/libraries/lib/info.php:53:		//XiTODO:: import plugin in xius.php
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/site/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
@@ -63,8 +63,7 @@
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/site/libraries/base/factory.php:13:	//XITODO:: Try to make Autoload all internal plaugin
 ../packages/tmp/site/libraries/base/factory.php:41:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/site/libraries/base/factory.php:104:	//XITODO : send parameters as array of args
-../packages/tmp/site/libraries/base/factory.php:191:		//XITODO : skip load , let handles it by calle self
+../packages/tmp/site/libraries/base/factory.php:84:	//XITODO : send parameters as array of args
 ../packages/tmp/site/libraries/base/view.php:29:		//XITODO : we can add here multiple templates, so from global params
 ../packages/tmp/site/libraries/base/view.php:199:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/site/libraries/base/view.php:202:		// XiTODO:: Clean This

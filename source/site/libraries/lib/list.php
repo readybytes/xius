@@ -20,7 +20,7 @@ class XiusLibList
 		$listData['sortinfo'] 	= $data['sortinfo'];
 		$listData['sortdir'] 	= $data['sortdir'];*/
 		
-		$lModel =  XiusModel::getModel('list');
+		$lModel =  XiusFactory::getInstance ('list', 'model');
 		
 		//$id = $lModel->store($listData);
 		$id = $lModel->store($data);
@@ -30,7 +30,7 @@ class XiusLibList
 	
 	function getLists($filter='', $join = 'AND',$reqPagination=true)
 	{		
-		$lModel =  XiusModel::getModel('list');
+		$lModel = XiusFactory::getInstance ('list','model');
 		return $lModel->getLists($filter, $join, $reqPagination);
 			
 	}
@@ -41,7 +41,7 @@ class XiusLibList
 			return false;
 
 		$filter	= array('id'=>$id);
-		$lModel =  XiusModel::getModel('list');
+		$lModel = XiusFactory::getInstance ('list', 'model');
 		$row	= $lModel->getLists($filter,'AND',false);
 		if(!$row)
 			return false;

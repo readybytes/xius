@@ -126,7 +126,7 @@ class XiusModelInfo extends JModel
 	
 	function getInfo($id = 0)
 	{
-		$row = & XiusFactory::getTableInstance ( 'info');
+		$row = XiusFactory::getInstance ('info', 'table');
 		$row->load($id);
 		return $row;
 	}

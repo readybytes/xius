@@ -13,7 +13,7 @@ class XiusViewInfo extends JView
 {
 	function display($tpl = null)
 	{
-		$iModel	= XiusModel::getModel( 'info' );
+		$iModel	= XiusFactory::getInstance ( 'info','Model' );
 		
 		$allInfo	= $iModel->getAllInfo();
 		$pagination	= $iModel->getPagination();

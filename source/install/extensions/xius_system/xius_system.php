@@ -24,7 +24,7 @@ class plgSystemxius_system extends JPlugin
 			return false;
 
 		require_once $includePath;
-		$plgHandler = XiusFactory::getLibraryPluginHandler();
+		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		return $plgHandler->onUsInfoUpdated($data);
 	}
 	
@@ -36,7 +36,7 @@ class plgSystemxius_system extends JPlugin
 			return false;
 
 		require_once $includePath;
-		$plgHandler = XiusFactory::getLibraryPluginHandler();
+		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		return $plgHandler->onAfterUserSearchQueryBuild($data);
 	}
 	
@@ -85,7 +85,7 @@ class plgSystemxius_system extends JPlugin
 			return;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		$pluginHandler->getGeocodesOfInvalidAddress();
 		return;
 	}
@@ -96,7 +96,7 @@ class plgSystemxius_system extends JPlugin
 			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->createGeocodeTable();		
 	}
 	
@@ -132,7 +132,7 @@ class plgSystemxius_system extends JPlugin
 			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->triggerInternelPlugin(__FUNCTION__, $data);	
 		
 	}
@@ -149,7 +149,7 @@ class plgSystemxius_system extends JPlugin
 			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->triggerInternelPlugin(__FUNCTION__, $toolbar);	
 		
 	}
@@ -164,7 +164,7 @@ class plgSystemxius_system extends JPlugin
 		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
 			return false;
 		
-		$pluginHandler=XiusFactory::getLibraryPluginHandler();
+		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->xiusOnAfterLoadList($lists);
 		
 	}

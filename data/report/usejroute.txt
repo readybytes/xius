@@ -1,7 +1,7 @@
 ../packages/tmp/admin/views/list/tmpl/list.edit.php:11:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/list/tmpl/list.edit.php:23:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=list" method="post" name="adminForm">
 ../packages/tmp/admin/views/list/tmpl/default.php:81:					<?php $link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
-../packages/tmp/admin/views/list/view.html.php:104:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
+../packages/tmp/admin/views/list/view.html.php:103:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/info/tmpl/info.edit.php:11:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/info/tmpl/info.edit.php:23:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 ../packages/tmp/admin/views/info/tmpl/default.php:31:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
@@ -25,8 +25,8 @@
 ../packages/tmp/admin/controllers/list.php:222:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 ../packages/tmp/admin/controllers/list.php:247:		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 ../packages/tmp/admin/controllers/list.php:289:		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
-../packages/tmp/admin/controllers/configuration.php:61:		$link = XiusRoute::_('index.php?option=com_xius&view=configuration', false);
-../packages/tmp/admin/controllers/configuration.php:68:		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
+../packages/tmp/admin/controllers/configuration.php:59:		$link = XiusRoute::_('index.php?option=com_xius&view=configuration', false);
+../packages/tmp/admin/controllers/configuration.php:66:		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
 ../packages/tmp/admin/controllers/info.php:208:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 ../packages/tmp/admin/controllers/info.php:227:		$link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
 ../packages/tmp/admin/controllers/info.php:241:		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);

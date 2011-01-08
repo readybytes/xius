@@ -31,7 +31,7 @@ class XiusemailHelper
     {
     	$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
     	$join  = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
-    	$model = XiusModel::getModel('users');
+    	$model = XiusFactory::getInstance ('users', 'model');
 		$users =& $model->getUsers($conditions,$join,'userid','ASC',false);
 		$userid= array();
 		foreach($users as $u)

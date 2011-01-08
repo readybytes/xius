@@ -8,34 +8,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusModel extends JModel
 {
-	function __construct($config = array())
-	{
-		parent::__construct($config);
-	}
-
-	/*
-	 * Return Model Instance
-	 */
-	function getModel( $name, $reset=false )
-	{
-		static $modelInstances = null;
-
-		$className = 'XiusModel'.JString::ucfirst($name);
-
-		if(!$reset && isset($modelInstances[$className]))
-			return $modelInstances[$className];
-
-		//check for classname
-		if(class_exists($className, true)===false)
-		{
-			XiusError::assert(false, "Class $className not found", 1);
-			return false;
-		}
-
-		$modelInstances[$className] = new $className;
-		return $modelInstances[$className];
-	}
-	
 
 //	function getPagination($filter = '',$join = 'AND')
 //	{

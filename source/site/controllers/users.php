@@ -149,7 +149,7 @@ class XiussiteControllerUsers extends XiusController
 	
 	function _runCron($limit)
 	{
-		$cache = XiusFactory::getCacheObject();
+		$cache = XiusFactory::getInstance('cache');
 		if($limit['limitStart'] == 0) {
 			if(!$cache->createTable())
 				return false;

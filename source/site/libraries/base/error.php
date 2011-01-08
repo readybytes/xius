@@ -22,9 +22,9 @@ class XiusError extends JError
 			return true;
 			
 		if($type == self::ERROR)
-			self::raiseError('XIUS-ERROR', XiusText_($msg));
+			self::raiseError('XIUS-ERROR', XiusText::_($msg));
 
-		self::raiseWarning('XIUS-WARNING', XiusText_($msg));
+		self::raiseWarning('XIUS-WARNING', XiusText::_($msg));
 	}
 	
 	

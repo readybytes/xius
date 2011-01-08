@@ -49,7 +49,7 @@ class XiusController extends JController
 		
 		$temp = null;
 		if (!preg_match('/(.*)Controller/i', get_class($this), $temp)) {
-			XiError::raiseError (500, "XiusController::getName() : Can't get or parse class name.");
+			XiusError::assert (false, "Can't get or parse ".XiusController::getName());
 		}
 		$this->_prefix  =  JString::strtolower($temp[1]);
 		return $this->_prefix;
@@ -61,7 +61,7 @@ class XiusController extends JController
 		{
 			$temp = null;
 			if(!preg_match('/Controller(.*)/i', get_class($this), $temp)) {
-				JError::raiseError (500, "XiController : Can't get or parse class name.");
+				XiusError::assert (false, "Can't get or parse ".XiusController::getName());			
 			}
 			$this->_name = strtolower( $temp[1] );
 		}

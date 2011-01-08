@@ -15,7 +15,7 @@ class XiusViewConfiguration extends JView
 	function display($tpl = null)
 	{
 		self::setToolBar();
-		$cModel = XiusModel::getModel('configuration');
+		$cModel = XiusFactory::getInstance ('configuration','model');
 		$params	= $cModel->getParams();
     	jimport('joomla.html.pane');
 		$pane	=& JPane::getInstance('sliders');

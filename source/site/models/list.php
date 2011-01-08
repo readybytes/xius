@@ -141,7 +141,7 @@ class XiusModelList extends JModel
 	 */
 	function store($data)
 	{
-		$row = & XiusFactory::getTableInstance ( 'list');
+		$row = XiusFactory::getInstance ( 'list', 'table');
 		$row->load( $data['id'] );
 
 		// Bind the form fields to the fields value table

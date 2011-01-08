@@ -23,7 +23,7 @@ class XiusLibUsersearch
 		
 		$db = JFactory::getDBO();
 		$query = new XiusQuery();		
-		$cache = XiusFactory::getCacheObject();
+		$cache = XiusFactory::getInstance('cache');
 		$tableName = $cache->getTableName();
 		
 		if(empty($tableName))
@@ -150,7 +150,7 @@ class XiusLibUsersearch
 	
 	function insertUserData(XiusQuery $userInfo)
 	{
-		$cache = XiusFactory::getCacheObject();
+		$cache = XiusFactory::getInstance('cache');
 		return $cache->insertIntoTable($userInfo);
 	}
 	
@@ -167,7 +167,7 @@ class XiusLibUsersearch
 		// Check: Not any information unset during cache update 
 		JFactory::getSession()->set('updateCache', true);
 		
-		$cache = XiusFactory::getCacheObject();
+		$cache = XiusFactory::getInstance('cache');
 		if(!$cache->createTable()){
 			return false;
 		}
@@ -201,7 +201,7 @@ class XiusLibUsersearch
 		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
 		$config->load( 'cache' );
 		
-		$cModel = XiusModel::getModel('configuration');
+		$cModel = XiusFactory::getInstance ('configuration', 'model');
 		
 		$params = $cModel->getOtherParams('cache');
 		$params->set($what,$value);
@@ -231,7 +231,7 @@ class XiusLibUsersearch
 		if(empty($allInfo))
 			return $displayFields;
 			
-		$cache = XiusFactory::getCacheObject();
+		$cache = XiusFactory::getInstance('cache');
 		foreach($allInfo as $info){
 			$plgInstance = XiusFactory::getPluginInstance($info->pluginType);
 			

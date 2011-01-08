@@ -162,7 +162,7 @@ class XiusControllerInfo extends JController
 			$data = (array) $infoTable;
 		}
 		else{
-			$iModel	= XiusModel::getModel( 'info' );
+			$iModel	= XiusFactory::getInstance ( 'info','model' );
 			$storedInfo['id'] = $iModel->save($data);
 			
 			
@@ -250,7 +250,7 @@ class XiusControllerInfo extends JController
 	
 		$count	= count($ids);
 
-		$row = XiusFactory::getTableInstance ( 'info');
+		$row = XiusFactory::getInstance ( 'info','table');
 		
 		
 		/*XITODO : check if info is used anywhere,
@@ -293,7 +293,7 @@ class XiusControllerInfo extends JController
 			return JError::raiseWarning( 500, XiusText::_( 'No items selected' ) );
 		}
 		
-		$iModel	= XiusModel::getModel( 'info' );
+		$iModel	= XiusFactory::getInstance ( 'info', 'model' );
 		foreach($ids as $id)
 		{
 			$iModel->updatePublish($id,1);
@@ -317,7 +317,7 @@ class XiusControllerInfo extends JController
 			return JError::raiseWarning( 500, XiusText::_( 'No items selected' ) );
 		}
 		
-		$iModel	= XiusModel::getModel( 'info' );
+		$iModel	= XiusFactory::getInstance ( 'info', 'model' );
 		foreach($ids as $id)
 		{
 			$iModel->updatePublish($id,0);
@@ -425,7 +425,7 @@ class XiusControllerInfo extends JController
 				break;
 		}
 		
-		$iModel	= XiusModel::getModel( 'info' );
+		$iModel	= XiusFactory::getInstance ( 'info', 'model' );
 		
 		if($iModel->updateParams($id,$todo,$value))
 			return true;

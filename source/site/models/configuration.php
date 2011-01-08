@@ -49,7 +49,7 @@ class XiusModelConfiguration extends JModel
 			else 
 				$this->_params = new JParameter('','');
 				
-			$config = XiusFactory::getTableInstance ( 'configuration');
+			$config = XiusFactory::getInstance ( 'configuration', 'table');
 			$config->load( 'config' );
 			
 			// Bind the user saved configuration.
@@ -67,7 +67,7 @@ class XiusModelConfiguration extends JModel
 	{
 		jimport('joomla.filesystem.file');
 
-		$config	= XiusFactory::getTableInstance ( 'configuration');
+		$config = XiusFactory::getInstance ( 'configuration', 'table');
 		$config->load( $name );
 		
 		$registry	=& JRegistry::getInstance( 'xius_'.$name );
@@ -99,7 +99,7 @@ class XiusModelConfiguration extends JModel
 		
 		$params = new JParameter('','');
 			
-		$config =  XiusFactory::getTableInstance ( 'configuration');
+		$config = XiusFactory::getInstance ( 'configuration', 'table');
 		$config->load( $name );
 		
 		// Bind the saved configuration.

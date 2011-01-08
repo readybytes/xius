@@ -18,7 +18,7 @@ class XiusCache
 		$this->_tableName   = '#__xius_cache';
 		$this->_insertQuery = 'INSERT INTO '
 							   .$this->db->nameQuote($this->_tableName).' ( ';
-		$this->error 	    = XiusFactory::getErrorObject();
+		$this->error 	    = XiusFactory::getInstance('error');
 
 	}
 	

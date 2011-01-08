@@ -43,10 +43,8 @@ class XiusControllerConfiguration extends JController
 			return;
 		}
 		
-		$mainframe	=& JFactory::getApplication();		
-
-		$cModel	= XiusModel::getModel( 'configuration' );
-		
+		$mainframe	= JFactory::getApplication();		
+		$cModel		= XiusFactory::getInstance ('configuration' , 'model');
 		$xiusparams	= JRequest::getVar('xiusparams','','post');
 		
 		// Try to save configurations
@@ -68,8 +66,8 @@ class XiusControllerConfiguration extends JController
 		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
 		$message = XiusText::_('CANT UPDATE CACHE NOW');
 		
-		$cModel = XiusModel::getModel('configuration');
-		$params	= $cModel->getParams();
+		$cModel  = XiusFactory::getInstance ('configuration', 'model');
+		$params	 = $cModel->getParams();
 		$xiusKey = $params->get('xiusKey','AB2F4');
 		
 		if(XiusHelperUtils::verifyCronRunRequired($xiusKey) == false)

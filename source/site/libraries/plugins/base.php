@@ -510,7 +510,7 @@ abstract class XiusBase extends JObject
 	
 	function getMiniProfileDisplay($userid,$cname)
 	{
-		$cache = XiusFactory::getCacheObject();
+		$cache = XiusFactory::getInstance('cache');
 		$tname = $cache->getTableName();
 		$utname = 'userid';
 		$columns = $this->getTableMapping();
