@@ -63,21 +63,16 @@ class XiusControllerInfo extends JController
 	
 	function renderinfo()
 	{
-		$id = JRequest::getVar('editId', 0 );
-		$plugin = JRequest::getVar('plugin', 0 ) ;
-		
-		$viewName	= JRequest::getCmd( 'view' , 'info' );
-		
-		// Get the document object
-		$document	=& JFactory::getDocument();
+		$id 	  = JRequest::getVar('editId', 0 );
+		$plugin   = JRequest::getVar('plugin', 0 ) ;
+		$viewName = JRequest::getCmd( 'view' , 'info' );
 
 		// Get the view type
-		$viewType	= $document->getType();
-		
-		$view		=& $this->getView( $viewName , $viewType );
-		
+		$viewType	= JFactory::getDocument()->getType();
+		$view		= $this->getView( $viewName , $viewType );
+		// XiTODO:: is it requrird
 		if(!$plugin && !$id) {
-			$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );
+			$layout	= JRequest::getCmd( 'layout' , 'pluginlist' );
 			$view->setLayout( $layout );
 			echo $view->add($plugin);
 			return;
@@ -86,15 +81,16 @@ class XiusControllerInfo extends JController
 		$data = array();
 		$data['id'] = $id;
 		
-		if($id){
-			
+		if($id){		
 			$pluginObject = XiusFactory::getPluginInstanceFromId($id);
+			
 			if(!$pluginObject) {
 				$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );
 				$view->setLayout( $layout );
 				echo $view->add($plugin);
 				return;
 			}
+			// XiTODO:: is it required
 			$data = $pluginObject->toArray();
 		}
 		else if($plugin) {

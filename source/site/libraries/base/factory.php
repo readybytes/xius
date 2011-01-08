@@ -8,45 +8,52 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusFactory
 {
-
-
-	//XITODO:: Try to make Autoload all internal plaugin
-	static public function getPluginInstance($pluginName,$bindArray = '',$isBindRequired = false)
+	static $instances = array();
+	/*
+	 * get Plugin-Instance
+	 */
+	static public function getPluginInstance($pluginName, $pluginId=0)
 	{
-		$pluginClassName = $pluginName;
-		$pluginName = strtolower($pluginName);
-		$pluginPath	= XIUS_PLUGINS_PATH. DS . $pluginName . DS . $pluginName.'.php';
-		jimport( 'joomla.filesystem.file' );
-		if(!JFile::exists($pluginPath))
+//		 static $instances = array();
+
+		if(empty($pluginName) && $pluginId == 0 )
+		   return false;
+		
+		// If formal parameter $pluginId set then get plugin name
+		if($pluginId)
 		{
-			JError::raiseError(400,XiusText::_("INVALID PLUGIN FILE"));
-			return false;
+			// return Cache data
+			if(isset($instances[$pluginId])){
+				return $instances[$pluginId];		
+			}
+			
+			$filter['id']= $pluginId;
+			$info  		 = XiusLibInfo::getInfo($filter);
+			
+			// When not existing information then treturn FALSE
+			if(empty($info)){
+			   return false;
+			}   
+			$pluginName  = $info[0]->pluginType;
 		}
+		
+		$pluginClass = JString::ucfirst($pluginName);
+		$pluginName  = strtolower($pluginName);
+		$pluginPath	 = XIUS_PLUGINS_PATH. DS . $pluginName . DS . $pluginName.'.php';
+		
+		XiusError::assert(JFile::exists($pluginPath),"INVALID PLUGIN FILE");
 
+		// Include plugin path
 		require_once $pluginPath;
-
-		//$instance will comtain all plugin object according to info
-		//Every info will have different object
-		static $instances = array();
-		if(isset($instances[$pluginName])){
-			/*Clean object first */
-			$instances[$pluginName]->cleanObject();
+		// When required only Plugin Instance
+		if(!$pluginId){
+			return new $pluginClass();
 		}
-		else
-			$instances[$pluginName] = new $pluginClassName();
 
-
-		/* load id when it's not 0
-		 * load 0 is handeled by load fn so it's time for relaxation*/
-		/*XITODO : skip load , let handles it by calle self
-		 * they should call bind function without work
-		 * they can have info object themselves
-		 */
-		if($isBindRequired && $bindArray)
-				$instances[$pluginName] = $instances[$pluginName]->bind($bindArray);
-
-
-		return $instances[$pluginName];
+		// get plugin instance ->bind  then return
+		$instances[$pluginId] = new $pluginClass();
+		$instances[$pluginId]->bind($info[0]);
+	 	return $instances[$pluginId];
 	}
 
 
@@ -55,19 +62,7 @@ class XiusFactory
 	 */
 	public function getPluginInstanceFromId($id,$checkPublished=false)
 	{
-		$filter = array();
-		$filter['id']	= $id;
-		if($checkPublished)
-			$filter['published']	= 1;
-
-		$info = XiusLibInfo::getInfo($filter);
-		if($info){
-			$pluginObject = self::getPluginInstance($info[0]->pluginType);
-			$pluginObject->bind($info[0]);
-			return $pluginObject;
-		}
-
-		return false;
+		return self::getPluginInstance('',$id);
 	}
 
 	//XITODO : send parameters as array of args
@@ -118,4 +113,10 @@ class XiusFactory
 
 		return $instance[$className];
 	}
+	// Reset instance variable (only test-case purpose)
+	function resetStaticData()
+	{
+		$instances = array();
+	}
+	
 }

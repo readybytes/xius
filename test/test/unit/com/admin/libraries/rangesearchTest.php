@@ -76,6 +76,11 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 	
 	function testGetUserData()
 	{
+		//require_once XIUS_PATH_BASE.DS.'factory.php';
+		//$instances = array();
+		
+		XiusFactory::resetStaticData();
+		
 		// for date type range search
 		$instance = XiusFactory::getPluginInstanceFromId(6);
 		if($instance)

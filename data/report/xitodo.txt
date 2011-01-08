@@ -9,7 +9,9 @@
 ../packages/tmp/admin/defines.php:22://XITODO:: change name formate
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/controllers/list.php:66:		// XITODO : when id is not set then what to do
-../packages/tmp/admin/controllers/info.php:256:		/*XITODO : check if info is used anywhere,
+../packages/tmp/admin/controllers/info.php:73:		// XiTODO:: is it requrird
+../packages/tmp/admin/controllers/info.php:93:			// XiTODO:: is it required
+../packages/tmp/admin/controllers/info.php:252:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
 ../packages/tmp/site/templates/default/default_result.php:18:/*XITODO : pass variable for color */
@@ -61,9 +63,7 @@
 ../packages/tmp/site/libraries/plugins/proximity/proximityhelper.php:34:		//XITODO:: load row with field name
 ../packages/tmp/site/libraries/plugins/jsfields/jsfields20.php:16:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
-../packages/tmp/site/libraries/base/factory.php:13:	//XITODO:: Try to make Autoload all internal plaugin
-../packages/tmp/site/libraries/base/factory.php:41:		/*XITODO : skip load , let handles it by calle self
-../packages/tmp/site/libraries/base/factory.php:84:	//XITODO : send parameters as array of args
+../packages/tmp/site/libraries/base/factory.php:67:	//XITODO : send parameters as array of args
 ../packages/tmp/site/libraries/base/view.php:29:		//XITODO : we can add here multiple templates, so from global params
 ../packages/tmp/site/libraries/base/view.php:199:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/site/libraries/base/view.php:202:		// XiTODO:: Clean This
