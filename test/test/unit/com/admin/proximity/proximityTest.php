@@ -38,7 +38,7 @@ class XiusProximityTest extends XiUnitTestCase
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
 
-		$instance = XiusFactory::getPluginInstanceFromId(8);
+		$instance = XiusFactory::getPluginInstance('',8);
 		$mapping  = $instance->getTableMapping();
 		
         $this->assertEquals($mapping, $compare);
@@ -48,7 +48,7 @@ class XiusProximityTest extends XiUnitTestCase
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
 		
-		$instance = XiusFactory::getPluginInstanceFromId(8);
+		$instance = XiusFactory::getPluginInstance('',8);
 		$this->assertTrue($instance->isAllRequirementSatisfy());		
 	}
 	function testGetUserData()
@@ -56,7 +56,7 @@ class XiusProximityTest extends XiUnitTestCase
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
 						
 		$query 					= new XiusQuery();
-		$instance 				= XiusFactory::getPluginInstanceFromId(8);
+		$instance 				= XiusFactory::getPluginInstance('',8);
 		
 		$instance->getUserData($query);
 		$strQuery 				= $query->__toString();
@@ -108,7 +108,7 @@ class XiusProximityTest extends XiUnitTestCase
 	function testAddSearchToQuery()
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusProximityTest/testGetAvailableInfoForProximity.start.sql');
-		$instance 	= XiusFactory::getPluginInstanceFromId(8);
+		$instance 	= XiusFactory::getPluginInstance('',8);
 		// first valid value
 		// through address
 		$query		= new XiusQuery();

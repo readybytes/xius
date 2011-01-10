@@ -52,7 +52,7 @@ class XiusProximityEncoder
 			return false;
 		
 		foreach($instanceId as $key => $value){
-			$instance		= XiusFactory::getPluginInstanceFromId($value);
+			$instance		= XiusFactory::getPluginInstance('',$value);
 			if(!$instance)
 				continue;
 				

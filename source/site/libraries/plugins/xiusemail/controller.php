@@ -53,13 +53,13 @@ class XiusPluginControllerXiusemail extends JController
     			$userId = XiusemailHelper::getResultedUserId();    		
     	}
     	
-    	$instance 		= XiusFactory::getPluginInstanceFromId($pluginId);
+    	$instance 		= XiusFactory::getPluginInstance('',$pluginId);
     	if(!$instance)
     		return false;
     	
     	$params = $instance->getData('pluginParams');
     	$emailInfo  = $params->get('xius_email',0);
-    	$emailIns	= XiusFactory::getPluginInstanceFromId($emailInfo);
+    	$emailIns	= XiusFactory::getPluginInstance('',$emailInfo);
     	if(!$emailIns)
     		return false;
     	

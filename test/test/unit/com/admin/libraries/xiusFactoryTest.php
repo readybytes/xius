@@ -42,7 +42,7 @@ class XiusFactoryTest extends XiUnitTestCase
 		
 		
 		foreach($test as $t) {
-			$instance = XiusFactory::getPluginInstanceFromId($t['id']);
+			$instance = XiusFactory::getPluginInstance('',$t['id']);
 			$this->assertEquals($instance->getMe(),"Jsfields");
 			$property = $instance->getProperties();
 			$conditions=array('checkAccFirst' => true , 'checkAccSecond' => false , 'bothEqual' => false);
@@ -50,7 +50,7 @@ class XiusFactoryTest extends XiUnitTestCase
 		}
 		
 		foreach($testId as $t){
-			$instance = XiusFactory::getPluginInstanceFromId($t);
+			$instance = XiusFactory::getPluginInstance('',$t);
 			$this->assertEquals("Jsfields",$instance->getMe());
 		}
 			

@@ -20,7 +20,7 @@ class XiusProximityEncoderTest extends XiUnitTestCase
 	function testGetTableMappingGoogle($compare)
 	{	
 		$this->requires();
-		$instance = XiusFactory::getPluginInstanceFromId(8);
+		$instance = XiusFactory::getPluginInstance('',8);
 		if($instance)
 			$this->assertTrue(true);
 		else
@@ -38,7 +38,7 @@ class XiusProximityEncoderTest extends XiUnitTestCase
 	function testGetUserDataGoogle($compare)
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testGetTableMappingGoogle.start.sql');
-		$instance = XiusFactory::getPluginInstanceFromId(8);
+		$instance = XiusFactory::getPluginInstance('',8);
 		if($instance)
 			$this->assertTrue(true);
 		else

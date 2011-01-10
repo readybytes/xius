@@ -149,7 +149,7 @@
 ../packages/tmp/site/libraries/plugins/jsfields/jsfieldshelper.php:133:			$mySess 	= & JFactory::getSession();
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:80:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:228:			$db 	= &JFactory::getDBO(); 
-../packages/tmp/site/libraries/base/factory.php:110:									  new $className(JFactory::getDBO())
+../packages/tmp/site/libraries/base/factory.php:111:									  new $className(JFactory::getDBO())
 ../packages/tmp/site/libraries/base/cache.php:17:		$this->db 	 	    = JFactory::getDBO();
 ../packages/tmp/site/libraries/base/route.php:12:class XiusRoute extends JRoute
 ../packages/tmp/site/libraries/base/route.php:37:	   $config =& JFactory::getConfig();

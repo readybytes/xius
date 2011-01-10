@@ -43,7 +43,7 @@ class ModXiusProximity
 		if(empty($info))
 			return false;
 					
-		$plgInstance = XiusFactory::getPluginInstanceFromId($info[0]->id);
+		$plgInstance = XiusFactory::getPluginInstance('',$info[0]->id);
 		if(!$plgInstance)
 			continue;
 

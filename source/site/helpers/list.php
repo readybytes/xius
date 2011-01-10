@@ -65,7 +65,7 @@ class XiusHelperList
 			
 		$conditionHtml = array();
 		foreach($conditions as $c){
-			$instance = XiusFactory::getPluginInstanceFromId($c['infoid']);
+			$instance = XiusFactory::getPluginInstance('',$c['infoid']);
 			if(!$instance)
 				continue;
 

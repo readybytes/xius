@@ -84,7 +84,7 @@ class Rangesearch extends XiusBase
 	
 	function getUserData(XiusQuery &$query)
 	{
-		$plgInstance = XiusFactory::getPluginInstanceFromId($this->key);
+		$plgInstance = XiusFactory::getPluginInstance('',$this->key);
 		if(!$plgInstance)
 			return false;
 			

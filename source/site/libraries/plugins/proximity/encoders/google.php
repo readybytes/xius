@@ -75,7 +75,7 @@ class ProximityGoogleEncoder extends XiusProximityEncoder
 		$instanceId[]	= $this->params->get('xius_proximity_zipcode');
 		$tableMapping=array();
 		foreach($instanceId as $value){
-			$instance		= XiusFactory::getPluginInstanceFromId($value);
+			$instance		= XiusFactory::getPluginInstance('',$value);
 			if(!$instance)
 				continue;
 				

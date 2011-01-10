@@ -32,7 +32,7 @@ class XiusPluginControllerProximity extends JController
     		$pluginId = JRequest::getVar('pluginid',0,'GET');
     	
     	$formName	= JRequest::getVar('fromFormName','userForm','GET');
-    	$instance 	= XiusFactory::getPluginInstanceFromId($pluginId);
+    	$instance 	= XiusFactory::getPluginInstance('',$pluginId);
     	    	
     	if(!$instance)
     		return false;

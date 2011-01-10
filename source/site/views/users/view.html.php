@@ -17,7 +17,7 @@ class XiussiteViewUsers extends XiusView
 		if(!empty($allInfo)){
 			$count = 0;
 			foreach($allInfo as $info){
-				$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+				$plgInstance = XiusFactory::getPluginInstance('',$info->id);
 
 				if(!$plgInstance)
 					continue;

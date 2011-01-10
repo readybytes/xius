@@ -37,7 +37,7 @@ class XiusKeywordTest extends XiUnitTestCase
 		$value		  = 'admin';
 		$operator	  = XIUS_LIKE;
 		$join		  = 'AND';
-		$plgInstance  = XiusFactory::getPluginInstanceFromId(24);
+		$plgInstance  = XiusFactory::getPluginInstance('',24);
 		
 		//require_once(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins'.DS.'keyword'.DS.'keyword.php');
 		$allInfo      = XiusLibInfo::getInfo(array(),'AND',false);

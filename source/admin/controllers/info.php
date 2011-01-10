@@ -82,7 +82,7 @@ class XiusControllerInfo extends JController
 		$data['id'] = $id;
 		
 		if($id){		
-			$pluginObject = XiusFactory::getPluginInstanceFromId($id);
+			$pluginObject = XiusFactory::getPluginInstance('',$id);
 			
 			if(!$pluginObject) {
 				$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );

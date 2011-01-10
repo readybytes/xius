@@ -26,7 +26,7 @@ class JElementTablecolumns extends JElement
 		$tableName = null;
 		
 		if($pluginId){
-			$pluinInstance = XiusFactory::getPluginInstanceFromId($pluginId);
+			$pluinInstance = XiusFactory::getPluginInstance('',$pluginId);
 			$tableName     = $pluinInstance->getData('key'); 
 		}
 		else

@@ -15,7 +15,7 @@ class XiusHelperResults
 		$sortId 		 = XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
 		$dir 			 = XiusLibUsersearch::getDataFromSession(XIUS_DIR,'ASC');
 		$join 			 = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
-		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sortId);
+		$plgSortInstance = XiusFactory::getPluginInstance('',$sortId);
 
 		if(!$plgSortInstance)
 			$sort = 'userid';
@@ -102,7 +102,7 @@ class XiusHelperResults
         		if(!array_key_exists('infoid',$c))
         			continue;
 
-        		//$plgInstance = XiusFactory::getPluginInstanceFromId($c['infoid']);
+        		//$plgInstance = XiusFactory::getPluginInstance('',$c['infoid']);
         		$plgInstance = false;
         		if(!empty($data['allInfo'])){
         			foreach($data['allInfo'] as $info){

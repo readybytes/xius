@@ -67,7 +67,7 @@ class XiusLibUsersearch
 		 * and we will store data only store data ( as value ) 
 		 * only according to plugin , so they will get data as they want
 		 */
-		$instance = XiusFactory::getPluginInstanceFromId($infoId);
+		$instance = XiusFactory::getPluginInstance('',$infoId);
 		
 		if(!$instance)
 			return false;
@@ -132,9 +132,9 @@ class XiusLibUsersearch
 		
 		foreach($info as $i){
 			if(is_array($i))
-				$instance = XiusFactory::getPluginInstanceFromId($i['id']);
+				$instance = XiusFactory::getPluginInstance('',$i['id']);
 			else if(is_object($i)){
-				 $instance = XiusFactory::getPluginInstanceFromId($i->id);
+				 $instance = XiusFactory::getPluginInstance('',$i->id);
 			}
 
 			if(!$instance)
@@ -272,7 +272,7 @@ class XiusLibUsersearch
 			
 		$count = 0;
 		foreach($allInfo as $info){
-			$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+			$plgInstance = XiusFactory::getPluginInstance('',$info->id);
 			
 			if(!$plgInstance)
 				continue;

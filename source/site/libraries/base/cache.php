@@ -116,7 +116,7 @@ class XiusCache
 
 		foreach($allInfo as $info)
 		{			
-			$instance = XiusFactory::getPluginInstanceFromId($info->id);
+			$instance = XiusFactory::getPluginInstance('',$info->id);
 			
 			if(empty($instance)){
 				continue;

@@ -43,7 +43,7 @@ class Forcesearch extends XiusBase
 
 	public function getPluginParamsHtml()
 	{
-		$plgInstance = XiusFactory::getPluginInstanceFromId($this->key);
+		$plgInstance = XiusFactory::getPluginInstance('',$this->key);
 
 		if(!$plgInstance){
 			return false;
@@ -114,7 +114,7 @@ class Forcesearch extends XiusBase
 		$fsQuery = new XiusQuery();
 		foreach($forceSearchInfo as $fsi){
 			// check for each ForceSearch Info is accessible to Joomla User type or not
-			$forceSearchInstance = XiusFactory::getPluginInstanceFromId($fsi->id);
+			$forceSearchInstance = XiusFactory::getPluginInstance('',$fsi->id);
 			if(!$forceSearchInstance->checkConfiguration('isSearchable'))
 				continue;
 				
@@ -142,7 +142,7 @@ class Forcesearch extends XiusBase
 	
 	function _addSearchToQuery(XiusQuery &$query,$pluginParams,$join='AND')
 	{		
-		$plgInstance = XiusFactory::getPluginInstanceFromId($pluginParams->get('infoid'));
+		$plgInstance = XiusFactory::getPluginInstance('',$pluginParams->get('infoid'));
 		if(!$plgInstance){
 			return false;
 		}

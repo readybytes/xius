@@ -14,7 +14,6 @@ class XiusFactory
 	 */
 	static public function getPluginInstance($pluginName, $pluginId=0)
 	{
-//		 static $instances = array();
 
 		if(empty($pluginName) && $pluginId == 0 )
 		   return false;
@@ -54,15 +53,6 @@ class XiusFactory
 		$instances[$pluginId] = new $pluginClass();
 		$instances[$pluginId]->bind($info[0]);
 	 	return $instances[$pluginId];
-	}
-
-
-	/*it will create object and load information
-	 * like field -> Gender ( params , key )  will be loaded
-	 */
-	public function getPluginInstanceFromId($id,$checkPublished=false)
-	{
-		return self::getPluginInstance('',$id);
 	}
 
 	//XITODO : send parameters as array of args

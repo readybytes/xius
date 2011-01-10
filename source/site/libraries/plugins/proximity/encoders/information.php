@@ -22,7 +22,7 @@ class ProximityInformationEncoder extends XiusProximityEncoder
 		$instanceId['longitude']	= $this->params->get('xius_proximity_longitude');
 		
 		foreach($instanceId as $key => $value){
-			$instance		= XiusFactory::getPluginInstanceFromId($value);
+			$instance		= XiusFactory::getPluginInstance('',$value);
 			if(!$instance)
 				return false;
 			$mapping	= $instance->getTableMapping();

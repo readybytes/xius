@@ -32,7 +32,7 @@ class UserSearchHelper
 							continue;
 						}
 						
-					$plgInstance = XiusFactory::getPluginInstanceFromId($info->id);
+					$plgInstance = XiusFactory::getPluginInstance('',$info->id);
 
 					if(!$plgInstance)
 						continue;

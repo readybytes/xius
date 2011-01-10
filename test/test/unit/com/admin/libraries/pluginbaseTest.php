@@ -161,7 +161,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		$instance = XiusFactory::getPluginInstanceFromId($infoid);
+		$instance = XiusFactory::getPluginInstance('',$infoid);
 		$searchHtml = $instance->renderSearchableHtml();
 		
 		$this->assertEquals($this->cleanWhiteSpaces($html),$this->cleanWhiteSpaces($searchHtml));
@@ -272,7 +272,7 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		$instance = XiusFactory::getPluginInstanceFromId($infoid);
+		$instance = XiusFactory::getPluginInstance('',$infoid);
 		
 		$columns = $instance->getTableMapping();
 		

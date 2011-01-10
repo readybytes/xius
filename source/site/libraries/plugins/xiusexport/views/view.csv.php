@@ -27,7 +27,7 @@ class XiusexportView extends XiusBaseView
 		$sort = XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
 		$dir = XiusLibUsersearch::getDataFromSession(XIUS_DIR,false);
 		//$sortInfo = XiusLibUsersearch::collectSortParams();
-		$plgSortInstance = XiusFactory::getPluginInstanceFromId($sort);
+		$plgSortInstance = XiusFactory::getPluginInstance('',$sort);
 
 		if(!$plgSortInstance)
 			$sort = 'userid';

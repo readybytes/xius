@@ -84,7 +84,7 @@ class ProximityGoogleapiHelper extends JController
 	function insertGeocodeRawData($info)
 	{
 		// create instance of proximity information plugin
-		$instance = XiusFactory::getPluginInstanceFromId($info[0]->id);
+		$instance = XiusFactory::getPluginInstance('',$info[0]->id);
 		if(!$instance)
 			return false;
 

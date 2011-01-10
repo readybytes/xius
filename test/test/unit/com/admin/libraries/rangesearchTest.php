@@ -82,7 +82,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		XiusFactory::resetStaticData();
 		
 		// for date type range search
-		$instance = XiusFactory::getPluginInstanceFromId(6);
+		$instance = XiusFactory::getPluginInstance('',6);
 		if($instance)
 			$this->assertTrue(true);
 		else
@@ -97,7 +97,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
 		
 		// for integer type range search
-		$instance = XiusFactory::getPluginInstanceFromId(8);
+		$instance = XiusFactory::getPluginInstance('',8);
 		if($instance)
 			$this->assertTrue(true);
 		else
