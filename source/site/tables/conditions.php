@@ -16,7 +16,7 @@ jimport('joomla.filter.input');
 * @subpackage		profilestatus
 */
 
-class XiusTableConditions extends JTable 
+class XiusTableConditions extends XiusTable 
 {
 	var $id 				= null;
 	var $listid 			= null;
@@ -31,8 +31,8 @@ class XiusTableConditions extends JTable
 	 * @param object Database connector object
 	 * @since 1.0
 	 */
-	function __construct(& $db) {
-		parent::__construct('#__xius_conditions', 'id', $db);
+	function __construct() {
+		parent::__construct('#__xius_conditions', 'id');
 	}
 	
 	function load( $id)

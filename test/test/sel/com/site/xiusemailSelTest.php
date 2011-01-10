@@ -115,12 +115,12 @@ class XiusemailSelTest extends XiSelTestCase
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testSendEmailToSingleUser.start.sql');
 		$this->frontLogin();
 		
-		// email = gaurav.jain028@gmail.com and city = bhilwara 
+		// email = manish@readybytes.in and city = bhilwara 
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 
 		// search without condition
-		$this->type("//input[@id='Joomla_21']", "gaurav.jain028@gmail.com");
+		$this->type("//input[@id='Joomla_21']", "manish@readybytes.in");
 		$this->type("//input[@id='field11']", "Bhilwara");
 		$this->select("xiusjoin", "label=All");
 		$this->click('xiussearch');
@@ -144,12 +144,12 @@ class XiusemailSelTest extends XiSelTestCase
     	$this->assertTrue($this->isElementPresent("//span[@id='Email has been sent to following Users.']"));
     	$this->assertTrue($this->isElementPresent("//li[@id='Administrator']"));
     	
-    	// email = gaurav.jain028@gmail.com OR gaurav@readybytes.in 
+    	// email = manish@readybytes.in OR gaurav@readybytes.in 
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 
 		// search without condition
-		$this->type("//input[@id='Joomla_21']", "gaurav.jain028@gmail.com");
+		$this->type("//input[@id='Joomla_21']", "manish@readybytes.in");
 		$this->select("xiusjoin", "label=Any");
 		$this->click('xiussearch');
 		$this->waitPageLoad();

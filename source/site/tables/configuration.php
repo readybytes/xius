@@ -9,14 +9,14 @@ if(!defined('_JEXEC')) die('Restricted access');
 /**
  * Jom Social Table Model
  */
-class XiusTableConfiguration extends JTable
+class XiusTableConfiguration extends XiusTable
 {
 	var $name		= null;
 	var $params		= null;
 	
-	function __construct(&$db)
+	function __construct()
 	{
-		parent::__construct( '#__xius_config' , 'name' , $db );
+		parent::__construct( '#__xius_config' , 'name' );
 	}
 	
 	/**

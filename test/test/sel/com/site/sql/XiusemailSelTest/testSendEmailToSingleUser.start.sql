@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `#__xius_cache` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
 
 INSERT INTO `#__xius_cache` (`userid`, `joomlaemail_0`, `jsfields11_0`) VALUES
-(62, 'gaurav.jain028@gmail.com', 'Bhilwara'),
+(62, 'manish@readybytes.in', 'Bhilwara'),
 (63, 'gaurav@readybytes.in', 'Ajmer'),
 (64, 'vikas@readybytes.in', 'Surat'),
 (65, 'username66@email.com', 'Ludhiana'),
@@ -75,7 +75,7 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 
 TRUNCATE TABLE `#__users`;;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
-(62, 'Administrator', 'admin', 'gaurav.jain028@gmail.com', 'aa95a2cb1a9bd63f349a7fb72502489c:IXZhjkhVI11TgPm5YIVeHNcJTH8HbIKs', 'Super Administrator', 0, 1, 25, '2010-01-16 11:12:08', '2010-05-20 10:15:03', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
+(62, 'Administrator', 'admin', 'manish@readybytes.in', 'aa95a2cb1a9bd63f349a7fb72502489c:IXZhjkhVI11TgPm5YIVeHNcJTH8HbIKs', 'Super Administrator', 0, 1, 25, '2010-01-16 11:12:08', '2010-05-20 10:15:03', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (63, 'name64', 'username64', 'gaurav@readybytes.in', 'password', 'Registered', 0, 0, 18, '2010-05-20 10:31:50', '0000-00-00 00:00:00', '', '\n'),
 (64, 'name65', 'username65', 'username65@email.com', 'password', 'Registered', 1, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', '\n'),
 (65, 'name66', 'username66', 'username66@email.com', 'password', 'Registered', 0, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', '\n'),

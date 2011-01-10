@@ -15,7 +15,7 @@ jimport('joomla.filter.input');
 * @package          Joomla
 * @subpackage		profilestatus
 */ //now run
-class XiusTableList extends JTable
+class XiusTableList extends XiusTable
 {
 
 	var $id				= null;
@@ -31,9 +31,9 @@ class XiusTableList extends JTable
 	var $description	= null;
 	var $params			= null;
 	
-	function __construct(&$db)
+	function __construct()
 	{
-		parent::__construct('#__xius_list','id', $db);
+		parent::__construct('#__xius_list','id');
 	}
 	
 	function load( $id)

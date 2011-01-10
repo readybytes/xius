@@ -55,7 +55,6 @@ class XiusFactory
 	 	return $instances[$pluginId];
 	}
 
-	//XITODO : send parameters as array of args
 	function getModalButtonObject($name,$text,$link,$width=750,$height=480)
 	{
 		JHTML::_('behavior.modal', "a.{$name}");
@@ -69,7 +68,7 @@ class XiusFactory
         return $buttonMap;
 	}
 
-	//Returns a MVCT object
+	//Returns a XiUS MVCT object
 	static function getInstance($class, $type='',$prefix='', $reset=false)
 	{
 		static $instance=array();
@@ -97,16 +96,15 @@ class XiusFactory
 		}
 
 		//create new object, class must be autoloaded
-		$instance[$className]= ('table' == $type) ? 
-									  new $className(JFactory::getDBO())
-									: new $className() ;
+		$instance[$className]= new $className();
 
 		return $instance[$className];
 	}
+
 	// Reset instance variable (only test-case purpose)
 	function resetStaticData()
 	{
-		$instances = array();
+		//XITODO : probably creating memory leak here
+		self::$instances = array();
 	}
-	
 }

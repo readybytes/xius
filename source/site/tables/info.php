@@ -6,7 +6,7 @@
 // Disallow direct access to this file
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusTableInfo extends JTable
+class XiusTableInfo extends XiusTable
 {
 
 	var $id				=	0 ;
@@ -20,9 +20,9 @@ class XiusTableInfo extends JTable
 	var $ordering		=	0 ;
 	var $published		=	1 ;
 	
-	function __construct(&$db)
+	function __construct()
 	{
-		parent::__construct('#__xius_info','id', $db);
+		parent::__construct('#__xius_info','id');
 	}
 	
 	/**

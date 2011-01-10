@@ -63,7 +63,6 @@
 ../packages/tmp/site/libraries/plugins/proximity/proximityhelper.php:34:		//XITODO:: load row with field name
 ../packages/tmp/site/libraries/plugins/jsfields/jsfields20.php:16:		/*XITODO : Cache jomsocial fields */
 ../packages/tmp/site/libraries/plugins/jsfields/base.php:218:		/*XITODO : Cache jomsocial fields */
-../packages/tmp/site/libraries/base/factory.php:68:	//XITODO : send parameters as array of args
 ../packages/tmp/site/libraries/base/view.php:29:		//XITODO : we can add here multiple templates, so from global params
 ../packages/tmp/site/libraries/base/view.php:199:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/site/libraries/base/view.php:202:		// XiTODO:: Clean This
