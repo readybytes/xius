@@ -12,7 +12,7 @@ jimport( 'joomla.application.component.view' );
 /**
  */
 
-abstract class XiusView extends JView
+class XiusView extends JView
 {
 	/* Will be set by controller*/
 	public $_model 			= null;
@@ -20,16 +20,14 @@ abstract class XiusView extends JView
 	
 	public $_xiurl 			= null;
 	//public $_isExternalUrl  = false;
-	
+
+	/*
+	 * Set default Path Array according to Priority.
+	 * (Also include template overwritting)
+	 */
 	function __construct($config = array())
 	{		
 		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
-		// override the template path, so that default
-		// templates will be picked from here
-		//XITODO : we can add here multiple templates, so from global params
-		// we will define the directory here
-		$prefix	=	$this->getPrefix();	
-		$xiustemplateBase = XIUS_PATH_TEMPLATE;
 
 		if(!isset($config['template_path']))
 			$config['template_path']	=	array();
@@ -39,20 +37,23 @@ abstract class XiusView extends JView
 		//give preference to last given path
 
 		//VERY IMP : These order should be maintained
-		$path = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
-		array_unshift($config['template_path'], $path);
-					
-		$path1 = $xiustemplateBase.DS.JString::strtolower($template).DS.JString::strtolower($this->getName());
-		array_unshift($config['template_path'],$path1);
-
-		$path2	=	$xiustemplateBase.DS.JString::strtolower($template);
-		array_unshift($config['template_path'],$path2);
+		$path  = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
+		$path1 = XIUS_PATH_TEMPLATE.DS.JString::strtolower($template).DS.JString::strtolower($this->getName());
+		$path2 = XIUS_PATH_TEMPLATE.DS.JString::strtolower($template);
+		
+		//Higest Priority Path. ($path > $path1 > $path2)
+		//$path, Its Joomla Template Path(when add our component path)
+		//$path(We can also perform template overwirtting through this path)
+		//$path1:: Template Path of XiUS			
+		//$path2:: Template Path of "XiUS Internal-Plugin"
+		
+		array_unshift($config['template_path'], $path, $path1, $path2);
 		
 		parent::__construct($config);
 	}
 	
 	/*
-	 * Collect prefix auto-magically
+	 * Collect prefix auto-matically
 	 */
 	public function getPrefix()
 	{
@@ -60,14 +61,12 @@ abstract class XiusView extends JView
 			return $this->_prefix;
 
 		$r = null;
-		if (!preg_match('/(.*)View/i', get_class($this), $r)) {
-			XiError::raiseError (500, "XiView::getPrefix() : Can't get or parse class name.");
-		}
+		XiusError::assert(preg_match('/(.*)View/i', get_class($this), $r), "XiusView::getPrefix() : Can't get or parse class name.");
 
 		$this->_prefix  =  JString::strtolower($r[1]);
 		return $this->_prefix;
 	}
-	
+
 	
 	/*
 	 * We need to override joomla behaviour as they differ in
@@ -75,18 +74,13 @@ abstract class XiusView extends JView
 	 */
 	function getName()
 	{
-		$name = $this->_name;
-
-		if (empty( $name ))
+		if(empty($this->_name))
 		{
 			$r = null;
-			if (!preg_match('/View(.*)/i', get_class($this), $r)) {
-				JError::raiseError (500, "Can't get or parse class name.");
-			}
-			$name = strtolower( $r[1] );
+			XiusError::assert(preg_match('/View(.*)/i', get_class($this), $r), "XiusView::getPrefix() : Can't get or parse class name.");
+			$this->_name = strtolower( $r[1] );
 		}
-
-		return $name;
+		return $this->_name;
 	}
 	
 	function displayResult($from,$list='',$tmpl)
@@ -100,6 +94,7 @@ abstract class XiusView extends JView
 		XiusHelperResults::_getAvailableInfo($data);
 
 		$document = JFactory::getDocument();
+		
         if(!empty($list) && !empty($list->name))
 			$document->setTitle(XiusText::_($list->name));
 		else
@@ -119,8 +114,7 @@ abstract class XiusView extends JView
 		
 		// get the list id for save list
 		$listid=0;
-		if(!empty( $list )){
-			if(isset($list->id))
+		if(!empty( $list ) && isset($list->id)){
 				$listid = $list->id;
 			}
 		
@@ -170,8 +164,9 @@ abstract class XiusView extends JView
 		//then he will be having the option of saving and exporting list		
 		$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
  		
-		if($option === null)				
+		if($option === null){				
 			$option = JRequest::getVar('option','xius','GET');
+		}
 					
 		/*
 		 * get toolbar option for save list
@@ -182,7 +177,7 @@ abstract class XiusView extends JView
   			$this->assign('buttonMap',$buttonMap); 			
  			
   			$html	= $this->loadTemplate('toolbar_savelist'); 		
- 			XiusHelperToolbar::addToAdminToolbar('savelist',$html); 			
+ 			return XiusHelperToolbar::addToAdminToolbar('savelist',$html); 			
  		} 		
  		
   		return XiusHelperToolbar::addToAdminToolbar();
@@ -200,7 +195,7 @@ abstract class XiusView extends JView
 			$this->_xiurl = $this->getXiUrl();
 		}
 		// XiTODO:: Clean This
-		$this->assign('submitUrl', $this->getXiUrl());
+		$this->assign('submitUrl', $this->_xiurl);
 		return parent::display($tmpl);
 	}
 	
@@ -245,8 +240,6 @@ abstract class XiusView extends JView
 	public function loadAssets($type,$filename)
 	{
 		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
-		$prefix	=	$this->getPrefix();	
-		$xiustemplateBase = XIUS_PATH_TEMPLATE;	
 		static $path = null;
 		
 		if($path === null || !array_key_exists($type, $path)){
@@ -254,28 +247,23 @@ abstract class XiusView extends JView
 			
 			// load joomla template path
 			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-			//css is specified by templates
+			//css or js is specified by templates
 			$path1 = $templateDir.DS.'html'.DS.'com_xius'.DS.'assets'.DS.JString::strtolower($type);
-			array_push($path[$type],$path1);
-			
 			// load xius template path
-			$path2	=	$xiustemplateBase.DS.$template.DS.'assets'.DS.JString::strtolower($type);
-			array_push($path[$type],$path2);
-			
+			$path2	=	XIUS_PATH_TEMPLATE.DS.$template.DS.'assets'.DS.JString::strtolower($type);
 			// load common path of assets
 			$path3 	= XIUS_PATH_SITE_ASSET.DS.JString::strtolower($type);
-			array_push($path[$type],$path3);
+			array_push($path[$type],$path1, $path2, $path3);
 		}
 		
 		$assetsPath = JPath::find($path[$type], $filename);
-		if($assetsPath === false){
-			return JError::raiseError( 500, 'Assets "' . $filename . '" not found' );
-		}
+		XiusError::assert($assetsPath,  'Assets "' . $filename . '" not found');
+
 		$assetsPath = JString::str_ireplace(JPATH_ROOT,'',$assetsPath);				
 		$assetsPath = XiusHelperUtils::getUrlpathFromFilePath($assetsPath);
 		$assetsPath = JURI::base().$assetsPath;
-		$document = JFactory::getDocument();
 		
+		$document 	= JFactory::getDocument();
 		switch($type){
 			case 'css':	$document->addStyleSheet($assetsPath);
 						break;

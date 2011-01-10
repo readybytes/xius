@@ -154,13 +154,13 @@
 ../packages/tmp/site/libraries/base/route.php:37:	   $config =& JFactory::getConfig();
 ../packages/tmp/site/libraries/base/route.php:39:	   if(JFactory::getApplication()->isAdmin())
 ../packages/tmp/site/libraries/base/table.php:11:class XiusTable extends JTable
-../packages/tmp/site/libraries/base/table.php:19:		parent::__construct($table, $key, JFactory::getDBO() );
+../packages/tmp/site/libraries/base/table.php:18:		parent::__construct($table, $key, JFactory::getDBO());
 ../packages/tmp/site/libraries/base/query.php:411:		$db = JFactory::getDBO();
-../packages/tmp/site/libraries/base/view.php:42:		$path = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
-../packages/tmp/site/libraries/base/view.php:102:		$document = JFactory::getDocument();
-../packages/tmp/site/libraries/base/view.php:167:		$user = JFactory::getUser();		
-../packages/tmp/site/libraries/base/view.php:256:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
-../packages/tmp/site/libraries/base/view.php:277:		$document = JFactory::getDocument();
+../packages/tmp/site/libraries/base/view.php:40:		$path  = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
+../packages/tmp/site/libraries/base/view.php:96:		$document = JFactory::getDocument();
+../packages/tmp/site/libraries/base/view.php:161:		$user = JFactory::getUser();		
+../packages/tmp/site/libraries/base/view.php:249:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
+../packages/tmp/site/libraries/base/view.php:266:		$document 	= JFactory::getDocument();
 ../packages/tmp/site/libraries/base/controller.php:13:class XiusController extends JController
 ../packages/tmp/site/helpers/utils.php:45:		global $mainframe;
 ../packages/tmp/site/helpers/utils.php:49:		$database = JFactory::getDBO();

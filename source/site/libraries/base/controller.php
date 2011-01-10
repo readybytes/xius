@@ -29,9 +29,7 @@ class XiusController extends JController
 			$controllerClass = 'Xius'.'PluginController'.JString::ucfirst(JString::strtolower($plugin));
 			$controller 	 = $pluginInstance->getController($controllerClass);
 			
-			if($controller == false){
-				XiusError::assert(false, "Invalid Plugin Controller Object $controller Class definition does not exists in this context.", 1);
-			}
+			XiusError::assert($controller, "Invalid Plugin Controller Object $controller Class definition does not exists in this context.", 1);
 
 			$controller->execute($task);
 			$controller->redirect();
@@ -48,9 +46,7 @@ class XiusController extends JController
 		}
 		
 		$temp = null;
-		if (!preg_match('/(.*)Controller/i', get_class($this), $temp)) {
-			XiusError::assert (false, "Can't get or parse ".XiusController::getName());
-		}
+		XiusError::assert (preg_match('/(.*)Controller/i', get_class($this), $temp), "Can't get or parse ".XiusController::getName());
 		$this->_prefix  =  JString::strtolower($temp[1]);
 		return $this->_prefix;
 	}
@@ -60,9 +56,7 @@ class XiusController extends JController
 		if (empty( $this->_name))
 		{
 			$temp = null;
-			if(!preg_match('/Controller(.*)/i', get_class($this), $temp)) {
-				XiusError::assert (false, "Can't get or parse ".XiusController::getName());			
-			}
+			XiusError::assert (preg_match('/Controller(.*)/i', get_class($this), $temp), "Can't get or parse XiusController::getName()");			
 			$this->_name = strtolower( $temp[1] );
 		}
 		return $this->_name;
@@ -80,7 +74,7 @@ class XiusController extends JController
 		if($view && $view->getName() == $name){
 			return $view;
 		}
-		
+
 		//get Instance from Factory
 		$view	= XiusFactory::getInstance($name,'View', $this->getPrefix());
 		$layout	= JRequest::getCmd( 'layout' , 'default' );
