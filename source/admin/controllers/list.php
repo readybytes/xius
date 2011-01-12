@@ -117,8 +117,7 @@ class XiusControllerList extends JController
 		$params = $config->toArray('xiuslist');
 
 		// trigger evet before saving list
-		JPluginHelper::importPlugin('xius');
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
 
 		// serialize the joomla user privacy params

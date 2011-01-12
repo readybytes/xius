@@ -1,17 +1,17 @@
 ../packages/tmp/admin/views/list/view.html.php:39:		// XITODO : raise error if xml file is not found
 ../packages/tmp/admin/views/list/view.html.php:60:		//XITODO :: Autoloading form back ens to fron end	
 ../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
-../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
-../packages/tmp/admin/views/info/view.html.php:42:			//XiTODO:: is it required??
-../packages/tmp/admin/views/info/view.html.php:53:		//XiTODO:: Why assign this.
-../packages/tmp/admin/views/info/view.html.php:69:		//XITODO:: import plugin in xius.php
+../packages/tmp/admin/views/info/view.html.php:39:			/*XITODO : render all plugins individual fields 
+../packages/tmp/admin/views/info/view.html.php:44:			//XiTODO:: is it required??
+../packages/tmp/admin/views/info/view.html.php:55:		//XiTODO:: Why assign this.
 ../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
 ../packages/tmp/admin/defines.php:22://XITODO:: change name formate
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
 ../packages/tmp/admin/controllers/list.php:66:		// XITODO : when id is not set then what to do
+../packages/tmp/admin/controllers/configuration.php:79:		//XiTODO:: Handle return value. If false then nt show cache update successfully
 ../packages/tmp/admin/controllers/info.php:73:		// XiTODO:: is it requrird
 ../packages/tmp/admin/controllers/info.php:93:			// XiTODO:: is it required
-../packages/tmp/admin/controllers/info.php:252:		/*XITODO : check if info is used anywhere,
+../packages/tmp/admin/controllers/info.php:251:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
 ../packages/tmp/site/templates/default/default_result.php:18:/*XITODO : pass variable for color */
@@ -36,7 +36,7 @@
 ../packages/tmp/site/libraries/lib/usersearch.php:366:		/*XITODO : only delete same infoid verses value pair
 ../packages/tmp/site/libraries/lib/usersearch.php:426:		//XiTODO:: invoke count only one time
 ../packages/tmp/site/libraries/lib/usersearch.php:438:			// XITODO : test with 0,null,baln,blank array
-../packages/tmp/site/libraries/lib/info.php:53:		//XiTODO:: import plugin in xius.php
+../packages/tmp/site/libraries/lib/info.php:60:	// XITODO: Remove this, its unusable
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/site/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
@@ -67,6 +67,7 @@
 ../packages/tmp/site/libraries/base/view.php:194:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/site/libraries/base/view.php:197:		// XiTODO:: Clean This
 ../packages/tmp/site/libraries/base/view.php:239:	// XITODO : UNIT Test case for the following function
+../packages/tmp/site/libraries/base/model.php:142:		/*XITODO : check key should not be added already*/
 ../packages/tmp/site/helpers/utils.php:90:	// XiTODO:: Remove it, When implementing automatic cache updation.
 ../packages/tmp/site/helpers/utils.php:132:		/*XITODO: Minimun time for updating cache
 ../packages/tmp/site/helpers/results.php:27:			// XiTODO:: Clean this
@@ -77,8 +78,7 @@
 ../packages/tmp/site/elements/xiusTemplates.php:19:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/models/users.php:57:        /*XITODO : Add error message */
-../packages/tmp/site/models/info.php:79:	/*XITODO : Cache function for same filter */
-../packages/tmp/site/models/info.php:140:		/*XITODO : check key should not be added already*/
+../packages/tmp/site/models/info.php:21:	/*XITODO : Cache function for same filter */
 ../packages/tmp/site/router.php:50://XITODO : handle list id
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:66:		// XITODO : clean up the following code

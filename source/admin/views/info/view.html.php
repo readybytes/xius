@@ -66,10 +66,9 @@ class XiusViewInfo extends JView
 		
 		$pluginObject->formatPostForGeneratingInfo($postData);
 		$pluginObject->getHtml($paramsHtml,$pluginParamsHtml);
-		//XITODO:: import plugin in xius.php
+
 		$privacy	=array();
-		JPluginHelper::importPlugin('xius');
-		$dispatcher = & JDispatcher::getInstance();
+		$dispatcher =  JDispatcher::getInstance();
 		$privacyHtml= $dispatcher->trigger('onBeforeRenderInfoDisplay', array(&$data));
 		
 		$this->assignRef('privacyHtml', $privacyHtml);

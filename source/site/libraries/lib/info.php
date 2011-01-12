@@ -47,19 +47,17 @@ class XiusLibInfo
 		if( $allInfo != null && isset($allInfo))
 			return $allInfo;
 			
-		$iModel	= XiusFactory::getInstance ( 'info', 'model' );	
-		$allInfo	=& $iModel->getAllInfo('','AND',false);
+		$iModel	 = XiusFactory::getInstance ( 'info', 'model' );	
+		$allInfo = $iModel->getAllInfo('','AND',false);
 		
-		//XiTODO:: import plugin in xius.php
 		// trigger event after loading all info
-		JPluginHelper::importPlugin('xius');
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'xiusOnAfterLoadAllInfo',array( &$allInfo ));
 		
 		return $allInfo;
 	}
 	
-	
+	// XITODO: Remove this, its unusable
 	public function infoExist($data)
 	{
 		$filter = array();

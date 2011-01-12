@@ -6,6 +6,8 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 require_once  dirname(__FILE__).DS.'includes.php';
+//Import All XiuS plugins
+JPluginHelper::importPlugin('xius');
 
 //now decide what to do
 $view	= JRequest::getCmd('view', 		'users');

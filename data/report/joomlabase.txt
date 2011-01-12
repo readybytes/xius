@@ -13,14 +13,14 @@
 ../packages/tmp/admin/controllers/list.php:95:		global $mainframe;
 ../packages/tmp/admin/controllers/list.php:99:		$mainframe->redirect($link, $data['msg']);
 ../packages/tmp/admin/controllers/list.php:113:		$list	=& JTable::getInstance( 'list' , 'XiusTable' );
-../packages/tmp/admin/controllers/list.php:203:		global $mainframe;
-../packages/tmp/admin/controllers/list.php:223:		$mainframe->redirect($link, $msg);
-../packages/tmp/admin/controllers/list.php:229:		global $mainframe;
-../packages/tmp/admin/controllers/list.php:248:		$mainframe->redirect($link, $msg);
-../packages/tmp/admin/controllers/list.php:279:		global $mainframe;
-../packages/tmp/admin/controllers/list.php:289:		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
-../packages/tmp/admin/controllers/list.php:299:			// Load the JTable Object.
-../packages/tmp/admin/controllers/list.php:300:			$table	=& JTable::getInstance( 'list' , 'XiusTable' );
+../packages/tmp/admin/controllers/list.php:202:		global $mainframe;
+../packages/tmp/admin/controllers/list.php:222:		$mainframe->redirect($link, $msg);
+../packages/tmp/admin/controllers/list.php:228:		global $mainframe;
+../packages/tmp/admin/controllers/list.php:247:		$mainframe->redirect($link, $msg);
+../packages/tmp/admin/controllers/list.php:278:		global $mainframe;
+../packages/tmp/admin/controllers/list.php:288:		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
+../packages/tmp/admin/controllers/list.php:298:			// Load the JTable Object.
+../packages/tmp/admin/controllers/list.php:299:			$table	=& JTable::getInstance( 'list' , 'XiusTable' );
 ../packages/tmp/admin/controllers/configuration.php:9:class XiusControllerConfiguration extends JController 
 ../packages/tmp/admin/controllers/configuration.php:28:		global $mainframe;
 ../packages/tmp/admin/controllers/configuration.php:32:		$user	=& JFactory::getUser();
@@ -28,35 +28,35 @@
 ../packages/tmp/admin/controllers/configuration.php:60:		$mainframe->redirect($link, $message);
 ../packages/tmp/admin/controllers/configuration.php:65:		global $mainframe;
 ../packages/tmp/admin/controllers/configuration.php:74:			$mainframe->redirect($link, $message);
-../packages/tmp/admin/controllers/configuration.php:85:		$mainframe->redirect($link, $message);		
-../packages/tmp/admin/controllers/configuration.php:90:		global $mainframe;
-../packages/tmp/admin/controllers/configuration.php:95:		$user	=& JFactory::getUser();
-../packages/tmp/admin/controllers/configuration.php:102:		$mainframe	=& JFactory::getApplication();		
-../packages/tmp/admin/controllers/configuration.php:116:		$mainframe->redirect($link, $message);
+../packages/tmp/admin/controllers/configuration.php:86:		$mainframe->redirect($link, $message);		
+../packages/tmp/admin/controllers/configuration.php:91:		global $mainframe;
+../packages/tmp/admin/controllers/configuration.php:96:		$user	=& JFactory::getUser();
+../packages/tmp/admin/controllers/configuration.php:103:		$mainframe	=& JFactory::getApplication();		
+../packages/tmp/admin/controllers/configuration.php:117:		$mainframe->redirect($link, $message);
 ../packages/tmp/admin/controllers/cpanel.php:26:		$document	=& JFactory::getDocument();
 ../packages/tmp/admin/controllers/info.php:9:class XiusControllerInfo extends JController 
 ../packages/tmp/admin/controllers/info.php:46:		$document	=& JFactory::getDocument();
 ../packages/tmp/admin/controllers/info.php:71:		$viewType	= JFactory::getDocument()->getType();
 ../packages/tmp/admin/controllers/info.php:115:		$infoTable	=& JTable::getInstance( 'info' , 'XiusTable' );
-../packages/tmp/admin/controllers/info.php:202:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:205:		$mainframe->redirect($link, $data['msg']);		
-../packages/tmp/admin/controllers/info.php:220:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:224:		$mainframe->redirect($link, $data['msg']);				
-../packages/tmp/admin/controllers/info.php:229:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:235:		$cache = & JFactory::getCache('com_content');
-../packages/tmp/admin/controllers/info.php:238:		$mainframe->redirect($link, $data['message']);
-../packages/tmp/admin/controllers/info.php:281:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:299:		$mainframe->redirect($link, $msg);
-../packages/tmp/admin/controllers/info.php:305:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:323:		$mainframe->redirect($link, $msg);
-../packages/tmp/admin/controllers/info.php:331:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:343:			// Load the JTable Object.
-../packages/tmp/admin/controllers/info.php:344:			$table	=& JTable::getInstance( 'info' , 'XiusTable' );
-../packages/tmp/admin/controllers/info.php:348:				$mainframe->enqueueMessage($table->getError());
-../packages/tmp/admin/controllers/info.php:350:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
-../packages/tmp/admin/controllers/info.php:357:		global $mainframe;
-../packages/tmp/admin/controllers/info.php:364:			$mainframe->redirect($link, XiusText::_('Please Select any information to update'));	
-../packages/tmp/admin/controllers/info.php:375:		$mainframe->redirect($link, $msg);	
+../packages/tmp/admin/controllers/info.php:201:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:204:		$mainframe->redirect($link, $data['msg']);		
+../packages/tmp/admin/controllers/info.php:219:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:223:		$mainframe->redirect($link, $data['msg']);				
+../packages/tmp/admin/controllers/info.php:228:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:234:		$cache = & JFactory::getCache('com_content');
+../packages/tmp/admin/controllers/info.php:237:		$mainframe->redirect($link, $data['message']);
+../packages/tmp/admin/controllers/info.php:280:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:298:		$mainframe->redirect($link, $msg);
+../packages/tmp/admin/controllers/info.php:304:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:322:		$mainframe->redirect($link, $msg);
+../packages/tmp/admin/controllers/info.php:330:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:342:			// Load the JTable Object.
+../packages/tmp/admin/controllers/info.php:343:			$table	=& JTable::getInstance( 'info' , 'XiusTable' );
+../packages/tmp/admin/controllers/info.php:347:				$mainframe->enqueueMessage($table->getError());
+../packages/tmp/admin/controllers/info.php:349:			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
+../packages/tmp/admin/controllers/info.php:356:		global $mainframe;
+../packages/tmp/admin/controllers/info.php:363:			$mainframe->redirect($link, XiusText::_('Please Select any information to update'));	
+../packages/tmp/admin/controllers/info.php:374:		$mainframe->redirect($link, $msg);	
 ../packages/tmp/site/views/list/view.html.php:23:			$user = JFactory::getUser();
 ../packages/tmp/site/views/list/view.html.php:25:			$user = JFactory::getUser($owner);
 ../packages/tmp/site/views/list/view.html.php:48:		$user = JFactory::getUser();
@@ -155,12 +155,15 @@
 ../packages/tmp/site/libraries/base/route.php:39:	   if(JFactory::getApplication()->isAdmin())
 ../packages/tmp/site/libraries/base/table.php:11:class XiusTable extends JTable
 ../packages/tmp/site/libraries/base/table.php:18:		parent::__construct($table, $key, JFactory::getDBO());
-../packages/tmp/site/libraries/base/query.php:411:		$db = JFactory::getDBO();
+../packages/tmp/site/libraries/base/query.php:422:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/base/view.php:40:		$path  = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate().DS.'html'.DS.'com_xius';
 ../packages/tmp/site/libraries/base/view.php:96:		$document = JFactory::getDocument();
 ../packages/tmp/site/libraries/base/view.php:161:		$user = JFactory::getUser();		
 ../packages/tmp/site/libraries/base/view.php:249:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
 ../packages/tmp/site/libraries/base/view.php:266:		$document 	= JFactory::getDocument();
+../packages/tmp/site/libraries/base/model.php:44:		$mainframe = JFactory::getApplication();
+../packages/tmp/site/libraries/base/model.php:47:		$this->_pagination->limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+../packages/tmp/site/libraries/base/model.php:48:		$this->_pagination->limitstart	= $mainframe->getUserStateFromRequest( 'com_xius_infolimitstart', 'limitstart', 0, 'int' );
 ../packages/tmp/site/libraries/base/controller.php:13:class XiusController extends JController
 ../packages/tmp/site/helpers/utils.php:45:		global $mainframe;
 ../packages/tmp/site/helpers/utils.php:49:		$database = JFactory::getDBO();
@@ -186,20 +189,8 @@
 ../packages/tmp/site/models/list.php:39:			$limitstart	= $mainframe->getUserStateFromRequest('com_xius_listlimitstart', 'limitstart', 0, 'int');
 ../packages/tmp/site/models/list.php:44:			$db			=& JFactory::getDBO();
 ../packages/tmp/site/models/list.php:76:		$db			=& JFactory::getDBO();
-../packages/tmp/site/models/list.php:104:		$db			=& JFactory::getDBO();
-../packages/tmp/site/models/list.php:122:		$db =& JFactory::getDBO();
-../packages/tmp/site/models/info.php:22:		global $mainframe;
-../packages/tmp/site/models/info.php:28:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-../packages/tmp/site/models/info.php:29:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius_infolimitstart', 'limitstart', 0, 'int' );
-../packages/tmp/site/models/info.php:46:		global $mainframe;
-../packages/tmp/site/models/info.php:50:			$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-../packages/tmp/site/models/info.php:51:			$limitstart	= $mainframe->getUserStateFromRequest('com_xius_infolimitstart', 'limitstart', 0, 'int');
-../packages/tmp/site/models/info.php:56:			$db			=& JFactory::getDBO();
-../packages/tmp/site/models/info.php:88:		$db			=& JFactory::getDBO();
-../packages/tmp/site/models/info.php:109:		$db			=& JFactory::getDBO();
-../packages/tmp/site/models/info.php:137:		$infoTable	=& JTable::getInstance( 'info' , 'XiusTable' );
-../packages/tmp/site/models/info.php:149:		$db 	=& JFactory::getDBO();
-../packages/tmp/site/models/info.php:180:		$db 	=& JFactory::getDBO();
+../packages/tmp/site/models/list.php:103:		$db			=& JFactory::getDBO();
+../packages/tmp/site/models/list.php:121:		$db =& JFactory::getDBO();
 ../packages/tmp/site/router.php:10:	$dbo = JFactory::getDBO();
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:23:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
 ../packages/tmp/install/extensions/mod_xiusproximity/mod_xiusproximity.php:9:$mySess =& JFactory::getSession();

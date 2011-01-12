@@ -124,8 +124,7 @@ class XiusControllerInfo extends JController
 		}
 
 		// trigger event before saving info
-		JPluginHelper::importPlugin('xius');
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'xiusOnBeforeSaveInfo', array(&$post) );
 		
 		$registry->loadArray($post['params'],'xius_params');

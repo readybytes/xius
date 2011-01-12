@@ -90,8 +90,7 @@ class XiusModelList extends JModel
 		$lists	= $db->loadObjectList();
 		
 		// trigger evevnt
-		JPluginHelper::importPlugin('xius');
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'xiusOnAfterLoadList', array( &$lists ) );
 		
 		return $lists;

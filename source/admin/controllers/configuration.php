@@ -76,6 +76,7 @@ class XiusControllerConfiguration extends JController
 		$time = XiusLibUsersearch::getTimestamp();
 		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
+		//XiTODO:: Handle return value. If false then nt show cache update successfully
 		XiusLibUsersearch::updateCache();
 		
 		$time = XiusLibUsersearch::getTimestamp();

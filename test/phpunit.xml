@@ -60,13 +60,22 @@
 		<file>test/sel/com/site/googleProximityTest.php</file>
 		<file>test/sel/com/site/informationProximityTest.php</file>
 		<file>test/sel/com/site/proximitydefaultTest.php</file>	
-		<file>test/sel/com/site/forceSearchTest.php</file>	
+		<file>test/sel/com/site/forceSearchTest.php</file>	-->
 	<!--<file>test/sel/com/site/xiusintegrationSelTest.php</file>-->
-		<file>test/sel/com/site/calendartestingTest.php</file>
-		<file>test/unit/com/admin/proximity/jsproximityTest.php</file>
+	<!--	<file>test/sel/com/site/calendartestingTest.php</file>
+		<file>test/unit/com/admin/proximity/jsproximityTest.php</file>-->
 
 	<!-- All UI Test Cases -->		
 <!--		<directory>test/ui</directory>-->
+ 		<file>test/ui/sel/com/admin/joinMatchTest.php</file>
+ 		<file>test/ui/sel/com/admin/templatesTest.php</file>
+ 		<file>test/ui/sel/com/site/menuLinkTest.php</file>
+ 		<file>test/ui/sel/com/site/plgxiptfieldsfilterTest.php</file>
+ 		<file>test/ui/sel/com/site/listPublishedForAdminTest.php</file>
+ 		<file>test/ui/sel/com/site/jsIntegrationTest.php</file>
+ 		<file>test/ui/unit/site/templatepathTest.php</file>
+ 		<file>test/ui/unit/site/cronjobTest.php</file>
+ 	
 			
 	</testsuite>
 	
