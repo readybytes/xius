@@ -16,7 +16,7 @@ class plgSystemxius_system extends JPlugin
 	}
 	
 	
-	
+	// $data is un-usable
 	function onUsInfoUpdated($data)
 	{
 		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
@@ -25,6 +25,7 @@ class plgSystemxius_system extends JPlugin
 
 		require_once $includePath;
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
+		// we can driectly call "update cache" function
 		return $plgHandler->onUsInfoUpdated($data);
 	}
 	

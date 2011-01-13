@@ -29,7 +29,7 @@ class XiusController extends JController
 			$controllerClass = 'Xius'.'PluginController'.JString::ucfirst(JString::strtolower($plugin));
 			$controller 	 = $pluginInstance->getController($controllerClass);
 			
-			XiusError::assert($controller, "Invalid Plugin Controller Object $controller Class definition does not exists in this context.", 1);
+			XiusError::assert($controller, "Invalid Plugin Controller Object $controllerClass Class definition does not exists in this context.", 1);
 
 			$controller->execute($task);
 			$controller->redirect();

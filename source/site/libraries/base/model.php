@@ -6,18 +6,18 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
+// Import Joomla! libraries
+jimport('joomla.application.component.model');
+
+/*
+ * XiUS-Model class have all genearal model function. 
+ */ 
+
 class XiusModel extends JModel
 {
 	var $_name;
 	var $_table;
 	var $_pagination = null;
-	
-	
-	function __construct()
-	{
-		// Call the parents constructor
-		parent::__construct();
-	}
 	
 	/**
 	 * @return model name
@@ -62,7 +62,7 @@ class XiusModel extends JModel
 	 */ 
 	public function loadRecords($filter='', $join='AND',$reqPagination = true, $limitStart=0, $limit=0)
 	{
-
+		//if pagination required then set pagination limits		
 		if($reqPagination && $limitStart == 0 && $limit == 0)
 		{
 			$this->_pagination = $this->getPagination($filter,$join);
@@ -80,13 +80,13 @@ class XiusModel extends JModel
 		if(!empty($filter)){		   	   
 			$this->_buildFilterQuery($query, $filter,$join);
 		}
-		//get Allinfo					
-		$allInfo = $query->order("`ordering`")
+		//get All Records					
+		$allRecord = $query->order("`ordering`")
 						 ->limit($limit, $limitStart)		
 						 ->dbLoadQuery()
 						 ->loadObjectList();
 						 
-		return $allInfo;
+		return $allRecord;
 	}
 	
 	/*
@@ -107,11 +107,11 @@ class XiusModel extends JModel
 				$this->_buildFilterQuery($query, $filter,$join);
 			}
 				
-			$total = $query->dbLoadQuery()
+			$total = $query->order("`ordering`")
+						   ->dbLoadQuery()
 						   ->loadResult();
 			
 			jimport('joomla.html.pagination');
-		
 			// Get the pagination object
 			$this->_pagination	= new JPagination( $total , $this->_pagination->limitstart , $this->_pagination->limit);	
 		}

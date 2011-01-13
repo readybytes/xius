@@ -50,10 +50,6 @@ class XiusLibInfo
 		$iModel	 = XiusFactory::getInstance ( 'info', 'model' );	
 		$allInfo = $iModel->getAllInfo('','AND',false);
 		
-		// trigger event after loading all info
-		$dispatcher = JDispatcher::getInstance();
-		$dispatcher->trigger( 'xiusOnAfterLoadAllInfo',array( &$allInfo ));
-		
 		return $allInfo;
 	}
 	

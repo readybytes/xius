@@ -10,7 +10,7 @@
 ../packages/tmp/admin/views/info/tmpl/info.add.php:17:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
 ../packages/tmp/admin/views/info/tmpl/pluginlist.php:8:JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 ../packages/tmp/admin/views/info/tmpl/pluginlist.php:32:<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
-../packages/tmp/admin/views/info/view.html.php:101:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
+../packages/tmp/admin/views/info/view.html.php:99:		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/configuration/view.html.php:43:		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:9:<form action="<?php echo JURI::base();?>index.php?option=com_xius" method="post" name="adminForm">
 ../packages/tmp/admin/views/cpanel/tmpl/default.php:14:				<?php echo $this->addIcon('xius-config.png','index.php?option=com_xius&view=configuration', XiusText::_('CONFIGURATION'));?>

@@ -39,7 +39,7 @@ class XiusListTest extends XiSelTestCase
     	
     	$this->assertTrue($this->isElementPresent("//img[@title='Save This List']"));
 		$this->click("//img[@title='Save This List']");
-		sleep(2);
+		sleep(4);
 		$this->click("xiusListSaveAs");
 		$this->waitPageLoad();
 		
@@ -74,7 +74,7 @@ class XiusListTest extends XiSelTestCase
     	$this->click("//img[@title='Save This List']");
     	
     	$this->waitForElement('sbox-window');
-    	sleep(2);
+    	sleep(4);
     	$this->click("xiusListSaveAsExisting");
    		$this->select("//select[@id='listid']", "label=Male From Afghanistan");    
    
@@ -176,7 +176,7 @@ class XiusListTest extends XiSelTestCase
 		$this->waitPageLoad();
 		$this->click("//img[@title='Save This List']");
     	$this->waitForElement('sbox-window');
-    	sleep(2);
+    	sleep(4);
     	$this->click("xiusListSaveAs");
     	$this->waitPageload(); 
     	$this->type("xiusListName", "user list");

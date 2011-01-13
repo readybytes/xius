@@ -1,9 +1,9 @@
 ../packages/tmp/admin/views/list/view.html.php:39:		// XITODO : raise error if xml file is not found
 ../packages/tmp/admin/views/list/view.html.php:60:		//XITODO :: Autoloading form back ens to fron end	
 ../packages/tmp/admin/views/info/tmpl/default.php:74:		/*XITODO : direct using param here without any help of plugin instance
-../packages/tmp/admin/views/info/view.html.php:39:			/*XITODO : render all plugins individual fields 
-../packages/tmp/admin/views/info/view.html.php:44:			//XiTODO:: is it required??
-../packages/tmp/admin/views/info/view.html.php:55:		//XiTODO:: Why assign this.
+../packages/tmp/admin/views/info/view.html.php:37:			/*XITODO : render all plugins individual fields 
+../packages/tmp/admin/views/info/view.html.php:42:			//XiTODO:: is it required??
+../packages/tmp/admin/views/info/view.html.php:53:		//XiTODO:: Why assign this.
 ../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
 ../packages/tmp/admin/defines.php:22://XITODO:: change name formate
 ../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
@@ -67,7 +67,6 @@
 ../packages/tmp/site/libraries/base/view.php:194:			// XITODO : if still $this->_xiurl  iss not set then what to do
 ../packages/tmp/site/libraries/base/view.php:197:		// XiTODO:: Clean This
 ../packages/tmp/site/libraries/base/view.php:239:	// XITODO : UNIT Test case for the following function
-../packages/tmp/site/libraries/base/model.php:142:		/*XITODO : check key should not be added already*/
 ../packages/tmp/site/helpers/utils.php:90:	// XiTODO:: Remove it, When implementing automatic cache updation.
 ../packages/tmp/site/helpers/utils.php:132:		/*XITODO: Minimun time for updating cache
 ../packages/tmp/site/helpers/results.php:27:			// XiTODO:: Clean this
@@ -78,7 +77,7 @@
 ../packages/tmp/site/elements/xiusTemplates.php:19:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/models/users.php:57:        /*XITODO : Add error message */
-../packages/tmp/site/models/info.php:21:	/*XITODO : Cache function for same filter */
+../packages/tmp/site/models/info.php:22:	/*XITODO : Cache function for same filter */
 ../packages/tmp/site/router.php:50://XITODO : handle list id
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:66:		// XITODO : clean up the following code

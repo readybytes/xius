@@ -22,7 +22,13 @@ class XiusModelInfo extends XiusModel
 	/*XITODO : Cache function for same filter */
 	function getAllInfo($filter = '',$join = 'AND',$reqPagination = true,$limitStart=0 , $limit=0)
 	{
-		return $this->loadRecords($filter, $join,$reqPagination, $limitStart, $limit);
+		$allInfo = $this->loadRecords($filter, $join,$reqPagination, $limitStart, $limit);
+		
+		// trigger event after loading all info
+		$dispatcher = JDispatcher::getInstance();
+		$dispatcher->trigger( 'xiusOnAfterLoadAllInfo',array( &$allInfo ));
+		
+		return $allInfo;
 	}
 
 	function getInfo($id = 0)
@@ -42,6 +48,7 @@ class XiusModelInfo extends XiusModel
 	
 	function updateParams($id,$what,$value)
 	{
+		//XiTODO:: I think, its unusable checking
 		if(!$what){
 			return false;
 		}
