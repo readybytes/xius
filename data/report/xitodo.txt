@@ -36,7 +36,7 @@
 ../packages/tmp/site/libraries/lib/usersearch.php:366:		/*XITODO : only delete same infoid verses value pair
 ../packages/tmp/site/libraries/lib/usersearch.php:426:		//XiTODO:: invoke count only one time
 ../packages/tmp/site/libraries/lib/usersearch.php:438:			// XITODO : test with 0,null,baln,blank array
-../packages/tmp/site/libraries/lib/info.php:60:	// XITODO: Remove this, its unusable
+../packages/tmp/site/libraries/lib/info.php:56:	// XITODO: Remove this, its unusable
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/site/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
@@ -78,6 +78,7 @@
 ../packages/tmp/site/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/models/users.php:57:        /*XITODO : Add error message */
 ../packages/tmp/site/models/info.php:22:	/*XITODO : Cache function for same filter */
+../packages/tmp/site/models/info.php:51:		//XiTODO:: I think, its unusable checking
 ../packages/tmp/site/router.php:50://XITODO : handle list id
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default_mod_proximity.php:10:		//XITODO:: cleanup code
 ../packages/tmp/install/extensions/xipt_privacy/xipt_privacy.php:66:		// XITODO : clean up the following code

@@ -12,7 +12,7 @@ class XiusFactory
 	/*
 	 * get Plugin-Instance
 	 */
-	static public function getPluginInstance($pluginName, $pluginId=0)
+  static public function getPluginInstance($pluginName, $pluginId=0)
 	{
 
 		if(empty($pluginName) && $pluginId == 0 )
@@ -55,7 +55,7 @@ class XiusFactory
 	 	return $instances[$pluginId];
 	}
 
-	function getModalButtonObject($name,$text,$link,$width=750,$height=480)
+  static public function getModalButtonObject($name,$text,$link,$width=750,$height=480)
 	{
 		JHTML::_('behavior.modal', "a.{$name}");
         $buttonMap = new JObject();
@@ -69,7 +69,7 @@ class XiusFactory
 	}
 
 	//Returns a XiUS MVCT object
-	static function getInstance($class, $type='',$prefix='', $reset=false)
+  static public  function getInstance($class, $type='',$prefix='', $reset=false)
 	{
 		static $instance=array();
 		$prefix = empty($prefix) ? 'Xius': $prefix ;
@@ -102,7 +102,7 @@ class XiusFactory
 	}
 
 	// Reset instance variable (only test-case purpose)
-	function resetStaticData()
+  static public function resetStaticData()
 	{
 		//XITODO : probably creating memory leak here
 		self::$instances = array();

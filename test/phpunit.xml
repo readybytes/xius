@@ -62,8 +62,8 @@
 		<file>test/sel/com/site/proximitydefaultTest.php</file>	
 		<file>test/sel/com/site/forceSearchTest.php</file>	-->
 	<!--<file>test/sel/com/site/xiusintegrationSelTest.php</file>-->
-	<!--	<file>test/sel/com/site/calendartestingTest.php</file>
-		<file>test/unit/com/admin/proximity/jsproximityTest.php</file>-->
+		<file>test/sel/com/site/calendartestingTest.php</file>
+		<file>test/unit/com/admin/proximity/jsproximityTest.php</file>
 
 	<!-- All UI Test Cases -->		
 <!--		<directory>test/ui</directory>-->
@@ -83,7 +83,7 @@
 		<listener class="XiTestListener" file="./system/XiTestListener.php" />
 	</listeners>
 	
-	<filter>
+<!--	<filter>
           <blacklist>	
             <directory suffix=".php">../</directory>
           </blacklist>
@@ -91,6 +91,6 @@
             <directory suffix=".php">../components/com_xius</directory>
             <directory suffix=".php">../administrator/components/com_xius</directory>
           </whitelist>
-        </filter>
+        </filter> -->
 
 </phpunit>

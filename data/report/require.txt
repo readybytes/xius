@@ -72,12 +72,12 @@
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:8:require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:9:require_once( dirname(__FILE__).DS.'helper.php' );
 ../packages/tmp/install/extensions/xius_system/xius_system.php:26:		require_once $includePath;
-../packages/tmp/install/extensions/xius_system/xius_system.php:38:		require_once $includePath;
-../packages/tmp/install/extensions/xius_system/xius_system.php:63:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-../packages/tmp/install/extensions/xius_system/xius_system.php:87:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-../packages/tmp/install/extensions/xius_system/xius_system.php:98:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-../packages/tmp/install/extensions/xius_system/xius_system.php:134:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
-../packages/tmp/install/extensions/xius_system/xius_system.php:151:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+../packages/tmp/install/extensions/xius_system/xius_system.php:39:		require_once $includePath;
+../packages/tmp/install/extensions/xius_system/xius_system.php:64:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+../packages/tmp/install/extensions/xius_system/xius_system.php:88:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+../packages/tmp/install/extensions/xius_system/xius_system.php:99:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+../packages/tmp/install/extensions/xius_system/xius_system.php:135:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+../packages/tmp/install/extensions/xius_system/xius_system.php:152:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:13:require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:14:require_once( dirname(__FILE__).DS.'helper.php' );
 ../packages/tmp/install/extensions/xius_community/xius.php:34:		require_once $incldePath;

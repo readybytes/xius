@@ -40,14 +40,9 @@ class XiusCache
 			return false;	
 		}
 		// Set query on Data-Base Object and Execute query
-		if ($createQuery->dbLoadQuery()->query())
-		{
-			$createQuery->clear('create');
-			return true;	
-		}
-	
-		$this->error->setError($this->db->ErrorMsg());
-		return false;
+		$createQuery->dbLoadQuery()->query();
+		$createQuery->clear('create');
+		return true;	
 	}
 
 	/*
@@ -65,6 +60,10 @@ class XiusCache
 		}
 		
 		$this->_insertQuery .= ' )';
+		
+		// When Query Extermly large then required this.(For Performance)
+		$this->db->setQuery("SET SESSION SQL_BIG_SELECTS=1");
+		$this->db->query();
 
 		// Insert query, set on Data-Base Object
 		$this->db->setQuery($this->_insertQuery);
@@ -72,13 +71,9 @@ class XiusCache
 		// clear the insert query
 		$this->_insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
 			
-		if($this->db->query()){
-			$affectedRows = $this->db->getAffectedRows();
-			return $affectedRows;
-		}
-		
-		$this->error->setError($this->db->ErrorMsg());
-		return false;
+		$this->db->query();
+		$affectedRows = $this->db->getAffectedRows();
+		return $affectedRows;
 	}
 	
 	/*
@@ -88,12 +83,8 @@ class XiusCache
 	{
 		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->nameQuote($this->_tableName);
 		$this->db->setQuery($dropQuery);
-		
-		if($this->db->query())
-			return true;
-			
-		$this->error->setError($this->db->ErrorMsg());
-		return false;
+		$this->db->query();
+		return true;
 	}
 	/*
 	 * Create XiUS-Cache Query 

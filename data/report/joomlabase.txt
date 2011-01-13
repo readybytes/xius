@@ -181,16 +181,6 @@
 ../packages/tmp/site/tables/conditions.php:59:	 * Overrides Joomla's JTable store method so that we can define proper values
 ../packages/tmp/site/models/users.php:18:        global $mainframe;
 ../packages/tmp/site/models/users.php:21:        $limit = $mainframe->getUserStateFromRequest('com_xius_user.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-../packages/tmp/site/models/list.php:18:    	global $mainframe;
-../packages/tmp/site/models/list.php:21:		$limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-../packages/tmp/site/models/list.php:22:		$limitstart	= $mainframe->getUserStateFromRequest( 'com_xius.limitstart', 'limitstart', 0, 'int' );
-../packages/tmp/site/models/list.php:34:		global $mainframe;
-../packages/tmp/site/models/list.php:38:			$limit		= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int');
-../packages/tmp/site/models/list.php:39:			$limitstart	= $mainframe->getUserStateFromRequest('com_xius_listlimitstart', 'limitstart', 0, 'int');
-../packages/tmp/site/models/list.php:44:			$db			=& JFactory::getDBO();
-../packages/tmp/site/models/list.php:76:		$db			=& JFactory::getDBO();
-../packages/tmp/site/models/list.php:103:		$db			=& JFactory::getDBO();
-../packages/tmp/site/models/list.php:121:		$db =& JFactory::getDBO();
 ../packages/tmp/site/router.php:10:	$dbo = JFactory::getDBO();
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:23:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
 ../packages/tmp/install/extensions/mod_xiusproximity/mod_xiusproximity.php:9:$mySess =& JFactory::getSession();
@@ -211,15 +201,15 @@
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:142:			$loginuser=& JFactory::getUser();
 ../packages/tmp/install/extensions/xius_privacy/js_privacy.php:200:    	$db      = & JFactory::getDBO();
 ../packages/tmp/install/extensions/mod_xiuslisting/helper.php:13:		$user = JFactory::getUser();
-../packages/tmp/install/extensions/xius_system/xius_system.php:45:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:48:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:79:		$mainframe->redirect(XiusRoute::_($url,false));			
-../packages/tmp/install/extensions/xius_system/xius_system.php:125:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:128:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:142:		global $mainframe;
-../packages/tmp/install/extensions/xius_system/xius_system.php:145:		if($mainframe->isAdmin())
-../packages/tmp/install/extensions/xius_system/xius_system.php:159:		$app = JFactory::getApplication();
-../packages/tmp/install/extensions/xius_system/xius_system.php:174:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xius_system/xius_system.php:46:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:49:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:80:		$mainframe->redirect(XiusRoute::_($url,false));			
+../packages/tmp/install/extensions/xius_system/xius_system.php:126:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:129:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:143:		global $mainframe;
+../packages/tmp/install/extensions/xius_system/xius_system.php:146:		if($mainframe->isAdmin())
+../packages/tmp/install/extensions/xius_system/xius_system.php:160:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xius_system/xius_system.php:175:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:9:$mySess =& JFactory::getSession();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/install/extensions/xius_community/xius.php:50:		$lang =& JFactory::getLanguage();

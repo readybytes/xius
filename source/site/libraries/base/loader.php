@@ -11,7 +11,7 @@ jimport('joomla.filesystem.file');
 class XiusLoader
 {
 
-        function addAutoLoadFolder($folder, $type, $prefix='Xius')
+   static function addAutoLoadFolder($folder, $type, $prefix='Xius')
         {
                 foreach(JFolder::files($folder,".php$") as $file )
                 {
@@ -26,12 +26,12 @@ class XiusLoader
                 }
         }
 
-        function addAutoLoadFile($class,$file)
+   static function addAutoLoadFile($class,$file)
         {
         	JLoader::register($class, $file);
         }
 
-		function addAutoLoadViews($baseFolders, $format, $prefix='Xius')
+   static function addAutoLoadViews($baseFolders, $format, $prefix='Xius')
 		{
 			foreach(JFolder::folders($baseFolders) as $folder )
 			{
@@ -46,7 +46,7 @@ class XiusLoader
 			}
 		}
 		
-        function addAutoLoadPluginHelper($pluginPath, $type, $prefix='Xius')
+   static function addAutoLoadPluginHelper($pluginPath, $type, $prefix='Xius')
         {
         		$plugins = array();
 				$plugins = JFolder::folders(XIUS_PLUGINS_PATH);

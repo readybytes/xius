@@ -10,22 +10,22 @@ class XiusError extends JError
 {
 	const ERROR   = 1;
 	const WARNING = 2;
-	
-	function __construct()
-	{
-		//parent::__construct();
-	}
 
-	function assert($condition, $msg = '', $type = self::ERROR)
-	{
-		if($condition)
-			return true;
-			
-		if($type == self::ERROR)
-			self::raiseError('XIUS-ERROR', XiusText::_($msg));
-
-		self::raiseWarning('XIUS-WARNING', XiusText::_($msg));
-	}
+	/**
+	 * Assert Check condition true or not.
+	 * if $condition false then rais error or warning.
+	 */
+ 	static public function assert($condition, $msg = '', $type = self::ERROR)
+	 	{
+	 		if($condition){
+	 		 	return true;
+	 		 }
+	 		 if($type == self::ERROR){
+	 		 	self::raiseError('XIUS-ERROR', XiusText::_($msg));
+	 		 }
+	 		 
+	 		self::raiseWarning('XIUS-WARNING', XiusText::_($msg));
+		}
 	
 	
 }
