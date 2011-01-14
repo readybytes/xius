@@ -130,6 +130,7 @@ class XiusListTest extends XiSelTestCase
 		$this->_DBO->loadSql($url.'/updateCache.sql');
 		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_community&view=list&task=showList&usexius=1&listid=5');
+		$this->waitPageLoad();
 		$this->assertTrue($this->isTextPresent("All user"));
 		$this->assertTrue($this->isElementPresent("//span[@id='total_59']"));
 		
