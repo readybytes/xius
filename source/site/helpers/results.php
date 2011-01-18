@@ -54,7 +54,7 @@ class XiusHelperResults
 
 	function _getTotalUsers(&$data)
 	{
-		$model 		   = XiusFactory::getInstance('users', 'model','', true);
+		$model 		   = XiusFactory::getInstance('users', 'model','');
 		$data['total'] = $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
 
 	}

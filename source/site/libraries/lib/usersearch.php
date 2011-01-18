@@ -11,70 +11,9 @@ class XiusLibUsersearch
 {	
 	function buildQuery($params,$join='AND',$sort='userid',$dir='ASC')
 	{
-		/*XITODO:  provide conditional operator also
-		 * */
-		$dispatcher =& JDispatcher::getInstance();
-		$data = array();
-		$data['conditions'] = &$params;
-		$data['join'] = &$join;
-		$data['sort'] = &$sort;
-		$data['dir']  = &$dir;
-		$dispatcher->trigger( 'onBeforeUserSearchQueryBuild', array( $data ) );
-		
-		$db = JFactory::getDBO();
-		$query = new XiusQuery();		
-		$cache = XiusFactory::getInstance('cache');
-		$tableName = $cache->getTableName();
-		
-		if(empty($tableName))
-			JError::raiseError(XiusText::_('NO TABLE TO SEARCH'));
-			
-		if(!empty($tableName)) {
-			//$query->select($db->nameQuote('userid'));
-			$query->select('*');
-			$query->from($db->nameQuote($tableName));
-		}
-		
-		/*if no parameter to search then return all users
-		 * without any condition
-		 * XITODO : add block condition
-		 *  */
-		if(empty($params))
-			$query->order($db->nameQuote($sort).' '.$dir);
-		else{
-			foreach($params as $p)
-				self::buildQueryForSingleInfo($query,$p['infoid'],$p['value'],$p['operator'],$join);
-			
-			$query->order($db->nameQuote($sort).' '.$dir);
-		}
-		
-		/*Trigger event */
-		//$dispatcher =& JDispatcher::getInstance();
-		$dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$query ) );
-		
-	/*	$strQuery = $query->__toString();
-		
-		if(empty($strQuery))
-			return false;*/
-				
-		return $query;
+		return XiusModelUsers::getQuery($params,$join,$sort,$dir);
 	}
-	
-	
-	function buildQueryForSingleInfo(XiusQuery &$query,$infoId,$value,$operator=XIUS_EQUAL,$join='AND')
-	{
-		/*value can be array or single , depends on plugin 
-		 * and we will store data only store data ( as value ) 
-		 * only according to plugin , so they will get data as they want
-		 */
-		$instance = XiusFactory::getPluginInstance('',$infoId);
-		
-		if(!$instance)
-			return false;
-			
-		return $instance->addSearchToQuery($query,$value,$operator,$join);
-	}
-	
+
 	
 	function setDataInSession($what,$value,$namespace='XIUS')
 	{

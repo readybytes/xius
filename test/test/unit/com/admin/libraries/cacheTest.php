@@ -172,8 +172,7 @@ class XiusCacheTest extends XiUnitTestCase
 		/*XITODO : Update cache table also */
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		$query = XiusLibUsersearch::buildQuery($conditions,$join,$sort,$dir);
-		$strQuery = $query->__toString();
+		$strQuery = XiusLibUsersearch::buildQuery($conditions,$join,$sort,$dir);
 
 		$db = JFactory::getDBO();
 		$db->setQuery($strQuery);

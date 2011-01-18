@@ -15,10 +15,10 @@ jimport('joomla.application.component.model');
 
 class XiusModel extends JModel
 {
-	var $_name;
 	var $_table;
 	var $_pagination = null;
-	
+	var $_total;
+
 	/**
 	 * @return model name
 	 */
@@ -70,22 +70,13 @@ class XiusModel extends JModel
 			$limitStart = $this->_pagination->limitstart;
 			$limit = $this->_pagination->limit;
 		}
-
-		//build Query
-		$query = new XiusQuery();
-		$query = $query->select('*')
-					   ->from($this->getTable());
-						  
-		// If any filteration required in query
-		if(!empty($filter)){		   	   
-			$this->_buildFilterQuery($query, $filter,$join);
-		}
-		//get All Records					
-		$allRecord = $query->order("`ordering`")
-						 ->limit($limit, $limitStart)		
-						 ->dbLoadQuery()
-						 ->loadObjectList();
-						 
+		// set query element
+		$this->getQuery($filter, $join);
+		
+		//get all records
+		$allRecord = $this->_query->limit($limit, $limitStart)		
+								  ->dbLoadQuery()
+								  ->loadObjectList();					 
 		return $allRecord;
 	}
 	
@@ -98,37 +89,16 @@ class XiusModel extends JModel
 		if($this->_pagination == null)
 		 {
 		 	$this->initPaginationState();
-		 	$query = new XiusQuery();
-		 	$query = $query->select("COUNT('*')")
-					   	   ->from($this->getTable());
-			
-			// If any filteration required in query
-			if(!empty($filter)){		   	   
-				$this->_buildFilterQuery($query, $filter,$join);
-			}
-				
-			$total = $query->order("`ordering`")
-						   ->dbLoadQuery()
-						   ->loadResult();
 			
 			jimport('joomla.html.pagination');
 			// Get the pagination object
-			$this->_pagination	= new JPagination( $total , $this->_pagination->limitstart , $this->_pagination->limit);	
+			$this->_pagination	= new JPagination( $this->getTotal($filter,$join) , $this->_pagination->limitstart , $this->_pagination->limit);	
 		}
 			
 		return $this->_pagination;
 	}
 	
-	/*
-	 * filteration add with query
-	 */
-	function _buildFilterQuery(XiusQuery &$query, $filter = '',$join = 'AND')
-	{
-		foreach($filter as $name => $info)
-			{
-				$query = $query->where("$name = $info ", $join);
-			}
-	}
+
 	
 	/*
 	 * Save Data
@@ -145,7 +115,12 @@ class XiusModel extends JModel
 		XiusError::assert($id, $this->_db->getErrorMsg());
 		return $id;
 	}
-	
+	/**
+	 * update record according data id
+	 * @param unknown_type $id:: data_id for condition
+	 * @param unknown_type $columName:: update column name for updation 
+	 * @param unknown_type $value
+	 */
 	
 	function updateRecord($id, $columName, $value)
 	{
@@ -158,6 +133,58 @@ class XiusModel extends JModel
 		XiusError::assert($query->query(), $this->_db->getErrorMsg());	
 		
 		return true;
+	}
+	
+	/**
+	 * return query element
+	 * @param unknown_type $filter: condition
+	 * @param unknown_type $join: match condition
+	 */
+	function getQuery($filter='', $join='AND', $reset=true)
+	{
+		if(isset($this->_query) && $reset==false){
+			return $this->_query;
+		}
+		//make query
+		$this->_query = new XiusQuery();
+		$this->_query = $this->_query->select('*')
+					   				 ->from($this->getTable());
+						  
+		// If any filteration required in query
+		if(!empty($filter)){		   	   
+			$this->_buildFilterQuery($this->_query, $filter,$join);
+		}
+		//set order on query element					
+		$this->_query->order("`ordering`");
+	}
+	/*
+	 * filteration add with query
+	 */
+	function _buildFilterQuery(XiusQuery &$query, $filter = '',$join = 'AND')
+	{
+		foreach($filter as $name => $info)
+			{
+				$query = $query->where("$name = $info ", $join);
+			}
+	}
+	
+	/**
+	 * return total user
+	 * @param unknown_type $filter
+	 * @param unknown_type $join
+	 */
+	
+	function getTotal($filter,$join)
+	{
+		if($this->_total){
+			return $this->_total;
+		}
+
+		//set query element
+		$this->getQuery($filter,$join, false);
+        $this->_total 	= $this->_getListCount((string) $this->_query);
+
+		return $this->_total;
 	}
 	
 }

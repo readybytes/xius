@@ -42,8 +42,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		
-		$query = XiusLibUsersearch::buildQuery($conditions,$join);
-		$strQuery = $query->__toString();
+		$strQuery = XiusLibUsersearch::buildQuery($conditions,$join);
 		
 		$db = JFactory::getDBO();
 		$db->setQuery($strQuery);
@@ -94,8 +93,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		
-		$query = XiusLibUsersearch::buildQuery($conditions,$join);
-		$strQuery = $query->__toString();
+		$strQuery = XiusLibUsersearch::buildQuery($conditions,$join);
 		
 		$db = JFactory::getDBO();
 		$db->setQuery($strQuery);
@@ -137,8 +135,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		
-		$query = XiusLibUsersearch::buildQuery($conditions,$join);
-		$strQuery = $query->__toString();
+		$strQuery = XiusLibUsersearch::buildQuery($conditions,$join);
 		
 		$db = JFactory::getDBO();
 		$db->setQuery($strQuery);
