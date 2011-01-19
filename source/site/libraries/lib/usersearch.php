@@ -9,12 +9,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusLibUsersearch
 {	
-	function buildQuery($params,$join='AND',$sort='userid',$dir='ASC')
-	{
-		return XiusModelUsers::getQuery($params,$join,$sort,$dir);
-	}
-
-	
 	function setDataInSession($what,$value,$namespace='XIUS')
 	{
 		$mySess =& JFactory::getSession();

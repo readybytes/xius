@@ -19,10 +19,11 @@ class XiusDateRangesearchUnitTest extends XiUnitTestCase
 						
 		$this->resetCachedData();
 
-		$strQuery		= XiusLibUsersearch::buildQuery($conditions,$join);
+		$model = XiusFactory::getInstance('users','model');
+		$strQuery= $model->getQuery($conditions,$join);
 
 		$db = JFactory::getDBO();
-		$db->setQuery($strQuery);
+		$db->setQuery((string)$strQuery);
 		$users = $db->loadObjectList();		
 		
 		$this->assertEquals($totalResultUserCount,count($users),'Total users should be '.$totalResultUserCount.' but we get '.count($users));

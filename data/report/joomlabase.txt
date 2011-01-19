@@ -83,14 +83,14 @@
 ../packages/tmp/site/controllers/list.php:168:			$user =& JFactory::getUser();
 ../packages/tmp/site/controllers/list.php:195:			$user =& JFactory::getUser();
 ../packages/tmp/site/controllers/list.php:222:			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
-../packages/tmp/site/libraries/lib/usersearch.php:20:		$mySess =& JFactory::getSession();
-../packages/tmp/site/libraries/lib/usersearch.php:28:		$mySess =& JFactory::getSession();
-../packages/tmp/site/libraries/lib/usersearch.php:37:		$mySess =& JFactory::getSession();
-../packages/tmp/site/libraries/lib/usersearch.php:107:		JFactory::getSession()->set('updateCache', true);
-../packages/tmp/site/libraries/lib/usersearch.php:123:		JFactory::getSession()->clear('updateCache', true);
-../packages/tmp/site/libraries/lib/usersearch.php:140:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
-../packages/tmp/site/libraries/lib/usersearch.php:165:			$user =& JFactory::getUser();
-../packages/tmp/site/libraries/lib/usersearch.php:203:			$user =& JFactory::getUser();
+../packages/tmp/site/libraries/lib/usersearch.php:14:		$mySess =& JFactory::getSession();
+../packages/tmp/site/libraries/lib/usersearch.php:22:		$mySess =& JFactory::getSession();
+../packages/tmp/site/libraries/lib/usersearch.php:31:		$mySess =& JFactory::getSession();
+../packages/tmp/site/libraries/lib/usersearch.php:101:		JFactory::getSession()->set('updateCache', true);
+../packages/tmp/site/libraries/lib/usersearch.php:117:		JFactory::getSession()->clear('updateCache', true);
+../packages/tmp/site/libraries/lib/usersearch.php:134:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+../packages/tmp/site/libraries/lib/usersearch.php:159:			$user =& JFactory::getUser();
+../packages/tmp/site/libraries/lib/usersearch.php:197:			$user =& JFactory::getUser();
 ../packages/tmp/site/libraries/lib/pluginhandler.php:29:		$user =& JFactory::getUser();
 ../packages/tmp/site/libraries/lib/pluginhandler.php:111:		$user  = & JFactory::getUser();
 ../packages/tmp/site/libraries/plugins/joomla/views/view.html.php:29:  			$mySess 	= JFactory::getSession();
@@ -160,9 +160,9 @@
 ../packages/tmp/site/libraries/base/view.php:161:		$user = JFactory::getUser();		
 ../packages/tmp/site/libraries/base/view.php:249:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
 ../packages/tmp/site/libraries/base/view.php:266:		$document 	= JFactory::getDocument();
-../packages/tmp/site/libraries/base/model.php:44:		$mainframe = JFactory::getApplication();
-../packages/tmp/site/libraries/base/model.php:47:		$this->_pagination->limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-../packages/tmp/site/libraries/base/model.php:48:		$this->_pagination->limitstart	= $mainframe->getUserStateFromRequest( 'com_xius_infolimitstart', 'limitstart', 0, 'int' );
+../packages/tmp/site/libraries/base/model.php:85:			$mainframe  	= JFactory::getApplication();
+../packages/tmp/site/libraries/base/model.php:86:			$limit			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+../packages/tmp/site/libraries/base/model.php:87:			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'start', 0, 'int' );
 ../packages/tmp/site/libraries/base/controller.php:13:class XiusController extends JController
 ../packages/tmp/site/helpers/utils.php:45:		global $mainframe;
 ../packages/tmp/site/helpers/utils.php:49:		$database = JFactory::getDBO();
@@ -178,7 +178,6 @@
 ../packages/tmp/site/tables/list.php:68:		$db		=& JFactory::getDBO();		
 ../packages/tmp/site/tables/info.php:47:	 * Overrides Joomla's JTable store method so that we can define proper values
 ../packages/tmp/site/tables/conditions.php:59:	 * Overrides Joomla's JTable store method so that we can define proper values
-../packages/tmp/site/models/users.php:120:		$db	  = JFactory::getDBO();
 ../packages/tmp/site/router.php:10:	$dbo = JFactory::getDBO();
 ../packages/tmp/install/extensions/mod_xiusproximity/tmpl/default.php:23:		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
 ../packages/tmp/install/extensions/mod_xiusproximity/mod_xiusproximity.php:9:$mySess =& JFactory::getSession();

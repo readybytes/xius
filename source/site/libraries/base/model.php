@@ -18,12 +18,20 @@ class XiusModel extends JModel
 	var $_table;
 	var $_pagination = null;
 	var $_total;
-
 	/**
 	 * @return model name
 	 */
 	public function getName()
 	{
+		if (empty( $this->_name ))
+		{
+			$r = null;
+			if (!preg_match('/Model(.*)/i', get_class($this), $r)) {
+				JError::raiseError (500, "XiusModel::getName() : Can't get or parse class name.");
+			}
+			$this->_name = strtolower( $r[1] );
+		}
+
 		return $this->_name;
 	}
 	
@@ -35,32 +43,11 @@ class XiusModel extends JModel
 		return $this->_table;
 	}
 	
-	/*
-	 * Set Default Pagination State
-	 * (We can also make XiusPagination Class)
-	 */
-	function initPaginationState() 
-	{
-		$mainframe = JFactory::getApplication();
-
-		// Get the pagination request variables
-		$this->_pagination->limit		= $mainframe->getUserStateFromRequest( 'global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-		$this->_pagination->limitstart	= $mainframe->getUserStateFromRequest( 'com_xius_infolimitstart', 'limitstart', 0, 'int' );
-
-		// In case limit has been changed, adjust limitstart accordingly
-		$this->_pagination->limitstart = 
-							($this->_pagination->limit != 0 
-								? (floor($this->_pagination->limitstart / $this->_pagination->limit) * $this->_pagination->limit) 
-								: 0);
-
-		$this->setState('limit', $this->_pagination->limit);
-		$this->setState('limitstart', $this->_pagination->limitstart);
-	}
 	
 	/*
 	 * Get All Records
 	 */ 
-	public function loadRecords($filter='', $join='AND',$reqPagination = true, $limitStart=0, $limit=0)
+	public function loadRecords($filter='', $join='AND', $reqPagination = true, $limitStart=0, $limit=0, $sort='userid',$dir='ASC')
 	{
 		//if pagination required then set pagination limits		
 		if($reqPagination && $limitStart == 0 && $limit == 0)
@@ -71,12 +58,11 @@ class XiusModel extends JModel
 			$limit = $this->_pagination->limit;
 		}
 		// set query element
-		$this->getQuery($filter, $join);
-		
+		$this->_query = $this->getQuery($filter,$join,true,$sort,$dir);
+			
 		//get all records
-		$allRecord = $this->_query->limit($limit, $limitStart)		
-								  ->dbLoadQuery()
-								  ->loadObjectList();					 
+		$allRecord = $this->_getList((string)$this->_query, $limitStart, $limit);
+				 
 		return $allRecord;
 	}
 	
@@ -84,29 +70,41 @@ class XiusModel extends JModel
 	 * @return JPagination object	 	 
 	 */	 	
 
-	function getPagination($filter = '',$join = 'AND')
+	function getPagination($filter = '',$join = 'AND',$sort='userid',$dir='ASC')
 	{
 		if($this->_pagination == null)
 		 {
-		 	$this->initPaginationState();
-			
 			jimport('joomla.html.pagination');
+			
+			//Set default value of limitstart
+			if(JRequest::getVar('start', null, 'REQUEST') === null)
+				JRequest::setVar('start', 0, 'REQUEST');
+	
+			// Get the pagination request variables
+			$limitStartStr	= 'com_xius.'.$this->getName().'.limitstart'; 
+			$mainframe  	= JFactory::getApplication();
+			$limit			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'start', 0, 'int' );
+	
+			// In case limit has been changed, adjust limitstart accordingly
+			$limitstart = ($limit != 0) ? (floor($limitstart / $limit) * $limit) : 0;
+	
+			$this->setState('limit', $limit);
+			$this->setState($limitStartStr, $limitstart);
+			
 			// Get the pagination object
-			$this->_pagination	= new JPagination( $this->getTotal($filter,$join) , $this->_pagination->limitstart , $this->_pagination->limit);	
+			$this->_pagination	= new JPagination( $this->getTotal($filter,$join,$sort,$dir) , $limitstart , $limit);	
 		}
 			
 		return $this->_pagination;
 	}
-	
-
-	
+		
 	/*
 	 * Save Data
 	 * @return saved data id.
 	 * (like save username save then return 'username' info id )
 	 */
-	function save($data) {
-		
+	function save($data) {		
 		$tableInstance	= XiusFactory::getInstance( $this->_name , 'Table' );
 		$tableInstance->load($data['id']);
 		$tableInstance->bind($data);
@@ -131,7 +129,6 @@ class XiusModel extends JModel
 			  		   ->dbLoadQuery();
 			  
 		XiusError::assert($query->query(), $this->_db->getErrorMsg());	
-		
 		return true;
 	}
 	
@@ -140,7 +137,7 @@ class XiusModel extends JModel
 	 * @param unknown_type $filter: condition
 	 * @param unknown_type $join: match condition
 	 */
-	function getQuery($filter='', $join='AND', $reset=true)
+	function getQuery($filter='', $join='AND', $reset=true, $sort='', $dir='')
 	{
 		if(isset($this->_query) && $reset==false){
 			return $this->_query;
@@ -156,6 +153,7 @@ class XiusModel extends JModel
 		}
 		//set order on query element					
 		$this->_query->order("`ordering`");
+		return $this->_query;
 	}
 	/*
 	 * filteration add with query
@@ -181,8 +179,8 @@ class XiusModel extends JModel
 		}
 
 		//set query element
-		$this->getQuery($filter,$join, false);
-        $this->_total 	= $this->_getListCount((string) $this->_query);
+		$this->_query = $this->getQuery($filter,$join,false);
+        $this->_total = $this->_getListCount((string) $this->_query);
 
 		return $this->_total;
 	}

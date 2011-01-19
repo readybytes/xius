@@ -172,10 +172,11 @@ class XiusCacheTest extends XiUnitTestCase
 		/*XITODO : Update cache table also */
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		$strQuery = XiusLibUsersearch::buildQuery($conditions,$join,$sort,$dir);
+		$strQuery = XiusFactory::getInstance('users','model')
+								->getQuery($conditions,$join,'true',$sort,$dir);
 
 		$db = JFactory::getDBO();
-		$db->setQuery($strQuery);
+		$db->setQuery((string)$strQuery);
 		$users = $db->loadObjectList();
 		
 		$this->assertEquals($usercount,count($users),'Total users should be '.$usercount.' but we get '.count($users));

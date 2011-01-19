@@ -26,14 +26,14 @@
 ../packages/tmp/site/controllers/list.php:207:		// XITODO : do not user AllowRaw for all
 ../packages/tmp/site/controllers/list.php:209:		/*XITODO : set visible info and published also */		
 ../packages/tmp/site/controllers/list.php:219:		// XITODO : convert string 'false' into bollean false
-../packages/tmp/site/libraries/lib/usersearch.php:54:		/*XITODO : pass info through parameter */
-../packages/tmp/site/libraries/lib/usersearch.php:99:		/*XITODO : update xius_cache table with new info id
-../packages/tmp/site/libraries/lib/usersearch.php:114:		/*XITODO : break insert user data query into parts
-../packages/tmp/site/libraries/lib/usersearch.php:158:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:197:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:305:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/site/libraries/lib/usersearch.php:365:		//XiTODO:: invoke count only one time
-../packages/tmp/site/libraries/lib/usersearch.php:377:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/site/libraries/lib/usersearch.php:48:		/*XITODO : pass info through parameter */
+../packages/tmp/site/libraries/lib/usersearch.php:93:		/*XITODO : update xius_cache table with new info id
+../packages/tmp/site/libraries/lib/usersearch.php:108:		/*XITODO : break insert user data query into parts
+../packages/tmp/site/libraries/lib/usersearch.php:152:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:191:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:299:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/site/libraries/lib/usersearch.php:359:		//XiTODO:: invoke count only one time
+../packages/tmp/site/libraries/lib/usersearch.php:371:			// XITODO : test with 0,null,baln,blank array
 ../packages/tmp/site/libraries/lib/info.php:56:	// XITODO: Remove this, its unusable
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
@@ -74,8 +74,8 @@
 ../packages/tmp/site/helpers/usersearch.php:35:		//XiTODO:: remove magic num 
 ../packages/tmp/site/elements/xiusTemplates.php:19:	// XITODO : change name of this element, add XIUS
 ../packages/tmp/site/elements/xiusJoomlaUserGroup.php:16:	// XITODO : change name of this element, add XIUS
-../packages/tmp/site/models/users.php:101:		/*XITODO:  provide conditional operator also
-../packages/tmp/site/models/users.php:129:		 * XITODO : add block condition
+../packages/tmp/site/models/users.php:50:		/*XITODO:  provide conditional operator also
+../packages/tmp/site/models/users.php:70:		 * XITODO : add block condition
 ../packages/tmp/site/models/info.php:22:	/*XITODO : Cache function for same filter */
 ../packages/tmp/site/models/info.php:51:		//XiTODO:: I think, its unusable checking
 ../packages/tmp/site/router.php:50://XITODO : handle list id

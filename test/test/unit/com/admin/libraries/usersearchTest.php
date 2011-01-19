@@ -45,8 +45,9 @@ class XiusUserSearchTest extends XiUnitTestCase
 	{	
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
-		$strQuery = XiusLibUsersearch::buildQuery($conditions,$join,$sort,$dir);
-		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces($strQuery));
+		$model = XiusFactory::getInstance('users','model');
+		$strQuery= $model->getQuery($conditions,$join,true,$sort,$dir);
+		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces((string)$strQuery));
 	}
 	
 	
