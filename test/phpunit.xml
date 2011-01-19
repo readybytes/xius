@@ -83,7 +83,7 @@
 		<listener class="XiTestListener" file="./system/XiTestListener.php" />
 	</listeners>
 	
-<!--	<filter>
+	<filter>
           <blacklist>	
             <directory suffix=".php">../</directory>
           </blacklist>
@@ -91,6 +91,6 @@
             <directory suffix=".php">../components/com_xius</directory>
             <directory suffix=".php">../administrator/components/com_xius</directory>
           </whitelist>
-        </filter> -->
+        </filter> 
 
 </phpunit>
