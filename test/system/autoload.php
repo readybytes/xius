@@ -48,4 +48,11 @@ foreach($plugins as $pluginDetails)
   	JLoader::register('XiusProximityEncoder', $path.DS.'proximity/encoders/encoder.php');
     JLoader::register('ProximityGoogleEncoder', $path.DS.'proximity/encoders/google.php');
     JLoader::register('ProximityInformationEncoder', $path.DS.'proximity/encoders/information.php');
+    
+   //load elements 
+   $path = XIUS_COMPONENT_PATH_SITE.DS .'elements';
+   JLoader::register('JElementXiusJoomlaUserGroup', $path.DS.'xiusJoomlaUserGroup.php');
+   JLoader::register('JElementInfo', $path.DS.'info.php');
+   JLoader::register('JElementXiuslist', $path.DS.'xiuslist.php');
+   JLoader::register('JElementXiusTemplates', $path.DS.'xiusTemplates.php');
  
