@@ -15,6 +15,8 @@ if(JFolder::exists($comPath))
 		define( 'JPATH_COMPONENT_SITE',				JPATH_SITE.DS.'components'.DS.'com_xius');
 		define( 'JPATH_COMPONENT_ADMINISTRATOR',	JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius');
 	}
+	// Autoload all plugin with all file classes
+	require_once dirname(__FILE__).DS.'autoload.php';
 }
 
 
