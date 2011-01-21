@@ -16,37 +16,48 @@ class XiusLibPluginhandler
 	}
 	
 
+	/**
+	 * its use on plugin trigger
+	 * (When run community cron then it trigger )
+	 */
 	function onCronRun()
 	{
 		return XiusLibUsersearch::updateCache();
 	}
 	
-	
-	function onAfterUserSearchQueryBuild($query)
+	/**
+	 * Trigger plugin call this function 
+	 * @param unknown_type $query have XiUSQuery reference
+	 */
+	function onAfterSearchQuery($query)
 	{
 		//currently this code is supposed to handle only for force search
-
 		$user =& JFactory::getUser();
 
-		if(XiusHelperUtils::isAdmin($user->id))
+		// on admin not apply any force search
+		if(XiusHelperUtils::isAdmin($user->id)){
 			return true;
+		}
 			
 		$filter = 	array('pluginType' => 'Forcesearch');
 		$forceSearchInfo	=	XiusLibInfo::getInfo($filter,'AND',false);
 		
-		if(count($forceSearchInfo) == 0)
+		if(count($forceSearchInfo) == 0){
 			return true;
-			
+		}
+		//get plugin instance
 		$plgInstance = XiusFactory::getPluginInstance('Forcesearch');
-		
-		if(!$plgInstance)
+		if(!$plgInstance){
 			return true;
+		}
 
 		$plgInstance->addSearchToQuery($query,'');
-		
 		return true;
 	}
 	
+	/**
+	 * trigger after cache update
+	 */
 	function getGeocodesOfInvalidAddress()
 	{
 		require_once ( XIUS_PLUGINS_PATH.DS. 'proximity' .DS.'googleapihelper.php');
@@ -64,7 +75,7 @@ class XiusLibPluginhandler
 		
 		$addresses	= ProximityGoogleapiHelper::getInvalidAddress($limit);
 		$geocodes 	= ProximityGoogleapiHelper::getGeocodes($addresses);
-		// XITODO : write message when geocodes are not found
+
 		if(!$geocodes){
 			JError::raiseWarning(1001,XiusText::_('WARNING_FOR_NOT_FOUND_GEOCODE'));
 			return false;
@@ -72,7 +83,9 @@ class XiusLibPluginhandler
 		ProximityGoogleapiHelper::updateGeocodesOfInvalidAddress($geocodes);
 		return true;
 	}
-	
+	/*
+	 * Trigger On-Before-cache update 
+	 */
 	function createGeocodeTable()
 	{
 		require_once ( XIUS_PLUGINS_PATH.DS. 'proximity' .DS.'googleapihelper.php');
@@ -80,7 +93,11 @@ class XiusLibPluginhandler
 		return $val;
 	}
 	
-	
+	/**
+	 * trigger it before dispaly information and toolbar
+	 * @param $funcName
+	 * @param $data
+	 */
 	function triggerInternelPlugin($funcName, $data)
 	{
 		$filter = array();

@@ -76,7 +76,7 @@ class XiusModelUsers extends XiusModel
 		$this->_query->order($sort.' '.$dir);
 		/*Trigger event */
 		$dispatcher = JDispatcher::getInstance();
-		$dispatcher->trigger( 'onAfterUserSearchQueryBuild', array( &$this->_query ) );
+		$dispatcher->trigger( 'onAfterSearchQuery', array( &$this->_query ) );
 
 		return $this->_query;
 	}

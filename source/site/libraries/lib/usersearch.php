@@ -9,34 +9,44 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusLibUsersearch
 {	
+	/**
+	 * set value in session
+	 * @param $what:: variable name
+	 * @param $value:: given value for set
+	 * @param $namespace
+	 */
 	function setDataInSession($what,$value,$namespace='XIUS')
 	{
-		$mySess =& JFactory::getSession();
+		$mySess = JFactory::getSession();
 		$mySess->set($what,$value,$namespace);
 		return true;
 	}
 	
-	
+	/**
+	 * get data from session
+	 * @param unknown_type $what:: variable name
+	 * @param unknown_type $default:: default value
+	 * @param unknown_type $namespace
+	 */
 	function getDataFromSession($what,$default=false,$namespace='XIUS')
 	{
-		$mySess =& JFactory::getSession();
+		$mySess = JFactory::getSession();
 		$params = $mySess->get($what,$default,$namespace);
-		
 		return $params;
 	}
 	
-	
+	/**
+	 * collect param for sorting and diratiov
+	 */
 	function collectSortParams()
 	{
-		$mySess =& JFactory::getSession();
 		$sortInfo = array();
-		$sortInfo['sort'] = $mySess->get('sort',false,'XIUS');
-		$sortInfo['dir'] = $mySess->get('dir',false,'XIUS');
-		
+		$sortInfo['sort'] = self::getDataFromSession('sort');
+		$sortInfo['dir']  = self::getDataFromSession('dir');
 		return $sortInfo;
 	}
 	
-	
+	//XITODO:: Ufff...!!remove this. n Direct call getInfo
 	function getAllInfo($filter = '',$join = 'AND')
 	{
 		$info = XiusLibInfo::getInfo($filter,$join);
@@ -70,29 +80,27 @@ class XiusLibUsersearch
 				 $instance = XiusFactory::getPluginInstance('',$i->id);
 			}
 
-			if(!$instance)
+			if(!$instance){
 				continue;
+			}
 				
 			$instance->getUserData($query);
 		}
-		
 		return $query;
 	}
 	
-	
-	
+	//XiTODO:: i think its un-usable
 	function insertUserData(XiusQuery $userInfo)
 	{
 		$cache = XiusFactory::getInstance('cache');
 		return $cache->insertIntoTable($userInfo);
 	}
 	
-	
+	/**
+	 * it return true and false according cache succefully update or not
+	 */
 	function updateCache()
 	{		
-		/*XITODO : update xius_cache table with new info id
-		 * We can only add column also without creating whole table
-		 */
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeXiusCacheUpdate' );
 		

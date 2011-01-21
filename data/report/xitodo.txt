@@ -11,7 +11,7 @@
 ../packages/tmp/admin/controllers/configuration.php:79:		//XiTODO:: Handle return value. If false then nt show cache update successfully
 ../packages/tmp/admin/controllers/info.php:73:		// XiTODO:: is it requrird
 ../packages/tmp/admin/controllers/info.php:93:			// XiTODO:: is it required
-../packages/tmp/admin/controllers/info.php:251:		/*XITODO : check if info is used anywhere,
+../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
 ../packages/tmp/site/templates/default/default_result.php:18:/*XITODO : pass variable for color */
@@ -26,17 +26,17 @@
 ../packages/tmp/site/controllers/list.php:207:		// XITODO : do not user AllowRaw for all
 ../packages/tmp/site/controllers/list.php:209:		/*XITODO : set visible info and published also */		
 ../packages/tmp/site/controllers/list.php:219:		// XITODO : convert string 'false' into bollean false
-../packages/tmp/site/libraries/lib/usersearch.php:48:		/*XITODO : pass info through parameter */
-../packages/tmp/site/libraries/lib/usersearch.php:93:		/*XITODO : update xius_cache table with new info id
-../packages/tmp/site/libraries/lib/usersearch.php:108:		/*XITODO : break insert user data query into parts
-../packages/tmp/site/libraries/lib/usersearch.php:152:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:191:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:299:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/site/libraries/lib/usersearch.php:359:		//XiTODO:: invoke count only one time
-../packages/tmp/site/libraries/lib/usersearch.php:371:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/site/libraries/lib/usersearch.php:49:	//XITODO:: Ufff...!!remove this. n Direct call getInfo
+../packages/tmp/site/libraries/lib/usersearch.php:58:		/*XITODO : pass info through parameter */
+../packages/tmp/site/libraries/lib/usersearch.php:92:	//XiTODO:: i think its un-usable
+../packages/tmp/site/libraries/lib/usersearch.php:116:		/*XITODO : break insert user data query into parts
+../packages/tmp/site/libraries/lib/usersearch.php:160:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:199:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:307:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/site/libraries/lib/usersearch.php:367:		//XiTODO:: invoke count only one time
+../packages/tmp/site/libraries/lib/usersearch.php:379:			// XITODO : test with 0,null,baln,blank array
 ../packages/tmp/site/libraries/lib/info.php:56:	// XITODO: Remove this, its unusable
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
-../packages/tmp/site/libraries/lib/pluginhandler.php:67:		// XITODO : write message when geocodes are not found
 ../packages/tmp/site/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function
 ../packages/tmp/site/libraries/plugins/xiusexport/views/view.csv.php:21:	// XITODO : break the function
 ../packages/tmp/site/libraries/plugins/xiusexport/views/view.csv.php:40:					/*	XITODO : Sort according to multiple columns name */

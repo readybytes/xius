@@ -40,7 +40,7 @@ class XiusFactory
 		$pluginName  = strtolower($pluginName);
 		$pluginPath	 = XIUS_PLUGINS_PATH. DS . $pluginName . DS . $pluginName.'.php';
 		
-		XiusError::assert(JFile::exists($pluginPath),"INVALID PLUGIN FILE");
+		XiusError::assert(JFile::exists($pluginPath),"INVALID $pluginName FILE");
 
 		// Include plugin path
 		require_once $pluginPath;

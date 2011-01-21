@@ -13,38 +13,41 @@ class XiusLibList
 	{
 		if(!isset($data['conditions']))
 			return false;
-			
-		/*$listData['id'] 		= $data['id'];
-		$listData['owner'] 		= $data['owner'];
-		$listData['join'] 		= $data['join'];
-		$listData['sortinfo'] 	= $data['sortinfo'];
-		$listData['sortdir'] 	= $data['sortdir'];*/
 		
-		$lModel =  XiusFactory::getInstance ('list', 'model');
-		
-		//$id = $lModel->store($listData);
-		$id = $lModel->store($data);
-		
-		return $id;
+		//return id
+		return XiusFactory::getInstance ('list', 'model')
+						  ->store($data);
 	}	
-	
+
+	/**
+	 * get all lists with filteration
+	 * @param $filter
+	 * @param $join
+	 * @param $reqPagination
+	 */
 	function getLists($filter='', $join = 'AND',$reqPagination=true)
 	{		
-		$lModel = XiusFactory::getInstance ('list','model');
-		return $lModel->getLists($filter, $join, $reqPagination);
+		return XiusFactory::getInstance ('list','model')
+		 				  ->getLists($filter, $join, $reqPagination);
 			
 	}
-	
+
+	/**
+	 * get list according list id
+	 * @param unknown_type $id
+	 */
 	function getList($id = 0)
 	{
-		if($id === 0)
+		if($id === 0){
 			return false;
+		}
 
 		$filter	= array('id'=>$id);
-		$lModel = XiusFactory::getInstance ('list', 'model');
-		$row	= $lModel->getLists($filter,'AND',false);
-		if(!$row)
+		$row	= self::getLists($filter,'AND',false);
+
+		if(empty($row)){
 			return false;
+		}
 			
 		return $row[0];
 	}

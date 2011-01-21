@@ -17,7 +17,8 @@ foreach($plugins as $pluginDetails)
 	
 	// autoload view
 	JLoader::register(JString::ucfirst($plugin).'View', $path.DS.$plugin.DS.'views'.DS.'view.html.php');
-	
+
+	// Auto-Load Helper	
 	if(JFile::exists($path.DS.$plugin.'helper.php'))
 	{
 		JLoader::register(JString::ucfirst($plugin).'helper', $path.DS.$plugin.'helper.php');	

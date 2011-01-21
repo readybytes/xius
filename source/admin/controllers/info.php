@@ -172,15 +172,10 @@ class XiusControllerInfo extends JController
 		$info = array();
 		$info['id'] = $storedInfo['id'];
 		$info['data'] = $data;
-		/*fork trigger */
-		
-		//JPluginHelper::importPlugin( 'system' );
-		
-		/*info reset required , b'coz it will return
-		 * old data and new info will not be added in cache
-		 */
+
+		//reset cached information
 		XiusLibInfo::getAllInfo(true);
-		
+		//Add new information in cache
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onUsInfoUpdated', array( $info ) );
 			

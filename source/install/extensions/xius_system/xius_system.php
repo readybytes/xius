@@ -30,7 +30,7 @@ class plgSystemxius_system extends JPlugin
 	}
 	
 	
-	function onAfterUserSearchQueryBuild($data)
+	function onAfterSearchQuery($data)
 	{
 		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
 		if(!JFile::exists($includePath))
@@ -38,7 +38,7 @@ class plgSystemxius_system extends JPlugin
 
 		require_once $includePath;
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
-		return $plgHandler->onAfterUserSearchQueryBuild($data);
+		return $plgHandler->onAfterSearchQuery($data);
 	}
 	
 	function onAfterRoute()
