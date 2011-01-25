@@ -62,8 +62,8 @@ class XiusModelInfo extends XiusModel
 		$params->bind($info->params);
 		$params->set($what,$value);
 		$paramStr = $params->toString('INI');
-		
-		$this->updateRecord($id, "params", " \"$paramStr\" ");		
+		//IMPT::$paramStr always pass as string
+		$this->updateRecord($id, 'params', "'$paramStr'");		
 		return true;
 	}
 }
