@@ -11,23 +11,44 @@ if(defined('XIUS_SITE_INCLUDES')) return;
 
 define('XIUS_SITE_INCLUDES','XIUS_SITE_INCLUDES');
 
-require_once  JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
+//require_once  JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
 
-// Frontend includes
-//all folder paths
-define('XIUS_PATH_SITE_CONTROLLER',	XIUS_COMPONENT_PATH_SITE.DS.'controllers');
-define('XIUS_PATH_SITE_MODEL',		XIUS_COMPONENT_PATH_SITE.DS.'models');
-define('XIUS_PATH_SITE_VIEW',		XIUS_COMPONENT_PATH_SITE.DS.'views');
-define('XIUS_PATH_SITE_HELPER',		XIUS_COMPONENT_PATH_SITE.DS.'helpers');
+//include basic required files
+jimport('joomla.utilities.string');
+jimport('joomla.filesystem.files' );
+jimport('joomla.filesystem.folders' );
+jimport('joomla.application.component.controller' );
+jimport('joomla.application.component.model');
 
 
-XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_CONTROLLER,'controller',	'Xiussite');
+//load basic defines
+require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'defines.php';
+
+//set Model Path into (includePath) 
+JModel::addIncludePath(XIUS_MODEL_PATH);
+// For auto-loading purpose
+require_once(XIUS_COMPONENT_PATH_SITE.DS.'libraries'.DS.'base'.DS.'loader.php');
+
+// Auto-load Base folder
+XiusLoader::addAutoLoadFolder(XIUS_PATH_BASE, '');
+
+//Auto load lib folder
+XiusLoader::addAutoLoadFolder(XIUS_PATH_LIB, 'Lib');
+
+// auto load classes for base controller, base view,and modal
+XiusLoader::addAutoLoadFile('XiusBase', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'base.php');
+XiusLoader::addAutoLoadFile('XiusBaseView', XIUS_PATH_LIBRARY.DS.'plugins'.DS.'baseview.php');
+
+
+// Auto Load Model And Helper Classes
 XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_MODEL,		'model');
-XiusLoader::addAutoLoadViews (XIUS_PATH_SITE_VIEW,		JRequest::getCmd('format','html'),	'Xiussite');
+XiusLoader::addAutoLoadFolder(XIUS_TABLE_PATH, 'table');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_HELPER,	'helper');
 
-// Auto XiUS Plugin Helper classes
-//XiusLoader::addAutoLoadPluginHelper(XIUS_PLUGINS_PATH, 'helper');
+// Auto-Load site Controller And View
+XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_CONTROLLER,'controller',	'Xiussite');
+XiusLoader::addAutoLoadViews (XIUS_PATH_SITE_VIEW,		JRequest::getCmd('format','html'),	'Xiussite');
+
 
 /*Load Langauge file*/
 $lang =& JFactory::getLanguage();
@@ -37,7 +58,6 @@ if($lang){
 }
 
 // Autoloading for Jom social 2.0 [ Zend Plugin ]
-
 $paths	= explode( PATH_SEPARATOR , get_include_path() );
 
 if( !in_array( JPATH_ROOT . DS . 'plugins' . DS . 'system', $paths ) )
@@ -60,3 +80,14 @@ if(JFile::exists(JPATH_ROOT . DS.'plugins'.DS.'system'.DS.'Zend/Loader/Autoloade
 		$loader = Zend_Loader_Autoloader::getInstance();
 	}
 }
+//it must be after Zend_Loader_Autoloader 
+/*JomSocial community files */
+foreach(array('CFactory','CAssets','CConfig','CApplications','CUser','CRoute') as $className)
+	XiusLoader::addAutoLoadFile($className, XIUS_PATH_LIBRARY.DS.'community.php');
+
+//Explicit JomSocial Dependency
+CConfig::getInstance();
+XiusLoader::addAutoLoadFile('CMessaging', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'messaging.php');
+XiusLoader::addAutoLoadFile('CFriends', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'friends.php');
+require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
+

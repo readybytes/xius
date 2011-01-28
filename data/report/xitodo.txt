@@ -5,8 +5,7 @@
 ../packages/tmp/admin/views/info/view.html.php:42:			//XiTODO:: is it required??
 ../packages/tmp/admin/views/info/view.html.php:53:		//XiTODO:: Why assign this.
 ../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
-../packages/tmp/admin/defines.php:22://XITODO:: change name formate
-../packages/tmp/admin/includes.php:14://XITODO : add autoloading, do not just includes
+../packages/tmp/admin/defines.php:28://XITODO:: change name formate
 ../packages/tmp/admin/controllers/list.php:66:		// XITODO : when id is not set then what to do
 ../packages/tmp/admin/controllers/configuration.php:79:		//XiTODO:: Handle return value. If false then nt show cache update successfully
 ../packages/tmp/admin/controllers/info.php:73:		// XiTODO:: is it requrird

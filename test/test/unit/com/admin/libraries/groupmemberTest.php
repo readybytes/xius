@@ -97,9 +97,9 @@ class XiusGroupMemberTest extends XiUnitTestCase {
 		$join2	 = 'AND';
 						
 		return Array(
-					Array($post1, $join1, $resultQuery1,$searchResult1),
-					Array($post1, $join1, $resultQuery1,$searchResult1),
-					Array($post2, $join2, $resultQuery2,$searchResult2)
+					Array($post1, $join1, $resultQuery1),
+					Array($post1, $join1, $resultQuery1),
+					Array($post2, $join2, $resultQuery2)
 					);
 	
 	}
