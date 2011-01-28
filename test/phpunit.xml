@@ -29,6 +29,7 @@
 		<file>test/unit/com/admin/libraries/customTableTest.php</file>
 		<file>test/unit/com/admin/helpers/utilsTest.php</file>		
 		<file>test/unit/com/admin/controllers/infoTest.php</file>
+		<file>test/unit/com/admin/libraries/groupmemberTest.php</file>
 
 		<file>test/unit/com/admin/controllers/listTest.php</file>
 		<file>test/unit/com/admin/models/configurationTest.php</file>
@@ -63,6 +64,7 @@
 		<file>test/sel/com/site/forceSearchTest.php</file>	-->
 	<!--<file>test/sel/com/site/xiusintegrationSelTest.php</file>-->
 		<file>test/sel/com/site/calendartestingTest.php</file>
+		<file>test/sel/com/site/groupmemberTest.php</file>
 		<file>test/unit/com/admin/proximity/jsproximityTest.php</file>
 
 	<!-- All UI Test Cases -->		

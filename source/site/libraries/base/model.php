@@ -185,4 +185,23 @@ class XiusModel extends JModel
 		return $this->_total;
 	}
 	
+	/**
+	 * Return All Available Groups
+	 */
+ 	function getGroups()
+    {
+    	static $groups = null;
+    	
+    	if($groups !== null)
+    		return $groups;
+    			
+    	$query 	= new XiusQuery();
+    	$groups =  $query->select(array('id','name'))
+        			  	 ->from("`#__community_groups`")
+        			     ->dbLoadQuery()
+        			     ->loadObjectList();
+    
+    	return $groups;
+    }
+	
 }
