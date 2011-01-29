@@ -1,7 +1,6 @@
 ../packages/tmp/admin/views/list/view.html.php:47:		$editor 		=& JFactory::getEditor();
 ../packages/tmp/admin/views/list/view.html.php:57:		$user = & JFactory::getUser($list->owner);
 ../packages/tmp/admin/views/cpanel/view.html.php:55:		$lang		=& JFactory::getLanguage();
-../packages/tmp/admin/includes.php:52://$lang =& JFactory::getLanguage();
 ../packages/tmp/admin/controllers/list.php:9:class XiusControllerList extends JController
 ../packages/tmp/admin/controllers/list.php:33:		global $mainframe;
 ../packages/tmp/admin/controllers/list.php:39:		$cache = & JFactory::getCache('com_content');
@@ -63,11 +62,8 @@
 ../packages/tmp/site/views/list/view.html.php:70:		$user = JFactory::getUser();
 ../packages/tmp/site/views/list/view.html.php:78:		$data['editor']		= & JFactory::getEditor();
 ../packages/tmp/site/views/users/view.html.php:51:		$document = JFactory::getDocument();
-../packages/tmp/site/templates/default/default_profile.php:37:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/templates/nextgen/users/default_panel.php:8:$document =& JFactory::getDocument();
-../packages/tmp/site/templates/nextgen/default_profile.php:54:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/templates/linkedin/users/default_panel.php:8:$document =& JFactory::getDocument();
-../packages/tmp/site/templates/linkedin/default_profile.php:56:							$onlineUser = JFactory::getUser();
 ../packages/tmp/site/includes.php:54:$lang =& JFactory::getLanguage();
 ../packages/tmp/site/controllers/users.php:127:		$document	=& JFactory::getDocument();
 ../packages/tmp/site/controllers/list.php:30:		$user =& JFactory::getUser();
@@ -121,7 +117,9 @@
 ../packages/tmp/site/libraries/plugins/xiusemail/views/view.html.php:55:        $document =& JFactory::getDocument();
 ../packages/tmp/site/libraries/plugins/xiusemail/xiusemail.php:32://		$loggedInUser =& JFactory::getUser();
 ../packages/tmp/site/libraries/plugins/xiusemail/controller.php:9:class XiusPluginControllerXiusemail extends JController 
-../packages/tmp/site/libraries/plugins/xiusemail/controller.php:37:    	$loggedInUser 	= JFactory::getUser();
+../packages/tmp/site/libraries/plugins/xiusemail/controller.php:38:    	$loggedInUser 	= JFactory::getUser();
+../packages/tmp/site/libraries/plugins/xiusemail/controller.php:41:    		JFactory::getApplication()->enqueueMessage(XiusText::_("PLEASE_LOGIN_FIRST"));
+../packages/tmp/site/libraries/plugins/xiusemail/controller.php:118:    		JFactory::getApplication()->enqueueMessage(XiusText::_("PLUGIN_PRAMETERR_NOT_SET"));
 ../packages/tmp/site/libraries/plugins/xiusemail/helper.php:20:    	$db = & JFactory::getDBO();	
 ../packages/tmp/site/libraries/plugins/xiusemail/helper.php:45:    	$document = JFactory::getDocument();
 ../packages/tmp/site/libraries/plugins/xiusemail/helper.php:71:    	$db = & JFactory::getDBO();	

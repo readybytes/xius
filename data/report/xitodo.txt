@@ -49,7 +49,6 @@
 ../packages/tmp/site/libraries/plugins/base.php:196:	// XITODO : function clean up
 ../packages/tmp/site/libraries/plugins/base.php:524:		 * XITODO : Add all cache columns if one instance is 
 ../packages/tmp/site/libraries/plugins/base.php:566:		/*XITODO : never initialize params again
-../packages/tmp/site/libraries/plugins/xiusemail/controller.php:38:    	// XITODO : if not logged in then what to do
 ../packages/tmp/site/libraries/plugins/proximity/views/tmpl/default_search.php:10:		//XITODO:: cleanup code
 ../packages/tmp/site/libraries/plugins/proximity/views/view.html.php:46:		//XITODO : do use generic name, rmeove hardcoding, also generalize the code
 ../packages/tmp/site/libraries/plugins/proximity/views/view.html.php:77:    	//XiTODO:: Why pass data_id 	

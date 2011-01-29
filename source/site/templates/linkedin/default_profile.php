@@ -52,16 +52,6 @@ endif;?>
 						</a>
 						<?php endif; ?>
 <br />
-						<?php if(!empty($user->messageHref)) :
-							$onlineUser = JFactory::getUser();
-					        if($onlineUser->id != 0 && $onlineUser->id != $user->id): ?>
-						
-									<a <?php echo $user->messageHref; ?> >
-										<?php echo XiusText::_('MESSAGE'); ?>
-									</a>
-						<?php endif; ?>
-					<?php endif; ?>
-
 					<?php if(!empty($user->friendHref)) : ?>
 						<div class="xiusFriends" title="<?php echo XiusText::sprintf( ($user->friendCount) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $user->friendCount);?>">
 							<a <?php echo $user->friendHref; ?>>

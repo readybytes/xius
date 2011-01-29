@@ -39,7 +39,10 @@ if(!defined('_JEXEC')) die('Restricted access');
 				
 				<input type="hidden" name="xiusSelectedUserid" id="xiusSelectedUserid" value="" />
 				
-				<div class="xiusEmailFooter"><input type="submit" name="send" value="<?php echo XiusText::_('XIUS EMAIL SEND'); ?>" /></div>
+				<div class="xiusEmailFooter">
+					<input type="submit" name="send" value="<?php echo XiusText::_('XIUS EMAIL SEND'); ?>" />
+					<input type="submit" name="sendmsg" value="<?php echo XiusText::_('XIUS_MSG_SEND'); ?>" />
+				</div>
 			 <?php endif;	?>	
 		</form>
 	</div>

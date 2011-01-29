@@ -35,7 +35,6 @@ class XiusHelperProfile
 			$data->status 	    = $cuser->getStatus();
 			$data->profileLink  = XiusRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);
 
-			$data->messageHref = 'onclick="'. CMessaging::getPopup($user->userid).'" href="javascript:void(0);"';
 			$data->friendCount = $cuser->getFriendCount();
 			$data->friendHref  = 'href="'.XiusRoute::_('index.php?option=com_community&view=friends&userid=' . $cuser->id,false ).'"';
 			$data->isOnline    = $cuser->isOnline();

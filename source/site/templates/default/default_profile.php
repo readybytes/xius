@@ -33,15 +33,6 @@
 						</a>
 					<?php endif; ?>
 
-					<?php if(!empty($user->messageHref)) :
-							$onlineUser = JFactory::getUser();
-						     if($onlineUser->id != 0 && $onlineUser->id != $user->id): ?>
-								<a <?php echo $user->messageHref; ?> >
-								<img src="<?php echo JURI::base().'components/com_xius/assets/images/msg.png';?>" title="<?php echo XiusText::_('Write Message'); ?>" />
-								</a>
-						<?php endif; ?>
-					<?php endif; ?>
-
 					<?php if(!empty($user->friendHref)) : ?>
 						<a <?php echo $user->friendHref; ?>>
 						<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" title="<?php echo XiusText::sprintf( ($user->friendCount) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $user->friendCount);?>" />

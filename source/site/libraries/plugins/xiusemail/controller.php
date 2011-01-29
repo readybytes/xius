@@ -34,58 +34,126 @@ class XiusPluginControllerXiusemail extends JController
     function sendEmail($pluginId=null, $userId=null, $post=null)
     {
     	require_once(dirname(__FILE__).DS.'helper.php');
+    	   	   	
     	$loggedInUser 	= JFactory::getUser();
-    	// XITODO : if not logged in then what to do
-    	    	
-    	if($pluginId === null)
+    	// If user is not login then nither sent email nor msg
+    	if(empty($loggedInUser->id)){
+    		JFactory::getApplication()->enqueueMessage(XiusText::_("PLEASE_LOGIN_FIRST"));
+    		return false;
+    	}
+    	
+    	//Set All initial Values
+    	if($pluginId === null){
     		$pluginId	= JRequest::getVar('pluginid',0,'GET');
-    	
-    	if($userId === null)
+    	}   	
+    	if($userId === null){
     		$userId = array(JRequest::getVar('userid',0,'GET'));
-    	
-    	if($post === null)
+    	}
+    	if($post === null){
     		$post   = JRequest::get('POST');
+    	}
 
-   		// get the user id of users to email according to selected or all 
-    	if($userId === array('selected'))
-    	 	$userId = explode(',',$post['xiusSelectedUserid']);    	 	
-    	else if($userId === array('all')){
+        // get Xius-Email Plugin Instance
+    	$plugInstance 	= XiusFactory::getPluginInstance('',$pluginId);
+    	if(!$plugInstance){
+    		return false;
+    	}
+    	
+   		// fetch user_ids according to selected or all option 
+    	if($userId === array('selected')){
+    	 	$userId = explode(',',$post['xiusSelectedUserid']);
+    	}    	 	
+    	elseif($userId === array('all')){
     			$userId = XiusemailHelper::getResultedUserId();    		
     	}
     	
-    	$instance 		= XiusFactory::getPluginInstance('',$pluginId);
-    	if(!$instance)
-    		return false;
+    	//get "message or email" for sending
+    	$message 	= JRequest::getVar( 'xiusEmailMessageEl', '', 'post', 'string', JREQUEST_ALLOWRAW );
     	
-    	$params = $instance->getData('pluginParams');
+    	// Send Message
+    	if($this->_sendMessage($post, $userId, $message)){
+    		return true;
+    	}
+    	// Send Mail
+    	if($this->_sendEmail($loggedInUser, $plugInstance, $post, $userId, $message)){
+    		return true; 
+    	}
+    	return false;   			
+    }
+    
+    /**
+     * Send Messages
+     * @param $userId
+     * @param $post
+     * @param $message
+     */
+    function _sendMessage($post, $userId, $message)
+    {
+    	//When Click on Send-msg button then Set Send msg
+    	if(!array_key_exists('sendmsg',$post)){
+    		return false;
+    	}
+    	
+    	
+    	$info['to'] 	 = $userId;
+    	$info['subject'] = $post['xiusEmailSubjectEl'];
+    	$info['body']	 = $message;
+    	
+    	$inboxModel = CFactory::getModel('inbox');
+    	$inboxModel->send($info);
+    		
+    	XiusemailHelper::showResultMessage(XiusText::_("MESSAGE_SENT_TO_FOLLOWING_USERS"),$this->getUserName($userId));
+    	return true;
+    }
+    
+    function _sendEmail($loggedInUser, $plugInstance, $post, $userId, $message) 
+    {
+    	// Get Xius-Email Plugin Information. It must be "Email"(user-email)
+    	$params 	= $plugInstance->getData('pluginParams');
     	$emailInfo  = $params->get('xius_email',0);
     	$emailIns	= XiusFactory::getPluginInstance('',$emailInfo);
-    	if(!$emailIns)
-    		return false;
     	
-    	// get data from attached plugin information 
-    	$tableMaping = $emailIns->getTableMapping();
-    	$columnName =$tableMaping[0]->cacheColumnName;
-    	$user = XiusemailHelper::getUserDataFromCache($userId, $columnName);
+    	// If XiUS-Email Plugin Information not set Then return false
+    	if(!$emailIns){
+    		JFactory::getApplication()->enqueueMessage(XiusText::_("PLUGIN_PRAMETERR_NOT_SET"));
+    		return false;
+    	}
+    	
+    	// get data from Cache Table According to Plugin Information  
+    	$tableMaping	= $emailIns->getTableMapping();
+    	$columnName		= $tableMaping[0]->cacheColumnName;
+    	$user 			= XiusemailHelper::getUserDataFromCache($userId, $columnName);
     	
     	// email configuration
     	$senderEmail  	= $loggedInUser->email;
     	$recipient = array();
-    	foreach($user as $u)
+    	foreach($user as $u){
     		$recipient[] = $u->$columnName;
-
-    	$message = JRequest::getVar( 'xiusEmailMessageEl', '', 'post', 'string', JREQUEST_ALLOWRAW );
-    	$sent=JUtility::sendMail($senderEmail, $loggedInUser->name,$senderEmail, $post['xiusEmailSubjectEl'], $message,1,null,$recipient );
+    	}
+    	
+    	// sent email
+    	$sent	 = JUtility::sendMail($senderEmail, $loggedInUser->name,$senderEmail, $post['xiusEmailSubjectEl'], $message,1,null,$recipient );
+    	
     	if(is_object($sent)){
     		XiusemailHelper::showResultMessage('',array());
     		return false;
     	}
+
+    	XiusemailHelper::showResultMessage(XiusText::_("EMAIL SENT TO FOLLOWING USERS"),$this->getUserName($userId));
+    	return true;  
+    }
+    
+    /**
+     * Show result 
+     * @param $userId is array of userIds.
+     */
+    function getUserName($userId) {
     	
     	$userName =  XiusemailHelper::getUserDataFromUsersTable($userId,'name');
     	$users = array();
-    	foreach($userName as $u)
+    	foreach($userName as $u){
     		$users[] = $u->name;
-    	XiusemailHelper::showResultMessage(XiusText::_("EMAIL SENT TO FOLLOWING USERS"),$users);
-    	return true;    			
+    	}
+    	return $users;
     }
 }
