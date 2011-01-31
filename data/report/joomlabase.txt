@@ -157,9 +157,9 @@
 ../packages/tmp/site/libraries/base/view.php:161:		$user = JFactory::getUser();		
 ../packages/tmp/site/libraries/base/view.php:249:			$templateDir = JPATH_THEMES.DS.JFactory::getApplication()->getTemplate();
 ../packages/tmp/site/libraries/base/view.php:266:		$document 	= JFactory::getDocument();
-../packages/tmp/site/libraries/base/model.php:85:			$mainframe  	= JFactory::getApplication();
-../packages/tmp/site/libraries/base/model.php:86:			$limit			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-../packages/tmp/site/libraries/base/model.php:87:			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'start', 0, 'int' );
+../packages/tmp/site/libraries/base/model.php:86:			$mainframe  	= JFactory::getApplication();
+../packages/tmp/site/libraries/base/model.php:87:			$limit			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+../packages/tmp/site/libraries/base/model.php:88:			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'limitstart', 0, 'int' );
 ../packages/tmp/site/libraries/base/controller.php:13:class XiusController extends JController
 ../packages/tmp/site/helpers/utils.php:45:		global $mainframe;
 ../packages/tmp/site/helpers/utils.php:49:		$database = JFactory::getDBO();

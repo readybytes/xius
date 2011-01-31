@@ -77,14 +77,15 @@ class XiusModel extends JModel
 			jimport('joomla.html.pagination');
 			
 			//Set default value of limitstart
-			if(JRequest::getVar('start', null, 'REQUEST') === null)
-				JRequest::setVar('start', 0, 'REQUEST');
+			if(JRequest::getVar('limitstart', null, 'REQUEST') === null){
+				JRequest::setVar('limitstart',0, 'POST');
+			}
 	
 			// Get the pagination request variables
 			$limitStartStr	= 'com_xius.'.$this->getName().'.limitstart'; 
 			$mainframe  	= JFactory::getApplication();
 			$limit			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'start', 0, 'int' );
+			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'limitstart', 0, 'int' );
 	
 			// In case limit has been changed, adjust limitstart accordingly
 			$limitstart = ($limit != 0) ? (floor($limitstart / $limit) * $limit) : 0;
