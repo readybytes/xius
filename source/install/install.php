@@ -14,6 +14,19 @@ function com_install()
 		JError::raiseError('INSTERR', XiusText::_("NOT ABLE TO INSTALL PLUGINS"));
 		return false;
 	}*/
+	// Set Warning for removing older XiUS Version
+	$adminPath = JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius';
+	$siteFolder= Array('helper','libraries','models','tabels','elements','assets');
+	foreach($siteFolder as $folder){
+		if(JFolder::exists($adminPath.DS.$folder)){
+			JError::raiseWarning("","You are Upgrading Your XiUS Package (Older to XIUS 2.6). 
+										So Please,Properly Remove XiUS 2.5.xxx or lower-version.
+										'Any One' or 'All'(helper,libraries,models,tabels,elements,assets) folder exists
+										in Back-end");
+			
+			break;
+		}
+	}
 	
 	if(installExtensions() == false){
 		JError::raiseError('INSTERR', XiusText::_("NOT ABLE TO INSTALL EXTENSIONS"));
