@@ -99,4 +99,9 @@ class Xiusemail extends XiusBase
 		$view = $this->getViewName();
 		$view->_setAdminToolbar($this->id);
 	}
+	
+	function isExportable()
+	{
+		return false;
+	}
 }

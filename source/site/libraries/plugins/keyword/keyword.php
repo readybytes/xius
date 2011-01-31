@@ -93,4 +93,9 @@ class Keyword extends XiusBase
         	// convert  all element into one element so that more than one keyword search can be combined 
 		return $tempQuery->convertWhereIntoString();	
 	}
+	
+	function isExportable()
+	{
+		return false;
+	}
 }

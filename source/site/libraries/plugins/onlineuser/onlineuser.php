@@ -122,4 +122,10 @@ class Onlineuser extends XiusBase
 		return $tableInfo;
 	}
 
+   	
+	function isExportable()
+	{
+		return false;
+	}
+
 }

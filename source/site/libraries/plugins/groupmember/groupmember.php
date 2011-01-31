@@ -88,4 +88,10 @@ class Groupmember extends XiusBase
        			return $group->name;
        	} 	
 	}
+	
+	function isExportable()
+	{
+		return false;
+	}
+	
 }

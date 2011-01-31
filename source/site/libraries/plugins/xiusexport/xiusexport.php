@@ -82,4 +82,9 @@ function onBeforeDisplayResultToolbar($toolbar)
 		$view = $this->getViewName();
 		$view->_setAdminToolbar($this->id);
 	}
+	
+	function isExportable()
+	{
+		return false;
+	}
 }
