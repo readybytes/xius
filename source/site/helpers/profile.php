@@ -34,9 +34,6 @@ class XiusHelperProfile
 			$data->thumbAvatar  = $cuser->getThumbAvatar();
 			$data->status 	    = $cuser->getStatus();
 			$data->profileLink  = XiusRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);
-
-			$data->friendCount = $cuser->getFriendCount();
-			$data->friendHref  = 'href="'.XiusRoute::_('index.php?option=com_community&view=friends&userid=' . $cuser->id,false ).'"';
 			$data->isOnline    = $cuser->isOnline();
 			$data->friendReq = 'onclick="'. CFriends::getPopup($user->userid).'" href="javascript:void(0);"';
 

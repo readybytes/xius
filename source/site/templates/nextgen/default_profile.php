@@ -50,15 +50,12 @@
 					</div>
 					<?php endif; ?>
 
-
-					<?php if(!empty($user->friendHref)) : ?>
-						<div class="xiusFriends" title="<?php echo XiusText::sprintf( ($user->friendCount) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $user->friendCount);?>">
-							<a <?php echo $user->friendHref; ?>>
-								<?php echo XiusText::_('FRIENDS'); ?>
-							</a>
-						</div>
-					<?php endif; ?>
-
+				<!-- Frnd Request-->
+					<div class="xiusFriends" title="<?php echo XiusText::_("ADD_AS_FRND");?>">
+						<a  <?php echo $user->friendReq; ?>>
+							<?php echo XiusText::_('ADD_AS_FRND'); ?>
+						</a>
+					</div>
 					<?php if(isset($user->email) && !empty($user->email)): 
 					           echo $user->email;
 							    

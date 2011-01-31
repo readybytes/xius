@@ -33,11 +33,10 @@
 						</a>
 					<?php endif; ?>
 
-					<?php if(!empty($user->friendHref)) : ?>
-						<a <?php echo $user->friendHref; ?>>
-						<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" title="<?php echo XiusText::sprintf( ($user->friendCount) ? 'CC FRIENDS COUNT MANY' : 'CC FRIENDS COUNT' , $user->friendCount);?>" />
-						</a>
-					<?php endif; ?>
+<!-- Frnd Request-->
+					<a <?php echo $user->friendReq; ?>>
+					<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" title="<?php echo XiusText::_("ADD_AS_FRND");?>" />
+					</a>
 
 
 					<?php if($user->isOnline): ?>
