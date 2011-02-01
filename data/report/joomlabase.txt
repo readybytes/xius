@@ -209,5 +209,5 @@
 ../packages/tmp/install/extensions/xius_community/xius.php:50:		$lang =& JFactory::getLanguage();
 ../packages/tmp/install/uninstall.php:20:	$db			=& JFactory::getDBO();		
 ../packages/tmp/install/uninstall.php:34:	$db			=& JFactory::getDBO();
-../packages/tmp/install/install.php:60:		JFactory::getApplication()->enqueueMessage($msg);
-../packages/tmp/install/install.php:70:	$db			=& JFactory::getDBO();
+../packages/tmp/install/install.php:73:		JFactory::getApplication()->enqueueMessage($msg);
+../packages/tmp/install/install.php:83:	$db			=& JFactory::getDBO();
