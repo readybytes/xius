@@ -97,6 +97,7 @@ class XiusLibUsersearch
 	}
 	
 	/**
+	 * XiTODO:: move in cron file
 	 * it return true and false according cache succefully update or not
 	 */
 	function updateCache()
@@ -129,14 +130,14 @@ class XiusLibUsersearch
 		return $result;
 	}
 	
-	
+	//XiTODO:: move in cron file
 	function getTimestamp()
 	{
 		$time = time();
 		return $time;
 	}
 	
-	
+	//XiTODO:: move in cron file
 	function saveCacheParams($what,$value)
 	{		
 		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );

@@ -180,5 +180,42 @@ class plgSystemxius_system extends JPlugin
 		
 		return true;
 	}
+	
+	function onAfterRender()
+	{		
+		//Don't run in admin
+		if(JFactory::getApplication()->isAdmin()){
+			return true;
+		}
+
+		// Run this function when component is XiUS and
+		// task is Search
+		$option = JRequest::getVar('option');
+		$task	= JRequest::getVar('task');
+		
+		if( !($option === 'com_xius' && $task === 'search'))
+	    {  	
+			return true;	
+		}
+			
+		$doctype	= JFactory::getDocument()->getType();
+
+		// Only render for HTML output
+		if ( $doctype !== 'html' ){
+				 return;
+			 }
+		
+		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
+
+		//get xiuskey for cache update
+		$setKey = XiusHelperUtils::getConfigurationParams('xiusKey',0);
+		
+		// Set url for Cache update
+		$url = "index.php?option=com_xius&task=runCron&xiuskey=$setKey";//.JUtility::getToken()."=1";
+		$cron = '<img src="'.JURI::base().XiusRoute::_($url).'" />';
+		$body = JResponse::getBody();
+		$body = str_replace('</body>', $cron.'</body>', $body);
+		JResponse::setBody($body);
+	}
 }
 

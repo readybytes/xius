@@ -42,7 +42,7 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 	{
 		$cModel = new XiusModelConfiguration();
 		
-		$datas[] = array('name' => 'config' , 'resultparams' => array('xiusUserLimit' => 1930 , 'xiusKey' => 'AB2F4' , 'xiusDebugMode' => 0));
+		$datas[] = array('name' => 'config' , 'resultparams' => array('xiusUserLimit' => 1930 , 'xiusKey' => 'AB2F4' , 'xiusDebugMode' => 0, 'xiusCronJob' => 0));
 		$datas[] = array('name' => 'cache' , 'resultparams' => array('cacheStartTime' => 1274243747 , 'cacheEndTime' => 1274243748));
 		
 		foreach($datas as $d){
@@ -69,7 +69,11 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 												'xiusDebugMode' =>0,
 												'xiusEnableMatch' => 1,
 												'xiusDefaultMatch' => 'OR',
-												'xiusListCreator' => 'a:1:{i:0;s:19:"Super Administrator";}','xiusUserLimit' => 1930));
+												'xiusListCreator' => 'a:1:{i:0;s:19:"Super Administrator";}',
+												'xiusCronJob' => 0,
+												'xiusCronFrequency' => 900,
+												'xiusCronAcessTime' => '',
+												'xiusUserLimit' => 1930));
 		
 		foreach($datas as $d){
 			$params = $cModel->getParams();
@@ -82,4 +86,4 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 	}
 	
 }
-?>
+

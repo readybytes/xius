@@ -70,7 +70,7 @@ class XiusModelConfiguration extends JModel
 		$config = XiusFactory::getInstance ( 'configuration', 'table');
 		$config->load( $name );
 		
-		$registry	=& JRegistry::getInstance( 'xius_'.$name );
+		$registry	= new JRegistry( 'xius_'.$name );
 		
 		// serialize the user type who can create list
 		// this is done in this onlyfor unilt testing

@@ -133,9 +133,14 @@ class XiussiteControllerUsers extends XiusController
 
 	function runCron()
 	{
-		if(XiusHelperUtils::verifyCronRunRequired() == false)
+		if(XiusHelperUtils::verifyCronRunRequired() == false){
 			return;
+		}
 			
+		if(!XiusLibCron::autoCronJob()){
+			return;
+		}
+		
 		$time = XiusLibUsersearch::getTimestamp();
 		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
@@ -146,7 +151,8 @@ class XiussiteControllerUsers extends XiusController
 		
 		return;
 	}
-	
+
+	// only testing purpose
 	function _runCron($limit)
 	{
 		$cache = XiusFactory::getInstance('cache');

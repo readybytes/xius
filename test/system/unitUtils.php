@@ -10,6 +10,7 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
   	require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
   	$this->resetCachedData();
   	//$this->parentSetup();
+  	$this->setAutoCronSetup(0);
   }
 
 
@@ -142,7 +143,7 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 		return $version;
   	}
   	
-function changeModuleState($modname, $action=1)
+	function changeModuleState($modname, $action=1)
   	{
   	
 		$db			= JFactory::getDBO();
@@ -158,8 +159,8 @@ function changeModuleState($modname, $action=1)
 		return true;
  	 }
  
-function changePluginState($pluginname, $action=1)
-  {
+	function changePluginState($pluginname, $action=1)
+   	{
   	
 		$db			=& JFactory::getDBO();
 		$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
@@ -172,6 +173,23 @@ function changePluginState($pluginname, $action=1)
 			return false;
 			
 		return true;
+  	}
+  
+  function setAutoCronSetup($task = 0)
+  	{
+  		$cModel = XiusFactory::getInstance ('configuration', 'model','',true);
+		$params = $cModel->getOtherParams('config');
+		if(($params->get('xiusCronJob','1') == 0) && $task == 0){
+			return;
+		}
+		
+		$params->set('xiusCronJob',$task);
+		
+		//Enable xiusCronJob
+		$config	= XiusFactory::getInstance( 'configuration' , 'Table','',true );
+		$config->load( 'config' );
+		$config->params = $params->toString('INI');
+		$config->store();  	
   }
 
 }

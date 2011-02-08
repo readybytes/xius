@@ -78,6 +78,12 @@ XiusHelperUtils::loadJQuery();
 		<legend><?php echo XiusText::_( 'SEARCH CONFIGURATION' ); ?></legend>
 			<?php echo $this->params->render('xiusparams','advXiusSearch');?>
 	</fieldset>
+	
+	<fieldset class="adminform">
+		<legend><?php echo XiusText::_( 'AUTO_CACHE_UPDATE_CONFIGURATION' ); ?></legend>
+			<?php echo $this->params->render('xiusparams','autoCacheUpdate');?>
+	</fieldset>
+	
 
 	<fieldset class="adminform">
 		<legend><?php echo XiusText::_( 'LIST CONFIGURATION' ); ?></legend>
