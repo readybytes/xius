@@ -27,13 +27,21 @@ class XiusKeywordTest extends XiUnitTestCase
 	{
 		$url	= dirname(__FILE__).'/sql/'.__CLASS__.'/testGetAvailableInfoForKeyword.start.sql';
 		$this->_DBO->loadSql($url);
-		
-		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
-		XiusFactory::resetStaticData();
-		$insertedRows = XiussiteControllerUsers::_runCron(array('limitStart'=>0,'limit'=>1000000));
 
-		//$this->resetCachedData();
+		XiusFactory::resetStaticData();
 		
+		$limit =array('limitStart'=>0,'limit'=>1000000);
+		$cache = XiusFactory::getInstance('cache');
+		if($limit['limitStart'] == 0) {
+			if(!$cache->createTable())
+				$insertedRows = false;
+		}
+		else {
+			$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
+			$insertedRows = $cache->insertIntoTable($getDataQuery,true,$limit);
+		}
+		
+		//$this->resetCachedData();
 		$value		  = 'admin';
 		$operator	  = XIUS_LIKE;
 		$join		  = 'AND';

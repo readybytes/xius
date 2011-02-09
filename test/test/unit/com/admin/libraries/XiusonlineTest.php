@@ -19,7 +19,7 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		XiusLibUsersearch::updateCache();
+		XiusLibCron::updateCache();
 						
 		// build the condition and  compare
 		$conditions		= XiusLibUsersearch::processSearchData($post);

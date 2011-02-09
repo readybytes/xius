@@ -156,7 +156,7 @@ class InsertUserTest extends XiUnitTestCase
 		$startTime = $profiler->getmicrotime();
 		
 		require_once(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'controllers'.DS.'users.php');
-		$insertedRows = XiusLibUsersearch::updateCache();
+		$insertedRows = XiusLibCron::updateCache();
 		
 		$endTime = $profiler->getmicrotime();
 				

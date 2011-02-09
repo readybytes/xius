@@ -96,24 +96,6 @@ class XiusLibUsersearch
 		return $cache->insertIntoTable($userInfo);
 	}
 	
-	/**
-	 * XiTODO:: move in cron file
-	 * it return true and false according cache succefully update or not
-	 */
-	function updateCache()
-	{	
-		return XiusLibCron::updateCache(); 
-
-	}
-
-	//XiTODO:: move in cron file
-	function saveCacheParams($what,$value)
-	{	
-		XiusLibCron::saveCacheParams($what,$value);		
-	}
-	
-	
-	
 	function getMiniProfileDisplayFields($userid,$allInfo=null)
 	{
 		/*XITODO : pass info

@@ -12,7 +12,7 @@ class XiusLibPluginhandler
 	// XITODO :: What is use of $data here
 	function onUsInfoUpdated($data)
 	{
-		return XiusLibUsersearch::updateCache();
+		return XiusLibCron::updateCache();
 	}
 	
 
@@ -22,7 +22,7 @@ class XiusLibPluginhandler
 	 */
 	function onCronRun()
 	{
-		return XiusLibUsersearch::updateCache();
+		return XiusLibCron::updateCache();
 	}
 	
 	/**

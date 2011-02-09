@@ -87,7 +87,7 @@ class XiusCustomTableTest extends XiUnitTestCase
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
 		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
-		XiusLibUsersearch::updateCache();
+		XiusLibCron::updateCache();
 		
 		$this->_DBO->addTable('#__xius_cache');
 	}
@@ -97,7 +97,7 @@ class XiusCustomTableTest extends XiUnitTestCase
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusCustomTableTest/testGetAvailableInfo.start.sql');
 		require_once  XIUS_PLUGINS_PATH. DS . 'customtable' . DS . 'customtable.php';
 		
-		XiusLibUsersearch::updateCache();
+		XiusLibCron::updateCache();
 		$post			= array('xiusinfo_61'=>6,'Customtable_6'=>'user','xiusinfo_62'=>6);
 		
 		$conditions		= XiusLibUsersearch::processSearchData($post);				

@@ -443,7 +443,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS."testDeleteSearchData.start.sql";
 		$this->_DBO->loadSql($sqlPath);
 
-		$updatedRows = XiusLibUsersearch::updateCache();
+		$updatedRows = XiusLibCron::updateCache();
 
 		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$existconditions,'XIUS');
 		
