@@ -79,6 +79,7 @@
 ../packages/tmp/install/extensions/xius_system/xius_system.php:99:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 ../packages/tmp/install/extensions/xius_system/xius_system.php:135:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 ../packages/tmp/install/extensions/xius_system/xius_system.php:152:		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+../packages/tmp/install/extensions/xius_system/xius_system.php:208:		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:13:require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:14:require_once( dirname(__FILE__).DS.'helper.php' );
 ../packages/tmp/install/extensions/xius_community/xius.php:34:		require_once $incldePath;

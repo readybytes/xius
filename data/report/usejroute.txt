@@ -46,4 +46,5 @@
 ../packages/tmp/install/extensions/mod_xiusproximity/mod_xiusproximity.php:16:$link = 'index.php?option=com_xius&view=users&task=search';
 ../packages/tmp/install/extensions/mod_xiuslisting/mod_xiuslisting.php:11:$url = 'index.php?option=com_xius&view=list&task=showList&listid=';
 ../packages/tmp/install/extensions/xius_system/xius_system.php:76:		$url = "index.php?option=com_xius";
+../packages/tmp/install/extensions/xius_system/xius_system.php:214:		$url = "index.php?option=com_xius&task=runCron&xiuskey=$setKey";//.JUtility::getToken()."=1";
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:16:$link = 'index.php?option=com_xius&view=users&task=search';

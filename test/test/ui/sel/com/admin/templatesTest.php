@@ -13,8 +13,8 @@ class XiusTemplatesTest extends XiSelTestCase
 	//testing for template selecting or not
 	function testSelectTemplateTest()
 	{
-		// XITODO : compare config table also
-		//$this->_DBO->addTable('#__xius_config');
+
+		$this->_DBO->addTable('#__xius_config');
 				
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageload();

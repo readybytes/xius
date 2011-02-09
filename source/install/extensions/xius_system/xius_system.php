@@ -212,7 +212,7 @@ class plgSystemxius_system extends JPlugin
 		
 		// Set url for Cache update
 		$url = "index.php?option=com_xius&task=runCron&xiuskey=$setKey";//.JUtility::getToken()."=1";
-		$cron = '<img src="'.JURI::base().XiusRoute::_($url).'" />';
+		$cron = '<img src="'.XiusRoute::_($url).'" />';
 		$body = JResponse::getBody();
 		$body = str_replace('</body>', $cron.'</body>', $body);
 		JResponse::setBody($body);

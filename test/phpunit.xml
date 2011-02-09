@@ -49,6 +49,8 @@
 		<file>test/sel/com/admin/googleProximityTest.php</file>
 		<file>test/sel/com/admin/configTest.php</file>
 		
+		
+		<file>test/sel/com/site/cronjobTest.php</file>
 		<file>test/sel/com/site/joomlaSearchTest.php</file>
 		<file>test/sel/com/site/searchTest.php</file>
 		<file>test/sel/com/site/sortingTest.php</file>

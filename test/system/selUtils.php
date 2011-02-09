@@ -15,6 +15,7 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   {
   	require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
   	$this->parentSetup();
+  	$this->setAutoCronSetup(0);
   }
 
   function click($elem)
@@ -358,4 +359,21 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		$tables	= $database->getTableList();
 		return in_array( $mainframe->getCfg( 'dbprefix' ) . $tableName, $tables );
 	}	
+	
+  function setAutoCronSetup($task = 0)
+  	{
+  		$cModel = XiusFactory::getInstance ('configuration', 'model','',true);
+		$params = $cModel->getOtherParams('config');
+		if(($params->get('xiusCronJob','1') == 0) && $task == 0){
+			return;
+		}
+		
+		$params->set('xiusCronJob',$task);
+		
+		//Enable xiusCronJob
+		$config	= XiusFactory::getInstance( 'configuration' , 'Table','',true );
+		$config->load( 'config' );
+		$config->params = $params->toString('INI');
+		$config->store();  	
+  }
 }

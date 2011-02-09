@@ -81,11 +81,11 @@
 ../packages/tmp/site/controllers/list.php:222:			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
 ../packages/tmp/site/libraries/lib/usersearch.php:20:		$mySess = JFactory::getSession();
 ../packages/tmp/site/libraries/lib/usersearch.php:33:		$mySess = JFactory::getSession();
-../packages/tmp/site/libraries/lib/usersearch.php:109:		JFactory::getSession()->set('updateCache', true);
-../packages/tmp/site/libraries/lib/usersearch.php:125:		JFactory::getSession()->clear('updateCache', true);
-../packages/tmp/site/libraries/lib/usersearch.php:142:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
-../packages/tmp/site/libraries/lib/usersearch.php:167:			$user =& JFactory::getUser();
-../packages/tmp/site/libraries/lib/usersearch.php:205:			$user =& JFactory::getUser();
+../packages/tmp/site/libraries/lib/usersearch.php:110:		JFactory::getSession()->set('updateCache', true);
+../packages/tmp/site/libraries/lib/usersearch.php:126:		JFactory::getSession()->clear('updateCache', true);
+../packages/tmp/site/libraries/lib/usersearch.php:143:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+../packages/tmp/site/libraries/lib/usersearch.php:168:			$user =& JFactory::getUser();
+../packages/tmp/site/libraries/lib/usersearch.php:206:			$user =& JFactory::getUser();
 ../packages/tmp/site/libraries/lib/pluginhandler.php:35:		$user =& JFactory::getUser();
 ../packages/tmp/site/libraries/lib/pluginhandler.php:128:		$user  = & JFactory::getUser();
 ../packages/tmp/site/libraries/plugins/joomla/views/view.html.php:29:  			$mySess 	= JFactory::getSession();
@@ -204,6 +204,8 @@
 ../packages/tmp/install/extensions/xius_system/xius_system.php:146:		if($mainframe->isAdmin())
 ../packages/tmp/install/extensions/xius_system/xius_system.php:160:		$app = JFactory::getApplication();
 ../packages/tmp/install/extensions/xius_system/xius_system.php:175:		$app = JFactory::getApplication();
+../packages/tmp/install/extensions/xius_system/xius_system.php:187:		if(JFactory::getApplication()->isAdmin()){
+../packages/tmp/install/extensions/xius_system/xius_system.php:201:		$doctype	= JFactory::getDocument()->getType();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/mod_xiussearchpanel.php:9:$mySess =& JFactory::getSession();
 ../packages/tmp/install/extensions/mod_xiussearchpanel/tmpl/default.php:8:$document =& JFactory::getDocument();
 ../packages/tmp/install/extensions/xius_community/xius.php:50:		$lang =& JFactory::getLanguage();

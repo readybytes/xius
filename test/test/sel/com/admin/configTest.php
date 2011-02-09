@@ -10,7 +10,8 @@ class XiusConfigAdminSelTest extends XiSelTestCase
 	
 	function testConfigdb()
 	{
-		// XITODO : need to improve
+		//enable Auto Cache update
+		$this->setAutoCronSetup(1);
 		$this->_DBO->addTable('#__xius_config');
 		$this->_DBO->filterColumn('#__xius_config','name');
 				
