@@ -141,12 +141,12 @@ class XiussiteControllerUsers extends XiusController
 			return;
 		}
 		
-		$time = XiusLibUsersearch::getTimestamp();
+		$time = XiusLibCron::getTimestamp();
 		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
 		XiusLibUsersearch::updateCache();
 		
-		$time = XiusLibUsersearch::getTimestamp();
+		$time = XiusLibCron::getTimestamp();
 		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
 		return;

@@ -122,7 +122,7 @@ class XiusHelperUtils
 		$endTime = XiusHelperUtils::getOtherConfigParams('cache',XIUS_CACHE_END_TIME,0);
 		
 		if($currentTime == null)
-			$currentTime = XiusLibUsersearch::getTimestamp();
+			$currentTime = XiusLibCron::getTimestamp();
 		
 		$timeGap = $currentTime - $endTime;
 		$totalRunTime = $endTime - $startTime;

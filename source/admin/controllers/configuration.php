@@ -73,13 +73,13 @@ class XiusControllerConfiguration extends JController
 		if(XiusHelperUtils::verifyCronRunRequired($xiusKey) == false)
 			$mainframe->redirect($link, $message);
 	
-		$time = XiusLibUsersearch::getTimestamp();
+		$time = XiusLibCron::getTimestamp();
 		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
 		//XiTODO:: Handle return value. If false then nt show cache update successfully
 		XiusLibUsersearch::updateCache();
 		
-		$time = XiusLibUsersearch::getTimestamp();
+		$time = XiusLibCron::getTimestamp();
 		XiusLibUsersearch::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
 		$message = XiusText::_('CACHE UPDATED SUCCESSFULLY');
