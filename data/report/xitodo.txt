@@ -7,7 +7,6 @@
 ../packages/tmp/admin/views/configuration/tmpl/default.php:8://XITODO : add all backend views
 ../packages/tmp/admin/defines.php:28://XITODO:: change name formate
 ../packages/tmp/admin/controllers/list.php:66:		// XITODO : when id is not set then what to do
-../packages/tmp/admin/controllers/configuration.php:79:		//XiTODO:: Handle return value. If false then nt show cache update successfully
 ../packages/tmp/admin/controllers/info.php:73:		// XiTODO:: is it requrird
 ../packages/tmp/admin/controllers/info.php:93:			// XiTODO:: is it required
 ../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
@@ -28,15 +27,11 @@
 ../packages/tmp/site/libraries/lib/usersearch.php:49:	//XITODO:: Ufff...!!remove this. n Direct call getInfo
 ../packages/tmp/site/libraries/lib/usersearch.php:58:		/*XITODO : pass info through parameter */
 ../packages/tmp/site/libraries/lib/usersearch.php:92:	//XiTODO:: i think its un-usable
-../packages/tmp/site/libraries/lib/usersearch.php:100:	 * XiTODO:: move in cron file
-../packages/tmp/site/libraries/lib/usersearch.php:117:		/*XITODO : break insert user data query into parts
-../packages/tmp/site/libraries/lib/usersearch.php:133:	//XiTODO:: move in cron file
-../packages/tmp/site/libraries/lib/usersearch.php:140:	//XiTODO:: move in cron file
-../packages/tmp/site/libraries/lib/usersearch.php:161:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:200:		/*XITODO : pass info
-../packages/tmp/site/libraries/lib/usersearch.php:308:		/*XITODO : only delete same infoid verses value pair
-../packages/tmp/site/libraries/lib/usersearch.php:368:		//XiTODO:: invoke count only one time
-../packages/tmp/site/libraries/lib/usersearch.php:380:			// XITODO : test with 0,null,baln,blank array
+../packages/tmp/site/libraries/lib/usersearch.php:101:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:140:		/*XITODO : pass info
+../packages/tmp/site/libraries/lib/usersearch.php:248:		/*XITODO : only delete same infoid verses value pair
+../packages/tmp/site/libraries/lib/usersearch.php:308:		//XiTODO:: invoke count only one time
+../packages/tmp/site/libraries/lib/usersearch.php:320:			// XITODO : test with 0,null,baln,blank array
 ../packages/tmp/site/libraries/lib/info.php:56:	// XITODO: Remove this, its unusable
 ../packages/tmp/site/libraries/lib/pluginhandler.php:12:	// XITODO :: What is use of $data here
 ../packages/tmp/site/libraries/plugins/keyword/keyword.php:66:		// XITODO : convert this function to general function

@@ -27,11 +27,11 @@
 ../packages/tmp/admin/controllers/configuration.php:60:		$mainframe->redirect($link, $message);
 ../packages/tmp/admin/controllers/configuration.php:65:		global $mainframe;
 ../packages/tmp/admin/controllers/configuration.php:74:			$mainframe->redirect($link, $message);
-../packages/tmp/admin/controllers/configuration.php:86:		$mainframe->redirect($link, $message);		
-../packages/tmp/admin/controllers/configuration.php:91:		global $mainframe;
-../packages/tmp/admin/controllers/configuration.php:96:		$user	=& JFactory::getUser();
-../packages/tmp/admin/controllers/configuration.php:103:		$mainframe	=& JFactory::getApplication();		
-../packages/tmp/admin/controllers/configuration.php:117:		$mainframe->redirect($link, $message);
+../packages/tmp/admin/controllers/configuration.php:88:		$mainframe->redirect($link, $message);		
+../packages/tmp/admin/controllers/configuration.php:93:		global $mainframe;
+../packages/tmp/admin/controllers/configuration.php:98:		$user	=& JFactory::getUser();
+../packages/tmp/admin/controllers/configuration.php:105:		$mainframe	=& JFactory::getApplication();		
+../packages/tmp/admin/controllers/configuration.php:119:		$mainframe->redirect($link, $message);
 ../packages/tmp/admin/controllers/cpanel.php:26:		$document	=& JFactory::getDocument();
 ../packages/tmp/admin/controllers/info.php:9:class XiusControllerInfo extends JController 
 ../packages/tmp/admin/controllers/info.php:46:		$document	=& JFactory::getDocument();
@@ -81,13 +81,13 @@
 ../packages/tmp/site/controllers/list.php:222:			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
 ../packages/tmp/site/libraries/lib/usersearch.php:20:		$mySess = JFactory::getSession();
 ../packages/tmp/site/libraries/lib/usersearch.php:33:		$mySess = JFactory::getSession();
-../packages/tmp/site/libraries/lib/usersearch.php:110:		JFactory::getSession()->set('updateCache', true);
-../packages/tmp/site/libraries/lib/usersearch.php:126:		JFactory::getSession()->clear('updateCache', true);
-../packages/tmp/site/libraries/lib/usersearch.php:143:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
-../packages/tmp/site/libraries/lib/usersearch.php:168:			$user =& JFactory::getUser();
-../packages/tmp/site/libraries/lib/usersearch.php:206:			$user =& JFactory::getUser();
+../packages/tmp/site/libraries/lib/usersearch.php:108:			$user =& JFactory::getUser();
+../packages/tmp/site/libraries/lib/usersearch.php:146:			$user =& JFactory::getUser();
 ../packages/tmp/site/libraries/lib/pluginhandler.php:35:		$user =& JFactory::getUser();
 ../packages/tmp/site/libraries/lib/pluginhandler.php:128:		$user  = & JFactory::getUser();
+../packages/tmp/site/libraries/lib/cron.php:55:		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+../packages/tmp/site/libraries/lib/cron.php:82:		JFactory::getSession()->set('updateCache', true);
+../packages/tmp/site/libraries/lib/cron.php:94:		JFactory::getSession()->clear('updateCache', true);
 ../packages/tmp/site/libraries/plugins/joomla/views/view.html.php:29:  			$mySess 	= JFactory::getSession();
 ../packages/tmp/site/libraries/plugins/joomla/joomla.php:48:		$db = JFactory::getDBO();
 ../packages/tmp/site/libraries/plugins/joomla/joomlahelper.php:14:		$db	= JFactory::getDBO();
