@@ -15,6 +15,8 @@ $("img:[title='BackToTop']").click(function(){
 <div class="xius_result" id="xius_result">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 <?php
+// for jquery not load
+XiusHelperUtils::loadJQuery();
 /*XITODO : pass variable for color */
 $this->loadAssets('css','result.css');
 $this->loadAssets('js','result.js');

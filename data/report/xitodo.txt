@@ -12,7 +12,7 @@
 ../packages/tmp/admin/controllers/info.php:246:		/*XITODO : check if info is used anywhere,
 ../packages/tmp/site/views/list/view.html.php:17:		/*XITODO : get list according to owner*/
 ../packages/tmp/site/views/list/view.html.php:101:		// XITODO : if user is admin then ??
-../packages/tmp/site/templates/default/default_result.php:18:/*XITODO : pass variable for color */
+../packages/tmp/site/templates/default/default_result.php:20:/*XITODO : pass variable for color */
 ../packages/tmp/site/templates/default/list/default_list.php:10:// XITODO : cleanup code
 ../packages/tmp/site/templates/nextgen/list/default_list.php:18:// XITODO : cleanup code
 ../packages/tmp/site/templates/linkedin/list/default_list.php:18:// XITODO : cleanup code
