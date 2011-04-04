@@ -10,6 +10,8 @@
     <copyrightHolder>JoomlaXi.com</copyrightHolder>
     <license>GNU General Public License v2</license>
     <description>An Supercharged and flexible user search system for Joomla</description>
+    <installfile>install/install.php</installfile>
+    <uninstallfile>install/uninstall.php</uninstallfile>
 
 	<files folder="site">
 		<file>xius.php</file>
@@ -50,6 +52,7 @@
 			<file>index.html</file>
 			<folder>controllers</folder>
 			<folder>views</folder>
+			<folder>install</folder>
 		</files>
 		
 		<files>
@@ -61,9 +64,6 @@
 		</languages>
 	</administration>
 	
-	<installfile>install/install.php</installfile>
-	<uninstallfile>install/uninstall.php</uninstallfile>
-
 	 <install>
                 <sql>
                         <file driver="mysql" charset="utf8">install/install.sql</file>
