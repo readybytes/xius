@@ -23,104 +23,76 @@
 			</fileset>
         </copy>
         
-		<move file="${target}/source/admin/manifest.xml" 
-                        tofile="${target}/source/manifest.xml" 
+		<move file="${target}/source/admin/xius.xml" 
+                        tofile="${target}/source/xius.xml" 
          />
 		
 		<!-- Copy plguin files again into folder -->
-		<copy   file="${source}/plugins/system/xius_system.php" 
-                        tofile="${target}/source/install/extensions/xius_system/xius_system.php" 
-                         />
-
-		<copy   file="${source}/plugins/system/xius_system.xml" 
-                        tofile="${target}/source/install/extensions/xius_system/xius_system.xml" 
-                         />
-
-
-		<copy   file="${source}/plugins/community/xius.php" 
-                        tofile="${target}/source/install/extensions/xius_community/xius.php" 
-                         />
-
-		<copy   file="${source}/plugins/community/xius.xml" 
-                        tofile="${target}/source/install/extensions/xius_community/xius.xml" 
-                         />
-                         
-		<copy   file="${source}/plugins/xius/js_privacy.php" 
-                        tofile="${target}/source/install/extensions/xius_privacy/js_privacy.php" 
-                         />
-
-		<copy   file="${source}/plugins/xius/js_privacy.xml" 
-                        tofile="${target}/source/install/extensions/xius_privacy/js_privacy.xml" 
-                         />
-                  
-         <copy todir="${target}/source/install/extensions/xius_privacy/js_privacy">
-			<fileset dir="${source}/plugins/xius/js_privacy">
+		<copy   todir="${target}/source/admin/install/extensions/xius_community">
+			<fileset dir="${source}/plugins/community/xius"> 
 				<include name="**/*.*" />
 			</fileset>
-        </copy>       
-                         
-        
-        <copy   file="${source}/plugins/xius/xipt_privacy.php" 
-                        tofile="${target}/source/install/extensions/xipt_privacy/xipt_privacy.php" 
-                         />
+                </copy>
 
-		<copy   file="${source}/plugins/xius/xipt_privacy.xml" 
-                        tofile="${target}/source/install/extensions/xipt_privacy/xipt_privacy.xml" 
-                         />    
-                 
-       <copy todir="${target}/source/install/extensions/xipt_privacy/xipt_privacy">
-			<fileset dir="${source}/plugins/xius/xipt_privacy">
+		<copy   todir="${target}/source/admin/install/extensions/xius_system">
+			<fileset dir="${source}/plugins/system/xius_system"> 
 				<include name="**/*.*" />
 			</fileset>
-        </copy>
-                   
-        <copy   file="${source}/plugins/xius/xipt_fieldselection.php" 
-                        tofile="${target}/source/install/extensions/xipt_fieldselection/xipt_fieldselection.php" 
-                         />
-		<copy   file="${source}/plugins/xius/xipt_fieldselection.xml" 
-                        tofile="${target}/source/install/extensions/xipt_fieldselection/xipt_fieldselection.xml" 
-                         />                
-       <copy todir="${target}/source/install/extensions/xipt_fieldselection/xipt_fieldselection">
-			<fileset dir="${source}/plugins/xius/xipt_fieldselection">
+                </copy>
+
+
+		<copy   todir="${target}/source/admin/install/extensions/xius_privacy">
+			<fileset dir="${source}/plugins/xius/js_privacy"> 
 				<include name="**/*.*" />
 			</fileset>
-        </copy>    
+                </copy>
+ 
+  		<copy   todir="${target}/source/admin/install/extensions/xipt_fieldselection">
+			<fileset dir="${source}/plugins/xius/xipt_fieldselection"> 
+				<include name="**/*.*" />
+			</fileset>
+                </copy>
+
+		<copy   todir="${target}/source/admin/install/extensions/xipt_privacy">
+			<fileset dir="${source}/plugins/xius/xipt_privacy"> 
+				<include name="**/*.*" />
+			</fileset>
+                </copy>
                                               
 		<!-- Add module folders -->
-		<copy todir="${target}/source/install/extensions/mod_xiuslisting">
+		<copy todir="${target}/source/admin/install/extensions/mod_xiuslisting">
 			<fileset dir="${source}/modules/mod_xiuslisting">
 				<include name="**/*.*" />
 			</fileset>
                 </copy>
 
-		<copy todir="${target}/source/install/extensions/mod_xiussearchpanel">
+		<copy todir="${target}/source/admin/install/extensions/mod_xiussearchpanel">
 			<fileset dir="${source}/modules/mod_xiussearchpanel">
 				<include name="**/*.*" />
 			</fileset>
                 </copy>
 
-		<copy todir="${target}/source/install/extensions/mod_xiusproximity">
+		<copy todir="${target}/source/admin/install/extensions/mod_xiusproximity">
 			<fileset dir="${source}/modules/mod_xiusproximity">
 				<include name="**/*.*" />
 			</fileset>
         </copy>
 
-		<!-- first copy -->
+		<!-- first Move File -->
+		<move file="${target}/source/admin/install/install.php" tofile="${target}/source/install/install.php" />      
+		<move file="${target}/source/admin/install/uninstall.php" tofile="${target}/source/install/uninstall.php" />
+		<!-- Secondly copy -->
 		<copy todir="${target}/source/install">
 			<fileset dir="${target}/source/admin/install">
 				<include name="**/*.*" />
 			</fileset>
        		 </copy>
 
-		<!-- delete admin installer -->
-		<delete dir="${target}/source/admin/install" />
+		<!--<move file="${target}/source/admin/xius.xml" tofile="${target}/source/xipt.xml" />-->
+		<!-- DO NOT delete admin installer for J1.6 -->
+		<!-- <delete dir="${target}/source/admin/install" /> -->
 
-       		 <copy todir="${target}/source/site">
-			<fileset dir="${source}/components/com_xius">
-				<include name="**/*.*" />
-			</fileset>
-                </copy>        
-
+      
 		<copy todir="${target}/test">
 			<fileset dir="${source}/test/">
 				<include name="**/*.*" />
@@ -128,7 +100,6 @@
                 </copy>
 
 		<copy   file="${source}/build.xml" 
-                        tofile="${target}/scripts/revbuild.xml" 
-                         />
+                        tofile="${target}/scripts/revbuild.xml" />
         </target>
 </project>
