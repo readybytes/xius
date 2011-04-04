@@ -59,7 +59,7 @@ class XiusViewCpanel extends JView
 		<div style="float:<?php echo ($lang->isRTL()) ? 'right' : 'left'; ?>;">
 			<div class="icon">
 				<a href="<?php echo $url; ?>"<?php echo $newWindow; ?>>
-					<?php echo JHTML::_('image', 'components/com_xius/assets/images/' . $image , NULL, NULL, $text ); ?>
+					<?php echo JHTML::_('image', 'components/com_xius/assets/images/' . $image , $text ); ?>
 					<span><?php echo $text; ?></span></a>
 			</div>
 		</div>

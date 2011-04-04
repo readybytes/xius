@@ -25,7 +25,7 @@ class XiusControllerConfiguration extends JController
 	
 	function save()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 				
@@ -62,7 +62,7 @@ class XiusControllerConfiguration extends JController
 	
 	function runCron()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
 		$message = XiusText::_('CANT UPDATE CACHE NOW');
 		
@@ -90,7 +90,7 @@ class XiusControllerConfiguration extends JController
 	
 	/*function reset()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 
 		// Check for request forgeries
 		JRequest::checkToken() or jexit( 'Invalid Token' );

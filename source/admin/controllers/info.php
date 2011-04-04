@@ -193,7 +193,7 @@ class XiusControllerInfo extends JController
 			return;
 		}
 		
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		$data = $this->_processSave();
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $data['msg']);		
@@ -211,7 +211,7 @@ class XiusControllerInfo extends JController
 			return;
 		}
 		
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		
 		$data = $this->_processSave();
 		$link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
@@ -220,7 +220,7 @@ class XiusControllerInfo extends JController
 
 	function remove()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 
@@ -272,7 +272,7 @@ class XiusControllerInfo extends JController
 	
 	function publish()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
@@ -296,7 +296,7 @@ class XiusControllerInfo extends JController
 	
 	function unpublish()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
@@ -322,7 +322,7 @@ class XiusControllerInfo extends JController
 	
 	function saveOrder()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 	
 		// Determine whether to order it up or down
 		$direction	= ( JRequest::getWord( 'task' , '' ) == 'orderup' ) ? -1 : 1;
@@ -348,7 +348,7 @@ class XiusControllerInfo extends JController
 	
 	function saveParamDoable()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);		
 		

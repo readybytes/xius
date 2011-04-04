@@ -43,7 +43,7 @@ class plgSystemxius_system extends JPlugin
 	
 	function onAfterRoute()
 	{	
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 
 		//Don't run in admin
 		if($mainframe->isAdmin())
@@ -123,7 +123,7 @@ class plgSystemxius_system extends JPlugin
 	
 	function onBeforeDisplayProfileLink($data)
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 
 		//Don't run in admin
 		if($mainframe->isAdmin())
@@ -140,7 +140,7 @@ class plgSystemxius_system extends JPlugin
 	
 	function onBeforeDisplayResultToolbar($toolbar)
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 
 		//Don't run in admin
 		if($mainframe->isAdmin())

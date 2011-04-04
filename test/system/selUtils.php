@@ -351,7 +351,7 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 	
 	function isTableExist($tableName)
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 
 		$tables	= array();
 	
