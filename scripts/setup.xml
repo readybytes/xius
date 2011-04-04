@@ -2,7 +2,8 @@
 <project name="Setup builder" basedir="." default="setup" description="Phing setup script for package.">
 
 	<target name="config" description="Load configuration file">
-		<property file="global.prop"  override="true" />		
+		<php expression="(PHP_OS == 'WINNT') ? '_win' : '_unix'" returnproperty="IF_OS" />
+		<property file="global${IF_OS}.prop"  override="true" />		
 		<svnlastrevision workingcopy="${dir.root}" propertyname="svn.lastrevision" />
 		
 		<if>
@@ -16,12 +17,19 @@
 		</if>
 		<echo msg="${joomla.now}" />
 
+		<if>
+		 <isset property="${pkg.version}"/>
+		  <then>
+		 	<echo msg="pkg.version already set to {pkg.version}" />
+		 </then>
+		</if>
+
 		<php expression="rand(100,999)" returnProperty="joomla.random3"/>
-		<property file="setup.prop"  override="false" />
+		<property file="setup${IF_OS}.prop"  override="false" />
 	</target>
 	
 	<target name="setup" description="build installable package only" depends="config">
-		<phing phingfile="joomla.xml" inheritAll="true" target="setup" />
+		<phing phingfile="joomla.xml" inheritAll="true" target="setup" />		
 		<phingcall target="copy_kit" />
 		<phingcall target="copy_testcase" />
 		<phingcall target="copy_revbuild" />
@@ -45,14 +53,15 @@
 		</reflexive>
 	</target>
 
+	<!-- Copy latest JomSocial -->
+	<target name="copy_xipt">
+		<copy 	file="${pkg.location}/${pkg.version}/xipt.zip" 
+				tofile="${joomla.rootpath}/${joomla.folder}/xipt.zip" />
+	</target>
+
 	<target name="copy_testcase">
 		<!-- Copy testcases -->
-		<copy todir="${joomla.rootpath}/${joomla.folder}/test">
-			<fileset dir="${dir.root}/test">
-			     <include name="**/*.*" />
-			</fileset>
-		</copy>
-
+		<exec command="svn export ${dir.root}/test ${joomla.rootpath}/${joomla.folder}/test" />
 		<exec command="sudo chmod -R test" dir="${joomla.rootpath}/${joomla.folder}" />
 
 		<!-- replace configuration-->
@@ -73,9 +82,4 @@
 				tofile="${joomla.rootpath}/${joomla.folder}/${project.shortform.small}.zip" />
 	</target>
 
-
-	<target name="copy_xipt">
-		<copy 	file="${pkg.new.location}/com_xipt.zip" 
-				tofile="${joomla.rootpath}/${joomla.folder}/xipt.zip" />
-	</target>
 </project>
