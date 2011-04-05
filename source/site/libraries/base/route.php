@@ -9,7 +9,7 @@
 defined('_JEXEC') or die();
 require_once JPATH_ROOT.DS.'components'.DS.'com_xius' .DS. 'router.php';
 
-class XiusRoute extends JRoute
+class XiusRoute
 {
 	function _addItemId($url)
 	{
@@ -50,7 +50,7 @@ class XiusRoute extends JRoute
 			return CRoute::_($url,$xhtml, $ssl);
 			
 	
-		return parent::_($url, $xhtml, $ssl);
+		return JRoute::_($url, $xhtml, $ssl);
 	}
 	
 }

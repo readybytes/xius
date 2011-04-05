@@ -77,16 +77,22 @@
 				<include name="**/*.*" />
 			</fileset>
         </copy>
+		<!-- Copy File From Site Content -->
+		<copy todir="${target}/source/site">
+			<fileset dir="${source}/components/com_xius">
+				<include name="**/*.*" />
+			</fileset>
+        </copy>
 
 		<!-- first Move File -->
 		<move file="${target}/source/admin/install/install.php" tofile="${target}/source/install/install.php" />      
 		<move file="${target}/source/admin/install/uninstall.php" tofile="${target}/source/install/uninstall.php" />
 		<!-- Secondly copy -->
-		<copy todir="${target}/source/install">
+		<!--<copy todir="${target}/source/install">
 			<fileset dir="${target}/source/admin/install">
 				<include name="**/*.*" />
 			</fileset>
-       		 </copy>
+       		 </copy>-->
 
 		<!--<move file="${target}/source/admin/xius.xml" tofile="${target}/source/xipt.xml" />-->
 		<!-- DO NOT delete admin installer for J1.6 -->

@@ -21,7 +21,7 @@ class XiusexportView extends XiusBaseView
 	// XITODO : break the function
 	function export($tmpl='csv')
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 	
 		$params = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sort = XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);

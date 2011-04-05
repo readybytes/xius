@@ -43,10 +43,20 @@ class JElementXiusJoomlaUserGroup extends JElement
 	function getJoomlaGroups()
 	{
 		$db= & JFactory::getDBO();
-		$sql = ' SELECT * FROM '.$db->nameQuote('#__core_acl_aro_groups') 
+		
+		if(XIUS_JOOMLA_15){
+			$sql = ' SELECT * FROM '.$db->nameQuote('#__core_acl_aro_groups') 
 				.' WHERE '.$db->nameQuote('name').' NOT LIKE "%USERS%"' 
 				.' AND '.$db->nameQuote('name').' NOT LIKE  "%ROOT%"'
 				.' AND '.$db->nameQuote('name').' NOT LIKE  "%Public%"' ;
+		}
+
+		if (XIUS_JOOMLA_16){
+			$sql = ' SELECT * FROM '.$db->nameQuote('#__usergroups') 
+				.' WHERE '.$db->nameQuote('title').' NOT LIKE "%USERS%"' 
+				.' AND '.$db->nameQuote('title').' NOT LIKE  "%ROOT%"'
+				.' AND '.$db->nameQuote('title').' NOT LIKE  "%Public%"' ;
+		}
 		$db->setQuery($sql);
 		return $db->loadObjectList(); 		
 	}
@@ -56,14 +66,16 @@ class JElementXiusJoomlaUserGroup extends JElement
 		if (is_array($attribs)) {
 			$attribs = JArrayHelper::toString($attribs);
 		}
-
+		//set group value field for Joomla group table
+		$group_value = XIUS_JOOMLA_GROUP_VALUE;
+		
         $html	= '<select name="'. $control_name.'['.$name.'][] '. $attribs .'>';
         $selected	= ( in_array('All',$value)) ? ' selected="true"' : '';
 		$html .= '<option value="All" '.$selected.'>All</option>' ;
 		
 		foreach($option as $op){
-			$selected	= ( in_array($op->value,$value)) ? ' selected="true"' : '';
-			$html .= '<option value="'.$op->value.'" '.$selected.'>'.$op->value.'</option>' ;
+			$selected	= ( in_array($op->$group_value,$value)) ? ' selected="true"' : '';
+			$html .= '<option value="'.$op->$group_value.'" '.$selected.'>'.$op->$group_value.'</option>' ;
 			}
 			
 		if($reqguest === true){

@@ -42,7 +42,7 @@ class XiusHelperUtils
 	
 	function isTableExist($tableName)
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 	
 		$tables	= array();
 		

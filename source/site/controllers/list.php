@@ -48,7 +48,7 @@ class XiussiteControllerList extends XiusController
 	
 	function showlist()
 	{
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 		$listId = JRequest::getVar('listid', 0);	 
 		
 		$user =& JFactory::getUser();
@@ -141,7 +141,7 @@ class XiussiteControllerList extends XiusController
 		$listId 	= JRequest::getVar('listid', 0);
 		$isNew  	= JRequest::getVar('isnew', 'true');
 		$listName 	= JRequest::getVar('xiusListName', '');				
-		global $mainframe;
+		$mainframe = JFactory::getApplication();
 
 		if(!$isNew && !$listId){			
 			$this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'lists',
