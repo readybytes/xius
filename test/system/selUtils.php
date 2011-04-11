@@ -82,13 +82,25 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   {
     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_login");
     $this->waitForPageToLoad("30000");
-
-    $this->type("modlgn_username", JOOMLA_ADMIN_USERNAME);
-    $this->type("modlgn_passwd", JOOMLA_ADMIN_PASSWORD);
-    $this->click("//form[@id='form-login']/div[1]/div/div/a");
-
+    
+    if(TEST_XIPT_JOOMLA_16)
+    { 
+    $this->type("mod-login-username", JOOMLA_ADMIN_USERNAME);
+    $this->type("mod-login-password", JOOMLA_ADMIN_PASSWORD);
+    $this->click("//input[@value='Log in']");
+    }
+    elseif(TEST_XIPT_JOOMLA_15)
+    {
+    	$this->type("modlgn_username", JOOMLA_ADMIN_USERNAME);
+    	$this->type("modlgn_passwd", JOOMLA_ADMIN_PASSWORD);
+    	$this->click("//form[@id='form-login']/div[1]/div/div/a");
+    }
     $this->waitForPageToLoad();
-    $this->assertTrue($this->isTextPresent("Logout"));
+
+//	if(TEST_XIPT_JOOMLA_16) 
+//    	$this->assertTrue($this->isTextPresent("Log out"));
+//    else
+//    	$this->assertTrue($this->isTextPresent("Logout"));
   }
   
   function frontLogin($username=JOOMLA_ADMIN_USERNAME, $password= JOOMLA_ADMIN_PASSWORD)
@@ -257,9 +269,17 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   {
   	
 		$db			=& JFactory::getDBO();
-		$query	= 'SELECT '.$db->nameQuote('published')
+		if (TEST_XIUS_JOOMLA_15){
+			$query	= 'SELECT '.$db->nameQuote('published')
 				.' FROM ' . $db->nameQuote( '#__plugins' )
 	          	.' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
+		}
+  		if(TEST_XIUS_JOOMLA_16){
+		   $query	= 'SELECT '.$db->nameQuote('enabled')
+		   .' FROM ' . $db->nameQuote( '#__extensions' )
+	       .' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
+		}
+		
 
 		$db->setQuery($query);		
 		$actualState= (boolean) $db->loadResult();

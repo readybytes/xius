@@ -50,6 +50,7 @@
 			<file>xiuslist.xml</file>
 			<file>xiuslist.ini</file>
 			<file>index.html</file>
+			<file>toolbar.xius.php</file>
 			<folder>controllers</folder>
 			<folder>views</folder>
 			<folder>install</folder>

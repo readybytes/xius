@@ -18,10 +18,14 @@ require_once JPATH_BASE.DS.'includes'.DS.'defines.php';
 require_once JPATH_LIBRARIES.DS.'joomla'.DS.'import.php';
 require_once JPATH_BASE .DS.'includes'.DS.'framework.php';
 require_once JPATH_BASE .DS.'libraries'.DS.'joomla'.DS.'factory.php';
+jimport('joomla.plugin.helper');
+jimport( 'joomla.filesystem.file' );
+jimport( 'joomla.filesystem.folder' );
 
 // Initalize frontend framework
 $mainframe =& JFactory::getApplication('site');
-$mainframe->initialise();
+if (TEST_XIPT_JOOMLA_15)
+	$mainframe->initialise();
 
 $_SERVER['HTTP_HOST']="/usr/bin";
 

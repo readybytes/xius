@@ -35,3 +35,8 @@ define( 'JPATH_COMPONENT_ADMINISTRATOR',	JPATH_ADMINISTRATOR.DS.'components'.DS.
 
 define('JOMSOCIAL_ZEND_PLUGIN', JOOMLA_LOCATION);
 define('JOMSOCIAL18_PKG', JOOMLA_LOCATION.'/com_community1.8.zip');
+
+$version = new JVersion();
+
+define('TEST_XIUS_JOOMLA_16',($version->RELEASE === '1.6'));
+define('TEST_XIUS_JOOMLA_15',($version->RELEASE === '1.5'));

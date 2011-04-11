@@ -25,17 +25,27 @@ class InstallTest extends XiSelTestCase
 
   function _setupXipt()
   {
-  	//INSTALL XIPT 3.0 FIRST
+  	//INSTALL XIPT 3.1 FIRST
     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
     $this->waitPageLoad();
 
     $this->type("install_url", XIPT_PKG);
-    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+	if(TEST_XIUS_JOOMLA_16){ 
+   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+   	}
+   	if(TEST_XIUS_JOOMLA_15){
+   	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+   	}
+
+
     $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Install Component Success"));
-    $this->assertTrue($this->isTextPresent("Supportive Plugin/Module xipt_community Installed Successfully"));
-    $this->assertTrue($this->isTextPresent("Supportive Plugin/Module xipt_system Installed Successfully"));
-  }
+    if(TEST_XIUS_JOOMLA_16)
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+    if(TEST_XIUS_JOOMLA_15)
+    	$this->assertTrue($this->isTextPresent("Install Component Success"));
+    
+    $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
+ }
 
 
   function testXIUSInstall()
@@ -52,11 +62,21 @@ class InstallTest extends XiSelTestCase
     $this->waitPageLoad();
 
     $this->type("install_url", XIUS_PKG);
-    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
-    $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Install Component Success"));
+    if(TEST_XIUS_JOOMLA_16){ 
+   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+   	}
+   	if(TEST_XIUS_JOOMLA_15){
+   	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+   	}
 
-    //$this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
+    $this->waitPageLoad();
+    
+    if(TEST_XIUS_JOOMLA_16)
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+    if(TEST_XIUS_JOOMLA_15)
+		$this->assertTrue($this->isTextPresent("Install Component Success"));
+
+    $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
 
     $this->verifyInstallation();
   }

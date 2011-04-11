@@ -259,7 +259,7 @@ class XiusView extends JView
 		$assetsPath = JPath::find($path[$type], $filename);
 		XiusError::assert($assetsPath,  'Assets "' . $filename . '" not found');
 
-		$assetsPath = JString::str_ireplace(JPATH_ROOT,'',$assetsPath);				
+		$assetsPath = XiusHelperUtils::XIUS_str_ireplace(JPATH_ROOT,'',$assetsPath);				
 		$assetsPath = XiusHelperUtils::getUrlpathFromFilePath($assetsPath);
 		$assetsPath = JURI::base().$assetsPath;
 		
