@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `#__xius_cache`;;
 
 
 TRUNCATE TABLE `#__community_fields`;;
-ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
+-- ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 

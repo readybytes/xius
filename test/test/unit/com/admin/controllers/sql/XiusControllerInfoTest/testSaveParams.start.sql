@@ -27,7 +27,7 @@ INSERT INTO `au_#__xius_info` (`id`,`labelName` , `params`, `key`,`pluginParams`
 (8, 'Birthday', 'isSearchable=0\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '3', '', 'Jsfields', 8, 1);;
 
 TRUNCATE TABLE `#__community_fields`;;
-ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
+-- ALTER TABLE `#__community_fields` AUTO_INCREMENT=1;;
 
 /* add data into community_fields table */
 INSERT INTO `#__community_fields`(`id`,`type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`) 
