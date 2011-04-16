@@ -31,7 +31,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 	function testRangesearch()
 	{		
 		$url	= JPATH_ROOT.'/test/test/sel/com/site/_data';
-	    	$this->_DBO->loadSql($url.'/insert.sql');	
+	    $this->_DBO->loadSql($url.'/insert.sql');	
 		$this->_DBO->loadSql($url.'/updateCache.sql');
 		
 		$url	= dirname(__FILE__).'/sql/'.__CLASS__.'/testGetAvailableInfoForRangesearch.start.sql';

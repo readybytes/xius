@@ -25,23 +25,28 @@ class XiusJuserTest extends XiUnitTestCase
 		
 			$requiredInfo = array();
 			
-			$requiredInfo['userid'] 		= JText::_('userid');
-			$requiredInfo['status'] 		= JText::_('status');
-			$requiredInfo['points'] 		= JText::_('points');
-			$requiredInfo['posted_on'] 		= JText::_('posted_on');
-			$requiredInfo['avatar'] 		= JText::_('avatar');
-			$requiredInfo['thumb'] 			= JText::_('thumb');
-			$requiredInfo['invite'] 		= JText::_('invite');
-			$requiredInfo['params'] 		= JText::_('params');
-			$requiredInfo['view'] 			= JText::_('view');
-		  	$requiredInfo['friendcount'] 		= JText::_('friendcount');		    
-		    
-		    $jsVersion	= $this->get_js_version();
-		    if(Jstring::stristr($jsVersion,'1.7') || Jstring::stristr($jsVersion,'1.8')){
-		    	$requiredInfo['alias'] 			= JText::_('alias');
-		    	$requiredInfo['latitude'] 		= JText::_('latitude');		    	
-		    	$requiredInfo['longitude'] 		= JText::_('longitude');		    	
-		    }
+			
+			$requiredInfo['userid']			= JText::_('Userid');
+    		$requiredInfo['status']			= JText::_('status');
+		    $requiredInfo['status_access']	= JText::_('status_access');
+		    $requiredInfo['points']			= JText::_('points');
+		    $requiredInfo['posted_on']		= JText::_('posted_on');
+		    $requiredInfo['avatar']			= JText::_('avatar');
+		    $requiredInfo['thumb']			= JText::_('thumb');
+		    $requiredInfo['invite']			= JText::_('invite');
+		    $requiredInfo['params']			= JText::_('params');
+		    $requiredInfo['view']			= JText::_('view');
+		    $requiredInfo['friends']		= JText::_('Friends');
+		    $requiredInfo['groups']			= JText::_('groups');
+		    $requiredInfo['friendcount']	= JText::_('friendcount');
+		    $requiredInfo['alias']			= JText::_('alias');
+		    $requiredInfo['latitude']		= JText::_('Latitude');
+		    $requiredInfo['longitude']		= JText::_('Longitude');
+		    $requiredInfo['profile_id']		= JText::_('profile_id');
+		    $requiredInfo['storage']		= JText::_('storage');
+		    $requiredInfo['watermark_hash']	= JText::_('watermark_hash');
+		    $requiredInfo['search_email']	= JText::_('search_email');
+
 			$this->assertEquals($requiredInfo,$info);
 		}
 	}
