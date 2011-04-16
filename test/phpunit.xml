@@ -4,7 +4,7 @@
 		colors="true" 
 		syntaxCheck="false"
 		bootstrap="bootstrap.php"
-		stopOnFailure="false" 
+		stopOnFailure="true" 
 		>
 	<testsuite name="AllTest">
 	<!-- All Unit Test Cases -->		
@@ -86,15 +86,15 @@
 	<listeners>
 		<listener class="XiTestListener" file="./system/XiTestListener.php" />
 	</listeners>
-	
-	<filter>
-          <blacklist>	
-            <directory suffix=".php">../</directory>
-          </blacklist>
-          <whitelist>
-            <directory suffix=".php">../components/com_xius</directory>
-            <directory suffix=".php">../administrator/components/com_xius</directory>
-          </whitelist>
-        </filter> 
+<!--	-->
+<!--	<filter>-->
+<!--          <blacklist>	-->
+<!--            <directory suffix=".php">../</directory>-->
+<!--          </blacklist>-->
+<!--          <whitelist>-->
+<!--            <directory suffix=".php">../components/com_xius</directory>-->
+<!--            <directory suffix=".php">../administrator/components/com_xius</directory>-->
+<!--          </whitelist>-->
+<!--        </filter> -->
 
 </phpunit>

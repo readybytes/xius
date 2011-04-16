@@ -18,10 +18,10 @@ class InstallTest extends XiSelTestCase
     $this->assertEquals($this->_DBO->getErrorLog(),'');
   }
 
-  function waitPageLoad($time=TIMEOUT_SEC)
-  {
-      $this->waitForPageToLoad($time);
-  }
+//  function waitPageLoad($time=TIMEOUT_SEC)
+//  {
+//      $this->waitForPageToLoad($time);
+//  }
 
   function _setupXipt()
   {

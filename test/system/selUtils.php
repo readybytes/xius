@@ -81,21 +81,21 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   function adminLogin()
   {
     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_login");
-    $this->waitForPageToLoad("30000");
+    $this->waitPageLoad();
     
-    if(TEST_XIPT_JOOMLA_16)
+    if(TEST_XIUS_JOOMLA_16)
     { 
     $this->type("mod-login-username", JOOMLA_ADMIN_USERNAME);
     $this->type("mod-login-password", JOOMLA_ADMIN_PASSWORD);
     $this->click("//input[@value='Log in']");
     }
-    elseif(TEST_XIPT_JOOMLA_15)
+    elseif(TEST_XIUS_JOOMLA_15)
     {
     	$this->type("modlgn_username", JOOMLA_ADMIN_USERNAME);
     	$this->type("modlgn_passwd", JOOMLA_ADMIN_PASSWORD);
     	$this->click("//form[@id='form-login']/div[1]/div/div/a");
     }
-    $this->waitForPageToLoad();
+    $this->waitPageLoad();
 
 //	if(TEST_XIPT_JOOMLA_16) 
 //    	$this->assertTrue($this->isTextPresent("Log out"));

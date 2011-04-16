@@ -28,37 +28,121 @@
          />
 		
 		<!-- Copy plguin files again into folder -->
-		<copy   todir="${target}/source/admin/install/extensions/xius_community">
-			<fileset dir="${source}/plugins/community/xius"> 
-				<include name="**/*.*" />
-			</fileset>
-                </copy>
 
-		<copy   todir="${target}/source/admin/install/extensions/xius_system">
-			<fileset dir="${source}/plugins/system/xius_system"> 
-				<include name="**/*.*" />
-			</fileset>
-                </copy>
+		<!-- Copy plguin files again into folder -->
+		<!-- for J1.6.0 -->
+		<php function="file_exists" returnProperty="fileExist">
+                  <param value="${source}/plugins/community/xius/xipt_community.php"/>
+                </php>
+
+                <if>
+                 	<equals arg1="${fileExist}" arg2="1" />
+			<then>	
+
+				<copy   todir="${target}/source/admin/install/extensions/xius_community">
+					<fileset dir="${source}/plugins/community/xius"> 
+						<include name="**/*.*" />
+					</fileset>
+                		</copy>
+
+				<copy   todir="${target}/source/admin/install/extensions/xius_system">
+					<fileset dir="${source}/plugins/system/xius_system"> 
+						<include name="**/*.*" />
+					</fileset>
+				</copy>
 
 
-		<copy   todir="${target}/source/admin/install/extensions/xius_privacy">
-			<fileset dir="${source}/plugins/xius/js_privacy"> 
-				<include name="**/*.*" />
-			</fileset>
-                </copy>
- 
-  		<copy   todir="${target}/source/admin/install/extensions/xipt_fieldselection">
-			<fileset dir="${source}/plugins/xius/xipt_fieldselection"> 
-				<include name="**/*.*" />
-			</fileset>
-                </copy>
+				<copy   todir="${target}/source/admin/install/extensions/xius_privacy">
+					<fileset dir="${source}/plugins/xius/js_privacy"> 
+						<include name="**/*.*" />
+					</fileset>
+				</copy>
 
-		<copy   todir="${target}/source/admin/install/extensions/xipt_privacy">
-			<fileset dir="${source}/plugins/xius/xipt_privacy"> 
-				<include name="**/*.*" />
-			</fileset>
-                </copy>
-                                              
+				<copy   todir="${target}/source/admin/install/extensions/xipt_fieldselection">
+					<fileset dir="${source}/plugins/xius/xipt_fieldselection"> 
+						<include name="**/*.*" />
+					</fileset>
+				</copy>
+
+				<copy   todir="${target}/source/admin/install/extensions/xipt_privacy">
+					<fileset dir="${source}/plugins/xius/xipt_privacy"> 
+						<include name="**/*.*" />
+					</fileset>
+				</copy>
+			</then>
+		</if>
+                          
+
+<!-- for J1.5 -->
+		<php function="file_exists" returnProperty="fileExist">
+                  <param value="${source}/plugins/system/xipt_system.php"/>
+                </php>
+
+                <if>
+                 	<equals arg1="${fileExist}" arg2="1" />		
+			<then>	
+				<copy   file="${source}/plugins/system/xius_system.php" 
+				        tofile="${target}/source/admin/install/extensions/xius_system/xius_system.php" 
+				         />
+
+				<copy   file="${source}/plugins/system/xius_system.xml" 
+				        tofile="${target}/source/admin/install/extensions/xius_system/xius_system.xml" 
+				         />
+
+
+				<copy   file="${source}/plugins/community/xius.php" 
+				        tofile="${target}/source/admin/install/extensions/xius_community/xius.php" 
+				         />
+
+				<copy   file="${source}/plugins/community/xius.xml" 
+				        tofile="${target}/source/admin/install/extensions/xius_community/xius.xml" 
+				         />
+				         
+				<copy   file="${source}/plugins/xius/js_privacy.php" 
+				        tofile="${target}/source/admin/install/extensions/xius_privacy/js_privacy.php" 
+				         />
+
+				<copy   file="${source}/plugins/xius/js_privacy.xml" 
+				        tofile="${target}/source/admin/install/extensions/xius_privacy/js_privacy.xml" 
+				         />
+				  
+				 <copy todir="${target}/source/admin/install/extensions/xius_privacy/js_privacy">
+					<fileset dir="${source}/plugins/xius/js_privacy">
+						<include name="**/*.*" />
+					</fileset>
+				</copy>       
+				         
+		
+				<copy   file="${source}/plugins/xius/xipt_privacy.php" 
+				        tofile="${target}/source/admin/install/extensions/xipt_privacy/xipt_privacy.php" 
+				         />
+
+				<copy   file="${source}/plugins/xius/xipt_privacy.xml" 
+				        tofile="${target}/source/admin/install/extensions/xipt_privacy/xipt_privacy.xml" 
+				         />    
+				 
+		       		<copy todir="${target}/source/admin/install/extensions/xipt_privacy/xipt_privacy">
+					<fileset dir="${source}/plugins/xius/xipt_privacy">
+						<include name="**/*.*" />
+					</fileset>
+				</copy>
+				   
+				<copy   file="${source}/plugins/xius/xipt_fieldselection.php" 
+				        tofile="${target}/source/admin/install/extensions/xipt_fieldselection/xipt_fieldselection.php" 
+				         />
+				<copy   file="${source}/plugins/xius/xipt_fieldselection.xml" 
+				        tofile="${target}/source/admin/install/extensions/xipt_fieldselection/xipt_fieldselection.xml" 
+				         />                
+		       		<copy todir="${target}/source/admin/install/extensions/xipt_fieldselection/xipt_fieldselection">
+					<fileset dir="${source}/plugins/xius/xipt_fieldselection">
+						<include name="**/*.*" />
+					</fileset>
+				</copy>    
+			</then>
+
+		</if>
+
+                    
 		<!-- Add module folders -->
 		<copy todir="${target}/source/admin/install/extensions/mod_xiuslisting">
 			<fileset dir="${source}/modules/mod_xiuslisting">
