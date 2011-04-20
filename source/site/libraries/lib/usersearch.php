@@ -105,7 +105,7 @@ class XiusLibUsersearch
 		
 		if($allInfo == null){
 			$filter = array();
-			$user =& JFactory::getUser();
+			$user = JFactory::getUser();
 			if(!XiusHelperUtils::isAdmin($user->id))
 					$filter['published'] = true;
 			$allInfo = XiusLibInfo::getInfo($filter,'AND');

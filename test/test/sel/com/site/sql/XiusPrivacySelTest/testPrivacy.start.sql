@@ -1,15 +1,15 @@
 TRUNCATE TABLE `#__users`;;
 INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `gid`, `registerDate`, `lastvisitDate`, `activation`, `params`) VALUES
 (62, 'Administrator', 'admin', 'shyam@joomlaxi.com', 'aa95a2cb1a9bd63f349a7fb72502489c:IXZhjkhVI11TgPm5YIVeHNcJTH8HbIKs', 'Super Administrator', 0, 1, 25, '2010-01-16 11:12:08', '2010-08-05 11:38:21', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
-(63, 'name64', 'username64', 'username64@email.com', '57048e7e51be27d034ad468671229b86:Fzk4eZv9djbjLoqnjRX49t5GERYcY5Fx', 'Registered', 0, 0, 18, '2010-05-20 10:31:50', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\n\n'),
-(64, 'name65', 'username65', 'username65@email.com', 'c6760cbc8fbb0d3b330cda62f14d4df8:6xApyV7UoTXhZFvW6d9jLT9N4A8WlaQL', 'Manager', 0, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\n\n'),
-(65, 'name66', 'username66', 'username66@email.com', 'a8fe0feb870e88548181583c41024e4e:saL5B5BG20caRLo60ynhCKbAZw8WIWtn', 'Administrator', 0, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\n\n'),
-(66, 'name67', 'username67', 'username67@email.com', '10aaf84f6822970768033aed4c6c5ad7:Y33vW30BKxxKJgguIKxhOMazhh2j9GlT', 'Editor', 0, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\n\n'),
-(67, 'name68', 'username68', 'username68@email.com', '63b3c955bf392b75648c6ef504d377e6:ngmtwZt85QNej2f0qnMxEYCLzkcTTN3n', 'Publisher', 0, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\n\n'),
-(68, 'name69', 'username69', 'username69@email.com', 'f1272d04850d66ac8f02081443af7e64:iCQx3wHAXABo5fs1IlR5gYMUYINmCwQk', 'Author', 0, 0, 18, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\n\n');;
+(63, 'name64', 'username64', 'username64@email.com', '57048e7e51be27d034ad468671229b86:Fzk4eZv9djbjLoqnjRX49t5GERYcY5Fx', 'Registered', 0, 0, 18, '2010-05-20 10:31:50', '2011-04-20 10:18:34', '', 'language=\ntimezone=0\n\n'),
+(64, 'name65', 'username65', 'username65@email.com', 'c6760cbc8fbb0d3b330cda62f14d4df8:6xApyV7UoTXhZFvW6d9jLT9N4A8WlaQL', 'Manager', 0, 0, 23, '2010-05-20 10:32:10', '2011-04-20 10:18:38', '', 'language=\ntimezone=0\nadmin_language=\neditor=\nhelpsite=\n\n'),
+(65, 'name66', 'username66', 'username66@email.com', 'a8fe0feb870e88548181583c41024e4e:saL5B5BG20caRLo60ynhCKbAZw8WIWtn', 'Administrator', 0, 0, 24, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\nadmin_language=\neditor=\nhelpsite=\n\n'),
+(66, 'name67', 'username67', 'username67@email.com', '10aaf84f6822970768033aed4c6c5ad7:Y33vW30BKxxKJgguIKxhOMazhh2j9GlT', 'Editor', 0, 0, 20, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\nadmin_language=\neditor=\nhelpsite=\n\n'),
+(67, 'name68', 'username68', 'username68@email.com', '63b3c955bf392b75648c6ef504d377e6:ngmtwZt85QNej2f0qnMxEYCLzkcTTN3n', 'Publisher', 0, 0, 21, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\nadmin_language=\neditor=\nhelpsite=\n\n'),
+(68, 'name69', 'username69', 'username69@email.com', 'f1272d04850d66ac8f02081443af7e64:iCQx3wHAXABo5fs1IlR5gYMUYINmCwQk', 'Author', 0, 0, 19, '2010-05-20 10:32:10', '0000-00-00 00:00:00', '', 'language=\ntimezone=0\neditor=\nhelpsite=\n\n');;
 
 TRUNCATE TABLE `#__core_acl_aro`;;
-INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
+INSERT INTO `#__core_acl_aro`  (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES
 (10, 'users', '62', 0, 'Administrator', 0),
 (11, 'users', '63', 0, 'name64', 0),
 (12, 'users', '64', 0, 'name65', 0),
@@ -32,24 +32,24 @@ INSERT INTO `#__community_users` (`userid`, `status`, `points`, `posted_on`, `av
 
 
 TRUNCATE TABLE `#__community_fields`;;
-INSERT INTO `#__community_fields` (`id`, `type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `options`, `fieldcode`, `regshow`, `registration`) VALUES
-(1, 'group', 1, 1, 10, 100, 'Basic Information', 'Basic information for user', 1, 1, 1, '', '', 1, 1),
-(2, 'select', 2, 1, 10, 100, 'Gender', 'Select gender', 1, 1, 1, 'Male\nFemale', 'FIELD_GENDER', 1, 1),
-(3, 'date', 3, 1, 10, 100, 'Birthday', 'Enter your date of birth so other users can know when to wish you happy birthday ', 1, 1, 1, '', 'FIELD_BIRTHDAY', 1, 1),
-(4, 'text', 4, 1, 5, 250, 'Hometown', 'Hometown', 1, 1, 1, '', 'FIELD_HOMETOWN', 1, 1),
-(5, 'textarea', 5, 1, 1, 800, 'About me', 'Tell us more about yourself', 1, 1, 1, '', 'FIELD_ABOUTME', 1, 1),
-(6, 'group', 6, 1, 10, 100, 'Contact Information', 'Specify your contact details', 1, 1, 1, '', '', 1, 1),
-(7, 'text', 7, 1, 10, 100, 'Mobile phone', 'Mobile carrier number that other users can contact you.', 1, 0, 1, '', 'FIELD_MOBILE', 1, 1),
-(8, 'text', 8, 1, 10, 100, 'Land phone', 'Contact number that other users can contact you.', 1, 0, 1, '', 'FIELD_LANDPHONE', 1, 1),
-(9, 'textarea', 9, 1, 10, 100, 'Address', 'Address', 1, 1, 1, '', 'FIELD_ADDRESS', 1, 1),
-(10, 'text', 10, 1, 10, 100, 'State', 'State', 1, 1, 1, '', 'FIELD_STATE', 1, 1),
-(11, 'text', 11, 1, 10, 100, 'City / Town', 'City / Town', 1, 1, 1, '', 'FIELD_CITY', 1, 1),
-(12, 'select', 12, 1, 10, 100, 'Country', 'Country', 1, 1, 1, 'Afghanistan\nAlbania\nAlgeria\nAmerican Samoa\nAndorra\nAngola\nAnguilla\nAntarctica\nAntigua and Barbuda\nArgentina\nArmenia\nAruba\nIndia', 'FIELD_COUNTRY', 1, 1),
-(13, 'text', 13, 1, 10, 100, 'Website', 'Website', 1, 1, 1, '', 'FIELD_WEBSITE', 1, 1),
-(14, 'group', 14, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, '', '', 1, 1),
-(15, 'text', 15, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, '', 'FIELD_COLLEGE', 1, 1),
-(16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, '', 'FIELD_GRADUATION', 1, 1),
-(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1', 1, 1);;
+INSERT INTO `#__community_fields` (`id`, `type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `options`, `fieldcode`, `registration`) VALUES
+(1, 'group', 1, 1, 10, 100, 'Basic Information', 'Basic information for user', 1, 1, 1, '', '', 1),
+(2, 'select', 2, 1, 10, 100, 'Gender', 'Select gender', 1, 1, 1, 'Male\nFemale', 'FIELD_GENDER', 1),
+(3, 'date', 3, 1, 10, 100, 'Birthday', 'Enter your date of birth so other users can know when to wish you happy birthday ', 1, 1, 1, '', 'FIELD_BIRTHDAY', 1),
+(4, 'text', 4, 1, 5, 250, 'Hometown', 'Hometown', 1, 1, 1, '', 'FIELD_HOMETOWN', 1),
+(5, 'textarea', 5, 1, 1, 800, 'About me', 'Tell us more about yourself', 1, 1, 1, '', 'FIELD_ABOUTME', 1),
+(6, 'group', 6, 1, 10, 100, 'Contact Information', 'Specify your contact details', 1, 1, 1, '', '', 1),
+(7, 'text', 7, 1, 10, 100, 'Mobile phone', 'Mobile carrier number that other users can contact you.', 1, 0, 1, '', 'FIELD_MOBILE', 1),
+(8, 'text', 8, 1, 10, 100, 'Land phone', 'Contact number that other users can contact you.', 1, 0, 1, '', 'FIELD_LANDPHONE', 1),
+(9, 'textarea', 9, 1, 10, 100, 'Address', 'Address', 1, 1, 1, '', 'FIELD_ADDRESS', 1),
+(10, 'text', 10, 1, 10, 100, 'State', 'State', 1, 1, 1, '', 'FIELD_STATE', 1),
+(11, 'text', 11, 1, 10, 100, 'City / Town', 'City / Town', 1, 1, 1, '', 'FIELD_CITY', 1),
+(12, 'select', 12, 1, 10, 100, 'Country', 'Country', 1, 1, 1, 'Afghanistan\nAlbania\nAlgeria\nAmerican Samoa\nAndorra\nAngola\nAnguilla\nAntarctica\nAntigua and Barbuda\nArgentina\nArmenia\nAruba\nIndia', 'FIELD_COUNTRY', 1),
+(13, 'text', 13, 1, 10, 100, 'Website', 'Website', 1, 1, 1, '', 'FIELD_WEBSITE', 1),
+(14, 'group', 14, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, '', '', 1),
+(15, 'text', 15, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, '', 'FIELD_COLLEGE', 1),
+(16, 'text', 16, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, '', 'FIELD_GRADUATION', 1),
+(17, 'checkbox', 2, 1, 10, 100, 'Checkbox1', 'Checkbox1', 1, 1, 1, 'Checkbox1\nCheckbox11\nCheckbox2\nCheckbox21\nCheckbox', 'Checkbox1', 1);;
 
 
 TRUNCATE TABLE `#__community_fields_values`;;
@@ -204,7 +204,7 @@ INSERT INTO `#__xius_cache` (`userid`, `jsfields10_0`, `jsfields12_0`, `jsfields
 (68, 'Uttar Pradesh', 'India', 'Noida', 'Female', '1994-05-21 23:59:59', 16);;
 
 TRUNCATE TABLE `#__core_acl_groups_aro_map`;;
-INSERT INTO `#__core_acl_groups_aro_map` (`group_id`, `section_value`, `aro_id`) VALUES
+INSERT INTO `#__core_acl_groups_aro_map`  (`group_id`, `section_value`, `aro_id`) VALUES
 (18, '', 11),
 (19, '', 16),
 (20, '', 14),

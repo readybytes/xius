@@ -237,7 +237,9 @@ class JsfieldsBase extends XiusBase
 		}
 		
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-		$formatvalue = CProfileLibrary::getFieldData($fieldInfo[0]->type,$value);
+		//$formatvalue = CProfileLibrary::getFieldData($fieldInfo[0]->type,$value);
+		// for JS 2.2.1 not tested with 2.2.0
+		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
 		//$formatvalue = CProfileLibrary::getFieldData($fieldInfo[0]);
 		return $formatvalue;
 	}

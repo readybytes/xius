@@ -74,7 +74,7 @@ class XiusJuserTest extends XiUnitTestCase
 	
 	function testGetTableMapping()
 	{
-		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusJsuserTest/testViewSearchHtml.start.sql');
+		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusJuserTest/testViewSearchHtml.start.sql');
 		$instance = new Jsuser();
 		$instance->load(2);
 		$mapping = $instance->getTableMapping();
