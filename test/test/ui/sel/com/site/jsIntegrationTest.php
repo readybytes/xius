@@ -25,6 +25,7 @@ class XiusJsIntegrationTest extends XiSelTestCase
 		$path = XiusRoute::_(JPATH_BASE.'/index.php/jomsocial/users/panel.html?usexius=1');
 		$path= str_replace("/var/www", "", $path);
 		$this->click("//a[@href='$path']");
+		 //$this->click("link=Advanced Search");
 		$this->waitPageLoad();
 		$this->jsIntegration();
 		$this->frontLogout();

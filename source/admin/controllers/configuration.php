@@ -57,6 +57,10 @@ class XiusControllerConfiguration extends JController
 			JError::raiseWarning( 100 , XiusText::_( 'UNABLE TO SAVE CONFIGURATION INTO DATABASE. PLEASE ENSURE THAT THE TABLE XIUS_CONFIG EXISTS' ) );
 		}
 		$link = XiusRoute::_('index.php?option=com_xius&view=configuration', false);
+		
+		//Change JS toolbar state according to XiUS Params
+		$state = (int)$xiusparams['integrateJomSocial'];
+		XiusLibPluginhandler::setJSToolbarState(!$state);
 		$mainframe->redirect($link, $message);
 	}
 	

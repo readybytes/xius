@@ -129,4 +129,44 @@ class XiusLibPluginhandler
 		return XiusHelperList::filterListPrivacy($lists,$user);			
 	}
 	
+	/**Valid only for JS 2.2.X
+	 * Change JS toolbar search option according to state
+	 * @param unknown_type $state is a boolean value.
+	 */
+	function setJSToolbarState($state = 0)
+	{
+		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_menus'.DS.'models'.DS.'list.php';
+		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_menus'.DS.'helpers'.DS.'helper.php';
+		$model = new MenusModelList();
+		// get all JS menus
+		$jsMenus = self::getJSMenus();
+
+		if(empty($jsMenus))
+			return ;
+
+		$itemId	 = Array(); 
+		foreach($jsMenus as $menu)
+			$itemId[] = $menu->id;
+			
+		$model->setItemState($itemId,$state);				
+	 }
+	 
+	 function getJSMenus() {
+	 	
+	 	$config	   = CFactory::getConfig();
+	 	$queryObj  = new XiusQuery;
+	 	$condition ="(link = 'index.php?option=com_community&view=search&task=advancesearch'".
+	 				" OR ".
+	 				"link ='index.php?option=com_community&view=search')";
+	 	
+	 	$jsMenus   = $queryObj->select('*')
+	 			 			  ->from('#__menu')
+	 			 			  ->where("menutype = '". $config->get( 'toolbar_menutype')."'")
+	 			 			  ->where("parent <> 0")
+	 			 			  ->where($condition)
+	 			 			  ->dbLoadQuery()
+	 			 		 	  ->loadObjectList();
+	 	return $jsMenus;
+		}
+	
 }
