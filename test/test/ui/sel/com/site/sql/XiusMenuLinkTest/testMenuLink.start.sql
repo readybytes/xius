@@ -37,7 +37,7 @@ INSERT INTO `#__xius_list` (`id`, `owner`, `name`, `visibleinfo`, `sortinfo`, `s
 
 
 -- Menu Table, create search link and list link on menu
-
+INSERT INTO `bk_#__menu` SELECT	* FROM `#__menu`;;
 TRUNCATE TABLE `#__menu`;;
 
 

@@ -32,5 +32,20 @@
 			<option value="vertical">Vertical</option>
 	</param>
 </params>
+	
+	<!-- for joomla 1.6-->
+	<!-- Add fields to the parameters object for the layout. -->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMXIUSMODULECLASSSUFFIX" />
+				<field name="xius_info_range" type="text" default="All" label="INFORMATION RANGE.LABEL" description="INFORMATION RANGE.DESC" />
+				<field name="xius_layout" type="list" default="horizontal" label="LAYOUT.LABEL" description="LAYOUT.DESC">
+					<option value="horizontal">Horizontal</option>
+					<option value="vertical">Vertical</option>
+				</field>	
+			</fieldset>
+		</fields>
+	</config>
 </install> 
 

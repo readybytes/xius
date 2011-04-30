@@ -145,7 +145,7 @@ class XiusBaseView extends XiusView
 			return JError::raiseError( 500, 'Assets "' . $filename . '" not found' );
 		}
 		
-		$assetsPath = JString::str_ireplace(JPATH_ROOT,JURI::base(),$assetsPath);
+		$assetsPath = XiusHelperUtils::XIUS_str_ireplace(JPATH_ROOT,JURI::base(),$assetsPath);
 		$document =& JFactory::getDocument();
 		
 		switch($type){

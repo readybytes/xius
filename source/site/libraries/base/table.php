@@ -14,7 +14,12 @@ class XiusTable extends JTable
 	 * @param string $table name of the table in the db schema relating to child class
 	 * @param string $key name of the primary key field in the table
 	 */
-	function __construct($table,$key){
-		parent::__construct($table, $key, JFactory::getDBO());
+	function __construct($table,$key, &$db = '' )
+	{
+		if(empty($db)){
+			$db = JFactory::getDBO();
+		}
+
+		parent::__construct($table, $key, $db);
 	}
 }

@@ -19,6 +19,7 @@ INSERT INTO `#__xius_list` (`id`, `owner`, `name`, `visibleinfo`, `sortinfo`, `s
 (8, 62, 'Male List', '', '2', 'ASC', 'AND', 'a:2:{i:0;a:3:{s:6:"infoid";s:1:"8";s:5:"value";a:4:{i:0;s:9:"28.635308";i:1;s:8:"77.22496";i:2;s:2:"10";i:3;s:5:"miles";}s:8:"operator";s:1:"=";}i:1;a:3:{s:6:"infoid";s:1:"4";s:5:"value";s:4:"Male";s:8:"operator";s:1:"=";}}', 1, 7, '', 'js_privacy=public\n\n');;
 
 
+INSERT INTO `bk_#__menu` SELECT	* FROM `#__menu`;;
 TRUNCATE TABLE `#__menu`;;
 
 INSERT INTO `#__menu` (`id`, `menutype`, `name`, `alias`, `link`, `type`, `published`, `parent`, `componentid`, `sublevel`, `ordering`, `checked_out`, `checked_out_time`, `pollid`, `browserNav`, `access`, `utaccess`, `params`, `lft`, `rgt`, `home`) VALUES

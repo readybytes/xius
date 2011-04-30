@@ -140,3 +140,4 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (19, 'State', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '10', '', 'Jsfields', 10, 1),
 (20, 'By Google API', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', 'google', 'xius_proximity_country=17\nxius_proximity_zipcode=\nxius_proximity_state=19\nxius_proximity_city=16\nxius_gmap_key=\n\n', 'Proximity', 11, 1);;
 
+UPDATE `#__modules` SET `params` = 'moduleclass_sfx=\n  xius_info_range=All\n xius_layout=horizontal\n' WHERE `title` LIKE 'Xius Search Panel';;

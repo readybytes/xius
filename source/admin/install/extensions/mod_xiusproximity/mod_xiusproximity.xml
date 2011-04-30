@@ -45,5 +45,35 @@
 		</param>
 		
 </params>
+	
+<!-- for joomla 1.6-->
+<!-- Add fields to the parameters object for the layout. -->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMXIUSMODULECLASSSUFFIX" />
+				<field name="xius_proximity" type="radio" default="information" label="PROXIMITY.LABEL" description="PROXIMITY.DESC">
+					<option value="information">Information</option>
+					<option value="google">Google</option>
+				</field>
+				
+				<field name="xius_proximity_params" type="radio" default="googlemap" label="PROXIMITYPARAMS.LABEL" description="PROXIMITYPARAMS.DESC">
+					<option value="googlemap">Map</option>
+					<option value="address">Address</option>
+					<option value="mylocation">My Location</option>
+				</field>
+				
+				<field name="xius_distance" type="radio" default="miles" label="DISTANCE.LABEL" description="DISTANCE.DESC">
+					<option value="miles">Miles</option>
+					<option value="kms">Kms</option>
+				</field>
+				
+				<field name="xius_color" type="radio" default="blue" label="COLOR.LABEL" description="COLOR.DESC">
+					<option value="blue">Blue</option>
+					<option value="gray">Gray</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
 </install> 
 

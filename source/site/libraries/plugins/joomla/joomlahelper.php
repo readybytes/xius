@@ -13,8 +13,8 @@ class Joomlahelper
 	{
 		$db	= JFactory::getDBO();
 			
-		$userTable = new JTable('#__users','id', $db);
-		$allColumns = $userTable->_db->getTableFields('#__users');
+		$userTable = new XiusTable('#__users','id', $db);
+		$allColumns = $userTable->get('_db')->getTableFields('#__users');
 		
 		if(empty($allColumns) || empty($allColumns['#__users']) ){
 			return false;

@@ -21,4 +21,17 @@
 	<params>
 		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMXIUSMODULECLASSSUFFIX" />
 	</params>
+	
+<!-- for joomla 1.6-->
+<!-- Add fields to the parameters object for the layout. -->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field  name="moduleclass_sfx" 
+						type="text" default="" 
+						label="Module Class Suffix" 
+						description="PARAMXIUSMODULECLASSSUFFIX" />
+			</fieldset>
+		</fields>
+	</config>
 </install>

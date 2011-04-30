@@ -133,40 +133,21 @@ class XiusLibPluginhandler
 	 * Change JS toolbar search option according to state
 	 * @param unknown_type $state is a boolean value.
 	 */
-	function setJSToolbarState($state = 0)
-	{
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_menus'.DS.'models'.DS.'list.php';
-		require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_menus'.DS.'helpers'.DS.'helper.php';
-		$model = new MenusModelList();
-		// get all JS menus
-		$jsMenus = self::getJSMenus();
-
-		if(empty($jsMenus))
-			return ;
-
-		$itemId	 = Array(); 
-		foreach($jsMenus as $menu)
-			$itemId[] = $menu->id;
-			
-		$model->setItemState($itemId,$state);				
-	 }
 	 
-	 function getJSMenus() {
+	 function setJSToolbarState($state = 0) {
 	 	
-	 	$config	   = CFactory::getConfig();
+		$config	   = CFactory::getConfig();
 	 	$queryObj  = new XiusQuery;
 	 	$condition ="(link = 'index.php?option=com_community&view=search&task=advancesearch'".
 	 				" OR ".
 	 				"link ='index.php?option=com_community&view=search')";
-	 	
-	 	$jsMenus   = $queryObj->select('*')
-	 			 			  ->from('#__menu')
-	 			 			  ->where("menutype = '". $config->get( 'toolbar_menutype')."'")
-	 			 			  ->where("parent <> 0")
-	 			 			  ->where($condition)
-	 			 			  ->dbLoadQuery()
-	 			 		 	  ->loadObjectList();
-	 	return $jsMenus;
+		$queryObj->update('#__menu')
+	 			 	->set('published ='. $state)
+					->where("menutype = '". $config->get( 'toolbar_menutype')."'")
+	 			 	->where((XIUS_JOOMLA_15)?'parent <> 0':'client_id = 0')
+					->where($condition)	 			 			  
+	 			 	->dbLoadQuery()->query();
+
 		}
 	
 }

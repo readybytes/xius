@@ -60,7 +60,11 @@ class XiusControllerConfiguration extends JController
 		
 		//Change JS toolbar state according to XiUS Params
 		$state = (int)$xiusparams['integrateJomSocial'];
-		XiusLibPluginhandler::setJSToolbarState(!$state);
+		if($state === 0)
+			$state = 1;
+		else 
+			$state = 0;
+		XiusLibPluginhandler::setJSToolbarState($state);
 		$mainframe->redirect($link, $message);
 	}
 	
