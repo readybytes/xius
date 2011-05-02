@@ -89,7 +89,8 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function _getProfileTypeHtml($profileType, $name, $param, $attribs = null)
 	{
-		$xmlPath 	  		= JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_privacy'.DS.'param.xml';
+		$j16_path = (XIUS_JOOMLA_16)?DS.'xipt_privacy':'';
+		$xmlPath 	  		= JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_privacy'.$j16_path.DS.'param.xml';
         $iniPath        	= dirname(__FILE__) . DS .$this->_name.DS.'param.ini';
         $profileTypeData    = JFile::read($iniPath);
         

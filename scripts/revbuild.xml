@@ -32,7 +32,7 @@
 		<!-- Copy plguin files again into folder -->
 		<!-- for J1.6.0 -->
 		<php function="file_exists" returnProperty="fileExist">
-                  <param value="${source}/plugins/community/xius/xipt_community.php"/>
+                  <param value="${source}/plugins/community/xius/xius.php"/>
                 </php>
 
                 <if>
