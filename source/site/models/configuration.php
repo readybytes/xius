@@ -32,7 +32,7 @@ class XiusModelConfiguration extends JModel
 	/**
 	 * Returns the configuration object
 	 *
-	 * @return object	JParameter object
+	 * @return object	XiusParameter object
 	 **/	 
 	function getParams()
 	{
@@ -45,9 +45,9 @@ class XiusModelConfiguration extends JModel
 			
 			$xmlpath = JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'configuration.xml';
 			if(JFile::exists($xmlpath))
-				$this->_params = new JParameter($data,$xmlpath);
+				$this->_params = new XiusParameter($data,$xmlpath);
 			else 
-				$this->_params = new JParameter('','');
+				$this->_params = new XiusParameter('','');
 				
 			$config = XiusFactory::getInstance ( 'configuration', 'table');
 			$config->load( 'config' );
@@ -97,7 +97,7 @@ class XiusModelConfiguration extends JModel
 	{
 		jimport( 'joomla.filesystem.file');
 		
-		$params = new JParameter('','');
+		$params = new XiusParameter('','');
 			
 		$config = XiusFactory::getInstance ( 'configuration', 'table');
 		$config->load( $name );

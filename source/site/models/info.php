@@ -58,7 +58,7 @@ class XiusModelInfo extends XiusModel
 			return false;
 		}
 			
-		$params	= new JParameter('','');
+		$params	= new XiusParameter('','');
 		$params->bind($info->params);
 		$params->set($what,$value);
 		$paramStr = $params->toString('INI');

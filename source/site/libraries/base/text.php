@@ -5,8 +5,21 @@
 * @license		GNU/GPL, see LICENSE.php
 * @contact		shyam@joomlaxi.com
 */
+// no direct access
+if(!defined('_JEXEC')) die('Restricted access');
 
-defined('_JEXEC') or die();
-
-class XiusText extends JText
-{}
+class XiusText
+{
+	
+	function sprintf($string)
+	{
+		$args = func_get_args();
+		return call_user_func_array(array('JText','sprintf'), $args);
+	}
+    
+	static function _($string, $jsSafe = false)
+	{
+    	$string='COM_XIUS_'.$string;
+        return JText::_($string, $jsSafe);
+    }
+}

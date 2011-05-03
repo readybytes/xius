@@ -18,7 +18,7 @@ $controllerClass = 'Xius'.'Controller'.JString::ucfirst(JString::strtolower($vie
 
 // Test if the object really exists in the current context
 if(class_exists( $controllerClass,true)===false){
-	JError::raiseError(500, sprintf(XiusText::_('Invalid Controller Object %s. Class definition does not exists in this context.' ),$controllerClass));
+	JError::raiseError(500, sprintf(XiusText::_('INVALID_CONTROLLER_OBJECT_%s_CLASS_DEFINITION_DOES_NOT_EXISTE_IN_THIS_CONTEXT' ),$controllerClass));
 }
 //Import All XiuS plugins
 JPluginHelper::importPlugin('xius');

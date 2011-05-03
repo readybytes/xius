@@ -52,7 +52,7 @@ class XiusViewInfo extends JView
 		}
 		//XiTODO:: Why assign this.
 		$this->assign( 'plugins' , $plugins );
-		JToolBarHelper::title( XiusText::_( 'GENERATE INFO' ), 'info' );
+		JToolBarHelper::title( XiusText::_( 'GENERATE_INFO' ), 'info' );
 		parent::display($tpl);
 	}
 	
@@ -84,7 +84,7 @@ class XiusViewInfo extends JView
 		$this->assign('pluginArray',		$pluginArray);
 		$this->assign('info',$data);
 		$this->assign('infoName',$infoName);
-		JToolBarHelper::title( XiusText::_( 'GENERATE INFO' ), 'info' );
+		JToolBarHelper::title( XiusText::_( 'GENERATE_INFO' ), 'info' );
 		parent::display($tpl);
 	}
 	
@@ -93,7 +93,7 @@ class XiusViewInfo extends JView
 	{
 
 		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'GENERATE INFO' ), 'info' );
+		JToolBarHelper::title( XiusText::_( 'GENERATE_INFO' ), 'info' );
 
 		// Add the necessary buttons
 		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
@@ -102,6 +102,6 @@ class XiusViewInfo extends JView
 		JToolBarHelper::unpublishList('unpublish', XiusText::_( 'UNPUBLISH' ));
 		JToolBarHelper::divider();
 		JToolBarHelper::trash('remove', XiusText::_( 'DELETE' ));
-		JToolBarHelper::addNew('add', XiusText::_( 'CREATE INFO' ));
+		JToolBarHelper::addNew('add', XiusText::_( 'CREATE_INFO' ));
 	}
 }

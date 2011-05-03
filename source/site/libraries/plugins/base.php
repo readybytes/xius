@@ -29,13 +29,13 @@ abstract class XiusBase extends JObject
 		$data	= JFile::read($ini);
 		
 		if(JFile::exists($paramsxmlpath))
-			$this->params = new JParameter($data,$paramsxmlpath);
+			$this->params = new XiusParameter($data,$paramsxmlpath);
 			
 		$this->pluginType 	= $className;
 		
 		//if already defined by child class do not create it.
 		if(!$this->pluginParams)
-			$this->pluginParams	= new JParameter('','');
+			$this->pluginParams	= new XiusParameter('','');
 			
 		$this->key		 = '';
 		$this->id		 = 0;
@@ -308,7 +308,7 @@ abstract class XiusBase extends JObject
 		if($plguinParamsHtml)
 			return $plguinParamsHtml;
 		
-		$plguinParamsHtml = "<div style=\"text-align: center; padding: 5px; \">".XiusText::_('There are no parameters for this item')."</div>";
+		$plguinParamsHtml = "<div style=\"text-align: center; padding: 5px; \">".XiusText::_('THERE_ARE_NO_PARAMETERS_FOR_THIS_ITEM')."</div>";
 		
 		return $plguinParamsHtml;
 	}
@@ -325,7 +325,7 @@ abstract class XiusBase extends JObject
 		if($paramsHtml)
 			return $paramsHtml;
 		
-		$paramsHtml = "<div style=\"text-align: center; padding: 5px; \">".XiusText::_('There are no parameters for this item')."</div>";
+		$paramsHtml = "<div style=\"text-align: center; padding: 5px; \">".XiusText::_('THERE_ARE_NO_PARAMETERS_FOR_THIS_ITEM')."</div>";
 		
 		return $paramsHtml;
 	}
@@ -571,7 +571,7 @@ abstract class XiusBase extends JObject
 		$data	= JFile::read($ini);
 		
 		if(JFile::exists($paramsxmlpath))
-			$this->params = new JParameter($data,$paramsxmlpath);
+			$this->params = new XiusParameter($data,$paramsxmlpath);
 		
 		$this->cleanPluginObject();
 		
@@ -583,7 +583,7 @@ abstract class XiusBase extends JObject
 	{
 		//if already defined by child class do not create it.
 		if(!$this->pluginParams)
-			$this->pluginParams	= new JParameter('','');	
+			$this->pluginParams	= new XiusParameter('','');	
 	}
 	
 	public function validateValues($value)

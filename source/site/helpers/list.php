@@ -37,7 +37,7 @@ class XiusHelperList
 			if($user->id == $lists[$i]->owner)
 				continue;
 
-			$config = new JParameter('','');
+			$config = new XiusParameter('','');
 			$config->bind($lists[$i]->params);
 			$joomlaPrivacy 	= $config->get('xiusListViewGroup','BLANK');
 			

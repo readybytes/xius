@@ -60,7 +60,7 @@ class XiussiteControllerList extends XiusController
 		
 		$url = XiusRoute::_('index.php?option=com_xius&view=list&task=display',false);
 		if(empty($list))
-			$mainframe->redirect($url,XiusText::_('INVALID LIST ID'),false);
+			$mainframe->redirect($url,XiusText::_('INVALID_LIST_ID'),false);
 
 		// when no task is there 
 		$user =& JFactory::getUser();
@@ -68,7 +68,7 @@ class XiussiteControllerList extends XiusController
 		// XITODO : check access in function checkAccess		
 		if($list)
 			if(!XiusHelperUtils::isAdmin($user->id) && !$list->published){					
-				$msg = XiusText::_('DO NOT HAVE ACCESS RIGHTS');
+				$msg = XiusText::_('DO_NOT_HAVE_ACCESS_RIGHTS');
 				$mainframe->redirect($url,$msg,false);
 				break;
 			}
@@ -148,7 +148,7 @@ class XiussiteControllerList extends XiusController
 							'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		
 			$url = XiusRoute::_($this->getView()->getXiUrl(),false);
-			$msg = XiusText::_('Please select a list to save or save as a new');
+			$msg = XiusText::_('PLEASE_SELECT_A_LIST_TO_SAVE_OR_SAVE_AS_A_NEW');
 			$mainframe->redirect($url,$msg);
 		}
 			
@@ -182,7 +182,7 @@ class XiussiteControllerList extends XiusController
 								'tmpl'=>null,'listid'=>null,'isnew'=>null));
 		
         $url = XiusRoute::_($this->getView()->getXiUrl(),false);		
-		$msg = XiusText::_('YOU CAN NOT SAVE LIST');
+		$msg = XiusText::_('YOU_CAN_NOT_SAVE_LIST');
 		$returndata = array('id' => 0 , 'url' => $url , 'msg' => $msg , 'success' => false);
 		return $returndata;		
 	}
@@ -247,9 +247,9 @@ class XiussiteControllerList extends XiusController
 		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
 		
 		if(!($id = XiusLibList::saveList($data)))
-			$msg = XiusText::_('ERROR IN SAVE LIST');
+			$msg = XiusText::_('ERROR_IN_SAVE_LIST');
 		else
-			$msg = XiusText::_('LIST SAVED SUCCESSFULLY');
+			$msg = XiusText::_('LIST_SAVED_SUCCESSFULLY');
 
 		$this->getView()->setXiUrl(array('view'=>$this->getName(),'task'=>'showList',
 							'tmpl'=>null,'listid'=>$id,'isnew'=>null));

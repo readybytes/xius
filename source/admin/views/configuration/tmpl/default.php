@@ -30,7 +30,7 @@ XiusHelperUtils::loadJQuery();
 	
 </script>
 
-<div>
+<div id="XIUS">
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm">
 
 <?php  
@@ -40,24 +40,24 @@ XiusHelperUtils::loadJQuery();
 ?>
 <div class="col width-45" style="float:left;">
 <fieldset class="adminform">
-<legend><?php echo XiusText::_( 'BASIC CONFIGURATION' ); ?></legend>
+<legend><?php echo XiusText::_( 'BASIC_CONFIGURATION' ); ?></legend>
 	<div>
 	<fieldset class="adminform" id="xiusBasicTemplate">
-		<legend><?php echo XiusText::_( 'TEMPLATE CONFIGURATION' ); ?></legend>
+		<legend><?php echo XiusText::_( 'TEMPLATE_CONFIGURATION' ); ?></legend>
 		<?php echo $this->params->render('xiusparams','basicXiusTemplate');?>		
 	</fieldset>
 	</div>
 
 	<div>
 	<fieldset class="adminform">
-		<legend><?php echo XiusText::_( 'SEARCH CONFIGURATION' ); ?></legend>
+		<legend><?php echo XiusText::_( 'SEARCH_CONFIGURATION' ); ?></legend>
 			<?php echo $this->params->render('xiusparams','basicXiusSearch');?>
 	</fieldset>
 	</div>
 	
 	<div>
 	<fieldset class="adminform">
-		<legend><?php echo XiusText::_( 'LIST CONFIGURATION' ); ?></legend>
+		<legend><?php echo XiusText::_( 'LIST_CONFIGURATION' ); ?></legend>
 		<?php echo $this->params->render('xiusparams','basicXiusList');?>
 	</fieldset>	
 	</div>
@@ -66,16 +66,16 @@ XiusHelperUtils::loadJQuery();
 
 <div class="col width-45" style="float:right;" >
 <fieldset class="adminform">
-<legend><input type="checkbox" id="advanceConfig"><?php echo XiusText::_( 'ADVANCE CONFIGURATION' ); ?></legend>
-	<?php echo XiusText::_('ADVANCE CONFIGURATION DESCRIPTION');?>
+<legend><input type="checkbox" id="advanceConfig"><?php echo XiusText::_( 'ADVANCE_CONFIGURATION' ); ?></legend>
+	<?php echo XiusText::_('ADVANCE_CONFIGURATION_DESCRIPTION');?>
 	<div id="xiusAdvanceTemplate">
 	<fieldset class="adminform">
-		<legend><?php echo XiusText::_( 'TEMPLATE CONFIGURATION' ); ?></legend>
+		<legend><?php echo XiusText::_( 'TEMPLATE_CONFIGURATION' ); ?></legend>
 		<?php echo $this->params->render('xiusparams','advXiusTemplate');?>
 	</fieldset>
 
 	<fieldset class="adminform">
-		<legend><?php echo XiusText::_( 'SEARCH CONFIGURATION' ); ?></legend>
+		<legend><?php echo XiusText::_( 'SEARCH_CONFIGURATION' ); ?></legend>
 			<?php echo $this->params->render('xiusparams','advXiusSearch');?>
 	</fieldset>
 	
@@ -86,7 +86,7 @@ XiusHelperUtils::loadJQuery();
 	
 
 	<fieldset class="adminform">
-		<legend><?php echo XiusText::_( 'LIST CONFIGURATION' ); ?></legend>
+		<legend><?php echo XiusText::_( 'LIST_CONFIGURATION' ); ?></legend>
 		<?php echo $this->params->render('xiusparams','advXiusList');?>
 	</fieldset>	
 	</div>

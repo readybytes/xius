@@ -32,14 +32,14 @@ class XiusControllerConfiguration extends JController
 		$user	=& JFactory::getUser();
 
 		if ( $user->get('guest')) {
-			JError::raiseError( 403, XiusText::_('ACCESS FORBIDDEN') );
+			JError::raiseError( 403, XiusText::_('ACCESS_FORBIDDEN') );
 			return;
 		}
 		$method	= JRequest::getMethod();
 		
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS_METHOD_NOT_ALLOWED') );
 			return;
 		}
 		
@@ -50,11 +50,11 @@ class XiusControllerConfiguration extends JController
 		// Try to save configurations
 		if( $cModel->save('config',$xiusparams) )
 		{
-			$message	= XiusText::_('CONFIGURATION UPDATED');
+			$message	= XiusText::_('CONFIGURATION_UPDATED');
 		}
 		else
 		{
-			JError::raiseWarning( 100 , XiusText::_( 'UNABLE TO SAVE CONFIGURATION INTO DATABASE. PLEASE ENSURE THAT THE TABLE XIUS_CONFIG EXISTS' ) );
+			JError::raiseWarning( 100 , XiusText::_('UNABLE_TO_SAVE_CONFIGURATION_INTO_DATABASE_PLEASE_ENSURE_THAT_THE_TABLE_XIUS_CONFIG_EXISTS') );
 		}
 		$link = XiusRoute::_('index.php?option=com_xius&view=configuration', false);
 		
@@ -72,7 +72,7 @@ class XiusControllerConfiguration extends JController
 	{
 		$mainframe = JFactory::getApplication();
 		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
-		$message = XiusText::_('CANT UPDATE CACHE NOW');
+		$message = XiusText::_('CANT_UPDATE_CACHE_NOW');
 		
 		$cModel  = XiusFactory::getInstance ('configuration', 'model');
 		$params	 = $cModel->getParams();
@@ -84,7 +84,7 @@ class XiusControllerConfiguration extends JController
 		$time = XiusLibCron::getTimestamp();
 		XiusLibCron::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
-		$msg = 'CACHE UPDATED SUCCESSFULLY';
+		$msg = 'CACHE_UPDATED_SUCCESSFULLY';
 		if(!XiusLibCron::updateCache()){
 			$msg = 'CACHE_NOT_UPDATE';
 		}

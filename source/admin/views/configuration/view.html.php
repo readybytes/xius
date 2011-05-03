@@ -22,6 +22,10 @@ class XiusViewConfiguration extends JView
 		
 		$this->assignRef( 'pane', $pane );
 		$this->assign( 'params' , $params );
+
+		$document   = JFactory::getDocument();
+		$document->addStyleSheet(JURI::root() . 'components/com_xius/assets/css/admin.css');
+		
 		parent::display( $tpl );
     }
 	
@@ -37,14 +41,14 @@ class XiusViewConfiguration extends JView
 	{
 
 		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'Configuration' ), 'configuration' );
+		JToolBarHelper::title( XiusText::_( 'CONFIGURATION' ), 'configuration' );
 
 		// Add the necessary buttons
 		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');
 		JToolBarHelper::divider();
 		JToolBarHelper::save('save','SAVE');
 		 
-		JToolBarHelper::custom("runCron",'updateCache','','UPDATE CACHE',0,0); 
+		JToolBarHelper::custom("runCron",'updateCache','','UPDATE_CACHE',0,0); 
 			
 		//JToolBarHelper::custom('reset','reset','','RESET',0,0); 
 	}

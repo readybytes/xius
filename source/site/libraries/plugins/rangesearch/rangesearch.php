@@ -13,7 +13,7 @@ class Rangesearch extends XiusBase
 		$data	= JFile::read($ini);
 		
 		if(JFile::exists($paramsxmlpath))
-			$this->pluginParams = new JParameter($data,$paramsxmlpath);
+			$this->pluginParams = new XiusParameter($data,$paramsxmlpath);
 		else{
 			JError::raiseError(500,XiusText::_("INVALID XML PARAMETER FILE"));
 			return false;
@@ -210,10 +210,10 @@ class Rangesearch extends XiusBase
 		$data	= JFile::read($ini);
 		
 		if(JFile::exists($paramsxmlpath))
-			$this->pluginParams = new JParameter($data,$paramsxmlpath);
+			$this->pluginParams = new XiusParameter($data,$paramsxmlpath);
 		
 		if(!$this->pluginParams)
-			$this->pluginParams	= new JParameter('','');	
+			$this->pluginParams	= new XiusParameter('','');	
 	}
 	
 	public function _isDate($date)

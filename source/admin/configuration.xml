@@ -5,23 +5,23 @@
 	-->
 		<!--  START INTEGRATION PARAMETERS -->
 	<params group="basicXiusTemplate" addpath="/components/com_xius/elements"> 	
-		<param name="xiusTemplates" type="xiusTemplates" default="default" label="SELECT TEMPLATE.LABEL" description="SELECT TEMPLATE.DESC" />	
-		<param name="integrateJomSocial" type="radio" default="0" label="INTEGRATE WITH JOMSOCIAL.LABEL" description="INTEGRATE WITH JOMSOCIAL.DESC">
+		<param name="xiusTemplates" type="xiusTemplates" default="default" label="COM_XIUS_SELECT_TEMPLATE_LABEL" description="COM_XIUS_SELECT_TEMPLATE_DESC" />	
+		<param name="integrateJomSocial" type="xiradio" default="0" label="COM_XIUS_INTEGRATE_WITH_JOMSOCIAL_LABEL" description="COM_XIUS_INTEGRATE_WITH_JOMSOCIAL_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>					
 	</params>
 	
 	<params group="advXiusTemplate">
-		<param name="xiusReplaceSearch" type="radio" default="1" label="REPLACE JOM SOCIAL ADVANCE SEARCH.LABEL" description="REPLACE JOM SOCIAL ADVANCE SEARCH.DESC">
+		<param name="xiusReplaceSearch" type="xiradio" default="1" label="COM_XIUS_REPLACE_JOM_SOCIAL_ADVANCE_SEARCH_LABEL" description="COM_XIUS_REPLACE_JOM_SOCIAL_ADVANCE_SEARCH_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
-		<param name="xiusSlideShow" type="radio" default="none" label="DEFAULT SLIDER STATE.LABEL" description="DEFAULT SLIDER STATE.DESC">
+		<param name="xiusSlideShow" type="xiradio" default="none" label="COM_XIUS_DEFAULT_SLIDER_STATE_LABEL" description="COM_XIUS_DEFAULT_SLIDER_STATE_DESC">
 			<option value="none">No</option>
 			<option value="block">Yes</option>
 		</param>	
-		<param name="xiusLoadJquery" type="radio" default="0" label="LOAD JQUERY.LABEL" description="LOAD JQUERY.DESC">
+		<param name="xiusLoadJquery" type="xiradio" default="0" label="COM_XIUS_LOAD_JQUERY_LABEL" description="COM_XIUS_LOAD_JQUERY_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
@@ -30,44 +30,44 @@
 		<!--  END INTEGRATION PARAMETERS -->
 		
 	<params group="basicXiusSearch">
-		<param name="xiusKey" type="text" default="AB2F4" label="SECURE KEY TO CHECK WHILE UPDATE CACHE" description="SECURE KEY TO CHECK WHILE UPDATE CACHE.DESC" />
+		<param name="xiusKey" type="text" default="AB2F4" label="COM_XIUS_SECURE_KEY_TO_CHECK_WHILE_UPDATE_CACHE" description="COM_XIUS_SECURE_KEY_TO_CHECK_WHILE_UPDATE_CACHE_DESC" />
 		
-		<param name="xiusDebugMode" type="radio" default="0" label="ENABLE DEBUG MODE" description="ENABLE DEBUG MODE.DESC">
+		<param name="xiusDebugMode" type="xiradio" default="0" label="COM_XIUS_ENABLE_DEBUG_MODE" description="COM_XIUS_ENABLE_DEBUG_MODE_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>	
 	</params>		
 	<params group="advXiusSearch">
-		<param name="xiusEnableMatch" type="radio" default="1" label="SHOW MATCH ALL OR ANY.LABEL" description="SHOW MATCH ALL OR ANY.DESC">
+		<param name="xiusEnableMatch" type="xiradio" default="1" label="COM_XIUS_SHOW_MATCH_ALL_OR_ANY_LABEL" description="COM_XIUS_SHOW_MATCH_ALL_OR_ANY_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
 		
-		<param name="xiusDefaultMatch" type="radio" default="AND" label="DEFAULT CONDITION MATCH ALL OR ANY.LABEL" description="DEFAULT CONDITION MATCH ALL OR ANY.DESC">
-			<option value="AND">MATCH ALL</option>
-			<option value="OR">MATCH ANY</option>
+		<param name="xiusDefaultMatch" type="xiradio" default="AND" label="COM_XIUS_DEFAULT_CONDITION_MATCH_ALL_OR_ANY_LABEL" description="COM_XIUS_DEFAULT_CONDITION_MATCH_ALL_OR_ANY_DESC">
+			<option value="AND">Match All</option>
+			<option value="OR">Match Any</option>
 		</param>
 	</params>
 		
 	<params addpath="/components/com_xius/elements"  group="basicXiusList">
-		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.LABEL" description="ACCESSIBLE USER GROUP WHICH CAN CREATE LISTS.DESC"></param>
+		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_CREATE_LISTS_LABEL" description="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_CREATE_LISTS_DESC"></param>
 	</params>
 	
 	<params group="autoCacheUpdate">
 	
-		<param name="xiusCronJob" type="radio" default="0" label="AUTOMATIC_CACHE_UPDATE.LABEL" description="AUTOMATIC_CACHE_UPDATING.DESC">
+		<param name="xiusCronJob" type="xiradio" default="0" label="COM_XIUS_AUTOMATIC_CACHE_UPDATE_LABEL" description="COM_XIUS_AUTOMATIC_CACHE_UPDATING_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
 	
-		<param	name="xiusCronFrequency" type="radio" default="900" label="CONFIG_CRON_FREQUENCY_LABEL" description="CONFIG_CRON_FREQUENCY_DESC">
-			<option value="3600">LOWEST</option>
-		  	<option value="1800">LOW</option>
-		  	<option value="900">NORMAL</option>
-		  	<option value="300">HIGH</option>			
+		<param	name="xiusCronFrequency" type="xiradio" default="900" label="COM_XIUS_CONFIG_CRON_FREQUENCY_LABEL" description="COM_XIUS_CONFIG_CRON_FREQUENCY_DESC">
+			<option value="3600">Lowest</option>
+		  	<option value="1800">Low</option>
+		  	<option value="900">Normal</option>
+		  	<option value="300">High</option>			
 		</param>
 		<param	name="xiusCronAcessTime" type="hidden" 
-				default="0" label="CONFIG_CRON_ACCESSTIME_LABEL" description="CONFIG_CRON_ACCESSTIME_DESC">
+				default="0" label="COM_XIUS_CONFIG_CRON_ACCESSTIME_LABEL" description="COM_XIUS_CONFIG_CRON_ACCESSTIME_DESC">
 		</param>
 	</params>	
 	

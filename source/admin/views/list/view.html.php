@@ -37,9 +37,9 @@ class XiusViewList extends JView
 		$data			= JFile::read($ini);		
 		
 		// XITODO : raise error if xml file is not found
-		$config  = new JParameter('','');
+		$config  = new XiusParameter('','');
 		if(JFile::exists($paramsxmlpath))
-			$config  = new JParameter($data,$paramsxmlpath);
+			$config  = new XiusParameter($data,$paramsxmlpath);
 				
 		$config->bind($list->params);
 
@@ -80,7 +80,7 @@ class XiusViewList extends JView
 		$this->assign( 'allInfo' , $allInfo );		
 		
 		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'XIUS EDIT LIST' ), 'list' );		
+		JToolBarHelper::title( XiusText::_( 'XIUS_EDIT_LIST' ), 'list' );		
 		return parent::display($tpl);
 	}
 	

@@ -50,7 +50,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	<br />
 	
 	<fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'General Parameters' ); ?></legend>
+	<legend><?php echo XiusText::_( 'GENERAL_PARAMETERS' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
@@ -69,7 +69,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	
 
 <fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'Plugin Parameters' ); ?></legend>
+	<legend><?php echo XiusText::_( 'PLUGIN_PARAMETERS' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
@@ -85,7 +85,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 <div>
 <div class="col width-60" style="width:60%; float:right;">
 <fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'PRIVACY PARAMETER' ); ?></legend>
+	<legend><?php echo XiusText::_( 'PRIVACY_PARAMETER' ); ?></legend>
 	<?php
 		jimport('joomla.html.pane');
 		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));

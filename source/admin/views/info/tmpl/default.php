@@ -16,7 +16,7 @@ function submitbutton( action )
 	switch( action )
 	{
 		case 'remove':
-			if( !confirm( '<?php echo XiusText::_('ARE YOU SURE YOU WANT TO REMOVE THIS INFORMATION?'); ?>' ) )
+			if( !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOU_WANT_TO_REMOVE_THIS_INFORMATION?'); ?>' ) )
 			{
 				break;
 			}
@@ -39,7 +39,7 @@ function submitbutton( action )
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->allinfo ); ?>);" />
 			</th>
 			<th width="20%">
-				<?php echo XiusText::_( 'LABEL NAME' ); ?>
+				<?php echo XiusText::_( 'LABEL_NAME' ); ?>
 			</th>
 			<th width="5%">
 				<?php echo XiusText::_( 'PLUGIN' ); ?>
@@ -74,7 +74,7 @@ function submitbutton( action )
 		/*XITODO : direct using param here without any help of plugin instance
 		 * use plugin instance after dissucssion
 		 */
-		$params	= new JParameter('','');
+		$params	= new XiusParameter('','');
 		$params->bind($info->params);
 		
 		$input	= JHTML::_('grid.id', $count, $info->id);
@@ -115,12 +115,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isSearchable',0) ? 'unsearchable' : 'searchable' ?>')">
 							<?php if($params->get('isSearchable',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Searchable');?> />
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('SEARCHABLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Not Searchable');?> />
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_SEARCHABLE');?> />
 						<?php 
 							} //echo $published;
 						?>
@@ -130,12 +130,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isVisible',0) ? 'invisible' : 'visible' ?>')">
 							<?php if($params->get('isVisible',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Visible');?> />
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('VISIBLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Not Visible');?> />
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_VISIBLE');?> />
 						<?php 
 							} //echo $published;
 						?>
@@ -145,12 +145,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isSortable',0) ? 'unsortable' : 'sortable' ?>')">
 							<?php if($params->get('isSortable',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Sortable');?> />
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('SORTABLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Not Sortable');?> />
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_SORTABLE');?> />
 						<?php 
 							} //echo $published;
 						?>
@@ -160,12 +160,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isExportable',0) ? 'unexportable' : 'exportable' ?>')">
 							<?php if($params->get('isExportable',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Exportable');?> />
+								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('EXPORTABLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('Not Exportable');?> />
+								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_EXPORTABLE');?> />
 						<?php 
 							} //echo $published;
 						?>

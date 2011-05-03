@@ -10,14 +10,14 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 	
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo XiusText::_('SELECT DATA TO USE');?>
+	<?php echo XiusText::_('SELECT_DATA_TO_USE');?>
 </div>
 <div id="error-notice" style="color: red; font-weight:700;"></div>
 <div style="clear: both;"></div>
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm" >
 <?php 
 if(empty($this->rawDataHtml))
-	echo XiusText::_('NO INFO TO DISPLAY');
+	echo XiusText::_('NO_INFO_TO_DISPLAY');
 else 
 {?>
 <table cellspacing="0" class="admintable" border="0" width="100%">

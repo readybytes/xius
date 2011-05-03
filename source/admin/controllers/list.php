@@ -73,7 +73,7 @@ class XiusControllerList extends JController
 		$method	= JRequest::getMethod();
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS_METHOD_NOT_ALLOWED') );
 			return false;
 		}
 
@@ -88,7 +88,7 @@ class XiusControllerList extends JController
 		$method	= JRequest::getMethod();
 		if( $method == 'GET' )
 		{
-			JError::raiseError( 500 , XiusText::_('ACCESS METHOD NOT ALLOWED') );
+			JError::raiseError( 500 , XiusText::_('ACCESS_METHOD_NOT_ALLOWED') );
 			return;
 		}
 
@@ -151,9 +151,9 @@ class XiusControllerList extends JController
 		$storedInfo['id'] = $iModel->store($data);
 
 		if(!$storedInfo['id'])
-			$storedInfo['msg'] = XiusText::_('ERROR IN SAVING INFO');
+			$storedInfo['msg'] = XiusText::_('ERROR_IN_SAVING_INFO');
 		else
-			$storedInfo['msg'] = XiusText::_('INFO SAVED');
+			$storedInfo['msg'] = XiusText::_('INFO_SAVED');
 
 		$data['id'] = $storedInfo['id'];
 
@@ -184,12 +184,12 @@ class XiusControllerList extends JController
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$data['message']	= XiusText::_('ERROR IN REMOVING LIST').' '. $id;
+					$data['message']	= XiusText::_('ERROR_IN_REMOVING_LIST').' '. $id;
 					return $data;
 				}
 			}
 
-			$data['message'] = $count.' '.XiusText::_('LIST REMOVED');	;
+			$data['message'] = $count.' '.XiusText::_('LIST_REMOVED');	;
 			$data['success'] = true;
 		}
 
@@ -207,17 +207,17 @@ class XiusControllerList extends JController
 		$count			= count( $ids );
 
 		if (empty( $ids )) {
-			return JError::raiseWarning( 500, XiusText::_( 'NO ITEMS SELECTED' ) );
+			return JError::raiseWarning( 500, XiusText::_( 'NO_ITEMS_SELECTED' ) );
 		}
 
 		$result = $this->_updatePublish(1,$ids);
 
 		if($result['success'])
-			$msg = $count.' '.XiusText::_('ITEM UNPUBLISHED' );
+			$msg = $count.' '.XiusText::_('ITEM_UNPUBLISHED' );
 		else
 			$msg = XiusText::_('Unable to unblish list');
 
-		$msg = $count. ' '. XiusText::_('ITEM PUBLISHED' );
+		$msg = $count. ' '. XiusText::_('ITEM_PUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg);
 		return true;
@@ -233,15 +233,15 @@ class XiusControllerList extends JController
 		$count			= count( $ids );
 
 		if (empty( $ids )) {
-			return JError::raiseWarning( 500, XiusText::_( 'NO ITEMS SELECTED' ) );
+			return JError::raiseWarning( 500, XiusText::_( 'NO_ITEMS_SELECTED' ) );
 		}
 
 		$result = $this->_updatePublish(0,$ids);
 
 		if($result['success'])
-			$msg = $count.' '.XiusText::_('ITEM UNPUBLISHED' );
+			$msg = $count.' '.XiusText::_('ITEM_UNPUBLISHED' );
 		else
-			$msg = XiusText::_('Unable to unblish list');
+			$msg = XiusText::_('UNABLE_TO_UNPUBLIS_LIST');
 
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $msg);
@@ -262,12 +262,12 @@ class XiusControllerList extends JController
 		$lModel =XiusFactory::getInstance ('list', 'model');
 		foreach($ids as $id)
 			if(!$lModel->updatePublish($id,$value)){
-				$data['msg'] = XiusText::_('Unable to publish/unpublish list');
+				$data['msg'] = XiusText::_('UNABLE_TO_PUBLISH/UNPUBLISH_LIST');
 				return $data;
 			}
 
 		$data['success'] = true;
-		$data['msg'] = XiusText::_('Publish/Unpublish list');
+		$data['msg'] = XiusText::_('PUBLISH/UNPUBLISH_LIST');
 
 		return $data;
 	}
@@ -303,10 +303,10 @@ class XiusControllerList extends JController
 			if(!$table->move( $direction ))
 				$data = array('msg' => $table->getError() , 'success' => false );
 			else
-				$data = array('msg' => XiusText::_('Ordered List') , 'success' => true );
+				$data = array('msg' => XiusText::_('ORDERED_LIST') , 'success' => true );
 		}
 		else
-			$data = array('msg' => XiusText::_('Not ordered') , 'success' => false );
+			$data = array('msg' => XiusText::_('NOT_ORDERED') , 'success' => false );
 
 		return $data;
 	}
