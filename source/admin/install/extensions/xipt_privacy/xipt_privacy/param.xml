@@ -6,7 +6,7 @@
 	</params>
 	
 	<params addpath="/plugins/xius/xipt_privacy/xipt_privacy" >
-       <param name="xipt_privacy" type="profiletype" default="0" label="PROFILE TYPE PRIVACY" description="PFOFILE TYPE SELECTION.Desc">
+       <param name="xipt_privacy" type="profiletype" default="0" label="COM_XIUS_PROFILE_TYPE_PRIVACY" description="COM_XIUS_PFOFILE_TYPE_SELECTION_DESC">
        </param>
 	</params>
 </config>

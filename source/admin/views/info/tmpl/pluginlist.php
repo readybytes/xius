@@ -42,7 +42,7 @@ jQuery(document).ready(function($){
 						<select id="plugin" name="plugin">
 						<?php 
 						foreach($this->plugins as $p){?>
-					    	<option value = "<?php echo $p['name'];?>"><?php echo XiusText::_($p['title']);?></option>
+					    	<option value = "<?php echo $p['name'];?>"><?php echo $p['title'];?></option>
 					    <?php 
 						}
 					    ?>

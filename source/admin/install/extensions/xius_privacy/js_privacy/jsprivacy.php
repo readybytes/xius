@@ -29,10 +29,10 @@ class JElementJsprivacy extends JElement
 	
 	function getXiuslistFieldHTML($name,$value,$control_name='params',$reqnone=false,$reqall=false)
 	{	
-		$htmlOption['public'] 	= XiusText::_("XIUS LIST PRIVACY PUBLIC");
-		$htmlOption['member'] 	= XiusText::_("XIUS LIST PRIVACY MEMBER");
-		$htmlOption['friend'] 	= XiusText::_("XIUS LIST PRIVACY FRIEND");
-		$htmlOption['self'] 	= XiusText::_("XIUS LIST PRIVACY SELF");
+		$htmlOption['public'] 	= XiusText::_("XIUS_LIST_PRIVACY_PUBLIC");
+		$htmlOption['member'] 	= XiusText::_("XIUS_LIST_PRIVACY_MEMBER");
+		$htmlOption['friend'] 	= XiusText::_("XIUS_LIST_PRIVACY_FRIEND");
+		$htmlOption['self'] 	= XiusText::_("XIUS_LIST_PRIVACY_SELF");
 		
 		$html= '';
 		$selectedOption			= $value;

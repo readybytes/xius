@@ -19,7 +19,7 @@ $controllerClass = 'Xiussite'.'Controller'
 
 // Test if the object really exists in the current context
 if(class_exists( $controllerClass,true)===false)
-	JError::raiseError( 500 , sprintf(XiusText::_('Invalid Controller Object %s. Class definition does not exists in this context.' ),$controllerClass));
+	JError::raiseError( 500 , sprintf(XiusText::_('INVALID_CONTROLLER_OBJECT %s CLASS_DEFINITION_DOES_NOT_EXISTS_IN_THIS_CONTEXT' ),$controllerClass));
 
 $controller = new $controllerClass();
 $controller->execute($task);

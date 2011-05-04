@@ -98,7 +98,7 @@ class XiusView extends JView
         if(!empty($list) && !empty($list->name))
 			$document->setTitle(XiusText::_($list->name));
 		else
-			$document->setTitle(XiusText::_('Search Result'));
+			$document->setTitle(XiusText::_('SEARCH_RESULT'));
 
 		//collect confuguration params
 		$xiusSlideShow  		= XiusHelperUtils::getConfigurationParams('xiusSlideShow','none');

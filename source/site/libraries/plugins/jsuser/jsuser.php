@@ -41,7 +41,7 @@ class Jsuser extends XiusBase
 			//		|| $k == 'activation' || $k == 'sendEmail')
 				//continue;
 				
-			$pluginsInfo[$k] = XiusText::_($k);
+			$pluginsInfo[$k] = $k;
 		}
 		return $pluginsInfo;
 	}

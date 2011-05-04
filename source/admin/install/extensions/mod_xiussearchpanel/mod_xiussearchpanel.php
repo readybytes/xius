@@ -24,7 +24,7 @@ $range = UserSearchHelper::getInfoRange($infoRange);
 			
 $displayHtml= UserSearchHelper::getSearchHtml($range);
 if(empty($displayHtml)){
-	echo XiusText::_("SEARCHABLE INFORMATION ARE NOT AVAILABLE");
+	echo XiusText::_("SEARCHABLE_INFORMATION_ARE_NOT_AVAILABLE");
 	return ;
 } 
 

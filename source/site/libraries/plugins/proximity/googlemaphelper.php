@@ -48,7 +48,7 @@ class XiusGmap
 	
 	function endJScData($noScriptText = 'GOOGLE MAP ENABLE JAVASCRIPT') {
 		return '//]]></script>'."\n"
-			. '<noscript><p class="p-noscript">'.XiusText::_($noScriptText).'</p><p>&nbsp;</p></noscript>'."\n\n";
+			. '<noscript><p class="p-noscript">'.$noScriptText.'</p><p>&nbsp;</p></noscript>'."\n\n";
 	}
 	
 	/*
@@ -536,7 +536,7 @@ class XiusGmap
 				.' });'."\n\n";
 			
 		$js .= ' function openMarkerInfo'.$name.$this->_id.'() {'."\n"
-				.'   infoXiusWindow'.$name.$this->_id.'.content = \''.XiusText::_('LOCATION SELECTED').'\'+\'<br/>\''.'+ markerXiusMarker'.$name.$this->_id.'.getPosition().toUrlValue(6);'."\n"
+				.'   infoXiusWindow'.$name.$this->_id.'.content = \''.XiusText::_('LOCATION_SELECTED').'\'+\'<br/>\''.'+ markerXiusMarker'.$name.$this->_id.'.getPosition().toUrlValue(6);'."\n"
 				.'   infoXiusWindow'.$name.$this->_id.'.open('.$this->_map.', markerXiusMarker'.$name.$this->_id.' );'."\n"
 				.' }'."\n\n";
 		 $js .= ' function closeMarkerInfo'.$name.$this->_id.'() {'."\n"
@@ -576,7 +576,7 @@ class XiusGmap
 		}
 
 		$js .='         } else {'."\n"
-		.'            alert("'.XiusText::_('Geocode not found').' (" + status'.$this->_id.' + ")");'."\n"
+		.'            alert("'.XiusText::_('GEOCODE_NOT_FOUND').' (" + status'.$this->_id.' + ")");'."\n"
 		.'         }'."\n"
 		.'      });'."\n"
 		.'   }'."\n"
@@ -675,8 +675,8 @@ class XiusGmap
 	}*/
 	
 	function getIconPrintScreen() {
-		$output = '<div class="pmprintscreen"><a class="pmprintscreena" href="javascript: void()" onclick="window.print();return false;">'.XiusText::_('Print').'</a>'
-		.'&nbsp; <a class="pmprintscreena" href="javascript: void window.close()">'.XiusText::_( 'Close Window' ). '</a></div><div style="clear:both;"></div>';
+		$output = '<div class="pmprintscreen"><a class="pmprintscreena" href="javascript: void()" onclick="window.print();return false;">'.XiusText::_('PRINT').'</a>'
+		.'&nbsp; <a class="pmprintscreena" href="javascript: void window.close()">'.XiusText::_( 'CLOSE_WINDOW' ). '</a></div><div style="clear:both;"></div>';
 		return $output;
 	}
 	

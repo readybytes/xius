@@ -15,7 +15,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 	>
     		<img 
 				src='<?php echo JURI::base()."components/com_xius/assets/images/save.png"; ?>' 
-				title='<?php echo XiusText::_("Save This List");?>' 
+				title='<?php echo XiusText::_("SAVE_THIS_LIST");?>' 
 			/>
 </a>
 <?php 

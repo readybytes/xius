@@ -10,7 +10,7 @@ $this->loadAssets('css', 'lists.css');
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 <?php
 if(empty($this->lists))	:
-	echo XiusText::_('NO LISTS AVAILABLE');
+	echo XiusText::_('NO_LISTS_AVAILABLE');
 else	:
 	foreach($this->lists as $l)	:
 		$url = XiusRoute::_($this->submitUrl.'&listid='.$l->id,false);
@@ -24,14 +24,14 @@ else	:
 			$name = 'LIST';
 		endif;
 		
-		echo '<a href="'.$url.'">'.XiusText::_($name).'</a>'
+		echo '<a href="'.$url.'">'.$name.'</a>'
 		?></h1>
 		</div>
 		<div class="listtopright">
 		</div>
 		<div class="listdesc">
 		<?php
-		echo XiusText::_($l->description);
+		echo $l->description;
 		?><hr />
 		</div>
 		</div>

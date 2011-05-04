@@ -45,7 +45,7 @@ class XiusViewCpanel extends JView
 		</style>
 		<?php 
 		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'CONTROL PANEL' ), 'Xius' );
+		JToolBarHelper::title( XiusText::_( 'CONTROL_PANEL' ), 'Xius' );
 		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 		//JToolBarHelper::custom('aboutus','aboutus','',XiusText::_('ABOUT US'),0,0);
 	}

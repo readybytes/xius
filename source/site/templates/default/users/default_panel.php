@@ -12,7 +12,7 @@ jimport('joomla.html.pane');
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
 
 <div class="xius_spHead">
-<?php echo XiusText::_('Search');?>
+<?php echo XiusText::_('SEARCH');?>
 </div>
 		<?php
 		$count = 0;
@@ -22,7 +22,7 @@ jimport('joomla.html.pane');
 		?>
 			<!-- <div class="xiusNoInfo"> -->
 			<h3>
-			<?php echo XiusText::_('All Searchable Information Has Been Disabled By Administrator');?>
+			<?php echo XiusText::_('ALL_SEARCHABLE_INFOAMATION_HAS_BEEN_DISABLED_BY_ADMINISTRATOR');?>
 			</h3>
 			<!-- </div> -->
 		<?php
@@ -35,9 +35,9 @@ jimport('joomla.html.pane');
 			//echo JHTML::_('tooltip',XiusText::_($xiustool), XiusText::_($data['label']), null, XiusText::_($data['label']));
 			$xiustooltip = $data['tooltip'];
 			if(!empty($xiustooltip)) :
-				echo '<span title="'.XiusText::_($xiustooltip).'">'.XiusText::_($data['label']).'</span>';			
+				echo '<span title="'.XiusText::_($xiustooltip).'">'.$data['label'].'</span>';			
 			else :
-				echo XiusText::_($data['label']); 
+				echo $data['label']; 
 			endif; 
 			?>
 			</div>

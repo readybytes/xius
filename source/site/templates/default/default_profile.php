@@ -7,7 +7,7 @@
 <div class="xius_ul">
 <div class="xiusTotal">
 <span class="xiusTotalText" id="total_<?php echo $this->total;?>">
-	<?php echo sprintf(XiusText::_('Xius About results found'),$this->total);?>
+	<?php echo sprintf(XiusText::_('XIUS_ABOUT_RESULTS_FOUND'),$this->total);?>
 </span>
 </div>
 <?php 
@@ -29,7 +29,7 @@
 
 					<?php if(!empty($user->profileLink)) :?>
 						<a href="<?php echo $user->profileLink;?>" >
-							<img src="<?php echo JURI::base().'components/com_xius/assets/images/viewprofile.png';?>" title="<?php echo XiusText::_('View User Profile'); ?>" />
+							<img src="<?php echo JURI::base().'components/com_xius/assets/images/viewprofile.png';?>" title="<?php echo XiusText::_('VIEW_USER_PROFILE'); ?>" />
 						</a>
 					<?php endif; ?>
 
@@ -40,9 +40,9 @@
 
 
 					<?php if($user->isOnline): ?>
-						 	<img  src="<?php echo JURI::base().'components/com_xius/assets/images/online.png';?>" title="<?php echo XiusText::_('Online'); ?>" />
+						 	<img  src="<?php echo JURI::base().'components/com_xius/assets/images/online.png';?>" title="<?php echo XiusText::_('ONLINE'); ?>" />
 					<?php  else	: ?>
-							<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" title="<?php echo XiusText::_('Offline'); ?>" />
+							<img src="<?php echo JURI::base().'components/com_xius/assets/images/offline.png';?>" title="<?php echo XiusText::_('OFFLINE'); ?>" />
 					<?php endif; ?>
 					
 					<?php if(isset($user->email) && !empty($user->email)): 
@@ -70,8 +70,8 @@
 									endif;
 						?>
 					  			<div class="xiusMpInfo">
-						  			<div class="xiusMplabel"><?php echo XiusText::_($up['label'][$i]); ?></div>
-						  			<div class="xiusMpValue"><?php echo XiusText::_($up['value'][$i]); ?></div>
+						  			<div class="xiusMplabel"><?php echo $up['label'][$i]; ?></div>
+						  			<div class="xiusMpValue"><?php echo $up['value'][$i]; ?></div>
 					  			</div>
 						<?php
 								endfor;

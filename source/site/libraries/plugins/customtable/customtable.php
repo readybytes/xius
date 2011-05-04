@@ -17,7 +17,7 @@ class Customtable extends XiusBase
 		if(JFile::exists($paramsxmlpath))
 			$this->pluginParams = new XiusParameter($data,$paramsxmlpath);
 		else{
-			JError::raiseError(500,XiusText::_("INVALID XML PARAMETER FILE"));
+			JError::raiseError(500,XiusText::_("INVALID_XML_PARAMETER_FILE"));
 			return false;
 		}
 			

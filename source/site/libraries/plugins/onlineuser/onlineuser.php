@@ -33,7 +33,7 @@ class Onlineuser extends XiusBase
 	
 	function getInfoName()
 	{
-		return XiusText::_('ONLINE USER');
+		return XiusText::_('ONLINE_USER');
 	}
 	// not compitable with keyword
 	public function isKeywordCompatible()

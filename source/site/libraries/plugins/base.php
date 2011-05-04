@@ -48,7 +48,7 @@ abstract class XiusBase extends JObject
 		jimport( 'joomla.filesystem.file' );
 		if(!JFile::exists($pluginPath))
 		{
-			JError::raiseError(400,XiusText::_("INVALID CONTROLLER FILE"));
+			JError::raiseError(400,XiusText::_("INVALID_CONTROLLER_FILE"));
 			return false;
 		}
 		

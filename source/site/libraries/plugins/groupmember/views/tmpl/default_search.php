@@ -12,7 +12,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 	<?php 
 	$groups = $this->groups;
 	foreach($groups as $group ){?>
-    	<option value = "<?php echo $group->id;?>" > <?php echo XiusText::_($group->name);?></option>
+    	<option value = "<?php echo $group->id;?>" > <?php echo $group->name;?></option>
     <?php 
 	}
     ?>

@@ -19,7 +19,7 @@ function submitbutton( action )
 	switch( action )
 	{
 		case 'removeList':
-			if( !confirm( '<?php echo XiusText::_('Are you sure you want to delete this List?'); ?>' ) )
+			if( !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOY_WANT_TO_DELETE_THIS_LIST'); ?>' ) )
 			{
 				break;
 			}
@@ -37,16 +37,16 @@ function submitbutton( action )
 	<thead>
 		<tr>
 			<th width="1%">
-				<?php echo XiusText::_( 'Num' ); ?>
+				<?php echo XiusText::_( 'NUM' ); ?>
 			</th>
 			<th width="1%">
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->lists ); ?>);" />
 			</th>
 			<th width="25%" class="title">
-					<?php echo XiusText::_( 'List Name' ); ?>
+					<?php echo XiusText::_( 'LIST_NAME' ); ?>
 			</th>
 			<th width="5%">
-				<?php echo XiusText::_( 'Published' ); ?>
+				<?php echo XiusText::_( 'PUBLISHED' ); ?>
 			</th>
 			<th width="5%" align="center">
 				<?php echo XiusText::_( 'ORDERING' ); ?>

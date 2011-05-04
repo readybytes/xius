@@ -139,7 +139,7 @@ class XiusPluginControllerXiusemail extends JController
     		return false;
     	}
 
-    	XiusemailHelper::showResultMessage(XiusText::_("EMAIL SENT TO FOLLOWING USERS"),$this->getUserName($userId));
+    	XiusemailHelper::showResultMessage(XiusText::_("EMAIL_SENT_TO_FOLLOWING_USERS"),$this->getUserName($userId));
     	return true;  
     }
     

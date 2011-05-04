@@ -28,7 +28,7 @@ class JElementXiusTemplates extends JElement
 	
 	function getTemplatesHTML($name,$value,$control_name='params')
 	{		
-		$html	= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']" title="' . XiusText::_("SELECT TEMPLATES") . '::' . XiusText::_("PLEASE SELETC A TEMPLATE") . '">';
+		$html	= '<select id="'.$control_name.'['.$name.']" name="'.$control_name.'['.$name.']" title="' . XiusText::_("SELECT_TEMPLATES") . '::' . XiusText::_("PLEASE_SELECT_A_TEMPLATE") . '">';
 		foreach(JFolder::folders(XIUS_PATH_TEMPLATE) as $folder ){
 		    $selected	= ( JString::trim($folder) == $value ) ? ' selected="true"' : '';
 			$html	.= '<option value="' . $folder . '"' . $selected . '>' . $folder . '</option>';

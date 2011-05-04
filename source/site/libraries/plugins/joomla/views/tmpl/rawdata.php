@@ -11,7 +11,7 @@ if(empty($this->info))
 	<select id="rawdata" name="rawdata">
 		<?php foreach($this->info as $k => $v) :?>
 		<option value = "<?php echo $k;?>"> 
-				<?php echo XiusText::_($v);?>
+				<?php echo $v;?>
 			</option>
 		<?php endforeach; ?>
 	</select>

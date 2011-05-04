@@ -18,11 +18,11 @@ if(!defined('_JEXEC')) die('Restricted access');
 ?>
       <div>
       	<input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusShowGoogleMap(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $defaultLat ?>&quot;, &quot;<?php echo $defaultLong; ?>&quot;);" value="googlemap"  <?php echo ($location=='googlemap')? "checked": "" ;?> /> 
-      		<?php echo XiusText::_('XIUS MAP'); ?>
+      		<?php echo XiusText::_('XIUS_MAP'); ?>
       	<input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusShowAddressBox(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $defaultLat ?>&quot;, &quot;<?php echo $defaultLong; ?>&quot;);" value="addressbox" <?php echo $location; ?> <?php echo ($location=='addressbox')? "checked": "" ;?> />
-      		<?php echo XiusText::_('XIUS ADDRESS'); ?>
+      		<?php echo XiusText::_('XIUS_ADDRESS'); ?>
       	 <input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusAddMyLocation(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $this->data['latitude'] ?>&quot;, &quot;<?php echo $this->data['longitude']; ?>&quot;);" value="mylocation" <?php echo $location; ?> <?php echo ($location=='mylocation')? "checked": "" ;?> <?php echo ($userId == 0) ? "disabled" : ""; ?>/>
-      			<?php echo XiusText::_('XIUS PROXIMITY MY LOCATION'); ?>
+      			<?php echo XiusText::_('XIUS_PROXIMITY_MY_LOCATION'); ?>
       </div>
             
       <div id="<?php echo $elePrefix; ?>_gmap_option" style="<?php echo "display:".(($location=='googlemap')? "block": "none;")?>;">

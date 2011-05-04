@@ -41,7 +41,7 @@ class ProfiletypesHelper
 		
 		$html	= '<select id="field'.$field->id.'" name="field' . $field->id  . '" '.$disabled.' class="hasTip select'.$class.' inputbox" title="' . $field->name . '::' . htmlentities( $field->tips ). '">';
 	
-		$html   .= '<option value="">'.XiusText::_('SELECT BELOW').'</option>';
+		$html   .= '<option value="">'.XiusText::_('SELECT_BELOW').'</option>';
 		if(!empty($pTypes)){
 			foreach($pTypes as $pType){
 				$selected = '';			

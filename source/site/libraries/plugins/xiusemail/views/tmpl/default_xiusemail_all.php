@@ -17,7 +17,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 >
        	<img 
 			src="<?php echo JURI::base().'components/com_xius/assets/images/emailall.png'; ?>" 
-   			title="<?php echo XiusText::_("XIUS EMAIL ALL"); ?>" 
+   			title="<?php echo XiusText::_("XIUS_EMAIL_ALL"); ?>" 
 		/>
 </a>
 <?php  

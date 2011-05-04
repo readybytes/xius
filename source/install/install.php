@@ -29,7 +29,7 @@ function com_install()
 	}
 	
 	if(installExtensions() == false){
-		JError::raiseError('INSTERR', XiusText::_("NOT ABLE TO INSTALL EXTENSIONS"));
+		JError::raiseError('INSTERR', XiusText::_("NOT_ABLE_TO_INSTALL_EXTENSIONS"));
 		return false;
 	}
 	

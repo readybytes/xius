@@ -38,7 +38,7 @@ require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. D
 		</form>
 		<?php else: ?>
 			<div id="xiusProxiError">
-				<?php echo XiusText::_("ALL SEARCHABLE INFORMATION HAS BEEN DISABLED BY ADMINISTRATOR");?>
+				<?php echo XiusText::_("ALL_SEARCHABLE_INFORMATION_HAS_BEEN_DISABLED_BY_ADMINISTRATOR");?>
 			</div>
 		<?php endif; ?>
 	</div>

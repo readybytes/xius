@@ -92,7 +92,7 @@ class XiusControllerConfiguration extends JController
 		$time = XiusLibCron::getTimestamp();
 		XiusLibCron::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
-		$message = XiusText::_($msg);
+		$message = $msg;
 		$mainframe->redirect($link, $message);		
 	}
 	

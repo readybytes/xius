@@ -17,14 +17,14 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 
 
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo XiusText::_($this->infoName);?>
+	<?php echo $this->infoName;?>
 </div>
 
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <div>
 <div class="col width-40" style="width:40%; float:left;">
 	<fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'Details' ); ?></legend>
+	<legend><?php echo XiusText::_( 'DETAILS' ); ?></legend>
 	<table class="admintable">
 		<tr>
 			<td width="100" class="key">
@@ -33,7 +33,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 				</label>
 			</td>
 			<td>
-				<input type="text" name="labelName" value ="<?php echo XiusText::_($this->pluginArray['labelName']); ?>" />
+				<input type="text" name="labelName" value ="<?php echo $this->pluginArray['labelName']; ?>" />
 			</td>
 		</tr>
 		<tr>

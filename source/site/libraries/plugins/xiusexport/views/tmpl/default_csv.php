@@ -8,10 +8,10 @@
     header("Content-Disposition: attachment; filename=user.csv");
    
 	if(!empty($this->users)) :
-		echo XiusText::_('Userid');
+		echo XiusText::_('USERID');
 		if(!empty($this->fields))	:
 			foreach($this->fields as $f)	:
-				echo ' , '.XiusText::_($f);
+				echo ' , '.$f;
 			endforeach;
 		endif;
 		foreach($this->users as $u)	:

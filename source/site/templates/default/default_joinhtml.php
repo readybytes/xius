@@ -17,13 +17,13 @@ if($this->joinHtml['enable']):
 	endif;
 		
 	$joinhtml = '<select id="xiusjoin" name="xiusjoin" onchange="xiusApplyJoin(\'join\');" >';
-	$joinhtml .= '<option value="AND" '.$andSelected.'>'.XiusText::_('MATCH ALL').'</option>';
-	$joinhtml .= '<option value="OR" '.$orSelected.'>'.XiusText::_('MATCH ANY').'</option>';
+	$joinhtml .= '<option value="AND" '.$andSelected.'>'.XiusText::_('MATCH_ALL').'</option>';
+	$joinhtml .= '<option value="OR" '.$orSelected.'>'.XiusText::_('MATCH_ANY').'</option>';
 	$joinhtml .= '</select>';
 	?>
 	<div class="xius_spMain">
 	<div class="xius_spLabel">
-	<?php echo XiusText::_('XIUS JOIN WITH'); ?>
+	<?php echo XiusText::_('XIUS_JOIN_WITH'); ?>
 	</div>
 	<div class="xius_spInput">
 	<?php echo $joinhtml; ?>	

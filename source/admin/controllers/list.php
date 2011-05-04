@@ -215,7 +215,7 @@ class XiusControllerList extends JController
 		if($result['success'])
 			$msg = $count.' '.XiusText::_('ITEM_UNPUBLISHED' );
 		else
-			$msg = XiusText::_('Unable to unblish list');
+			$msg = XiusText::_('UNABLE_TO_UNPUBLISH_LIST');
 
 		$msg = $count. ' '. XiusText::_('ITEM_PUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);

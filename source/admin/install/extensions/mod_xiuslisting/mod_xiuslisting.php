@@ -27,7 +27,7 @@ $displayList= XiusListHelper::getListData();
 					$name = 'LIST';
 				}
 
-				echo '<li><a href="'.$link.'">'.XiusText::_($name).'</a></li>';
+				echo '<li><a href="'.$link.'">'.$name.'</a></li>';
 			endforeach;
 			?>
 	</ul>

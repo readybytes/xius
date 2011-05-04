@@ -37,7 +37,7 @@ $document->addScriptDeclaration($script);
 >
        	<img 
 			src="<?php echo JURI::base().'components/com_xius/assets/images/emailselected.png'; ?>" 
-    		title="<?php echo XiusText::_("XIUS EMAIL TO SELECTED"); ?>" 
+    		title="<?php echo XiusText::_("XIUS_EMAIL_TO_SELECTED"); ?>" 
 		/>
 </a>
 <?php  

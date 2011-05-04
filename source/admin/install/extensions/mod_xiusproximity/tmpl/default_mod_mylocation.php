@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 						<input type="hidden" name="<?php echo $this->data['elePrefix'];?>_dummy"
  					 	id="<?php echo $this->data['elePrefix'];?>_dummy" 
  					 	value=""/>
-      				<?php echo XiusText::_('XIUS PROXIMITY MY LOCATION');?>
+      				<?php echo XiusText::_('XIUS_PROXIMITY_MY_LOCATION');?>
 		</div>
 <?php
  

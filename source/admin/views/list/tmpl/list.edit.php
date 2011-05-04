@@ -17,14 +17,14 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 
 
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo XiusText::_($this->list->name);?>
+	<?php echo $this->list->name;?>
 </div>
 
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=list" method="post" name="adminForm">
 <div>
 <div class="col width-40" style="width:40%; float:left;">
 	<fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'Details' ); ?></legend>
+	<legend><?php echo XiusText::_( 'DETAILS' ); ?></legend>
 	<table class="admintable">
 		<tr>
 			<td width="100" class="key">
@@ -40,51 +40,51 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'OWNER ID' ); ?>:
+					<?php echo XiusText::_( 'OWNER_ID' ); ?>:
 				</label>
 			</td>
 			<td>
-				<?php echo XiusText::_($this->list->owner); ?>
+				<?php echo $this->list->owner; ?>
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'OWNER NAME' ); ?>:
+					<?php echo XiusText::_( 'OWNER_NAME' ); ?>:
 				</label>
 			</td>
 			<td>
-				<?php echo XiusText::_($this->user->name); ?>
+				<?php echo $this->user->name; ?>
 			</td>
 		</tr>
 		
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'OWNER TYPE' ); ?>:
+					<?php echo XiusText::_( 'OWNER_TYPE' ); ?>:
 				</label>
 			</td>
 			<td>
-				<?php echo XiusText::_($this->user->usertype); ?>
+				<?php echo $this->user->usertype; ?>
 			</td>
 		</tr>
 		<!--
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'VISIBLE INFO' ); ?>:
+					<?php echo XiusText::_( 'VISIBLE_INFO' ); ?>:
 				</label>
 			</td>
 			<td>
-				<input type="text" name="xiusListVisibleInfo" value ="<?php echo XiusText::_($this->list->visibleinfo); ?>" />
+				<input type="text" name="xiusListVisibleInfo" value ="<?php echo $this->list->visibleinfo; ?>" />
 			</td>
 		</tr>
 		-->
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'INFORMATION FOR SORTING' ); ?>:
+					<?php echo XiusText::_( 'INFORMATION_FOR_SORTING' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -103,7 +103,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 					$html .= '</select>';
 					echo $html;
 				else : 
-					XiusText::_('NO INFORMATION AVAILABLE FOR SORTING');
+					XiusText::_('NO_INFORMATION_AVAILABLE_FOR_SORTING');
 				endif;
 			?>				
 			</td>
@@ -112,7 +112,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'SORTING DIRECTION' ); ?>:
+					<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -133,7 +133,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 
 					echo $dirhtml; 
 				else :
-					XiusText::_('SORTING DIRECTION IS NOT AVAILABLE');
+					XiusText::_('SORTING_DIRECTION_IS_NOT_AVAILABLE');
 				endif;
 			?>			
 			</td>
@@ -142,7 +142,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 		<tr>
 			<td width="100" class="key">
 				<label for="name">
-					<?php echo XiusText::_( 'JOIN WITH' ); ?>:
+					<?php echo XiusText::_( 'JOIN_WITH' ); ?>:
 				</label>
 			</td>
 			<td>
@@ -156,8 +156,8 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 					endif;
 				?>
 				<select id="xiusjoin" name="xiusListJoinWith" >
-				<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH ALL'); ?></option>
-				<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH ANY'); ?></option>
+				<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH_ALL'); ?></option>
+				<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH_ANY'); ?></option>
 				</select>
 			</td>
 		</tr>
@@ -204,14 +204,14 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	
 
 <fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'General Parameters' ); ?></legend>
+	<legend><?php echo XiusText::_( 'GENERAL_PARAMETERS' ); ?></legend>
 	<?php
 		echo $this->config->render('params');
 	?>
 	</fieldset>
 
 <fieldset class="adminform">
-	<legend><?php echo XiusText::_( 'Plugins Parameters' ); ?></legend>
+	<legend><?php echo XiusText::_( 'PLUGINS_PARAMETERS' ); ?></legend>
 
 	<table class="admintable">
 
