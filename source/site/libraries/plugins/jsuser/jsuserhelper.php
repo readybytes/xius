@@ -13,8 +13,8 @@ class Jsuserhelper
 	{
 		$db	=& JFactory::getDBO();
 			
-		$userTable = new JTable('#__community_users','userid', $db);
-		$allColumns = $userTable->_db->getTableFields('#__community_users');
+		$userTable = new XiusTable('#__community_users','userid', $db);
+		$allColumns = $userTable->getDbo()->getTableFields('#__community_users');
 		
 		if(empty($allColumns))
 			return false;
