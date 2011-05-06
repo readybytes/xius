@@ -13,7 +13,7 @@ jimport('joomla.html.pane');
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
 
 <div class="xius_spHead">
-<?php echo XiusText::_('Search');?>
+<?php echo XiusText::_('SEARCH');?>
 </div>
 		<?php
 		$count = 0;
@@ -23,7 +23,7 @@ jimport('joomla.html.pane');
 		?>
 			<!-- <div class="xiusNoInfo"> -->
 			<h3>
-			<?php echo XiusText::_('All Searchable Information Has Been Disabled By Administrator');?>
+			<?php echo XiusText::_('ALL_SEARCHABLE_INFORMATION_HAS_BEEN_DISABLED_BY_ADMINISTRATOR');?>
 			</h3>
 			<!-- </div> -->
 		<?php

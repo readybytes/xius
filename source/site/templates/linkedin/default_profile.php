@@ -48,7 +48,7 @@ endif;?>
 <div class="miniProfileOptions">
 <?php if(!empty($user->profileLink)) :?>
 						<a href="<?php echo $user->profileLink;?>" >
-							<?php echo XiusText::_('VIEW PROFILE'); ?>
+							<?php echo XiusText::_('VIEW_PROFILE'); ?>
 						</a>
 						<?php endif; ?>
 <br />

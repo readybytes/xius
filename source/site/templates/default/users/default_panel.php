@@ -22,7 +22,7 @@ jimport('joomla.html.pane');
 		?>
 			<!-- <div class="xiusNoInfo"> -->
 			<h3>
-			<?php echo XiusText::_('ALL_SEARCHABLE_INFOAMATION_HAS_BEEN_DISABLED_BY_ADMINISTRATOR');?>
+			<?php echo XiusText::_('ALL_SEARCHABLE_INFORMATION_HAS_BEEN_DISABLED_BY_ADMINISTRATOR');?>
 			</h3>
 			<!-- </div> -->
 		<?php

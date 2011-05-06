@@ -15,6 +15,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 	href="<?php echo $this->buttonMap->link; ?>"
 	rel="<?php echo $this->buttonMap->options; ?>" 
 >
-<?php echo XiusText::_("Save This List");?></a></div>
+<?php echo XiusText::_("SAVE_THIS_LIST");?></a></div>
 <?php 
  

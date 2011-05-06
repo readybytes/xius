@@ -22,7 +22,7 @@
 	</div>
 <?php endif;?>
 
-<div id="xiusSorting"><span id="sortBYTitle"><?php echo XiusText::_('Sort by').':';?> </span>
+<div id="xiusSorting"><span id="sortBYTitle"><?php echo XiusText::_('SORT_BY').':';?> </span>
 				<?php
 				if(!empty($this->sortableFields))	:
 					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'sort\');" >';
@@ -53,9 +53,9 @@
 
 					echo $dirhtml;
 				endif;
-				echo XiusText::_(' Showing : ');
+				echo XiusText::_('SHOWING_:');
 				echo $this->pagination->getLimitBox(); 
-				echo sprintf(XiusText::_('OF TOTAL'),$this->total);?>
+				echo sprintf(XiusText::_('OF_TOTAL'),$this->total);?>
 	 </div>
 
 

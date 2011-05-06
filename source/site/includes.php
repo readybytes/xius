@@ -20,6 +20,8 @@ jimport('joomla.filesystem.folders' );
 jimport('joomla.application.component.controller' );
 jimport('joomla.application.component.model');
 
+//Import All XiuS plugins
+JPluginHelper::importPlugin('xius');
 
 //load basic defines
 require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'defines.php';

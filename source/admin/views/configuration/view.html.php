@@ -48,7 +48,7 @@ class XiusViewConfiguration extends JView
 		JToolBarHelper::divider();
 		JToolBarHelper::save('save','SAVE');
 		 
-		JToolBarHelper::custom("runCron",'updateCache','','UPDATE_CACHE',0,0); 
+		JToolBarHelper::custom("runCron",'updateCache','','COM_XIUS_UPDATE_CACHE',0,0); 
 			
 		//JToolBarHelper::custom('reset','reset','','RESET',0,0); 
 	}

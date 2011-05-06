@@ -15,7 +15,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 	rel="<?php echo $this->buttonMapSel->options; ?>" 
 	onClick="return xiusCheckUserSelected()"
 >
-<?php echo XiusText::_("XIUS EMAIL TO SELECTED"); ?>
+<?php echo XiusText::_("XIUS_EMAIL_TO_SELECTED"); ?>
 </a>
 </div>
 <?php  

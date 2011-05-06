@@ -14,14 +14,14 @@ $submitUrl = XiusRoute::_($this->submitUrl,false);
  <form action="<?php echo $submitUrl; ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
   
   	<div class="xiusPopupHeader">
-  		<span><?php echo XiusText::_("SAVE LIST"); ?></span>
+  		<span><?php echo XiusText::_("SAVE_LIST"); ?></span>
 	</div>
 	<div id="xiusPopupData">
-		<input type="radio" id="xiusListSaveAsNew" name="xiusListSaveAs" value="xiussavenew" checked><span><?php echo XiusText::_('SAVE AS NEW LIST');?></span><br />
-		<input type="radio" id="xiusListSaveAsExisting" name="xiusListSaveAs" value="xiussaveexisting"><span><?php echo XiusText::_('SAVE AS EXISTING');?></span>
+		<input type="radio" id="xiusListSaveAsNew" name="xiusListSaveAs" value="xiussavenew" checked><span><?php echo XiusText::_('SAVE_AS_NEW_LIST');?></span><br />
+		<input type="radio" id="xiusListSaveAsExisting" name="xiusListSaveAs" value="xiussaveexisting"><span><?php echo XiusText::_('SAVE_AS_EXISTING');?></span>
 			<div id="xiusSelect" class="xiusPopupControl">
 				<select name="listid" id="listid">		
-					<option value="-1" Selected="selected" ><?php echo XiusText::_('XIUS SELECT BELOW');?></option>
+					<option value="-1" Selected="selected" ><?php echo XiusText::_('XIUS_SELECT_BELOW');?></option>
 					<?php
 						if(!empty($this->lists))	: 	
 							foreach($this->lists as $l)	:

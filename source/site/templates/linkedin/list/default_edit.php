@@ -14,7 +14,7 @@ if(!empty($this->msg))
 	<!--  START HEADER -->
 		<div id="xiusSaveHeader">
 			<?php
-				echo XiusText::_("Save List"); 
+				echo XiusText::_("SAVE_LIST"); 
 			?>
 		</div>
 	<!--  END HEADER -->
@@ -22,7 +22,7 @@ if(!empty($this->msg))
 	<!--  START NAME -->
 		<div id="xiusNewName"  class="xiusSaveInfo">
 			<div class="xiusSavelabel">
-			<label><?php echo XiusText::_('Name'); ?></label>
+			<label><?php echo XiusText::_('NAME'); ?></label>
 			</div>
 			<div class="xiusfl"><input type="text" name="xiusListName" id="xiusListName" value="<?php echo $this->data['listName']; ?>" /></div>
 			</div>
@@ -31,7 +31,7 @@ if(!empty($this->msg))
 		<!--  START PUBLISH -->
 		<div class="xiusSaveInfo">
 			<div class="xiusSavelabel">		
-			<label><?php echo XiusText::_('Published'); ?></label>
+			<label><?php echo XiusText::_('PUBLISHED'); ?></label>
 			</div>
 			<div class="xiusSavehtml">			
 			<input type="radio" name="xiusListPublish" value="0"><?php echo XiusText::_('NO');?>:
@@ -45,7 +45,7 @@ if(!empty($this->msg))
 			<div class="xiusSavelabel">
 			<label>
 				<?php 
-					echo XiusText::_('SEARCH CONDITION');
+					echo XiusText::_('SEARCH_CONDITION');
 				?>
 			</label>
 			</div>
@@ -55,7 +55,7 @@ if(!empty($this->msg))
  				foreach($this->conditionHtml as $condition)							
 					echo $condition['label'].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';
 			else
-				echo XiusText::_('NO SEARCH CONDITION FOUND');
+				echo XiusText::_('NO_SEARCH_CONDITION_FOUND');
 			?>
 			</div>
 		</div>
@@ -66,7 +66,7 @@ if(!empty($this->msg))
 			<div class="xiusSavelabel">
 			<label>
 				<?php 
-					echo XiusText::_('SORT RESULT ACCORDING TO');
+					echo XiusText::_('SORT_RESULT_ACCORDING_TO');
 				?>
 			</label>
 			</div>
@@ -86,7 +86,7 @@ if(!empty($this->msg))
 					$html .= '</select>';
 					echo $html;
 				else : 
-					XiusText::_('NO INFORMATION AVAILABLE FOR SORTING');
+					XiusText::_('NO_INFORMATION_AVAILABLE_FOR_SORTING');
 				endif;
 			?>
 			</div>
@@ -97,7 +97,7 @@ if(!empty($this->msg))
 		<div id="xiusSorting"  class="xiusSaveInfo">
 		<div class="xiusSavelabel">		
 			<label for="name">
-				<?php echo XiusText::_( 'SORTING DIRECTION' ); ?>:
+				<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>:
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -127,7 +127,7 @@ if(!empty($this->msg))
 		<div class="xiusSaveInfo"> 
 		<div class="xiusSavelabel">
 			<label for="name">
-				<?php echo XiusText::_( 'JOIN WITH' ); ?>:
+				<?php echo XiusText::_( 'JOIN_WITH' ); ?>:
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -143,8 +143,8 @@ if(!empty($this->msg))
 				endif;
 			?>
 			<select id="xiusjoin" name="xiusListJoinWith" >
-			<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH ALL'); ?></option>
-			<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH ANY'); ?></option>
+			<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH_ALL'); ?></option>
+			<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH_ANY'); ?></option>
 			</select>
 			</div>
 		</div>
@@ -169,7 +169,7 @@ if(!empty($this->msg))
 		<div class="xiusSavelabel">
 			<label>
 				<?php
-					echo XiusText::_('Description');
+					echo XiusText::_('DESCRIPTION');
 				?>
 			</label>
 		</div>
@@ -185,7 +185,7 @@ if(!empty($this->msg))
 		<!--  END DESCRIPTION -->
 	
 <div id="xiusSubmit">				
-<input type="submit" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE AS NEW')?> />	
+<input type="submit" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE_AS_NEW')?> />	
 </div>
 <input type="hidden" name="listid" value="<?php echo $this->selectedListId; ?>" />
 </form>

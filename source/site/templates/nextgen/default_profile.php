@@ -6,7 +6,7 @@
 ?>
 <div id="xiusTotal">
 <span class="xiusTotalText" id="total_<?php echo $this->total;?>">
-	<?php echo sprintf(XiusText::_('Xius About results found'),$this->total);?>
+	<?php echo sprintf(XiusText::_('XIUS_ABOUT_RESULTS_FOUND'),$this->total);?>
 </span>
 </div>
 <?php 
@@ -22,13 +22,13 @@
 					
 				
 					<?php if($user->isOnline): ?>
-						<div class="xiusOnline" title="<?php echo XiusText::_('Online'); ?>"> 				
+						<div class="xiusOnline" title="<?php echo XiusText::_('ONLINE'); ?>"> 				
 							<span>
 								<?php echo JString::ucfirst($user->name);?>	 	
 							</span>
 						</div>					
 					<?php else	: ?>
-						<div class="xiusOffline" title="<?php echo XiusText::_('Offline'); ?>"> 				
+						<div class="xiusOffline" title="<?php echo XiusText::_('OFFLINE'); ?>"> 				
 							<span>
 						<?php echo XiusText::_(JString::ucfirst($user->name));?>
 							</span>
@@ -43,9 +43,9 @@
 					</div>
 					<div class="xiusMpActions" id="xiusMpActions_<?php echo $user->id; ?>">
 					<?php if(!empty($user->profileLink)) :?>
-					<div class="xiusViewProfile" title="<?php echo XiusText::_('VIEW USER PROFILE'); ?>">
+					<div class="xiusViewProfile" title="<?php echo XiusText::_('VIEW_USER_PROFILE'); ?>">
 						<a href="<?php echo $user->profileLink;?>" >
-							<?php echo XiusText::_('VIEW PROFILE'); ?>
+							<?php echo XiusText::_('VIEW_PROFILE'); ?>
 						</a>
 					</div>
 					<?php endif; ?>

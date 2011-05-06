@@ -5,7 +5,7 @@
 **/  
 ?>
 	<div id="xiusFlHead">
-	<?php echo XiusText::_('FILTER BY'); ?>
+	<?php echo XiusText::_('FILTER_BY'); ?>
 	</div>
 	<div id="xiusFlForm">
 		<?php
@@ -16,7 +16,7 @@
 						<div class="xiusFlLabel">
 						<div class="xiusFlImg">
 						<div class="xius_test_addinfo_<?php echo $data['infoid'];?>" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-								 title="<?php echo XiusText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
+								 title="<?php echo XiusText::_("XIUS_ADD_TO_SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
 						ADD
 						</div>
 						</div>

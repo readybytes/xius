@@ -18,8 +18,8 @@ $this->loadAssets('js', 'result.js');
 <div id="xiusFilter">
 	<div id="filterHead"><?php echo XiusText::_('FILTERS'); ?>	
 	<?php if(!empty($this->appliedInfo)) : ?>
-	<div id="xiusClearAll" title="<?php echo XiusText::_('XIUS CLEAR ALL APPLIED INFO');?>"  onclick="xiusAddSubTask('resetfilter')">
-		<img src="components/com_xius/templates/linkedin/assets/images/clear_all.png" title="<?php echo XiusText::_('XIUS CLEAR ALL APPLIED INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
+	<div id="xiusClearAll" title="<?php echo XiusText::_('XIUS_CLEAR_ALL_APPLIED_INFO');?>"  onclick="xiusAddSubTask('resetfilter')">
+		<img src="components/com_xius/templates/linkedin/assets/images/clear_all.png" title="<?php echo XiusText::_('XIUS_CLEAR_ALL_APPLIED_INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
 	</div>
 	<?php endif; ?>
 	</div>	
