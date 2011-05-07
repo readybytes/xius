@@ -22,7 +22,7 @@
 	</div>
 <?php endif;?>
 
-<div id="xiusSorting"><span id="sortBYTitle"><?php echo XiusText::_('SORT_BY').':';?> </span>
+<div id="xiusSorting"><span id="sortBYTitle"><?php echo XiusText::_('SORT_BY');?> </span>
 				<?php
 				if(!empty($this->sortableFields))	:
 					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'sort\');" >';
