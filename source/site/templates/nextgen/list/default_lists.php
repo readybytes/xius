@@ -25,7 +25,7 @@ else	:
 					$name = 'LIST';
 				endif;
 				
-				echo '<a href="'.$url.'">'.XiusText::_($name).'</a>'
+				echo '<a href="'.$url.'">'.$name.'</a>'
 				?></h2>
 				</div>
 			
@@ -34,7 +34,7 @@ else	:
 			</div>	
 			<div class="xiusListDesc">
 				<?php
-				echo XiusText::_($l->description);
+				echo $l->description;
 				?>
 			</div>
 				

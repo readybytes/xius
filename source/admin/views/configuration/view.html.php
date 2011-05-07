@@ -46,7 +46,7 @@ class XiusViewConfiguration extends JView
 		// Add the necessary buttons
 		JToolBarHelper::back('HOME' , 'index.php?option=com_xius');
 		JToolBarHelper::divider();
-		JToolBarHelper::save('save','SAVE');
+		JToolBarHelper::save('save','COM_XIUS_SAVE');
 		 
 		JToolBarHelper::custom("runCron",'updateCache','','COM_XIUS_UPDATE_CACHE',0,0); 
 			

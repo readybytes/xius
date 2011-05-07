@@ -24,7 +24,7 @@ if(!empty($this->appliedInfo)) : ?>
 		<div class="xiusFdData">
 			<div class="xiusFdLabel">
 				<?php 
-					echo XiusText::_($a['label']);
+					echo $a['label'];
 					?><span class="xiusFdClear" id="<?php echo $a['infoid']; ?>" onClick="xiusDeleteInfo(this,'delinfovalue_<?php echo $a['infoid'].$count; ?>');">Clear</span></div>
 					<div class="xiusFdValue">
 					<?php 

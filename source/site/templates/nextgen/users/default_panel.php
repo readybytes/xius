@@ -36,9 +36,9 @@ jimport('joomla.html.pane');
 			//echo JHTML::_('tooltip',XiusText::_($xiustool), XiusText::_($data['label']), null, XiusText::_($data['label']));
 			$xiustooltip = $data['tooltip'];
 			if(!empty($xiustooltip)) :
-				echo '<span title="'.XiusText::_($xiustooltip).'">'.XiusText::_($data['label']).'</span>';			
+				echo '<span title="'.$xiustooltip.'">'.$data['label'].'</span>';			
 			else :
-				echo XiusText::_($data['label']); 
+				echo $data['label']; 
 			endif; 
 			?>
 			</div>

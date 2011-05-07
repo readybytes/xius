@@ -37,8 +37,8 @@ if(!empty($this->userprofile))	:
 			endif; ?>
 			
 			<div class="miniProfileInfo">
-				<span class="infoLabel"><?php echo XiusText::_($up['label'][$i]); ?></span>
-				<span class="infoValue"><?php echo XiusText::_($up['value'][$i]); ?></span>
+				<span class="infoLabel"><?php echo $up['label'][$i]; ?></span>
+				<span class="infoValue"><?php echo $up['value'][$i]; ?></span>
 			</div>
 			<?php
 		endfor;

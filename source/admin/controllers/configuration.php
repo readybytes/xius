@@ -84,9 +84,9 @@ class XiusControllerConfiguration extends JController
 		$time = XiusLibCron::getTimestamp();
 		XiusLibCron::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
-		$msg = 'CACHE_UPDATED_SUCCESSFULLY';
+		$msg = xiusText::_('CACHE_UPDATED_SUCCESSFULLY');
 		if(!XiusLibCron::updateCache()){
-			$msg = 'CACHE_NOT_UPDATE';
+			$msg = xiusText::_('CACHE_NOT_UPDATE');
 		}
 		
 		$time = XiusLibCron::getTimestamp();

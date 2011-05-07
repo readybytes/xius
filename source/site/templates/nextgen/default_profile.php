@@ -30,7 +30,7 @@
 					<?php else	: ?>
 						<div class="xiusOffline" title="<?php echo XiusText::_('OFFLINE'); ?>"> 				
 							<span>
-						<?php echo XiusText::_(JString::ucfirst($user->name));?>
+						<?php echo JString::ucfirst($user->name);?>
 							</span>
 						</div>
 					<?php endif; ?>
@@ -90,8 +90,8 @@
 									endif;
 						?>
 					  			<div class="xiusMpInfo">
-						  			<div class="xiusMplabel"><?php echo XiusText::_($up['label'][$i]); ?></div>
-						  			<div class="xiusMpValue"><?php echo XiusText::_($up['value'][$i]); ?></div>
+						  			<div class="xiusMplabel"><?php echo $up['label'][$i]; ?></div>
+						  			<div class="xiusMpValue"><?php echo $up['value'][$i]; ?></div>
 					  			</div>
 						<?php
 								endfor;

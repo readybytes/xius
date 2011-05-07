@@ -38,7 +38,7 @@ $submitUrl = XiusRoute::_($this->submitUrl,false);
 									$checked = ' selected=true';
 								endif;
 			
-								echo '<option value="'.$l->id.'" '.$checked.'>'.XiusText::_(JString::ucwords($name)).'<br />';	
+								echo '<option value="'.$l->id.'" '.$checked.'>'.JString::ucwords($name).'<br />';	
 							endforeach;
 						 endif;	
 					?>

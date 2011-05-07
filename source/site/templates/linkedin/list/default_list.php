@@ -24,7 +24,7 @@ if(!empty( $this->list ))	:
 		$name = $this->list->name;
 	endif;
 		
-	echo XiusText::_($name);
+	echo $name;
 
 endif;
 ?>
