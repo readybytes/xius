@@ -26,26 +26,26 @@ class XiusJuserTest extends XiUnitTestCase
 			$requiredInfo = array();
 			
 			
-			$requiredInfo['userid']			= JText::_('Userid');
-    		$requiredInfo['status']			= JText::_('status');
-		    $requiredInfo['status_access']	= JText::_('status_access');
-		    $requiredInfo['points']			= JText::_('points');
-		    $requiredInfo['posted_on']		= JText::_('posted_on');
-		    $requiredInfo['avatar']			= JText::_('avatar');
-		    $requiredInfo['thumb']			= JText::_('thumb');
-		    $requiredInfo['invite']			= JText::_('invite');
-		    $requiredInfo['params']			= JText::_('params');
-		    $requiredInfo['view']			= JText::_('view');
-		    $requiredInfo['friends']		= JText::_('Friends');
-		    $requiredInfo['groups']			= JText::_('groups');
-		    $requiredInfo['friendcount']	= JText::_('friendcount');
-		    $requiredInfo['alias']			= JText::_('alias');
-		    $requiredInfo['latitude']		= JText::_('Latitude');
-		    $requiredInfo['longitude']		= JText::_('Longitude');
-		    $requiredInfo['profile_id']		= JText::_('profile_id');
-		    $requiredInfo['storage']		= JText::_('storage');
-		    $requiredInfo['watermark_hash']	= JText::_('watermark_hash');
-		    $requiredInfo['search_email']	= JText::_('search_email');
+			$requiredInfo['userid']			= 'userid';
+    		$requiredInfo['status']			= 'status';
+		    $requiredInfo['status_access']	= 'status_access';
+		    $requiredInfo['points']			= 'points';
+		    $requiredInfo['posted_on']		= 'posted_on';
+		    $requiredInfo['avatar']			= 'avatar';
+		    $requiredInfo['thumb']			= 'thumb';
+		    $requiredInfo['invite']			= 'invite';
+		    $requiredInfo['params']			= 'params';
+		    $requiredInfo['view']			= 'view';
+		    $requiredInfo['friends']		= 'friends';
+		    $requiredInfo['groups']			= 'groups';
+		    $requiredInfo['friendcount']	= 'friendcount';
+		    $requiredInfo['alias']			= 'alias';
+		    $requiredInfo['latitude']		= 'latitude';
+		    $requiredInfo['longitude']		= 'longitude';
+		    $requiredInfo['profile_id']		= 'profile_id';
+		    $requiredInfo['storage']		= 'storage';
+		    $requiredInfo['watermark_hash']	= 'watermark_hash';
+		    $requiredInfo['search_email']	= 'search_email';
 
 			$this->assertEquals($requiredInfo,$info);
 		}

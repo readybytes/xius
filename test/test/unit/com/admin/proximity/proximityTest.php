@@ -24,8 +24,8 @@ class XiusProximityTest extends XiUnitTestCase
 		
 			$requiredInfo = array();
 			
-			$requiredInfo['information'] = JText::_('BY INFORMATION');
-			$requiredInfo['google'] 	 = JText::_('BY GOOGLE API');
+			$requiredInfo['information'] = XiusText::_('BY_INFORMATION');
+			$requiredInfo['google'] 	 = XiusText::_('BY_GOOGLE_API');
 			
 			$this->assertEquals($requiredInfo,$info);
 		}
@@ -116,12 +116,16 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= "SELECTROUND((3959*acos(cos(0.442375532987)*cos(radians(`proximity_google_latitude_0`))*cos
-				   (radians(`proximity_google_longitude_0`)-(1.30265062513))+sin(0.442375532987)*sin(radians
-				   (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceWHEREROUND((3959*acos(cos
-				   (0.442375532987)*cos(radians(`proximity_google_latitude_0`))*cos(radians
-				   (`proximity_google_longitude_0`)-(1.30265062513))+sin(0.442375532987)*sin(radians
-				   (`proximity_google_latitude_0`))))*1,3)<=200";
+		$compare	= "SELECTROUND((3959*acos(cos(0.44237553298691)
+						*cos(radians(`proximity_google_latitude_0`))
+						*cos(radians(`proximity_google_longitude_0`)
+						-(1.3026506251295))+sin(0.44237553298691)
+						*sin(radians(`proximity_google_latitude_0`))))*1,3)
+						ASxius_proximity_distanceWHEREROUND((3959*acos(cos(0.44237553298691)
+						*cos(radians(`proximity_google_latitude_0`))
+						*cos(radians(`proximity_google_longitude_0`)
+						-(1.3026506251295))+sin(0.44237553298691)
+						*sin(radians(`proximity_google_latitude_0`))))*1,3)<=200";
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));		
 		
@@ -131,12 +135,15 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= "SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
-				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
-				  (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceWHEREROUND((3959*acos(cos
-				  (0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
-				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
-				  (`proximity_google_latitude_0`))))*1,3)<=200";
+		$compare	= "SELECTROUND((3959*acos(cos(0.42296309092831)
+					  *cos(radians(`proximity_google_latitude_0`))
+					  *cos(radians(`proximity_google_longitude_0`)
+					  -(1.3011255040693))+sin(0.42296309092831)
+					  *sin(radians(`proximity_google_latitude_0`))))*1,3)
+					  ASxius_proximity_distanceWHEREROUND((3959*acos(cos(0.42296309092831)
+					  *cos(radians(`proximity_google_latitude_0`))*cos(radians(`proximity_google_longitude_0`)
+					  -(1.3011255040693))+sin(0.42296309092831)
+					  *sin(radians(`proximity_google_latitude_0`))))*1,3)<=200";
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 				
@@ -145,17 +152,19 @@ class XiusProximityTest extends XiUnitTestCase
 		$instance->addSearchToQuery(&$query,$value,'=','AND');
 		
 		$strQuery 	= $query->__toString();
-		$compare	= "SELECTROUND((3959*acos(cos(0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
-				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
-				  (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distance,ROUND((3959*acos(cos
-				  (0.981468451566)*cos(radians(`proximity_google_latitude_0`))*cos(radians
-				  (`proximity_google_longitude_0`)-(-1.82472427967))+sin(0.981468451566)*sin(radians
-				  (`proximity_google_latitude_0`))))*1,3)ASxius_proximity_distanceWHEREROUND((3959*acos(cos
-				  (0.422963090928)*cos(radians(`proximity_google_latitude_0`))*cos(radians
-				  (`proximity_google_longitude_0`)-(1.30112550407))+sin(0.422963090928)*sin(radians
-				  (`proximity_google_latitude_0`))))*1,3)<=200ANDROUND((3959*acos(cos(0.981468451566)*cos(radians
-				  (`proximity_google_latitude_0`))*cos(radians(`proximity_google_longitude_0`)-(-1.82472427967))+sin
-				  (0.981468451566)*sin(radians(`proximity_google_latitude_0`))))*1,3)<=456";
+		$compare	= "SELECTROUND((3959*acos(cos(0.42296309092831)*cos(radians(`proximity_google_latitude_0`))
+						*cos(radians(`proximity_google_longitude_0`)-(1.3011255040693))
+						+sin(0.42296309092831)*sin(radians(`proximity_google_latitude_0`))))*1,3)
+						ASxius_proximity_distance,ROUND((3959*acos(cos(0.98146845156649)
+						*cos(radians(`proximity_google_latitude_0`))
+						*cos(radians(`proximity_google_longitude_0`)-(-1.8247242796676))
+						+sin(0.98146845156649)*sin(radians(`proximity_google_latitude_0`))))*1,3)
+						ASxius_proximity_distanceWHEREROUND((3959*acos(cos(0.42296309092831)
+						*cos(radians(`proximity_google_latitude_0`))
+						*cos(radians(`proximity_google_longitude_0`)-(1.3011255040693))
+						+sin(0.42296309092831)*sin(radians(`proximity_google_latitude_0`))))*1,3)<=200ANDROUND((3959*acos(cos(0.98146845156649)*cos(radians(`proximity_google_latitude_0`))
+						*cos(radians(`proximity_google_longitude_0`)-(-1.8247242796676))+sin(0.98146845156649)*sin(radians(`proximity_google_latitude_0`))))*1,3)<=456";
+		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery), $this->cleanWhiteSpaces($compare));
 		// invalid value, no change in $compare value
 		$value		= array('googlmap','',-104.5490,456,'Miles');

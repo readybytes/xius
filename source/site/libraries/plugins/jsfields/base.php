@@ -87,6 +87,8 @@ class JsfieldsBase extends XiusBase
 			
 		$fType = Jsfieldshelper::getFieldType($this->key);
 		
+		Jsfieldshelper::changeValueFormat(&$value, $fType);
+		
 		if(!is_array($value)){		
 			foreach($columns as $c){
 				if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
@@ -163,8 +165,6 @@ class JsfieldsBase extends XiusBase
 	/* at the time of saving data into database durin search also */
 	function formatValue($value)
 	{
-		//print_r(var_export($value));
-		//return $value;
 		$filter = array();
 		$filter['id'] = $this->key;
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
@@ -176,10 +176,10 @@ class JsfieldsBase extends XiusBase
 			return $value;
 
 
-		if($fieldInfo[0]->type == 'date')
+		if($fieldInfo[0]->type == 'date' || $fieldInfo[0]->type == 'birthdate')
 		{
-			//$values = array();
-			$splitValue = split('-',$value);
+			//$splitValue = split('-',$value);
+			$splitValue = explode('-',$value);
 			if( count($splitValue) < 3)
 				return $value;
 			$value		= $splitValue;
@@ -223,12 +223,13 @@ class JsfieldsBase extends XiusBase
 		
 		if(empty($fieldInfo))
 			return $value;
-		
-		if($fieldInfo[0]->type == 'date'){
-			$db 	= &JFactory::getDBO(); 
+			
+		if($fieldInfo[0]->type == 'date' || $fieldInfo[0]->type == 'birthdate'){
+			$db 	= JFactory::getDBO(); 
 			$query	= 'SELECT DATE_FORMAT('.$db->Quote($value).', "%d-%m-%Y") AS FORMATED_DATE';
 			$db->setQuery($query);
-			return $db->loadResult();
+			$result= $db->loadResult();
+			return ($result == "00-00-0000") ? '' : $result ;
 		}		
 		
 		if($fieldInfo[0]->type == 'profiletypes'){
@@ -250,15 +251,21 @@ class JsfieldsBase extends XiusBase
 		$filter['id'] = $this->key;
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
 		
+		if(!empty($fieldInfo) && $fieldInfo[0]->type == 'birthdate'){
+			Jsfieldshelper::changeValueFormat(&$value, $fieldInfo[0]->type);
+			return $value;
+		}
+		
 		if($fieldInfo != array() && $fieldInfo[0]->type == 'date')
 			return $value;
+		
 		return $this->_getFormatData($value);
 	}
 	
 	function getCacheSqlSpec($fieldInfo){
 		$specification = 'varchar(250) NOT NULL';
 		
-		if(!empty($fieldInfo) && $fieldInfo[0]->type === 'date')
+		if(!empty($fieldInfo) && ($fieldInfo[0]->type === 'date'|| $fieldInfo[0]->type === 'birthdate'))
 			$specification = "datetime NOT NULL";
 			
 		return $specification;	

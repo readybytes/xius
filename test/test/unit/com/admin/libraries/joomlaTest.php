@@ -25,15 +25,15 @@ class XiusJoomlaTest extends XiUnitTestCase
 		
 			$requiredInfo = array();
 			
-			$requiredInfo['id'] 			= JText::_('id');
-			$requiredInfo['name'] 			= JText::_('name');
-			$requiredInfo['username'] 		= JText::_('username');
-			$requiredInfo['email'] 			= JText::_('email');
-			$requiredInfo['usertype'] 		= JText::_('usertype');
-			$requiredInfo['block'] 			= JText::_('block');
-			$requiredInfo['gid'] 			= JText::_('gid');
-			$requiredInfo['registerDate'] 	= JText::_('registerDate');
-			$requiredInfo['lastvisitDate'] 	= JText::_('lastvisitDate');
+			$requiredInfo['id'] 			= 'id';
+			$requiredInfo['name'] 			= 'name';
+			$requiredInfo['username'] 		= 'username';
+			$requiredInfo['email'] 			= 'email';
+			$requiredInfo['usertype'] 		= 'usertype';
+			$requiredInfo['block'] 			= 'block';
+			$requiredInfo['gid'] 			= 'gid';
+			$requiredInfo['registerDate'] 	= 'registerDate';
+			$requiredInfo['lastvisitDate'] 	= 'lastvisitDate';
 		    
 			$this->assertEquals($requiredInfo,$info);
 		}

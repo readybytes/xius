@@ -23,9 +23,9 @@ jimport( 'joomla.filesystem.file' );
 jimport( 'joomla.filesystem.folder' );
 
 // Initalize frontend framework
-$mainframe =& JFactory::getApplication('site');
-if (TEST_XIUS_JOOMLA_15)
-	$mainframe->initialise();
+$mainframe = JFactory::getApplication('site');
+//if (TEST_XIUS_JOOMLA_15)
+//	$mainframe->initialise();
 
 $_SERVER['HTTP_HOST']="/usr/bin";
 

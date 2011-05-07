@@ -102,7 +102,7 @@ class Jsfieldshelper
 		
 		if(!$reset && isset($jsFields))
 			return $jsFields;
-			
+		//XiTODO:: USe XiusQuery rather than DBO 	
 		$db	=& JFactory::getDBO();
 		$sql = "SELECT * FROM " . $db->nameQuote('#__community_fields');
 		$sql .= " ORDER BY `ordering`";
@@ -119,39 +119,38 @@ class Jsfieldshelper
 	function getFieldsHTML($fieldInfo)
 	{
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
-		
 		$fieldHTML = '';
 		
 		/*IMP : if change date field data into y-mm-dd ,
 		 * then take care of jsfields formatValue function also
 		 */
-		if($fieldInfo->type == 'date') {
-			$value = '';
-			if(isset($fieldInfo->value))
-				$value = $fieldInfo->value;
+		switch($fieldInfo->type) 
+		{
+			case 'date':
+				$value = '';
+				if(isset($fieldInfo->value)){
+					$value = $fieldInfo->value;
+				}
+
+				$formName	= JFactory::getSession()->get('xiusModuleForm','','XIUS');
+	       		if($formName != '')
+	       			$formName = "_{$formName}";
+	       			
+	     		$fieldHTML = JHTML::_('behavior.calendar');
+				$fieldHTML .= JHTML::_('calendar',$fieldInfo->value, "field".$fieldInfo->id, "field".$fieldInfo->id.$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));
+				break;  
 				
-			$mySess 	= & JFactory::getSession();
-			$formName	= $mySess->get('xiusModuleForm','','XIUS');
-       		if($formName != '')
-       			$formName = "_{$formName}";
-       			
-     		$fieldHTML = JHTML::_('behavior.calendar');
-			$fieldHTML .= JHTML::_('calendar',$fieldInfo->value, "field".$fieldInfo->id, "field".$fieldInfo->id.$formName, '%d-%m-%Y', array('class'=>'inputbox', 'maxlength'=>'19'));
-  
+			case 'profiletypes':
+				require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
+				return ProfiletypesHelper::getFieldHTML($fieldInfo);
+				
+			default :
+				$fieldHTML = CProfileLibrary::getFieldHTML($fieldInfo);						
 		}
-		else if($fieldInfo->type == 'profiletypes'){
-			require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
-			return ProfiletypesHelper::getFieldHTML($fieldInfo);			
-		}
-		else
-			$fieldHTML = CProfileLibrary::getFieldHTML($fieldInfo);
-		
-		
+
 		return $fieldHTML;
 	}
-	
-	
-	
+
 	function getFieldType($fieldId)
 	{
 		$filter = array();
@@ -165,9 +164,14 @@ class Jsfieldshelper
 	}
 	
 	
-	
-	function isJomsocialExist()
+	function changeValueFormat($value, $fType)
 	{
+		if($fType == 'birthdate' && !empty($value))
+		{		
+			$value[0] = (strlen((string)$value[0])==1) ?"0".$value[0] : $value[0] ;
+			$value[1] = (strlen((string)$value[1])==1) ? "0".$value[1] : $value[1];
+			$value = implode('-',$value); 
+		}
 		
 	}
 	

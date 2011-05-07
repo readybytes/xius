@@ -83,13 +83,13 @@ class XiusGroupMemberTest extends XiUnitTestCase {
 	  // 	$post2[] = Array('infoid'=>	5,'value'=>"05-08-2011",'operator' => '=');
 		$post2[] = Array('infoid'=>	6,'value'=>array(0,25),'operator' => '=');
 						
-		$resultQuery2 = "SELECT *, ROUND(( 3959 * acos( cos(0.442375532987) * cos(radians(`jsuserlatitude_0`) ) * cos( radians(`jsuserlongitude_0`) - (1.30265062513))  + sin( 0.442375532987 ) * sin( radians(`jsuserlatitude_0`) ) ) ) * 1 ,3)   AS xius_proximity_distance
+		$resultQuery2 = "SELECT *, ROUND(( 3959 * acos( cos(0.44237553298691) * cos(radians(`jsuserlatitude_0`) ) * cos( radians(`jsuserlongitude_0`) - (1.3026506251295))  + sin( 0.44237553298691 ) * sin( radians(`jsuserlatitude_0`) ) ) ) * 1 ,3)   AS xius_proximity_distance
 						 FROM `#__xius_cache`
 						 WHERE `jsfields2_0` = 'Male' AND
 							   `userid` IN ( SELECT `memberid` 
 								  		    FROM `#__community_groups_members`
 										    WHERE `groupid`=16) AND
-							   ROUND(( 3959 * acos( cos(0.442375532987) * cos(radians(`jsuserlatitude_0`) ) * cos( radians(`jsuserlongitude_0`) - (1.30265062513))  + sin( 0.442375532987 ) * sin( radians(`jsuserlatitude_0`) ) ) ) * 1 ,3)   <= 100   AND
+							   ROUND(( 3959 * acos( cos(0.44237553298691) * cos(radians(`jsuserlatitude_0`) ) * cos( radians(`jsuserlongitude_0`) - (1.3026506251295))  + sin( 0.44237553298691 ) * sin( radians(`jsuserlatitude_0`) ) ) ) * 1 ,3)   <= 100   AND
 							   `rangesearch5_0` BETWEEN '0' AND '25'
 					   ORDER BY `userid` ASC";
 		

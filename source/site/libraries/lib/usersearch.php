@@ -216,8 +216,13 @@ class XiusLibUsersearch
 				continue;
 			}
 			
-			if(empty($post[$keyNames[$i]]) && !is_numeric($post[$keyNames[$i]]))
+			if(empty($post[$keyNames[$i]]) && !is_numeric($post[$keyNames[$i]])){
 				continue;
+			}
+			// Eg :: Post "birtdate" field
+			if(is_array($post[$keyNames[$i]]) && array_sum($post[$keyNames[$i]]) == 0){
+				continue;
+			}
 			
 			if(!$infoid)
 				continue;

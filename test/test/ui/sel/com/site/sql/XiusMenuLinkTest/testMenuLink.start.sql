@@ -37,6 +37,34 @@ INSERT INTO `#__xius_list` (`id`, `owner`, `name`, `visibleinfo`, `sortinfo`, `s
 
 
 -- Menu Table, create search link and list link on menu
+
+CREATE TABLE IF NOT EXISTS `bk_#__menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menutype` varchar(75) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `alias` varchar(255) NOT NULL DEFAULT '',
+  `link` text,
+  `type` varchar(50) NOT NULL DEFAULT '',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `parent` int(11) unsigned NOT NULL DEFAULT '0',
+  `componentid` int(11) unsigned NOT NULL DEFAULT '0',
+  `sublevel` int(11) DEFAULT '0',
+  `ordering` int(11) DEFAULT '0',
+  `checked_out` int(11) unsigned NOT NULL DEFAULT '0',
+  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `pollid` int(11) NOT NULL DEFAULT '0',
+  `browserNav` tinyint(4) DEFAULT '0',
+  `access` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `utaccess` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `params` text NOT NULL,
+  `lft` int(11) unsigned NOT NULL DEFAULT '0',
+  `rgt` int(11) unsigned NOT NULL DEFAULT '0',
+  `home` int(1) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `componentid` (`componentid`,`menutype`,`published`,`access`),
+  KEY `menutype` (`menutype`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;;
+
 INSERT INTO `bk_#__menu` SELECT	* FROM `#__menu`;;
 TRUNCATE TABLE `#__menu`;;
 

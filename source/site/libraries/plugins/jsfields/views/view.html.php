@@ -36,7 +36,6 @@ class JsfieldsView extends XiusBaseView
 		$field[0]->value = $value;
 			
 		$fieldHtml = jsfieldshelper::getFieldsHTML($field[0]);
-		//print_r($fieldHtml);
 		$this->assign('fieldHtml',$fieldHtml);
 		ob_start();
 		$this->display();
