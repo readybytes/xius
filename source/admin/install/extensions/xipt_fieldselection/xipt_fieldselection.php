@@ -139,7 +139,10 @@ class plgXiusxipt_fieldselection extends JPlugin
 			$this->_addScriptParam($hiddenInfoId, $profileTypeInfoId);
 			
 			// load jquery
-			$js='plugins/xius/xipt_fieldselection/default.js';
+			$strPath="";
+			if (XIUS_JOOMLA_16)
+				$strPath = "/xipt_fieldselection";
+			$js='plugins/xius/xipt_fieldselection'.$strPath.'/default.js';
 			CAssets::attach($js, 'js' , JURI::base());
 					
 			return true;
