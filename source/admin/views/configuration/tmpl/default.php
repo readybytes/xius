@@ -64,7 +64,7 @@ XiusHelperUtils::loadJQuery();
 </fieldset>
 </div>
 
-<div class="col width-45" style="float:right;" >
+<div class="col width-50" style="float:right;" >
 <fieldset class="adminform">
 <legend><input type="checkbox" id="advanceConfig"><?php echo XiusText::_( 'ADVANCE_CONFIGURATION' ); ?></legend>
 	<?php echo XiusText::_('ADVANCE_CONFIGURATION_DESCRIPTION');?>

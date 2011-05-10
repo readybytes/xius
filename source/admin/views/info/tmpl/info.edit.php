@@ -15,36 +15,30 @@ JToolBarHelper::save('save',XiusText::_('SAVE'));
 JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 
-
+<div id="XIUS">
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
 	<?php echo $this->infoName;?>
 </div>
-
+<div class="xippElements">
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <div>
-<div class="col width-40" style="width:40%; float:left;">
+<div class="col width-50" style="width:50%; float:left;">
 	<fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'DETAILS' ); ?></legend>
-	<table class="admintable">
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'NAME' ); ?>:
-				</label>
-			</td>
-			<td>
-				<input type="text" name="labelName" value ="<?php echo $this->pluginArray['labelName']; ?>" />
-			</td>
-		</tr>
-		<tr>
-			<td valign="top" class="key">
-				<?php echo XiusText::_( 'PUBLISHED' ); ?>:
-			</td>
-			<td>
-				<?php echo JHTML::_('select.booleanlist',  'published', 'class="inputbox"', $this->pluginArray['published'] ); ?>
-			</td>
-		</tr>
-		</table>
+		<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'NAME' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><input type="text" name="labelName" value ="<?php echo $this->pluginArray['labelName']; ?>" /></div>
+		</div>			
+		<div class="elementParams">
+					<div class="paramTitle">
+						<?php echo XiusText::_( 'PUBLISHED' ); ?>:
+					</div>
+					<div class="paramValue"><?php echo JHTML::_('select.booleanlist',  'published', 'class="inputbox"', $this->pluginArray['published'] ); ?></div>
+		</div>
 	</fieldset>
 	<br />
 	<br />
@@ -65,7 +59,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 </div>
 </div>
 <div>
-<div class="col width-60" style="width:60%; float:right;">
+<div class="col width-50" style="width:50%; float:right;">
 	
 
 <fieldset class="adminform">
@@ -83,7 +77,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 </div>
 
 <div>
-<div class="col width-60" style="width:60%; float:right;">
+<div class="col width-50" style="width:50%; float:right;">
 <fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'PRIVACY_PARAMETER' ); ?></legend>
 	<?php
@@ -110,4 +104,6 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	<input type="hidden" name="task" value="" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
+</div>
 <?php 

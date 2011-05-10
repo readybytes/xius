@@ -27,7 +27,8 @@ function submitbutton( action )
 	}
 }
 </script>
-
+<div id="XIUS">
+<div class="xippElements">
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <table class="adminlist" cellspacing="1">
 	<thead>
@@ -195,3 +196,5 @@ function submitbutton( action )
 <input type="hidden" name="boxchecked" value="0" />
 <?php echo JHTML::_( 'form.token' ); ?>
 </form>	
+</div>
+</div>

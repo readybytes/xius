@@ -22,10 +22,6 @@ class XiusViewConfiguration extends JView
 		
 		$this->assignRef( 'pane', $pane );
 		$this->assign( 'params' , $params );
-
-		$document   = JFactory::getDocument();
-		$document->addStyleSheet(JURI::root() . 'components/com_xius/assets/css/admin.css');
-		
 		parent::display( $tpl );
     }
 	

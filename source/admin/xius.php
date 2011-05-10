@@ -23,6 +23,10 @@ if(class_exists( $controllerClass,true)===false){
 //Import All XiuS plugins
 JPluginHelper::importPlugin('xius');
 
+//Imports Admin CSS
+$document   = JFactory::getDocument();
+$document->addStyleSheet(JURI::root() . 'components/com_xius/assets/css/admin.css');
+
 $controller = new $controllerClass();
 $controller->execute($task);
 $controller->redirect();

@@ -8,7 +8,9 @@ if(!defined('_JEXEC')) die('Restricted access');
 JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
 JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
-	
+
+<div id="XIUS">
+<div class="xippElements">	
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
 	<?php echo XiusText::_('SELECT_DATA_TO_USE');?>
 </div>
@@ -20,27 +22,22 @@ if(empty($this->rawDataHtml))
 	echo XiusText::_('NO_INFO_TO_DISPLAY');
 else 
 {?>
-<table cellspacing="0" class="admintable" border="0" width="100%">
-	<tbody>
-		<tr>
-			<td class="key"><?php echo XiusText::_('INFO');?></td>
-			<td>:</td>
-			<td>
-				<div>
-				<?php
-					echo $this->rawDataHtml;
-				?>
+				<div class="elementParams">
+					<div class="paramTitle">
+							<label for="information">
+								<?php echo XiusText::_('INFO');?>
+							</label>
+					</div>
+					
+					<div class="paramValue"><?php echo $this->rawDataHtml;?></div>
+					<div class="paramValue"><input type="submit" name="infonext" value="<?php echo XiusText::_('NEXT');?>"/></div>
 				</div>
-			</td>
-		</tr>
-	</tbody>
-</table>
 
 <div class="clr"></div>
 
-<div style="float:left; margin-left: 320px">
-	<input type="submit" name="infonext" value="<?php echo XiusText::_('NEXT');?>"/>
-</div>
+
+	
+
 <?php }?>	
 	<input type="hidden" name="plugin" value="<?php echo $this->plugin;?>" />
 	
@@ -50,3 +47,5 @@ else
 	<input type="hidden" name="task" value="renderinfo" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
+</div>

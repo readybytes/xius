@@ -14,7 +14,7 @@
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		
 		<param name="@spacer" type="spacer" default="Default Location Configuration" description="" />
-			<param name="xius_default_location" type="radio" label="COM_XIUS_XIUS_PROXIMITY_LOCATION_LABLE" description="COM_XIUS_LOCATION_DES" default="none" >	
+			<param name="xius_default_location" type="xiradio" label="COM_XIUS_XIUS_PROXIMITY_LOCATION_LABLE" description="COM_XIUS_LOCATION_DES" default="none" >	
 				<option value="none">None</option>				
 				<option value="googlemap">Google Map</option>
 				<option value="addressbox">Address</option>
