@@ -12,7 +12,7 @@
 		</param>					
 	</params>
 	
-	<params group="advXiusTemplate">
+	<params group="advXiusTemplate" addpath="/components/com_xius/elements">
 		<param name="xiusReplaceSearch" type="xiradio" default="1" label="COM_XIUS_REPLACE_JOM_SOCIAL_ADVANCE_SEARCH_LABEL" description="COM_XIUS_REPLACE_JOM_SOCIAL_ADVANCE_SEARCH_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
@@ -29,7 +29,7 @@
 	
 		<!--  END INTEGRATION PARAMETERS -->
 		
-	<params group="basicXiusSearch">
+	<params group="basicXiusSearch" addpath="/components/com_xius/elements">
 		<param name="xiusKey" type="text" default="AB2F4" label="COM_XIUS_SECURE_KEY_TO_CHECK_WHILE_UPDATE_CACHE" description="COM_XIUS_SECURE_KEY_TO_CHECK_WHILE_UPDATE_CACHE_DESC" />
 		
 		<param name="xiusDebugMode" type="xiradio" default="0" label="COM_XIUS_ENABLE_DEBUG_MODE" description="COM_XIUS_ENABLE_DEBUG_MODE_DESC">
@@ -53,7 +53,7 @@
 		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_CREATE_LISTS_LABEL" description="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_CREATE_LISTS_DESC"></param>
 	</params>
 	
-	<params group="autoCacheUpdate">
+	<params group="autoCacheUpdate" addpath="/components/com_xius/elements">
 	
 		<param name="xiusCronJob" type="xiradio" default="0" label="COM_XIUS_AUTOMATIC_CACHE_UPDATE_LABEL" description="COM_XIUS_AUTOMATIC_CACHE_UPDATING_DESC">
 			<option value="0">No</option>

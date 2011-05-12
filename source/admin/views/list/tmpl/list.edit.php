@@ -15,177 +15,157 @@ JToolBarHelper::save('save',XiusText::_('SAVE'));
 JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 
-
+<div id="XIUS">
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
 	<?php echo $this->list->name;?>
 </div>
-
+<div class="xippElements">
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=list" method="post" name="adminForm">
 <div>
 <div class="col width-40" style="width:40%; float:left;">
 	<fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'DETAILS' ); ?></legend>
-	<table class="admintable">
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'NAME' ); ?>:
-				</label>
-			</td>
-			<td>
-				<input type="text" name="xiusListName" value ="<?php echo XiusText::_($this->list->name); ?>" />
-			</td>
-		</tr>
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'NAME' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><input type="text" name="xiusListName" value ="<?php echo XiusText::_($this->list->name); ?>" /></div>
+			</div>
 		
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'OWNER_ID' ); ?>:
-				</label>
-			</td>
-			<td>
-				<?php echo $this->list->owner; ?>
-			</td>
-		</tr>
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'OWNER_ID' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><?php echo $this->list->owner; ?></div>
+			</div>
 		
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'OWNER_NAME' ); ?>:
-				</label>
-			</td>
-			<td>
-				<?php echo $this->user->name; ?>
-			</td>
-		</tr>
-		
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'OWNER_TYPE' ); ?>:
-				</label>
-			</td>
-			<td>
-				<?php echo $this->user->usertype; ?>
-			</td>
-		</tr>
-		<!--
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'VISIBLE_INFO' ); ?>:
-				</label>
-			</td>
-			<td>
-				<input type="text" name="xiusListVisibleInfo" value ="<?php echo $this->list->visibleinfo; ?>" />
-			</td>
-		</tr>
-		-->
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'INFORMATION_FOR_SORTING' ); ?>:
-				</label>
-			</td>
-			<td>
-			<?php 
-				if(!empty($this->sortableFields))	:
-					$html = '<select id="xiussort" name="xiusListSortInfo">';
-					foreach($this->sortableFields as $sfields)	:
-						$selected = '';
-						if($this->list->sortinfo === $sfields['key']):
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'OWNER_NAME' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><?php echo $this->user->name; ?></div>
+			</div>
+			
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'OWNER_TYPE' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><?php echo $this->user->usertype; ?></div>
+			</div>
+			
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'VISIBLE_INFO' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><input type="text" name="xiusListVisibleInfo" value ="<?php echo $this->list->visibleinfo; ?>" /></div>
+			</div>
+			
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'INFORMATION_FOR_SORTING' ); ?>:
+						</label>
+					</div>	
+					<div class="paramValue"><?php 
+							if(!empty($this->sortableFields))	:
+							$html = '<select id="xiussort" name="xiusListSortInfo">';
+							foreach($this->sortableFields as $sfields)	:
+							$selected = '';
+							if($this->list->sortinfo === $sfields['key']):
 							$selected = ' selected=true ';
 						endif;
 
-						$html .= '<option value='.$sfields['key'].$selected.'>'.$sfields['value'];
-						$html .= '</option>';
+							$html .= '<option value='.$sfields['key'].$selected.'>'.$sfields['value'];
+							$html .= '</option>';
 					endforeach;
-					$html .= '</select>';
+							$html .= '</select>';
 					echo $html;
-				else : 
-					XiusText::_('NO_INFORMATION_AVAILABLE_FOR_SORTING');
-				endif;
-			?>				
-			</td>
-		</tr>
+					else : 
+						XiusText::_('NO_INFORMATION_AVAILABLE_FOR_SORTING');
+					endif;?></div>				
+			</div>
 		
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>:
-				</label>
-			</td>
-			<td>
-			<?php
-				if($this->list->sortdir) : 
-					$ascselected = '';
-					$descselected = '';
-					if($this->list->sortdir === 'ASC')	:
-						$ascselected = ' selected=true ';
-					elseif($this->list->sortdir === 'DESC')	:
-						$descselected = ' selected=true ';
-					endif;
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue">
+						<?php
+							if($this->list->sortdir) : 
+							$ascselected = '';
+							$descselected = '';
+							if($this->list->sortdir === 'ASC')	:
+							$ascselected = ' selected=true ';
+							elseif($this->list->sortdir === 'DESC')	:
+							$descselected = ' selected=true ';
+							endif;
+							
+							$dirhtml = '<select id="xiussortdir" name="xiusListSortDir" >';
+							$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
+							$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
+							$dirhtml .= '</select>';
 
-					$dirhtml = '<select id="xiussortdir" name="xiusListSortDir" >';
-					$dirhtml .= '<option value="ASC" '.$ascselected.'>ASC</option>';
-					$dirhtml .= '<option value="DESC" '.$descselected.'>DESC</option>';
-					$dirhtml .= '</select>';
-
-					echo $dirhtml; 
-				else :
-					XiusText::_('SORTING_DIRECTION_IS_NOT_AVAILABLE');
-				endif;
-			?>			
-			</td>
-		</tr>
+							echo $dirhtml; 
+						else :
+							XiusText::_('SORTING_DIRECTION_IS_NOT_AVAILABLE');
+						endif;?></div>
+				</div>
+			
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'JOIN_WITH' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue"><?php 
+							$orSelected = '';
+							$andSelected = '';
+							if($this->list->join == 'AND'):
+								$andSelected = ' selected=true ';
+							elseif($this->list->join == 'OR') :
+								$orSelected = ' selected=true ';
+							endif;
+							?>
+					</div>
+					<div class="paramValue"><select id="xiusjoin" name="xiusListJoinWith" >
+											<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH_ALL'); ?></option>
+											<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH_ANY'); ?></option>
+											</select>
+					</div>
+			</div>
 		
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'JOIN_WITH' ); ?>:
-				</label>
-			</td>
-			<td>
-				<?php 
-					$orSelected = '';
-					$andSelected = '';
-					if($this->list->join == 'AND'):
-						$andSelected = ' selected=true ';
-					elseif($this->list->join == 'OR') :
-						$orSelected = ' selected=true ';
-					endif;
-				?>
-				<select id="xiusjoin" name="xiusListJoinWith" >
-				<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH_ALL'); ?></option>
-				<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH_ANY'); ?></option>
-				</select>
-			</td>
-		</tr>
+			<div class="elementParams">
+					<div class="paramTitle">
+						<label for="name">
+							<?php echo XiusText::_( 'CONDITION' ); ?>:
+						</label>
+					</div>
+					
+					<div class="paramValue"><?php 
+											if($this->conditionHtml)
+											foreach($this->conditionHtml as $condition)							
+											echo $condition['label'].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';						
+										?></div>
+		</div>			
 		
-		<tr>
-			<td width="100" class="key">
-				<label for="name">
-					<?php echo XiusText::_( 'CONDITION' ); ?>:
-				</label>
-			</td>
-			<td>
-				<?php 
-				if($this->conditionHtml)
-					foreach($this->conditionHtml as $condition)							
-						echo $condition['label'].'  '.$condition['operator'].'   '.$condition['value'].'<br/>';						
-				?>
-			</td>
-		</tr>
-		
-		<tr>
-			<td valign="top" class="key">
-				<?php echo XiusText::_( 'PUBLISHED' ); ?>:
-			</td>
-			<td>
-				<?php echo JHTML::_('select.booleanlist',  'published', 'class="inputbox"', $this->list->published ); ?>
-			</td>
-		</tr>
-		</table>
+			<div class="elementParams">
+					<div class="paramTitle">
+						<?php echo XiusText::_( 'PUBLISHED' ); ?>:
+					</div>
+					<div class="paramValue"><?php echo JHTML::_('select.booleanlist',  'published', 'class="inputbox"', $this->list->published ); ?></div>
+			</div>
 	</fieldset>
 	<br />
 	<br />
@@ -233,3 +213,5 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	<input type="hidden" name="task" value="" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
+</div>

@@ -21,7 +21,7 @@
 		<folder>css</folder>
 		<folder>tmpl</folder>
 	</files>
-	<params>
+	<params addpath="/components/com_xius/elements">
 		<param name="moduleclass_sfx" type="text" default="" label="COM_XIUS_MODULE_CLASS_SUFFIX" description="COM_XIUS_PARAMXIUSMODULECLASSSUFFIX" />
 		<param name="xius_proximity" type="xiradio" default="information" label="COM_XIUS_PROXIMITY_LABEL" description="COM_XIUS_PROXIMITY_DESC">
 		<option value="information">Information</option>

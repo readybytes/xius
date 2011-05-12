@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	 <params>	
+	 <params addpath="/components/com_xius/elements">	
 		<param name="js_privacy" type="xiradio" default="public" label="JOM SOCIAL PRIVACY" description=" ">
 			<option value="public">Public</option>
 			<option value="member">Member</option>

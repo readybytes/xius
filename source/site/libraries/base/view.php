@@ -261,8 +261,7 @@ class XiusView extends JView
 
 		$assetsPath = XiusHelperUtils::XIUS_str_ireplace(JPATH_ROOT,'',$assetsPath);				
 		$assetsPath = XiusHelperUtils::getUrlpathFromFilePath($assetsPath);
-		$assetsPath = JURI::base().$assetsPath;
-		
+		$assetsPath = ltrim($assetsPath, '/');
 		$document 	= JFactory::getDocument();
 		switch($type){
 			case 'css':	$document->addStyleSheet($assetsPath);
