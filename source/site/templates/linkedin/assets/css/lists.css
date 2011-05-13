@@ -124,11 +124,13 @@ div.xiusSaveInfo:hover{
 	margin-right:10px;
 	/*margin-bottom:5px;*/
 	font-weight:bold;
+	margin-top:5px;
 }
 
 #xiusSave .xiusSavehtml{
 	float:left;
 	width:50%;
+	margin-top:5px;
 }
                
 #xiusSave #xiussubmit{
@@ -161,4 +163,39 @@ div#xiusSubmit input{
 	margin-bottom: 5px;
 	cursor: pointer;
 	font-size:12px;
+}
+
+/******************************************************************************************************************************************************/
+#xiusSave .paramValue{
+float:left;
+}
+
+#xiusSave .paramValue input{
+float:left;
+margin-top: 3px;
+
+
+}
+
+#xiusSave .paramValue select{
+float:left;
+margin-top: 2px;
+}
+
+#xiusSave .paramValue label{
+clear:none;
+float:left;
+margin-top:1px;
+min-width:55px;
+text-align:left;
+}
+
+#xiusSave .hasTip{
+
+	float:left;
+	width:215px;
+	text-align:left;
+	margin-right:10px;
+	/*margin-bottom:5px;*/
+	font-weight:bold;
 }

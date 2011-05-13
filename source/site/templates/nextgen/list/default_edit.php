@@ -34,7 +34,7 @@ if(!empty($this->msg))
 			<label><?php echo XiusText::_('PUBLISHED'); ?></label>
 			</div>
 			<div class="xiusSavehtml">			
-			<input type="radio" name="xiusListPublish" value="0"><?php echo XiusText::_('NO');?>:
+			<input type="radio" name="xiusListPublish" value="0"><?php echo XiusText::_('NO');?>
 			<input type="radio" name="xiusListPublish" value="1" checked="checked"><?php echo XiusText::_('YES');?>
 			</div>
 		</div>

@@ -67,18 +67,20 @@ div#xiusLists td {
 	margin-right:10px;
 	/*margin-bottom:5px;*/
 	font-weight:bold;
+	margin-top:5px;
 }
 
 #xiusSave .xiusSavehtml{
 	float:left;
 	width:50%;
 	margin-bottom:5px;
+	margin-top:5px;
 }
                
 #xiusSave #xiussubmit{
 	float:left;
 	width:100%;
-	margin-left:30%;
+	margin-left:31%;
 }
 
 #xiusNewName{
@@ -92,3 +94,42 @@ body #xiusSave table.paramlist td.paramlist_key {
  width:30%;
  text-align: right;
  font-weight: bold;
+}
+
+/******************************************************************************************************************************************************/
+#xiusSave .paramValue{
+float:left;
+margin-left:1%;
+padding:1px 1px 10px 3px;
+
+}
+
+#xiusSave .paramValue input{
+float:left;
+margin-top: 2px;
+
+
+}
+
+#xiusSave .paramValue select{
+float:left;
+margin-top: 2px;
+}
+
+#xiusSave .paramValue label{
+clear:none;
+float:left;
+margin-top:2px;
+min-width:55px;
+text-align:left;
+}
+
+#xiusSave .hasTip{
+
+display:block;
+float:left;
+cursor:default;
+font-weight:bold;
+text-align:right;
+width:215px
+}
