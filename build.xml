@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project name="xius27" default="build" basedir="."> 
-	<target name="build" depends="checkout,build-package,php-codesniffer,setup-package,phpunit,phpunitfinal" />
+	<target name="build" depends="checkout,build-package,php-codesniffer,setup-package,phpunit,phpunitfinal,delete" />
 
 	<target name="checkout">  
 		<exec executable="svn" dir="${basedir}">  
@@ -14,15 +14,33 @@
 		</exec>  
 	</target>
 -->  
+		<condition property="extension" value=".bat">
+			<os family="windows" />
+		</condition>
+		
+		<condition property="extension" value="">
+			<os family="unix" />
+		</condition>
+		<echo message="phing extension set to ${extension}" />
+
+		<condition property="source" value="C:\xampp\htdocs\">
+			<os family="windows" />
+		</condition>
+		
+		<condition property="source" value="/var/www/">
+			<os family="unix" />
+		</condition>
+		<echo message="source set to ${source}" />
+		
 
 	<target name="build-package">
-		<exec executable="phing" dir="${basedir}/scripts">
+		<exec executable="phing${extension}" dir="${basedir}/scripts">
 			<arg line="-quiet" />
 		</exec>	
 	</target>
 
 	<target name="php-codesniffer">  
-		<exec executable="phpcs" dir="${basedir}/source">  
+		<exec executable="phpcs${extension}" dir="${basedir}/source">  
 			<arg line=" --report=checkstyle --standard=Joomlaxi --extensions=php --report-file=${basedir}/build/logs/checkstyle.xml ."/>  
 		</exec>  
 	</target> 
@@ -31,14 +49,14 @@
 		<tstamp>
    		 	<format property="tstamped-file-name" pattern="dd_MMM_hh_mm" locale="en,UK"/>
   		</tstamp> 
-		<exec executable="phing" dir="${basedir}/scripts">
+		<exec executable="phing${extension}" dir="${basedir}/scripts">
 			<arg line=" -quiet -f setup.xml -Djoomla.now=${tstamped-file-name} -Dpkg.version=${build_pkg_version}"/> 
 		</exec>
 	</target>
 
  
 	<target name="phpunit"> 
-		<exec executable="phpunit" dir="/var/www/xius${tstamped-file-name}/test" failonerror="off"> 
+		<exec executable="phpunit${extension}" dir="${source}xius${tstamped-file-name}/test" failonerror="off"> 
 			<arg line=" --configuration install/phpunit.xml
 				 --log-xml ${basedir}/build/logs/phpunit.xml
  			 	install/installTest.php" />
@@ -47,7 +65,7 @@
 	</target> 
 
 	<target name="phpunitfinal"> 
-		<exec executable="phpunit" dir="/var/www/xius${tstamped-file-name}/test" failonerror="off"> 
+		<exec executable="phpunit${extension}" dir="${source}xius${tstamped-file-name}/test" failonerror="off"> 
 			<arg line=" --configuration nightly.xml
 				--log-xml ${basedir}/build/logs/phpunit.xml
  			 	--log-pmd ${basedir}/build/logs/phpunit.pmd.xml
@@ -58,8 +76,8 @@
 	</target> 
 
 	<target name="delete">
-		<exec executable="phing" dir="/var/www/xius${tstamped-file-name}">
-			<arg line="-f delete.xml" />
+		<exec executable="phing${extension}" dir="${source}">
+			<arg line="-f xius${tstamped-file-name}/delete.xml" />
 		</exec>
 	</target>
 </project>
