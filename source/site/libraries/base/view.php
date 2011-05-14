@@ -173,7 +173,7 @@ class XiusView extends JView
 		 */
 		if(XiusHelperList::isAccessibleToUser($user,$listCreator)){  			
   			$url 		= XiusRoute::_('index.php?option='.$option.'&view=list&task=saveas&usexius=1&tmpl=component&listid='.$listid,false);
- 			$buttonMap 	= XiusFactory::getModalButtonObject('savelist','@',$url,XIUSLIST_IFRAME_WIDTH,XIUSLIST_IFRAME_HEIGHT);
+ 			$buttonMap 	= XiusFactory::getModalButtonObject('savelist','SAVE_LIST',$url,XIUSLIST_IFRAME_WIDTH,XIUSLIST_IFRAME_HEIGHT);
   			$this->assign('buttonMap',$buttonMap); 			
  			
   			$html	= $this->loadTemplate('toolbar_savelist'); 		
@@ -262,6 +262,7 @@ class XiusView extends JView
 		$assetsPath = XiusHelperUtils::XIUS_str_ireplace(JPATH_ROOT,'',$assetsPath);				
 		$assetsPath = XiusHelperUtils::getUrlpathFromFilePath($assetsPath);
 		$assetsPath = ltrim($assetsPath, '/');
+		
 		$document 	= JFactory::getDocument();
 		switch($type){
 			case 'css':	$document->addStyleSheet($assetsPath);
