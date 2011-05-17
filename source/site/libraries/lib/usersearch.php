@@ -220,7 +220,7 @@ class XiusLibUsersearch
 				continue;
 			}
 			// Eg :: Post "birtdate" field
-			if(is_array($post[$keyNames[$i]]) && array_sum($post[$keyNames[$i]]) == 0){
+			if(is_array($post[$keyNames[$i]]) && in_array("", $post[$keyNames[$i]])){
 				continue;
 			}
 			

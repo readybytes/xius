@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `au_#__xius_proximity_geocode` (
 
 INSERT INTO `au_#__xius_proximity_geocode` (`id`, `address`, `latitude`, `longitude`, `valid`) VALUES
 (1, 'Bhilwara,Rajasthan,India', 25.346251, 74.636383, 1),
-(2, 'Ajmer,Rajasthan,India', 26.443300, 74.642693, 1),
+(2, 'Ajmer,Rajasthan,India', 26.450001, 74.639999, 1),
 (3, 'Surat,Gujrat,India', 21.195000, 72.819443, 1),
 (4, 'Ludhiana,Punjab,India', 30.906090, 75.846786, 1),
 (5, 'Chandigarh,Punjab,India', 30.731344, 76.775383, 1),

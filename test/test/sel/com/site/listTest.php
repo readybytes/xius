@@ -37,8 +37,8 @@ class XiusListTest extends XiSelTestCase
    	   	$this->click("//img[@class='xius_test_addinfo_1']");
     	$this->waitPageLoad();
     	
-    	$this->assertTrue($this->isElementPresent("//img[@title='Save This List']"));
-		$this->click("//img[@title='Save This List']");
+    	$this->assertTrue($this->isElementPresent("//img[@title='Save List']"));
+		$this->click("//img[@title='Save List']");
 		sleep(4);
 		$this->click("xiusListSaveAs");
 		$this->waitPageLoad();
@@ -71,7 +71,7 @@ class XiusListTest extends XiSelTestCase
 		$this->frontLogin();
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_community&view=list&task=showList&usexius=1&listid=3');
     	$this->waitPageLoad();
-    	$this->click("//img[@title='Save This List']");
+    	$this->click("//img[@title='Save List']");
     	
     	$this->waitForElement('sbox-window');
     	sleep(4);
@@ -160,7 +160,7 @@ class XiusListTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=list&task=showList&listid=6');
     	$this->waitPageLoad();
 		$this->assertTrue($this->isTextPresent("user list"));
-		$this->assertTrue($this->isElementPresent("//img[@title='Save This List']"));
+		$this->assertTrue($this->isElementPresent("//img[@title='Save List']"));
 		$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));		
 		$this->frontLogout();
 		
@@ -175,7 +175,7 @@ class XiusListTest extends XiSelTestCase
     	$this->type("Joomla_5", "name");
     	$this->click("xiussearch");
 		$this->waitPageLoad();
-		$this->click("//img[@title='Save This List']");
+		$this->click("//img[@title='Save List']");
     	$this->waitForElement('sbox-window');
     	sleep(4);
     	$this->click("xiusListSaveAs");
@@ -200,7 +200,7 @@ class XiusListTest extends XiSelTestCase
     	$this->assertTrue($this->isTextPresent("user list"));
     	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_name']"));
     	$this->assertTrue($this->isElementPresent("//span[@id='total_58']"));
-    	$this->assertFalse($this->isElementPresent("//img[@title='Save This List']"));
+    	$this->assertFalse($this->isElementPresent("//img[@title='Save List']"));
     	$this->frontLogout();
 	}
 	
