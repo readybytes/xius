@@ -6,6 +6,8 @@
 // Check to ensure this file is within the rest of the framework
 if(!defined('_JEXEC')) die('Restricted access');
 
+require_once  JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'includes.php';
+
 function com_uninstall()
 {
 	// disable plugins
@@ -18,9 +20,17 @@ function com_uninstall()
 function disable_plugin($pluginname)
 {
 	$db			=& JFactory::getDBO();		
-	$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
-			. ' SET '.$db->nameQuote('published').'='.$db->Quote('0')
-          	.' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
+
+	if (XIUS_JOOMLA_16){
+			$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
+					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote('0')
+			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
+	}
+	if (XIUS_JOOMLA_15){
+			$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
+					. ' SET '.$db->nameQuote('published').'='.$db->Quote('0')
+			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname);
+	}	
 
 	$db->setQuery($query);		
 	if(!$db->query())
@@ -32,9 +42,16 @@ function disable_plugin($pluginname)
 function changeModuleState($moduleName,$state)
 {
 	$db			=& JFactory::getDBO();
-	$query	= 'UPDATE ' . $db->nameQuote( '#__modules' )
-			. ' SET '.$db->nameQuote('published').'='.$db->Quote($state)
-          	.' WHERE '.$db->nameQuote('module').'='.$db->Quote($moduleName);
+	if (XIUS_JOOMLA_15){
+		$query	= 'UPDATE ' . $db->nameQuote( '#__modules' )
+				. ' SET '.$db->nameQuote('published').'='.$db->Quote($state)
+          		.' WHERE '.$db->nameQuote('module').'='.$db->Quote($moduleName);
+	}
+	if (XIUS_JOOMLA_16){
+		$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
+					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote($state)
+			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($moduleName) . "  AND `type`='module' ";
+	}
 
 	$db->setQuery($query);		
 	

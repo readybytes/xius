@@ -92,11 +92,22 @@ class InstallTest extends XiSelTestCase
     $this->waitPageLoad();
 
     $this->type("install_url", XIUS_PKG);
-    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
-    $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Install Component Success"));
+  	
+    if(TEST_XIUS_JOOMLA_16){ 
+   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+   	}
+   	if(TEST_XIUS_JOOMLA_15){
+   	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+   	}
 
-    //$this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
+    $this->waitPageLoad();
+    
+    if(TEST_XIUS_JOOMLA_16)
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+    if(TEST_XIUS_JOOMLA_15)
+		$this->assertTrue($this->isTextPresent("Install Component Success"));
+
+    $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
 
     $this->verifyInstallation();
   }
@@ -111,27 +122,50 @@ class InstallTest extends XiSelTestCase
     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
     $this->waitPageLoad();
 
-     $this->click("//a[@onclick=\"javascript:document.adminForm.type.value='components';submitbutton('manage');\"]");
-     $this->waitPageLoad();
+    if(TEST_XIUS_JOOMLA_15){
+	    	$this->click("//a[@onclick=\"javascript:document.adminForm.type.value='components';submitbutton('manage');\"]");
+			$this->waitPageLoad("30000");
+     		$order = $this->getUninstallOrder('com_xius');
+    		$this->click("cb$order");
+    		$this->click("link=Uninstall");
+     		$this->waitPageLoad();
+     		$this->assertTrue($this->isTextPresent("Uninstall Component Success"));
+	}
+	if (TEST_XIUS_JOOMLA_16){
+	    	$this->click("link=Manage");
+    		$this->waitPageLoad();
+    		$this->type("filters_search", "xius");
+    		$this->click("//button[@type='submit']");
+    		$this->waitPageLoad();
+    		$this->click("cb0");
+    		$this->click("link=Uninstall");
+    		$this->waitPageLoad();
+    		$this->assertTrue($this->isTextPresent("Uninstalling component was successful."));	
+	}
 
-     //now find the component order in uninstall list
-     $order = $this->getUninstallOrder('com_xius');
-     $this->click("cb$order");
-     $this->click("link=Uninstall");
-     $this->waitPageLoad();
-     $this->assertTrue($this->isTextPresent("Uninstall Component Success"));
-     $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
-     $this->verifyUninstall();
+    $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
+    $this->verifyUninstall();
 
      // now reinstallation
-     $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
-     $this->waitPageLoad();
-
-    $this->type("install_url", XIUS_PKG);
-    $this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+    $this->open(JOOMLA_LOCATION."/administrator/index.php?option=com_installer");
     $this->waitPageLoad();
-    $this->assertTrue($this->isTextPresent("Install Component Success"));
-    //$this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
+    $this->type("install_url", XIUS_PKG);
+   
+   if(TEST_XIUS_JOOMLA_16){ 
+  		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+	}
+  	if(TEST_XIUS_JOOMLA_15){
+  	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+  	}
+
+    $this->waitPageLoad();
+    
+    if(TEST_XIUS_JOOMLA_16)
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+    if(TEST_XIUS_JOOMLA_15)
+		$this->assertTrue($this->isTextPresent("Install Component Success"));
+
+    $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
 
     $this->verifyInstallation();
   }

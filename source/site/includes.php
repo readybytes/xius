@@ -19,6 +19,13 @@ jimport('joomla.filesystem.files' );
 jimport('joomla.filesystem.folders' );
 jimport('joomla.application.component.controller' );
 jimport('joomla.application.component.model');
+//import Classes for making joomla 1.6 compatible
+jimport('joomla.html.parameter');
+jimport('joomla.user.helper');
+jimport('joomla.plugin.helper');
+
+class_exists('JController',true);
+class_exists('JModel',true);
 
 //Import All XiuS plugins
 JPluginHelper::importPlugin('xius');
