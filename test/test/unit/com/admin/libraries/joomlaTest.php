@@ -31,7 +31,7 @@ class XiusJoomlaTest extends XiUnitTestCase
 			$requiredInfo['email'] 			= 'email';
 			$requiredInfo['usertype'] 		= 'usertype';
 			$requiredInfo['block'] 			= 'block';
-			$requiredInfo['gid'] 			= 'gid';
+			(XIUS_JOOMLA_15)? $requiredInfo['gid']= 'gid':'';
 			$requiredInfo['registerDate'] 	= 'registerDate';
 			$requiredInfo['lastvisitDate'] 	= 'lastvisitDate';
 		    
@@ -55,9 +55,14 @@ class XiusJoomlaTest extends XiUnitTestCase
 		$instance->load(4);
 		$searchHtml4 =  $viewClass->searchHtml($instance);
 		
-		$result4 = '<inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
-				.'/><imgclass="calendar"src="/usr/bin/templates/system/images'
-				.'/calendar.png"alt="calendar"id="JoomlaregisterDate_img"/>';
+		$result4 = (XIUS_JOOMLA_15)
+					?'<inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
+					.'/><imgclass="calendar"src="/usr/bin/templates/system/images'
+					.'/calendar.png"alt="calendar"id="JoomlaregisterDate_img"/>'
+					:
+					'<inputtype="text"title=""name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
+					.'/><imgsrc="/usr/bin/templates/beez_20/images/system'
+					.'/calendar.png"alt="JLIB_HTML_CALENDAR"class="calendar"id="JoomlaregisterDate_img"/>';
 
 		$this->assertEquals($this->cleanWhiteSpaces($result4),$this->cleanWhiteSpaces($searchHtml4));
 	}

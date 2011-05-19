@@ -183,11 +183,18 @@ class XiusPluginBaseTest extends XiUnitTestCase
 				 <inputtitle="City/Town::City/Town"type="text"value=""id="field11"name="field11"maxlength="100"size="40"class="jomTipstipRightinputboxrequiredjomTipstipRight"/>
 				 <spanid="errfield11msg"style="display:none;">&nbsp;</span><inputtype="hidden"name="xiusinfo_22"id="xiusinfo_22"value="2"/>';
 				
-		$html4 = '<inputtype="hidden"name="xiusinfo_41"id="xiusinfo_41"value="4"'
-			.'/><inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
-			.'/><imgclass="calendar"src="/usr/bin/templates/system/images'
-			.'/calendar.png"alt="calendar"id="JoomlaregisterDate_img"'
-			.'/><inputtype="hidden"name="xiusinfo_42"id="xiusinfo_42"value="4"/>';
+		$html4 = (XIUS_JOOMLA_15)
+				?'<inputtype="hidden"name="xiusinfo_41"id="xiusinfo_41"value="4"'
+				.'/><inputtype="text"name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
+				.'/><imgclass="calendar"src="/usr/bin/templates/system/images'
+				.'/calendar.png"alt="calendar"id="JoomlaregisterDate_img"'
+				.'/><inputtype="hidden"name="xiusinfo_42"id="xiusinfo_42"value="4"/>'
+				:
+				'<inputtype="hidden"name="xiusinfo_41"id="xiusinfo_41"value="4"'
+				.'/><inputtype="text"title=""name="JoomlaregisterDate"id="JoomlaregisterDate"value=""class="inputbox"maxlength="19"'
+				.'/><imgsrc="/usr/bin/templates/beez_20/images/system'
+				.'/calendar.png"alt="JLIB_HTML_CALENDAR"class="calendar"id="JoomlaregisterDate_img"'
+				.'/><inputtype="hidden"name="xiusinfo_42"id="xiusinfo_42"value="4"/>';
 		
 		$html5 = '<input type = "hidden" name="xiusinfo_51" id="xiusinfo_51" value="5"/>'
 				.'<input class="inputbox" type="text" name="Joomla_5" id="Joomla_5" value=""/>'
@@ -206,10 +213,16 @@ class XiusPluginBaseTest extends XiUnitTestCase
 				 <inputtype="checkbox"name="field17[]"value="Checkbox"class="checkboxjomTipstipRight"style="margin:05px5px0;"/>Checkbox</label>
 				 <spanid="errfield17msg"style="display:none;">&nbsp;</span></div><inputtype="hidden"name="xiusinfo_72"id="xiusinfo_72"value="7"/>';
 		
-		$html8 = '<input type = "hidden" name="xiusinfo_81" id="xiusinfo_81" value="8"/>'
+		$html8 = (XIUS_JOOMLA_15)
+				?'<input type = "hidden" name="xiusinfo_81" id="xiusinfo_81" value="8"/>'
 				.'<inputtype="text"name="field3"id="field3"value=""class="inputbox"maxlength="19"/>'
 				.'<imgclass="calendar"src="/usr/bin/templates/system/images/calendar.png"alt="calendar"id="field3_img"/>'
-				.'<input type = "hidden" name="xiusinfo_82" id="xiusinfo_82" value="8"/>';
+				.'<input type = "hidden" name="xiusinfo_82" id="xiusinfo_82" value="8"/>'
+				:
+				'<inputtype="hidden"name="xiusinfo_81"id="xiusinfo_81"value="8"/>'
+				.'<inputtype="text"title=""name="field3"id="field3"value=""class="inputbox"maxlength="19"/>'
+				.'<imgsrc="/usr/bin/templates/beez_20/images/system/calendar.png"alt="JLIB_HTML_CALENDAR"class="calendar"id="field3_img"/>'
+				.'<inputtype="hidden"name="xiusinfo_82"id="xiusinfo_82"value="8"/>';
 				
 		return array(
 			array(1,$html1),
