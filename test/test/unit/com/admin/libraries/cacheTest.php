@@ -40,7 +40,12 @@ class XiusCacheTest extends XiUnitTestCase
 	{
 		$sqlPath = $this->getSqlPath().DS."insert.sql";
 		$this->_DBO->loadSql($sqlPath);
+		if(XIUS_JOOMLA_15)
+			$sqlPath = $this->getSqlPath().DS.'15'.DS."insert.sql";
+		if(XIUS_JOOMLA_16)
+			$sqlPath = $this->getSqlPath().DS.'16'.DS."insert.sql";
 		
+		$this->_DBO->loadSql($sqlPath);
 		$cache = new XiusCache();
 		
 		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();

@@ -15,8 +15,19 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		
 		$url = JPATH_ROOT.DS.'test'.DS.'test'.DS.'_data'.DS.'insert.sql';
 		$this->_DBO->loadSql($url);
+		if(TEST_XIUS_JOOMLA_15)
+			$url = JPATH_ROOT.DS.'test'.DS.'test'.DS.'_data'.DS.'15'.DS.'insert.sql';
+		if (TEST_XIUS_JOOMLA_16)
+			$url = JPATH_ROOT.DS.'test'.DS.'test'.DS.'_data'.DS.'16'.DS.'insert.sql';
+		$this->_DBO->loadSql($url);
 		
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		$this->_DBO->loadSql($sqlPath);
+		if (TEST_XIUS_JOOMLA_15)
+			$sqlPath = $this->getSqlPath().DS.'15'.DS.__FUNCTION__.".start.sql";
+		if (TEST_XIUS_JOOMLA_16)
+			$sqlPath = $this->getSqlPath().DS.'16'.DS.__FUNCTION__.".start.sql";
+
 		$this->_DBO->loadSql($sqlPath);
 		
 		XiusLibCron::updateCache();

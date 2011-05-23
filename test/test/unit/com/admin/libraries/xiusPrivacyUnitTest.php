@@ -13,6 +13,11 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
 	function testCoreAccessibility($type,$accessibleGroup)
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.'/testCoreAccessibility.sql');
+		if (TEST_XIUS_JOOMLA_15)
+			$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.DS.'15'.'/testCoreAccessibility.sql');
+		if (TEST_XIUS_JOOMLA_16)
+			$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.DS.'16'.'/testCoreAccessibility.sql');
+		
 		$this->resetCachedData();
 		$filter = array();
 		$filter['published'] = true;

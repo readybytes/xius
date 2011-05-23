@@ -19,11 +19,12 @@ class XiusUtilsTest extends XiUnitTestCase
 	
 	public static function componentNameProvider()
 	{
-		return array(
-			array('com_contact',true,true),
-			array('com_xyz',false,false),
-			array('com_user',false,true)
-		);
+		$com_name=array();
+		$com_name[0]=array('com_contact',true,true);
+		$com_name[1]=array('com_xyz',false,false);
+		$com_name[2]=(TEST_XIUS_JOOMLA_15)?array('com_user',false,true):array('com_users',false,true);
+		
+		return $com_name;
 	}
 	
 

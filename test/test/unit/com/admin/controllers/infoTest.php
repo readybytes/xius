@@ -27,7 +27,10 @@ class XiusControllerInfoTest extends XiUnitTestCase
 
 		$plugin = $db->loadObject();
 
-		JPluginHelper::_import($plugin);
+		if (TEST_XIUS_JOOMLA_16)
+			JPluginHelper::importPlugin('system',$plugin);
+		if(TEST_XIUS_JOOMLA_15)
+			JPluginHelper::_import($plugin);
 		
 		$infoController = new XiusControllerInfo();
 		
