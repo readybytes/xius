@@ -112,7 +112,7 @@ class XiusControllerInfo extends JController
 		
 		jimport('joomla.filesystem.file');
 
-		$infoTable	=& JTable::getInstance( 'info' , 'XiusTable' );
+		$infoTable	= XiusFactory::getInstance( 'info' , 'table');
 		$infoTable->load($post['id']);
 				
 		$data = array();
@@ -335,7 +335,7 @@ class XiusControllerInfo extends JController
 			$id		= (int) $id[0];
 			
 			// Load the JTable Object.
-			$table	=& JTable::getInstance( 'info' , 'XiusTable' );
+			$table	= XiusFactory::getInstance( 'info' , 'Table' );
 		
 			$table->load( $id );
 			if(!$table->move( $direction ))

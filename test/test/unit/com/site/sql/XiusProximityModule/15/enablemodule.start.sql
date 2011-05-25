@@ -49,4 +49,3 @@ INSERT INTO `#__modules` (`id`, `title`, `content`, `ordering`, `position`, `che
 (44, 'XiusListing', '', 14, 'left', 0, '0000-00-00 00:00:00', 0, 'mod_xiuslisting', 0, 0, 1, '', 0, 0, ''),
 (45, 'Xius Proximity Search', '', 15, 'left', 0, '0000-00-00 00:00:00', 1, 'mod_xiusproximity', 0, 0, 1, 'xius_proximity=information\nxius_proximity_params=googlemap\nxius_distance=miles\nxius_color=blue\n', 0, 0, ''),
 (46, 'Xius Search Panel', '', 16, 'left', 0, '0000-00-00 00:00:00', 0, 'mod_xiussearchpanel', 0, 0, 1, 'xius_info_range=All\nxius_layout=horizontal\n', 0, 0, '');;
-

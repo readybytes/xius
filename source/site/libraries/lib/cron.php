@@ -52,7 +52,7 @@ class XiusLibCron
 	 */
 	function saveCacheParams($what,$value)
 	{		
-		$config	=& JTable::getInstance( 'configuration' , 'XiusTable' );
+		$config	= XiusFactory::getInstance( 'configuration' , 'Table' );
 		$config->load( 'cache' );
 		
 		$cModel = XiusFactory::getInstance ('configuration', 'model');

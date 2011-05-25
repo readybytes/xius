@@ -219,7 +219,7 @@ class XiussiteControllerList extends XiusController
 		// XITODO : convert string 'false' into bollean false
 		if($new==='false'){
 			// load table for getting params
-			$list			=& JTable::getInstance( 'list' , 'XiusTable' );
+			$list			= XiusFactory::getInstance( 'list' , 'Table' );
 			$list->load($listId);
 			$config 		= new JRegistry('xiuslist');
 			$config->loadINI($list->params);

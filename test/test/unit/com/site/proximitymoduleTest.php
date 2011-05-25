@@ -13,10 +13,18 @@ class XiusProximityModule extends XiUnitTestCase {
 	function testProximityModule($post, $result, $query , $proximity=null)
 	{
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/'.__CLASS__.DS.__FUNCTION__.'.start.sql');
-		$url= dirname(__FILE__).'/sql/'.__CLASS__.'/enablemodule.start.sql';
-		$this->_DBO->loadSql($url);		
 		$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/insert.sql');
-		
+		if(TEST_XIUS_JOOMLA_15){
+			$url= dirname(__FILE__).'/sql/'.__CLASS__.'/15/enablemodule.start.sql';
+			$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/15/insert.sql');
+		}
+		if (TEST_XIUS_JOOMLA_16){
+			$url= dirname(__FILE__).'/sql/'.__CLASS__.'/16/enablemodule.start.sql';
+			$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/16/insert.sql');
+		}
+		$this->_DBO->loadSql($url);
+				
+			
 		$conditions		= XiusLibUsersearch::processSearchData($post);
 		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		XiusLibUsersearch::setDataInSession(XIUS_JOIN,'AND','XIUS');
@@ -30,7 +38,9 @@ class XiusProximityModule extends XiUnitTestCase {
 		// Change module param
 		if($query){
 			$db = JFactory::getDBO();
-			$db->execute($query);
+			$db->setQuery($query);
+			$db->query();
+			//$db->execute($query);
 		}
 		
 		

@@ -110,7 +110,7 @@ class XiusControllerList extends JController
 		$data = array();
 
 		// load existing data of table of this list
-		$list	=& JTable::getInstance( 'list' , 'XiusTable' );
+		$list	= XiusFactory::getInstance( 'list' , 'Table' );
 		$list->load($post['id']);
 		$config = new JRegistry('xiuslist');
 		$config->loadINI($list->params);
@@ -296,7 +296,7 @@ class XiusControllerList extends JController
 			$id		= (int) $id[0];
 
 			// Load the JTable Object.
-			$table	=& JTable::getInstance( 'list' , 'XiusTable' );
+			$table	=& XiusFactory::getInstance( 'list' , 'Table' );
 
 			$table->load( $id );
 
