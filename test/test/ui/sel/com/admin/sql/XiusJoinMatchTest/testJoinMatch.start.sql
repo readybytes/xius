@@ -20,7 +20,7 @@ INSERT INTO `#__xius_config` (`name`, `params`) VALUES
 
 
 INSERT INTO `au_#__xius_config` (`name`, `params`) VALUES
-('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusCronJob=0\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n');;
+('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusCronJob=0\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n');;
 
 DROP TABLE IF EXISTS `#__xius_cache` ;;
 

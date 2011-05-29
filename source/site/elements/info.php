@@ -22,7 +22,10 @@ class JElementInfo extends JElement
 		if(isset($node->_attributes->addnone)|| isset($node->_attributes['addnone']))
 			$reqnone = true;
 			
-		$infoHtml = $this->getInfoHTML($name,$value,$control_name,$reqnone);
+		if($name == 'xiusSortInfo')
+			$infoHtml = $this->getAllInfoHTML($name,$value,$control_name,$reqnone);
+		else
+			$infoHtml = $this->getInfoHTML($name,$value,$control_name,$reqnone);
 
 		return $infoHtml;
 	}
@@ -56,5 +59,17 @@ class JElementInfo extends JElement
 		$html   .= '<span id="errinfomsg" style="display: none;">&nbsp;</span>';
 		
 		return $html;
+	}
+	
+	function getAllInfoHTML($name,$value,$control_name='xiusparams',$reqnone=false)
+	{
+		//$allInfo = XiusLibInfo::getAllInfo();
+		$allInfo = XiusLibUsersearch::getSortableFields();
+		$startUp = new stdClass();
+		$startUp->key = 0;
+		$startUp->value = "Select Below";
+		array_unshift($allInfo,$startUp);
+		$defaultSelect = XiusHelperUtils::getConfigurationParams('xiusSortInfo',0);
+		return JHTML::_('select.genericlist',  $allInfo,$control_name."[".$name."]", "", 'key', 'value',$defaultSelect);
 	}
 }
