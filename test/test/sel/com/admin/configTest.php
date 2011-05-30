@@ -24,9 +24,13 @@ class XiusConfigAdminSelTest extends XiSelTestCase
     	$this->click("//input[@id='xiusparamsxiusDebugMode1']","checked");
     	$this->click("//input[@id='xiusparamsintegrateJomSocial1']","checked");
     	$this->click("//input[@id='xiusparamsxiusReplaceSearch1']","checked");
-    	 	
+    	if (TEST_XIUS_JOOMLA_16)
+    		        $this->addSelection("//select[@name='xiusparams[xiusListCreator][] multiple=']", "label=Administrator"); 	
     	
-    	$this->click("//td[@id='toolbar-save']/a/span");
+		if (TEST_XIUS_JOOMLA_15)
+    		$this->click("//td[@id='toolbar-save']/a/span");
+    	if (TEST_XIUS_JOOMLA_16)
+    		$this->click("//li[@id='toolbar-save']/a/span");
     	$this->waitPageLoad();
 	}
 

@@ -109,21 +109,27 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 
 	function updateJoomlaConfig($filter)
   {
-        $config =& JFactory::getConfig();
-        foreach($filter as $key=>$value)
-        $config->setValue($key,$value);
-
-               jimport('joomla.filesystem.file');
-               $fname = JPATH_CONFIGURATION.DS.'configuration.php';
-
-               system("sudo chmod 777 $fname");
-
-                 if (!JFile::write($fname,
-                                 $config->toString('PHP', 'config', array('class' => 'JConfig')) )
-                     )
-               {
-                       echo JText::_('ERRORCONFIGFILE');
-               }
+		$config =& JFactory::getConfig();
+  		foreach($filter as $key=>$value)
+  			$config->setValue($key,$value);
+  		
+		jimport('joomla.filesystem.file');
+		$fname = JPATH_CONFIGURATION.DS.'configuration.php';
+		system("sudo chmod 777 $fname");
+			
+		$configString = '';
+		if(TEST_XIUS_JOOMLA_16){
+			$configString = $config->toString('PHP', array('class' => 'JConfig', 'closingtag' => false));
+		}elseif(TEST_XIUS_JOOMLA_15){
+			$configString  = $config->toString('PHP', 'config', array('class' => 'JConfig'));
+		}else {
+			assert(0);
+		}
+		
+  		if(!JFile::write($fname,$configString)) 
+		{
+			echo JText::_('ERRORCONFIGFILE');
+		}
 
  	}
  	

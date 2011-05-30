@@ -10,6 +10,17 @@ INSERT INTO `#__users` (`id`, `name`, `username`, `email`, `password`, `usertype
 (70, 'user80', 'username80', 'username80@gmail.com', '2f1da49660643038b13e140816bd93a4:BILU5GNNRB2HhEQUZsuvadJhSMm60EXC', 'Registered', 0, 0, 18, '2010-09-18 10:38:34', '0000-00-00 00:00:00', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n'),
 (69, 'user70', 'username70', 'username70@gmail.com', '93581e8a48b8b5b1b9b8e9c3ad89eca9:LzdhENAa1Axo5nmoRl7bLOeatoSqUxXR', 'Registered', 0, 0, 18, '2010-09-18 10:29:15', '0000-00-00 00:00:00', '', 'admin_language=\nlanguage=\neditor=\nhelpsite=\ntimezone=0\n\n');;
 
+TRUNCATE TABLE `#__core_acl_groups_aro_map`;;
+INSERT INTO `#__core_acl_groups_aro_map`(`group_id`, `section_value`, `aro_id`) VALUES
+(18, '', 11),
+(18, '', 15),
+(18, '', 17),
+(18, '', 18),
+(21, '', 14),
+(23, '', 13),
+(24, '', 12),
+(24, '', 16),
+(25, '', 10);;
 
 TRUNCATE TABLE `#__core_acl_aro`;;
 INSERT INTO `#__core_acl_aro` (`id`, `section_value`, `value`, `order_value`, `name`, `hidden`) VALUES

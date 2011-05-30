@@ -53,8 +53,10 @@ class JElementXiusJoomlaUserGroup extends JElement
 
 		if (XIUS_JOOMLA_16){
 			$sql = ' SELECT * FROM '.$db->nameQuote('#__usergroups') 
-				.' WHERE '.$db->nameQuote('title').' NOT LIKE "%USERS%"' 
-				.' AND '.$db->nameQuote('title').' NOT LIKE  "%ROOT%"'
+				.' WHERE '
+				//Comment This For Showing Super User
+				/*.$db->nameQuote('title').' NOT LIKE "%USERS%"'.' AND '*/
+				.$db->nameQuote('title').' NOT LIKE  "%ROOT%"'
 				.' AND '.$db->nameQuote('title').' NOT LIKE  "%Public%"' ;
 		}
 		$db->setQuery($sql);

@@ -97,53 +97,50 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
     }
     $this->waitPageLoad();
 
-//	if(TEST_XIPT_JOOMLA_16) 
-//    	$this->assertTrue($this->isTextPresent("Log out"));
-//    else
-//    	$this->assertTrue($this->isTextPresent("Logout"));
+	if(TEST_XIUS_JOOMLA_16) 
+    	$this->assertTrue($this->isTextPresent("Log out"));
+    else
+    	$this->assertTrue($this->isTextPresent("Logout"));
   }
   
   function frontLogin($username=JOOMLA_ADMIN_USERNAME, $password= JOOMLA_ADMIN_PASSWORD)
   {
 	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
-  	$this->waitPageLoad();
-  	
-  	//verify that nobody is logged in 
-  	$this->assertTrue($this->isElementPresent("//input[@id='passwd']"));
-  	
-  	// do login
- 	$this->type("//input[@id='username']", $username);
- 	$this->type("//input[@id='passwd']", $password);
- 	$this->click("//form[@id='com-form-login']//input[@type='submit']");
     $this->waitPageLoad();
-    
-  	//verify again that you are logged in
-  	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
+    if (TEST_XIUS_JOOMLA_15){
+    	$this->type("modlgn_username", $username);
+    	$this->type("modlgn_passwd", $password);
+    	$this->click("//form[@id='form-login']/fieldset/input");
+    }
+    if (TEST_XIUS_JOOMLA_16){
+    	$this->type("modlgn-username", $username);
+    	$this->type("modlgn-passwd", $password);
+    	$this->click("Submit");
+    }
   	$this->waitPageLoad();
-
-  	//verify no login box there
-  	$this->assertFalse($this->isElementPresent("//input[@id='passwd']"));
+    if (TEST_XIUS_JOOMLA_15)
+    	$this->assertEquals("Log out", $this->getValue("//form[@id='form-login']/div[2]/input"));
+    if (TEST_XIUS_JOOMLA_16)
+    	$this->assertEquals("Log out", $this->getValue("//form[@id='login-form']/div[2]/input[1]"));
   }
   
   function frontLogout()
   {
-  	//load logout page
-  	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
-  	$this->waitPageLoad();
-
-  	//verify no login box there
-  	$this->assertFalse($this->isElementPresent("//input[@id='passwd']"));
-  	
-  	// do logout
-  	$this->click("//form[@id='login']//input[@type='submit']");
-  	$this->waitPageLoad();
-  	
-  	//load logout page
-  	$this->open(JOOMLA_LOCATION."/index.php?option=com_user&view=login");
-  	$this->waitPageLoad();
-
-  	//verify no login box there
-  	$this->assertTrue($this->isElementPresent("//input[@id='passwd']"));
+  	$this->open(JOOMLA_LOCATION."/index.php");
+    $this->waitPageLoad();
+    if (TEST_XIUS_JOOMLA_15){
+       	$this->assertEquals("Log out", $this->getValue("//form[@id='form-login']/div[2]/input"));
+       	$this->click("//form[@id='form-login']/div[2]/input");
+    }
+    if (TEST_XIUS_JOOMLA_16){
+    	$this->assertEquals("Log out", $this->getValue("//form[@id='login-form']/div[2]/input"));
+    	 $this->click("//form[@id='login-form']/div[2]/input");
+    }
+    $this->waitForPageToLoad("60000");
+    if (TEST_XIUS_JOOMLA_15)
+    	$this->assertTrue($this->isElementPresent("modlgn_username"));
+    if (TEST_XIUS_JOOMLA_16)
+    	$this->assertTrue($this->isElementPresent("modlgn-username"));
   }
   
   function waitPageLoad($time=TIMEOUT_SEC)
@@ -232,10 +229,17 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		$fname = JPATH_CONFIGURATION.DS.'configuration.php';
 		
 		system("sudo chmod 777 $fname");
+			
+		$configString = '';
+		if(TEST_XIUS_JOOMLA_16){
+			$configString = $config->toString('PHP', array('class' => 'JConfig', 'closingtag' => false));
+		}elseif(TEST_XIUS_JOOMLA_15){
+			$configString  = $config->toString('PHP', 'config', array('class' => 'JConfig'));
+		}else {
+			assert(0);
+		}
 		
-  		if (!JFile::write($fname, 
-  				$config->toString('PHP', 'config', array('class' => 'JConfig')) )
-  		    ) 
+  		if(!JFile::write($fname,$configString)) 
 		{
 			echo JText::_('ERRORCONFIGFILE');
 		}
@@ -244,11 +248,18 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
   
   function changePluginState($pluginname, $action=1)
   {
-  	
-		$db			=& JFactory::getDBO();
-		$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
+  		$db			=& JFactory::getDBO();
+		// when Jommla Version 1.6
+		if(TEST_XIUS_JOOMLA_16){
+			$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
+			. ' SET '.$db->nameQuote('enabled').'='.$db->Quote($action)
+	        .' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
+		}
+		else{
+				$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
 				. ' SET '.$db->nameQuote('published').'='.$db->Quote($action)
-	          	.' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
+	          	.' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);			
+		}
 
 		$db->setQuery($query);		
 		
