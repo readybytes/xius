@@ -164,7 +164,7 @@ class Jsfieldshelper
 	}
 	
 	
-	function changeValueFormat($value, $fType)
+	function changeValueFormat(&$value, $fType)
 	{
 		if($fType == 'birthdate' && !empty($value))
 		{		

@@ -87,7 +87,7 @@ class JsfieldsBase extends XiusBase
 			
 		$fType = Jsfieldshelper::getFieldType($this->key);
 		
-		Jsfieldshelper::changeValueFormat(&$value, $fType);
+		Jsfieldshelper::changeValueFormat($value, $fType);
 		
 		if(!is_array($value)){		
 			foreach($columns as $c){
@@ -252,7 +252,7 @@ class JsfieldsBase extends XiusBase
 		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
 		
 		if(!empty($fieldInfo) && $fieldInfo[0]->type == 'birthdate'){
-			Jsfieldshelper::changeValueFormat(&$value, $fieldInfo[0]->type);
+			Jsfieldshelper::changeValueFormat($value, $fieldInfo[0]->type);
 			return $value;
 		}
 		
