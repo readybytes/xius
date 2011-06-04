@@ -166,7 +166,7 @@ class Jsfieldshelper
 	
 	function changeValueFormat(&$value, $fType)
 	{
-		if($fType == 'birthdate' && !empty($value))
+		if($fType == 'birthdate' && !empty($value) && is_array($value))
 		{		
 			$value[0] = (strlen((string)$value[0])==1) ?"0".$value[0] : $value[0] ;
 			$value[1] = (strlen((string)$value[1])==1) ? "0".$value[1] : $value[1];

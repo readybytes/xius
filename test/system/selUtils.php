@@ -276,24 +276,15 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
    * @param $enabled : Boolean, 
    * @return unknown_type
    */
-  function verifyPluginState($pluginname, $enabled=true)
+  function verifyExtensionState($type, $extensionName, $enabled=true, $pluginType="xius")
   {
-  	
-		$db			=& JFactory::getDBO();
-		if (TEST_XIUS_JOOMLA_15){
-			$query	= 'SELECT '.$db->nameQuote('published')
-				.' FROM ' . $db->nameQuote( '#__plugins' )
-	          	.' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname);
-		}
-  		if(TEST_XIUS_JOOMLA_16){
-		   $query	= 'SELECT '.$db->nameQuote('enabled')
-		   .' FROM ' . $db->nameQuote( '#__extensions' )
-	       .' WHERE '.$db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
-		}
-		
 
-		$db->setQuery($query);		
-		$actualState= (boolean) $db->loadResult();
+		if('plugin' == $type)
+			$actualState = JPluginHelper::isEnabled($pluginType,$extensionName);
+
+		 if('module' == $type)
+	        $actualState = JModuleHelper::isEnabled($extensionName);
+
 		$this->assertEquals($actualState, $enabled);
   }
 
@@ -314,25 +305,6 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		return true;
   }
   
-  
-  /**
-   * Verifies that plugin is in correct state
-   * @param $pluginname : Name of plugin
-   * @param $enabled : Boolean, 
-   * @return unknown_type
-   */
-  function verifyModuleState($modname, $enabled=true)
-  {
-  	
-		$db			=& JFactory::getDBO();
-		$query	= 'SELECT '.$db->nameQuote('published')
-				.' FROM ' . $db->nameQuote( '#__modules' )
-	          	.' WHERE '.$db->nameQuote('module').'='.$db->Quote($modname);
-
-		$db->setQuery($query);		
-		$actualState= (boolean) $db->loadResult();
-		$this->assertEquals($actualState, $enabled);
-  }
   
   function removeCondition($remove, $count=-1)
 	{

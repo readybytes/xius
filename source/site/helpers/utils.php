@@ -143,23 +143,7 @@ class XiusHelperUtils
 	 * Here only use XiPT Plugins Enable or not  
 	 */
 	function isPluginInstalledAndEnabled($pluginname,$type,$checkenable = false)
-	{
-//		$db	= JFactory::getDBO();
-//		
-//		$extraChecks = '';
-//		if($checkenable)
-//			$extraChecks = ' AND '.$db->nameQuote('published').'='.$db->Quote(true);
-//			
-//		$query	= 'SELECT * FROM ' . $db->nameQuote( '#__plugins' )
-//	          		.' WHERE '.$db->nameQuote('folder').'='.$db->Quote($type)
-//	          		.' AND '.$db->nameQuote('element').'='.$db->Quote($pluginname)
-//	          		. $extraChecks;
-//	    
-//
-//		$db->setQuery($query);		
-//		
-//		$plugin	= $db->loadObjectList();
-		
+	{	
 		if(!JPluginHelper::isEnabled($type,$pluginname))
 			return false;
 			

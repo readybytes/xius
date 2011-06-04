@@ -15,6 +15,7 @@ define('JOOMLA_LOCATION',	'http://'.JOOMLA_HOST.'/@joomla.folder@/');
 define('JOOMLA_FTP_LOCATION', 	JPATH_BASE);
 
 $_SERVER['HTTP_HOST'] = JOOMLA_LOCATION;
+$_SERVER['REQUEST_METHOD'] = "POST";
 
 define('TIMEOUT_SEC',300000);
 define('JOOMLA_ADMIN_USERNAME', 'admin');
