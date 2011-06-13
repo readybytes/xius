@@ -96,7 +96,7 @@ class XiusView extends JView
 		$document = JFactory::getDocument();
 		
         if(!empty($list) && !empty($list->name))
-			$document->setTitle(XiusText::_($list->name));
+			$document->setTitle($list->name);
 		else
 			$document->setTitle(XiusText::_('SEARCH_RESULT'));
 

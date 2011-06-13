@@ -60,7 +60,7 @@ class XiusFactory
 		JHTML::_('behavior.modal', "a.{$name}");
         $buttonMap = new JObject();
         $buttonMap->set('modal', true);
-        $buttonMap->set('text', XiusText::_( $text ));
+        $buttonMap->set('text', $text );
         $buttonMap->set('name', 'image');
         $buttonMap->set('modalname', $name);
         $buttonMap->set('options', "{handler: 'iframe', size: {x: ".$width.", y: ".$height."}}");
