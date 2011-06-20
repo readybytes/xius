@@ -13,4 +13,21 @@
 			<param name="listid" type="xiuslist" default="0" label="LIST" description="LIST.DESC" addall="true" />		
 			</url>
 		</state>
+	<!-- for joomla 1.6-->
+
+<!-- Add fields to the parameters object for the layout. -->
+	<fields name="request" >
+<!-- Basic options. -->
+		<fieldset name="request" label="Basic Parameters"
+				  addfieldpath="/components/com_xius/form">
+			<field name="listid" 
+				   type="xiuslist" default="0" 
+				   label="COM_XIUS_LIST" description="COM_XIUS_LIST_DESC" addall="true"/>
+				  
+			<field name="task" 
+				   type="hidden" default="displayList" 
+				   label="LIST" description="LIST_DESC" addall="true"/>
+
+		</fieldset>		
+	</fields>
 </metadata>
