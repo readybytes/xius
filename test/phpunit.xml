@@ -1,5 +1,5 @@
 <phpunit 
-		backupGlobals="false" 
+		backupGlobals=""true" 
 		backupStaticAttributes="false" 
 		colors="true" 
 		syntaxCheck="false"
