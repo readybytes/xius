@@ -40,7 +40,7 @@ class XiusProximityGoogleAPITest extends XiUnitTestCase
 		// get first two invalid address
 		$geocodes = ProximityGoogleapiHelper::getGeocodes($address);
 		$compare = $this->geocodeProvider();
-		$this->assertEquals($compare,$geocodes);
+		$this->assertEquals(array_diff($compare, $geocodes),array());
 	}
 	
 	function testUpdateGeocodesOfInvalidAddress()
