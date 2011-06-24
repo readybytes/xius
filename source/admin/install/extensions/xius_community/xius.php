@@ -53,10 +53,10 @@ class plgCommunityxius extends JPlugin
 
 		$toolbar  = CFactory::getToolbar();
 		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
-							 XiusRoute::_('index.php?option=com_community&view=users&task=search&usexius=1'));
+							 'index.php?option=com_community&view=users&task=search&usexius=1');
 
-		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), XiusRoute::_('index.php?option=com_community&view=users&task=panel&usexius=1'));
-		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), XiusRoute::_('index.php?option=com_community&view=list&task=lists&usexius=1'));
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), 'index.php?option=com_community&view=users&task=panel&usexius=1');
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), 'index.php?option=com_community&view=list&task=lists&usexius=1');
 //		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
 //		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
 		// remove toolbar item(Search and advance search)

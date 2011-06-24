@@ -43,8 +43,8 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
     $filter['debug']=1;
     // $filter['debug_lang']=1;
     $filter['error_reporting']=6143;
-    $filter['sef'] = 1;
-    $filter['sef_suffix'] = 1;
+//    $filter['sef'] = 1;
+//    $filter['sef_suffix'] = 1;
 //    $filter['list_limit'] = 20;
     $this->updateJoomlaConfig($filter);
   }

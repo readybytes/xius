@@ -220,7 +220,8 @@ class XiusLibUsersearch
 				continue;
 			}
 			// Eg :: Post "birtdate" field
-			if(is_array($post[$keyNames[$i]]) && in_array("", $post[$keyNames[$i]])){
+			if(is_array($post[$keyNames[$i]]) && in_array("", $post[$keyNames[$i]])
+				&& !in_array("googlemap", $post[$keyNames[$i]])){
 				continue;
 			}
 			

@@ -108,6 +108,7 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		$params = $config->toArray('xiuslist');
 		
 		foreach($datas as $data){
+			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$data['conditions']);
 			$result = $userController->_saveList('false',$data['info'],$params,JFactory::getUser(62));
 			$this->assertEquals($data['resultId'],$result['id'],'info id during save should be '.$data['resultId'].' but we get '.$result['id']);
 			$this->matchUrls($data['resultUrl'],$result['url']);

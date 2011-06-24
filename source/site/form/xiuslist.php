@@ -15,10 +15,12 @@ class JFormFieldXiuslist extends JFormField
 	Public	$_name = 'Xiuslist';
 
 	function getInput(){
-
+		$all = new stdClass();
+		$all->id = 0;
+		$all->name=XiusText::_('all');
 		$filter['published'] = 1; 
-
 		$ListTypeArray = XiusLibList::getLists($filter, 'AND', false);
+		array_unshift($ListTypeArray,$all);
 		return JHTML::_('select.genericlist',  $ListTypeArray, $this->name, null, 'id', 'name', $this->value);
 	}
 }

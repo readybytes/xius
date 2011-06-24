@@ -47,7 +47,7 @@ class XiusCalendarTest extends XiSelTestCase
  		$this->frontLogin();
  		
  		//open Jom Social events
- 		$this->open(JOOMLA_LOCATION.'index.php/jomsocial/events/create.html');
+ 		$this->open(JOOMLA_LOCATION.'index.php?option=com_community&view=events&task=create');
 		$this->waitPageLoad();
 		
 		//testing it in jom social

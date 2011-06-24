@@ -59,18 +59,18 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 						</label>
 					</div>
 					<div class="paramValue"><?php echo $this->user->usertype; ?></div>
-			</div>
+			</div><!--
 			
 			<div class="elementParams">
 					<div class="paramTitle">
 						<label for="name">
-							<?php echo XiusText::_( 'VISIBLE_INFO' ); ?>:
+							<?php // echo XiusText::_( 'VISIBLE_INFO' ); ?>:
 						</label>
 					</div>
 					<div class="paramValue"><input type="text" name="xiusListVisibleInfo" value ="<?php echo $this->list->visibleinfo; ?>" /></div>
 			</div>
 			
-			<div class="elementParams">
+			--><div class="elementParams">
 					<div class="paramTitle">
 						<label for="name">
 							<?php echo XiusText::_( 'INFORMATION_FOR_SORTING' ); ?>:

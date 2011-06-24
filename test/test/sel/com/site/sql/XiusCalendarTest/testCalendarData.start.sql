@@ -12,7 +12,7 @@ INSERT INTO `#__modules_menu` (`moduleid`, `menuid`) VALUES
 (1, 0),
 (16, 1),
 (17, 0),
-(18, 1),
+(18, 0),
 (19, 1),
 (19, 2),
 (19, 4),
