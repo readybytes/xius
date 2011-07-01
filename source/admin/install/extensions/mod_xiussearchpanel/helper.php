@@ -8,49 +8,44 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class UserSearchHelper
 {				
-	function getSearchHtml($range )
+	function getSearchHtml($range,$count = XIUS_ALL )
 	{
 		$filter = array();
 		$filter['published'] = true;
-		
-		$count = XIUS_ALL ;
-		
+
 		if($count === XIUS_ALL || $count === 0)
 			$allInfo = XiusLibInfo::getInfo($filter,'AND',false);
 		else
 			$allInfo = XiusLibInfo::getInfo($filter,'AND',true,0,$count);
 			
-			$infohtml = array();
-			if(!empty($allInfo)){
-				$counter=1;
-				foreach($allInfo as $info){
-					
-					if (is_array($range))
-						if(!($counter >= $range['start'] 
-								&& $counter <= $range['end'])){
-							$counter++;
-							continue;
-						}
-						
-					$plgInstance = XiusFactory::getPluginInstance('',$info->id);
-
-					if(!$plgInstance)
+		$infohtml = array();
+		
+		if(!empty($allInfo)){
+			$counter=1;
+			foreach($allInfo as $info){		
+				if (is_array($range))
+					if(!($counter >= $range['start'] 
+							&& $counter <= $range['end'])){
+						$counter++;
 						continue;
-
-					if(!$plgInstance->isAllRequirementSatisfy())
-						continue;
-
-					if(!$plgInstance->isSearchable())
-						continue;
-
-					$inputHtml = $plgInstance->renderSearchableHtml();
-						
-					if($inputHtml === false)
-						continue;
-						
-					$counter++;		
-					$infohtml[]		= 	array('infoid' => $info->id , 'info' => $info , 'label' => $info->labelName , 'html' => $inputHtml, 'tooltip' => $plgInstance->getTooltip());
+					}	
+				
+				$plgInstance = XiusFactory::getPluginInstance('',$info->id);
+				if(!$plgInstance)
+					continue;
+				if(!$plgInstance->isAllRequirementSatisfy() 
+				 ||!$plgInstance->isSearchable()){
+					 continue; 
 					}
+
+				$inputHtml = $plgInstance->renderSearchableHtml();
+					
+				if($inputHtml === false)
+					continue;
+
+				$counter++;		
+				$infohtml[]		= 	array('infoid' => $info->id , 'info' => $info , 'label' => $info->labelName , 'html' => $inputHtml, 'tooltip' => $plgInstance->getTooltip());
+				}
 			}
 		return $infohtml;		
 	}

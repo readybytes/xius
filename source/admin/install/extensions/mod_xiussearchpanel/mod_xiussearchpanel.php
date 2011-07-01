@@ -19,11 +19,16 @@ if(XiusHelperUtils::getConfigurationParams('integrateJomSocial',0) == true){
 }
 
 $infoRange = $params->get('xius_info_range','all');
-$range = UserSearchHelper::getInfoRange($infoRange);
-
-			
-$displayHtml= UserSearchHelper::getSearchHtml($range);
-if(empty($displayHtml)){
+$infoRange = explode(",",$infoRange);
+$displayInfo = Array();
+foreach($infoRange as $range){
+	$formateRange   = UserSearchHelper::getInfoRange($range);
+	$searchInfo     = UserSearchHelper::getSearchHtml($formateRange);
+	//Hope this code will not generate any issue. (Like foreach ($infoValue as $value), issue getting by $value when resuse it after foreach. ) 
+	foreach ($searchInfo as $info)
+		array_push($displayInfo, $info);
+}
+if(empty($displayInfo)){
 	echo XiusText::_("SEARCHABLE_INFORMATION_ARE_NOT_AVAILABLE");
 	return ;
 } 

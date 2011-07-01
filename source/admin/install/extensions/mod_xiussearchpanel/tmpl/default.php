@@ -16,23 +16,23 @@ else
 		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo XiusRoute::_($link,false);?>" method=post>
 		<?php 	
 			$count=0;
-			foreach($displayHtml as $data):
+			foreach($displayInfo as $info):
 				$count++;
 			?> 
 				<div class="xiusMod_availablemain">
 				
 				<div class="xiMod_left">
 					<?php
-						//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($data['label']), null, XiusText::_($data['label']));
-						$xiustooltip = $data['tooltip'];
+						//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($info['label']), null, XiusText::_($info['label']));
+						$xiustooltip = $info['tooltip'];
 						if(!empty($xiustooltip)) :
-						echo '<span title="'.$xiustooltip.'">'.$data['label'].'</span>';						
+						echo '<span title="'.$xiustooltip.'">'.$info['label'].'</span>';						
 						else :
-							echo $data['label']; 
+							echo $info['label']; 
 						endif;
 					?>
 				</div>
-				<div class="xiMod_right"><?php echo $data['html'];?></div>
+				<div class="xiMod_right"><?php echo $info['html'];?></div>
 			   	</div>	
 			<?php 
 			endforeach;
