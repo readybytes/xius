@@ -31,7 +31,7 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 							<?php echo XiusText::_( 'NAME' ); ?>:
 						</label>
 					</div>
-					<div class="paramValue"><input type="text" name="xiusListName" value ="<?php echo XiusText::_($this->list->name); ?>" /></div>
+					<div class="paramValue"><input type="text" name="xiusListName" value ="<?php echo $this->list->name; ?>" /></div>
 			</div>
 		
 			<div class="elementParams">
