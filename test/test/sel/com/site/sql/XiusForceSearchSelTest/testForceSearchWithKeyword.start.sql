@@ -17,6 +17,11 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (12, 'Keyword', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', 'keywordsearch', '', 'Keyword', 10, 0),
 (13, 'Keyword', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '12', 'infoid=12\nvalue=s:6:"female";\noperator==\n\n', 'Forcesearch', 11, 1);;
 
+TRUNCATE TABLE `#__xius_config`;;
+
+INSERT INTO `#__xius_config` (`name`, `params`) VALUES
+('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusCronJob=0\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n'),
+('cache', 'cacheStartTime=1274243747\ncacheEndTime=1274243748\n\n');;
 
 DROP TABLE IF EXISTS `#__xius_cache`;;
 

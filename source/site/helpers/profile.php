@@ -24,6 +24,8 @@ class XiusHelperProfile
 
 	function jomSocialProfileData($users, &$userData)
 	{
+		$userId = JFactory::getUser()->id;
+		$friendsIds = CFactory::getModel('friends')->getFriendIds($userId);
 		//XITODO:: Some info nt required when cache speedup
 		foreach($users as $user){
 
@@ -35,7 +37,12 @@ class XiusHelperProfile
 			$data->status 	    = $cuser->getStatus();
 			$data->profileLink  = XiusRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);
 			$data->isOnline    = $cuser->isOnline();
-			$data->friendReq = 'onclick="'. CFriends::getPopup($user->userid).'" href="javascript:void(0);"';
+		    $data->friendReq 	= "";
+
+			if(!in_array($user->userid, $friendsIds) && $user->userid!=$userId)
+			{
+		        $data->friendReq = 'onclick="'. CFriends::getPopup($user->userid).'" href="javascript:void(0);"';
+			}
 
 			$userData[] = $data;
 		}

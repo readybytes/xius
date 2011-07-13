@@ -34,9 +34,11 @@
 					<?php endif; ?>
 
 <!-- Frnd Request-->
+                    <?php if(!empty($user->friendReq)) : ?>
 					<a <?php echo $user->friendReq; ?>>
 					<img src="<?php echo JURI::base().'components/com_xius/assets/images/friends.png';?>" title="<?php echo XiusText::_("ADD_AS_FRND");?>" />
 					</a>
+                     <?php  endif;?>
 
 
 					<?php if($user->isOnline): ?>

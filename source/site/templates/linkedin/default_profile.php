@@ -53,11 +53,13 @@ endif;?>
 						<?php endif; ?>
 <br />
 		<!-- Frnd Request-->
+		<?php if(!empty($user->friendReq)) : ?>
 					<div class="xiusFriends" title="<?php echo XiusText::_("ADD_AS_FRND");?>">
 						<a <?php echo $user->friendReq; ?>>
 							<?php echo XiusText::_('ADD_AS_FRND'); ?>
 						</a>
 					</div>
+		<?php  endif;?>
 
 
 					<?php if(isset($user->email) && !empty($user->email)): 

@@ -21,7 +21,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->_DBO->loadSql($url);
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius&view=users&task=search');
 		$this->waitPageLoad();
-		$this->assertTrue($this->isTextPresent('All Searchable Information Has Been Disabled By Administrator')); 
+		$this->assertTrue($this->isTextPresent('All searchable information has been disabled by administrator'));  
 		
 	}
 	
