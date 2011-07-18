@@ -60,6 +60,7 @@ class XiusLibCron
 		$params->set($what,$value);
 		
 		$config->params = $params->toString('INI');	
+		$config->name='cache';
 		$config->store();
 		
 	}
