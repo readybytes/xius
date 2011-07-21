@@ -45,9 +45,10 @@ class ProximityHelper
 		$data['longitude'] = $data['configLong'];
 
 		// if User location information does not exist
-		if($userinfo==false || count($userinfo) != 2){			
-			return;
-		}
+		//if($userinfo==false || count($userinfo) != 2){			
+          if(empty($userinfo))
+		    return;
+		
 
 		if(!is_null($userinfo[0]) && $userinfo[0] !== '')
 			$data['latitude'] 	= $userinfo[0] ;

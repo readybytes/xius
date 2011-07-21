@@ -1,3 +1,8 @@
+TRUNCATE TABLE `#__xius_config`;;
+INSERT INTO `#__xius_config` (`name`, `params`) VALUES
+('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:19:"Super Administrator";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusCronJob=0\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n'),
+('cache', 'cacheStartTime=1274243747\ncacheEndTime=1274243748\n\n');;
+
 TRUNCATE TABLE `#__xius_info`;;
 INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
 (1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '2', '', 'Jsfields', 1, 1),
