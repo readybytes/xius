@@ -69,7 +69,41 @@ class XiusJuserTest extends XiUnitTestCase
 		
 		$result4 = '<inputclass="inputbox"type="text"name="Jsuser_2"id="Jsuser_2"value=""/>';
 		$this->assertEquals($this->cleanWhiteSpaces($result4),$this->cleanWhiteSpaces($searchHtml4));
+		
+		$instance->load(9);
+		$searchHtml6= $viewClass->searchHtml($instance);
+		$result6='<select id="profileType" name="profileType">
+		          <option>Select profile type</option>
+		          <option value="1">Male</option>
+		          <option value="2">Female</option>
+		          </select>';
+		$this->assertEquals($this->cleanWhiteSpaces($result6),$this->cleanWhiteSpaces($searchHtml6));	
 	}
+	
+	function testGetFormatData()
+	{
+		$instance=new Jsuser();
+		$instance->setData("key",'profile_id');
+		$instance->load(9);
+		
+		$result=$instance->_getFormatData(0);
+		$this->assertEquals($this->cleanWhiteSpaces($result),'default');
+		
+		$result=$instance->_getFormatData(1);
+		$this->assertEquals($this->cleanWhiteSpaces($result),'Male');
+		
+		$result=$instance->_getFormatData(2);
+		$this->assertEquals($this->cleanWhiteSpaces($result),'Female');
+		
+		$result=$instance->validateValues(1);
+		$this->assertEquals($result,true);
+		
+		$result=$instance->validateValues('select profile type');
+		$this->assertEquals($result,false);
+		
+		
+	}
+	
 	
 	
 	function testGetTableMapping()

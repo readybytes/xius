@@ -28,7 +28,14 @@ class JsuserView extends XiusBaseView
  		
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
-		 */	
+		 */
+	    if($key === 'profile_id')
+ 		{
+ 			$profileType= CFactory::getModel('profile');
+ 			$profileTypes=$profileType->getProfileTypes();
+ 		    $this->assign('profileTypes',$profileTypes);
+	        $layout='profile';
+ 		}
 		
 		if($key === 'posted_on'){
 			$mySess 	= & JFactory::getSession();

@@ -156,6 +156,18 @@ class Jsuser extends XiusBase
 			return $value;
 		}
 		
+		if($this->key === 'profile_id')
+		{
+			if($value==0)
+ 				return $profile->name=XiusText::_("DEFAULT_PROFILE");;
+			
+ 			$profileTypes= CFactory::getModel('profile')->getProfileTypes();
+ 			foreach($profileTypes as $profile){
+ 				if($profile->id == $value)
+ 					return $profile->name;
+ 			}
+		}
+		
 		if($this->key != 'posted_on')
 			return parent::_getFormatData($value);
 
@@ -186,5 +198,13 @@ class Jsuser extends XiusBase
 		}
 			
 		return $finalvalue;	
+	}
+	
+	public function validateValues($value)
+	{
+		if($this->key == "profile_id")
+		 	return is_numeric($value)? true :false;
+		else 
+			return parent::validateValues($value);	
 	}
 }
