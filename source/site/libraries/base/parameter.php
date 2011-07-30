@@ -69,4 +69,27 @@ class XiusParameter extends JParameter
 		ob_end_clean();
 		return $html;
 	}
+	
+	
+	function bind($data, $group = '_default')
+	{
+		if (is_array($data)) {
+			return $this->loadArray($data, $group);
+		} elseif (is_object($data)) {
+			return $this->loadObject($data, $group);
+		} else {
+			return $this->loadINI($data, $group);
+		}
+	}
+	
+	public function loadINI($data, $namespace = null, $options = array())
+	{
+		//for 1.5 no change in behavior
+		if(XIUS_JOOMLA_15){
+			return parent::loadINI($data, $namespace, $options);
+		}
+		
+		//for 1.6 or later Joomla version, we will use our own writer
+		return $this->loadString($data, 'XiusINI', $options);
+	}
 }

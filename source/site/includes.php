@@ -37,7 +37,7 @@ require_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'def
 JModel::addIncludePath(XIUS_MODEL_PATH);
 // For auto-loading purpose
 require_once(XIUS_COMPONENT_PATH_SITE.DS.'libraries'.DS.'base'.DS.'loader.php');
-
+require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'ini.php';
 // Auto-load Base folder
 XiusLoader::addAutoLoadFolder(XIUS_PATH_BASE, '');
 

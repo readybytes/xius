@@ -30,19 +30,21 @@ class InstallTest extends XiSelTestCase
     $this->waitPageLoad();
 
     $this->type("install_url", XIPT_PKG);
-	if(TEST_XIUS_JOOMLA_16){ 
-   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
-   	}
+	
    	if(TEST_XIUS_JOOMLA_15){
    	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
+   	}
+  else{ 
+   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
    	}
 
 
     $this->waitPageLoad();
-    if(TEST_XIUS_JOOMLA_16)
-    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
     if(TEST_XIUS_JOOMLA_15)
     	$this->assertTrue($this->isTextPresent("Install Component Success"));
+    else
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+    
     
     $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
  }
@@ -62,19 +64,21 @@ class InstallTest extends XiSelTestCase
     $this->waitPageLoad();
 
     $this->type("install_url", XIUS_PKG);
-    if(TEST_XIUS_JOOMLA_16){ 
-   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
-   	}
-   	if(TEST_XIUS_JOOMLA_15){
+  if(TEST_XIUS_JOOMLA_15){
    	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
    	}
+    else{ 
+   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+   	}
+   	
 
     $this->waitPageLoad();
     
-    if(TEST_XIUS_JOOMLA_16)
-    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
-    if(TEST_XIUS_JOOMLA_15)
+     if(TEST_XIUS_JOOMLA_15)
 		$this->assertTrue($this->isTextPresent("Install Component Success"));
+    else
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+   
 
     $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
 
@@ -93,19 +97,21 @@ class InstallTest extends XiSelTestCase
 
     $this->type("install_url", XIUS_PKG);
   	
-    if(TEST_XIUS_JOOMLA_16){ 
-   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
-   	}
-   	if(TEST_XIUS_JOOMLA_15){
+    if(TEST_XIUS_JOOMLA_15){
    	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
    	}
+   else{ 
+   		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+   	}
+   	
 
     $this->waitPageLoad();
     
-    if(TEST_XIUS_JOOMLA_16)
-    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
-    if(TEST_XIUS_JOOMLA_15)
+     if(TEST_XIUS_JOOMLA_15)
 		$this->assertTrue($this->isTextPresent("Install Component Success"));
+     else
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+   
 
     $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
 
@@ -131,7 +137,7 @@ class InstallTest extends XiSelTestCase
      		$this->waitPageLoad();
      		$this->assertTrue($this->isTextPresent("Uninstall Component Success"));
 	}
-	if (TEST_XIUS_JOOMLA_16){
+	else{
 	    	$this->click("link=Manage");
     		$this->waitPageLoad();
     		$this->type("filters_search", "xius");
@@ -151,19 +157,21 @@ class InstallTest extends XiSelTestCase
     $this->waitPageLoad();
     $this->type("install_url", XIUS_PKG);
    
-   if(TEST_XIUS_JOOMLA_16){ 
-  		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
-	}
-  	if(TEST_XIUS_JOOMLA_15){
+    if(TEST_XIUS_JOOMLA_15){
   	  	$this->click("//form[@name='adminForm']/table[3]/tbody/tr[2]/td[2]/input[2]");
   	}
-
+    
+   else{ 
+  		$this->click("//input[@value='Install' and @type='button' and @onclick='Joomla.submitbutton4()']");
+	}
+  	
     $this->waitPageLoad();
     
-    if(TEST_XIUS_JOOMLA_16)
-    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
     if(TEST_XIUS_JOOMLA_15)
 		$this->assertTrue($this->isTextPresent("Install Component Success"));
+    else
+    	$this->assertTrue($this->isTextPresent("Installing component was successful."));
+    
 
     $this->assertFalse($this->isElementPresent("//dl[@id='system-error']/dd/ul/li"));
 

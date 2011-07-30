@@ -118,12 +118,11 @@ class XiUnitTestCase extends PHPUnit_Framework_TestCase
 		system("sudo chmod 777 $fname");
 			
 		$configString = '';
-		if(TEST_XIUS_JOOMLA_16){
-			$configString = $config->toString('PHP', array('class' => 'JConfig', 'closingtag' => false));
-		}elseif(TEST_XIUS_JOOMLA_15){
+		
+		if(TEST_XIUS_JOOMLA_15){
 			$configString  = $config->toString('PHP', 'config', array('class' => 'JConfig'));
 		}else {
-			assert(0);
+			$configString = $config->toString('PHP', array('class' => 'JConfig', 'closingtag' => false));
 		}
 		
   		if(!JFile::write($fname,$configString)) 

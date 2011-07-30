@@ -27,11 +27,10 @@ class XiusControllerInfoTest extends XiUnitTestCase
 
 		$plugin = $db->loadObject();
 
-		if (TEST_XIUS_JOOMLA_16)
-			JPluginHelper::importPlugin('system',$plugin);
 		if(TEST_XIUS_JOOMLA_15)
 			JPluginHelper::_import($plugin);
-		
+	    else
+            JPluginHelper::importPlugin('system',$plugin);		
 		$infoController = new XiusControllerInfo();
 		
 		$datas = array();
@@ -139,6 +138,7 @@ class XiusControllerInfoTest extends XiUnitTestCase
 			$result = $infoController->_saveParamDoable($data['infoid'],$data['subtask']);
 			$this->assertEquals($data['result'],$result);
 		}
+		
 	}
 	
 }

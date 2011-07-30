@@ -73,7 +73,7 @@ class XiusJuserTest extends XiUnitTestCase
 		$instance->load(9);
 		$searchHtml6= $viewClass->searchHtml($instance);
 		$result6='<select id="profileType" name="profileType">
-		          <option>Select profile type</option>
+		          <option>Select Profile-Type</option>
 		          <option value="1">Male</option>
 		          <option value="2">Female</option>
 		          </select>';
@@ -87,7 +87,7 @@ class XiusJuserTest extends XiUnitTestCase
 		$instance->load(9);
 		
 		$result=$instance->_getFormatData(0);
-		$this->assertEquals($this->cleanWhiteSpaces($result),'default');
+		$this->assertEquals($this->cleanWhiteSpaces($result),'Default');
 		
 		$result=$instance->_getFormatData(1);
 		$this->assertEquals($this->cleanWhiteSpaces($result),'Male');

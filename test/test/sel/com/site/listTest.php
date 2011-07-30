@@ -129,12 +129,13 @@ class XiusListTest extends XiSelTestCase
 	    $this->_DBO->loadSql($url.'/insert.sql');	
 		$this->_DBO->loadSql($url.'/updateCache.sql');
 		
-		if(TEST_XIUS_JOOMLA_16){
-			$this->_DBO->loadSql($url.'/16/insert.sql');	
-		}
-		if(TEST_XIUS_JOOMLA_15){
+	    if(TEST_XIUS_JOOMLA_15){
 			$this->_DBO->loadSql($url.'/15/insert.sql');	
 		}
+		else{
+			$this->_DBO->loadSql($url.'/16/insert.sql');	
+		}
+		
 			
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_community&view=list&task=showList&usexius=1&listid=5');
 		$this->waitPageLoad(50000);

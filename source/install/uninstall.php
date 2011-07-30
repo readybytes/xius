@@ -21,16 +21,18 @@ function disable_plugin($pluginname)
 {
 	$db			=& JFactory::getDBO();		
 
-	if (XIUS_JOOMLA_16){
-			$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
-					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote('0')
-			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
-	}
 	if (XIUS_JOOMLA_15){
 			$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
 					. ' SET '.$db->nameQuote('published').'='.$db->Quote('0')
 			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname);
 	}	
+	
+	else{
+			$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
+					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote('0')
+			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
+	}
+	
 
 	$db->setQuery($query);		
 	if(!$db->query())
@@ -47,7 +49,7 @@ function changeModuleState($moduleName,$state)
 				. ' SET '.$db->nameQuote('published').'='.$db->Quote($state)
           		.' WHERE '.$db->nameQuote('module').'='.$db->Quote($moduleName);
 	}
-	if (XIUS_JOOMLA_16){
+	else{
 		$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
 					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote($state)
 			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($moduleName) . "  AND `type`='module' ";

@@ -18,6 +18,7 @@
 		<file>includes.php</file>
 		<file>router.php</file>
 		<file>index.html</file>
+		<file>ini.php</file>
 		<folder>controllers</folder>
 		<folder>libraries</folder>
 		<folder>helpers</folder>

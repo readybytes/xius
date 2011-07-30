@@ -51,7 +51,7 @@ class JElementXiusJoomlaUserGroup extends JElement
 				.' AND '.$db->nameQuote('name').' NOT LIKE  "%Public%"' ;
 		}
 
-		if (XIUS_JOOMLA_16){
+		else{
 			$sql = ' SELECT * FROM '.$db->nameQuote('#__usergroups') 
 				.' WHERE '
 				//Comment This For Showing Super User

@@ -76,6 +76,7 @@ define('XIUSLIST_IFRAME_WIDTH', 400);
 $version = new JVersion();
 define('XIUS_JOOMLA_16',($version->RELEASE === '1.6'));
 define('XIUS_JOOMLA_15',($version->RELEASE === '1.5'));
+define('XIUS_JOOMLA_17',($version->RELEASE === '1.7'));
 
 //Constant for joomla 1.5 Table field
 if (XIUS_JOOMLA_15){
@@ -84,7 +85,7 @@ if (XIUS_JOOMLA_15){
 	define('XIUS_JOOMLA_GROUP_VALUE','value');
 }
 //Constant for joomla 1.6 Table field
-if (XIUS_JOOMLA_16){
+else{
 	define('XIUS_JOOMLA_EXT_ID','extension_id');
 	define('XIUS_JOOMLA_MENU_COMP_ID','component_id');
 	define('XIUS_JOOMLA_GROUP_VALUE','title');

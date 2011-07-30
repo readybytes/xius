@@ -18,7 +18,7 @@ class XiusProximityModule extends XiUnitTestCase {
 			$url= dirname(__FILE__).'/sql/'.__CLASS__.'/15/enablemodule.start.sql';
 			$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/15/insert.sql');
 		}
-		if (TEST_XIUS_JOOMLA_16){
+		else{
 			$url= dirname(__FILE__).'/sql/'.__CLASS__.'/16/enablemodule.start.sql';
 			$this->_DBO->loadSql(dirname(__FILE__).'/_proximityData/16/insert.sql');
 		}

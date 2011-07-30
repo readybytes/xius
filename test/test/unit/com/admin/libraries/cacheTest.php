@@ -18,15 +18,16 @@ class XiusCacheTest extends XiUnitTestCase
 		//Test column exist or not
 		$columns = array('userid' => true,'jsfields2_0' => true , 'jsfields11_0' => true ,'jsfields12_0' => true ,'joomlaregisterDate_0' => true ,'joomlaregisterDate_0' => true ,'joomlausername_0' => true ,'joomlaname_0' => true ,'jsfields17_0' => true , 'jsfields3_0' => true ,'jsfields4_0' => false , 'joomlaactivation_0' => false );
 		
-		foreach($columns as $columnName => $result)
+		foreach($columns as $columnName => $result){
 			$this->assertEquals($result,self::checkColumnExistance($columnName));
+		}
 		
 	}
 
 	function checkColumnExistance($columnName,$tableName = '#__xius_cache')
 	{
-		$db =& JFactory::getDBO();
-		$results = $db->getTableFields($db->nameQuote($tableName));
+		$db 	 = JFactory::getDBO();
+		$results = $db->getTableFields($tableName);
 		
 		foreach($results as $t)
 			if(array_key_exists($columnName,$t))
@@ -42,7 +43,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 		if(XIUS_JOOMLA_15)
 			$sqlPath = $this->getSqlPath().DS.'15'.DS."insert.sql";
-		if(XIUS_JOOMLA_16)
+		else
 			$sqlPath = $this->getSqlPath().DS.'16'.DS."insert.sql";
 		
 		$this->_DBO->loadSql($sqlPath);

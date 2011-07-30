@@ -39,5 +39,6 @@ define('JOMSOCIAL18_PKG', JOOMLA_LOCATION.'/com_community1.8.zip');
 
 $version = new JVersion();
 
+define('TEST_XIUS_JOOMLA_17',($version->RELEASE === '1.7'));
 define('TEST_XIUS_JOOMLA_16',($version->RELEASE === '1.6'));
 define('TEST_XIUS_JOOMLA_15',($version->RELEASE === '1.5'));

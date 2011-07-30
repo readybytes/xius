@@ -8,19 +8,20 @@ function _GetXiusMenus()
 		return $menus;
 
 	$dbo = JFactory::getDBO();
-	//use #__extensions for joomla 1.6
-	if (XIUS_JOOMLA_16){ 				
-		$dbo->setQuery(  " SELECT `extension_id` "
-					." FROM `#__extensions` "
-					." WHERE `element`='com_xius' AND `client_id`=1"
-				);
-	}
-	if (XIUS_JOOMLA_15){ 				
+if (XIUS_JOOMLA_15){ 				
 		$dbo->setQuery(  " SELECT `id` "
 					." FROM `#__components` "
 					." WHERE `option`='com_xius' AND `iscore`=0"
 				);
 	}
+	//use #__extensions for joomla 1.6
+	else{ 				
+		$dbo->setQuery(  " SELECT `extension_id` "
+					." FROM `#__extensions` "
+					." WHERE `element`='com_xius' AND `client_id`=1"
+				);
+	}
+	
 	$xiusCmpId 	= $dbo->loadResult();
 	$menu 		= JSite::getMenu();
 
