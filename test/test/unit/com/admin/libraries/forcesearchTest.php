@@ -37,9 +37,17 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	    $this->_DBO->loadSql($url.'/insert.sql');	
 		$this->_DBO->loadSql($url.'/updateCache.sql');
 		
-		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
-		$this->_DBO->loadSql($sqlPath);
-
+		if(TEST_XIUS_JOOMLA_15)
+		{
+		   $sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		   $this->_DBO->loadSql($sqlPath);	
+		}
+		else
+		{
+		    $url	= JPATH_ROOT.'/test/test/unit/com/admin/libraries/sql/XiusForcesearchUnitTest/16';
+			$this->_DBO->loadSql($url.'/testBlock0WithExistCondition.start.sql');
+		}
+		
 		$this->resetCachedData();
 		
 		$model = XiusFactory::getInstance('users','model');
@@ -49,20 +57,25 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 		$db->setQuery((string)$strQuery);
 		$users = $db->loadObjectList();
 		
-		$this->assertEquals($totalResultUserCount,count($users),'Total users should be '.$totalResultUserCount.' but we get '.count($users));
+		$this->assertEquals(count($users),$totalResultUserCount,'Total users should be '.$totalResultUserCount.' but we get '.count($users));
 	}
 	
 
 	public static function conditionResultProvider()
 	{
+		if(TEST_XIUS_JOOMLA_15)
+		 $fieldId=3;
+		 else 
+		 $fieldId=19;
+		 
 		$conditions1[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
-		$conditions1[] = array('infoid'	=> 3,'value' => 'Angola' , 'operator' => '=');
+		$conditions1[] = array('infoid'	=> $fieldId,'value' => 'Angola' , 'operator' => '=');
 		
 		$join1	=	'AND';
 		$totalUser1	=	1;
 		
 		$conditions2[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
-		$conditions2[] = array('infoid'	=> 3,'value' => 'Angola' , 'operator' => '=');
+		$conditions2[] = array('infoid'	=>$fieldId,'value' => 'Angola' , 'operator' => '=');
 		
 		$join2	=	'OR';
 		$totalUser2	=	33;
