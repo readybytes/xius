@@ -72,7 +72,7 @@ class Forcesearch extends XiusBase
 		if(count($searchArray) > 0){
 			$pluginParamArray = $searchArray[0] ; //array('value' => $searchArray[0]->value);
 			$pluginParamArray['value'] = serialize($pluginParamArray['value']); 
-			$registry	= JRegistry::getInstance( 'xius' );
+			$registry	= new JRegistry;
 			$registry->loadArray($pluginParamArray,'xius_pluginParams');
 			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
 		}
