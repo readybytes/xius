@@ -458,7 +458,7 @@ abstract class XiusBase extends JObject
 	function collectParamsFromPost(&$key,&$pluginParams,$postdata)
 	{
 		if(isset($postdata['pluginParams']) && $postdata['pluginParams']){
-			$registry	=& JRegistry::getInstance( 'xius' );
+			$registry	= new JRegistry;
 			$registry->loadArray($postdata['pluginParams'],'xius_pluginParams');
 			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
 		}

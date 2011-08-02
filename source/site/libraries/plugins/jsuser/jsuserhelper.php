@@ -11,10 +11,8 @@ class Jsuserhelper
 
 	function getJomsocialFields($filter = '')
 	{
-		$db	=& JFactory::getDBO();
-			
-		$userTable = new XiusTable('#__community_users','userid', $db);
-		$allColumns = $userTable->getDbo()->getTableFields('#__community_users');
+			//$userTable = new XiusTable('#__community_users','userid');
+		$allColumns = JFactory::getDBO()->getTableFields('#__community_users');
 		
 		if(empty($allColumns))
 			return false;
