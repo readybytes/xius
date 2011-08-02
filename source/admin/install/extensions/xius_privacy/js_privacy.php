@@ -43,8 +43,8 @@ class plgXiusjs_privacy extends JPlugin
 	 */
 	function _xiusGetListPrivacyHtml($params)
 	{
-		$j16_path = (XIUS_JOOMLA_16)?DS.$this->_name:'';
-		$xmlPath 	= $includePath = JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.$this->_name.$j16_path.DS.'param.xml';
+	$j15_path = (XIUS_JOOMLA_15)?'':DS.$this->_name;
+	$xmlPath 	= $includePath = JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.$this->_name.$j15_path.DS.'param.xml';
         $iniPath    = dirname(__FILE__) . DS .$this->_name.DS.'param.ini';
         $listData   = JFile::read($iniPath);
         

@@ -117,7 +117,7 @@ class XiusControllerInfo extends JController
 				
 		$data = array();
 		
-		$registry	=& JRegistry::getInstance( 'xius' );
+		$registry	= new JRegistry;
 		if(array_key_exists('isAccessible',$post['params'])){
 			$temp 		= $post['params']['isAccessible'];
 			$post['params']['isAccessible'] = serialize($temp);		

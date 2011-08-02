@@ -121,7 +121,7 @@ class XiusControllerList extends JController
 		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
 
 		// serialize the joomla user privacy params
-		$registry	=& JRegistry::getInstance( 'xius' );
+		$registry	= new JRegistry;
 		if(is_array($post['params'])
 				&& array_key_exists('xiusListViewGroup',$post['params'])){
 			$temp 		= $post['params']['xiusListViewGroup'];

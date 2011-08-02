@@ -22,4 +22,14 @@ class XiusTable extends JTable
 
 		parent::__construct($table, $key, $db);
 	}
+	
+	function replacePrefix($table)
+	{ 		
+		if(substr($table,0,2)=='#__')
+		{
+			$tablePrefix = JFactory::getDBO()->getPrefix();
+			$table		 = $tablePrefix.substr($table,3);
+		}
+		return $table;
+	}
 }
