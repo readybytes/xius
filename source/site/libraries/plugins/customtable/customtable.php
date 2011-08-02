@@ -118,7 +118,7 @@ class Customtable extends XiusBase
 	function getCacheSqlSpec($key)
 	{
 		$db 	= JFactory::getDBO();
-		$table  = $db->replacePrefix($key);
+		$table =XiusTable::replacePrefix($key);
 		$column = $this->pluginParams->get('customSearchColumn');
 		
 		static $specs = null;
