@@ -81,15 +81,16 @@ function changePluginState($pluginname, $action=1)
 {
 	  	$version = new JVersion();
 		$db		=& JFactory::getDBO();
-		if ($version->RELEASE == '1.6'){
-			$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
-					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote($action)
-					.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
-		}
+		
 		if ($version->RELEASE == '1.5'){
 			$query	= 'UPDATE ' . $db->nameQuote( '#__plugins' )
 					. ' SET '.$db->nameQuote('published').'='.$db->Quote($action)
 			  		.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname);
+		}
+                else{
+			$query	= 'UPDATE ' . $db->nameQuote( '#__extensions' )
+					. ' SET '.$db->nameQuote('enabled').'='.$db->Quote($action)
+					.' WHERE '. $db->nameQuote('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
 		}
 	
 	$db->setQuery($query);		

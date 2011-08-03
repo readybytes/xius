@@ -101,12 +101,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $info->published ? 'unpublish' : 'publish' ?>')">
 							<?php if($info->published)
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt="Published" />
+								<img src="../components/com_xius/assets/images/tick.png" width="16" height="16" border="0" alt="Published" />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt="Unpublished" />
+								<img src="../components/com_xius/assets/images/publish_x.png" width="16" height="16" border="0" alt="Unpublished" />
 						<?php 
 							} //echo $published;
 						?>
@@ -116,12 +116,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isSearchable',0) ? 'unsearchable' : 'searchable' ?>')">
 							<?php if($params->get('isSearchable',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('SEARCHABLE');?> />
+								<img src="../components/com_xius/assets/images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('SEARCHABLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_SEARCHABLE');?> />
+								<img src="../components/com_xius/assets/images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_SEARCHABLE');?> />
 						<?php 
 							} //echo $published;
 						?>
@@ -131,12 +131,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isVisible',0) ? 'invisible' : 'visible' ?>')">
 							<?php if($params->get('isVisible',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('VISIBLE');?> />
+								<img src="../components/com_xius/assets/images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('VISIBLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_VISIBLE');?> />
+								<img src="../components/com_xius/assets/images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_VISIBLE');?> />
 						<?php 
 							} //echo $published;
 						?>
@@ -146,12 +146,12 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isSortable',0) ? 'unsortable' : 'sortable' ?>')">
 							<?php if($params->get('isSortable',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('SORTABLE');?> />
+								<img src="../components/com_xius/assets/images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('SORTABLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_SORTABLE');?> />
+								<img src="../components/com_xius/assets/images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_SORTABLE');?> />
 						<?php 
 							} //echo $published;
 						?>
@@ -161,18 +161,18 @@ function submitbutton( action )
 				<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $params->get('isExportable',0) ? 'unexportable' : 'exportable' ?>')">
 							<?php if($params->get('isExportable',0))
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('EXPORTABLE');?> />
+								<img src="../components/com_xius/assets/images/tick.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('EXPORTABLE');?> />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_EXPORTABLE');?> />
+								<img src="../components/com_xius/assets/images/publish_x.png" width="16" height="16" border="0" alt=<?php echo XiusText::_('NOT_EXPORTABLE');?> />
 						<?php 
 							} //echo $published;
 						?>
 				</a>
 			</td>
-			<td align="right">
+			<td align="center">
 				<span><?php echo $this->pagination->orderUpIcon( $count , true, 'orderup', 'Move Up'); ?></span>
 				<span><?php echo $this->pagination->orderDownIcon( $count , count($this->allinfo), true , 'orderdown', 'Move Down', true ); ?></span>
 			</td>			

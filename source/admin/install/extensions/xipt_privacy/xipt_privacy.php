@@ -89,15 +89,15 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function _getProfileTypeHtml($profileType, $name, $param, $attribs = null)
 	{
-		$j16_path = (XIUS_JOOMLA_16)?DS.'xipt_privacy':'';
-		$xmlPath 	  		= JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_privacy'.$j16_path.DS.'param.xml';
+		$j15_path = (XIUS_JOOMLA_15)?'':DS.'xipt_privacy';
+		$xmlPath 	  		= JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_privacy'.$j15_path.DS.'param.xml';
         $iniPath        	= dirname(__FILE__) . DS .$this->_name.DS.'param.ini';
         $profileTypeData    = JFile::read($iniPath);
         
         if(JFile::exists($xmlPath))
-			$config = new JParameter($profileTypeData, $xmlPath);
+			$config = new XiusParameter($profileTypeData, $xmlPath);
         else
-        	$config = new JParameter('','');
+        	$config = new XiusParameter('','');
            
         $config->bind($param);
         return $config->render(); 
@@ -174,7 +174,7 @@ class plgXiusxipt_privacy extends JPlugin
 	{
 		$count = count($data);
 		for($i =0 ; $i < $count ; $i++ ){		
-			$param = new JParameter('','');
+			$param = new XiusParameter('','');
 			$param->bind($data[$i]->params);
 			$profileTypeInfo= unserialize($param->get($this->_name));
 		
