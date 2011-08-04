@@ -105,7 +105,10 @@ class plgXiusxipt_fieldselection extends JPlugin
 		if(JFactory::getApplication()->isAdmin() ||
 		   JFactory::getSession()->get('updateCache', false) )
 		   return true;
-		
+
+                if(XiusHelperUtils::isAdmin())
+                   return true;		
+
 		if(!$this->_loadXipt())
 			return false;
 			
