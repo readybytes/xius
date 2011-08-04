@@ -86,7 +86,7 @@ class plgXiusjs_privacy extends JPlugin
 		$loggedinUser = & JFactory::getUser();				
 		$count = count($lists);
 		for($i =0 ; $i < $count ; $i++ ){
-			$params = new JParameter('','');
+			$params = new XiusParameter('','');
 			$params->bind($lists[$i]->params);
 			$privacy = $params->get($this->_name,'public');
 			$isViewable = $this->_isListViewable($privacy,$loggedinUser,$lists[$i]->owner);
