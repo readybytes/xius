@@ -25,7 +25,7 @@
 				   label="COM_XIUS_LIST" description="COM_XIUS_LIST_DESC" addall="true"/>
 				  
 			<field name="task" 
-				   type="hidden" default="displayList" 
+				   type="hidden" default="showList" 
 				   label="LIST" description="LIST_DESC" addall="true"/>
 
 		</fieldset>		

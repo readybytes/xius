@@ -79,11 +79,13 @@ class XiussiteControllerList extends XiusController
 
 	function _loadListInSession($list)
 	{
-		// XITODO : unset old data first
 		// check session if list is already loaded 
 		// then no need to load same list again and agian
-		if($list->id === XiusLibUsersearch::getDataFromSession(XIUS_LISTID,0,'XIUS'))
-			return true;	
+		 if($list->id === XiusLibUsersearch::getDataFromSession(XIUS_LISTID,0,'XIUS'))
+		 {
+			if($list->conditions === serialize(XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,0,'XIUS' )))
+			   return true;	
+		 }
 		
 		//XiusLibUsersearch::setDataInSession('listid',$listId,'XIUS');
 		XiusLibUsersearch::setDataInSession(XIUS_LISTID,$list->id,'XIUS');
