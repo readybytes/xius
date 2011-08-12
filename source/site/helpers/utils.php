@@ -80,7 +80,7 @@ class XiusHelperUtils
 		return $pluginInfo;
 	}
 	
- 	function isAdmin($userid)
+ 	function isAdmin($userid=null)
 	{
 		$user	= JFactory::getUser($userid);		
 		return ( $user->usertype == 'Super Administrator' || $user->usertype == 'Administrator' || $user->usertype == 'deprecated'  );  	

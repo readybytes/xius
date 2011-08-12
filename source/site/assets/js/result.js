@@ -53,7 +53,7 @@
 		if(document.getElementById('xiusListSaveAsExisting').checked==true){
 			
 			var name = document.getElementById('listid').value;
-			if(trim(name) == '-1'){
+			if(name.trim()=="-1"){
 				alert('You have not selected any List or Not created any list yet.')
 				return false;
 			}
@@ -70,7 +70,7 @@
 	
 	function xiusListValidation(){
 		var name = document.getElementById('xiusListName').value;
-		if(trim(name) == ''){
+		if(name.trim() == ''){
 			alert('Please enter the name of List');
 			return false;
 		}
