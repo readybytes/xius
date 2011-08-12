@@ -172,7 +172,7 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function _setDisplayData(&$data, $profileId, $list=false)
 	{
-                if(XiusHelperUtils::isAdmin())
+                if(XiusHelperUtils::isAdmin(userid=null))
                    return true;
 
 		$count = count($data);

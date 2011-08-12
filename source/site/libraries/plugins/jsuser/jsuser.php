@@ -7,6 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 require_once dirname(__FILE__).DS.'jsuserhelper.php';
+require_once dirname(__FILE__).DS.'defines.php';
 
 class Jsuser extends XiusBase
 {
@@ -52,6 +53,9 @@ class Jsuser extends XiusBase
 		// if input values are are not valid then discard this		
 		if($this->validateValues($value) == false)
 			return false;
+			
+		if($this->key == 'avatar' && $value == XIUS_ALLUSER )
+			return true;
 		
 		$db = JFactory::getDBO();
 		if(is_array($value))
@@ -101,6 +105,9 @@ class Jsuser extends XiusBase
 		 
 		$object	= new stdClass();
 		$object->tableName			= '`#__community_users`';
+		if($this->key=='avatar') 
+			$object->tableName = self::getTable();
+		
 		$object->tableAliasName 	= "communityusers{$this->key}_$count";
 		$object->originColumnName	= $this->key;
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
@@ -132,6 +139,9 @@ class Jsuser extends XiusBase
 		if($key == 'userid')
 			return 'int(21) NOT NULL';
 			
+		if ($key == 'avatar')
+		    return 'TINYINT(1) NOT NULL DEFAULT 0';
+		    	
 		return parent::getCacheSqlSpec($key);
 	}
 	
@@ -151,9 +161,20 @@ class Jsuser extends XiusBase
 	/* formatting displaying output */
 	public function _getFormatData($value)
 	{
-		if($this->key === 'thumb' || $this->key === 'avatar'){
-			$value= '<img src="' .JURI::base().$value. '"/>';
-			return $value;
+		if($this->key === 'thumb'){ 
+				$value= '<img src="' .JURI::base().$value. '"/>';
+				return $value;
+		}
+		
+		if($this->key === 'avatar'){
+			if(is_numeric($value))
+			 {		
+			   if($value == 0){
+				 return XIUS_AVATAR_USER;}
+			  else if($value == 1){
+				 return XIUS_DEFAULT_AVATAR_USER;}
+            }
+           return $value;
 		}
 		
 		if($this->key === 'profile_id')
@@ -206,5 +227,42 @@ class Jsuser extends XiusBase
 		 	return is_numeric($value)? true :false;
 		else 
 			return parent::validateValues($value);	
+	}
+	
+	public function fetchDefaultAvatar()
+	{
+		static $defaultAvatars=array();
+		if(!empty($defaultAvatars))
+			return $defaultAvatars;
+		// Default JS avatar
+		$defaultAvatars[]   = DEFAULT_USER_AVATAR;
+		$profiletypes = XiusHelperXiptwrapper::getProfileTypeIds();
+		// if XiPT does not exist!		
+		if(empty($profiletypes))
+			return  $defaultAvatars;
+		foreach($profiletypes as $profileType)
+				$defaultAvatars[] = $profileType->avatar;		
+			
+		return $defaultAvatars;
+
+	}
+	
+	public function getTable(){
+		return  "(
+				  SELECT `userid`, CASE `avatar` "
+				  . self::getCondition()." as avatar
+				   FROM `#__community_users`
+				)";
+	}
+	
+	function getCondition() {
+		$defaultAvatars = self::fetchDefaultAvatar();
+		$condition 		= " WHEN '' THEN 1 ";
+
+		foreach($defaultAvatars as $avatar)
+			$condition .= " WHEN '{$avatar}' THEN 1 ";
+			
+		$condition .= " ELSE  0  END";
+		return $condition;
 	}
 }

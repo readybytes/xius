@@ -161,9 +161,11 @@ class XiusView extends JView
 		$user = JFactory::getUser();		
 		
 		// if logged in user's user type is in list creator user type 
-		//then he will be having the option of saving and exporting list		
-		$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
- 		
+		//then he will be having the option of saving and exporting list	
+		if(XIUS_JOOMLA_15)	
+			$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Administrator";}'));
+ 		else
+			$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Users";}'));
 		if($option === null){				
 			$option = JRequest::getVar('option','xius','GET');
 		}

@@ -29,6 +29,11 @@ class JsuserView extends XiusBaseView
 		/*In $this->key , I will store field id for my understanding
 		 * so i can easily get properties of info
 		 */
+ 		 if($key === 'avatar')
+ 		{
+ 			$layout='avatar';
+ 		}
+ 		
 	    if($key === 'profile_id')
  		{
  			$profileType= CFactory::getModel('profile');

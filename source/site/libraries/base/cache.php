@@ -71,7 +71,8 @@ class XiusCache
 		// clear the insert query
 		$this->_insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
 			
-		$this->db->query();
+		if(!$this->db->query())
+			JFactory::getApplication()->enqueueMessage('insert in database failed ');
 		$affectedRows = $this->db->getAffectedRows();
 		return $affectedRows;
 	}

@@ -78,7 +78,17 @@ class XiusJuserTest extends XiUnitTestCase
 		          <option value="2">Female</option>
 		          </select>';
 		$this->assertEquals($this->cleanWhiteSpaces($result6),$this->cleanWhiteSpaces($searchHtml6));	
-	}
+	
+		$instance->load(10);
+		$searchHtml7=$viewClass->searchHtml($instance);
+		$result7='<div><input type="radio" id="avatar" name="avatar"  value="0" title="Users with avatar" />
+		          Users with avatar
+		          <input type="radio" id="avatar" name="avatar"  value="1" title="Users with default avatar"/>
+		          Users with default avatar
+		          <input type="radio" id="avatar" name="avatar"  value="All Users" title="All users" checked />
+		          All Users</div>';
+		$this->assertEquals($this->cleanWhiteSpaces($result7),$this->cleanWhiteSpaces($searchHtml7));
+	}    
 	
 	function testGetFormatData()
 	{
@@ -101,8 +111,18 @@ class XiusJuserTest extends XiUnitTestCase
 		$result=$instance->validateValues('select profile type');
 		$this->assertEquals($result,false);
 		
+		$instance->setData("key", 'avatar');
+		$instance->load(10);
 		
-	}
+		$result=$instance->_getFormatData(0);
+		$this->assertEquals($this->cleanWhiteSpaces($result),'WithAvatar');
+		
+		$result=$instance->_getFormatData(1);
+		$this->assertEquals($this->cleanWhiteSpaces($result),'WithDefaultAvatar');
+		
+		$result=$instance->_getFormatData('All Users');
+		$this->assertEquals($this->cleanWhiteSpaces($result),'AllUsers');
+		}
 	
 	
 	
@@ -145,6 +165,82 @@ class XiusJuserTest extends XiUnitTestCase
 		$tableInfo[]=$object;
 		
 		$this->assertEquals($mapping, $tableInfo);
+	
+		$instance->load(10);
+		$mapping = $instance->getTableMapping();
+		$tableInfo					= array();
+		$count = 0;
+		 
+		$object	= new stdClass();
+		$object->tableName			= "(
+				  SELECT `userid`, CASE `avatar`  WHEN '' THEN 1  WHEN 'components/com_community/assets/default.jpg' THEN 1  WHEN 'images/profiletype/avatar_1.jpg' THEN 1  WHEN 'images/profiletype/avatar_2.jpg' THEN 1  ELSE  0  END as avatar
+				   FROM `#__community_users`
+				)";
+		$object->tableAliasName 	= 'communityusersavatar_0';
+		$object->originColumnName	= 'avatar';
+		$object->cacheColumnName	= 'jsuseravatar_0';
+		$object->cacheSqlSpec 		= 'TINYINT(1) NOT NULL DEFAULT 0';
+		$object->cacheLabelName		= 'avatar';
+		$object->createCacheColumn	= true;
+		$tableInfo[]=$object;
+		
+		$this->assertEquals($mapping, $tableInfo);
+		
+	}
+	
+	/**
+	 * @dataProvider conditionResultProvider
+	 */
+	
+	function testAvatarUsers($post,$join,$totalResultUserCount)
+	{ 
+	   $sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+	    $this->_DBO->loadSql($sqlPath);
+	     
+	    //$this->resetCachedData();
+
+		$model = XiusFactory::getInstance('users','model');
+		$strQuery= $model->getQuery($post,$join);
+		
+        $db = JFactory::getDBO();
+		$db->setQuery((string)$strQuery);
+		$users = $db->loadObjectList();	
+		
+	   $this->assertEquals($totalResultUserCount,count($users),'Total users should be '.$totalResultUserCount.' but we get '.count($users));
+	  
+	}
+	
+	function conditionResultProvider() 
+	{
+		
+		// search Avatar users
+		$post1[]			= array('infoid'=>6,'value'=>'User','operator'=>'=');
+		$post1[]            = array('infoid'=>10,'value'=>'0','operator'=>'=');
+							
+		$join1	=	'OR';						
+		$result1		= 9;
+		
+		$post2[]			= array('infoid'=>6,'value'=>'User','operator'=>'=');
+		$post2[]            = array('infoid'=>10,'value'=>'1','operator'=>'=');
+		
+		$join2	  =	 'OR';						
+		$result2		= 7;
+		
+		$post3[]			= array('infoid'=>6,'value'=>'john','operator'=>'=');
+		$post3[]            = array('infoid'=>10,'value'=>'0','operator'=>'=');
+		$join3	  =	'AND';						
+		$result3		= 1;
+		
+		$post4[]			= array('infoid'=>10,'value'=>'All Users','operator'=>'=');
+		$result4		= 9;
+		
+		return array(
+                   	 array($post1,$join1,$result1),
+					 array($post2,$join2,$result2),
+					 array($post3,$join3,$result3),
+					 array($post4,'AND',$result4)
+					);
+		
 	}
 }
 ?>

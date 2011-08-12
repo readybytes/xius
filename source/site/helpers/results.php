@@ -67,6 +67,7 @@ class XiusHelperResults
         if(!empty($data['allInfo'])){
         	foreach($data['allInfo'] as $info){
 
+        		//XiTODO:: why check it every time. I hate it. 
         		if(empty($data['users']))
         			break;
 
