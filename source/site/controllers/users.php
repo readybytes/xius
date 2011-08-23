@@ -49,18 +49,18 @@ class XiussiteControllerUsers extends XiusController
 	
 	function search()
 	{
-		$fromPanel = JRequest::getVar('fromPanel', 0,'POST'); 
+		$fromPanel = JRequest::getVar('fromPanel', 0,'POST');
+		$defaultSelect = XiusHelperUtils::getConfigurationParams('xiusSortInfo',0);
+		XiusLibUsersearch::setDataInSession(XIUS_SORT,$defaultSelect,'XIUS');
+			
+		$order = XiusHelperUtils::getConfigurationParams('xiusSortOrder','ASC');
+		XiusLibUsersearch::setDataInSession(XIUS_DIR,$order,'XIUS'); 
 		if($fromPanel){			
 			$conditions = XiusLibUsersearch::processSearchData();
 			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
 		
 			$join = JRequest::getVar('xiusjoin','AND','POST');
 			XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');		
-			$defaultSelect = XiusHelperUtils::getConfigurationParams('xiusSortInfo',0);
-			XiusLibUsersearch::setDataInSession(XIUS_SORT,$defaultSelect,'XIUS');
-			
-			$order = XiusHelperUtils::getConfigurationParams('xiusSortOrder','ASC');
-			XiusLibUsersearch::setDataInSession(XIUS_DIR,$order,'XIUS');
 		}
 		return $this->_displayResult(__FUNCTION__);
 	}

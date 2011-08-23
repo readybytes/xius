@@ -33,7 +33,7 @@
 						</div>
 						<div class="xius_aiImg">
 						<img class="xius_test_addinfo_<?php echo $data['infoid'];?>" src="components/com_xius/assets/images/add.png" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-								alt="<?php echo XiusText::_("XIUS_ADD_TO_SEARCH");?>" title="<?php echo XiusText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);"/>
+								alt="<?php echo XiusText::_("XIUS_ADD_TO_SEARCH");?>" title="<?php echo XiusText::_("XIUS_ADD_TO_SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);"/>
 						</div>
 					</div>	
 			<?php endforeach; ?>

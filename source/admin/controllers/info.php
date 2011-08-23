@@ -288,7 +288,7 @@ class XiusControllerInfo extends JController
 		{
 			$iModel->updatePublish($id,1);
 		}
-		$msg = XiusText::sprintf( $count.'ITEMS_PUBLISHED' );
+		$msg = $count.XiusText::_('ITEMS_PUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $msg);
 		return true;
@@ -312,7 +312,7 @@ class XiusControllerInfo extends JController
 		{
 			$iModel->updatePublish($id,0);
 		}
-		$msg = XiusText::sprintf( $count.'ITEMS_UNPUBLISHED' );
+		$msg =  $count.XiusText::_('ITEMS_UNPUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
 		$mainframe->redirect($link, $msg);
 		return true;

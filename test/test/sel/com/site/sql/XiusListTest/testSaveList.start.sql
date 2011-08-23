@@ -1,6 +1,4 @@
 
-DROP TABLE IF EXISTS `bk_#__modules`;;
-CREATE TABLE IF NOT EXISTS `bk_#__modules` SELECT * FROM `#__modules`;;
 
 TRUNCATE TABLE `#__modules`;;
 INSERT INTO `#__modules` (`id`, `title`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `published`, `module`, `numnews`, `access`, `showtitle`, `params`, `iscore`, `client_id`, `control`) VALUES
@@ -49,6 +47,45 @@ INSERT INTO `#__modules` (`id`, `title`, `content`, `ordering`, `position`, `che
 (44, 'XiusListing', '', 14, 'left', 0, '0000-00-00 00:00:00', 1, 'mod_xiuslisting', 0, 0, 1, '', 0, 0, ''),
 (45, 'Xius Proximity Search', '', 15, 'left', 0, '0000-00-00 00:00:00', 0, 'mod_xiusproximity', 0, 0, 1, 'xius_proximity=google\n				  				 		xius_proximity_params=googlemap\n				  				 		xius_distance=kms\n				  				 		xius_color=gray', 0, 0, ''),
 (46, 'Xius Search Panel', '', 16, 'left', 0, '0000-00-00 00:00:00', 0, 'mod_xiussearchpanel', 0, 0, 1, 'xius_info_range=All\nxius_layout=horizontal\n', 0, 0, '');;
+
+TRUNCATE TABLE `#__modules_menu`;;
+INSERT INTO `#__modules_menu` (`moduleid`, `menuid`) VALUES
+(1, 0),
+(16, 1),
+(17, 0),
+(18, 0),
+(19, 1),
+(19, 2),
+(19, 4),
+(19, 27),
+(19, 36),
+(21, 1),
+(22, 1),
+(22, 2),
+(22, 4),
+(22, 27),
+(22, 36),
+(25, 0),
+(27, 0),
+(29, 0),
+(30, 0),
+(31, 1),
+(32, 0),
+(33, 0),
+(34, 0),
+(35, 0),
+(36, 0),
+(38, 1),
+(39, 43),
+(39, 44),
+(39, 45),
+(39, 46),
+(39, 47),
+(40, 0),
+(43, 0),
+(44, 0),
+(45, 0),
+(46, 0);;
 
 TRUNCATE TABLE `#__xius_info`;;
 ALTER TABLE `#__xius_info` AUTO_INCREMENT=1;;

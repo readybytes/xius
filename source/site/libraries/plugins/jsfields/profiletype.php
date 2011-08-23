@@ -35,7 +35,8 @@ class ProfiletypesHelper
 		
 		$profileTypeInfoId = JRequest::getVar('profileType',0);
 		
-		$filter	= array('published'=>1);
+		//filtering unpublished and invisible profile types
+		$filter	= array('published'=>1,'visible'=>1);
 		// user can change profiletype, add information
 		$pTypes = XiusHelperXiptwrapper::getProfileTypeIds($filter);
 		

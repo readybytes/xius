@@ -13,7 +13,7 @@
 						<div class="xiusFlLabel">
 						<div class="xiusFlImg">
 						<div class="xius_test_addinfo_<?php echo $data['infoid'];?>" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
-								 title="<?php echo XiusText::_("XIUS ADD TO SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
+								 title="<?php echo XiusText::_("XIUS_ADD_TO_SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
 					<span class="addButton"><?php echo	XiusText::_('ADD');?></span>
 						</div>
 						</div>
