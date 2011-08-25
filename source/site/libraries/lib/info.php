@@ -53,17 +53,4 @@ class XiusLibInfo
 		return $allInfo;
 	}
 	
-	// XITODO: Remove this, its unusable
-	public function infoExist($data)
-	{
-		$filter = array();
-		$filter['key'] = $data['key'];
-		$filter['pluginType'] = $data['pluginType'];
-		$info = self::getInfo($filter);
-		if(empty($info))
-			return false;
-		
-		return $info[0]->id;
-	}
-	
 }

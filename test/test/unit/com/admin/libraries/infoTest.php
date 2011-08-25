@@ -66,8 +66,8 @@ class XiusInfoTest extends XiUnitTestCase
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		
-		$infoResult = XiusLibInfo::infoExist($data);
-		$this->assertEquals($result,$infoResult,"result should be $result but we get $infoResult");
+		$infoResult = XiusModel::isIdExist('info',$data);
+        $this->assertEquals(is_bool($result),$infoResult,"result should be $result but we get $infoResult");
 	}
 	
 	
@@ -75,10 +75,10 @@ class XiusInfoTest extends XiUnitTestCase
 	{
 		/*result will be info id or false */
 		$data1 = array('key' => 2 , 'pluginType' => 'Jsfields');
-		$result1 = 1;
+		$result1 = true;
 		
 		$data2 = array('key' => 'registerDate' , 'pluginType' => 'Joomla');
-		$result2 = 4;
+		$result2 = true;
 		
 		$data3 = array('key' => 'block' , 'pluginType' => 'Joomla');
 		$result3 = false;

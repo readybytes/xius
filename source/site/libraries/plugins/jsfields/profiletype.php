@@ -30,35 +30,14 @@ class ProfiletypesHelper
 	 */
 	function getFieldHTML($field)
 	{
-		$class	    = '';
-		$disabled   = '';
-		
 		$profileTypeInfoId = JRequest::getVar('profileType',0);
-		
-		//filtering unpublished and invisible profile types
 		$filter	= array('published'=>1,'visible'=>1);
 		// user can change profiletype, add information
 		$pTypes = XiusHelperXiptwrapper::getProfileTypeIds($filter);
-		
-		$html	= '<select id="field'.$field->id.'" name="field' . $field->id  . '" '.$disabled.' class="hasTip select'.$class.' inputbox" title="' . $field->name . '::' . htmlentities( $field->tips ). '">';
-	
-		$html   .= '<option value="">'.XiusText::_('SELECT_BELOW').'</option>';
-		if(!empty($pTypes)){
-			foreach($pTypes as $pType){
-				$selected = '';			
-				
-				if(isset($field->value) && $field->value == $pType->id)
-					$selected = " selected = selected ";
-
-					$selected = (isset($profileTypeInfoId) && $pType->id==$profileTypeInfoId) ? "selected" : $selected;
-					
-				$html	.= '<option value="' . $pType->id . '" '.$selected.'>' .$pType->name  . '</option>';
-			}
-		}
-		
-		$html	.= '</select>';
-		$html   .= '<span id="errfield'.$field->id.'msg" style="display:none;">&nbsp;</span>';
-		
-		return $html;
-	}
+		$startUp = new stdClass();
+		$startUp->id = 0;
+		$startUp->name = "Select Below";
+		array_unshift($pTypes,$startUp);
+        return JHTML::_('select.genericlist',$pTypes,'field'.$field->id,"",'id', "name",$profileTypeInfoId);
+  }
 }

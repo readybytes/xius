@@ -204,5 +204,29 @@ class XiusModel extends JModel
     
     	return $groups;
     }
+
+	/**
+	 * *
+	 * Return true if id exist ...
+	 * @param unknown_type $id
+	 * @param unknown_type $table
+	 */
+	
+    public function isIdExist($tableName,$filter=array(),$join='AND')
+    {
+    	if(empty($tableName))
+    		return false;
+       $query=new XiusQuery();
+       $filter=$query->select("*")
+                    ->from("`#__xius_"."$tableName`");
+       self::_buildFilterQuery($query,$filter,$join);
+                    
+	   $result = $query->dbLoadQuery()
+          			    ->loadObjectList();
+
+        if(!empty($result))
+          return true;
+        return false;   			
+    }
 	
 }

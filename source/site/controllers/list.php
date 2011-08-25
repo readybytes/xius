@@ -57,11 +57,15 @@ class XiussiteControllerList extends XiusController
 			
 		/*get list */
 		$list = XiusLibList::getList($listId);
-		
-		$url = XiusRoute::_('index.php?option=com_xius&view=list&task=display',false);
+	    $url = XiusRoute::_('index.php?option=com_user&view=login',false);
 		if(empty($list))
+		{
+			if(XiusModel::isIdExist('list',$listId))
+				$mainframe->redirect($url,XiusText::_('PERMISSION_DENIED'),false);
+			else
 			$mainframe->redirect($url,XiusText::_('INVALID_LIST_ID'),false);
-
+	    }
+       
 		// when no task is there 
 		$user =& JFactory::getUser();
 
