@@ -236,6 +236,7 @@ class Jsuser extends XiusBase
 			return $defaultAvatars;
 		// Default JS avatar
 		$defaultAvatars[]   = DEFAULT_USER_AVATAR;
+		//XiTODO:if xipt is unhooked
 		$profiletypes = XiusHelperXiptwrapper::getProfileTypeIds();
 		// if XiPT does not exist!		
 		if(empty($profiletypes))

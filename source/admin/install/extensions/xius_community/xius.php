@@ -33,7 +33,7 @@ class plgCommunityxius extends JPlugin
 
 		require_once $incldePath;
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
-		echo " Running XIUS Cron update";
+		//echo " Running XIUS Cron update";
 		return $plgHandler->onCronRun();
 	}
 
