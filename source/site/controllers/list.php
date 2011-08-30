@@ -267,5 +267,28 @@ class XiussiteControllerList extends XiusController
 		$returndata['url']	= $url;
 		$returndata['msg'] 	= $msg; 		
 		return $returndata;
-	}	
+	}
+	/**
+	* Delete list by owner. (Currently this option is disabled)
+	*/
+	function delete() 
+	{
+		$listId =  JRequest::getvar("listid", 0);
+		$loginUser = JFactory::getUser()->id;
+		
+		$filter = Array('published' => 1, 'id'=>$listId, 'owner' =>$loginUser);
+		$lModel = XiusFactory::getInstance('list', 'model'); 
+		$list	= $lModel->getLists($filter,'AND',true);
+		
+		if(empty($list))
+			$data['message'] = "You do not have permission to delete this list";	
+		else 
+		{
+			require_once JPATH_ROOT.DS.'administrator/components/com_xius/controllers/list.php';
+			$data = XiusFactory::getInstance('list','controller')->_remove(Array($listId));
+		}
+		
+		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
+		JFactory::getApplication()->redirect($link, $data['message']);
+	}
 }

@@ -64,6 +64,7 @@ class XiusHelperResults
         $userprofile 	= array();
         $sortableFields = XiusLibUsersearch::getSortableFields($data['allInfo']);
 
+        JDispatcher::getInstance()->trigger("xiusOnBeforeCreateUserProfile",Array(&$data)); 
         if(!empty($data['allInfo'])){
         	foreach($data['allInfo'] as $info){
 
@@ -98,6 +99,7 @@ class XiusHelperResults
         /*convert search param into display data
          * creating applied info ( search parameter )
          */
+        JDispatcher::getInstance()->trigger("xiusOnBeforeGetAppliedInfo", Array(&$data));
         if(!empty($data['conditions'])){
         	foreach($data['conditions'] as $c){
         		if(!array_key_exists('infoid',$c))

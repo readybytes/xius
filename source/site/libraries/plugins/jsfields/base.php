@@ -135,9 +135,9 @@ class JsfieldsBase extends XiusBase
 		$count = 0;
 		 
 		$object	= new stdClass();
-		$object->tableName			= '`#__community_fields_values`';
-		$object->tableAliasName 	= strtolower($this->pluginType).$this->key.'_'.$count;
-		$object->originColumnName	= 'value';
+		$object->tableName			= "`#__xius_jsfields_value`";//'`#__community_fields_values`';
+		$object->tableAliasName 	= "jsfields_value";//strtolower($this->pluginType).$this->key.'_'.$count;
+		$object->originColumnName	= "`field_id_{$this->key}`";//'value';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec		= $this->getCacheSqlSpec($fieldInfo);
 		$object->cacheLabelName		= $this->labelName;
@@ -149,17 +149,29 @@ class JsfieldsBase extends XiusBase
 	
 	function getUserData(XiusQuery &$query)
 	{
-		$query->select('juser.`id` as userid');
-		$query->from('`#__users` as juser');
+		static $queryRequired = true;
+		
 		$tableMapping = $this->getTableMapping();
-		foreach( $tableMapping as $tm){
+		foreach( $tableMapping as $tm)
 			$query->select(" {$tm->tableAliasName}.{$tm->originColumnName} as {$tm->cacheColumnName} ");
-			$query->leftJoin(" {$tm->tableName} as {$tm->tableAliasName} ON "
-								." ( {$tm->tableAliasName}.`user_id` = juser.`id` "
-								." AND  {$tm->tableAliasName}.`field_id` = {$this->key} "
-								." ) "
-							);
-		}		
+			
+		if($queryRequired)
+		{
+			self::_getUserData($query);
+			$queryRequired = false;
+		}
+		
+//		$query->select('juser.`id` as userid');
+//		$query->from('`#__users` as juser');
+//		$tableMapping = $this->getTableMapping();
+//		foreach( $tableMapping as $tm){
+//			$query->select(" {$tm->tableAliasName}.{$tm->originColumnName} as {$tm->cacheColumnName} ");
+//			$query->leftJoin(" {$tm->tableName} as {$tm->tableAliasName} ON "
+//								." ( {$tm->tableAliasName}.`user_id` = juser.`id` "
+//								." AND  {$tm->tableAliasName}.`field_id` = {$this->key} "
+//								." ) "
+//							);
+//		}		
 	}
 	
 	/* at the time of saving data into database durin search also */
@@ -269,6 +281,66 @@ class JsfieldsBase extends XiusBase
 			$specification = "datetime NOT NULL";
 			
 		return $specification;	
+	}
+	
+	function _getUserData(XiusQuery &$query)
+	{
+		$filter['pluginType'] = "'Jsfields'";	
+		$allInfo = XiusFactory::getInstance ( 'info', 'model' )->getAllInfo($filter,'AND',false);
+		$queryData = self::_buildQuery($allInfo);
+
+		//$query->select($queryData['select']);
+		$query->leftJoin("`{$queryData['leftJoin']}` AS {$queryData['tableAlias']}
+							ON 
+							juser.`id` = {$queryData['tableAlias']}.`user_id`");			
+	}
+	
+	function _buildQuery($allJsfieldsInfo) 
+	{
+		$query['tableAlias']=	"jsfields_value";
+		//$query['select']	= 	"";
+		$query['leftJoin'] 	= 	"#__xius_jsfields_value";
+		
+		//Drop table if exist
+		self::executeQuery("DROP TABLE IF EXISTS `#__xius_jsfields_value` ");
+		
+		$createTable  = Array();
+		$createTable['schema'] = "CREATE TABLE `#__xius_jsfields_value`( `user_id` int(21) NOT NULL PRIMARY KEY ";
+		$createTable['values'] = "INSERT INTO `#__xius_jsfields_value` (SELECT `user_id`";
+		$count = 0;
+		foreach($allJsfieldsInfo as $info){
+			$columnAlias 	  = "field_id_{$info->key}";
+			//$cacheColumnName  = strtolower($info->pluginType).$info->key."_$count";
+			//$query['select'] .= ", {$query['tableAlias']}.`$columnAlias` AS $cacheColumnName ";
+			$dataType = Jsfieldshelper::getFieldType($info->key);
+			if('text' == $dataType || 'textarea' == $dataType){
+				$dataType = 'text';
+			}
+			else{
+				$dataType = ('date' == $dataType)?'date': "varchar(250)";
+			}
+			$createTable['schema']	 .=", `$columnAlias` "." $dataType";
+			$createTable['values'] 	 .= ", GROUP_CONCAT( DISTINCT (if(`field_id`= {$info->key}, `value`, NULL))) AS $columnAlias";
+		}
+		
+		//$query['select'] = preg_replace('/,/', '', $query['select'], 1);
+ 		$createTable['schema']	 .= ")";
+		$createTable['values']   .= " FROM `#__community_fields_values`".
+						 			" GROUP BY `user_id` )";
+
+		//create table with indexing 
+ 		self::executeQuery($createTable['schema']);
+ 		
+ 		// insert data
+ 		self::executeQuery($createTable['values']);
+		return $query;
+	}
+	
+	function executeQuery($query)
+	{
+		$db = JFactory::getDbo();
+		$db->setQuery($query);
+		$db->query();
 	}
 	
 	

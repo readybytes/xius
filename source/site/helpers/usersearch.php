@@ -30,7 +30,8 @@ class XiusHelperUsersearch
 	 */
 	function getSortedInfo($info)
 	{
-		$returnInfo = array();
+		$returnInfo 	= array();
+		$jsFiledsInfo	= Array(); 
 		//$origInfo	= clone($info);
 		//XiTODO:: remove magic num 
 		$availInfo	= array(-1);
@@ -55,7 +56,22 @@ class XiusHelperUsersearch
 			
 			$info = array_values($info);
 		}
-						
+
+		//JSFields must high to prioritize in column seq.
+		foreach($returnInfo as $index=>$info)
+		{
+			if($info->pluginType == 'Jsfields')
+			{
+					$jsFiledsInfo[] = clone($returnInfo[$index]);
+					unset($returnInfo[$index]);
+			}
+		}
+		if(!empty($jsFiledsInfo))
+		{
+			foreach($jsFiledsInfo as $info)
+				array_unshift($returnInfo,$info);
+		}
+
 		return $returnInfo;
 	}
 

@@ -51,7 +51,8 @@ class XiusCache
 	function insertIntoTable(XiusQuery $query,$limitReq=false,$limit = array())
 	{
 		$this->_insertQuery	.= $query->__toString();
-		
+		// not get any redundant data 
+		$this->_insertQuery .= " GROUP BY `userid`";
 		/*Bound result set starting from some users
 		 * Limit should be configurable
 		 */
@@ -104,7 +105,7 @@ class XiusCache
 		$allInfo     = XiusHelperUsersearch::getSortedInfo($allInfo);
 		
 		$columns 	 = array();
-		$columns[] = " `userid` int(21) NOT NULL";
+		$columns[] = " `userid` int(21) NOT NULL PRIMARY KEY";
 
 		foreach($allInfo as $info)
 		{			

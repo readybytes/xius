@@ -16,7 +16,7 @@ if (!defined('JPATH_BASE'))
 // Include relative constants, JLoader and the jimport and jexit functions.
 require_once JPATH_BASE.DS.'includes'.DS.'defines.php';
 
-if(TEST_XIUS_JOOMLA_17){
+if(defined('TEST_XIUS_JOOMLA_17') && TEST_XIUS_JOOMLA_17){
 	require_once JPATH_LIBRARIES.DS.'import.php';
 	require_once JPATH_LIBRARIES.DS.'joomla'.DS.'environment'.DS.'request.php';
 }
