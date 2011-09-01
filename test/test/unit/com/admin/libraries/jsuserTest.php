@@ -127,7 +127,9 @@ class XiusJuserTest extends XiUnitTestCase
 	
 	
 	function testGetTableMapping()
-	{
+	{       
+            $this->changePluginState('xipt_system',true);
+	        $this->changePluginState('xipt_community',true);
 		$this->_DBO->loadSql(dirname(__FILE__).'/sql/XiusJuserTest/testViewSearchHtml.start.sql');
 		$instance = new Jsuser();
 		$instance->load(2);
