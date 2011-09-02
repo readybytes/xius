@@ -17,7 +17,9 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	
   	function testAddForceSearch()
  	{	
- 		//Enable xipt_privacy plugin
+ 	    //Enable xipt_privacy plugin
+ 	    $this->changePluginState('xipt_system',true);
+ 	    $this->changePluginState('xipt_community',true);
  		$this->changePluginState('xipt_privacy',true);
  		
 	   	$this->_DBO->addTable('#__xius_info');
@@ -29,7 +31,10 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	    $this->waitPageLoad();
       
 		//1. add force search info for date fields
- 	 	$this->click("//td[@id='toolbar-new']/a");
+		if(TEST_XIUS_JOOMLA_15)
+ 	 	   $this->click("//td[@id='toolbar-new']/a");
+ 	 	else 
+ 	 	  $this->click("//li[@id='toolbar-new']/a/span");
     	$this->waitPageLoad();
     	
     	$this->select("//select[@id='plugin']", "value=forcesearch");
@@ -52,18 +57,28 @@ class XiusInfoAdminSelTest extends XiSelTestCase
     	$this->type("labelName", "Register Date Should be 10 Jun 2009");
     	$this->type("//input[@id='JoomlaregisterDate']","10-06-2009");
     	$this->click("paramsisSearchable0");
-    	$this->click("//td[@id='toolbar-apply']/a/span");
+    	if(TEST_XIUS_JOOMLA_15)
+    	  $this->click("//td[@id='toolbar-apply']/a/span");
+    	else 
+    	  $this->click("//li[@id='toolbar-apply']/a/span");
     	$this->waitPageLoad();
    
     	$this->verifyValue("//input[@id='JoomlaregisterDate']","10-06-2009");
         
-    	$this->click("//td[@id='toolbar-save']/a/span");
+    	if(TEST_XIUS_JOOMLA_15)
+    	  $this->click("//td[@id='toolbar-save']/a/span");
+    	else 
+    	  $this->click("//li[@id='toolbar-save']/a/span");
+    	
     	$this->waitPageLoad();
     
 	    $this->assertTrue($this->isTextPresent("Register Date Should be 10 Jun 2009"));
 	    
 	    //2. add force search info for checkboxes
- 	 	$this->click("//td[@id='toolbar-new']/a");
+	    if(TEST_XIUS_JOOMLA_15)
+ 	 	  $this->click("//td[@id='toolbar-new']/a");
+ 	 	else 
+ 	 	  $this->click("//li[@id='toolbar-new']/a/span");
     	$this->waitPageLoad();
     	
     	$this->select("//select[@id='plugin']", "value=forcesearch");
@@ -82,18 +97,39 @@ class XiusInfoAdminSelTest extends XiSelTestCase
     	
     	$this->type("labelName", "Checkbox1 value should be checkbox11 and checkbox");
 	    $this->click("published0");
-	    $this->click("//input[@name='field17[]' and @value='Checkbox11']");
-	    $this->click("//input[@name='field17[]' and @value='Checkbox']");
+	    if(TEST_XIUS_JOOMLA_15)
+	    {
+	      $this->click("//input[@name='field17[]' and @value='Checkbox11']");
+	      $this->click("//input[@name='field17[]' and @value='Checkbox']");
+	    }
+	    else 
+	    {
+	      $this->click("//input[@name='field16[]' and @value='checkbox11']");
+	      $this->click("//input[@name='field16[]' and @value='checkbox']");
+	    }
 	    $this->click("paramsisSearchable0");
 	    $this->click("paramsisSortable0");
     	
-    	$this->click("//td[@id='toolbar-apply']/a/span");
+	    if(TEST_XIUS_JOOMLA_15)
+    	  $this->click("//td[@id='toolbar-apply']/a/span");
+    	else  
+    	  $this->click("//li[@id='toolbar-apply']/a/span");
     	$this->waitPageLoad();
     	
-    	$this->assertTrue($this->isChecked("//input[@name='field17[]' and @value='Checkbox11']"));
-    	$this->assertTrue($this->isChecked("//input[@name='field17[]' and @value='Checkbox']"));
-        
-    	$this->click("//td[@id='toolbar-save']/a/span");
+    	 if(TEST_XIUS_JOOMLA_15)
+	    {
+    	  $this->assertTrue($this->isChecked("//input[@name='field17[]' and @value='Checkbox11']"));
+    	  $this->assertTrue($this->isChecked("//input[@name='field17[]' and @value='Checkbox']"));
+	    }
+ 	   else 
+	    {
+	      $this->assertTrue($this->isChecked("//input[@name='field16[]' and @value='checkbox11']"));
+    	  $this->assertTrue($this->isChecked("//input[@name='field16[]' and @value='checkbox']"));
+        }
+    	if(TEST_XIUS_JOOMLA_15)
+    	   $this->click("//td[@id='toolbar-save']/a/span");
+    	else 
+    	   $this->click("//li[@id='toolbar-save']/a/span");
     	$this->waitPageLoad();
     
 	    $this->assertTrue($this->isTextPresent("Checkbox1 value should be checkbox11 and checkbox"));
@@ -120,10 +156,16 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	    $this->click("paramsisSortable0");
     	$this->click("paramsisVisible0");
 	    $this->type("paramstooltip", "Not Blocked User");
-	    $this->click("//td[@id='toolbar-apply']/a/span");
-	    $this->waitPageLoad();
+	    if(TEST_XIUS_JOOMLA_15)
+	      $this->click("//td[@id='toolbar-apply']/a/span");
+	    else 
+	      $this->click("//li[@id='toolbar-apply']/a/span");
+	      $this->waitPageLoad();
 	   
-	    $this->click("//td[@id='toolbar-cancel']/a/span");
+	    if(TEST_XIUS_JOOMLA_15)
+	      $this->click("//td[@id='toolbar-cancel']/a/span");
+	    else 
+	      $this->click("//li[@id='toolbar-cancel']/a/span");
 	    $this->waitPageLoad();
 	    
 	    $this->click("link=All Male");
@@ -137,8 +179,10 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	    $this->click("paramsisExportable0");
 	    $this->type("paramstooltip", "Female User");
 	    
-	    $this->click("//td[@id='toolbar-save']/a/span");
-	    
+	    if(TEST_XIUS_JOOMLA_15)
+	      $this->click("//td[@id='toolbar-save']/a/span");
+	    else
+	      $this->click("//li[@id='toolbar-save']/a/span");
 	    $this->waitPageLoad();
 	    
 	    //Edit range search for age group
@@ -150,13 +194,18 @@ class XiusInfoAdminSelTest extends XiSelTestCase
 	    
 	    $this->type("//input[@id='Rangesearch8_min']", "0");
 	    $this->type("//input[@id='Rangesearch8_max']", "16");
-	   
-	    $this->click("//td[@id='toolbar-apply']/a/span");
+	    
+	    if(TEST_XIUS_JOOMLA_15)
+	      $this->click("//td[@id='toolbar-apply']/a/span");
+	    else 
+	      $this->click("//li[@id='toolbar-apply']/a/span");
 	    $this->waitPageLoad();
 	    $this->verifyValue("//input[@id='Rangesearch8_min']",'0');
 	    $this->verifyValue("//input[@id='Rangesearch8_max']",'16');
-	   
-	    $this->click("//td[@id='toolbar-cancel']/a/span");
+	    if(TEST_XIUS_JOOMLA_15)
+	      $this->click("//td[@id='toolbar-cancel']/a/span");
+	    else
+	      $this->click("//li[@id='toolbar-cancel']/a/span");
 	    $this->waitPageLoad();
 	    
 	    //Disable xipt_privacy plugin

@@ -12,7 +12,10 @@ class XiusProximityAdminSelTest extends XiSelTestCase
 		//Enable xipt_privacy plugin
  		$this->changePluginState('xipt_privacy',true);
 		
-		$this->_DBO->loadSql(dirname(__FILE__).'/../site/_proximityData/insert.sql');
+ 		if(TEST_XIUS_JOOMLA_15)
+		   $this->_DBO->loadSql(dirname(__FILE__).'/../site/_proximityData/15/insert.sql');
+		else 
+		   $this->_DBO->loadSql(dirname(__FILE__).'/../site/_proximityData/16/insert.sql');
 		$db= & JFactory::getDBO();
 		$sql = "DROP TABLE IF EXISTS `#__xius_proximity_geocode` ";
 		$db->setQuery($sql);

@@ -137,7 +137,7 @@ class JsfieldsBase extends XiusBase
 		$object	= new stdClass();
 		$object->tableName			= "`#__xius_jsfields_value`";//'`#__community_fields_values`';
 		$object->tableAliasName 	= "jsfields_value";//strtolower($this->pluginType).$this->key.'_'.$count;
-		$object->originColumnName	= "`field_id_{$this->key}`";//'value';
+		$object->originColumnName	= "field_id_{$this->key}";//'value';
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec		= $this->getCacheSqlSpec($fieldInfo);
 		$object->cacheLabelName		= $this->labelName;
