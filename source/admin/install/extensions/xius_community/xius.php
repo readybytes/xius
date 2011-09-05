@@ -93,9 +93,77 @@ class plgCommunityxius extends JPlugin
 		return true;
 	}
 
+	/**
+	 * JS_field_value table will be updated.
+	 * @param unknown_type $userId
+	 * @param unknown_type $saveSuccess
+	 */
+	function onAfterProfileUpdate($userId, $saveSuccess)
+	{
+		if(empty($saveSuccess)){
+			return true;
+		}
+		
+		$db 	= JFactory::getDbo();
+		$query 	= "SHOW TABLES LIKE '".$db->getPrefix()."xius_jsfields_value'";
+		$db->setQuery($query);
+		$tableExist = $db->loadResult(); 
+		//Check table exist or not
+		if(empty($tableExist)){
+			return true;
+		}
+		
+		//get All Jsfields information
+		//XiTODO:: Might be effected by Privacy. Please Properly test  it.
+		$filter['pluginType'] = "'Jsfields'";	
+		$jsInfo = XiusFactory::getInstance ( 'info', 'model' )->getAllInfo($filter,'AND',false);		
+		
+
+		/* 
+		 * get jsfields value from community_field_value table 
+		 * update xius_jsfield_value table
+		 */
+		$query	  = "SELECT `user_id`";
+		foreach($jsInfo as $info){
+			$column  = "field_id_{$info->key}";
+			$query 	.= ", GROUP_CONCAT( DISTINCT (if(`field_id`= {$info->key}, `value`, NULL))) AS $column";
+		}
+
+		$query .= " FROM `#__community_fields_values`".
+				  " WHERE `user_id`= $userId ";
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+		$insertQuery = "INSERT INTO `#__xius_jsfields_value` (`user_id`";
+		$insertValue = " VALUES( $userId ";
+		$onUpdate	 = " ON DUPLICATE KEY UPDATE ";
+		
+		foreach($jsInfo as $info){
+			$column    		 = "field_id_{$info->key}";
+			$insertQuery	.= ", `$column`";
+			if(is_numeric($result[0]->$column)){
+				$insertValue	.= ", {$result[0]->$column} ";
+				$onUpdate 		.= ", `$column` = {$result[0]->$column} ";
+				continue;
+			}
+			$insertValue	.= ", '{$result[0]->$column}' ";
+			$onUpdate 		.= ", `$column` = '{$result[0]->$column}' ";
+		}
+		$onUpdate = preg_replace('/,/', '',$onUpdate, 1);
+		$query    = $insertQuery.")".$insertValue.")".$onUpdate;
+		$db->setQuery($query);
+		if(!$db->query()){
+			JFactory::getApplication()->enqueueMessage("XiUS JSfield value doesn't update. Please say to your site administrator");	
+		}
+	return true;
+		
+	}
+
 }
 
-//XITODO : check existance of this file
+if(!JFile::exists(JPATH_ROOT .DS.'components'.DS.'com_community'DS.'controllers'.DS.'controller.php')){
+	JFactory::getApplication()->enqueueMessage("Jom-social does not exist");
+	return;
+}
 require_once COMMUNITY_COM_PATH.DS.'controllers'.DS.'controller.php';
 
 class CommunityXiusController extends CommunityBaseController
