@@ -11,6 +11,8 @@ require_once XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'jsfieldshelper.php';
 class JsfieldsBase extends XiusBase
 {
 
+	static $queryRequired = true;
+	
 	function __construct()
 	{		
 		parent::__construct(get_class($this));
@@ -149,16 +151,15 @@ class JsfieldsBase extends XiusBase
 	
 	function getUserData(XiusQuery &$query)
 	{
-		static $queryRequired = true;
 		
 		$tableMapping = $this->getTableMapping();
 		foreach( $tableMapping as $tm)
 			$query->select(" {$tm->tableAliasName}.{$tm->originColumnName} as {$tm->cacheColumnName} ");
 			
-		if($queryRequired)
+		if(self::$queryRequired)
 		{
 			self::_getUserData($query);
-			$queryRequired = false;
+			self::setqueryRequired();
 		}
 		
 //		$query->select('juser.`id` as userid');
@@ -174,6 +175,12 @@ class JsfieldsBase extends XiusBase
 //		}		
 	}
 	
+	// set variable queryRequired
+     public static function setqueryRequired($queryRequired=false)
+      {
+      	self::$queryRequired=$queryRequired;
+      } 
+      
 	/* at the time of saving data into database durin search also */
 	function formatValue($value)
 	{

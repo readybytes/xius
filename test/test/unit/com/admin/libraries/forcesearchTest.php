@@ -33,9 +33,9 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	 */
 	function testBlock0WithExistCondition($conditions,$join,$totalResultUserCount)
 	{
-		$url	= JPATH_ROOT.'/test/test/_data';
+		$url	= JPATH_ROOT.'/test/test/_data/';
 	    $this->_DBO->loadSql($url.'/insert.sql');	
-		$this->_DBO->loadSql($url.'/updateCache.sql');
+		$this->_DBO->loadSql($url.'/16/updateCache.sql');
 		
 		if(TEST_XIUS_JOOMLA_15)
 		{
@@ -48,13 +48,14 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 			$this->_DBO->loadSql($url.'/testBlock0WithExistCondition.start.sql');
 		}
 		
-		$this->resetCachedData();
+		//$this->resetCachedData();
 		
 		$model = XiusFactory::getInstance('users','model');
 		$strQuery= $model->getQuery($conditions,$join);
-		
+
 		$db = JFactory::getDBO();
 		$db->setQuery((string)$strQuery);
+		
 		$users = $db->loadObjectList();
 		
 		$this->assertEquals(count($users),$totalResultUserCount,'Total users should be '.$totalResultUserCount.' but we get '.count($users));
@@ -63,22 +64,18 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 
 	public static function conditionResultProvider()
 	{
-		if(TEST_XIUS_JOOMLA_15)
-		 $fieldId=3;
-		 else 
-		 $fieldId=19;
-		 
+	
 		$conditions1[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
-		$conditions1[] = array('infoid'	=> $fieldId,'value' => 'Angola' , 'operator' => '=');
+		$conditions1[] = array('infoid'	=> 3,'value' => 'Angola' , 'operator' => '=');
 		
 		$join1	=	'AND';
-		$totalUser1	=	1;
+		$totalUser1	=	0;
 		
 		$conditions2[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
-		$conditions2[] = array('infoid'	=>$fieldId,'value' => 'Angola' , 'operator' => '=');
+		$conditions2[] = array('infoid'	=> 3,'value' => 'Angola' , 'operator' => '=');
 		
 		$join2	=	'OR';
-		$totalUser2	=	33;
+		$totalUser2	=	28;
 		
 		$conditions3[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
 		$conditions3[] = array('infoid'	=> 12,'value' => '1' , 'operator' => '=');

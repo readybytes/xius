@@ -112,18 +112,16 @@ class XiusUserSearchTest extends XiUnitTestCase
 		$query = new XiusQuery();
 		$cache = new XiusCache();
 		$query = $cache->buildCreateTableQuery();
-
-		$reqQuery = "CREATE TABLE IF NOT EXISTS `#__xius_cache`"
-					." ( `userid` int(21) NOT NULL,"
-					."`jsfields2_0` varchar(250) NOT NULL,"
-					."`jsfields11_0` varchar(250) NOT NULL,"
-					."`jsfields12_0` varchar(250) NOT NULL,"
-					."`joomlaregisterDate_0` datetime NOT NULL,"
-					."`joomlausername_0` varchar(250) NOT NULL,"
-					."`joomlaname_0` varchar(250) NOT NULL,"
-					."`jsfields17_0` varchar(250) NOT NULL,"
-					."`jsfields3_0` datetime NOT NULL )ENGINE=MyISAM DEFAULT CHARSET=utf8";
-
+        $reqQuery = "CREATE TABLE IF NOT EXISTS `#__xius_cache`"
+                    ." (`userid`int(21) NOT NULL PRIMARY KEY,"
+                    ."`jsfields3_0`datetime NOT NULL,"
+                    ."`jsfields17_0`varchar(250) NOT NULL,"
+                    ."`jsfields12_0`varchar(250) NOT NULL,"
+                    ."`jsfields11_0`varchar(250) NOT NULL,"
+                    ."`jsfields2_0`varchar(250) NOT NULL,"
+                    ."`joomlaregisterDate_0`datetime NOT NULL,"
+                    ."`joomlausername_0`varchar(250) NOT NULL,"
+                    ."`joomlaname_0`varchar(250) NOT NULL )ENGINE = MyISAM DEFAULT CHARSET=utf8";
 		$this->assertEquals($this->cleanWhiteSpaces($reqQuery),$this->cleanWhiteSpaces($query->__toString()));
 		//Clear Create query cache
 		$query->clear('create');
@@ -132,22 +130,18 @@ class XiusUserSearchTest extends XiUnitTestCase
 	function testBuildInsertUserdataQuery()
 	{
 		$query = XiusLibUsersearch::buildInsertUserdataQuery();
-		$reqQuery = "SELECT juser.`id` as userid,jsfields2_0.value as jsfields2_0,"
-					."jsfields11_0.value as jsfields11_0,jsfields12_0.value as jsfields12_0,"
-					."joomlauserregisterDate_0.registerDate as joomlaregisterDate_0,"
-					."joomlauserusername_0.username as joomlausername_0,"
-					."joomlausername_0.name as joomlaname_0,jsfields17_0.value as jsfields17_0"
-					.",jsfields3_0.value as jsfields3_0"
-					." FROM `#__users` as juser "
-					." LEFT JOIN `#__community_fields_values` as jsfields2_0 ON ( jsfields2_0.`user_id` = juser.`id` AND jsfields2_0.`field_id` = 2)"
-					." LEFT JOIN `#__community_fields_values` as jsfields11_0 ON ( jsfields11_0.`user_id` = juser.`id` AND jsfields11_0.`field_id` = 11)"
-					." LEFT JOIN `#__community_fields_values` as jsfields12_0 ON ( jsfields12_0.`user_id` = juser.`id` AND jsfields12_0.`field_id` = 12)"
-					." LEFT JOIN `#__users` as joomlauserregisterDate_0 ON ( joomlauserregisterDate_0.`id` = juser.`id` )"
-					." LEFT JOIN `#__users` as joomlauserusername_0 ON ( joomlauserusername_0.`id` = juser.`id` )"
-					." LEFT JOIN `#__users` as joomlausername_0 ON ( joomlausername_0.`id` = juser.`id` )"
-					." LEFT JOIN `#__community_fields_values` as jsfields17_0 ON ( jsfields17_0.`user_id` = juser.`id` AND jsfields17_0.`field_id` = 17)"
-					." LEFT JOIN `#__community_fields_values` as jsfields3_0 ON ( jsfields3_0.`user_id` = juser.`id` AND jsfields3_0.`field_id` = 3)";
-		
+		$reqQuery = "SELECT juser.`id` as userid,jsfields_value.field_id_3 as jsfields3_0,"
+		            ."jsfields_value.field_id_17 as jsfields17_0,"
+		            ."jsfields_value.field_id_12 as jsfields12_0,"
+		            ."jsfields_value.field_id_11 as jsfields11_0,"
+		            ."jsfields_value.field_id_2 as jsfields2_0,"
+		            ."joomlauserregisterDate_0.registerDate as joomlaregisterDate_0,"
+		            ."joomlauserusername_0.username as joomlausername_0,"
+		            ."joomlausername_0.name as joomlaname_0 FROM `#__users` as juser "
+		            ." LEFT JOIN `#__xius_jsfields_value` AS jsfields_value ON juser.`id`=jsfields_value.`user_id` "
+		            ." LEFT JOIN `#__users` as joomlauserregisterDate_0 ON (joomlauserregisterDate_0.`id`=juser.`id`)"
+		            ." LEFT JOIN `#__users` as joomlauserusername_0 ON (joomlauserusername_0.`id`=juser.`id`)"
+		            ." LEFT JOIN `#__users` as joomlausername_0 ON (joomlausername_0.`id`=juser.`id`)";
 		$this->assertEquals($this->cleanWhiteSpaces($reqQuery),$this->cleanWhiteSpaces($query));
 	}
 	
@@ -504,8 +498,8 @@ class XiusUserSearchTest extends XiUnitTestCase
         $info = XiusHelperUsersearch::getSortedInfo($info);
        	foreach($info as $in)
        		$sequence[]=$in->id;
-        
-       $result = array(2,3,4,1);
+       	    
+       $result = array(4,3,2,1);
        $this->assertEquals($sequence, $result);
     }
 }

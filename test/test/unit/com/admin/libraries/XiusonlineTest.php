@@ -31,7 +31,8 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 		
 		XiusLibCron::updateCache();
-						
+		JsfieldsBase::setqueryRequired(true);
+
 		// build the condition and  compare
 		$conditions		= XiusLibUsersearch::processSearchData($post);
 		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');
@@ -41,8 +42,7 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		
 		$data = array(array());
 		XiusHelperResults::_getInitialData(&$data);
-		XiusHelperResults::_getTotalUsers(&$data);		
-		
+		XiusHelperResults::_getTotalUsers(&$data);	
 		$this->assertEquals($data['total'], $result);
 	}
 	

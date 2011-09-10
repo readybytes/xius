@@ -305,9 +305,9 @@ class XiusPluginBaseTest extends XiUnitTestCase
 		
 		$result8	=array();
 		$result = new stdClass();
-		$result->tableName  	   = '`#__community_fields_values`';
-		$result->tableAliasName    = 'jsfields3_0';
-		$result->originColumnName  = 'value';
+		$result->tableName  	   = '`#__xius_jsfields_value`';
+		$result->tableAliasName    = 'jsfields_value';
+		$result->originColumnName  = 'field_id_3';
 		$result->cacheColumnName   = 'jsfields3_0';
 		$result->cacheSqlSpec	   = 'datetime NOT NULL';
 		$result->cacheLabelName		= 'Birthday';
