@@ -36,7 +36,7 @@ class JElementTablecolumns extends JElement
 		assert(isset($tableName));
 		
 		$db     = JFactory::getDBO();
-		$query = " SHOW COLUMNS FROM ".$db->replacePrefix($tableName);
+		$query = " SHOW COLUMNS FROM ".XiusTable::replacePrefix($tableName);
 		$db->setQuery($query);
 		$columns = $db->loadObjectList();	
 		
