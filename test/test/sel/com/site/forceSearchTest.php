@@ -131,7 +131,7 @@ class XiusForceSearchSelTest extends XiSelTestCase
 		
 		$this->click("xiussearch");
     	$this->waitPageLoad();
-    	$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
+    	$this->assertTrue($this->isElementPresent("//span[@id='total_9']"));
     	$this->frontLogout();
     	
     	// administrator user

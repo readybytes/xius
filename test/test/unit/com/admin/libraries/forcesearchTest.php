@@ -223,4 +223,39 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 			array($conditions9,$join9,$totalUser9),
 		);
 	}
+	
+     /**
+	 * @dataProvider multiForceOfSameInfo
+	 */
+	function testMultiForceOfSameInfo($conditions,$join,$totalResultUserCount)
+	{
+		$url	= JPATH_ROOT.'/test/test/_data';
+	    $this->_DBO->loadSql($url.'/insert.sql');	
+		$this->_DBO->loadSql($url.'/updateCache.sql');
+		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		$this->_DBO->loadSql($sqlPath);
+		$this->resetCachedData();
+		
+		$model = XiusFactory::getInstance('users','model');
+		$strQuery= $model->getQuery($conditions,$join);
+		$db = JFactory::getDBO();
+		$db->setQuery((string)$strQuery);
+		$users = $db->loadObjectList();
+		$this->assertEquals($totalResultUserCount,count($users),'Total users should be '.$totalResultUserCount.' but we get '.count($users));
+     }
+	
+	public static function multiForceOfSameInfo()
+	{
+		$conditions1[] = array('infoid' => 6,'value' => 'name' , 'operator' => '=');
+		$totalUser1	=	32;
+		$join1 = 'AND';
+		
+		$conditions2[] = array('infoid' => 6,'value' => 'name1' , 'operator' => '=');
+		$totalUser2	=	22;
+		$join2 = 'AND';
+		return array(
+			array($conditions1,$join1,$totalUser1),
+			array($conditions2,$join2,$totalUser2),
+			);
+	}
 }

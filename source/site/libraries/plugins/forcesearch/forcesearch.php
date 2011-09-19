@@ -112,17 +112,44 @@ class Forcesearch extends XiusBase
 			return false;
 	
 		$fsQuery = new XiusQuery();
-		foreach($forceSearchInfo as $fsi){
-			// check for each ForceSearch Info is accessible to Joomla User type or not
-			$forceSearchInstance = XiusFactory::getPluginInstance('',$fsi->id);
-			if(!$forceSearchInstance->checkConfiguration('isSearchable'))
+	    
+		//arrange information by keys 
+        usort($forceSearchInfo, "sortByKey");
+	    
+	    //creating groups of informations with same key 
+	    $forceGrp = array();
+	    for($i=0,$j=0;$i<count($forceSearchInfo);$i++)
+	    {
+
+	    	if( ($i+1) < count($forceSearchInfo) && $forceSearchInfo[$i]->key == $forceSearchInfo[$i+1]->key){
+	    		 $forceGrp[$j][$i] = $forceSearchInfo[$i]; 
+	    		 $forceGrp[$j][$i+1] = $forceSearchInfo[$i+1];
+	    	}
+	    	else{
+	    		 $forceGrp[$j][$i] = $forceSearchInfo[$i];
+	    		 $j++;
+	    	}
+	    }
+	   $strQuery = null;
+        //make query according to force search groups
+	    foreach ($forceGrp as $group)
+	    {
+	    	$fgQuery = new XiusQuery();
+	        foreach($group as $fg)
+	    	{
+              $forceSearchInstance = XiusFactory::getPluginInstance('',$fg->id);
+	          if(!$forceSearchInstance->checkConfiguration('isSearchable'))
 				continue;
+			  $pluginParams = $forceSearchInstance->getData('pluginParams');
+			  $this->_addSearchToQuery($fgQuery,$pluginParams,'OR');
+		    }
+		    $fgQuery	=	'('.$fgQuery->convertWhereIntoString().')';
+		    if($strQuery!= null)
+		     $strQuery = $strQuery.' AND '.$fgQuery;
+		    else 
+			 $strQuery = $fgQuery;	
+	    }
 				
-			$pluginParams = $forceSearchInstance->getData('pluginParams');
-			$this->_addSearchToQuery($fsQuery,$pluginParams,'AND');
-		}
-			
-		$strQuery	=	$fsQuery->convertWhereIntoString();	
 		if(!$strQuery){
 			return false;
 		}
@@ -160,3 +187,11 @@ class Forcesearch extends XiusBase
 		return false;
 	}
 }
+   //sort by key in descending order
+    function sortByKey($a, $b) 
+     {
+          if ($a->key == $b->key)
+            return 0;
+         else
+            return $a->key < $b->key ? 1 : -1; // reverse order
+     }

@@ -160,7 +160,7 @@ class plgCommunityxius extends JPlugin
 
 }
 
-if(!JFile::exists(JPATH_ROOT .DS.'components'.DS.'com_community'DS.'controllers'.DS.'controller.php')){
+if(!JFile::exists(JPATH_ROOT .DS.'components'.DS.'com_community'.DS.'controllers'.DS.'controller.php')){
 	JFactory::getApplication()->enqueueMessage("Jom-social does not exist");
 	return;
 }
