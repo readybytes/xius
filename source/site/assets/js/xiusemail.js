@@ -28,7 +28,7 @@ function xiusListSelectUser() {
 
 function xiusCheckEmailSubjectExist(){
 	var subject = document.getElementById('xiusEmailSubjectEl');
-	if((subject.value).trim == "")
+	if((subject.value).trim() == "")
 		return false;
 	return true;
 }
