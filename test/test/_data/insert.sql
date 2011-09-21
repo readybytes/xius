@@ -16,7 +16,8 @@ INSERT INTO `#__community_fields`(`id`, `type`, `ordering`, `published`, `min`, 
 (15, 'text', 16, 1, 10, 200, 'College / University', 'College / University', 1, 0, 1, '', 'FIELD_COLLEGE', 1),
 (16, 'text', 17, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 0, 1, '', 'FIELD_GRADUATION', 1),
 (17, 'templates', 3, 1, 10, 100, 'Template', 'Template Of User', 1, 1, 1, '', 'XIPT_TEMPLATE', 1),
-(18, 'profiletypes', 2, 1, 10, 100, 'Profiletype', 'Profiletype Of User', 1, 1, 1, '', 'XIPT_PROFILETYPE', 1);;
+(18, 'profiletypes', 2, 1, 10, 100, 'Profiletype', 'Profiletype Of User', 1, 1, 1, '', 'XIPT_PROFILETYPE', 1),
+(19, 'text', 9, 1, 10, 100, 'country', '', 1, 1, 1, 1, '', '25');;
 
 TRUNCATE TABLE `#__community_fields_values`;;
 INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`) VALUES

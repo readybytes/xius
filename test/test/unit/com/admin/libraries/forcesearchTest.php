@@ -34,8 +34,11 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	function testBlock0WithExistCondition($conditions,$join,$totalResultUserCount)
 	{
 		$url	= JPATH_ROOT.'/test/test/_data/';
-	    $this->_DBO->loadSql($url.'/insert.sql');	
-		$this->_DBO->loadSql($url.'/16/updateCache.sql');
+	    $this->_DBO->loadSql($url.'/insert.sql');
+	    if(TEST_XIUS_JOOMLA_15)
+	      $this->_DBO->loadSql($url.'/15/updateCache.sql');
+	    else	
+		  $this->_DBO->loadSql($url.'/16/updateCache.sql');
 		
 		if(TEST_XIUS_JOOMLA_15)
 		{
@@ -69,13 +72,13 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 		$conditions1[] = array('infoid'	=> 3,'value' => 'Angola' , 'operator' => '=');
 		
 		$join1	=	'AND';
-		$totalUser1	=	0;
+		$totalUser1	=	1;
 		
 		$conditions2[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
 		$conditions2[] = array('infoid'	=> 3,'value' => 'Angola' , 'operator' => '=');
 		
 		$join2	=	'OR';
-		$totalUser2	=	28;
+		$totalUser2	=	33;
 		
 		$conditions3[] = array('infoid'	=> 1,'value' => 'Female' , 'operator' => '=');
 		$conditions3[] = array('infoid'	=> 12,'value' => '1' , 'operator' => '=');
@@ -97,7 +100,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	{
 		$url	= JPATH_ROOT.'/test/test/_data';
 	    $this->_DBO->loadSql($url.'/insert.sql');	
-		$this->_DBO->loadSql($url.'/updateCache.sql');
+		$this->_DBO->loadSql($url.'/15/updateCache.sql');
 		
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
@@ -140,7 +143,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	{
 		$url	= JPATH_ROOT.'/test/test/_data';
 	    $this->_DBO->loadSql($url.'/insert.sql');	
-		$this->_DBO->loadSql($url.'/updateCache.sql');
+		$this->_DBO->loadSql($url.'/15/updateCache.sql');
 		
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
@@ -149,7 +152,6 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 		
 		$model = XiusFactory::getInstance('users','model');
 		$strQuery= $model->getQuery($conditions,$join);
-		
 		$db = JFactory::getDBO();
 		$db->setQuery((string)$strQuery);
 		$users = $db->loadObjectList();
@@ -231,7 +233,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	{
 		$url	= JPATH_ROOT.'/test/test/_data';
 	    $this->_DBO->loadSql($url.'/insert.sql');	
-		$this->_DBO->loadSql($url.'/updateCache.sql');
+		$this->_DBO->loadSql($url.'/15/updateCache.sql');
 		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
 		$this->_DBO->loadSql($sqlPath);
 		$this->resetCachedData();

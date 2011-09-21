@@ -63,10 +63,11 @@ class XiusProximityTest extends XiUnitTestCase
 		
 		$compare		= "SELECTxius_proximity_google.`latitude`asproximity_google_latitude_0,"
 						  ."xius_proximity_google.`longitude`asproximity_google_longitude_0,"
-						  ."CONCAT_WS(',',jsfields11_0.`value`,jsfields10_0.`value`,jsfields12_0.`value`)"
-						  ."asproximity_google_address_0LEFTJOIN`#__xius_proximity_geocode`as"
-						  ."xius_proximity_googleON(CONCAT_WS(',',jsfields11_0.`value`,jsfields10_0."
-						  ."`value`,jsfields12_0.`value`)=xius_proximity_google.`address`)";
+						  ."CONCAT_WS(',',jsfields_value.`field_id_11`,jsfields_value.`field_id_10`,"
+						  ."jsfields_value.`field_id_12`)asproximity_google_address_0"
+						  ."LEFTJOIN`#__xius_proximity_geocode`asxius_proximity_googleON"
+						  ."(CONCAT_WS(',',jsfields_value.`field_id_11`,jsfields_value.`field_id_10`,"
+						  ."jsfields_value.`field_id_12`)=xius_proximity_google.`address`)";
 		
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$this->cleanWhiteSpaces($compare));
 	}
