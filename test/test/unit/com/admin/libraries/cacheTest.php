@@ -48,7 +48,7 @@ class XiusCacheTest extends XiUnitTestCase
 		
 		$this->_DBO->loadSql($sqlPath);
 		$cache = new XiusCache();
-		
+		JsfieldsBase::setqueryRequired(true);
 		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		
 		//$limit = array('limitStart' => 0 , 'limit' => 23);
@@ -75,7 +75,7 @@ class XiusCacheTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 		
 		$cache = new XiusCache();
-		
+	    JsfieldsBase::setqueryRequired(true);
 		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		
 		$limit = array('limitStart' => 0 , 'limit' => 23);
