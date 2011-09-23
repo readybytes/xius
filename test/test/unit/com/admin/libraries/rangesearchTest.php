@@ -91,9 +91,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$query		= new XiusQuery();		
 		$instance->getUserData($query);
 		$strQuery	= $query->__toString();
-		$compare    ="SELECTYEAR(LOCALTIME())-YEAR(jsfields_value.field_id_3)-(MONTH(LOCALTIME())"
-						."<MONTH(jsfields_value.field_id_3)OR(MONTH(LOCALTIME())=MONTH(jsfields_value.field_id_3)"
-						."ANDDAY(LOCALTIME())<DAY(jsfields_value.field_id_3)))ASrangesearch5_0";
+		$compare    ="SELECTDATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(jsfields_value.field_id_3)),'%y')Asrangesearch5_0";
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
 		
 		// for integer type range search

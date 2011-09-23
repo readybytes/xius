@@ -169,6 +169,7 @@ class XiusJuserTest extends XiUnitTestCase
 		$this->assertEquals($mapping, $tableInfo);
 	
 		$instance->load(10);
+        Jsuser::$defaultAvatars = array();
 		$mapping = $instance->getTableMapping();
 		$tableInfo					= array();
 		$count = 0;

@@ -100,11 +100,9 @@ class Rangesearch extends XiusBase
 				$sql = " $columnName as {$mtm->cacheColumnName}";
 								
 				if($this->pluginParams->get('rangesearchType','date') === 'date')
-					$sql = " YEAR(LOCALTIME()) - YEAR($columnName) "
-							." - ( MONTH(LOCALTIME()) < MONTH($columnName) OR "
-							." ( MONTH(LOCALTIME()) = MONTH($columnName) AND "
-							." DAY(LOCALTIME()) < DAY($columnName) )) AS {$mtm->cacheColumnName} ";
-					
+                 {  //If birthday field is empty for some users then it assigns 0
+					$sql = "DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS($columnName)),'%y') As $mtm->cacheColumnName";
+				 }
 				$query->select($sql);				
 			}
 		}

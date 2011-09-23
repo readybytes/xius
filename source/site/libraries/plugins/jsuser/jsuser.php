@@ -11,6 +11,7 @@ require_once dirname(__FILE__).DS.'defines.php';
 
 class Jsuser extends XiusBase
 {
+    static $defaultAvatars=array();
 
 	function __construct()
 	{
@@ -231,7 +232,6 @@ class Jsuser extends XiusBase
 	
 	public function fetchDefaultAvatar()
 	{
-		static $defaultAvatars=array();
 		if(!empty($defaultAvatars))
 			return $defaultAvatars;
 		// Default JS avatar

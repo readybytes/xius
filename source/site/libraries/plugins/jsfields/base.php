@@ -324,7 +324,7 @@ class JsfieldsBase extends XiusBase
 				$dataType = 'text';
 			}
 			else{
-				$dataType = ('date' == $dataType)?'date': "varchar(250)";
+				$dataType = ('date' == $dataType)?'datetime': "varchar(250)";
 			}
 			$createTable['schema']	 .=", `$columnAlias` "." $dataType";
 			$createTable['values'] 	 .= ", GROUP_CONCAT( DISTINCT (if(`field_id`= {$info->key}, `value`, NULL))) AS $columnAlias";
