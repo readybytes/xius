@@ -262,12 +262,12 @@ class XiusControllerList extends JController
 		$lModel =XiusFactory::getInstance ('list', 'model');
 		foreach($ids as $id)
 			if(!$lModel->updatePublish($id,$value)){
-				$data['msg'] = XiusText::_('UNABLE_TO_PUBLISH/UNPUBLISH_LIST');
+				$data['msg'] = XiusText::_('UNABLE_TO_PUBLISH_UNPUBLISH_LIST');
 				return $data;
 			}
 
 		$data['success'] = true;
-		$data['msg'] = XiusText::_('PUBLISH/UNPUBLISH_LIST');
+		$data['msg'] = XiusText::_('PUBLISH_UNPUBLISH_LIST');
 
 		return $data;
 	}

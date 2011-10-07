@@ -16,7 +16,7 @@ function submitbutton( action )
 	switch( action )
 	{
 		case 'remove':
-			if( !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOU_WANT_TO_REMOVE_THIS_INFORMATION?'); ?>' ) )
+			if( !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOU_WANT_TO_REMOVE_THIS_INFORMATION'); ?>' ) )
 			{
 				break;
 			}
