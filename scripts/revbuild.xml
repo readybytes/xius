@@ -69,6 +69,12 @@
 						<include name="**/*.*" />
 					</fileset>
 				</copy>
+				
+				<copy   todir="${target}/source/admin/install/extensions/xius_jintegration">
+					<fileset dir="${source}/plugins/search/xius"> 
+						<include name="**/*.*" />
+					</fileset>
+                </copy>
 			</then>
 		</if>
                           
@@ -88,7 +94,14 @@
 				<copy   file="${source}/plugins/system/xius_system.xml" 
 				        tofile="${target}/source/admin/install/extensions/xius_system/xius_system.xml" 
 				         />
+				         
+                <copy   file="${source}/plugins/search/xius.php" 
+				        tofile="${target}/source/admin/install/extensions/xius_jintegration/xius.php" 
+				         />
 
+				<copy   file="${source}/plugins/search/xius.xml" 
+				        tofile="${target}/source/admin/install/extensions/xius_jintegration/xius.xml" 
+				         />
 
 				<copy   file="${source}/plugins/community/xius.php" 
 				        tofile="${target}/source/admin/install/extensions/xius_community/xius.php" 
