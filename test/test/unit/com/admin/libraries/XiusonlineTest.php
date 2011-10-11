@@ -30,6 +30,8 @@ class XiusOnlineUserTest extends XiUnitTestCase
 
 		$this->_DBO->loadSql($sqlPath);
 		
+		$mysess = JFactory::getSession();
+		$mysess->set('testmode', true);
 		XiusLibCron::updateCache();
 		JsfieldsBase::setqueryRequired(true);
 
@@ -42,7 +44,8 @@ class XiusOnlineUserTest extends XiUnitTestCase
 		
 		$data = array(array());
 		XiusHelperResults::_getInitialData(&$data);
-		XiusHelperResults::_getTotalUsers(&$data);	
+		XiusHelperResults::_getTotalUsers(&$data);
+		$mysess->set('testmode', false);	
 		$this->assertEquals($data['total'], $result);
 	}
 	

@@ -6,30 +6,28 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusJsfieldTable 
-{
-    
-	function _getUserData(XiusQuery &$query)
+{	
+	function _buildQuery() 
 	{
-		$filter['pluginType'] = "'Jsfields'";	
-		$allInfo = XiusFactory::getInstance ( 'info', 'model' )->getAllInfo($filter,'AND',false);
-		$queryData = self::_buildQuery($allInfo);
+		$query['tableAlias'] =	"jsfields_value";
+		$query['leftJoin'] 	 = 	"#__xius_jsfields_value";
 
-		//$query->select($queryData['select']);
-		$query->leftJoin("`{$queryData['leftJoin']}` AS {$queryData['tableAlias']}
-							ON 
-							juser.`id` = {$queryData['tableAlias']}.`user_id`");			
-	}
-	
-	function _buildQuery($allJsfieldsInfo) 
-	{
-		$query['tableAlias']=	"jsfields_value";
-		//$query['select']	= 	"";
-		$query['leftJoin'] 	= 	"#__xius_jsfields_value";
-		
+		//this condition was added for testing purpose 
+        //bcz we need to drop xius_jsfields_value table in some testcases while updating cache
+		if(!(JFactory::getSession()->get('testmode',false))) 
+		{
+		  $app = JFactory::getApplication();
+          // restrict to drop xius_jsfields_value table from front end cron run
+		  if(!$app->isAdmin())
+		  	return $query;
+		}
+
 		//Drop table if exist
 		self::dropTable();
+		$filter['pluginType'] = "'Jsfields'";	
+		$allJsfieldsInfo 	  = XiusFactory::getInstance ( 'info', 'model' )->getAllInfo($filter,'AND',false);
 		
-		$createTable  = Array();
+		$createTable  		   = Array();
 		$createTable['schema'] = "CREATE TABLE `#__xius_jsfields_value`( `user_id` int(21) NOT NULL PRIMARY KEY ";
 		$createTable['values'] = "INSERT INTO `#__xius_jsfields_value` (SELECT `user_id`";
 		$count = 0;
@@ -62,7 +60,7 @@ class XiusJsfieldTable
 	}
 	
 	/*
-	 * Drop XiUS jsfield_values table
+	 * Drop xius_jsfields_value table
 	 */
 	function dropTable()
 	{ 

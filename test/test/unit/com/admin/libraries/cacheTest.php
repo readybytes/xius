@@ -49,6 +49,8 @@ class XiusCacheTest extends XiUnitTestCase
 		$this->_DBO->loadSql($sqlPath);
 		$cache = new XiusCache();
 		JsfieldsBase::setqueryRequired(true);
+		$mysess = JFactory::getSession();
+		$mysess->set('testmode', true);
 		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
 		
 		//$limit = array('limitStart' => 0 , 'limit' => 23);
@@ -64,7 +66,7 @@ class XiusCacheTest extends XiUnitTestCase
 		
 		foreach($datas as $data)
 			self::compareUserData($data['userid'],$data['data'],$data['userStatus']);
-		
+		$mysess->set('testmode', false);
 	}
 	
 	
