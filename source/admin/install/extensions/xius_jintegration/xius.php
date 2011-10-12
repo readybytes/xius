@@ -29,7 +29,7 @@ class plgSearchxius extends JPlugin
 	{
 		//if xius area is not selected then return 
 	    if (is_array ( $areas )) {
-		  if (! array_intersect ( $areas, array_keys ( plgSearchxius::onSearchAreas() ) )) {
+		  if (! array_intersect ( $areas, array_keys (self::onSearchAreas()) )) {
 			return array ();
 		 }
 	    }
@@ -116,5 +116,17 @@ class plgSearchxius extends JPlugin
 				  }
 				return $value;
 		    }
-	} 
+	}
+
+    //For Joomla1.7
+	function onContentSearchAreas()
+	{
+		return self::onSearchAreas() ;
+	}
+	
+    //For Joomla1.7
+	function onContentSearch($text, $phrase='', $ordering='', $areas=null)
+	{
+	  return self::onSearch(&$text , $$phrase ,&$ordering ,&$areas);
+	}
  }
