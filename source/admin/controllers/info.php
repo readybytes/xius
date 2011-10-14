@@ -237,38 +237,61 @@ class XiusControllerInfo extends JController
 	{
 		if($ids == null)
 			$ids	= JRequest::getVar( 'cid', array(0), 'post', 'array' );
-	
-		$count	= count($ids);
-
-		$row = XiusFactory::getInstance ( 'info','table');
-		
-		
-		/*XITODO : check if info is used anywhere,
-		 * if true , then don't delete it
-		 */
-		$data = array();
+        
+	   $row    = XiusFactory::getInstance ( 'info','table');
+ 
+       //discard parent informations from ids 
+		$newids 		 = self::discardParents($ids);
+	    $count  		 = count($newids);
+		$data            = array();
 		$data['message'] = '';
 		$data['success'] = false;
-		if(!empty($ids))
+		
+		if(!empty($newids))
 		{
-			foreach( $ids as $id )
+			foreach( $newids as $id )
 			{
 				$row->load( $id );
 				if(!$row->delete( $id ))
 				{
 					// If there are any error when deleting, we just stop and redirect user with error.
-					$data['message']	= XiusText::_('ERROR_IN_REMOVING_INFO');
+					$data['message'] = XiusText::_('ERROR_IN_REMOVING_INFO');
 					return $data;
 				}
 			}
 			
-			$data['message'] = $count.' '.XiusText::_('INFO_REMOVED');	;
-			$data['success'] = true;
+			$data['message']  = $count.' '.XiusText::_('INFO_REMOVED');	;
+			$data['success']  = true;
 		}
 		
 		return $data;
 	}
 	
+	//Discarding parent informations
+	function discardParents($ids)
+	{
+		$parents = array();
+		//get array of parent informations
+		$parents = XiusHelperUsersearch::getParentInfo();
+
+		$msg = null;
+		//unset the id if it is exist in parents array
+		foreach ($ids as $key=>$value){
+		   $filter = array();
+		   if(in_array($value, $parents)){
+		   	 $filter['id'] = $value;
+		   	 $info         = XiusLibInfo::getInfo($filter,'AND',false);
+		   	 $msg         .= $info[0]->labelName.','; 
+		   	 unset($ids[$key]);
+		   }
+		}
+        if($msg){
+		  $mainframe = JFactory::getApplication();
+		  $mainframe->enqueueMessage(XiusText::_("PARENT_INFO_CANT_BE_DELETED").substr($msg,0,-1));
+		}
+		
+		return $ids;
+	} 
 	
 	function publish()
 	{

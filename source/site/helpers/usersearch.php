@@ -99,4 +99,58 @@ class XiusHelperUsersearch
 		}
 		return $newdata;		
 	}
+
+	/*
+	 * return array of all the parent infomations
+	 */
+	function getParentInfo($reset=false)
+	{
+		static $parents = array();
+	    if($reset == true)	$parents=array();
+
+		if( $parents != array() && isset($parents))
+			return $parents;
+
+		$filter 			= array();
+		$filter['published']= true;
+		$allInfo 			= XiusLibInfo::getInfo($filter,'AND',false);
+		$count              = 0;
+		foreach ($allInfo as $info)
+		{
+			//for plugin type Forcesearch and Rangesearch
+			if( $info->pluginType == 'Forcesearch' || $info->pluginType == 'Rangesearch')
+			  $parents[$count++] = $info->key;
+			
+			
+			//for plugin type Proximity
+			if( $info->pluginType == 'Proximity'){
+			   $registry = new JRegistry;
+			   $registry->loadINI($info->pluginParams);
+        	   $params = $registry->toArray();
+        	   		
+		        /*XITODO : 
+		         * clean this code
+		         */
+        	   	foreach($params as $key=>$value){ 
+        	   		if(!empty($value) && ($key == 'xius_proximity_latitude'  ||
+        	   		                      $key == 'xius_proximity_longitude' || 
+        	   		                      $key == 'xius_proximity_zipcode'   ||
+        	   		                      $key == 'xius_proximity_country'   ||
+        	   		                      $key == 'xius_proximity_state'     ||
+        	   		                      $key == 'xius_proximity_city'))
+        	   		   $parents[$count++] = $value;
+        	   	}
+        	}
+			
+			//for plugin type xiusemail
+			if($info->pluginType == 'Xiusemail'){
+			   $registry = new JRegistry;
+			   $registry->loadINI($info->pluginParams);
+        	   $params = $registry->toArray();
+        	   $parents[$count++] = $params['xius_email'];
+			}
+
+		}
+        return $parents;
+	}
 }

@@ -91,7 +91,7 @@ class XiusControllerInfoTest extends XiUnitTestCase
 		}
 	}
 	
-	
+	//testing of discardParents() and getParents() functions is also done with this
 	function testRemoveInfo()
 	{
 		$this->_DBO->addTable('#__xius_info');
@@ -103,12 +103,21 @@ class XiusControllerInfoTest extends XiUnitTestCase
 		
 		$infoController = new XiusControllerInfo();
 		
-		$delInfoIds = array(2,4,7);
+		$delInfoIds = array(33,34,35,36,37,38,39,40,41,42,43,44,45);
 		
 		$db = JFactory::getDBO();
 		
 		$result = $infoController->_remove($delInfoIds);
-		$this->assertTrue($result['success']);		
+		$this->assertEquals($result['message'],'5 '. XiusText::_('INFO_REMOVED'),"message should be: 5 ". XiusText::_('INFO_REMOVED')." but we get: ".$result['message']);
+		$this->assertTrue($result['success']);
+
+		$this->resetCachedData();
+		$delInfoId1s = array(33,34,36,37,38,39);
+		XiusHelperUsersearch::getParentInfo(true);
+		$result1 = $infoController->_remove($delInfoId1s);
+		$this->assertEquals($result1['message'],'6 '. XiusText::_('INFO_REMOVED'),"message should be: 6 ". XiusText::_('INFO_REMOVED')." but we get: ".$result1['message']);
+		$this->assertTrue($result1['success']);
+
 	}
 	
 	
