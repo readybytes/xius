@@ -80,6 +80,12 @@ class Jsuser extends XiusBase
 		return true;
 	}
 	
+        function _getFormatAppliedData($value)
+	{
+		if($value == 'All Users')
+		 return XiusText::_('ALL_USERS');;
+	}
+
    //formats the column according to the type of key
     function formatColumn($column , $db)
 	{

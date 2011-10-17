@@ -63,6 +63,11 @@ class Onlineuser extends XiusBase
 		return true;
 	}
 	
+	public function _getFormatAppliedData($value)
+	{
+		if ($value == 'all available')
+		 return XiusText::_("ALL_AVAILABLE");
+	}
 	/**
 	 * invoke when cache will being updat. 
 	 * @Param 

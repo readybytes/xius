@@ -36,7 +36,7 @@ class ProfiletypesHelper
 		$pTypes = XiusHelperXiptwrapper::getProfileTypeIds($filter);
 		$startUp = new stdClass();
 		$startUp->id = 0;
-		$startUp->name = "Select Below";
+		$startUp->name = XiusText::_("SELECT_BELOW");
 		array_unshift($pTypes,$startUp);
         return JHTML::_('select.genericlist',$pTypes,'field'.$field->id,"",'id', "name",$profileTypeInfoId);
   }
