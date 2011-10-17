@@ -58,17 +58,29 @@ class Joomla extends XiusBase
 		}
 			
 		foreach($columns as $c){
-			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-			
-			if($this->key == 'registerDate' || $this->key == 'lastvisitDate')
-				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
 
-			if($this->key == 'block' && $operator != XIUS_LIKE)
-				$conditions =  $db->nameQuote($c->cacheColumnName).' '.$operator.' '.$db->Quote($this->formatValue($value));
-			
+            //format the column before making the condition
+			$formatedColumn = $this->formatColumn($c, $db);
+
+            //make the condition according to the type of key
+			$conditions     =  $formatedColumn.' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
+		    if( $this->key == 'registerDate' || $this->key == 'lastvisitDate')
+				$conditions = $formatedColumn.$operator.' '.$db->Quote($this->formatValue($value));
+
+			if( $this->key == 'block' && $operator != XIUS_LIKE)
+				$conditions =  $formatedColumn.' '.$operator.' '.$db->Quote($this->formatValue($value));
 			$query->where($conditions,$join);
 		}		
 		return true;
+	}
+	
+    //format column according to the type of key
+	function formatColumn($column , $db)
+	{
+		if($this->key == 'registerDate' || $this->key == 'lastvisitDate')
+		  return "DATE_FORMAT(".$db->nameQuote($column->cacheColumnName).", '%d-%m-%Y') ";
+
+		return parent::formatColumn($column, $db);
 	}
 	
 	/*function will provide query for getting user info from

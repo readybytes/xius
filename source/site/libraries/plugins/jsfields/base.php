@@ -94,10 +94,12 @@ class JsfieldsBase extends XiusBase
 		
 		if(!is_array($value)){		
 			foreach($columns as $c){
+                //format the column before making the condition
+				$formatedColumn = $this->formatColumn($c, $db); //call parent's function
 				if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
-					$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
+					$conditions =  $formatedColumn.' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 				else
-					$conditions =  $db->nameQuote($c->cacheColumnName).' '.$operator.' '.$db->Quote($this->formatValue($value));
+					$conditions =  $formatedColumn.' '.$operator.' '.$db->Quote($this->formatValue($value));
 				$query->where($conditions,$join);
 			}
 			return true;			

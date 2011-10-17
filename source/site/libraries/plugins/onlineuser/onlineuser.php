@@ -52,12 +52,12 @@ class Onlineuser extends XiusBase
 
 		$tableMapping=$this->getTableMapping();
 		$tm = array_shift($tableMapping);		
+        //format the column before making the condition
+		$formatedColumn = $this->formatColumn($tm, JFactory::getDBO());
 
-		if ($value === XIUS_ONLINE_USER)
-			$conditions =  $tm->cacheColumnName." = 0 ";
-
+		$conditions =  $formatedColumn." = 0 ";
 		if ($value === XIUS_OFFLINE_USER)
-			$conditions =  $tm->cacheColumnName." = 1";
+			$conditions =  $formatedColumn." = 1";
 
 		$query->where($conditions,$join);
 		return true;

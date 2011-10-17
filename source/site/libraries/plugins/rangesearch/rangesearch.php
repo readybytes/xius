@@ -157,7 +157,11 @@ class Rangesearch extends XiusBase
 
 		//apply search
 		foreach($columns as $c){
-			$conditions =  $db->nameQuote($c->cacheColumnName).' BETWEEN '.$db->Quote($this->formatValue($value[0])).' AND '.$db->Quote($this->formatValue($value[1]));
+             //format the column before making the condition
+			$formatedColumn =  $this->formatColumn($c, $db); // call parent function 
+			$conditions     =  $formatedColumn.' BETWEEN '
+							   .$db->Quote($this->formatValue($value[0]))
+							   .' AND '.$db->Quote($this->formatValue($value[1]));
 			$query->where($conditions,$join);				
 		}
 		return true;

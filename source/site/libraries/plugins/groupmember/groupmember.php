@@ -41,21 +41,28 @@ class Groupmember extends XiusBase
 		if($this->validateValues($value) == false){
 			return false;
 		}
-
-		// Build Sub-Query for getting group member 
-		$groupQuery = new XiusQuery();
-		$groupQuery->select("`memberid`")
-				   ->from("`#__community_groups_members`")
-				   ->where("`groupid`=$value");
-							
-
-		// Add with Searched Query
-		$condition = " `userid` IN ($groupQuery)"; 
+        //format the column before making the condition
+		$condition = $this->formatColumn(false , JFactory::getDBO()).' IN ('.$this->formatValue($value).')'; 
 		$query->where($condition,$join);
 	
 		return true;
 	}
 
+    //format the column
+	function formatColumn($column, $db)
+	{
+		return $db->nameQuote('userid');
+	}
+
+	// Build Sub-Query for getting group member 
+	function formatValue($value)
+	{
+		$groupQuery = new XiusQuery();
+		return $groupQuery->select("`memberid`")
+				   ->from("`#__community_groups_members`")
+				   ->where("`groupid`=$value");
+				   
+	}
 	/**
 	 * $value must be numeric
 	 * @param unknown_type $value

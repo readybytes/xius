@@ -62,16 +62,27 @@ class Customtable extends XiusBase
 
 		$db = JFactory::getDBO();
 		foreach($columns as $c){
-			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-			
+            
+            //format the column before making the condition
+			$formatedColumn = $this->formatColumn($c, $db);
+			$conditions     =  $formatedColumn.' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 			if(JString::stristr(JString::strtolower($c->cacheSqlSpec),'date'))
-				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
+			  $conditions = $formatedColumn.' '.$operator.' '.$db->Quote($this->formatValue($value));
 				
 			$query->where($conditions,$join);
 		}		
 		return true;
 	}
 	
+   //format the column according to the type of information
+   function formatColumn($column , $db)
+	{
+		if(JString::stristr(JString::strtolower($column->cacheSqlSpec),'date'))
+			return "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ";
+
+		 return parent::formatColumn($column, $db);
+	}
+
 	/*function will provide query for getting user info from
 	 * tables. eq :- get info from #__users table 
 	 */

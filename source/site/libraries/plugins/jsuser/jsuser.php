@@ -69,16 +69,26 @@ class Jsuser extends XiusBase
 			return false;
 			
 		foreach($columns as $c){
-			$conditions =  $db->nameQuote($c->cacheColumnName).' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
-			
-			if($this->key == 'posted_on')
-				$conditions = "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ".$operator.' '.$db->Quote($this->formatValue($value));
+            //format the column before making the condition
+			$formatedcolumn = $this->formatColumn($c, $db);
+			$conditions     =  $formatedcolumn.' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
+            if($operator != XIUS_LIKE)
+			  $conditions = $formatedcolumn.' '.$operator.' '.$db->Quote($this->formatValue($value));
 				
 			$query->where($conditions,$join);
 		}		
 		return true;
 	}
 	
+   //formats the column according to the type of key
+    function formatColumn($column , $db)
+	{
+		if($this->key == 'posted_on')
+		   return "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ";
+
+		return parent::formatColumn($column, $db);
+		
+	}
 	/*function will provide query for getting user info from
 	 * tables. eq :- get info from #__users table 
 	 */

@@ -477,6 +477,13 @@ abstract class XiusBase extends JObject
 		return $value;
 	}
 	
+    /*function will format column  
+	 * means how the column is formated for searching 
+	 */
+	function formatColumn($column , $db)
+	{
+		return $db->nameQuote($column->cacheColumnName);
+	}
 	
 	/*@ return plugin different - 2 type which can exist
 	 * Eq :- for JSFields ( Gender , city , state etc ) exist
