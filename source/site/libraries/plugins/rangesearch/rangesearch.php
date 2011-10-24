@@ -221,7 +221,7 @@ class Rangesearch extends XiusBase
 	public function _isDate($date)
 	{
 		  // check the format first (may not be necessary as we use checkdate() below)
-		   if(!ereg ("^[0-9]{2}-[0-9]{2}-[0-9]{4}$", $date))
+		   if(!preg_match("^[0-9]{2}-[0-9]{2}-[0-9]{4}$^", $date))
 		  		return FALSE;
 		  else{
 		      	 $arrDate = explode("-", $date);		// break up date by slash

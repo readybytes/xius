@@ -52,7 +52,7 @@ class XiusCache
 	{
 		$this->_insertQuery	.= $query->__toString();
 		// not get any redundant data 
-		$this->_insertQuery .= " GROUP BY `userid`";
+		$this->_insertQuery .= " GROUP BY juser.`id`";
 		/*Bound result set starting from some users
 		 * Limit should be configurable
 		 */

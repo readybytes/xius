@@ -23,9 +23,9 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (11, 'usertype', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'usertype', '', 'Joomla', 11, 1),
 (12, 'Block', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'block', '', 'Joomla', 12, 1),
 (13, 'lastvisitDate', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'lastvisitDate', '', 'Joomla', 13, 1),
-(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 12, 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
-(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 1, 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
-(16, 'Super Admin should not be visible', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 11, 'infoid=11\nvalue=s:19:"Super Administrator";\noperator==\n\n', 'Forcesearch', 16, 0);;
+(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 12, 'infoid=12\nvalue=s:1:"0";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 14, 1),
+(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 1, 'infoid=1\nvalue=s:6:"Female";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 15, 1),
+(16, 'Super Admin should not be visible', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 11, 'infoid=11\nvalue=s:19:"Super Administrator";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 16, 0);;
 
 
 INSERT INTO `au_#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
@@ -42,8 +42,8 @@ INSERT INTO `au_#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams
 (11, 'usertype', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'usertype', '', 'Joomla', 11, 1),
 (12, 'Block', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'block', '', 'Joomla', 12, 1),
 (13, 'lastvisitDate', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'lastvisitDate', '', 'Joomla', 13, 1),
-(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '12', 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
-(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
-(16, 'Super Admin should not be visible', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '11', 'infoid=11\nvalue=s:19:"Super Administrator";\noperator==\n\n', 'Forcesearch', 16, 0),
-(17, 'Register Date Should be 10 Jun 2009', 'isSearchable=0\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '4', 'infoid=4\nvalue=s:10:"10-06-2009";\noperator==\n\n', 'Forcesearch', 17, 1),
-(18, 'Checkbox1 value should be checkbox11 and checkbox', 'isSearchable=0\nisVisible=0\nisSortable=0\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '7', 'infoid=7\nvalue=a:2:{i:0;s:10:"Checkbox11";i:1;s:8:"Checkbox";}\noperator==\n\n', 'Forcesearch', 18, 0);;
+(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '12', 'infoid=12\nvalue=s:1:"0";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 14, 1),
+(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 15, 1),
+(16, 'Super Admin should not be visible', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '11', 'infoid=11\nvalue=s:19:"Super Administrator";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 16, 0),
+(17, 'Register Date Should be 10 Jun 2009', 'isSearchable=0\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '4', 'infoid=4\nvalue=s:10:"10-06-2009";\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 17, 1),
+(18, 'Checkbox1 value should be checkbox11 and checkbox', 'isSearchable=0\nisVisible=0\nisSortable=0\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '7', 'infoid=7\nvalue=a:2:{i:0;s:10:"Checkbox11";i:1;s:8:"Checkbox";}\noperator==\noperatorType=LIKE\n\n', 'Forcesearch', 18, 0);;

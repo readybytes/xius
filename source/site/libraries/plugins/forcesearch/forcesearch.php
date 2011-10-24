@@ -27,8 +27,14 @@ class Forcesearch extends XiusBase
 		$pluginsInfo = array();
 			
 		foreach($allInfo as $info){
-			if(JString::strtolower($info->pluginType) != JString::strtolower('Forcesearch'))
-				$pluginsInfo[$info->id] = $info->labelName;
+			//XITODO: Implement force search for dependent informations
+			//ignore dependent informations 
+			if($info->pluginType !='Forcesearch' && $info->pluginType != 'Rangesearch' &&
+			   $info->pluginType != 'Proximity'  && $info->pluginType != 'Xiusexport'  && 
+			   $info->pluginType != 'Xiusemail'  && $info->pluginType != 'Onlineuser'  &&
+			   $info->pluginType != 'Keyword'    && $info->pluginType != 'Groupmember'){
+			      $pluginsInfo[$info->id] = $info->labelName;
+			   }
 		}
 		
 		return $pluginsInfo;
@@ -44,7 +50,8 @@ class Forcesearch extends XiusBase
 	public function getPluginParamsHtml()
 	{
 		$plgInstance = XiusFactory::getPluginInstance('',$this->key);
-
+        $operator    = $this->pluginParams->get('operatorType','LIKE');
+		
 		if(!$plgInstance){
 			return false;
 			}
@@ -53,9 +60,43 @@ class Forcesearch extends XiusBase
 			return false;
 			}
 			
-		$inputHtml = $plgInstance->renderSearchableHtml(unserialize($this->pluginParams->get('value')));
-		
-		return $inputHtml;
+		$inputHtml .= '<table class="paramlist admintable" width="100%">
+	                   <tr><td class="paramlist_key">
+	                   <label title="'.XiusText::_("TOOLTIP_VALUE").'" class ="hasTip">'
+		               .XiusText::_('VALUE').'</label>
+	                   </td> <td class="paramlist_value">';
+		                    
+	    $inputHtml .= $plgInstance->renderSearchableHtml
+	                         (unserialize($this->pluginParams->get('value')));
+        
+		//html for operatorType select box
+         $html = array('Equal'            => XIUS_EQUAL,
+                      'GreaterThan' 	 => XIUS_GT,
+                      'GreaterThanEqual' => XIUS_GTE,
+                      'LessThan'         => XIUS_LT,
+                      'LessThanEqual'    => XIUS_LTE,
+                      'NotEqual'         => XIUS_NOTEQUAL,
+                      'LIKE'             => XIUS_LIKE,
+                      'NOTLIKE'          => XIUS_NOTLIKE,
+                      'IN'               => XIUS_IN,
+                      'NOT IN'           => XIUS_NOTIN);
+        
+        $inputHtml .= '</td></tr>
+                       <tr><td class="paramlist_key" width = "40%">
+                       <label title="'.XiusText::_("TOOLTIP_OPERATOR").'" class ="hasTip">'.
+                       XiusText::_('OPERATOR_TYPE_LABEL').'</label>
+                       </td><td class="paramlist_value">';
+        $inputHtml .= '<select name="operatorType" id="operatorType">';
+        
+        foreach ($html as $key => $value){
+			if($key != $operator)
+        	  	$inputHtml .='<option value ="'.$key.'" >'.$value.'</option>'; 
+        	else	  
+               	$inputHtml .='<option value ="'.$key.'" selected="selected">'
+               	.$value.'</option>';
+        }
+		$inputHtml  .= '</select></td></tr></table>';
+        return $inputHtml;
 	}
 	
 	
@@ -71,7 +112,8 @@ class Forcesearch extends XiusBase
 		
 		if(count($searchArray) > 0){
 			$pluginParamArray = $searchArray[0] ; //array('value' => $searchArray[0]->value);
-			$pluginParamArray['value'] = serialize($pluginParamArray['value']); 
+			$pluginParamArray['value'] = serialize($pluginParamArray['value']);
+			$pluginParamArray['operatorType'] = $postdata['operatorType'];
 			$registry	= new JRegistry;
 			$registry->loadArray($pluginParamArray,'xius_pluginParams');
 			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
@@ -178,8 +220,83 @@ class Forcesearch extends XiusBase
 			return false;
 			}
 		
-		$plgInstance->addSearchToQuery($query, unserialize($pluginParams->get('value')), $pluginParams->get('operator'), $join);
+		$this->getqueryByoperator($query,$plgInstance,$pluginParams->get('operatorType'),
+               unserialize($pluginParams->get('value')),$join);
 		return true;			
+   	}
+   	
+   	/*
+   	 * make query according to the selected operator for negative searching
+   	 */
+   function getqueryByoperator(XiusQuery &$query , $instance , $operator ,$value ,$join )
+   	{
+   		$db      = JFactory::getDBO();
+   		$columns = $instance->getTableMapping();
+   		$value   =  $this->formatValue($instance,$operator, $value);
+   		
+   		switch($operator)
+   		{
+   			case 'Equal'           : 
+   									 $operator = XIUS_EQUAL;
+   									 break;
+   			case 'GreaterThan'	   :
+   				                     $operator = XIUS_GT;
+   				                     break;
+   			case 'GreaterThanEqual':
+   				                     $operator = XIUS_GTE;
+   				                     break;
+   			case 'LessThan'        :
+   				                     $operator = XIUS_LT;
+   				                     break;
+   			case 'LessThanEqual'   :
+   				                     $operator = XIUS_LT;
+   				                     break;
+   			case 'NotEqual'        : 
+   				                     $operator = XIUS_NOTEQUAL;
+   				                     break;
+   			case 'NOTLIKE'         :
+   				                     $operator = XIUS_NOTLIKE;
+   				                     $value = "'%$value%'";
+   				                     break;
+   			case 'IN'         :
+   				                     $operator = XIUS_IN;
+   				                     $value =   "(".implode(",",$value).")";
+   				                     break;
+   			case 'NOT IN'      :
+   				                     $operator = XIUS_NOTIN;
+   				                     $value =   "(".implode(",",$value).")";
+   				                     break;
+   			default                :
+   				                     $operator = XIUS_LIKE; 
+   				                     $value = "'%$value%'";
+
+   		}
+   		$conditions = $instance->formatColumn($columns[0],$db)
+   					 .$operator
+   					 .$value;
+   	    $query->where($conditions,$join);
+   		
+   	}
+   	
+    //format values according to operator type
+   	function formatValue($instance,$operator, $value)
+   	{  	
+   		if( "IN" == $operator || "NOT IN" == $operator){
+   			$formatedValues = explode(',', $value);
+   			foreach ($formatedValues as $key=>$value){
+   				$value = $instance->formatValue($value);
+   				if(is_string($value))
+   					$formatedValues[$key] = "'$value'";
+   			}
+   		}
+   		else{
+   			$formatedValues = $instance->formatValue($value);
+   			if(is_string($formatedValues) && 
+   			        ($operator == 'Equal' ||$operator == 'NotEqual')){
+   				$formatedValues = "'$formatedValues'";
+   			  }
+   			}
+   		return $formatedValues;
    	}
    	
 	function isExportable()

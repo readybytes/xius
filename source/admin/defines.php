@@ -51,6 +51,11 @@ define('XIUS_LT','<');
 define('XIUS_GT','>');
 define('XIUS_LIKE','LIKE');
 define('XIUS_NOTLIKE','NOT LIKE');
+define('XIUS_IN', 'IN');
+define('XIUS_NOTIN', 'NOT IN');
+define('XIUS_LTE', '<=');
+define('XIUS_GTE', '>=');
+define('XIUS_NOTEQUAL', '!=');
 
 define('XIUSSEARCH','SEARCH');
 define('XIUSDEL','DELINFO');

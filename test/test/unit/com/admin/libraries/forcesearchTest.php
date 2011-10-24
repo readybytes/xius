@@ -260,4 +260,64 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 			array($conditions2,$join2,$totalUser2),
 			);
 	}
+	
+	/**
+	 * @dataProvider negativeForceSearch
+	 */
+	function testNegativeForceSearch($totalResultUserCount,$unpublish)
+	{
+		$url	= JPATH_ROOT.'/test/test/_data';
+	    $this->_DBO->loadSql($url.'/insert.sql');	
+		$sqlPath = $this->getSqlPath().DS.__FUNCTION__.".start.sql";
+		$this->_DBO->loadSql($sqlPath);
+		//$this->resetCachedData();
+		
+	    $iModel	= XiusFactory::getInstance ( 'info', 'model' );
+		foreach($unpublish[0] as $id)
+		{
+			$iModel->updatePublish($id,0);
+		}
+		
+		$model = XiusFactory::getInstance('users','model');
+	  	$strQuery= $model->getQuery(null,'AND');
+	  	$db = JFactory::getDBO();
+		$db->setQuery((string)$strQuery);
+		$users = $db->loadObjectList();
+		$this->assertEquals($totalResultUserCount,count($users),'Total users should be '.$totalResultUserCount.' but we get '.count($users));
+	}
+	
+	public static function negativeForceSearch()
+	{
+		$totalUser1	   = 11;
+		$unpublish1[]  = array(4,6,7,9,11,12);
+
+		$totalUser2    = 4;
+		$unpublish2[]  = array(3,6,7,9,11,12);
+
+		$totalUser3    = 7;
+		$unpublish3[]  = array(3,4,7,9,11,12);
+
+		$totalUser4    = 11;
+		$unpublish4[]  = array(3,4,6,9,11,12);
+		
+        $totalUser5    = 11;
+		$unpublish5[]  = array(3,4,6,7,11,12);
+		
+		$totalUser6    = 1;
+		$unpublish6[]  = array(3,4,6,7,9,12);
+		
+		$totalUser7    = 13;
+		$unpublish7[]  = array(3,4,6,7,9,11);
+		
+		return array(
+			array($totalUser1,$unpublish1),
+            array($totalUser2,$unpublish2),
+            array($totalUser3,$unpublish3),
+            array($totalUser4,$unpublish4),
+            array($totalUser5,$unpublish5),
+            array($totalUser6,$unpublish6),
+            array($totalUser7,$unpublish7),
+			);
+	}
+	
 }

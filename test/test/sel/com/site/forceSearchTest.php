@@ -8,7 +8,7 @@ class XiusForceSearchSelTest extends XiSelTestCase
 	}
 	
 	//Test case for FORCESEARCH WITH KEYWORD
-	function testForceSearchWithKeyword()
+	function XtestForceSearchWithKeyword()
 	{	
 		// GoTO search panel
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');

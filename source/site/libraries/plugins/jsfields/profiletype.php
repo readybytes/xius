@@ -31,6 +31,9 @@ class ProfiletypesHelper
 	function getFieldHTML($field)
 	{
 		$profileTypeInfoId = JRequest::getVar('profileType',0);
+		if(JFactory::getApplication()->isAdmin()){
+			$profileTypeInfoId = $field->value;
+		}
 		$filter	= array('published'=>1,'visible'=>1);
 		// user can change profiletype, add information
 		$pTypes = XiusHelperXiptwrapper::getProfileTypeIds($filter);
