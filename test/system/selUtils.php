@@ -325,11 +325,10 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		}		
 	}
 	
-	
-	function isInformationExists($information)
+	function isInformationExists($information,$ele="input")
 	{
 		foreach($information as $info=>$val){
-			$element = '//input[@id="'.$info.'"]';
+			$element = '//'.$ele.'[@id="'.$info.'"]';
 			$this->assertTrue($this->isElementPresent($element));
 		}	
 	}

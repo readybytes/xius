@@ -33,10 +33,15 @@ class JoomlaView extends XiusBaseView
 
          	$layout = 'date'; 			
   		}
-  		else if($infoType == 'tinyint(4) NOT NULL'){			
+  	   if($infoType == 'tinyint(4) NOT NULL'){			
  			$layout = 'tiny';
   		}		
-		
+
+ 			if($key === 'usertype'){
+  				$this->assign('value',$value);
+				$layout 	= 'usergroup';
+  			}
+  		
   		if($layout === null)
   			return parent::searchHtml($calleObject,$value);
   			

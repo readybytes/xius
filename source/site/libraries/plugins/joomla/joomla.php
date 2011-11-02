@@ -46,9 +46,9 @@ class Joomla extends XiusBase
 		}
 		
 		$db = JFactory::getDBO();
-		if(is_array($value)){
-			return false;
-		}
+//		if(is_array($value)){
+//			return false;
+//		}
 
 		//get all cache columns 
 		$columns = $this->getTableMapping();
@@ -83,6 +83,26 @@ class Joomla extends XiusBase
 		return parent::formatColumn($column, $db);
 	}
 	
+    function formatValue($value)
+	{
+       //if J1.5 then format value from groupid to groupname 
+       //because groupname is saved in cache table
+       if(XIUS_JOOMLA_15 && $this->key == 'usertype'){
+      	$groups      =  XiusHelperUsers::getJoomlaGroups();
+      	foreach ($groups as $group){
+      		if($group->id == $value)
+      		 	return $group->{XIUS_JOOMLA_GROUP_VALUE}; 
+      	}
+       }
+		
+       //In case of multiselect layout of usertype(Force search)
+       // $value is an array of array
+	   if($this->key == 'usertype' && isset($value['param'][0])){
+	  	 return $value['param'][0];
+	   }	
+	  return parent::formatValue($value);
+	}
+	
 	/*function will provide query for getting user info from
 	 * tables. eq :- get info from #__users table 
 	 */
@@ -98,8 +118,8 @@ class Joomla extends XiusBase
 							." as {$tm->cacheColumnName} "
 						  );
 			$query->leftJoin( " {$tm->tableName}  as {$tm->tableAliasName}   "
-							 ." ON ( {$tm->tableAliasName}.`id` = juser.`id` ) "
-							);
+							 ." ON ( {$tm->tableAliasName}.`".(XIUS_JOOMLA_15?'id':'user_id')."` = juser.`id` ) "
+						    );
 		}
 	}
 	
@@ -109,9 +129,17 @@ class Joomla extends XiusBase
 		$count = 0;
 		 
 		$object	= new stdClass();
-		$object->tableName			= '`#__users`';
-		$object->tableAliasName 	= "joomlauser{$this->key}_$count";
+		
+		$object->tableName		    = '`#__users`';
 		$object->originColumnName	= $this->key;
+
+		//in case of J1.7 user's groups should be taken from #__user_usergroup_map
+		if(!XIUS_JOOMLA_15  && $this->key === 'usertype'){
+			$object->tableName		    = '`#__user_usergroup_map`';
+			$object->originColumnName	= 'group_id';
+        }
+
+		$object->tableAliasName 	= "joomlauser{$this->key}_$count";
 		$object->cacheColumnName	= strtolower($this->pluginType).$this->key.'_'.$count;
 		$object->cacheSqlSpec 		= $this->getCacheSqlSpec($this->key);
 		$object->cacheLabelName		= $this->labelName;
@@ -162,6 +190,15 @@ class Joomla extends XiusBase
 	/* formatting displaying output */
 	public function _getFormatData($value)
 	{
+	    if($this->key === 'usertype'){
+			$groups      = XiusHelperUsers::getJoomlaGroups();
+			foreach ($groups as $group){
+				if($group->id == $value){
+					return $group->{XIUS_JOOMLA_GROUP_VALUE};
+				}
+			}
+		}
+
 		if($this->key != 'registerDate' && $this->key != 'lastvisitDate'){
 			return parent::_getFormatData($value);
 		}
@@ -204,5 +241,13 @@ class Joomla extends XiusBase
 		}
 			
 		return $this->_getFormatData($value);
+	}
+
+	function validateValues($value)
+	{
+		if($this->key == 'usertype' && (string)$value == '0'){
+		   return false;
+		}
+		return parent::validateValues($value);
 	}
 }

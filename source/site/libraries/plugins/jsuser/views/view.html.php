@@ -31,6 +31,7 @@ class JsuserView extends XiusBaseView
 		 */
  		 if($key === 'avatar')
  		{
+ 			$this->assign('value',$value);
  			$layout='avatar';
  		}
  		
@@ -39,6 +40,7 @@ class JsuserView extends XiusBaseView
  			$profileType= CFactory::getModel('profile');
  			$profileTypes=$profileType->getProfileTypes();
  		    $this->assign('profileTypes',$profileTypes);
+ 		    $this->assign('value',$value);
 	        $layout='profile';
  		}
 		

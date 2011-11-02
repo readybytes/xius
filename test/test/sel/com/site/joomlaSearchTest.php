@@ -24,9 +24,13 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->waitPageLoad();
 		
 		$this->select("//select[@id='Joomlablock']", "label=No");
+		$this->select("//select[@id='usertype']", "label=Registered");
+		
+		$selectBox = array('usertype'=>'Registered','Joomlablock'=>'No');
+		$this->isInformationExists($selectBox , "select");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'name','Joomla_6'=>'username','Joomla_9'=>'123',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','JoomlalastvisitDate'=>'');
+							'Joomla_10'=>'email','Joomla_13'=>'','JoomlalastvisitDate'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -49,9 +53,13 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
 		$this->waitPageLoad();
 		$this->select("//select[@id='Joomlablock']", "label=No");
+		$this->select("//select[@id='usertype']", "label=Registered");
+		
+		$selectBox = array('usertype'=>'Registered','Joomlablock'=>'No');
+		$this->isInformationExists($selectBox , "select");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'name','Joomla_6'=>'username','Joomla_9'=>'123',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','JoomlalastvisitDate'=>'');
+							'Joomla_10'=>'email','Joomla_13'=>'','JoomlalastvisitDate'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -79,9 +87,13 @@ class XiusJoomlaSearchTest extends XiSelTestCase
 		$this->waitPageLoad();
 		
 		$this->select("//select[@id='Joomlablock']", "label=No");
+		$this->select("//select[@id='usertype']", "label=Registered");
+		
+		$selectBox = array('usertype'=>'Registered','Joomlablock'=>'No');
+		$this->isInformationExists($selectBox , "select");
 		// joomla published information will be shown
 		$information = array('JoomlaregisterDate'=>'','Joomla_5'=>'','Joomla_6'=>'name','Joomla_9'=>'66',
-							'Joomla_10'=>'email','Joomla_11'=>'register','Joomla_13'=>'','JoomlalastvisitDate'=>'');
+							'Joomla_10'=>'email','Joomla_13'=>'','JoomlalastvisitDate'=>'');
 		$this->isInformationExists($information);
 		// call the function the for filling the values of information
 		
@@ -103,7 +115,7 @@ class XiusJoomlaSearchTest extends XiSelTestCase
     	$element[]= "//img[@class='xius_test_remove_name']";
     	$element[]= "//img[@class='xius_test_remove_66']";
     	$element[]= "//img[@class='xius_test_remove_email']";
-    	$element[]= "//img[@class='xius_test_remove_register']";
+    	$element[]= "//img[@class='xius_test_remove_Registered']";
     	
     	$this->isSearchElementPresent($element);
     	// match any

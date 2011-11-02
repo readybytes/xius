@@ -96,7 +96,10 @@ class JsfieldsBase extends XiusBase
 			foreach($columns as $c){
                 //format the column before making the condition
 				$formatedColumn = $this->formatColumn($c, $db); //call parent's function
-				if(JString::strtolower($fType) == 'text' || $operator == XIUS_LIKE)
+				if(  JString::strtolower($fType) == 'text' ||
+					 JString::strtolower($fType) == 'textarea' ||
+					 $operator == XIUS_LIKE
+					)
 					$conditions =  $formatedColumn.' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');
 				else
 					$conditions =  $formatedColumn.' '.$operator.' '.$db->Quote($this->formatValue($value));
@@ -126,6 +129,15 @@ class JsfieldsBase extends XiusBase
 		return false;		
 	}
 	
+    function validateValues($value)
+	{
+		$filter = array();
+		$filter['id'] = $this->key;
+		$fieldInfo = Jsfieldshelper::getJomsocialFields($filter);
+		if($fieldInfo[0]->type == 'profiletypes' && $value == 0)
+			return false;
+		return parent::validateValues($value);	
+	}
 	/*
 	 * return the information related to the source table  
 	 */

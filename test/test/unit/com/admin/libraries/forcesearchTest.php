@@ -300,7 +300,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 		$totalUser4    = 11;
 		$unpublish4[]  = array(3,4,6,9,11,12);
 		
-        $totalUser5    = 11;
+        $totalUser5    = 12;
 		$unpublish5[]  = array(3,4,6,7,11,12);
 		
 		$totalUser6    = 1;

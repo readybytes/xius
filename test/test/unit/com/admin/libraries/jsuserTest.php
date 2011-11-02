@@ -81,12 +81,12 @@ class XiusJuserTest extends XiUnitTestCase
 	
 		$instance->load(10);
 		$searchHtml7=$viewClass->searchHtml($instance);
-		$result7='<div><input type="radio" id="avatar" name="avatar"  value="0" title="Users with avatar" />
-		          Users with avatar
-		          <input type="radio" id="avatar" name="avatar"  value="1" title="Users with default avatar"/>
-		          Users with default avatar
-		          <input type="radio" id="avatar" name="avatar"  value="All Users" title="All users" checked />
-		          All Users</div>';
+		$result7='	<div><label><inputtype="radio"id="avatar"name="avatar"value="0"title="Userswithavatar"/>
+				  	Userswithavatar</label><label>
+					<inputtype="radio"id="avatar"name="avatar"value="1"title="Userswithdefaultavatar"/>
+                    Userswithdefaultavatar</label><label>
+                    <inputtype="radio"id="avatar"name="avatar"value="AllUsers"title="Allusers"checked/>
+                    AllUsers</label></div>';
 		$this->assertEquals($this->cleanWhiteSpaces($result7),$this->cleanWhiteSpaces($searchHtml7));
 	}    
 	

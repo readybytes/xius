@@ -60,7 +60,7 @@ class Forcesearch extends XiusBase
 			return false;
 			}
 			
-		$inputHtml .= '<table class="paramlist admintable" width="100%">
+		$inputHtml  = '<table class="paramlist admintable" width="100%">
 	                   <tr><td class="paramlist_key">
 	                   <label title="'.XiusText::_("TOOLTIP_VALUE").'" class ="hasTip">'
 		               .XiusText::_('VALUE').'</label>
@@ -70,7 +70,7 @@ class Forcesearch extends XiusBase
 	                         (unserialize($this->pluginParams->get('value')));
         
 		//html for operatorType select box
-         $html = array('Equal'            => XIUS_EQUAL,
+         $html = array('Equal'           => XIUS_EQUAL,
                       'GreaterThan' 	 => XIUS_GT,
                       'GreaterThanEqual' => XIUS_GTE,
                       'LessThan'         => XIUS_LT,
@@ -282,7 +282,12 @@ class Forcesearch extends XiusBase
    	function formatValue($instance,$operator, $value)
    	{  	
    		if( "IN" == $operator || "NOT IN" == $operator){
-   			$formatedValues = explode(',', $value);
+   			if(is_array($value) && isset($value['param']))  {   //For usertype info
+   			  	$formatedValues = $value['param'];
+   			}  	
+   			else 	
+   				$formatedValues = explode(',', $value);
+   				
    			foreach ($formatedValues as $key=>$value){
    				$value = $instance->formatValue($value);
    				if(is_string($value))

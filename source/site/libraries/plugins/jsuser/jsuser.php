@@ -83,7 +83,8 @@ class Jsuser extends XiusBase
         function _getFormatAppliedData($value)
 	{
 		if($value == 'All Users')
-		 return XiusText::_('ALL_USERS');;
+		 return XiusText::_('ALL_USERS');
+		return parent::_getFormatAppliedData($value); 
 	}
 
    //formats the column according to the type of key

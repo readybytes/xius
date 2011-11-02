@@ -26,7 +26,8 @@ class XiusConfigAdminSelTest extends XiSelTestCase
     	$this->click("//input[@id='xiusparamsxiusReplaceSearch1']","checked");
     	if (!TEST_XIUS_JOOMLA_15)
     		        $this->addSelection("//select[@name='xiusparams[xiusListCreator][] multiple=']", "label=Administrator"); 	
-    	
+    	else 
+    	             $this->addSelection("xiusparamsxiusListCreator", "label=Administrator");
 		if (TEST_XIUS_JOOMLA_15)
     		$this->click("//td[@id='toolbar-save']/a/span");
     	else
