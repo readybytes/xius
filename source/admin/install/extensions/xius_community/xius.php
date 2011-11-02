@@ -7,6 +7,7 @@ jimport('joomla.filesystem.folder');
 
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 	return;
+require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
 
 class plgCommunityxius extends JPlugin
 {
@@ -27,11 +28,6 @@ class plgCommunityxius extends JPlugin
 
 	function onCronRun()
 	{
-		$incldePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-		if(!JFile::exists($incldePath))
-			return false;
-
-		require_once $incldePath;
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		//echo " Running XIUS Cron update";
 		return $plgHandler->onCronRun();
@@ -39,7 +35,6 @@ class plgCommunityxius extends JPlugin
 
 	function onSystemStart()
 	{
-		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
 		$showSearchMenuTab=XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);
 		//$this->params->get('showSearchMenuTab', 0);
 
@@ -189,7 +184,6 @@ class CommunityXiusController extends CommunityBaseController
 
 	function doTask()
 	{
-		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
 		$controllerClass = 'XiussiteController'.JString::ucfirst($this->xiusOrigView);
 		$controller = new $controllerClass(true);
 
