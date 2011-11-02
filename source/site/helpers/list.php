@@ -17,15 +17,26 @@ class XiusHelperList
 			return false; 
 
 		// if user is not registered then he will  be treated as guest
-		$usertype = 'Guest Only';
-		if($user->usertype) 
-			$usertype = $user->usertype;
-			
-		if(in_array('All', $allowedGroup)
-				||	in_array($user->usertype, $allowedGroup) 
-				||  XiusHelperUtils::isAdmin($user->id) )
-			return true;
-		
+//		$usertype = 'Guest Only';
+//		if($user->usertype) 
+//			$usertype = $user->usertype;
+
+		if( in_array('All', $allowedGroup) ||
+			XiusHelperUtils::isAdmin($user->id) )
+			  return true;
+
+		//if not J1.5 then check for each groupid assigned to that user	
+	    if(!XIUS_JOOMLA_15){
+			foreach ($user->groups as $group=>$gid){
+				if(in_array($gid, $allowedGroup) )
+					return true;
+			}
+	    }
+        //if J1.5 then check for user's gid in allowedgroups
+	    else{
+				if(in_array($user->gid, $allowedGroup))
+				    return true;
+	    }
 		return false;
 	} 
 	

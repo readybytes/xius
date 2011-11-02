@@ -161,17 +161,20 @@ class XiusControllerUsersTest extends XiUnitTestCase
 		
 		$user = & JFactory::getUser(62);
 		$user->usertype = "Administrator";
+		$user->gid      = 24;
 		$userController = new XiussiteControllerList();
 		$returnData		= $userController->_saveListChecks(true,$user);
 		$this->assertEquals($returnData , $success);
 		
 		// if user type is manager, must be succeed
 		$user->usertype = "Manager";
+		$user->gid      = 23;
 		$returnData		= $userController->_saveListChecks(true,$user);
 		$this->assertEquals($returnData , $success);
 		
 		// if user type is super administrator, must be succeed
 		$user->usertype = "Super Administrator";
+		$user->gid      = 25;
 		$returnData		= $userController->_saveListChecks(true,$user);
 		$this->assertEquals($returnData , $success);
 		
