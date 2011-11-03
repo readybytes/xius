@@ -31,16 +31,27 @@ class ProfiletypesHelper
 	function getFieldHTML($field)
 	{
 		$profileTypeInfoId = JRequest::getVar('profileType',0);
-		if(JFactory::getApplication()->isAdmin()){
-			$profileTypeInfoId = $field->value;
-		}
+		$attr   = null;
 		$filter	= array('published'=>1,'visible'=>1);
 		// user can change profiletype, add information
 		$pTypes = XiusHelperXiptwrapper::getProfileTypeIds($filter);
-		$startUp = new stdClass();
-		$startUp->id = 0;
-		$startUp->name = XiusText::_("SELECT_BELOW");
-		array_unshift($pTypes,$startUp);
-        return JHTML::_('select.genericlist',$pTypes,'field'.$field->id,"",'id', "name",$profileTypeInfoId);
+		
+        //if admin then set attr for multiselect type and get default 
+        //selected from value[param]
+		if(JFactory::getApplication()->isAdmin()){
+			$profileTypeInfoId = $field->value['param']; //selected values stored in value[param]
+			$attr 			   = 'multiple="multiple" size="'.count($pTypes).'"';
+			$name              = 'profiletype[param][]';
+		}
+         //if site then add "select below" option
+		else{
+			$name 		   = 'field'.$field->id;
+		 	$startUp 	   = new stdClass();
+		 	$startUp->id   = 0;
+			$startUp->name = XiusText::_("SELECT_BELOW");
+			array_unshift($pTypes,$startUp);
+		}
+		
+        return JHTML::_('select.genericlist',$pTypes,$name,$attr,'id', "name",$profileTypeInfoId);
   }
 }

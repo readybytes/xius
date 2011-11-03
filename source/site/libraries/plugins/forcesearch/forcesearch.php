@@ -281,11 +281,12 @@ class Forcesearch extends XiusBase
     //format values according to operator type
    	function formatValue($instance,$operator, $value)
    	{  	
-   		if( "IN" == $operator || "NOT IN" == $operator){
-   			if(is_array($value) && isset($value['param']))  {   //For usertype info
+        //For multiselect type info
+   		if(is_array($value) && isset($value['param']))  {   
    			  	$formatedValues = $value['param'];
-   			}  	
-   			else 	
+   			} 
+   		if( "IN" == $operator || "NOT IN" == $operator){
+   	    	if(!isset($formatedValues))	
    				$formatedValues = explode(',', $value);
    				
    			foreach ($formatedValues as $key=>$value){
@@ -295,7 +296,11 @@ class Forcesearch extends XiusBase
    			}
    		}
    		else{
-   			$formatedValues = $instance->formatValue($value);
+            //if operator is not IN and NOTIN and info type is not of 
+            //multiselect type then assign '$value' otherwise assign the 
+            //'formatedValues' first element only, bcoz other opr only needs 1 value
+   			$formatedValues = $instance->formatValue(
+   			                     isset($formatedValues)?$formatedValues[0]:$value);
    			if(is_string($formatedValues) && 
    			        ($operator == 'Equal' ||$operator == 'NotEqual')){
    				$formatedValues = "'$formatedValues'";

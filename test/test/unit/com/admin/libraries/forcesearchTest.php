@@ -289,26 +289,28 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 	public static function negativeForceSearch()
 	{
 		$totalUser1	   = 11;
-		$unpublish1[]  = array(4,6,7,9,11,12);
+		$unpublish1[]  = array(4,6,7,9,11,12,14);
 
 		$totalUser2    = 4;
-		$unpublish2[]  = array(3,6,7,9,11,12);
+		$unpublish2[]  = array(3,6,7,9,11,12,14);
 
 		$totalUser3    = 7;
-		$unpublish3[]  = array(3,4,7,9,11,12);
+		$unpublish3[]  = array(3,4,7,9,11,12,14);
 
 		$totalUser4    = 11;
-		$unpublish4[]  = array(3,4,6,9,11,12);
+		$unpublish4[]  = array(3,4,6,9,11,12,14);
 		
         $totalUser5    = 12;
-		$unpublish5[]  = array(3,4,6,7,11,12);
+		$unpublish5[]  = array(3,4,6,7,11,12,14);
 		
 		$totalUser6    = 1;
-		$unpublish6[]  = array(3,4,6,7,9,12);
+		$unpublish6[]  = array(3,4,6,7,9,12,14);
 		
 		$totalUser7    = 13;
-		$unpublish7[]  = array(3,4,6,7,9,11);
+		$unpublish7[]  = array(3,4,6,7,9,11,14);
 		
+		$totalUser8    = 7;
+		$unpublish8[]  = array(3,4,6,7,9,11,12);
 		return array(
 			array($totalUser1,$unpublish1),
             array($totalUser2,$unpublish2),
@@ -317,6 +319,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
             array($totalUser5,$unpublish5),
             array($totalUser6,$unpublish6),
             array($totalUser7,$unpublish7),
+            array($totalUser8,$unpublish8),
 			);
 	}
 	
