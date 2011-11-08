@@ -16,9 +16,6 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 
 <div id="XIUS">
-<div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo $this->infoName;?>
-</div>
 <div class="xippElements">
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
 <div>
@@ -31,8 +28,25 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 							<?php echo XiusText::_( 'NAME' ); ?>:
 						</label>
 					</div>
-					<div class="paramValue"><input type="text" name="labelName" value ="<?php echo $this->pluginArray['labelName']; ?>" /></div>
-		</div>			
+					<div class="paramValue"><input type="text" name="labelName" value ="<?php echo $this->pluginArray['labelName']; ?>" />
+					</div>
+					<a style = "float:right;" href="<?php echo XiusText::_(JString::strtoupper($this->info['pluginType']).'_LINK');?>" target="_blank">
+						<img style = "width:25px; height:20px;"src="../components/com_xius/assets/images/icon-doc.png"/ 
+						     title="Click here to see documentation"></a>
+		</div>	
+		<div class="elementParams">
+					<div class="paramTitle">
+						<label for="plugin type">
+							<?php echo XiusText::_( 'PLUGIN_TYPE' ); ?>:
+						</label>
+					</div>
+					<div class="paramValue">
+					  <label for="plugin type" style="font-weight: bold;">
+							<?php echo $this->info['pluginType']; ?>
+						</label>
+					</div>
+		</div>
+				
 		<div class="elementParams">
 					<div class="paramTitle">
 						<?php echo XiusText::_( 'PUBLISHED' ); ?>:

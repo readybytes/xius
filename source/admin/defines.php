@@ -10,7 +10,7 @@ if(defined('XIUS_DEFINE'))
 	return;
 
 define('XIUS_DEFINE','XIUS_DEFINE');
-
+define('XIUS_VERSION','@global.version@.@svn.lastrevision@');
 //names which will not vary
 define('XIUS_COMPONENT_NAME','com_xius');
 

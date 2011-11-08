@@ -151,7 +151,7 @@ class xiusMigration
 		//add a version in xius_config table
 		$db 	  = JFactory::getDBO();
 		$sqlquery = "INSERT INTO `#__xius_config`(`name`,`params`) 
-			              	            VALUES ('version','3.1.483')";	
+			              	            VALUES ('version','".XIUS_VERSION."')";	
         $db->setQuery($sqlquery);
         $db->query();
         //change 'xiusListCreator' param from usergroup's name to usergroup's id

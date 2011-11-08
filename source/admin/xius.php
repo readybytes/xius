@@ -29,4 +29,7 @@ $document->addStyleSheet(JURI::root() . 'components/com_xius/assets/css/admin.cs
 
 $controller = new $controllerClass();
 $controller->execute($task);
+//add footer link
+include_once(XIUS_COMPONENT_PATH_ADMIN.DS.'views'.DS.'cpanel'.DS.'tmpl'.DS.'default_footermenu.php');
+
 $controller->redirect();

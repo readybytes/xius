@@ -33,3 +33,6 @@ CREATE TABLE IF NOT EXISTS `#__xius_config` (
   `name` varchar(64) NOT NULL,
   `params` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT IGNORE INTO `#__xius_config` (`name`, `params`) VALUES
+('version', '@global.version@.@svn.lastrevision@');
