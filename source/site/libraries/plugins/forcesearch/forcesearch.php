@@ -112,7 +112,19 @@ class Forcesearch extends XiusBase
 		
 		if(count($searchArray) > 0){
 			$pluginParamArray = $searchArray[0] ; //array('value' => $searchArray[0]->value);
-			$pluginParamArray['value'] = serialize($pluginParamArray['value']);
+			$parentInfo 			   = XiusModelInfo::getInfo($postdata['key']);
+		    //for profiletype info
+            if($parentInfo->pluginType == 'Jsfields'){
+       	     $filter 	   = array();
+		     $filter['id'] = $parentInfo->key;
+		     require_once XIUS_PATH_LIBRARY.DS.'plugins'.DS.'jsfields'.DS.'jsfieldshelper.php';
+		     $fieldInfo    = Jsfieldshelper::getJomsocialFields($filter);
+           		 }
+			if($parentInfo->key == 'usertype' || (isset($fieldInfo) && $fieldInfo[0]->type == 'profiletypes'))
+				$pluginParamArray['value'] = serialize($pluginParamArray['value']['param']);
+			else 
+				$pluginParamArray['value'] = serialize($pluginParamArray['value']);
+				
 			$pluginParamArray['operatorType'] = $postdata['operatorType'];
 			$registry	= new JRegistry;
 			$registry->loadArray($pluginParamArray,'xius_pluginParams');
@@ -282,8 +294,8 @@ class Forcesearch extends XiusBase
    	function formatValue($instance,$operator, $value)
    	{  	
         //For multiselect type info
-   		if(is_array($value) && isset($value['param']))  {   
-   			  	$formatedValues = $value['param'];
+   		if(is_array($value) && isset($value))  {   
+   			  	$formatedValues = $value;
    			} 
    		if( "IN" == $operator || "NOT IN" == $operator){
    	    	if(!isset($formatedValues))	

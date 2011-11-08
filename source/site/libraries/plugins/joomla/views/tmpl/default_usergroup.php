@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 $value 	= $this->value;
 
  if(JFactory::getApplication()->isAdmin())
-    echo Joomlahelper::getUserGroupHtml('usertype[param][]', $value['param'],true);
+    echo Joomlahelper::getUserGroupHtml('usertype[param][]', $value,true);
  else
     echo Joomlahelper::getUserGroupHtml('usertype',$value, true);	
     

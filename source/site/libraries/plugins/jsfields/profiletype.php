@@ -39,7 +39,7 @@ class ProfiletypesHelper
         //if admin then set attr for multiselect type and get default 
         //selected from value[param]
 		if(JFactory::getApplication()->isAdmin()){
-			$profileTypeInfoId = $field->value['param']; //selected values stored in value[param]
+			$profileTypeInfoId = $field->value; //selected values stored in value[param]
 			$attr 			   = 'multiple="multiple" size="'.count($pTypes).'"';
 			$name              = 'profiletype[param][]';
 		}

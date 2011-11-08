@@ -9,12 +9,12 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (6, 'points force', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '5', 'infoid=5\nvalue=s:1:"5";\noperator==\noperatorType=GreaterThanEqual\n\n', 'Forcesearch', 6, 1),
 (7, 'name', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:4:"name";\noperator==\noperatorType=NOTLIKE\n\n', 'Forcesearch', 7, 1),
 (8, 'usertype', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', 'usertype', '', 'Joomla', 8, 1),
-(9, 'usertype force','isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=8\nvalue=a:1:{s:5:"param";a:2:{i:0;s:2:"18";i:1;s:2:"19";}}\noperator==\noperatorType=IN\n\n','Forcesearch', 9, 1),
+(9, 'usertype force','isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=8\nvalue=a:2:{i:0;s:2:"18";i:1;s:2:"19";}\noperator==\noperatorType=IN\n\n','Forcesearch', 9, 1),
 (10, 'Birthdate', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '3', '', 'Jsfields', 10, 1),
 (11, 'Birthdate force', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '10', 'infoid=10\nvalue=s:10:"20-11-1989";\noperator==\noperatorType=Equal\n\n', 'Forcesearch', 11, 1),
 (12, 'About me', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '2', 'infoid=2\nvalue=s:5:"Hello";\noperator==\noperatorType=NotEqual\n\n', 'Forcesearch', 12, 1),
 (13, 'Profiletype', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '17', '', 'Jsfields', 13, 1),
-(14, 'ProfiletypeForce', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '13', 'infoid=13\nvalue=a:1:{s:5:"param";a:1:{i:0;s:1:"1";}}\noperator==\noperatorType=NOT IN\n\n', 'Forcesearch', 14, 1);;
+(14, 'ProfiletypeForce', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '13', 'infoid=13\nvalue=a:1:{i:0;s:1:"1";}\noperator==\noperatorType=NOT IN\n\n', 'Forcesearch', 14, 1);;
 
 DROP TABLE IF EXISTS `#__xius_cache`;;
 
