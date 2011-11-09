@@ -28,7 +28,7 @@ echo JString::ucfirst($user->name);
 if(!empty($this->userprofile))	:
 	foreach($this->userprofile[$user->id] as $up):	
 		for($i =0 ; $i< count($up['value']); $i++ ) :	
-			if($up['value'][$i] == "") :
+			if(empty($up['value'][$i])):
 				continue;
 			endif;
 

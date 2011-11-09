@@ -101,7 +101,7 @@ class Rangesearch extends XiusBase
 								
 				if($this->pluginParams->get('rangesearchType','date') === 'date')
                  {  //If birthday field is empty for some users then it assigns 0
-					$sql = "DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS($columnName)),'%y') As $mtm->cacheColumnName";
+					$sql = "(DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS($columnName)),'%Y')+0) As $mtm->cacheColumnName";
 				 }
 				$query->select($sql);				
 			}

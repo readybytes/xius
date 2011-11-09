@@ -91,7 +91,7 @@ class XiusRangesearchUnitTest extends XiUnitTestCase
 		$query		= new XiusQuery();		
 		$instance->getUserData($query);
 		$strQuery	= $query->__toString();
-		$compare    ="SELECTDATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(jsfields_value.field_id_3)),'%y')Asrangesearch5_0";
+		$compare    ="SELECT(DATE_FORMAT(FROM_DAYS(TO_DAYS(NOW())-TO_DAYS(jsfields_value.field_id_3)),'%Y')+0)Asrangesearch5_0";
 		$this->assertEquals($this->cleanWhiteSpaces($strQuery),$compare);
 		
 		// for integer type range search
