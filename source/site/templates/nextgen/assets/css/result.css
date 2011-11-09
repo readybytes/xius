@@ -58,11 +58,11 @@ div#xiusProfile #xiusActions {
     cursor: pointer;
     background:#ffffff;
 }
-div.xiusfl {
+div#xiusProfile div.xiusfl {
 	float: left;
 }
 
-div.xiusfr {
+div#xiusProfile div.xiusfr {
 	float: right;
 }
 
@@ -103,18 +103,18 @@ div#xiusProfile  div.xiusFdData {
         padding:2px;
 }
 
-span.xiusFdClear {
+div#xiusProfile span.xiusFdClear {
         float:right;
         cursor:pointer;
 }
-div.xiusFdLabel {
+div#xiusProfile div.xiusFdLabel {
         font-weight:bold;
 }
 
-div.xiusFdValue {
+div#xiusProfile div.xiusFdValue {
 }
 
-div#filters {
+div#xiusProfile div#filters {
 	/*border:1px solid #e3e3e3;*/
 	width:100%
 }
@@ -128,7 +128,7 @@ div#xiusProfile div#xiusFlHead {
         padding:3px;
 }
 
-div#xiusFlForm {
+div#xiusProfile div#xiusFlForm {
    font-size:10px;
 }
 div#xiusProfile div.xiusFlData {
@@ -137,31 +137,31 @@ div#xiusProfile div.xiusFlData {
         padding:2px;
 }
 
-div.xiusFlLabel {
+div#xiusProfile div.xiusFlLabel {
        font-weight:bold;
        width:100%;
 }
 
-div.xiusFlInput {
+div#xiusProfile div.xiusFlInput {
 }
 
-div.xiusFlInput input{
+div#xiusProfile div.xiusFlInput input{
         width:150px;
 }
 
-div.xiusFlInput input[type=checkbox]{
+div#xiusProfile div.xiusFlInput input[type=checkbox]{
         width:15px;
 }
-div.xiusFlInput select{
+div#xiusProfile div.xiusFlInput select{
         width:150px;
 }
 	 
-div.xiusFlImg{
+div#xiusProfile div.xiusFlImg{
 float:right;
 cursor:pointer;
 }
 
-div#xiusSearched {
+div#xiusProfile div#xiusSearched {
 	border:1px solid;
 }
 
@@ -177,7 +177,7 @@ div#xiusProfile div#xiusTotal {
 	font-style: italic;
 }
 
-div#xiusMiniProfiles div.xiusMiniProfile {
+div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile {
 	overflow:hidden;
 	border:1px solid #e3e3e3;
     margin-bottom:5px;
@@ -255,7 +255,7 @@ div#xiusProfile div.xiusFriends {
 	height:20px;
 }
 
-div.xiusMpMiddle {
+div#xiusProfile div.xiusMpMiddle {
 	overflow:hidden;
     width:100%;
 }
@@ -272,14 +272,14 @@ div#xiusProfile div.xiusAvatar {
         margin:5px;
 }
 
-div.xiusAvatar {
+div#xiusProfile div.xiusAvatar {
 	padding:2px;
 	text-align: center;
 	padding:2px;
 	width:66px;
 } 
 
-div.xiusMpData {
+div#xiusProfile div.xiusMpData {
 	margin:5px;
         width:80%;
         float:left;
@@ -291,7 +291,7 @@ div#xiusProfile div.xiusMpInfo {
         width:49.5%;
 }
 
-div.xiusMplabel	{
+div#xiusProfile div.xiusMplabel	{
        float:left;
        width:35%;
        font-size:85%;

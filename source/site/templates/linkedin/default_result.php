@@ -30,9 +30,11 @@ $this->loadAssets('js', 'result.js');
 </div>
 </div>
 <?php echo $this->loadTemplate('toolbar'); ?>
+<div id="xiusProfile">
 <?php echo $this->loadTemplate('profile');?>
 <div class="xiusfr pagination">
 <?php echo $this->pagination->getPagesLinks();?>
+</div>
 </div>
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="search" />

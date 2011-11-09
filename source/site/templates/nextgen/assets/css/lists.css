@@ -56,18 +56,56 @@ div#xiusLists td {
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
+
+#xiusSave dl,
+#xiusSave dt,
+#xiusSave dd,
+#xiusSave ul,
+#xiusSave ol,
+#xiusSave li,
+#xiusSave h1,
+#xiusSave h2,
+#xiusSave h3,
+#xiusSave h4,
+#xiusSave h5,
+#xiusSave h6,
+#xiusSave pre,
+#xiusSave form,
+#xiusSave fieldset,
+#xiusSave input,
+#xiusSave textarea,
+#xiusSave p,
+#xiusSave blockquote,
+#xiusSave th,
+#xiusSave td {
+	margin: 0; 
+	padding: 0;
+} 
 #xiusSave{
 	overflow:hidden;
-	}
+	font-size: 12px;
+}
 
 #xiusSave .xiusSavelabel{
 	float:left;
 	width:30%;
-	text-align:right;
+	text-align:left;
 	margin-right:10px;
 	/*margin-bottom:5px;*/
 	font-weight:bold;
 	margin-top:5px;
+}
+
+#xiusSave .xiusSaveInfo{
+	border-bottom: 1px dotted #666666;
+	overflow: hidden;
+	width: 99%;
+	line-height: 20px;
+	padding:2px;
+}
+
+#xiusSave .xiusSaveInfo:hover{
+	background:#ddf0f8;
 }
 
 #xiusSave .xiusSavehtml{
@@ -76,7 +114,21 @@ div#xiusLists td {
 	margin-bottom:5px;
 	margin-top:5px;
 }
-               
+
+#xiusSave #xiusSaveHeader{
+	border:1px solid #cfcfcf;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #f5f5f5;
+	width:99%;
+	padding:5px 0 5px 5px;
+	font-weight: bold;
+	line-height: 15px;
+	color:#006699;
+	margin-bottom:10px; 	
+}
+
 #xiusSave #xiussubmit{
 	float:left;
 	width:100%;
@@ -89,10 +141,10 @@ div#xiusLists td {
 #xiusSave div{
 	margin:0px;
 }
-
-body #xiusSave table.paramlist td.paramlist_key {
+	
+#xiusSave body table.paramlist td.paramlist_key {
  width:30%;
- text-align: right;
+ text-align: left;
  font-weight: bold;
 }
 
@@ -130,6 +182,6 @@ display:block;
 float:left;
 cursor:default;
 font-weight:bold;
-text-align:right;
+text-align:left;
 width:215px
 }

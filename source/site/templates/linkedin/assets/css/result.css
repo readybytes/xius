@@ -32,6 +32,7 @@ div#xiusResult a {
 
 div#xiusResult {
 	overflow:hidden;
+	clear:both;
 }
 
 div#xiusResult div#xiusProfile {
@@ -45,6 +46,7 @@ div#xiusResult div.miniProfile {
 	overflow: hidden;
 }
 
+
 div#xiusResult div.miniProfile:hover {
 	background:#ddf0f8;
 	border-bottom:1px dotted #666666;
@@ -55,7 +57,7 @@ div#xiusResult div.miniProfileOptions {
 	float:left;
 }
 
-span.xiusCheckUser{
+div#xiusResult span.xiusCheckUser{
 	float:left;	
 }
 
@@ -69,12 +71,12 @@ div#xiusResult div.miniProfileAvatar img {
 	height:48px;
 }
 
-div.miniProfileInfos {
+div#xiusResult div.miniProfileInfos {
 	width:70%;
 	float: left;
 }
 	
-div.miniProfileInfo{
+div#xiusResult div.miniProfileInfo{
 	float:left;
 	width:49%;
 }
@@ -88,7 +90,7 @@ div#xiusResult span.infoValue {
 	margin-right: 5px;
 }
 
-h2.mPName{
+div#xiusResult h2.mPName{
 	color:#006699;
 }
 
@@ -98,7 +100,7 @@ div#xiusResult div#xiusFilter {
 	font-size: 12px;
 }
 	
-div#xiusClearAll {
+div#xiusResult div#xiusClearAll {
 	float:right;
 }
 	
@@ -116,7 +118,7 @@ div#xiusResult div#filterHead {
 	font-weight: bold;
 }
 
-div.xiusFdLabel{
+div#xiusResult div.xiusFdLabel{
 	color:#006699;
 }
 
@@ -133,12 +135,12 @@ div#xiusResult div#filterForm {
 	padding:10px;
 }
 
-div#filterForm input, div#filterForm select {
+div#xiusResult div#filterForm input, div#filterForm select {
 	width:90%;	
 	font-size: 12px;
 }
 
-span.addButton, span.clearButton{
+div#xiusResult span.addButton, span.clearButton{
 	float:right;
 	color:#006699;
 	cursor: pointer;
@@ -207,13 +209,13 @@ div#xiusResult span#sortBYTitle{
 	margin-left: 5px;
 }
 	
-div#xiusToolbar select {
+div#xiusResult div#xiusToolbar select {
 border:1px solid #efefef;
 background: #efefef;
 color:#006699;
 
 }
 
-div.xiusfr{
+div#xiusResult div.xiusfr {
 	float:right;
 }

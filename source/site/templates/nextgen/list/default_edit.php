@@ -12,15 +12,15 @@ if(!empty($this->msg))
 	<form action="<?php echo XiusRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 	
 	<!--  START HEADER -->
-		<h3>
+		<div id="xiusSaveHeader">
 			<?php
 				echo XiusText::_("SAVE_AS_NEW"); 
 			?>
-		</h3>
+		</div>
 	<!--  END HEADER -->
 		
 	<!--  START NAME -->
-		<div id="xiusNewName">
+		<div id="xiusNewName" class="xiusSaveInfo">
 			<div class="xiusSavelabel">
 			<label><?php echo XiusText::_('NAME'); ?></label>
 			</div>
@@ -29,7 +29,7 @@ if(!empty($this->msg))
 	<!--  END NAME -->
 		
 		<!--  START PUBLISH -->
-		<div>
+		<div class="xiusSaveInfo">
 			<div class="xiusSavelabel">		
 			<label><?php echo XiusText::_('PUBLISHED'); ?></label>
 			</div>
@@ -41,7 +41,7 @@ if(!empty($this->msg))
 		<!--  END PUBLISH -->
 		
 		<!--  START CONDITION -->		
-		<div>
+		<div class="xiusSaveInfo">
 			<div class="xiusSavelabel">
 			<label>
 				<?php 
@@ -62,7 +62,7 @@ if(!empty($this->msg))
 		<!--  END CONDITION -->
 			
 		<!--  START SORTABLE INFORMATION -->
-		<div>
+		<div class="xiusSaveInfo">
 			<div class="xiusSavelabel">
 			<label>
 				<?php 
@@ -94,10 +94,10 @@ if(!empty($this->msg))
 		<!--  END SORTABLE INFORMATION -->		
 		
 		<!--  START SORTING ORDER -->
-		<div id="xiusSorting">
+		<div id="xiusSorting" class="xiusSaveInfo">
 		<div class="xiusSavelabel">		
 			<label for="name">
-				<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>:
+				<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -124,10 +124,10 @@ if(!empty($this->msg))
 		<!--  END SORTING ORDER -->		
 		
 		<!--  START JOIN WITH -->
-		<div>
+		<div class="xiusSaveInfo">
 		<div class="xiusSavelabel">
 			<label for="name">
-				<?php echo XiusText::_( 'JOIN_WITH' ); ?>:
+				<?php echo XiusText::_( 'JOIN_WITH' ); ?>
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -152,8 +152,8 @@ if(!empty($this->msg))
 		
 		<div style="clear:both;"></div>
 		<!-- START PLUGIN PRIVACY -->
-		<div id="xiusPlugin">
-				<div style="width:100%;" >
+		<div id="xiusPlugin"  class="xiusSaveInfo">
+				<div style="width:100%;">
 				<?php 
 					foreach($this->data['xiusListPrivacy'] as $html)
 						if($html)
@@ -165,7 +165,7 @@ if(!empty($this->msg))
 		<div style="clear:both;"></div>
 		
 		<!--  START DESCRIPTION -->
-		<div>
+		<div class="xiusSaveInfo">
 		<div class="xiusSavelabel">
 			<label>
 				<?php
@@ -183,7 +183,7 @@ if(!empty($this->msg))
 		</div>
 		</div>
 		<!--  END DESCRIPTION -->
-	
+	<div style="clear:both;"><br/></div>
 <div id="xiussubmit">				
 <input type="submit" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE_AS_NEW')?> />	
 </div>

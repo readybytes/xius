@@ -3,15 +3,48 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 /** css for result page **/
-.xius_result{
+
+/* resets */
+
+div#xius_result div,
+div#xius_result dl,
+div#xius_result dt,
+div#xius_result dd,
+div#xius_result ul,
+div#xius_result ol,
+div#xius_result li,
+div#xius_result h1,
+div#xius_result h2,
+div#xius_result h3,
+div#xius_result h4,
+div#xius_result h5,
+div#xius_result h6,
+div#xius_result pre,
+div#xius_result form,
+div#xius_result fieldset,
+div#xius_result input,
+div#xius_result textarea,
+div#xius_result p,
+div#xius_result blockquote,
+div#xius_result th,
+div#xius_result td {
+	margin: 0; 
+	padding: 0;
+}
+div#xius_result {
+	overflow:hidden;
+	clear:both;
 }
 
-.xius_result fieldset {
+div#xius_result .xius_result{
+}
+
+div#xius_result .xius_result fieldset {
 	background-image: none;
 	border: 1px solid #275788;
 }
 
-.xiusListname{
+div#xius_result .xiusListname{
 	color: #275788;
 	margin-left: 10px;
 	font-size: 1.5em;
@@ -20,24 +53,24 @@
 	
 	
 /** css for User Listing  Area **/	
-.xius_ul{
+div#xius_result .xius_ul{
 	/**border:1px solid black;**/
 	padding:0px;
 	margin:2px;
 }
-.xiusMp{
+div#xius_result .xiusMp{
 	border:1px solid #dddddd;
 	margin:5px 3px;
 	overflow:hidden;
 	-moz-border-radius:2px;
 }
 	
-.xiusMp:hover{
+div#xius_result .xiusMp:hover{
 	border:1px solid #bfbfbf;
 	background:#efefef;
 }
 	
-.xiusMpAvatar{
+div#xius_result .xiusMpAvatar{
 	border:3px solid #dddddd;
 	padding:3px;
 	width:70px;
@@ -46,17 +79,17 @@
 	margin:3px;
 	cursor: pointer;
 	}
-.xiusMpAvatar img{
+div#xius_result .xiusMpAvatar img{
 	margin-top:2px;
 	margin-left:1px;
 }
-.xiusMpAvatar:hover{
+div#xius_result .xiusMpAvatar:hover{
 	border:3px solid #bfbfbf;
 	}
-.xiusMpOptions{
+div#xius_result .xiusMpOptions{
 	float: right;
 	}
-.xiusHeader{
+div#xius_result .xiusHeader{
 	border-bottom:1px solid #dddddd;
 	border-bottom-style:dashed;
 	margin:3px;
@@ -65,39 +98,39 @@
 	font-weight: bold;
 	}
 	
-.xiusHeaderStatus{
+div#xius_result .xiusHeaderStatus{
 	font-size: 90%;
 	font-weight: normal;
 	font-style: italic;
 	margin-left:5px;
 }
 	
-.xiusMpMiddle{
+div#xius_result .xiusMpMiddle{
 
 	}
-.xiusMpData{
+div#xius_result .xiusMpData{
 	float:left;
 	padding:4px;
 	margin:3px 3px 3px 15px;
 	min-height:70px; 
 	width:75%;
 	}
-.xiusMpInfo{
+div#xius_result .xiusMpInfo{
 	float:left;
 	width:49%;
 	}
-.xiusMplabel{
+div#xius_result .xiusMplabel{
 	float: left;
 	width: 39%;
 	font-weight: bold;
 	}
-.xiusMpValue{
+div#xius_result .xiusMpValue{
 	float: left;
 	}
 
 /** End of User Listing Area **/
 /** Toolbar**/
-.xiusToolbar {
+div#xius_result .xiusToolbar {
 	overflow: hidden;
 	border: 1px solid #dddddd;
 	margin: 2px 5px;
@@ -106,28 +139,28 @@
 	padding:1px 10px 0 10px;
 }
 
-.xiusToolbar:hover{
+div#xius_result .xiusToolbar:hover{
 	border:1px solid #bfbfbf;
 	background: #bfbfbf;
 }
-.xiusToolbar img{
+div#xius_result .xiusToolbar img{
 	cursor: pointer;
 	}
-.xiusTbRight{
+div#xius_result .xiusTbRight{
 	float:right;
 }
 
-.xiusTotal{
+div#xius_result .xiusTotal{
  	text-align: right;
 	width:100%;
 }
-.xiusTotalText{
+div#xius_result .xiusTotalText{
 	margin-right: 5px;
 	}
 /** End of Toolbar **/
 
 /** applied info div css**/
-.xiusAppliedinfo{
+div#xius_result .xiusAppliedinfo{
 	border:1px solid #dddddd;
 	overflow:hidden;
 	-moz-border-radius:2px;
@@ -135,7 +168,7 @@
 	margin:5px;
 }
 
-.xius_apiHead{
+div#xius_result .xius_apiHead{
 	padding:-5px 0px 5px 15px;
 	font-size:1.5em;
 	margin:15px 0 5px 5px;
@@ -143,18 +176,18 @@
 	border-bottom-style: dashed;
 }
 
-.xius_apiHead img{
+div#xius_result  .xius_apiHead img{
 float: right;
 margin-top: -10px;
 background-position:center;
 cursor: pointer;
 }
 
-.applied {
+div#xius_result .applied {
 	margin-bottom: 2px;
 }
 
-.applied {
+div#xius_result .applied {
 	float: left;
 	background:#efefef;
 	-moz-border-radius:2px;
@@ -166,29 +199,29 @@ cursor: pointer;
 	margin-left: 4px;
 	padding:3px;
 }
-.applied:hover{
+div#xius_result  .applied:hover{
 	background:#bfbfbf;
 	}
-.applied .left {
+div#xius_result .applied .left {
 	float: left;
 	/*width: 70%;*/
 	margin: 2px;
 }
 
-.applied .right {
+div#xius_result .applied .right {
 	float: right;
 	margin-top: 5%;
 	width: 22px;
 	cursor: pointer;
 }
-.right img{
+div#xius_result .right img{
 float: right;
 /*margin-top: 10px;*/
 position:relative;
 cursor: pointer;
 }
 
-.xijoin{
+div#xius_result .xijoin{
 	float: left;
 	/*background:#D8DFEA;*/
 	-moz-border-radius:2px;
@@ -203,7 +236,7 @@ cursor: pointer;
 /** End of applied info**/
 /** Available info div **/
 
-.xius_ai{
+div#xius_result .xius_ai{
 	border:1px solid #dddddd;
 	padding:2px;
 	margin:5px;
@@ -212,7 +245,7 @@ cursor: pointer;
 	background:#efefef;
 }
 
-.xius_ai_full{
+div#xius_result .xius_ai_full{
 	border:1px solid #dddddd;
 	padding:2px;
 	margin:5px;
@@ -220,21 +253,21 @@ cursor: pointer;
 	-webkit-border-radius:2px;
 }
 
-.xius_aiHead{
+div#xius_result .xius_aiHead{
 	font-size:1.5em;
 	margin:5px 0 5px 5px;
 }
 
-.xius_aiMain{
+div#xius_result .xius_aiMain{
 	border:1px solid #dddddd;
 	overflow:hidden;
 	margin:5px;
 	padding:5px;
 }
-.xius_aiMain:hover{
+div#xius_result .xius_aiMain:hover{
 background:#efefef;
 }
-.xius_aiLabel{
+div#xius_result .xius_aiLabel{
 	float:left;
 	width:22%;
 	font-weight:bold;
@@ -242,28 +275,28 @@ background:#efefef;
 	margin:0px;
 }
 
-.xius_aiInput{
+div#xius_result .xius_aiInput{
 	float:left;	
 	width:68%;
 	padding:0px;
 	margin:0px;
 }
 
-.xius_aiInput input{
+div#xius_result .xius_aiInput input{
 /*	margin-left:17px;*/	
 }
 
-.xius_aiInput select{
+div#xius_result .xius_aiInput select{
 /*	margin-left:17px;	*/
 }
 
-.xius_aiImg{
+div#xius_result .xius_aiImg{
 	float:right;
 	padding:0px;
 	margin:0px;
 	cursor:pointer;
 }
-.xius_aiInput label{
+div#xius_result .xius_aiInput label{
 	margin:0px;
 /*	padding-left:17px;*/
 	display:block;
@@ -272,36 +305,36 @@ background:#efefef;
 }
 /** End Of Available Info **/
 /** admin option popup box css**/
-.savemainbox {
+div#xius_result .savemainbox {
 	overflow: hidden;
 	border: 1px solid #275788;
 	margin: 3px;
 }
 
-.savemainbox h3 {
+div#xius_result .savemainbox h3 {
 	text-align: center;
 }
 
-.savemainbox .leftbox {
+div#xius_result .savemainbox .leftbox {
 	width: 45%;
 	border: solid 1px #E5E5E5;
 	float: left;
 	margin: 10px;
 }
 
-.savemainbox .rightbox {
+div#xius_result .savemainbox .rightbox {
 	width: 45%;
 	border: solid 1px #E5E5E5;
 	float: right;
 	margin: 10px;
 }
 
-.savemainbox .lab {
+div#xius_result .savemainbox .lab {
 	width: 100px;
 	float: left;
 }
 
-.savemainbox input,textarea {
+div#xius_result .savemainbox input,textarea {
 	padding: 9px;
 	border: solid 1px black;
 	outline: 0;
@@ -313,7 +346,7 @@ background:#efefef;
 	margin-top: 2px;
 }
 
-.xiusSubmit input {
+div#xius_result .xiusSubmit input {
 	width: auto;
 	padding: 9px 15px;
 	background: #D8DFEA;
@@ -326,28 +359,28 @@ background:#efefef;
 	text-align: right;
 }
 
-.xiusSlider{
+div#xius_result .xiusSlider{
 	display:block;
 }
 
-.xiusSliderHide{
+div#xius_result .xiusSliderHide{
 	display:none;
 }
 
-.xiusSlideImgDown{
+div#xius_result .xiusSlideImgDown{
 padding-right:25px;
 float:right;
 background-image: url("../images/down.png");
 background-repeat: no-repeat;
 }
 
-.xiusSlideImgUp{
+div#xius_result .xiusSlideImgUp{
 float:right;
 padding-right:25px;
 background-image: url("../images/up.png");
 background-repeat: no-repeat;
 }
 
-body #xius_result .inputbox{
+div#xius_result body #xius_result .inputbox{
 border:1px solid #e3e3e3;		
 }

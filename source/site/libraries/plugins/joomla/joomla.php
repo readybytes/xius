@@ -118,7 +118,7 @@ class Joomla extends XiusBase
 							." as {$tm->cacheColumnName} "
 						  );
 			$query->leftJoin( " {$tm->tableName}  as {$tm->tableAliasName}   "
-							 ." ON ( {$tm->tableAliasName}.`".(XIUS_JOOMLA_15?'id':'user_id')."` = juser.`id` ) "
+							 ." ON ( {$tm->tableAliasName}.`".($tm->tableName == '`#__user_usergroup_map`'?'user_id':'id')."` = juser.`id` ) "
 						    );
 		}
 	}

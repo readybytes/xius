@@ -3,9 +3,7 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
-?>
-<div id="xiusProfile">
-<?php 
+ 
 $count=0;
 foreach($this->users as $user) :
 ?>
@@ -70,5 +68,4 @@ endif;?>
 <?php 
 endforeach;
 ?>
-</div>
 <?php 

@@ -97,7 +97,7 @@ if(!empty($this->msg))
 		<div id="xiusSorting"  class="xiusSaveInfo">
 		<div class="xiusSavelabel">		
 			<label for="name">
-				<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>:
+				<?php echo XiusText::_( 'SORTING_DIRECTION' ); ?>
 			</label>
 			</div>
 			<div class="xiusSavehtml">
@@ -127,7 +127,7 @@ if(!empty($this->msg))
 		<div class="xiusSaveInfo"> 
 		<div class="xiusSavelabel">
 			<label for="name">
-				<?php echo XiusText::_( 'JOIN_WITH' ); ?>:
+				<?php echo XiusText::_( 'JOIN_WITH' ); ?>
 			</label>
 			</div>
 			<div class="xiusSavehtml">

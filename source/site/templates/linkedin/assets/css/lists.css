@@ -91,7 +91,7 @@ div#xiusLists td {
 	font-size: 12px;
 }
 
-div#xiusSaveHeader{
+#xiusSave div#xiusSaveHeader{
 	border:1px solid #cfcfcf;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -105,7 +105,7 @@ div#xiusSaveHeader{
 	margin-bottom:10px; 	
 }
 
-div.xiusSaveInfo{
+#xiusSave div.xiusSaveInfo{
 	border-bottom: 1px dotted #666666;
 	overflow: hidden;
 	width: 99%;
@@ -113,8 +113,8 @@ div.xiusSaveInfo{
 	padding:2px;
 }
 
-div.xiusSaveInfo:hover{
-	background:#ddf0f8;
+#xiusSave div.xiusSaveInfo:hover{
+	background:#f5f5f5;
 }
 
 #xiusSave .xiusSavelabel{
