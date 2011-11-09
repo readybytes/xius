@@ -27,8 +27,8 @@ class XiusJsfieldViewTest extends XiUnitTestCase
 		$viewClass = new JsfieldsView();
 		$searchHtml =  $viewClass->searchHtml($instance);
 		
-		$result = '<inputtitle="City/Town::City/Town"type="text"value=""id="field11"name="field11"maxlength="100"size="40"class="jomTipstipRightinputboxrequiredjomTipstipRight"/>
-				   <spanid="errfield11msg"style="display:none;">&nbsp;</span>';
+		$result = '<inputtitle="City/Town"type="text"value=""id="field11"name="field11"maxlength="100"size="40"class="jomNameTipstipRightinputboxrequiredjomNameTipstipRight"style=""/>
+		           <spanid="errfield11msg"style="display:none;">&nbsp;</span>';
 				
 		$this->assertEquals($this->cleanWhiteSpaces($result),$this->cleanWhiteSpaces($searchHtml));
 	}

@@ -38,6 +38,7 @@ class XiusJuserTest extends XiUnitTestCase
 		    $requiredInfo['view']			= 'view';
 		    $requiredInfo['friends']		= 'friends';
 		    $requiredInfo['groups']			= 'groups';
+		    $requiredInfo['events']			= 'events';
 		    $requiredInfo['friendcount']	= 'friendcount';
 		    $requiredInfo['alias']			= 'alias';
 		    $requiredInfo['latitude']		= 'latitude';
