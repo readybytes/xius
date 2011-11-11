@@ -59,7 +59,12 @@
 			<option value="ASC">Ascending</option>
 			<option value="DESC">Descending</option>
 		</param>
-		
+	</params>
+	
+	
+	<params group="advXiusLimit" addpath="/components/com_xius/elements">
+	<param name="xiusLimit" type="limit" default="20" label="COM_XIUS_DEFAULT_LIMIT" description="COM_XIUS_DEFAULT_LIMIT_DESC">
+	</param>
 	</params>
 		
 	<params addpath="/components/com_xius/elements"  group="basicXiusList">

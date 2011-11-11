@@ -55,6 +55,14 @@ class XiussiteControllerUsers extends XiusController
 			
 		$order = XiusHelperUtils::getConfigurationParams('xiusSortOrder','ASC');
 		XiusLibUsersearch::setDataInSession(XIUS_DIR,$order,'XIUS'); 
+		//set default limit first time and check if limitstart for pagination is set or not 
+		$limitStart = JRequest::getVar('limitstart', null);
+        $limit      = JRequest::getVar('limit');
+	    if(!$limit && $limitStart == null){
+			$limit = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
+			JRequest::setVar('limit', $limit);
+		}
+	
 		if($fromPanel){			
 			$conditions = XiusLibUsersearch::processSearchData();
 			XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,$conditions,'XIUS');

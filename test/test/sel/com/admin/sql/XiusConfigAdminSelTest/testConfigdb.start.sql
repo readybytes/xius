@@ -12,5 +12,5 @@ INSERT INTO `#__xius_config` (`name`, `params`) VALUES
 
 INSERT INTO `au_#__xius_config` (`name`, `params`) VALUES
 ('cache', 'cacheStartTime=1282050943\ncacheEndTime=1282050944\n\n'),
-('config', 'xiusTemplates=default\nintegrateJomSocial=1\nxiusKey=SSV445\nxiusDebugMode=1\nxiusListCreator=a:1:{i:0;s:2:"24";}\nxiusReplaceSearch=1\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusEnableMatch=1\nxiusDefaultMatch=OR\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusCronJob=1\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n');;
+('config', 'xiusTemplates=default\nintegrateJomSocial=1\nxiusKey=SSV445\nxiusDebugMode=1\nxiusListCreator=a:1:{i:0;s:2:"24";}\nxiusReplaceSearch=1\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusEnableMatch=1\nxiusDefaultMatch=OR\nxiusLimit=20\nxiusCronJob=1\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n');;
 

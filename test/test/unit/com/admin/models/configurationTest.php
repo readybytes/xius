@@ -72,6 +72,7 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 												'xiusListCreator' => 'a:1:{i:0;s:19:"Super Administrator";}',
 												'xiusSortInfo'=>0,
 												'xiusSortOrder' => 'ASC',
+		                                        'xiusLimit'=>20,
 												'xiusCronJob' => 0,
 												'xiusCronFrequency' => 900,
 												'xiusCronAcessTime' => '',
