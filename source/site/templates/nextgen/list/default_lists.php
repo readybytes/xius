@@ -43,7 +43,10 @@ else	:
 	endforeach;
 endif;
 echo $this->pagination->getPagesLinks();
-echo $this->pagination->getLimitBox();
+//set default limit that is already set from backend
+$limit		    = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
+JRequest::setVar('limit', $limit);
+echo JElementLimit::fetchElement('limit',$limit);
 ?>
 
 <input type="hidden" name="option" value="com_xius" />

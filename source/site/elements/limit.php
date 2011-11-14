@@ -13,7 +13,7 @@ class JElementLimit extends JElement
 	 */
 	var	$_name = 'xiusLimit';
 
-	function fetchElement($name, $value, &$node, $control_name="")
+	function fetchElement($name, $value, &$node = null, $control_name="")
 	{
 		$limits = array ();
         // Make the option list

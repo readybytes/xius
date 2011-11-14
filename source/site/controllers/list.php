@@ -76,7 +76,9 @@ class XiussiteControllerList extends XiusController
 				$mainframe->redirect($url,$msg,false);
 				break;
 			}
-				
+		//set the default limit in list result		
+		$limit = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
+        JFactory::getApplication()->setUserState('global.list.limit',$limit);
 		$this->_loadListInSession($list);
 		return $this->_displayResult(__FUNCTION__,$list);
 	}	

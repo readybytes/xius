@@ -3,6 +3,7 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
+require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 ?>
 <div class = "xiusToolbar">
 <?php
@@ -40,7 +41,10 @@ foreach($this->xiusToolbar as $tool)
 
 					echo $dirhtml;
 				endif;
-
-				echo $this->pagination->getLimitBox();?>
+                //set the default limit for search result
+				$mainframe  	= JFactory::getApplication();
+				$limit 			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+                echo JElementLimit::fetchElement('limit',$limit);
+?>
 	</div>
 </div>

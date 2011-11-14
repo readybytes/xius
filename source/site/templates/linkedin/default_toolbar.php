@@ -54,7 +54,10 @@
 					echo $dirhtml;
 				endif;
 				echo XiusText::_('SHOWING');
-				echo $this->pagination->getLimitBox(); 
+                //set default limit for search result
+				$mainframe  	= JFactory::getApplication();
+				$limit 			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+                echo JElementLimit::fetchElement('limit',$limit);
 				echo sprintf(XiusText::_('OF_TOTAL'),$this->total);?>
 	 </div>
 

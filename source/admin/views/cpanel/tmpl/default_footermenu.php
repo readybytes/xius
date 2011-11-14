@@ -11,7 +11,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 		<a href='http://www.joomlaxi.com/downloads/joomlaxi-user-search-xius.html' target="_blank"><?php echo XiusText::_('DOWNLOAD');?></a>
 		| <a href='http://www.joomlaxi.com/support/forum/allforums/40-joomlaxi-user-search-xius.html' target="_blank"><?php echo XiusText::_('SUPPORT');?></a>
 		| <a href='http://www.joomlaxi.com/support/documentation/category/joomlaxi-user-search.html' target="_blank"><?php echo XiusText::_('DOCUMENTATION');?></a>
-		| <a href='http://www.youtube.com/user/teamjoomlaxi#p/c/1814CBD5B611F6F9' target="_blank"><?php echo XiusText::_('VIDEOS');?></a>
+		| <a href='http://www.youtube.com/user/teamjoomlaxi#g/c/1814CBD5B611F6F9' target="_blank"><?php echo XiusText::_('VIDEOS');?></a>
 		| <a href='http://twitter.com/joomlaXi' target="_blank"><?php echo XiusText::_('FOLLOW_TWITTER');?></a>
 		| <a href='http://extensions.joomla.org/extensions/extension-specific/jomsocial-extensions/12754' target="_blank"><?php echo XiusText::_('REVIEW_JED');?></a>
 	</div>

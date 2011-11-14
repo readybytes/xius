@@ -52,7 +52,9 @@
 
 					echo $dirhtml;
 				endif;
-
-				echo $this->pagination->getLimitBox();?>
+                //set default limit for search result
+				$mainframe  	= JFactory::getApplication();
+				$limit 			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
+                echo JElementLimit::fetchElement('limit',$limit);?>
 	</div>
 </div><?php 
