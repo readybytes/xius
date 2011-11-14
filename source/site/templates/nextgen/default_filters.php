@@ -17,7 +17,7 @@
 						<div class="xiusFlImg">
 						<div class="xius_test_addinfo_<?php echo $data['infoid'];?>" id="<?php echo $data['infoid'];?>" name="<?php echo $data['infoid'];?>"  
 								 title="<?php echo XiusText::_("XIUS_ADD_TO_SEARCH");?>" onClick="xiusAddInfo(<?php echo $data['infoid'];?>);">
-						ADD
+						<?php echo XiusText::_("ADD");?>
 						</div>
 						</div>
 						<?php
