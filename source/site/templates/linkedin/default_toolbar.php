@@ -3,6 +3,7 @@
 * @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
+require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 ?><!--[if IE]>
     <style type="text/css">
         #profileToolbar { zoom: 1; }

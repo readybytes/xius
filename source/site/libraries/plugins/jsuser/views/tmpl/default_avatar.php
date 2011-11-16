@@ -6,7 +6,7 @@
 
 if(!defined('_JEXEC')) die('Restricted access');
 $value = "All Users";
-  if(JFactory::getApplication()->isAdmin()){
+  if(JFactory::getApplication()->isAdmin() && !empty($this->value)){
 	$value = $this->value;
   }
 ?>
