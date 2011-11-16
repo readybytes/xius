@@ -55,7 +55,7 @@ jimport('joomla.html.pane');
 		</div>
 		
 		<div class="xius_spSubmit">
-		<input type="submit" id="xiussearch" name="xiussearch" value="<?php echo XiusText::_("SEARCH");?>" />
+		<input type="submit" id="xiussearch" name="xiussearch" value="<?php echo XiusText::_("SEARCH_BUTTON");?>" />
 		</div>
 		<?php
 		endif;
