@@ -1,3 +1,25 @@
+TRUNCATE TABLE `#__community_fields`;;
+
+INSERT INTO `#__community_fields` (`id`, `type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`, `params`) VALUES
+(1, 'group', 1, 1, 10, 100, 'Basic Information', 'Basic information for user', 1, 1, 1, 1, '', '', ''),
+(2, 'select', 7, 1, 10, 100, 'Gender', 'Select gender', 1, 1, 1, 1, 'Male\nFemale', 'FIELD_GENDER', ''),
+(3, 'date', 8, 1, 10, 100, 'Birthday', 'Enter your date of birth so other users can know when to wish you happy birthday ', 1, 1, 1, 1, '', 'FIELD_BIRTHDAY', ''),
+(4, 'text', 9, 1, 5, 250, 'Hometown', 'Hometown', 1, 1, 1, 1, '', 'FIELD_HOMETOWN', ''),
+(5, 'textarea', 10, 1, 1, 800, 'About me', 'Tell us more about yourself', 1, 1, 1, 1, '', 'FIELD_ABOUTME', ''),
+(6, 'group', 11, 1, 10, 100, 'Contact Information', 'Specify your contact details', 1, 1, 1, 1, '', '', ''),
+(7, 'text', 12, 1, 10, 100, 'Mobile phone', 'Mobile carrier number that other users can contact you.', 1, 0, 1, 1, '', 'FIELD_MOBILE', ''),
+(8, 'text', 13, 1, 10, 100, 'Land phone', 'Contact number that other users can contact you.', 1, 0, 1, 1, '', 'FIELD_LANDPHONE', ''),
+(9, 'textarea', 14, 1, 10, 100, 'Address', 'Address', 1, 1, 1, 1, '', 'FIELD_ADDRESS', ''),
+(10, 'text', 15, 1, 10, 100, 'State', 'State', 1, 1, 1, 1, '', 'FIELD_STATE', ''),
+(11, 'text', 16, 1, 10, 100, 'City / Town', 'City / Town', 1, 1, 1, 1, '', 'FIELD_CITY', ''),
+(12, 'select', 17, 1, 10, 100, 'Country', 'Country', 1, 1, 1, 1, 'Afghanistan\nAlbania\nAlgeria\nAmerican Samoa\nAndorra\nAngola\nAnguilla\nAntarctica\nAntigua and Barbuda\nArgentina\nArmenia\nAruba\nIndia', 'FIELD_COUNTRY', ''),
+(13, 'text', 18, 1, 10, 100, 'Website', 'Website', 1, 1, 1, 1, '', 'FIELD_WEBSITE', ''),
+(14, 'group', 19, 1, 10, 100, 'Education', 'Educations', 1, 1, 1, 1, '', '', ''),
+(15, 'text', 20, 1, 10, 200, 'College / University', 'College / University', 1, 1, 1, 1, '', 'FIELD_COLLEGE', ''),
+(16, 'text', 21, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 1, 1, 1, '', 'FIELD_GRADUATION', ''),
+(17, 'templates', 5, 1, 10, 100, 'Template', 'Template Of User', 1, 1, 1, 1, '', 'XIPT_TEMPLATE', ''),
+(18, 'profiletypes', 4, 1, 10, 100, 'Profiletype', 'Profiletype Of User', 1, 1, 1, 1, '', 'XIPT_PROFILETYPE', '');;
+
 TRUNCATE TABLE `#__xius_info`;;
 
 INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
@@ -7,16 +29,48 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (4, 'About me', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '5', '', 'Jsfields', 4, 1),
 (5, 'Mobile phone', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '7', '', 'Jsfields', 5, 1),
 (6, 'Profiletype', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '18', '', 'Jsfields', 6, 1),
-(7, 'Land phone', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '8', '', 'Jsfields', 7, 1);;
+(7, 'Land phone', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '8', '', 'Jsfields', 7, 1),
+(8, 'BirthdayRange', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '2', 'rangesearchType=date\n\n', 'Rangesearch', 8, 1),
+(10, 'City / Town', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '11', '', 'Jsfields', 9, 1),
+(11, 'State', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '10', '', 'Jsfields', 10, 1),
+(12, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '12', '', 'Jsfields', 11, 1),
+(13, 'By Google API', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', 'google', 'xius_proximity_country=12\nxius_proximity_zipcode=\nxius_proximity_state=11\nxius_proximity_city=10\nxius_gmap_key=\nxius_default_location=none\nxiusProximityDefaultLat=28.635308\nxiusProximityDefaultLong=77.22496\nxiusDefaultDistance=10\nxiusDefaultDistanceUnit=miles\nxiusProximityGmapZoom=2\n\n', 'Proximity', 12, 1);;
 
-TRUNCATE TABLE `#__xipt_profiletypes`;;
 
-INSERT INTO `#__xipt_profiletypes` (`id`, `name`, `ordering`, `published`, `tip`, `privacy`, `template`, `jusertype`, `avatar`, `approve`, `allowt`, `group`, `watermark`, `params`, `watermarkparams`, `visible`, `config`) VALUES
-(1, 'Free Member', 0, 1, 'If you are just want to explore the site, choose this type. Its free.', 'privacyprofile=20\n\n', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, '4', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
-(2, 'Paid Subscriber', 1, 1, 'If you wish to subscribe for the paid components and services, choose this account type.', 'privacyprofile=30\n\n', 'default', 'Registered', 'images/profiletype/avatar_2.gif', 0, 1, '1', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
-(3, 'Serious Joomla User', 2, 1, 'Serious Joomla User, are the users who really want to motivate the joomla developers to enhance the joomla experience. When you subscribe to this plan, you support us by paying few $$.', 'privacyprofile=30\n\n', 'default', 'Registered', 'images/profiletype/avatar_3.png', 0, 0, '0', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
-(4, 'Moderator', 3, 0, 'The members are moderating the website.', 'privacyprofile=30\n\n', 'default', 'Registered', '/images/avatar/a1f960fb81d15c26035a6808.jpg', 1, 0, '0', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n');;
-
+TRUNCATE TABLE `#__xipt_profilefields`;;
+INSERT INTO `#__xipt_profilefields` (`id`, `fid`, `pid`, `category`) VALUES
+(1, 22, 1, 0),
+(2, 22, 3, 0),
+(3, 22, 4, 0),
+(4, 23, 1, 0),
+(5, 23, 4, 0),
+(6, 24, 1, 0),
+(7, 24, 4, 0),
+(8, 25, 1, 0),
+(9, 25, 4, 0),
+(10, 26, 1, 0),
+(11, 26, 4, 0),
+(12, 27, 1, 0),
+(13, 27, 4, 0),
+(14, 18, 2, 0),
+(15, 18, 3, 0),
+(16, 18, 4, 0),
+(32, 4, 4, 0),
+(31, 4, 3, 0),
+(30, 4, 1, 0),
+(23, 2, 1, 0),
+(24, 2, 2, 0),
+(25, 2, 4, 0),
+(45, 3, 4, 0),
+(44, 3, 2, 0),
+(33, 5, 3, 0),
+(34, 5, 4, 0),
+(35, 7, 1, 0),
+(36, 7, 4, 0),
+(37, 8, 2, 0),
+(38, 8, 4, 0),
+(42, 11, 2, 0),
+(43, 12, 3, 0);;
 
 TRUNCATE TABLE `#__plugins`;;
 INSERT INTO `#__plugins` (`id`, `name`, `element`, `folder`, `access`, `ordering`, `published`, `iscore`, `client_id`, `checked_out`, `checked_out_time`, `params`) VALUES
@@ -61,7 +115,7 @@ INSERT INTO `#__plugins` (`id`, `name`, `element`, `folder`, `access`, `ordering
 (40, 'System - Zend Lib', 'zend', 'system', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (41, 'JSPT Community Plugin', 'xipt_community', 'community', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (42, 'JSPT System Plugin', 'xipt_system', 'system', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
-(43, 'XiUS Dynamic filtering of XiPT-fields Plugin', 'xipt_fieldselection', 'xius', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', 'xiusSetInfo=0\n\n'),
+(43, 'XiUS Dynamic filtering of XiPT-fields Plugin', 'xipt_fieldselection', 'xius', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', 'xiusSetInfo=1\n\n'),
 (44, 'XIUS XiProfileType Privacy Plugin', 'xipt_privacy', 'xius', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (45, 'XIUS Community Plugin', 'xius', 'community', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (46, 'XIUS Joomla Integration Plugin', 'xius', 'search', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),

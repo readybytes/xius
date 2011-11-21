@@ -38,6 +38,8 @@ class XiusJsIntegrationTest extends XiSelTestCase
 		$value = $this->getValue('xiusjoin');
 		$this->assertTrue($value === 'AND');
 		$this->select("Joomlablock", "label=No");
+		JsfieldsBase::setQueryRequired(true);
+	     XiusLibCron::updateCache();
 		$this->click("xiussearch");
 		$this->waitPageLoad();
 		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));

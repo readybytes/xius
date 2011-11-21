@@ -113,7 +113,7 @@ class XiusControllerInfoTest extends XiUnitTestCase
 
 		$this->resetCachedData();
 		$delInfoId1s = array(33,34,36,37,38,39);
-		XiusHelperUsersearch::getParentInfo(true);
+		XiusHelperUsersearch::getParentChild(true);
 		$result1 = $infoController->_remove($delInfoId1s);
 		$this->assertEquals($result1['message'],'6 '. XiusText::_('INFO_REMOVED'),"message should be: 6 ". XiusText::_('INFO_REMOVED')." but we get: ".$result1['message']);
 		$this->assertTrue($result1['success']);

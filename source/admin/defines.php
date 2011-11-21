@@ -57,6 +57,7 @@ define('XIUS_LTE', '<=');
 define('XIUS_GTE', '>=');
 define('XIUS_NOTEQUAL', '!=');
 
+define('XIUS_DEFAULT_THUMB','components/com_community/assets/user_thumb.png');
 define('XIUSSEARCH','SEARCH');
 define('XIUSDEL','DELINFO');
 define('XIUSSORT','SORT');

@@ -7,19 +7,59 @@ class XiusDynamicFilterXiptFields extends XiSelTestCase
 		return dirname(__FILE__).'/sql/'.__CLASS__;
 	}
 	
+	function testFilterDependentField()
+	{	
+		JsfieldsBase::setQueryRequired(true);
+		XiusLibCron::updateCache();
+		
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+    	$this->waitPageLoad();
+    	
+    	$lableId= array("//select[@id='field2']", "//input[@id='field3']",
+    					"//input[@id='field4']", "//textarea[@id='field5']",
+    					"//input[@id='field7']", "//input[@id='field8']",
+    					"//select[@id='field18']","//input[@id='field11']",
+    	                "//input[@id='field10']","//select[@id='field12']");
+    	//Test all info present
+    	foreach($lableId as $id)
+    		$this->assertTrue($this->isElementPresent($id));
+    	
+    		$this->select("field18", "label=Paid Subscriber");
+    		$hiddenfields = array("BirthdayRange ","By Google API");
+    		$this->assertfields($hiddenfields);
+    		
+    		$this->select("field18", "label=Serious Joomla User");
+    		$hiddenfields = array("By Google API");
+		    $this->assertfields($hiddenfields);
+	}
+	
+	function testFilterBothFields()
+	{
+			$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+    		$this->waitPageLoad();
+			$this->select("field18", "label=Paid Subscriber");
+    		$hiddenfields = array("BirthdayRange","By Google API","Birthday","City / Town");
+    		$this->assertfields($hiddenfields);
+    		
+    		$this->select("field18", "label=Serious Joomla User");
+    		$hiddenfields = array("By Google API","Country");
+		    $this->assertfields($hiddenfields);
+
+	}
+	
+	function assertfields($hiddenfields)
+	{
+		foreach($hiddenfields as $field)
+		  $this->assertFalse($this->isTextPresent($field));
+	}
+	
+	
 	function testFilterXiptFields()
 	{
 		$url= dirname(__FILE__).'/sql/'.__CLASS__.'/profilefields.start.sql';
 		$this->_DBO->loadSql($url);
 		
-		//Enable xipt plugins
-		$this->changePluginState('xipt_community', true);
-		$this->changePluginState('xipt_system', true);
-		
-		//Enable Dynamic filtering of XiPT-fields Plugin
- 		$this->changePluginState('xipt_fieldselection', true);
- 		
- 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
+		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
     	$this->waitPageLoad();
     	
     	$lableId= array("//select[@id='field2']", "//input[@id='field3']",
@@ -31,18 +71,16 @@ class XiusDynamicFilterXiptFields extends XiSelTestCase
     		$this->assertTrue($this->isElementPresent($id));
     	
     	$this->select("field18", "label=Free Member");
-    	$this->assertFalse($this->isTextPresent("Gender"));
-    	$this->assertFalse($this->isTextPresent("Birthday"));
+    	$hiddenfields = array("Gender","Birthday");
+    	$this->assertfields($hiddenfields);
     	
     	$this->select("field18", "label=Paid Subscriber");
-    	$this->assertFalse($this->isTextPresent("Gender"));
-    	$this->assertFalse($this->isTextPresent("Birthday"));
-    	$this->assertFalse($this->isTextPresent("Land phone"));
+    	$hiddenfields = array("Gender","Birthday","Land phone");
+    	$this->assertfields($hiddenfields);
     	
     	$this->select("field18", "label=Serious Joomla User");
-    	$this->assertFalse($this->isTextPresent("Birthday"));
-    	$this->assertFalse($this->isTextPresent("Hometown"));
-    	$this->assertFalse($this->isTextPresent("About me"));
+    	$hiddenfields = array("Hometown","Birthday","About me");
+    	$this->assertfields($hiddenfields);
     	
     	$this->filterByUrl();
     	$this->otherCases();

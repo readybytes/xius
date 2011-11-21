@@ -1,23 +1,3 @@
-TRUNCATE TABLE `#__xius_info`;;
-
-INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
-(1, 'Gender', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '2', '', 'Jsfields', 1, 1),
-(2, 'Birthday', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '3', '', 'Jsfields', 2, 1),
-(3, 'Hometown', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '4', '', 'Jsfields', 3, 1),
-(4, 'About me', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '5', '', 'Jsfields', 4, 1),
-(5, 'Mobile phone', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '7', '', 'Jsfields', 5, 1),
-(6, 'Profiletype', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '18', '', 'Jsfields', 6, 1),
-(7, 'Land phone', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\njs_privacy=public\n\n', '8', '', 'Jsfields', 7, 1);;
-
-TRUNCATE TABLE `#__xipt_profiletypes`;;
-
-INSERT INTO `#__xipt_profiletypes` (`id`, `name`, `ordering`, `published`, `tip`, `privacy`, `template`, `jusertype`, `avatar`, `approve`, `allowt`, `group`, `watermark`, `params`, `watermarkparams`, `visible`, `config`) VALUES
-(1, 'Free Member', 0, 1, 'If you are just want to explore the site, choose this type. Its free.', 'privacyprofile=20\n\n', 'default', 'Registered', 'components/com_community/assets/default.jpg', 0, 0, '4', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
-(2, 'Paid Subscriber', 1, 1, 'If you wish to subscribe for the paid components and services, choose this account type.', 'privacyprofile=30\n\n', 'default', 'Registered', 'images/profiletype/avatar_2.gif', 0, 1, '1', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
-(3, 'Serious Joomla User', 2, 1, 'Serious Joomla User, are the users who really want to motivate the joomla developers to enhance the joomla experience. When you subscribe to this plan, you support us by paying few $$.', 'privacyprofile=30\n\n', 'default', 'Registered', 'images/profiletype/avatar_3.png', 0, 0, '0', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n'),
-(4, 'Moderator', 3, 0, 'The members are moderating the website.', 'privacyprofile=30\n\n', 'default', 'Registered', '/images/avatar/a1f960fb81d15c26035a6808.jpg', 1, 0, '0', '', '', '', 1, 'jspt_restrict_reg_check=1\njspt_prevent_username=moderator, admin, support, owner, employee\njspt_allowed_email=\njspt_prevent_email=\n\n');;
-
-
 TRUNCATE TABLE `#__plugins`;;
 INSERT INTO `#__plugins` (`id`, `name`, `element`, `folder`, `access`, `ordering`, `published`, `iscore`, `client_id`, `checked_out`, `checked_out_time`, `params`) VALUES
 (1, 'Authentication - Joomla', 'joomla', 'authentication', 0, 1, 1, 1, 0, 0, '0000-00-00 00:00:00', ''),
@@ -61,7 +41,7 @@ INSERT INTO `#__plugins` (`id`, `name`, `element`, `folder`, `access`, `ordering
 (40, 'System - Zend Lib', 'zend', 'system', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (41, 'JSPT Community Plugin', 'xipt_community', 'community', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (42, 'JSPT System Plugin', 'xipt_system', 'system', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
-(43, 'XiUS Dynamic filtering of XiPT-fields Plugin', 'xipt_fieldselection', 'xius', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', 'xiusSetInfo=0\n\n'),
+(43, 'XiUS Dynamic filtering of XiPT-fields Plugin', 'xipt_fieldselection', 'xius', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', 'xiusSetInfo=2\n\n'),
 (44, 'XIUS XiProfileType Privacy Plugin', 'xipt_privacy', 'xius', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (45, 'XIUS Community Plugin', 'xius', 'community', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),
 (46, 'XIUS Joomla Integration Plugin', 'xius', 'search', 0, 0, 1, 0, 0, 0, '0000-00-00 00:00:00', ''),

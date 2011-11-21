@@ -4,6 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 $this->loadAssets('css', 'lists.css');
+require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 ?>
 <div id="xiusLists">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">

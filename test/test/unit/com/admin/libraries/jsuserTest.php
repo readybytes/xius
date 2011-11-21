@@ -176,10 +176,10 @@ class XiusJuserTest extends XiUnitTestCase
 		$count = 0;
 		 
 		$object	= new stdClass();
-		$object->tableName			= "(
-				  SELECT `userid`, CASE `avatar`  WHEN '' THEN 1  WHEN 'components/com_community/assets/default.jpg' THEN 1  WHEN 'images/profiletype/avatar_1.jpg' THEN 1  WHEN 'images/profiletype/avatar_2.jpg' THEN 1  ELSE  0  END as avatar
-				   FROM `#__community_users`
-				)";
+		$object->tableName			= $this->cleanWhiteSpaces( "(
+			          SELECT `userid`, CASE `avatar`  WHEN '' THEN 1  WHEN 'components/com_community/assets/default.jpg' THEN 1  WHEN 'components/com_community/assets/user_thumb.png' THEN 1  WHEN 'images/profiletype/avatar_1.jpg' THEN 1  WHEN 'images/profiletype/avatar_2.jpg' THEN 1  ELSE  0  END as avatar
+			           FROM `#__community_users`
+				)");
 		$object->tableAliasName 	= 'communityusersavatar_0';
 		$object->originColumnName	= 'avatar';
 		$object->cacheColumnName	= 'jsuseravatar_0';
@@ -188,7 +188,7 @@ class XiusJuserTest extends XiUnitTestCase
 		$object->createCacheColumn	= true;
 		$tableInfo[]=$object;
 		
-		$this->assertEquals($mapping, $tableInfo);
+		$this->assertEquals($this->cleanWhiteSpaces($mapping[0]->tableName), $this->cleanWhiteSpaces($tableInfo[0]->tableName));
 		
 	}
 	

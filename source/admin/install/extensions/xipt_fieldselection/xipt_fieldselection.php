@@ -50,10 +50,10 @@ class plgXiusxipt_fieldselection extends JPlugin
 	 * @param $visibleFields, Array have visible fields according to Profile Type Id's.
 	 * @param $profileTypes array have all Profile Types id.
 	 */
-	function _setDisplayInfo($allInfo, $visibleFields, $profileTypes) {
-
-		$allInfo=array_values($allInfo);
-
+	function _setDisplayInfo( $visibleFields, $profileTypes) {
+        $filter 			 = array();
+		$filter['published'] = true;
+		$allInfo	 	     = XiusLibInfo::getInfo($filter,'AND',false);
 		$hiddenInfoId=array();
 				
 		foreach ($profileTypes as $profileType)
@@ -61,11 +61,23 @@ class plgXiusxipt_fieldselection extends JPlugin
 			$fieldId=array();
 			foreach($visibleFields[$profileType->id] as $visibleField)
 				$fieldId[] = $visibleField->id;
-
+            //check if base/depentdent or both infos are needed to be hidden
+            //$parentOrChild is '0' for Base
+            //'1' for dependent
+            //'2' for Both
 			foreach ($allInfo as $info)
 			{	
-				if($info->pluginType === 'Jsfields' && false === in_array($info->key, $fieldId))
-					$hiddenInfoId[$profileType->id][]=$info->key;
+				if($info->pluginType === 'Jsfields' && false === in_array($info->key, $fieldId)){
+				 	$parentOrChild = $this->params->get('xiusSetInfo');
+					if($parentOrChild != 0){
+						$dependentInfos = XiusHelperUsersearch::getChildren($info->id);
+						foreach ($dependentInfos as $key=>$childid) 
+							$hiddenInfoId[$profileType->id][] = $childid;
+					 }
+					if($parentOrChild != 1)
+					 	$hiddenInfoId[$profileType->id][] = $info->id;
+						
+				}
 			}
 			unset($fieldId);
 		}
@@ -99,7 +111,7 @@ class plgXiusxipt_fieldselection extends JPlugin
 	 * @param $allInfo
 	 * @param $loginuser
 	 */
-	function xiusOnAfterLoadAllInfo($allInfo, $loginuser=null)
+	function onBeforeDisplaySearchPanel($allInfo )
 	{
 		//Don't run when user is  admin or cache upadate time.
 		if(JFactory::getApplication()->isAdmin() ||
@@ -128,8 +140,12 @@ class plgXiusxipt_fieldselection extends JPlugin
 				$visibleFields[$profileType->id] = $jsfields;
 				if(!(XiusHelperXiptwrapper::filterProfileTypeFields($visibleFields[$profileType->id], $profileType->id,'getViewableProfile')))
 						continue ;	
+				}
+				//Restrict to hide profileType info in dynamic filtering
+				foreach ($visibleFields as $key=>$value){
+					$visibleFields[$key][] = $field; 
 				}		
-			$hiddenInfoId = $this->_setDisplayInfo($allInfo, $visibleFields, $profileTypes);
+			$hiddenInfoId = $this->_setDisplayInfo( $visibleFields, $profileTypes);
 		
 			if(JRequest::getVar('profileType') === null)
 				JRequest::setVar('profileType',0,'POST');

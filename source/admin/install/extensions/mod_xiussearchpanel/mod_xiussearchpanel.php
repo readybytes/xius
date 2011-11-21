@@ -33,6 +33,8 @@ if(empty($displayInfo)){
 	return ;
 } 
 
+$dispatcher = JDispatcher::getInstance();
+$dispatcher->trigger('onBeforeDisplaySearchPanel',array(null));
 $mySess->clear('xiusModuleForm','XIUS');
 
 require(JModuleHelper::getLayoutPath('mod_xiussearchpanel'));

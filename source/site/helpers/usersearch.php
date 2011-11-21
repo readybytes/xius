@@ -101,56 +101,106 @@ class XiusHelperUsersearch
 	}
 
 	/*
-	 * return array of all the parent infomations
+	 * return array which contains parent and children of each infomation
 	 */
-	function getParentInfo($reset=false)
+    function getParentChild($reset=false)
 	{
-		static $parents = array();
-	    if($reset == true)	$parents=array();
+	  	static $parentChild = array();
+	    if($reset == true)	
+	    	$parentChild = array();
 
-		if( $parents != array() && isset($parents))
-			return $parents;
+		if(!empty($parentChild))
+			return $parentChild;
 
 		$filter 			= array();
+		//XiTODO:: Get all info instead of only published info
 		$filter['published']= true;
 		$allInfo 			= XiusLibInfo::getInfo($filter,'AND',false);
-		$count              = 0;
+		$registry 			= new jregistry;
 		foreach ($allInfo as $info)
 		{
-			//for plugin type Forcesearch and Rangesearch
-			if( $info->pluginType == 'Forcesearch' || $info->pluginType == 'Rangesearch')
-			  $parents[$count++] = $info->key;
-			
-			
-			//for plugin type Proximity
-			if( $info->pluginType == 'Proximity'){
-			   $registry = new JRegistry;
-			   $registry->loadINI($info->pluginParams);
-        	   $params = $registry->toArray();
-        	   		
-		        /*XITODO : 
-		         * clean this code
-		         */
-        	   	foreach($params as $key=>$value){ 
-        	   		if(!empty($value) && ($key == 'xius_proximity_latitude'  ||
-        	   		                      $key == 'xius_proximity_longitude' || 
-        	   		                      $key == 'xius_proximity_zipcode'   ||
-        	   		                      $key == 'xius_proximity_country'   ||
-        	   		                      $key == 'xius_proximity_state'     ||
-        	   		                      $key == 'xius_proximity_city'))
-        	   		   $parents[$count++] = $value;
-        	   	}
-        	}
-			
-			//for plugin type xiusemail
-			if($info->pluginType == 'Xiusemail'){
-			   $registry = new JRegistry;
-			   $registry->loadINI($info->pluginParams);
-        	   $params = $registry->toArray();
-        	   $parents[$count++] = $params['xius_email'];
+            //for forcesearch and rangesearch info
+			if( $info->pluginType == 'Forcesearch' || $info->pluginType == 'Rangesearch'){
+				$parentChild = self::storeParentChild($info->key,$info->id,$parentChild);
 			}
-
+			
+            //for xiusemail type info
+			else if($info->pluginType == 'Xiusemail'){
+			    $registry->loadINI($info->pluginParams);
+        	    $params   = $registry->toArray();
+        	    $parentChild = self::storeParentChild($params['xius_email'],$info->id ,$parentChild);
+			}
+			
+				//for proximity info
+				elseif( $info->pluginType == 'Proximity'){
+				   $registry->loadINI($info->pluginParams);
+		    	   $params = $registry->toArray();
+		    	   $proximityParams = array( 'xius_proximity_latitude',
+		    	                             'xius_proximity_longitude',
+		    	                             'xius_proximity_zipcode',
+		    	                             'xius_proximity_country',
+		    	                             'xius_proximity_state',
+		    	                             'xius_proximity_city');
+		    	   foreach($params as $key=>$value){
+		    	   		if(!empty($value) && in_array($key ,$proximityParams)){
+		    	   			$parentChild = self::storeParentChild($value, $info->id, $parentChild);
+		    	   		}
+		    	   }
+				}
+			}
+		return $parentChild;
+	}
+	
+    //stores parent and child for information
+	function storeParentChild($parentid,$childid,$parentChild)
+	{
+		if(!isset($parentChild[$childid]['parent']) || !in_array($parentid, $parentChild[$childid]['parent']))
+		    $parentChild[$childid]['parent'][]  = $parentid;
+		if(!isset($parentChild[$parentid]['child']) || !in_array($childid, $parentChild[$parentid]['child']))   
+			$parentChild[$parentid]['child'][] = $childid;
+		return $parentChild;	
+	}
+	
+    //get array of parent type infos
+	function getParents($infoid = null)
+	{
+		$parents = array();
+		$parentChild = self::getparentChild();
+       
+	    foreach ($parentChild as $key => $value){
+	     	if(isset($value['parent']))
+	        	foreach($value['parent'] as $parentkey=>$parentid) 
+	       			$parents[$key][] = $parentid; 
+         }
+         //if info is given then return parent info associated with the given infoid
+		if(!empty($infoid))
+			return $parents[$infoid];
+			
+		//else return all parents	
+		$result = array();	
+		foreach ($parents as $parentid)
+			$result = array_merge($result,$parentid);	
+		return $result;	
+	}
+	
+    //get all dependent infos
+	function getChildren($infoid = null)
+	{
+		$children = array();
+		$parentChild = self::getparentChild();
+        
+		foreach ($parentChild as $key=>$value){
+			if(isset($value['child']))
+			  	foreach ($value['child'] as $childkey=>$childid)
+			    	$children[$key][] = $childid;
 		}
-        return $parents;
+		//if info is given then return dependent info associated with the given infoid
+		if(!empty($infoid))
+			return $children[$infoid];
+		//else return all children
+		$result = array();	
+		foreach ($children as $childid)
+			$result = array_merge($result,$childid);	
+		return $result;	
 	}
 }

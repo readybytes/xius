@@ -3,7 +3,7 @@ jomsQuery(document).ready(function($) {
 	jomsQuery.xius.getProfileTypesFields($);
 
 	// when change applied on select list of ProfileTypes
-		$("select#" + profileTypeInfoId).change(function() {
+		$("select[name=" + profileTypeInfoId+"]").change(function() {
 			jomsQuery.xius.getProfileTypesFields($);
 		});
 	});
@@ -12,13 +12,10 @@ jomsQuery
 		.extend( {
 			xius : {
 				getProfileTypesFields : function($) {
-
-					optionvalue = $(
-							"select#" + profileTypeInfoId + " option:selected")
-							.val();
-
-					if ($('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain'))
-						$('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
+					optionvalue = $("select[name=" + profileTypeInfoId+"]")
+									.val();
+					if ($('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain,div.xiusMod_availablemain,div.xiMod_left,div.xiMod_right'))
+						$('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain,div.xiusMod_availablemain,div.xiMod_left,div.xiMod_right')
 								.css("display", "block");
 
 					if (optionvalue === '')
@@ -34,12 +31,12 @@ jomsQuery
 							if ("field" + hiddenFields[optionvalue][i] === profileTypeInfoId)
 								continue;
 							
-							fieldName ="field" + hiddenFields[optionvalue][i];
+							fieldName ="xiusinfo_" + hiddenFields[optionvalue][i]+"1";
 							if(document.getElementsByName(fieldName).length == 0)
 								fieldName = fieldName + "[]";
 
 							 elementId = document.getElementsByName(fieldName);
-							 $(elementId).parents('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain')
+							 $(elementId).parents('div.xius_spMain, div.xius_aiMain, div.xiusFlData, div.xiusSpMain,div.xiusMod_availablemain,div.xiMod_left,div.xiMod_right')
 							 .css("display", "none");
 							 
 						}

@@ -18,6 +18,8 @@ class XiuslistPublishedForAdminTest extends XiSelTestCase
 	 	$this->assertTrue($this->isTextPresent("Private list"));
 	 	
 	 	// unpublished and Public list
+	 	JsfieldsBase::setQueryRequired(true);
+	 	XiusLibCron::updateCache();
 	 	$this->open(JOOMLA_LOCATION.'index.php?option=com_xius&view=list&task=showList&listid=1');
 	 	$this->waitPageLoad();
 	 	$this->assertTrue($this->isElementPresent("//img[@class='xius_test_remove_Female']"));

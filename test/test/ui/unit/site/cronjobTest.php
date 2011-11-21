@@ -16,6 +16,7 @@ class XiusCronJobTest extends XiUnitTestCase
 		$this->changePluginState('xipt_privacy', true);
 		$mysess = JFactory::getSession();
 		$mysess->set('testmode', true);
+		JsfieldsBase::setqueryRequired(true);
 	 	XiusLibCron::updateCache();
 	 	$this->_DBO->addTable('#__xius_cache');
 		$this->changePluginState('xipt_fieldselection', false);

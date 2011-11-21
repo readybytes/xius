@@ -253,6 +253,8 @@ class Jsuser extends XiusBase
 			return $defaultAvatars;
 		// Default JS avatar
 		$defaultAvatars[]   = DEFAULT_USER_AVATAR;
+		$defaultAvatars[]   = XIUS_DEFAULT_THUMB; //default avatar for JS2.4
+		
 		//if xipt is unhooked
 		$isSystemPlg=XiusHelperUtils::isPluginInstalledAndEnabled('xipt_system',true);
 		$isCommPlg=XiusHelperUtils::isPluginInstalledAndEnabled('xipt_community',true);

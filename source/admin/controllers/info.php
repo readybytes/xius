@@ -270,11 +270,8 @@ class XiusControllerInfo extends JController
 	//Discarding parent informations
 	function discardParents($ids)
 	{
-		$parents = array();
-		//get array of parent informations
-		$parents = XiusHelperUsersearch::getParentInfo();
-
-		$msg = null;
+        $parents = XiusHelperUsersearch::getParents();
+		$msg 	 = null;
 		//unset the id if it is exist in parents array
 		foreach ($ids as $key=>$value){
 		   $filter = array();
