@@ -49,9 +49,9 @@ class plgXiusjs_privacy extends JPlugin
         $listData   = JFile::read($iniPath);
         
         if(JFile::exists($xmlPath))
-			$config = new JParameter($listData, $xmlPath);
+			$config = new XiusParameter($listData, $xmlPath);
         else
-        	$config = new JParameter('','');
+        	$config = new XiusParameter('','');
            
         $config->bind($params);
         return $config->render();

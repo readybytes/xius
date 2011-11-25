@@ -8,7 +8,7 @@
   <authorUrl>http://www.joomlaxi.com/</authorUrl>
   <copyright>@Joomlaxi</copyright>
   <license>GNU GPL v2.0</license>
-  <description>XIUS JSMultiProfileType Privacy Plugin</description>
+  <description>XIUS JS MultiProfileType Privacy Plugin</description>
   <files>  	
 	<filename plugin="jsmultiprofile_privacy">jsmultiprofile_privacy.php</filename>
 	<folder>jsmultiprofile_privacy</folder>
