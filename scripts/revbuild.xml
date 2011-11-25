@@ -58,6 +58,12 @@
 					</fileset>
 				</copy>
 
+				<copy   todir="${target}/source/admin/install/extensions/jsmultiprofile_privacy">
+					<fileset dir="${source}/plugins/xius/jsmultiprofile_privacy"> 
+						<include name="**/*.*" />
+					</fileset>
+				</copy>
+
 				<copy   todir="${target}/source/admin/install/extensions/xipt_fieldselection">
 					<fileset dir="${source}/plugins/xius/xipt_fieldselection"> 
 						<include name="**/*.*" />
@@ -148,6 +154,18 @@
 				         />                
 		       		<copy todir="${target}/source/admin/install/extensions/xipt_fieldselection/xipt_fieldselection">
 					<fileset dir="${source}/plugins/xius/xipt_fieldselection">
+						<include name="**/*.*" />
+					</fileset>
+				</copy>   
+				
+				<copy   file="${source}/plugins/xius/jsmultiprofile_privacy.php" 
+				        tofile="${target}/source/admin/install/extensions/jsmultiprofile_privacy/jsmultiprofile_privacy.php" 
+				         />
+				<copy   file="${source}/plugins/xius/xipt_fieldselection.xml" 
+				        tofile="${target}/source/admin/install/extensions/jsmultiprofile_privacy/jsmultiprofile_privacy.xml" 
+				         />                
+		       		<copy todir="${target}/source/admin/install/extensions/jsmultiprofile_privacy/jsmultiprofile_privacy">
+					<fileset dir="${source}/plugins/xius/jsmultiprofile_privacy">
 						<include name="**/*.*" />
 					</fileset>
 				</copy>    

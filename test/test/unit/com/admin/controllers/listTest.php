@@ -114,6 +114,9 @@ class XiusControllerListTest extends XiUnitTestCase
 	
 	function testSaveList()
 	{
+        $this->changePluginState('xipt_system',false);
+		$this->changePluginState('xipt_community',false);
+		
 		$this->_DBO->addTable('#__xius_list');
 		$this->resetCachedData();		
 		require_once XIUS_COMPONENT_PATH_ADMIN.DS.'controllers'.DS.'list.php';		
@@ -144,6 +147,9 @@ class XiusControllerListTest extends XiUnitTestCase
 		$post['params'] = array();
 		$post['params']['js_privacy'] = 'public';
 		$returnData = $listController->_processSave($post);
+		
+		$this->changePluginState('xipt_system',true);
+		$this->changePluginState('xipt_community',true);
 	}
 }
 ?>

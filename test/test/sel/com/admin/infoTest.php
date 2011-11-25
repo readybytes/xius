@@ -21,6 +21,8 @@ class XiusInfoAdminSelTest extends XiSelTestCase
  	    $this->changePluginState('xipt_system',true);
  	    $this->changePluginState('xipt_community',true);
  		$this->changePluginState('xipt_privacy',true);
+ 		$this->changePluginState('js_privacy',true);
+ 		$this->changePluginState('jsmultiprofile_privacy',false);
  		
 	   	$this->_DBO->addTable('#__xius_info');
 		$this->_DBO->filterColumn('#__xius_info','ordering');

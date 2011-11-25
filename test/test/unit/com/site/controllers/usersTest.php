@@ -87,6 +87,8 @@ class XiusControllerUsersTest extends XiUnitTestCase
 	
 	function testSaveListWithPrivacy()
 	{
+		$this->changePluginState('xipt_system',false);
+		$this->changePluginState('xipt_community',false);
 		$this->_DBO->addTable('#__xius_list');		
 		$this->_DBO->filterColumn('#__xius_list','ordering');
 		JPluginHelper::importPlugin( 'xius' );	

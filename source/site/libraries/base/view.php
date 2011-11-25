@@ -263,7 +263,7 @@ class XiusView extends JView
 
 		$assetsPath = XiusHelperUtils::XIUS_str_ireplace(JPATH_ROOT,'',$assetsPath);				
 		$assetsPath = XiusHelperUtils::getUrlpathFromFilePath($assetsPath);
-		$assetsPath = ltrim($assetsPath, '/');
+		$assetsPath = JURI::base().ltrim($assetsPath, '/');
 		
 		$document 	= JFactory::getDocument();
 		switch($type){

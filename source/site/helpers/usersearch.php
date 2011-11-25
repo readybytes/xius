@@ -174,7 +174,10 @@ class XiusHelperUsersearch
          }
          //if info is given then return parent info associated with the given infoid
 		if(!empty($infoid))
+		 if(isset($parents[$infoid]))
 			return $parents[$infoid];
+		  else 
+			return array();
 			
 		//else return all parents	
 		$result = array();	
@@ -196,7 +199,10 @@ class XiusHelperUsersearch
 		}
 		//if info is given then return dependent info associated with the given infoid
 		if(!empty($infoid))
+		  if(isset($children[$infoid]))
 			return $children[$infoid];
+		  else 
+			return array();
 		//else return all children
 		$result = array();	
 		foreach ($children as $childid)

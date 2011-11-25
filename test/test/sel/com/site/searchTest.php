@@ -115,6 +115,7 @@ class XiusSearchTest extends XiSelTestCase
 	
 	function testKeywordSearch()
 	{
+		$this->changeModuleState('mod_xiusproximity',false);
 		$this->loadSql();
 		$url =  dirname(__FILE__).'/sql/XiusSearchTest/testXiusSearch.start.sql';
 		$this->_DBO->loadSql($url);

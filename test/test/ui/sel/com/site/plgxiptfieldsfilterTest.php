@@ -9,9 +9,6 @@ class XiusDynamicFilterXiptFields extends XiSelTestCase
 	
 	function testFilterDependentField()
 	{	
-		JsfieldsBase::setQueryRequired(true);
-		XiusLibCron::updateCache();
-		
 		$this->open(JOOMLA_LOCATION.'/index.php?option=com_xius');
     	$this->waitPageLoad();
     	
