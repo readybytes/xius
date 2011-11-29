@@ -51,7 +51,7 @@ class XiusForcesearchUnitTest extends XiUnitTestCase
 			$this->_DBO->loadSql($url.'/testBlock0WithExistCondition.start.sql');
 		}
 		
-		//$this->resetCachedData();
+		$this->resetCachedData();
 		
 		$model = XiusFactory::getInstance('users','model');
 		$strQuery= $model->getQuery($conditions,$join);

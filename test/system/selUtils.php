@@ -380,4 +380,10 @@ class XiSelTestCase extends PHPUnit_Extensions_SeleniumTestCase
 		$config->params = $params->toString('INI');
 		$config->store();  	
   }
+  
+	function cleanWhiteSpaces($str)
+	{
+		$str = preg_replace('#[\\n\\b\\s\\t]+#','' , $str);
+		return $str;
+	}
 }

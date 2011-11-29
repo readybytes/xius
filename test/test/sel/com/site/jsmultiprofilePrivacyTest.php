@@ -42,7 +42,21 @@ class XiusJsmultiprofilePrivacyTest extends XiSelTestCase
 		$this->assertFalse($this->isElementPresent('//input[@id="Joomla_9"]'));
 		$this->assertFalse($this->isElementPresent('//input[@id="field10"]'));
 		$this->frontLogout();
-		$this->changePluginState('jsmultiprofile_privacy',false);
+		$this->changePluginState('js_privacy',false);
 		
 	}
+	
+	function testJsMultiprofilePrivacyhtml()
+	{   
+	    JPluginHelper::importPlugin('xius');
+		$dispatcher = JDispatcher::getInstance();
+		$params	    = array();
+		$param 		= new XiusParameter();
+		$param->set('jsmultiprofile_privacy','a:1:{i:0;s:1:"0";}');
+		$params['params'] = $param;
+		$Html 			  = $dispatcher->trigger("onBeforeRenderInfoDisplay",array(&$params));
+		$resultHtml 	  =  '<divclass="xiusParameter"><divclass="xiusParameterxiRow"><divclass="xiusParameterxiColxiColKey"><labelid="paramsjsmultiprofile_privacy-lbl"for="paramsjsmultiprofile_privacy"class="hasTip"title="JsMultiprofilePrivacy::Restrictinformationtotheselectedmultiprofiletypesonly">JsMultiprofilePrivacy</label></div><divclass="xiusParameterxiColxiColValue"><selectname="params[jsmultiprofile_privacy][]"id="paramsjsmultiprofile_privacy"multiple="multiple"size="4"><optionvalue="0"selected="selected">All</option><optionvalue="1">mp1</option><optionvalue="2">mp2</option><optionvalue="3">None</option></select></div></div></div>';
+		$this->assertEquals($this->cleanWhiteSpaces($Html[0]),$resultHtml,"Html is not matching");
+	}
+	
 }
