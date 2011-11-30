@@ -89,6 +89,11 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function _getProfileTypeHtml($profileType, $name, $param, $attribs = null)
 	{
+		if((XiusHelperUtils::isPluginInstalledAndEnabled('xipt_community','community')) ||
+		   (XiusHelperUtils::isPluginInstalledAndEnabled('xipt_system','system'))){
+		   	JError::raiseWarning(1001,XiusText::_('JSPT_SETUP_SCREEN_IS_NOT_CLEAN'));
+		   	return false;
+		   }
 		$j15_path = (XIUS_JOOMLA_15)?'':DS.'xipt_privacy';
 		$xmlPath 	  		= JPATH_ROOT.DS.'plugins'.DS.'xius'.DS.'xipt_privacy'.$j15_path.DS.'param.xml';
         $iniPath        	= dirname(__FILE__) . DS .$this->_name.DS.'param.ini';
