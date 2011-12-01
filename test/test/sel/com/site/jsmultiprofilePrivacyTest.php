@@ -42,12 +42,13 @@ class XiusJsmultiprofilePrivacyTest extends XiSelTestCase
 		$this->assertFalse($this->isElementPresent('//input[@id="Joomla_9"]'));
 		$this->assertFalse($this->isElementPresent('//input[@id="field10"]'));
 		$this->frontLogout();
-		$this->changePluginState('js_privacy',false);
 		
 	}
 	
 	function testJsMultiprofilePrivacyhtml()
 	{   
+		$this->changePluginState('js_privacy',false);
+	    $this->changePluginState('xipt_privacy',false);
 	    JPluginHelper::importPlugin('xius');
 		$dispatcher = JDispatcher::getInstance();
 		$params	    = array();

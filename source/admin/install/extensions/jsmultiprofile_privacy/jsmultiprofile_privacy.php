@@ -131,8 +131,8 @@ class plgXiusjsmultiprofile_privacy extends JPlugin
 		if(JFactory::getApplication()->isAdmin())
 				return true;
 		$user		= CFactory::getUser();
-		$mprofileId	= XiusHelperXiptwrapper::getUserInfo($user->_profile_id);	
-		$this->_setDisplayData($lists, $mprofileId, true);
+		$multiProfileId = $user->_profile_id;	
+		$this->_setDisplayData($lists, $multiProfileId, true);
 
 		$lists = array_values($lists);
 		return true;

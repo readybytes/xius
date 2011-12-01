@@ -89,8 +89,8 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function _getProfileTypeHtml($profileType, $name, $param, $attribs = null)
 	{
-		if((XiusHelperUtils::isPluginInstalledAndEnabled('xipt_community','community')) ||
-		   (XiusHelperUtils::isPluginInstalledAndEnabled('xipt_system','system'))){
+		if((!XiusHelperUtils::isPluginInstalledAndEnabled('xipt_community','community')) ||
+		   (!XiusHelperUtils::isPluginInstalledAndEnabled('xipt_system','system'))){
 		   	JError::raiseWarning(1001,XiusText::_('JSPT_SETUP_SCREEN_IS_NOT_CLEAN'));
 		   	return false;
 		   }
