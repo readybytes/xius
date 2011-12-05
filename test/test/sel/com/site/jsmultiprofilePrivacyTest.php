@@ -9,6 +9,8 @@ class XiusJsmultiprofilePrivacyTest extends XiSelTestCase
 	function testmultiprofilePrivacy()
 	{
 		$this->changePluginState('jsmultiprofile_privacy',true);
+		$this->changePluginState('js_privacy',false);
+	    $this->changePluginState('xipt_privacy',false);
 		if(TEST_XIUS_JOOMLA_15)
 			$url= JPATH_ROOT.'/test/test/unit/com/site/sql/XiusProximityModule/15/enablemodule.start.sql';
 	    else
@@ -46,7 +48,8 @@ class XiusJsmultiprofilePrivacyTest extends XiSelTestCase
 	}
 	
 	function testJsMultiprofilePrivacyhtml()
-	{   
+	{ 
+		$this->changePluginState('jsmultiprofile_privacy',true);
 		$this->changePluginState('js_privacy',false);
 	    $this->changePluginState('xipt_privacy',false);
 	    JPluginHelper::importPlugin('xius');

@@ -1,7 +1,6 @@
 <?php
 // Check to ensure this file is included in Joomla!
 if(!defined('_JEXEC')) die('Restricted access');
-require_once JPATH_ROOT.DS.'libraries'.DS.'joomla'.DS.'html'.DS.'pagination.php';
 
 class JElementLimit extends JElement
 {
