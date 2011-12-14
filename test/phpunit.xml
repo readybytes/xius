@@ -78,9 +78,9 @@
 		<file>test/ui/sel/com/site/listPublishedForAdminTest.php</file>
 		<file>test/ui/sel/com/site/jsIntegrationTest.php</file>
 		<file>test/ui/unit/site/templatepathTest.php</file>
-        <file>test/ui/sel/com/site/plgxiptfieldsfilterTest.php</file>
  		<file>test/ui/unit/site/cronjobTest.php</file>
  		<file>test/sel/com/site/jsmultiprofilePrivacyTest.php</file>
+        <file>test/ui/sel/com/site/plgxiptfieldsfilterTest.php</file> 		
  	
 			
 	</testsuite>

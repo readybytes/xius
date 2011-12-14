@@ -154,9 +154,9 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (17, 'State', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '10', '', 'Jsfields', 1, 1),
 (18, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '12', '', 'Jsfields', 2, 1),
 (19, 'City / Town', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '11', '', 'Jsfields', 3, 1),
-(21, 'Gender', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:3:{i:0;s:10:"Registered";i:1;s:9:"Publisher";i:2;s:19:"Super Administrator";}\nisExportable=0\ntooltip=\n\n', '2', '', 'Jsfields', 4, 1),
-(22, 'Birthday', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:3:{i:0;s:6:"Author";i:1;s:7:"Manager";i:2;s:10:"Guest Only";}\nisExportable=0\ntooltip=\n\n', '3', '', 'Jsfields', 5, 1),
-(23, 'Age', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:2:{i:0;s:10:"Registered";i:1;s:9:"Publisher";}\nisExportable=0\ntooltip=\n\n', '22', 'rangesearchType=date\n\n', 'Rangesearch', 6, 1);;
+(21, 'Gender', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:3:{i:0;s:2:"18";i:1;s:2:"21";i:2;s:2:"25";}\nisExportable=0\ntooltip=\n\n', '2', '', 'Jsfields', 4, 1),
+(22, 'Birthday', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:2:{i:0;s:2:"19";i:1;s:2:"23";}\nisExportable=0\ntooltip=\n\n', '3', '', 'Jsfields', 5, 1),
+(23, 'Age', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:2:{i:0;s:2:"18";i:1;s:2:"21";}\nisExportable=0\ntooltip=\n\n', '22', 'rangesearchType=date\n\n', 'Rangesearch', 6, 1);;
 
 
 

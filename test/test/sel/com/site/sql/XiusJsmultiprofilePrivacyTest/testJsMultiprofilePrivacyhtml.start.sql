@@ -1,7 +1,3 @@
-CREATE TABLE IF NOT EXISTS `bk_#__plugins` LIKE `#__plugins`;;
-TRUNCATE TABLE `bk_#__plugins` ;;
-INSERT INTO `bk_#__plugins` SELECT * FROM `#__plugins`;;
-
 CREATE TABLE IF NOT EXISTS `bk_#__community_config` LIKE `#__community_config`;;
 TRUNCATE TABLE `bk_#__community_config` ;;
 INSERT INTO `bk_#__community_config` SELECT * FROM `#__community_config`;;

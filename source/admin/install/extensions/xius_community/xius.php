@@ -149,6 +149,22 @@ class plgCommunityxius extends JPlugin
 		if(!$db->query()){
 			JFactory::getApplication()->enqueueMessage("XiUS JSfield value doesn't update. Please say to your site administrator");	
 		}
+		
+		//for instant cache updation write "true" in if condition
+		if(false)
+		{
+			
+		 	   $query = "SHOW TABLES LIKE '".$db->get('_table_prefix')."xius_cache'";
+               $db->setQuery($query);
+               if($db->loadResult()){
+                       
+                       $query = "INSERT INTO `#__xius_cache`(`userid`)
+                                         VALUE ($userId)
+                                         ON DUPLICATE KEY UPDATE `userid`= $userId";
+                       $db->setQuery($query);
+                       $db->query();
+               }
+		}
 	return true;
 		
 	}

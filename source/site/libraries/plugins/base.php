@@ -159,7 +159,18 @@ abstract class XiusBase extends JObject
 			
 		if(in_array('All', $accessibleGroup))
 			return true; 
-		
+
+		//if usertype is value rather than its groupId then convert it to the corresponding groupId
+		if(!is_numeric($userGroup)){
+			$GroupName = XiusHelperUsers::getJoomlaGroups();
+			foreach ($GroupName as $key=>$value){
+				if($value->{XIUS_JOOMLA_GROUP_VALUE} == $userGroup){
+						$userGroup = $value->id;
+						break;
+				}
+			}
+		}
+			
 		if(in_array($userGroup, $accessibleGroup))
 			return true;
 		

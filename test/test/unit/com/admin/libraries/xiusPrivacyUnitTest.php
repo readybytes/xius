@@ -50,7 +50,6 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => true,
-									'Guest Only' => true
   								);
   								
 		$accessibleGroup['Country']=  
@@ -62,7 +61,6 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => true,
-									'Guest Only' => true
   								);
   								
   		$accessibleGroup['City / Town'] = 	array (
@@ -73,7 +71,6 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => true,
-									'Guest Only' => true
   								);
   								
   		$accessibleGroup['Gender'] = array (
@@ -84,7 +81,6 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => false,
- 									'Guest Only' => false
   								);
   								
 		$accessibleGroup['Birthday'] =	array (
@@ -95,7 +91,6 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => true,
-									'Guest Only' => true
   								);
   		$accessibleGroup['Age'] = array (
     								'Registered' => true,
@@ -105,11 +100,10 @@ class XiusPrivacyUnitTest extends XiUnitTestCase
     								'Administrator' => true,
     								'Super Administrator' => true,
     								'Manager' => false,
-  									'Guest Only' => false
   								);
   								
   		$type = array('Registered','Editor','Author','Publisher',
-						'Administrator','Super Administrator', 'Manager','Guest Only');
+						'Administrator','Super Administrator', 'Manager');
 
   		return array(
 			array($type,$accessibleGroup),			

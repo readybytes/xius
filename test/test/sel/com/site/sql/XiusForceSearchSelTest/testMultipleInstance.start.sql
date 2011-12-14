@@ -54,12 +54,12 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (11, 'usertype', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'usertype', '', 'Joomla', 11, 1),
 (12, 'Block', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'block', '', 'Joomla', 12, 1),
 (13, 'lastvisitDate', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'lastvisitDate', '', 'Joomla', 13, 1),
-(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:10:"Registered";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '12', 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
-(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:7:"Manager";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
-(16, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:9:"Publisher";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:4:"Male";\noperator==\n\n', 'Forcesearch', 15, 1),
-(20, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:9:"Publisher";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
-(17, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:13:"Administrator";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:4:"Male";\noperator==\n\n', 'Forcesearch', 15, 1),
-(19, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:13:"Administrator";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
+(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:2:"18";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '12', 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
+(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:2:"23";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
+(16, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:2:"19";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:4:"Male";\noperator==\n\n', 'Forcesearch', 15, 1),
+(20, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:2:"19";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
+(17, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:2:"24";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:4:"Male";\noperator==\n\n', 'Forcesearch', 15, 1),
+(19, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:2:"24";}\nisExportable=1\ntooltip=\njs_privacy=public\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 1),
 (18, 'Super Admin should not be visible', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '11', 'infoid=11\nvalue=s:19:"Super Administrator";\noperator==\n\n', 'Forcesearch', 16, 0);;
 
 TRUNCATE TABLE `#__community_fields`;;
