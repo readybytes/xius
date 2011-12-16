@@ -206,7 +206,10 @@ class plgSystemxius_system extends JPlugin
 			 }
 		
 		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-
+	
+		if(!XiusLibCron::autoCronJob()){
+			return;
+		}
 		//get xiuskey for cache update
 		$setKey = XiusHelperUtils::getConfigurationParams('xiusKey',0);
 		

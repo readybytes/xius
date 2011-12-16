@@ -82,8 +82,11 @@ class XiusLibCron
 		// Check: Not any information unset during cache update 
 		JFactory::getSession()->set('updateCache', true);
 		
+		//If we don't clear this 'updateCache' variable here then xius 
+		//will not work properly(cache will not be updated)
 		$cache = XiusFactory::getInstance('cache');
 		if(!$cache->createTable()){
+			JFactory::getSession()->clear('updateCache', true);
 			return false;
 		}
 

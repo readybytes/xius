@@ -44,6 +44,27 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (12, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '12', '', 'Jsfields', 11, 1),
 (13, 'By Google API', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', 'google', 'xius_proximity_country=12\nxius_proximity_zipcode=\nxius_proximity_state=11\nxius_proximity_city=10\nxius_gmap_key=\nxius_default_location=none\nxiusProximityDefaultLat=28.635308\nxiusProximityDefaultLong=77.22496\nxiusDefaultDistance=10\nxiusDefaultDistanceUnit=miles\nxiusProximityGmapZoom=2\n\n', 'Proximity', 12, 1);;
 
+DROP TABLE `#__xius_cache`;;
+CREATE TABLE IF NOT EXISTS `#__xius_cache` (
+  `userid` int(21) NOT NULL,
+  `jsfields12_0` varchar(250) NOT NULL,
+  `jsfields10_0` varchar(250) NOT NULL,
+  `jsfields11_0` varchar(250) NOT NULL,
+  `jsfields8_0` varchar(250) NOT NULL,
+  `jsfields18_0` varchar(250) NOT NULL,
+  `jsfields7_0` varchar(250) NOT NULL,
+  `jsfields5_0` varchar(250) NOT NULL,
+  `jsfields4_0` varchar(250) NOT NULL,
+  `jsfields3_0` datetime NOT NULL,
+  `jsfields2_0` varchar(250) NOT NULL,
+  `rangesearch2_0` double NOT NULL DEFAULT '0',
+  `proximity_google_latitude_0` float(10,6) DEFAULT NULL,
+  `proximity_google_longitude_0` float(10,6) DEFAULT NULL,
+  `proximity_google_address_0` varchar(250) NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;;
+
+
 TRUNCATE TABLE `#__xius_cache`;;
 INSERT INTO `#__xius_cache` (`userid`, `jsfields12_0`, `jsfields10_0`, `jsfields11_0`, `jsfields8_0`, `jsfields18_0`, `jsfields7_0`, `jsfields5_0`, `jsfields4_0`, `jsfields3_0`, `jsfields2_0`, `rangesearch2_0`, `proximity_google_latitude_0`, `proximity_google_longitude_0`, `proximity_google_address_0`) VALUES
 (62, 'India', 'Rajasthan', 'Bhilwara', '', '', '', '', '', '0000-00-00 00:00:00', '', 0, 25.346251, 74.636383, 'Bhilwara,Rajasthan,India'),
