@@ -220,7 +220,7 @@ class XiusSearchTest extends XiSelTestCase
     	$this->click("//input[@value='Soccer']");
 		$this->click("xiussearch");
 		$this->waitPageLoad();
-		$this->assertTrue($this->isElementPresent("//span[@id='total_1']"));
+		$this->assertTrue($this->isElementPresent("//span[@id='total_7']"));
     	$avatar[] = "//img[@id='avatar_94']";
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);

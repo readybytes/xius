@@ -64,7 +64,7 @@ class XiusUserSearchTest extends XiUnitTestCase
 		
 		$reqQuery1 = "SELECT * FROM `#__xius_cache`"
 					." WHERE `jsfields2_0`='Male' AND"
-					." ( `jsfields17_0` LIKE '%Checkbox1%' AND `jsfields17_0` LIKE '%Checkbox11%' )" 
+					." ( `jsfields17_0` LIKE '%Checkbox1%' OR `jsfields17_0` LIKE '%Checkbox11%' )" 
 					." ORDER BY `userid` ASC";
 					
 		$conditions2 = array();

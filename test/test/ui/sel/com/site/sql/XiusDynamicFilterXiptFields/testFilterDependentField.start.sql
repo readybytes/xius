@@ -44,6 +44,14 @@ INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, 
 (12, 'Country', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', '12', '', 'Jsfields', 11, 1),
 (13, 'By Google API', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\nxipt_privacy=a:1:{i:0;s:1:"0";}\njs_privacy=public\n\n', 'google', 'xius_proximity_country=12\nxius_proximity_zipcode=\nxius_proximity_state=11\nxius_proximity_city=10\nxius_gmap_key=\nxius_default_location=none\nxiusProximityDefaultLat=28.635308\nxiusProximityDefaultLong=77.22496\nxiusDefaultDistance=10\nxiusDefaultDistanceUnit=miles\nxiusProximityGmapZoom=2\n\n', 'Proximity', 12, 1);;
 
+TRUNCATE TABLE `#__xius_cache`;;
+INSERT INTO `#__xius_cache` (`userid`, `jsfields12_0`, `jsfields10_0`, `jsfields11_0`, `jsfields8_0`, `jsfields18_0`, `jsfields7_0`, `jsfields5_0`, `jsfields4_0`, `jsfields3_0`, `jsfields2_0`, `rangesearch2_0`, `proximity_google_latitude_0`, `proximity_google_longitude_0`, `proximity_google_address_0`) VALUES
+(62, 'India', 'Rajasthan', 'Bhilwara', '', '', '', '', '', '0000-00-00 00:00:00', '', 0, 25.346251, 74.636383, 'Bhilwara,Rajasthan,India'),
+(63, 'India', 'Rajasthan', 'Ajmer', '', '', '', '', '', '0000-00-00 00:00:00', '', 0, NULL, NULL, 'Ajmer,Rajasthan,India'),
+(64, 'India', 'Gujrat', 'Surat', '1299648940', '', '61096620', '', 'Surat', '2000-12-25 23:59:59', 'Female', 10, 21.195009, 72.819527, 'Surat,Gujrat,India'),
+(65, 'India', 'Punjab', 'Ludhiana', '1156881164', '', '1373346876', '', 'Ludhiana', '1992-02-09 23:59:59', 'Female', 19, 30.902222, 75.854721, 'Ludhiana,Punjab,India'),
+(66, 'India', 'Punjab', 'Chandigarh', '1348999261', '', '1122361707', '', 'Chandigarh', '1994-09-22 23:59:59', 'Male', 17, NULL, NULL, 'Chandigarh,Punjab,India'),
+(67, 'India', 'Madhya Pradesh', 'Indore', '1191652949', '', '420395176', '', 'Indore', '1993-06-20 23:59:59', 'Male', 18, 22.725313, 75.865555, 'Indore,Madhya Pradesh,India');;
 
 TRUNCATE TABLE `#__xipt_profilefields`;;
 INSERT INTO `#__xipt_profilefields` (`id`, `fid`, `pid`, `category`) VALUES

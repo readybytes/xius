@@ -113,7 +113,7 @@ class JsfieldsBase extends XiusBase
 					$conditions = '';
 					$count = 0;
 					foreach($value as $v){
-						$conditions .= $count ? ' AND ' : ' ( ';
+						$conditions .= $count ? ' OR ' : ' ( ';
 						$conditions .= ''.$db->nameQuote($c->cacheColumnName).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
 						$count++;
 						//$query->where($conditions);
@@ -228,7 +228,11 @@ class JsfieldsBase extends XiusBase
 			require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
 			return ProfiletypesHelper::formatData($value);		
 		}
-		
+		//if jsAutoComplete plugin is installed
+		if($fieldInfo[0]->type == 'jsautocomplete'){
+			$value = explode(',',$value);
+		}		
+
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::formatData($fieldInfo[0]->type,$value);
 		return $formatvalue;
