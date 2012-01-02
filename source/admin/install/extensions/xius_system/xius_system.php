@@ -75,7 +75,7 @@ class plgSystemxius_system extends JPlugin
 		$integrateJS =XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);	
 		$url = "index.php?option=com_xius";
 		if($integrateJS)
-			$url = "index.php?option=com_community&view=users&task=panel&usexius=1"; 
+			$url = "index.php?option=com_community&view=users&usexius=1"; 
 		
 		$mainframe->redirect(XiusRoute::_($url,false));			
 	}

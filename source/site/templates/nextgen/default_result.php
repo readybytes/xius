@@ -37,7 +37,7 @@ $this->loadAssets('js', 'result.js');
 <?php echo $this->loadTemplate('toolbar'); ?>
 <div id="xiusMiniProfiles">
 <?php echo $this->loadTemplate('profile');?>
-<div class="pagination">
+<div class="xiusfr pagination">
 <?php echo $this->pagination->getPagesLinks();?>
 <img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" title="BackToTop" style="float:right;"/>
 </div>

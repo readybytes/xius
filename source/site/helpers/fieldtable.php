@@ -47,7 +47,7 @@ class XiusJsfieldTable
 		}
 		
 		//$query['select'] = preg_replace('/,/', '', $query['select'], 1);
- 		$createTable['schema']	 .= ")";
+ 		$createTable['schema']	 .= ")ENGINE = MyISAM DEFAULT CHARSET=utf8";
 		$createTable['values']   .= " FROM `#__community_fields_values`".
 						 			" GROUP BY `user_id` )";
 

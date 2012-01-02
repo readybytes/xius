@@ -384,3 +384,18 @@ background-repeat: no-repeat;
 div#xius_result body #xius_result .inputbox{
 border:1px solid #e3e3e3;		
 }
+
+div#xius_result div.xiusfr{
+	float:left;
+}
+div#xius_result div.xiusfr ul li {
+	float: left;
+    margin: 0 5px 0 0;
+    font-size: 10px;
+}
+
+div#xius_result div.xiusfr ul span.pagenav {
+	font-size: 12px;
+    font-weight: bold;
+    line-height: 1.8em;
+}
