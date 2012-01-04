@@ -24,7 +24,12 @@ class XiussiteControllerUsers extends XiusController
 		 */	
 		$filter = array();
 		$filter['published'] = true;
-		
+
+		//apply default sort/order again
+		$mysess = JFactory::getSession();
+		$mysess->clear('sort','XIUS');
+		$mysess->clear('dir','XIUS');
+
 		$count = XIUS_ALL; 
 		
 		if($count === XIUS_ALL || $count === 0)
