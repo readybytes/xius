@@ -241,6 +241,7 @@ class XiusView extends JView
 	// XITODO : UNIT Test case for the following function
 	public function loadAssets($type,$filename)
 	{
+		XiusHelperUtils::loadJomsJquery();
 		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
 		static $path = null;
 		

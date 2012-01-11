@@ -8,6 +8,31 @@ $this->loadAssets('css', 'panel.css');
 $document =& JFactory::getDocument();
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
+//for replacing tooltip of js by xius
+ob_start();
+?>
+var FieldIds= new Array();
+var tooltip = new Array();
+var i = 0; 
+<?php 
+foreach($this->infohtml as $data):
+if($data['info']->pluginType == 'Jsfields'):
+?>
+ FieldIds[i++] = "<?php echo "field".$data['info']->key ;?>";
+ tooltip["<?php echo "field".$data['info']->key ;?>"]  = "<?php echo $data['tooltip']?>";
+ <?php endif;
+endforeach; ?><?php
+		$content = ob_get_contents();
+		ob_clean();
+        JFactory::getDocument()->addScriptDeclaration($content);?>
+<script type="text/javascript"> 
+joms.jQuery(document).ready(function($) {
+	for (i = 0; i < (FieldIds.length); i++) {
+		joms.jQuery('#'+FieldIds[i]).attr('title',tooltip[FieldIds[i]]);
+	}
+});
+</script> 
+<?php 
 ?>
 <div class="xius_sp" id="xiusSp">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
@@ -35,15 +60,15 @@ jimport('joomla.html.pane');
 			<?php
 			//echo JHTML::_('tooltip',XiusText::_($xiustool), XiusText::_($data['label']), null, XiusText::_($data['label']));
 			$xiustooltip = $data['tooltip'];
-			if(!empty($xiustooltip)) :
-				echo '<span title="'.$xiustooltip.'">'.$data['label'].'</span>';			
-			else :
-				echo $data['label']; 
-			endif; 
+			echo $data['label'];
 			?>
 			</div>
 			<div class="xiusSpInput">
-			<?php echo $data['html'];?>
+			<?php if(!empty($xiustooltip) && $data['info']->pluginType != 'Jsfields') :
+			 echo '<span title="'.$xiustooltip.'">'.$data['html'].'</span>';
+			 else :
+				echo $data['html']; 
+			endif;?>
 			</div>
 			</div>
 			<?php

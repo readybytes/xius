@@ -164,6 +164,18 @@ class XiusHelperUtils
 		return true;
 	}
 	
+	/**
+	 * load joms.jquery.js if not loaded 
+	 */
+    function loadJomsJquery()
+	{
+		if(!defined('C_ASSET_JQUERY')){
+			JFactory::getDocument()->addScript( JURI::base() .'components/com_community/assets/joms.jquery.js' );
+	    	define('C_ASSET_JQUERY', 1);
+		}
+		return true;
+	}
+	
     function getUrlpathFromFilePath($filepath)
     {
     	return preg_replace('#[/\\\\]+#', '/', $filepath);
