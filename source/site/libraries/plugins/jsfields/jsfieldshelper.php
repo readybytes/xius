@@ -143,6 +143,13 @@ class Jsfieldshelper
 			case 'profiletypes':
 				require_once( XIUS_PLUGINS_PATH.DS.'jsfields'.DS.'profiletype.php' );
 				return ProfiletypesHelper::getFieldHTML($fieldInfo);
+
+			case 'xidepfields' :
+				 $mysess = JFactory::getSession();
+		 		 $mysess->set('xidepTypeInfo',1);
+		 		 $fieldHTML = CProfileLibrary::getFieldHTML($fieldInfo);			
+		 		 $mysess->clear('xidepTypeInfo');
+		 		 break;
 				
 			default :
 				$fieldHTML = CProfileLibrary::getFieldHTML($fieldInfo);						
