@@ -28,7 +28,7 @@ endforeach; ?><?php
 <script type="text/javascript"> 
 joms.jQuery(document).ready(function($) {
 	for (i = 0; i < (FieldIds.length); i++) {
-		joms.jQuery('#'+FieldIds[i]).attr('title',tooltip[FieldIds[i]]);
+		joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
 	}
 });
 </script> 
@@ -62,7 +62,7 @@ joms.jQuery(document).ready(function($) {
 			echo $data['label'];
 			?>
 			</div>
-			<div class="xius_spInput">
+			<div class="xius_spInput field<?php echo $data['info']->key?>">
 			<?php if(!empty($xiustooltip) && $data['info']->pluginType != 'Jsfields'): 
 				 echo '<span title="'.$xiustooltip.'">'.$data['html'].'</span>';?>
 		    <?php else: ?>

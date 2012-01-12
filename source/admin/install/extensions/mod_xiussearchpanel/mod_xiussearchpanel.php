@@ -17,7 +17,7 @@ $link = 'index.php?option=com_xius&view=users&task=search';
 if(XiusHelperUtils::getConfigurationParams('integrateJomSocial',0) == true){
 	$link = 'index.php?option=com_community&view=users&task=search&usexius=1';
 }
-
+XiusHelperUtils::loadJomsJquery();
 $infoRange = $params->get('xius_info_range','all');
 $infoRange = explode(",",$infoRange);
 $displayInfo = Array();

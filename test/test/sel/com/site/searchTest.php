@@ -169,7 +169,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);
 		// search according to marital status married
-		$this->click("//div[@id='xius_Info_Ref10']/div[@class='xius_aiInput']/div/label[2]/input");
+		$this->click("//div[@id='xius_Info_Ref10']/div[@class='xius_aiInput field20']/div/label[2]/input");
 		$this->click("//img[@class='xius_test_addinfo_10']");
 		$this->waitPageLoad();    
 		$this->assertTrue($this->isElementPresent("//span[@id='total_0']"));
@@ -203,7 +203,7 @@ class XiusSearchTest extends XiSelTestCase
 		$this->isSearchElementPresent($avatar);
 		unset($avatar);
 		// SEarch according to badminton game
-		$this->click("//div[@id='xius_Info_Ref12']/div[@class='xius_aiInput']/div/label[2]/input");
+		$this->click("//div[@id='xius_Info_Ref12']/div[@class='xius_aiInput field17']/div/label[2]/input");
     	$this->click("//img[@class='xius_test_addinfo_12']");    	
     	$this->waitPageLoad();
     	$this->assertTrue($this->isElementPresent("//span[@id='total_7']"));
