@@ -272,7 +272,7 @@ class Proximity extends XiusBase
 		$linkMap 	= "http://maps.google.com/maps/api/staticmap?center={$value['latitude']},{$value['longitude']}&zoom=7&size=".PROXIMITY_APPLIED_IFRAME_WIDTH."x".PROXIMITY_APPLIED_IFRAME_HEIGHT
 		 			."&maptype=roadmap&markers=size:large|color:Red|label:S|{$value['latitude']},{$value['longitude']}&sensor=false"
 					."";
-		$buttonMap 	= XiusFactory::getModalButtonObject('xius_show_location_map', XiusText::_('SHOW_LOCATION') ,$linkMap,PROXIMITY_APPLIED_IFRAME_WIDTH,PROXIMITY_APPLIED_IFRAME_HEIGHT);
+		$buttonMap 	= XiusFactory::getModalButtonObject('xius_show_location_map', XiusText::_('SHOW_LOCATION') ,$linkMap,PROXIMITY_APPLIED_IFRAME_WIDTH,PROXIMITY_APPLIED_IFRAME_HEIGHT,'image');
         $fieldHtml     = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a>';
 		return array($fieldHtml);	
 	}	

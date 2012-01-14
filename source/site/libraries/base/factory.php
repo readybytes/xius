@@ -55,7 +55,7 @@ class XiusFactory
 	 	return $instances[$pluginId];
 	}
 
-  static public function getModalButtonObject($name,$text,$link,$width=750,$height=480)
+  static public function getModalButtonObject($name,$text,$link,$width=750,$height=480,$handler ='iframe')
 	{
 		JHTML::_('behavior.modal', "a.{$name}");
         $buttonMap = new JObject();
@@ -63,7 +63,7 @@ class XiusFactory
         $buttonMap->set('text', $text );
         $buttonMap->set('name', 'image');
         $buttonMap->set('modalname', $name);
-        $buttonMap->set('options', "{handler: 'iframe', size: {x: ".$width.", y: ".$height."}}");
+        $buttonMap->set('options', "{handler: '$handler', size: {x: ".$width.", y: ".$height."}}");
         $buttonMap->set('link', $link);
         return $buttonMap;
 	}
