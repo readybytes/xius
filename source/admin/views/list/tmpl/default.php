@@ -14,6 +14,9 @@ jimport('joomla.html.pane');
 /**
  * This function needs to be here because, Joomla toolbar calls it
  **/ 
+ Joomla.submitbutton = function(action){
+	 	submitbutton( action );
+	 }
 function submitbutton( action )
 {
 	switch( action )

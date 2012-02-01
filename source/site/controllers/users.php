@@ -58,13 +58,15 @@ class XiussiteControllerUsers extends XiusController
 		
 		//if sort is already exist then don't take default value
 		$defaultSelect =XiusLibUsersearch::getDataFromSession(XIUS_SORT);
-		if(!isset($defaultSelect))
+		if(empty($defaultSelect)){
         	$defaultSelect = XiusHelperUtils::getConfigurationParams('xiusSortInfo',0);
+		}
 		XiusLibUsersearch::setDataInSession(XIUS_SORT,$defaultSelect,'XIUS');
         //if order is already exist then don't take default value
 		$order =XiusLibUsersearch::getDataFromSession(XIUS_DIR);
-		if(!isset($order))
+		if(empty($order)){
 			$order = XiusHelperUtils::getConfigurationParams('xiusSortOrder','ASC');
+		}
 		XiusLibUsersearch::setDataInSession(XIUS_DIR,$order,'XIUS');
  
 		//set default limit first time and check if limitstart for pagination is set or not 
