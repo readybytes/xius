@@ -193,7 +193,7 @@ class plgSystemxius_system extends JPlugin
 		$option = JRequest::getVar('option');
 		$task	= JRequest::getVar('task');
 		
-		if( !($option === 'com_xius' && $task === 'search'))
+		if( !(($option === 'com_xius' || $option =='com_community' ) && $task === 'search'))
 	    {  	
 			return true;	
 		}
@@ -206,8 +206,10 @@ class plgSystemxius_system extends JPlugin
 			 }
 		
 		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-	
-		if(!XiusLibCron::autoCronJob()){
+		
+		$xiusConfig = XiusFactory::getInstance ('configuration', 'model');
+		$params		= $xiusConfig->getOtherParams('config');
+		if(!XiusLibCron::_checkCronParams($params)){
 			return;
 		}
 		//get xiuskey for cache update
@@ -221,4 +223,3 @@ class plgSystemxius_system extends JPlugin
 		JResponse::setBody($body);
 	}
 }
-

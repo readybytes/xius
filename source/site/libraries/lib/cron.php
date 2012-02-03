@@ -14,16 +14,9 @@ class XiusLibCron
 		//get XiUS Configuration Model
 		$xiusConfig = XiusFactory::getInstance ('configuration', 'model');
 		$params		= $xiusConfig->getOtherParams('config');
-
-		// Check Auto-Cron Job Task Enable or not
-		if(!$params->get("xiusCronJob", 0)){
+		if(!self::_checkCronParams($params)){
 			return false;
 		}
-		
-		if(!self::_isRequired($params)){
-			return false;
-		}
-
 		$configParam = $params->toArray();
 
 		$configParam['xiusListCreator']	 = unserialize($configParam['xiusListCreator']);
@@ -33,6 +26,20 @@ class XiusLibCron
 
 		return true;
 	}
+	
+	function _checkCronParams($params)
+	{
+	// Check Auto-Cron Job Task Enable or not
+		if(!$params->get("xiusCronJob", 0)){
+			return false;
+		}
+		
+		if(!self::_isRequired($params)){
+			return false;
+		}
+		return true;
+	}
+	
 	/**
 	 * return cron job required or not according to Cron Frequency
 	 * @param unknown_type $param
@@ -41,7 +48,6 @@ class XiusLibCron
 		// Get Cron Job frequency and access time
 		$xiusCronFrequency = $param->get("xiusCronFrequency");
 		$xiusCronAcessTime = $param->get("xiusCronAcessTime");
-		
 		return ((time() - $xiusCronAcessTime) > $xiusCronFrequency);
 	}	
 	
