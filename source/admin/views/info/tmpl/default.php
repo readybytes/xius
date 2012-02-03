@@ -32,7 +32,7 @@ function submitbutton( action )
 </script>
 <div id="XIUS">
 <div class="xippElements">
-<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm">
 <table class="adminlist" cellspacing="1">
 	<thead>
 		<tr class="title">
