@@ -203,7 +203,7 @@ class Joomla extends XiusBase
 			return parent::_getFormatData($value);
 		}
 		
-		$value = split('-',$value);
+		$value = explode('-',$value);
 		$finalvalue = '';
 			
 		if(is_array($value)){
