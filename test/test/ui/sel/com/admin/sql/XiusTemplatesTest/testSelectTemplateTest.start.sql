@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS `au_#__xius_config`;;
 CREATE TABLE `au_#__xius_config` SELECT * FROM `#__xius_config`;;
 
 INSERT INTO `au_#__xius_config` (`name`, `params`) VALUES
-('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:2:"25";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusLimit=20\nxiusCronJob=0\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n');;
+('config', 'xiusTemplates=default\nintegrateJomSocial=0\nxiusKey=AB2F4\nxiusDebugMode=0\nxiusListCreator=a:1:{i:0;s:2:"25";}\nxiusReplaceSearch=0\nxiusSlideShow=none\nxiusLoadJquery=0\nxiusSortInfo=0\nxiusSortOrder=ASC\nxiusEnableMatch=1\nxiusDefaultMatch=AND\nxiusJsfieldPrivacy=0\nxiusLimit=20\nxiusCronJob=0\nxiusCronFrequency=900\nxiusCronAcessTime=0\n\n');;
 
 
 INSERT INTO `#__xius_config` (`name`, `params`) VALUES

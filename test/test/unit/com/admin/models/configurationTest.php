@@ -69,6 +69,7 @@ class XiusModelsConfigurationTest extends XiUnitTestCase
 												'xiusDebugMode' =>0,
 												'xiusEnableMatch' => 1,
 												'xiusDefaultMatch' => 'OR',
+												'xiusJsfieldPrivacy'=> 0,
 												'xiusListCreator' => 'a:1:{i:0;s:19:"Super Administrator";}',
 												'xiusSortInfo'=>0,
 												'xiusSortOrder' => 'ASC',

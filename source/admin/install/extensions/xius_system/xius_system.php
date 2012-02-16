@@ -107,7 +107,56 @@ class plgSystemxius_system extends JPlugin
 	}
 	
 	function onBeforeMiniProfileDisplay($data)
-	{
+	{	
+		//if xiusJsfieldPrivacy param is set to YES then only proceed 
+		if(!XiusHelperUtils::getConfigurationParams('xiusJsfieldPrivacy',0))
+			return true;
+			
+		$coloum_alias = null;
+		$infoKey	  = array();
+		$jsInfo_exist = false;
+		foreach ($data['allInfo'] as $infoid){
+			if( $infoid->pluginType == 'Jsfields'){
+				$jsInfo_exist = true;
+			    $infoKey[$infoid->id] = $infoid->key;	
+				$coloum_alias 		 .= ",SUM(if( `field_id`= $infoid->key,`access`,0)) AS jsfield_".$infoid->key;
+			}
+		}
+		if($jsInfo_exist){
+			//get access coloum for all custom info
+			$query = new XiusQuery();
+			$query->select('`user_id`'.$coloum_alias)
+				  ->from('`#__community_fields_values`')
+			      ->group('`user_id`')
+			      ->limit( $data['pagination']->limit,$data['pagination']->limitstart);
+			$results = $query->dbLoadQuery()->loadObjectList('user_id');
+			
+			//let's check the viewer's relation to the result profiles to be shown
+			$visitor = CFactory::getUser();
+			$site_access = 0;
+			if($visitor->id > 0){
+				$site_access = PRIVACY_MEMBERS;
+			}
+			foreach ($results as $result){
+		    	$isfriend = $visitor->isFriendWith($result->user_id);
+				$access_limit = $site_access;
+		    	//let's set the maximum access limit viewer can go
+		    	//every user is friend with himself 
+				if( $isfriend){
+					$access_limit = PRIVACY_FRIENDS;
+					//if result user is the visitor then set access level to 'only me' 
+					if($visitor->id == $result->user_id) 
+						$access_limit = PRIVACY_PRIVATE;
+				}
+				
+				foreach ($infoKey as $key=>$value){
+					$jsfield = 'jsfield_'.$value;
+					if((int)$result->$jsfield > $access_limit){
+						unset($data['userprofile'][$result->user_id][$key]);
+					}
+				}
+			}
+		}
 		return true;
 	}
 
