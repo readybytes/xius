@@ -123,43 +123,97 @@ class plgSystemxius_system extends JPlugin
 			}
 		}
 		if($jsInfo_exist){
+			//get jsfieldInfo Ids of infos that are in $data['appliedInfo'] 
+			$jsfieldInfo = array();
+			$otherInfos	 = array();
+			$infoIds 	 = array_keys($infoKey);
+			foreach ($data['appliedInfo'] as $key=>$value){
+				if(in_array($value['infoid'],$infoIds))
+					$jsfieldInfo[$value['infoid']] = $value;
+				else{
+					$otherInfos[$value['infoid']] = $value;
+				}
+			}
+			//get userids to be checked for privacy
+			$userids = null;
+			$userids = implode(',',array_keys($data['userprofile']));
+			if(empty($userids))
+				return true;
+				
 			//get access coloum for all custom info
 			$query = new XiusQuery();
 			$query->select('`user_id`'.$coloum_alias)
 				  ->from('`#__community_fields_values`')
-			      ->group('`user_id`')
-			      ->limit( $data['pagination']->limit,$data['pagination']->limitstart);
+				  ->where('`user_id` IN ('.$userids.')')
+			      ->group('`user_id`');
 			$results = $query->dbLoadQuery()->loadObjectList('user_id');
-			
-			//let's check the viewer's relation to the result profiles to be shown
-			$visitor = CFactory::getUser();
-			$site_access = 0;
-			if($visitor->id > 0){
-				$site_access = PRIVACY_MEMBERS;
-			}
-			foreach ($results as $result){
-		    	$isfriend = $visitor->isFriendWith($result->user_id);
-				$access_limit = $site_access;
-		    	//let's set the maximum access limit viewer can go
-		    	//every user is friend with himself 
-				if( $isfriend){
-					$access_limit = PRIVACY_FRIENDS;
-					//if result user is the visitor then set access level to 'only me' 
-					if($visitor->id == $result->user_id) 
-						$access_limit = PRIVACY_PRIVATE;
-				}
-				
-				foreach ($infoKey as $key=>$value){
-					$jsfield = 'jsfield_'.$value;
-					if((int)$result->$jsfield > $access_limit){
-						unset($data['userprofile'][$result->user_id][$key]);
-					}
-				}
-			}
+			$this->_applyJsfieldPrivacy($data,$results,$infoKey,$jsfieldInfo,$otherInfos);		
 		}
 		return true;
 	}
 
+	/**
+	 * unset profileinfo and user according to their field accesses
+	 */
+	function _applyJsfieldPrivacy(&$data,$results,$infoKey,$jsfieldInfo,$otherInfos)
+	{
+		//let's check the viewer's relation to the result profiles to be shown
+		$visitor = CFactory::getUser();
+		$site_access = 0;
+		$unsetUsers  = array();
+		if($visitor->id > 0){
+			$site_access = PRIVACY_MEMBERS;
+		}
+		foreach ($results as $result){
+			$count = 0;
+	    	$isfriend = $visitor->isFriendWith($result->user_id);
+			$access_limit = $site_access;
+	    	//let's set the maximum access limit viewer can go
+	    	//every user is friend with himself 
+			if( $isfriend){
+				$access_limit = PRIVACY_FRIENDS;
+				//if result user is the visitor then set access level to 'only me' 
+				if($visitor->id == $result->user_id) 
+					$access_limit = PRIVACY_PRIVATE;
+			}
+			foreach ($infoKey as $key=>$value){
+				$jsfield = 'jsfield_'.$value;
+				if((int)$result->$jsfield > $access_limit){
+					if(isset($jsfieldInfo[$key]))
+						$count++;
+					unset($data['userprofile'][$result->user_id][$key]);	
+				}
+			}
+			if(!empty($data['appliedInfo']) && !empty($jsfieldInfo) && $count == count($jsfieldInfo)){
+				$unsetUsers[$result->user_id] = $result->user_id;
+			}
+		}
+		$this->_unsetUsers($unsetUsers,$otherInfos,$data);
+		return;
+	}
+	
+	function _unsetUsers($unsetUsers,$otherInfos,&$data)
+	{
+		$config = XiusHelperUtils::getConfigurationParams('xiusDefaultMatch');
+		foreach ($unsetUsers as $userid){
+			$unset = true;
+			//if match any condition then only check these
+			if(JRequest::getVar('xiusjoin',$config) == 'OR'){
+				foreach ($otherInfos as $key=>$value){
+					if($data['userprofile'][$userid][$key]['value'][0] == $value['value']){
+						$unset = false;
+						break;
+					}
+				}
+			}
+			if($unset){
+				unset($data['userprofile'][$userid]);
+				$data['total'] = --$data['total'];
+			}
+		}
+		return;
+	}
+	
 	function onBeforeDisplaySearchPanel($infohtml)
 	{
 		return true;

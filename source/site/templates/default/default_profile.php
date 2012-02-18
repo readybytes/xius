@@ -12,7 +12,10 @@
 </div>
 <?php 
 		$count= 0;
-		foreach($this->users as $user) : ?>
+		$userprofile = array_keys($this->userprofile);
+		foreach($this->users as $user) : 
+			 if(!in_array($user->id,$userprofile))
+				     continue;?>
 		  	<div class="xiusMp">
 				<div class="xiusHeader">				
 				<?php if(isset($user->email) && !empty($user->email)):?>

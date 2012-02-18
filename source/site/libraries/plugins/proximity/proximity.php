@@ -264,13 +264,19 @@ class Proximity extends XiusBase
 	}
 	
 	public function _getFormatAppliedData($value)
-	{		
+	{	
+		$apiKey = '';
+		$key  = $this->pluginParams->get('xius_gmap_key');
+		if(!empty($key)){
+			$apiKey = "&key={$key}";
+		}
+		
 		$value 		= $this->validateValues($value);
 		if(!$value)
 			return false;
 			
 		$linkMap 	= "http://maps.google.com/maps/api/staticmap?center={$value['latitude']},{$value['longitude']}&zoom=7&size=".PROXIMITY_APPLIED_IFRAME_WIDTH."x".PROXIMITY_APPLIED_IFRAME_HEIGHT
-		 			."&maptype=roadmap&markers=size:large|color:Red|label:S|{$value['latitude']},{$value['longitude']}&sensor=false"
+		 			."&maptype=roadmap&markers=size:large|color:Red|label:S|{$value['latitude']},{$value['longitude']}.$apiKey.&sensor=false"
 					."";
 		$buttonMap 	= XiusFactory::getModalButtonObject('xius_show_location_map', XiusText::_('SHOW_LOCATION') ,$linkMap,PROXIMITY_APPLIED_IFRAME_WIDTH,PROXIMITY_APPLIED_IFRAME_HEIGHT,'image');
         $fieldHtml     = '<a id="'.$buttonMap->modalname.'" class="'.$buttonMap->modalname.'" title="'.$buttonMap->text.'" href="'.$buttonMap->link.'" rel="'.$buttonMap->options.'">'.$buttonMap->text.'</a>';

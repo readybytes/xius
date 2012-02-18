@@ -5,8 +5,10 @@
 **/
  
 $count=0;
+$userprofile = array_keys($this->userprofile);
 foreach($this->users as $user) :
-?>
+	if(!in_array($user->id,$userprofile))
+		continue;?>
 <div class="miniProfile">
 <?php if(isset($user->email) && !empty($user->email)):?>
 						<span class="xiusCheckUser">
