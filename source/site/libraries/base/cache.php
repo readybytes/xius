@@ -40,7 +40,10 @@ class XiusCache
 			return false;	
 		}
 		// Set query on Data-Base Object and Execute query
-		$createQuery->dbLoadQuery()->query();
+		if(!$createQuery->dbLoadQuery()->query()){
+			JFactory::getApplication()->enqueueMessage($createQuery->dbLoadQuery()->_errorMsg);
+ 	  		//die($createQuery->dbLoadQuery()->_errorMsg ); //for testing purpose
+		}
 		$createQuery->clear('create');
 		return true;	
 	}
@@ -72,8 +75,10 @@ class XiusCache
 		// clear the insert query
 		$this->_insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
 			
-		if(!$this->db->query())
+	if(!$this->db->query()){
 			JFactory::getApplication()->enqueueMessage(XiusText::_('INSERT_IN_DB_FAILED'));
+			//die($this->db->_errorMsg );		//for testing purpose
+		}
 		$affectedRows = $this->db->getAffectedRows();
 		return $affectedRows;
 	}

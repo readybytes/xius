@@ -140,8 +140,10 @@ class plgCommunityxius extends JPlugin
 				$onUpdate 		.= ", `$column` = {$result[0]->$column} ";
 				continue;
 			}
-			$insertValue	.= ", '{$result[0]->$column}' ";
-			$onUpdate 		.= ", `$column` = '{$result[0]->$column}' ";
+			//handle special charaters
+			$column_value	 = mysql_real_escape_string($result[0]->$column);
+			$insertValue	.= ", '{$column_value}' ";
+			$onUpdate 		.= ", `$column` = '{$column_value}' ";
 		}
 		$onUpdate = preg_replace('/,/', '',$onUpdate, 1);
 		$query    = $insertQuery.")".$insertValue.")".$onUpdate;

@@ -200,7 +200,9 @@ class plgSystemxius_system extends JPlugin
 			//if match any condition then only check these
 			if(JRequest::getVar('xiusjoin',$config) == 'OR'){
 				foreach ($otherInfos as $key=>$value){
-					if($data['userprofile'][$userid][$key]['value'][0] == $value['value']){
+					if( $value['formatvalue'] == XiusText::_('ALL_AVAILABLE') || 
+                        $value['formatvalue'] == XiusText::_('ALL_USERS') || 
+                        $data['userprofile'][$userid][$key]['value'][0] == $value['formatvalue']){
 						$unset = false;
 						break;
 					}
