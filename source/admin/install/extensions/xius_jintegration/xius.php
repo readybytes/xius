@@ -127,6 +127,6 @@ class plgSearchxius extends JPlugin
     //For Joomla1.7
 	function onContentSearch($text, $phrase='', $ordering='', $areas=null)
 	{
-	  return self::onSearch(&$text , $$phrase ,&$ordering ,&$areas);
+	  return self::onSearch($text , $phrase ,$ordering ,$areas);
 	}
  }

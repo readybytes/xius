@@ -48,7 +48,7 @@
 			<option value="OR">Match Any</option>
 		</param>
 		
-		<param name="xiusJsfieldPrivacy" type="xiradio" default="0" label="COM_XIUS_ENABLE_JSFIELDS_PRIVACY" description="COM_XIUS_ENABLE_JSFIELDS_PRIVACY_DESC">
+		<param name="xiusJsfieldPrivacy" type="hidden" default="0" label="COM_XIUS_ENABLE_JSFIELDS_PRIVACY" description="COM_XIUS_ENABLE_JSFIELDS_PRIVACY_DESC">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
