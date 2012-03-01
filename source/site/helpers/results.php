@@ -61,12 +61,13 @@ class XiusHelperResults
 
 	function _createUserProfile(&$data)
 	{
+		$allInfo		= XiusLibInfo::getAllInfo();
         $userprofile 	= array();
         $sortableFields = XiusLibUsersearch::getSortableFields($data['allInfo']);
 
         JDispatcher::getInstance()->trigger("xiusOnBeforeCreateUserProfile",Array(&$data)); 
-        if(!empty($data['allInfo'])){
-        	foreach($data['allInfo'] as $info){
+        if(!empty($allInfo)){
+        	foreach($allInfo as $info){
 
         		//XiTODO:: why check it every time. I hate it. 
         		if(empty($data['users']))
