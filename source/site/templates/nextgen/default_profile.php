@@ -11,10 +11,7 @@
 </div>
 <?php 
 		$count= 0;
-		$userprofile = array_keys($this->userprofile);
-		foreach($this->users as $user) : 
-			if(!in_array($user->id,$userprofile))
-				     continue;?>
+		foreach($this->users as $user) : ?>
 		  	<div class="xiusMiniProfile">
 				<div class="xiusHeader">				
 					<?php if(isset($user->email) && !empty($user->email)):?>
