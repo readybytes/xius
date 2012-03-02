@@ -106,20 +106,30 @@ class plgXiusxipt_fieldselection extends JPlugin
         JFactory::getDocument()->addScriptDeclaration($content);
 	}
 	
+	function onBeforeDisplaySearchPanel($allInfo )
+	{
+		return self::_filterInfo();
+	}
+	
+	function onBeforeMiniProfileDisplay($allInfo )
+	{
+		return self::_filterInfo();
+	}
+	
 	/**
 	 * Filtered all available ifo accoding to XiPT Profile field Privacy
 	 * @param $allInfo
 	 * @param $loginuser
 	 */
-	function onBeforeDisplaySearchPanel($allInfo )
+	function _filterInfo()
 	{
 		//Don't run when user is  admin or cache upadate time.
 		if(JFactory::getApplication()->isAdmin() ||
 		   JFactory::getSession()->get('updateCache', false) )
 		   return true;
 
-                if(XiusHelperUtils::isAdmin())
-                   return true;		
+        if(XiusHelperUtils::isAdmin())
+           return true;		
 
 		if(!$this->_loadXipt())
 			return false;

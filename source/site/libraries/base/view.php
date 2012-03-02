@@ -46,10 +46,9 @@ class XiusView extends JView
 		//$path(We can also perform template overwirtting through this path)
 		//$path1:: Template Path of XiUS			
 		//$path2:: Template Path of "XiUS Internal-Plugin"
-		
-		array_unshift($config['template_path'], $path, $path1, $path2);
-		
 		parent::__construct($config);
+		array_unshift($config['template_path'], $path1, $path2,$path);
+		parent::_addPath('template', $config['template_path']);
 	}
 	
 	/*
