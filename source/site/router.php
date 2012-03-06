@@ -1,4 +1,5 @@
 <?php
+include_once JPATH_ROOT.DS.'administrator'.DS.'components'.DS.'com_xius'.DS.'defines.php';
 
 function _GetXiusMenus()
 {
