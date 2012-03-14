@@ -158,7 +158,7 @@ class XiusHelperUtils
 		if($loaded || $loadJquery)
 			return true;
 		
-		JHTML::script('jquery1.4.2.js','components/com_xius/assets/js/', true);
+		JFactory::getDocument()->addScript(JURI::base() .'components/com_xius/assets/js/jquery1.4.2.js');
 		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 		$loaded = true;
 		return true;
