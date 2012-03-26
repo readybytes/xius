@@ -92,7 +92,7 @@ class XiusLibCron
 		//will not work properly(cache will not be updated)
 		$cache = XiusFactory::getInstance('cache');
 		if(!$cache->createTable()){
-			JFactory::getSession()->clear('updateCache', true);
+			JFactory::getSession()->clear('updateCache');
 			return false;
 		}
 
@@ -101,7 +101,7 @@ class XiusLibCron
 		$result =  $cache->insertIntoTable($getDataQuery);
 		
 		// Unset session variable
-		JFactory::getSession()->clear('updateCache', true);
+		JFactory::getSession()->clear('updateCache');
 		
 		// trigger the event onAfterXiusCacheUpdate		
 		$dispatcher->trigger( 'onAfterXiusCacheUpdate' );

@@ -19,7 +19,7 @@ require_once JPATH_BASE .DS.'includes'.DS.'framework.php';
 require_once JPATH_BASE .DS.'libraries'.DS.'joomla'.DS.'factory.php';
 
 $version = new JVersion ;
-if($version->RELEASE === '1.7'){
+if($version->RELEASE !== '1.5'){
 	require_once JPATH_LIBRARIES.DS.'import.php';
 	require_once JPATH_LIBRARIES.DS.'joomla'.DS.'environment'.DS.'request.php';
 }
