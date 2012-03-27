@@ -141,7 +141,7 @@ class plgCommunityxius extends JPlugin
 				continue;
 			}
 			//handle special charaters
-			$column_value	 = $db->escape($result[0]->$column);
+			$column_value	 = (XIUS_JOOMLA_15)?$db->getEscaped($result[0]->$column):$db->escape($result[0]->$column);
 			$insertValue	.= ", '{$column_value}' ";
 			$onUpdate 		.= ", `$column` = '{$column_value}' ";
 		}
