@@ -8,6 +8,8 @@ jimport('joomla.filesystem.folder');
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 	return;
 
+require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
+	
 class plgSystemxius_system extends JPlugin
 {
 	function plgSystemxius_system( &$subject, $params )
@@ -19,11 +21,6 @@ class plgSystemxius_system extends JPlugin
 	// $data is un-usable
 	function onUsInfoUpdated($data)
 	{
-		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-		if(!JFile::exists($includePath))
-			return false;
-
-		require_once $includePath;
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		// we can driectly call "update cache" function
 		return $plgHandler->onUsInfoUpdated($data);
@@ -53,6 +50,13 @@ class plgSystemxius_system extends JPlugin
 		$option=JRequest::getCmd('option','','GET');
 		$view=JRequest::getCmd('view','','GET');
 		$task=JRequest::getCmd('task','','GET');
+		$user   = JFactory::getSession()->get('tmpUser');
+		//update xius_jsfields_values table on user registration
+		if($option =='com_community'  && $task === 'registerAvatar' && isset($user)){
+			$this->onUsInfoUpdated($data = null);
+			require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'fieldtable.php';
+			XiusJsfieldTable::updateUserData(JFactory::getSession()->get('tmpUser')->get('id'));
+		}
 		
 		if($option != 'com_community' || $view != 'search' || $task != 'advancesearch')
 			return;		

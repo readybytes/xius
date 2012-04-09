@@ -43,7 +43,7 @@ class XiusJsfieldTable
 				$dataType = ('date' == $dataType)?'datetime': "varchar(250)";
 			}
 			$createTable['schema']	 .=", `$columnAlias` "." $dataType";
-			$createTable['values'] 	 .= ", GROUP_CONCAT( DISTINCT (if(`field_id`= {$info->key}, `value`, NULL))) AS $columnAlias";
+			$createTable['values'] 	 .= ", GROUP_CONCAT( if(`field_id`= {$info->key}, `value`, NULL)) AS $columnAlias";
 		}
 		
 		//$query['select'] = preg_replace('/,/', '', $query['select'], 1);
@@ -72,5 +72,81 @@ class XiusJsfieldTable
 		$db = JFactory::getDbo();
 		$db->setQuery($query);
 		$db->query();
+	}
+
+	/*
+	 * update user details whenever profile fields are updated
+     */
+	static function updateUserData($userId)
+	{
+		$db 	= JFactory::getDbo();
+		$query 	= "SHOW TABLES LIKE '".$db->getPrefix()."xius_jsfields_value'";
+		$db->setQuery($query);
+		$tableExist = $db->loadResult(); 
+		//Check table exist or not
+		if(empty($tableExist)){
+			return true;
+		}
+		
+		//get All Jsfields information
+		//XiTODO:: Might be effected by Privacy. Please Properly test  it.
+		$filter['pluginType'] = "'Jsfields'";	
+		$jsInfo = XiusFactory::getInstance ( 'info', 'model' )->getAllInfo($filter,'AND',false);		
+		
+
+		/* 
+		 * get jsfields value from community_field_value table 
+		 * update xius_jsfield_value table
+		 */
+		$query	  = "SELECT `user_id`";
+		foreach($jsInfo as $info){
+			$column  = "field_id_{$info->key}";
+			$query 	.= ", GROUP_CONCAT( DISTINCT (if(`field_id`= {$info->key}, `value`, NULL))) AS $column";
+		}
+
+		$query .= " FROM `#__community_fields_values`".
+				  " WHERE `user_id`= $userId ";
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+		$insertQuery = "INSERT INTO `#__xius_jsfields_value` (`user_id`";
+		$insertValue = " VALUES( $userId ";
+		$onUpdate	 = " ON DUPLICATE KEY UPDATE ";
+		
+		foreach($jsInfo as $info){
+			$column    		 = "field_id_{$info->key}";
+			$insertQuery	.= ", `$column`";
+			if(is_numeric($result[0]->$column)){
+				$insertValue	.= ", {$result[0]->$column} ";
+				$onUpdate 		.= ", `$column` = {$result[0]->$column} ";
+				continue;
+			}
+			//handle special charaters
+			$column_value	 = (XIUS_JOOMLA_15)?$db->getEscaped($result[0]->$column):$db->escape($result[0]->$column);
+			$insertValue	.= ", '{$column_value}' ";
+			$onUpdate 		.= ", `$column` = '{$column_value}' ";
+		}
+		$onUpdate = preg_replace('/,/', '',$onUpdate, 1);
+		$query    = $insertQuery.")".$insertValue.")".$onUpdate;
+		$db->setQuery($query);
+		if(!$db->query()){
+			JFactory::getApplication()->enqueueMessage("XiUS JSfield value doesn't update. Please say to your site administrator");	
+		}
+		
+		//for instant cache updation write "true" in if condition
+		if(false)
+		{
+			
+		 	   $query = "SHOW TABLES LIKE '".$db->get('_table_prefix')."xius_cache'";
+               $db->setQuery($query);
+               if($db->loadResult()){
+                       
+                       $query = "INSERT INTO `#__xius_cache`(`userid`)
+                                         VALUE ($userId)
+                                         ON DUPLICATE KEY UPDATE `userid`= $userId";
+                       $db->setQuery($query);
+                       $db->query();
+               }
+		}
+		return true;
 	}
 }
