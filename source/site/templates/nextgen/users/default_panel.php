@@ -28,8 +28,10 @@ endforeach; ?><?php
 <script type="text/javascript"> 
 joms.jQuery(document).ready(function($) {
 	for (i = 0; i < (FieldIds.length); i++) {
-		if(tooltip[FieldIds[i]] !="")
+		if(tooltip[FieldIds[i]] !=""){
 			joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
+		    joms.jQuery('.'+FieldIds[i]).children().children().attr('title',tooltip[FieldIds[i]]);
+		}
 	}
 });
 </script> 
