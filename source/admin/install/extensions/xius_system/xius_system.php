@@ -6,9 +6,7 @@ jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
-	return;
-
-require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
+	return false;
 	
 class plgSystemxius_system extends JPlugin
 {
@@ -20,7 +18,8 @@ class plgSystemxius_system extends JPlugin
 	
 	// $data is un-usable
 	function onUsInfoUpdated($data)
-	{
+	{   
+		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		// we can driectly call "update cache" function
 		return $plgHandler->onUsInfoUpdated($data);
@@ -29,11 +28,7 @@ class plgSystemxius_system extends JPlugin
 	
 	function onAfterSearchQuery($data)
 	{
-		$includePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
-		if(!JFile::exists($includePath))
-			return false;
-
-		require_once $includePath;
+		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		return $plgHandler->onAfterSearchQuery($data);
 	}
@@ -47,30 +42,29 @@ class plgSystemxius_system extends JPlugin
 			return;
 
 	 	// take to xius search if community search is performed
-		$option=JRequest::getCmd('option','','GET');
-		$view=JRequest::getCmd('view','','GET');
-		$task=JRequest::getCmd('task','','GET');
+		$option = JRequest::getCmd('option','','GET');
+		$view   = JRequest::getCmd('view','','GET');
+		$task   = JRequest::getCmd('task','','GET');
 		$user   = JFactory::getSession()->get('tmpUser');
+
+		if($option != 'com_community')
+			return false;	
+		
+		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
+
 		//update xius_jsfields_values table on user registration
-		if($option =='com_community'  && $task === 'registerAvatar' && isset($user)){
+		if( $task === 'registerAvatar' && isset($user)){
 			$this->onUsInfoUpdated($data = null);
 			require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'fieldtable.php';
 			XiusJsfieldTable::updateUserData(JFactory::getSession()->get('tmpUser')->get('id'));
 		}
 		
-		if($option != 'com_community' || $view != 'search' || $task != 'advancesearch')
+		if( $view != 'search' || $task != 'advancesearch')
 			return;		
-		
-		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return;
-			
 
-		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$xiusReplaceSearch=XiusHelperUtils::getConfigurationParams('xiusReplaceSearch',0);
-
-
 		if(!$xiusReplaceSearch)
-			return;
+			return false;
 			
 		/*
 		 * If jom social is integrated with XIUS then redirect to js + XIUS URL
@@ -85,10 +79,7 @@ class plgSystemxius_system extends JPlugin
 	}
 
 	function onAfterXiusCacheUpdate()
-	{
-		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return;
-							
+	{					
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		$pluginHandler->getGeocodesOfInvalidAddress();
@@ -96,10 +87,7 @@ class plgSystemxius_system extends JPlugin
 	}
 	
 	function onBeforeXiusCacheUpdate()
-	{
-		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return false;
-							
+	{					
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->createGeocodeTable();		
@@ -237,9 +225,6 @@ class plgSystemxius_system extends JPlugin
 		//Don't run in admin
 		if($mainframe->isAdmin())
 			return true;
-		
-		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return false;
 							
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
@@ -254,10 +239,7 @@ class plgSystemxius_system extends JPlugin
 		//Don't run in admin
 		if($mainframe->isAdmin())
 			return true;
-		
-		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return false;
-							
+
 		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->triggerInternelPlugin(__FUNCTION__, $toolbar);	
@@ -271,9 +253,7 @@ class plgSystemxius_system extends JPlugin
 		if($app->isAdmin())
 				return true;
 				
-		if(!JFile::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php'))
-			return false;
-		
+		require_once (JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php');
 		$pluginHandler=XiusFactory::getInstance('pluginhandler','lib');
 		return $pluginHandler->xiusOnAfterLoadList($lists);
 		
