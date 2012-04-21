@@ -60,8 +60,14 @@ class Keyword extends XiusBase
 	{		
 		// create a tempQuery to generate one element of where for all info
 		$tempQuery = new XiusQuery();
-		// exlpode the value by space so that multiple search can be done
-		$value	= explode(' ', $value);
+		// exlpode the value by space or comma whatever separator is used
+		// so that multiple search can be done
+		if(strstr($value,",")){
+			$value	= explode(',', $value);
+		}
+		else{
+			$value	= explode(' ', $value);
+		}
 		
 		// XITODO : convert this function to general function
 		// search according to special value for specific info
