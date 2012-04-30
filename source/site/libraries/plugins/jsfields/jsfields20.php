@@ -38,6 +38,11 @@ class Jsfields extends JsfieldsBase
 			return ProfiletypesHelper::getFieldData($value);			
 		}
 		
+		//handling email type if exporting users as csv
+		if($field['type'] == 'email' && JRequest::getVar('task') == 'export'){
+			$field['type'] = 'textbox';
+		}
+
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$formatvalue = CProfileLibrary::getFieldData($field);		
 		return $formatvalue;
