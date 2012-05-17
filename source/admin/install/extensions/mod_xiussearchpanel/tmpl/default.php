@@ -61,6 +61,6 @@ joms.jQuery(document).ready(function($) {
 			endforeach;
 			?>
 			<input type="hidden" name="fromPanel" value="true" />			
-			<div class ="xiusModSearch"><input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="Search" /></div>
+			<div class ="xiusModSearch"><input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" /></div>
 		</form>
 	</div>
