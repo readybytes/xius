@@ -6,7 +6,7 @@
 // no direct access
 //defined('_JEXEC') or die('Restricted access');
 
-class Joomlahelper
+class xiusJoomlahelper
 {
 
 	function getJoomlaFields($filter = '')

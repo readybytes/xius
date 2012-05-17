@@ -35,7 +35,7 @@ class JElementXiusJoomlaUserGroup extends JElement
 	
 	function getInfoHTML($name,$value,$control_name='params',$reqguest=false)
 	{		
-		$html   = Joomlahelper::getUserGroupHtml( $control_name.'['.$name.'][]', $value);
+		$html   = xiusJoomlahelper::getUserGroupHtml( $control_name.'['.$name.'][]', $value);
 		return $html;
 	}
 	

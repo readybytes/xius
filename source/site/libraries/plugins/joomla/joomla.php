@@ -20,7 +20,7 @@ class Joomla extends XiusBase
 	
 	public function getAvailableInfo()
 	{
-		$fields = Joomlahelper::getJoomlaFields();
+		$fields = xiusJoomlahelper::getJoomlaFields();
 		
 		if(empty($fields))
 			return false;
