@@ -9,6 +9,8 @@ if(!defined('_JEXEC')) die('Restricted access');
 if(defined('XIUS_DEFINE'))
 	return;
 
+//in case of multi-site, we need to refer correct files 
+define('XIUS_ROOT_PATH',dirname(dirname(dirname(dirname(__FILE__)))));
 define('XIUS_DEFINE','XIUS_DEFINE');
 define('XIUS_VERSION','@global.version@.@svn.lastrevision@');
 //names which will not vary
