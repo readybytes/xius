@@ -72,6 +72,13 @@ class XiusModel extends JModel
 
 	function getPagination($filter = '',$join = 'AND',$sort='userid',$dir='ASC')
 	{
+		
+		// take default limit if limit is not set in REQUEST variable
+		$endLimit = JRequest::getVar('limit',0);
+		$limit    = ( !$endLimit ) 
+				      ? XiusHelperUtils::getConfigurationParams('xiusLimit') 
+				      : $endLimit;
+
 		if($this->_pagination == null)
 		 {
 			jimport('joomla.html.pagination');
@@ -84,7 +91,6 @@ class XiusModel extends JModel
 			// Get the pagination request variables
 			$limitStartStr	= 'com_xius.'.$this->getName().'.limitstart'; 
 			$mainframe  	= JFactory::getApplication();
-			$limit			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
 			$limitstart		= $mainframe->getUserStateFromRequest($limitStartStr, 'limitstart', 0, 'int' );
 	
 			// In case limit has been changed, adjust limitstart accordingly
