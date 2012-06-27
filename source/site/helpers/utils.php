@@ -82,8 +82,14 @@ class XiusHelperUtils
 	
  	function isAdmin($userid=null)
 	{
-		$user	= JFactory::getUser($userid);		
-		return ( $user->usertype == 'Super Administrator' || $user->usertype == 'Administrator' || $user->usertype == 'deprecated'  );  	
+		if(!$userid){
+			return false;
+		}
+
+		if(XIUS_JOOMLA_15){
+			return JFactory::getUser($userid)->authorize( 'com_users', 'manage' );
+		}
+		return JFactory::getUser($userid)->authorise('core.login.admin');
 	}
 	
 	

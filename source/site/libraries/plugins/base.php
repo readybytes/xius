@@ -142,8 +142,13 @@ abstract class XiusBase extends JObject
 	}*/
 	
 	public function isCoreAccessible($user)
-	{		
-		$userGroup = $user->usertype;
+	{	
+		if(XIUS_JOOMLA_15){
+			$userGroup = $user->usertype;
+		}
+		else{
+			$userGroup = $user->groups; //if J2.5 then usertype is blank so we use group i.e an array
+		}
 		
 		if(!$userGroup)
 			$userGroup = 'Guest Only';
@@ -161,7 +166,7 @@ abstract class XiusBase extends JObject
 			return true; 
 
 		//if usertype is value rather than its groupId then convert it to the corresponding groupId
-		if(!is_numeric($userGroup)){
+		if(!is_numeric($userGroup) && !is_array($userGroup)){
 			$GroupName = XiusHelperUsers::getJoomlaGroups();
 			foreach ($GroupName as $key=>$value){
 				if($value->{XIUS_JOOMLA_GROUP_VALUE} == $userGroup){
@@ -170,9 +175,16 @@ abstract class XiusBase extends JObject
 				}
 			}
 		}
-			
-		if(in_array($userGroup, $accessibleGroup))
-			return true;
+		
+		// create array for making it for doing common prrocessing in all versions of joomla
+		if(!is_array($userGroup)){
+			$userGroup = array($userGroup);
+		}
+		
+		foreach ($userGroup as $usergrp){
+			if(in_array($usergrp, $accessibleGroup))
+				return true;
+		}
 		
 		return false;
 	}
