@@ -231,6 +231,13 @@ class JsfieldsBase extends XiusBase
 		//if jsAutoComplete plugin is installed
 		if($fieldInfo[0]->type == 'jsautocomplete'){
 			$value = explode(',',$value);
+		}
+
+		if($fieldInfo[0]->type == 'url' ){
+			$prefix    = JRequest::getVar('field'.$this->key,'http://');			
+			$value1[0] = $prefix[0];
+			$value1[1] = JString::str_ireplace($value1[0],'', $value);
+			$value     = $value1;
 		}		
 
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );

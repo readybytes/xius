@@ -179,6 +179,10 @@ class Jsfieldshelper
 			$value[1] = (strlen((string)$value[1])==1) ? "0".$value[1] : $value[1];
 			$value = implode('-',$value); 
 		}
+
+		if($fType == 'url'){
+			$value = $value[0].$value[1];
+		}
 		
 	}
 	
