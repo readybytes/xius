@@ -67,7 +67,7 @@ class Joomla extends XiusBase
 		    if( $this->key == 'registerDate' || $this->key == 'lastvisitDate')
 				$conditions = $formatedColumn.$operator.' '.$db->Quote($this->formatValue($value));
 
-			if( $this->key == 'block' && $operator != XIUS_LIKE)
+			if( is_numeric($value) && $operator != XIUS_LIKE )
 				$conditions =  $formatedColumn.' '.$operator.' '.$db->Quote($this->formatValue($value));
 			$query->where($conditions,$join);
 		}		

@@ -44,7 +44,8 @@ class XiusBaseView extends XiusView
 		parent::__construct($config);
 		
 		//Little Hack : if template  have a override for us
-		global $option, $mainframe;
+		$option    = JRequest::getVar('option');
+		$mainframe = JFactory::getApplication();
 		if($option == 'com_xius')
 		{
 			$fallback = JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'html'.DS.'com_xius'.DS.$this->getName();
