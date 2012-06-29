@@ -22,14 +22,7 @@ class XiusModelList extends XiusModel
 	
 	function getLists($filter = '',$join = 'AND',$reqPagination = true,$limitStart=0 , $limit=0)
 	{
-		if(!$limit){
-			$endLimit = JRequest::getVar('limit',0);
-			$limit    = ( !$endLimit ) 
-				          ? XiusHelperUtils::getConfigurationParams('xiusLimit') 
-				          : $endLimit;
-		}
-
-		$lists = $this->loadRecords($filter, $join,$reqPagination, $limitStart= JRequest::getVar('limitstart',$limitStart), $limit);
+		$lists = $this->loadRecords($filter, $join,$reqPagination, $limitStart, $limit);
 		
 		// trigger evevnt
 		$dispatcher = JDispatcher::getInstance();
