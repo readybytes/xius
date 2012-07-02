@@ -164,6 +164,10 @@ div#xiusProfile div.xiusFlInput input{
 div#xiusProfile div.xiusFlInput input[type=checkbox]{
         width:15px;
 }
+
+div#xiusProfile div.xiusFlInput input[type=radio]{
+        width:15px;
+}
 div#xiusProfile div.xiusFlInput select{
         width:150px;
 }
