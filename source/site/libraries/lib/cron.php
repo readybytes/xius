@@ -84,28 +84,50 @@ class XiusLibCron
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeXiusCacheUpdate' );
 		
-		// Set session variable thaht use in privacy plugings.
-		// Check: Not any information unset during cache update 
-		JFactory::getSession()->set('updateCache', true);
-		
-		//If we don't clear this 'updateCache' variable here then xius 
-		//will not work properly(cache will not be updated)
-		$cache = XiusFactory::getInstance('cache');
-		if(!$cache->createTable()){
+		//check if cron is already running or not
+		$xiusConfig = XiusFactory::getInstance ('configuration', 'model');
+		$params		= $xiusConfig->getOtherParams('config');
+		$cron 	    = $params->get("xiusCronRunning",0);
+		if($cron == 0){
+			//set true in database about cron running
+			$configParam = $params->toArray();
+			$configParam['xiusCronRunning']	 = 1;
+			$xiusConfig->save('config',$configParam);
+			
+			// Set session variable thaht use in privacy plugings.
+			// Check: Not any information unset during cache update 
+			JFactory::getSession()->set('updateCache', true);
+					
+			//If we don't clear this 'updateCache' variable here then xius 
+			//will not work properly(cache will not be updated)
+			$cache = XiusFactory::getInstance('cache');
+			if(!$cache->createTable()){
+				JFactory::getSession()->clear('updateCache');
+				return false;
+			}
+	
+			$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
+			
+			$result =  $cache->insertIntoTable($getDataQuery);
+			
+			// Unset session variable
 			JFactory::getSession()->clear('updateCache');
-			return false;
+			
+			// trigger the event onAfterXiusCacheUpdate		
+			$dispatcher->trigger( 'onAfterXiusCacheUpdate' );
+			
+			//set false in database about cron running
+			$configParam['xiusCronRunning']	 = 0;
+			$xiusConfig->save('config',$configParam);
+			
+			return $result;
 		}
-
-		$getDataQuery = XiusLibUsersearch::buildInsertUserdataQuery();
-		
-		$result =  $cache->insertIntoTable($getDataQuery);
-		
-		// Unset session variable
-		JFactory::getSession()->clear('updateCache');
-		
-		// trigger the event onAfterXiusCacheUpdate		
-		$dispatcher->trigger( 'onAfterXiusCacheUpdate' );
-		return $result;
+		else{
+			if(JFactory::getApplication()->isAdmin()){
+				return JFactory::getApplication()->enqueueMessage(XiText::_("CACHE_UPDATION_IS_ALREADY_IN_PROGRESS"));
+			} 
+			return true;
+		}
 	}
 	
 }

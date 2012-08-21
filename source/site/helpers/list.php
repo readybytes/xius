@@ -13,7 +13,11 @@ class XiusHelperList
 	{
 		// if guest user are not allowed to access list ( create)
 		// then check allowGuest is false and usertype is also false
-		if($allowGuest === false && !$user->usertype)
+		$condition = !$user->usertype;
+		if(!XIUS_JOOMLA_15){
+			$condition = empty($user->groups);
+		}
+		if($allowGuest === false && $condition )
 			return false; 
 
 		// if user is not registered then he will  be treated as guest

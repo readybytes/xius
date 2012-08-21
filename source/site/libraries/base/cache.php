@@ -8,6 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 class XiusCache
 {
 	var $db				= null;
+	var $_updatedTable  = null;
 	var $_tableName		= null;
 	var $_insertQuery	= null;
 	var $error 			= null;
@@ -15,9 +16,10 @@ class XiusCache
 	function __construct()
 	{
 		$this->db 	 	    = JFactory::getDBO();
+		$this->_updatedTable= '#__xius_updated_cache';
 		$this->_tableName   = '#__xius_cache';
 		$this->_insertQuery = 'INSERT INTO '
-							   .$this->db->nameQuote($this->_tableName).' ( ';
+							   .$this->db->nameQuote($this->_updatedTable).' ( ';
 		$this->error 	    = XiusFactory::getInstance('error');
 
 	}
@@ -29,7 +31,7 @@ class XiusCache
 	
 	function createTable()
 	{
-		$this->dropTable();
+		$this->dropTable($this->_updatedTable);
 		
 		// Build Query	
 		$createQuery = new XiusQuery();
@@ -75,20 +77,35 @@ class XiusCache
 		// clear the insert query
 		$this->_insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
 			
-	if(!$this->db->query()){
+    	if(!$this->db->query()){
 			JFactory::getApplication()->enqueueMessage(XiusText::_('INSERT_IN_DB_FAILED'));
 			//die($this->db->_errorMsg );		//for testing purpose
 		}
-		$affectedRows = $this->db->getAffectedRows();
-		return $affectedRows;
+		
+		//now drop original table and then rename the new table to xius_cache
+		$this->dropTable($this->_tableName);
+		if(!$this->renameTable()){
+			JFactory::getApplication()->enqueueMessage(XiusText::_('INSERT_IN_DB_FAILED'));
+			return false;
+		}
+		
+		return true;
 	}
 	
 	/*
+	 * rename the new cache table 
+	 */
+	function renameTable()
+	{
+		$this->db->setQuery("RENAME TABLE ".$this->db->nameQuote($this->_updatedTable)." TO ".$this->db->nameQuote($this->_tableName));
+		return $this->db->query();
+	}
+	/*
 	 * Drop XiUS cache Table
 	 */
-	function dropTable()
+	function dropTable($tableName='#__xius_cache')
 	{
-		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->nameQuote($this->_tableName);
+		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->nameQuote($tableName);
 		$this->db->setQuery($dropQuery);
 		$this->db->query();
 		return true;
@@ -132,7 +149,7 @@ class XiusCache
 		}
 		
 		$query = new XiusQuery();
-		return $query->create($this->db->nameQuote($this->_tableName),$columns);
+		return $query->create($this->db->nameQuote($this->_updatedTable),$columns);
 	}
 	
 }
