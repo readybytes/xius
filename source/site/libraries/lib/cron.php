@@ -92,6 +92,7 @@ class XiusLibCron
 			//set true in database about cron running
 			$configParam = $params->toArray();
 			$configParam['xiusCronRunning']	 = 1;
+			$configParam['xiusListCreator']	 = unserialize($configParam['xiusListCreator']);
 			$xiusConfig->save('config',$configParam);
 			
 			// Set session variable thaht use in privacy plugings.
