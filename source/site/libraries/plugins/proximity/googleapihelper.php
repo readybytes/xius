@@ -40,6 +40,9 @@ class ProximityGoogleapiHelper extends JController
 		$json = new Services_JSON();
 		$status = $json->decode($content);
 
+		if($status->status != 'OK' && JFactory::getConfig()->getValue('debug') == 1){
+			JFactory::getApplication()->enqueueMessage($status->status);
+		}
 
 		if($status->status == 'OK'){
 			$data['latitude']  = $status->results[0]->geometry->location->lat;
