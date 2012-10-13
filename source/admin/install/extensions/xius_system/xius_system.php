@@ -26,11 +26,11 @@ class plgSystemxius_system extends JPlugin
 	}
 	
 	
-	function onAfterSearchQuery($data)
+	function onAfterSearchQuery($data, $sort, $dir)
 	{
 		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
-		return $plgHandler->onAfterSearchQuery($data);
+		return $plgHandler->onAfterSearchQuery($data, $sort, $dir);
 	}
 	
 	function onAfterRoute()

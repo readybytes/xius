@@ -29,7 +29,7 @@ class XiusLibPluginhandler
 	 * Trigger plugin call this function 
 	 * @param unknown_type $query have XiUSQuery reference
 	 */
-	function onAfterSearchQuery($query)
+	function onAfterSearchQuery($query,$sort, $dir)
 	{
 		//currently this code is supposed to handle only for force search
 		$user =& JFactory::getUser();
