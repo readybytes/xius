@@ -104,6 +104,9 @@ class XiusLibCron
 			$cache = XiusFactory::getInstance('cache');
 			if(!$cache->createTable()){
 				JFactory::getSession()->clear('updateCache');
+				//set false in database about cron running
+				$configParam['xiusCronRunning']	 = 0;
+				$xiusConfig->save('config',$configParam);
 				return false;
 			}
 	
