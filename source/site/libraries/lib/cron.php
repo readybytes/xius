@@ -128,7 +128,7 @@ class XiusLibCron
 		}
 		else{
 			if(JFactory::getApplication()->isAdmin()){
-				return JFactory::getApplication()->enqueueMessage(XiText::_("CACHE_UPDATION_IS_ALREADY_IN_PROGRESS"));
+				return JFactory::getApplication()->enqueueMessage(XiusText::_("CACHE_UPDATION_IS_ALREADY_IN_PROGRESS"));
 			} 
 			return true;
 		}
