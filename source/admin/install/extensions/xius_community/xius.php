@@ -45,15 +45,13 @@ class plgCommunityxius extends JPlugin
 		$lang =& JFactory::getLanguage();
 		$user		= CFactory::getUser();
 		$lang->load('com_xius', JPATH_SITE);
-
-		$toolbar  = CFactory::getToolbar();
-		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
+		
+		$tool = CToolbarLibrary::getInstance();
+		$tool->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
 							 'index.php?option=com_community&view=users&task=search&usexius=1');
-
-		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), 'index.php?option=com_community&view=users&usexius=1');
-		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), 'index.php?option=com_community&view=list&task=lists&usexius=1');
-//		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
-//		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
+		$tool->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), 'index.php?option=com_community&view=users&usexius=1');
+		$tool->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), 'index.php?option=com_community&view=list&task=lists&usexius=1');
+		
 		// remove toolbar item(Search and advance search)
 		XiusLibPluginhandler::setJSToolbarState();
 

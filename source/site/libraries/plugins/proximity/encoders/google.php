@@ -100,7 +100,8 @@ class ProximityGoogleEncoder extends XiusProximityEncoder
 				$address[] =" {$tm->tableAliasName}.`{$tm->originColumnName}` ";
 				
 		$address = implode(',',$address);
-		$query->select(" {$ptm[0]->tableAliasName}.`{$ptm[2]->originColumnName}` "
+		//XiTODO: use $address only, dnt use CONCAT_WS 
+		$query->select(" CONCAT_WS(',' , $address ) "
 						." as {$ptm[2]->cacheColumnName} "
 					   );
 		

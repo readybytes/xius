@@ -206,6 +206,7 @@ div#xius_result .applied .left {
 	float: left;
 	/*width: 70%;*/
 	margin: 2px;
+	word-wrap:normal;
 }
 
 div#xius_result .applied .right {
