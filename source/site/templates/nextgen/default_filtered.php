@@ -10,7 +10,7 @@ if(!empty($this->appliedInfo)) : ?>
 	echo XiusText::_('FILTERED_BY');
 	?>
 	<div id="xiusClearAll" title="<?php echo XiusText::_('XIUS_CLEAR_ALL_APPLIED_INFO');?>"  onclick="xiusAddSubTask('resetfilter')">
-	<img src="components/com_xius/assets/images/clear_all.png" title="<?php echo XiusText::_('XIUS_CLEAR_ALL_APPLIED_INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
+	<img src="<?php echo JURI::base().'components/com_xius/assets/images/clear_all.png';?>" title="<?php echo XiusText::_('XIUS_CLEAR_ALL_APPLIED_INFO');?>" onclick="xiusAddSubTask('resetfilter')" />
 	<?php
 	//echo XiusText::_('CLEAR ALL');
 	?> 
