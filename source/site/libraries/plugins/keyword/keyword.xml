@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 	 	<name>keyword</name> 
+ 		<title>Keyword Search</title>
+ 		<description>Keyword plugin helps you search any keyword from information already existing.</description>
+	</params>
+</config>

@@ -1,0 +1,102 @@
+<phpunit 
+		backupGlobals="true" 
+		backupStaticAttributes="false" 
+		colors="true" 
+		syntaxCheck="false"
+		bootstrap="bootstrap.php"
+		stopOnFailure="true" 
+		>
+	<testsuite name="AllTest">
+	<!-- All Unit Test Cases -->		
+<!--		<directory>test/unit</directory>-->
+
+		<file>test/unit/com/admin/libraries/xiusFactoryTest.php</file>
+		<file>test/unit/com/admin/libraries/infoTest.php</file>
+		<file>test/unit/com/admin/libraries/pluginbaseTest.php</file>
+		<file>test/unit/com/admin/libraries/jsfieldviewTest.php</file>
+		<file>test/unit/com/admin/libraries/joomlaTest.php</file>
+		<file>test/unit/com/admin/libraries/keywordTest.php</file>
+		<file>test/unit/com/admin/libraries/rangesearchTest.php</file>
+		<file>test/unit/com/admin/libraries/daterangesearchTest.php</file>
+		<file>test/unit/com/admin/libraries/doublerangesearchTest.php</file>
+		<file>test/unit/com/admin/libraries/forcesearchTest.php</file>
+		<file>test/unit/com/admin/libraries/XiusonlineTest.php</file>
+<!--		<file>test/unit/com/admin/libraries/cbuilderTest.php</file>-->
+		<file>test/unit/com/admin/libraries/usersearchTest.php</file>
+		<file>test/unit/com/admin/libraries/cacheTest.php</file>
+		<file>test/unit/com/admin/libraries/jsuserTest.php</file>
+		<file>test/unit/com/admin/libraries/xiusPrivacyUnitTest.php</file>
+		<file>test/unit/com/admin/libraries/customTableTest.php</file>
+		<file>test/unit/com/admin/helpers/utilsTest.php</file>		
+		<file>test/unit/com/admin/controllers/infoTest.php</file>
+		<file>test/unit/com/admin/libraries/groupmemberTest.php</file>
+
+		<file>test/unit/com/admin/controllers/listTest.php</file>
+		<file>test/unit/com/admin/models/configurationTest.php</file>
+		<file>test/unit/com/admin/proximity/proximityTest.php</file>
+		<file>test/unit/com/admin/proximity/encoderTest.php</file>
+		<file>test/unit/com/admin/proximity/googleapihelperTest.php</file>
+		<file>test/unit/com/admin/xiusemail/xiusemailHelperTest.php</file>
+		<file>test/unit/com/site/controllers/usersTest.php</file>
+		<file>test/unit/com/site/helpers/usersTest.php</file>
+		<file>test/unit/com/site/helpers/xiusListFrontUnitTest.php</file>
+		<file>test/unit/com/site/trimwhitespaceTest.php</file>
+		<file>test/unit/com/site/proximitymoduleTest.php</file>
+		<file>test/unit/com/site/xiusFrontSelTemplateTest.php</file>
+		<file>test/unit/com/site/xiusIntegrate.php</file>
+		
+
+		<file>test/sel/com/admin/infoTest.php</file>
+		<file>test/sel/com/admin/googleProximityTest.php</file>
+		<file>test/sel/com/admin/configTest.php</file>
+		
+		
+		<file>test/sel/com/site/cronjobTest.php</file>
+		<file>test/sel/com/site/joomlaSearchTest.php</file>
+		<file>test/sel/com/site/searchTest.php</file>
+		<file>test/sel/com/site/sortingTest.php</file>
+		<file>test/sel/com/site/listTest.php</file>
+		<file>test/sel/com/site/paginationTest.php</file>
+		<file>test/sel/com/site/rangesearchTest.php</file>
+		<file>test/sel/com/site/sliderTest.php</file>
+		<file>test/sel/com/site/xiusPrivacySelTest.php</file>
+		<file>test/sel/com/site/xiusemailSelTest.php</file>
+		<file>test/sel/com/site/googleProximityTest.php</file>
+		<file>test/sel/com/site/informationProximityTest.php</file>
+		<file>test/sel/com/site/proximitydefaultTest.php</file>	
+		<file>test/sel/com/site/forceSearchTest.php</file>	-->
+	<!--<file>test/sel/com/site/xiusintegrationSelTest.php</file>-->
+		<file>test/sel/com/site/calendartestingTest.php</file>
+		<file>test/sel/com/site/groupmemberTest.php</file>
+		<file>test/unit/com/admin/proximity/jsproximityTest.php</file>
+
+	<!-- All UI Test Cases -->		
+<!--		<directory>test/ui</directory>-->
+ 		<file>test/ui/sel/com/admin/joinMatchTest.php</file>
+ 		<file>test/ui/sel/com/admin/templatesTest.php</file>
+ 		<file>test/ui/sel/com/site/menuLinkTest.php</file>
+		<file>test/ui/sel/com/site/listPublishedForAdminTest.php</file>
+		<file>test/ui/sel/com/site/jsIntegrationTest.php</file>
+		<file>test/ui/unit/site/templatepathTest.php</file>
+ 		<file>test/ui/unit/site/cronjobTest.php</file>
+ 		<file>test/sel/com/site/jsmultiprofilePrivacyTest.php</file>
+        <file>test/ui/sel/com/site/plgxiptfieldsfilterTest.php</file> 		
+ 	
+			
+	</testsuite>
+	
+	<listeners>
+		<listener class="XiTestListener" file="./system/XiTestListener.php" />
+	</listeners>
+<!--	-->
+<!--	<filter>-->
+<!--          <blacklist>	-->
+<!--            <directory suffix=".php">../</directory>-->
+<!--          </blacklist>-->
+<!--          <whitelist>-->
+<!--            <directory suffix=".php">../components/com_xius</directory>-->
+<!--            <directory suffix=".php">../administrator/components/com_xius</directory>-->
+<!--          </whitelist>-->
+<!--        </filter> -->
+
+</phpunit>

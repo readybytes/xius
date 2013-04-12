@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+	<params addpath="/plugins/xius/jsmultiprofile_privacy" >
+       <param name="jsmultiprofile_privacy" type="multiprofiletype" default="0" label="MULTIPROFILE TYPE PRIVACY" description="MULTIPROFILE TYPE SELECTION.Desc">
+       </param>
+	</params>
+	
+	<params addpath="/plugins/xius/jsmultiprofile_privacy/jsmultiprofile_privacy" >
+       <param name="jsmultiprofile_privacy" type="multiprofiletype" default="0" label="COM_XIUS_MULTIPROFILE_TYPE_PRIVACY" description="COM_XIUS_MULTIPFOFILE_TYPE_SELECTION_DESC">
+       </param>
+	</params>
+</config>

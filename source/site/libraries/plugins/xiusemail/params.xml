@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/components/com_xius/elements" >
+		<param name="@spacer" type="spacer" default="Select Information of Email" label="" description="" />
+			<param name="xius_email" type="info" default="0"  label="COM_XIUS_EMAIL_LABEL" description="COM_XIUS_EMAIL_DESC" />	
+	</params>
+</config>
