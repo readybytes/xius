@@ -1,8 +1,0 @@
-DELETE FROM `#__menu` WHERE `id` > 53 AND `id`< 59;;
-INSERT INTO `#__menu` (`id`, `menutype`, `name`, `alias`, `link`, `type`, `published`, `parent`, `componentid`, `sublevel`, `ordering`, `checked_out`, `checked_out_time`, `pollid`, `browserNav`, `access`, `utaccess`, `params`, `lft`, `rgt`, `home`) VALUES
-(54, 'mainmenu', 'Search', 'xiussearch', 'index.php?option=com_xius&view=users', 'component', 1, 0, 81, 0, 10, 0, '0000-00-00 00:00:00', 0, 0, 0, 0, 'page_title=\nshow_page_title=1\npageclass_sfx=\nmenu_image=-1\nsecure=0\n\n', 0, 0, 0),
-(55, 'mainmenu', 'Results', 'xiusresults', 'index.php?option=com_xius&view=users&layout=results', 'component', 1, 0, 81, 0, 11, 0, '0000-00-00 00:00:00', 0, 0, 0, 0, 'page_title=\nshow_page_title=1\npageclass_sfx=\nmenu_image=-1\nsecure=0\n\n', 0, 0, 0),
-(56, 'mainmenu', 'Male User', 'xiuslist-males', 'index.php?option=com_xius&view=users&layout=lists&task=displayList&listid=1', 'component', 1, 0, 81, 0, 12, 0, '0000-00-00 00:00:00', 0, 0, 0, 0, 'page_title=\nshow_page_title=1\npageclass_sfx=\nmenu_image=-1\nsecure=0\n\n', 0, 0, 0),
-(57, 'mainmenu', 'Register Date', 'xiuslist-reg', 'index.php?option=com_xius&view=users&layout=lists&task=displayList&listid=2', 'component', 1, 0, 81, 0, 13, 0, '0000-00-00 00:00:00', 0, 0, 0, 0, 'page_title=\nshow_page_title=1\npageclass_sfx=\nmenu_image=-1\nsecure=0\n\n', 0, 0, 0),
-(58, 'mainmenu', 'All List', 'xiuslist-all', 'index.php?option=com_xius&view=users&layout=lists&task=displayList', 'component', 1, 0, 81, 0, 14, 0, '0000-00-00 00:00:00', 0, 0, 0, 0, 'page_title=\nshow_page_title=1\npageclass_sfx=\nmenu_image=-1\nsecure=0\n\n', 0, 0, 0);;
-
