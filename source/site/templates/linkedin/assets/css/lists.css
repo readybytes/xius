@@ -1,0 +1,201 @@
+/** list page css**/
+body div#xiusLists div,
+div#xiusLists dl,
+div#xiusLists dt,
+div#xiusLists dd,
+div#xiusLists ul,
+div#xiusLists ol,
+div#xiusLists li,
+div#xiusLists h1,
+div#xiusLists h2,
+div#xiusLists h3,
+div#xiusLists h4,
+div#xiusLists h5,
+div#xiusLists h6,
+div#xiusLists pre,
+div#xiusLists form,
+div#xiusLists fieldset,
+div#xiusLists input,
+div#xiusLists textarea,
+div#xiusLists p,
+div#xiusLists blockquote,
+div#xiusLists th,
+div#xiusLists td {
+	margin: 0; 
+	padding: 0;
+}
+#xiusLists {
+	overflow:hidden;
+	width:100%;
+    margin: 0;
+    padding:0;
+} 
+
+#xiusLists .xiusListsBox {
+	margin: 5px 2px;
+	border:1px solid #e3e3e3;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#xiusLists .xiusListsBox:hover {
+	background:#ddf0f8;
+}
+
+#xiusLists .xiusListsHead {
+	border-bottom: 1px solid #e3e3e3;
+	padding:2px 5px;
+}
+
+#xiusLists .xiusListDesc{
+	padding:2px 5px;
+}
+
+
+
+
+
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+
+
+#xiusSave dl,
+#xiusSave dt,
+#xiusSave dd,
+#xiusSave ul,
+#xiusSave ol,
+#xiusSave li,
+#xiusSave h1,
+#xiusSave h2,
+#xiusSave h3,
+#xiusSave h4,
+#xiusSave h5,
+#xiusSave h6,
+#xiusSave pre,
+#xiusSave form,
+#xiusSave fieldset,
+#xiusSave input,
+#xiusSave textarea,
+#xiusSave p,
+#xiusSave blockquote,
+#xiusSave th,
+#xiusSave td {
+	margin: 0; 
+	padding: 0;
+} 
+#xiusSave{
+	overflow:hidden;
+	font-size: 12px;
+}
+
+#xiusSave div#xiusSaveHeader{
+	border:1px solid #cfcfcf;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #f5f5f5;
+	width:99%;
+	padding:5px 0 5px 5px;
+	font-weight: bold;
+	line-height: 15px;
+	color:#006699;
+	margin-bottom:10px; 	
+}
+
+#xiusSave div.xiusSaveInfo{
+	border-bottom: 1px dotted #666666;
+	overflow: hidden;
+	width: 99%;
+	line-height: 20px;
+	padding:2px;
+}
+
+#xiusSave div.xiusSaveInfo:hover{
+	background:#f5f5f5;
+}
+
+#xiusSave .xiusSavelabel{
+	float:left;
+	width:30%;
+	text-align:left;
+	margin-right:10px;
+	/*margin-bottom:5px;*/
+	font-weight:bold;
+	margin-top:5px;
+}
+
+#xiusSave .xiusSavehtml{
+	float:left;
+	width:50%;
+	margin-top:5px;
+}
+               
+#xiusSave #xiussubmit{
+	float:left;
+	width:100%;
+	margin-left:30%;
+}
+
+#xiusSave div{
+	margin:0px;
+}
+
+body #xiusSave table.paramlist td.paramlist_key {
+	width:30%;
+	text-align: left;
+	font-weight: bold;
+}
+
+div#xiusSubmit input{
+	color:#006699;
+	background: #f5f5f5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #cfcfcf;
+	margin-left: 32%;
+	padding: 5px;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-size:12px;
+}
+
+/******************************************************************************************************************************************************/
+#xiusSave .paramValue{
+float:left;
+}
+
+#xiusSave .paramValue input{
+float:left;
+margin-top: 3px;
+
+
+}
+
+#xiusSave .paramValue select{
+float:left;
+margin-top: 2px;
+}
+
+#xiusSave .paramValue label{
+clear:none;
+float:left;
+margin-top:1px;
+min-width:55px;
+text-align:left;
+}
+
+#xiusSave .hasTip{
+
+	float:left;
+	width:215px;
+	text-align:left;
+	margin-right:10px;
+	/*margin-bottom:5px;*/
+	font-weight:bold;
+}

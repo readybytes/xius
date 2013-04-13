@@ -1,0 +1,150 @@
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+
+div#xiusProximity div,
+div#xiusProximity dl,
+div#xiusProximity dt,
+div#xiusProximity dd,
+div#xiusProximity ul,
+div#xiusProximity ol,
+div#xiusProximity li,
+div#xiusProximity h1,
+div#xiusProximity h2,
+div#xiusProximity h3,
+div#xiusProximity h4,
+div#xiusProximity h5,
+div#xiusProximity h6,
+div#xiusProximity pre,
+div#xiusProximity form,
+div#xiusProximity fieldset,
+div#xiusProximity input,
+div#xiusProximity textarea,
+div#xiusProximity p,
+div#xiusProximity blockquote,
+div#xiusProximity th,
+div#xiusProximity td {
+	margin: 0px;
+	padding: 0px;
+}
+
+div#xiusProximity {
+	border: 1px solid #becfe3;
+	width: 600px;
+	padding:5px;
+	overflow:hidden;
+}
+
+div#xiusProximity div#xiusKeyword{
+	float:left;
+	width:100px;
+        margin:3px 15px 0px 0px;
+}
+
+div#xiusProximity div#keywordHtml{
+}
+
+div#xiusProximity div#keywordHtml input{
+	width:100px;
+	border:1px solid #BECFE3;
+	font-size: 16px;
+	color:#C3D2DF;
+	padding:2px;
+}
+
+div#xiusProximity div#proximityDiv{
+	float:left;
+	width:360px;
+}
+
+div#xiusProximity div#proximityHtml{
+	color:#2A65A6;
+	overflow: hidden;
+	margin-top:3px;
+}
+
+div#xiusProximity div#proximityHtml input{
+}
+
+	
+div#xiusProximity div#xiusProxiDistance {
+	float:left;
+	margin-left: 5px;
+	font-size: 15px;
+}
+
+div#xiusProximity div#proximityHtml input#xiusDistanceInput{
+	width:100px;
+	border:1px solid #BECFE3;
+	font-size: 16px;
+	color:#C3D2DF;
+	padding:2px;
+	margin-left:5px;
+}
+
+div#xiusProximity div#proximityHtml input#xiusDistance {
+	width:40px;
+	border:0px;
+    background:transparent;
+	font-size: 14px;
+	color:#2A65A6;
+}
+
+div#xiusProximity div#proximityHtml div#xiusProxiMap{
+	margin-top: 4px;
+    margin-left: 5px;
+    float:left;
+}
+
+div#xiusProximity div#xiusProxiMap a{
+	color:#2A65A6;
+	font-size: 15px;
+}
+
+div#xiusProximity div#xiusProxiAddress{
+	float: left;
+	width:100px;
+	margin-left:5px;
+}
+
+div#xiusProximity div#proximityHtml input#xiusAddress{
+	border:1px solid #BECFE3;
+	font-size: 16px;
+	color:#C3D2DF;
+	padding:2px;
+	width:100px;
+}	
+
+div#xiusProximity div#xiusProxiLocation{
+	float:left;
+	margin-top: 5px;
+	margin-left:5px;
+	font-size: 15px;
+}
+
+div#xiusProximity div#searchButton{
+	float:left;
+	width: 112px;
+}
+	
+div#xiusProximity div#searchButton input{
+	-moz-box-shadow:0 1px 0 0 #FFFFFF inset;
+	-webkit-box-shadow:0 1px 0 0 #FFFFFF inset;
+	background:#E7EEF5 url("globe.png") no-repeat scroll 5px 2px;
+	border:1px solid #BECFE3;
+	color:#2A65A6;
+	font-family:"lucida grande",sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:1;
+	padding:5px 0 6px 20px;
+	text-align:center;
+	width:110px;
+}
+
+div#xiusProximity div#xiusProxiError{
+	color:red;
+}
+
+</style>

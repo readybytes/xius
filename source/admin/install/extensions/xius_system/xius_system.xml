@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<install version="1.5" type="plugin" group="system" method="upgrade">
+  <name>XIUS System Plugin</name>
+  <version>@global.version@.@svn.lastrevision@</version>
+  <creationDate>Mar 2010</creationDate>
+  <author>Team Joomlaxi</author>
+  <authorEmail>shyam@joomlaxi.com</authorEmail>
+  <authorUrl>http://www.joomlaxi.com/</authorUrl>
+  <copyright>@Joomlaxi</copyright>
+  <license>GNU GPL v2.0</license>
+  <description>XIUS System Plugin</description>
+  <files>  	
+	<filename plugin="xius_system">xius_system.php</filename>
+  </files>
+</install>

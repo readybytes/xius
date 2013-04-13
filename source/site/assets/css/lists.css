@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+.listmain{
+overflow: hidden;
+margin-top: 3px;
+}
+.listtopleft{
+width:90%;
+float:left;
+color:#A8A8A8;
+}
+.listtopleft h1{
+margin:4px;	
+}
+.listtopright{
+width:10%;
+float: right;
+}
+.listdesc{
+width:100%;
+float: left;
+min-height: 40px;
+margin: 4px;
+}
+
+
+
+
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+
+#xiusSave dl,
+#xiusSave dt,
+#xiusSave dd,
+#xiusSave ul,
+#xiusSave ol,
+#xiusSave li,
+#xiusSave h1,
+#xiusSave h2,
+#xiusSave h3,
+#xiusSave h4,
+#xiusSave h5,
+#xiusSave h6,
+#xiusSave pre,
+#xiusSave form,
+#xiusSave fieldset,
+#xiusSave input,
+#xiusSave textarea,
+#xiusSave p,
+#xiusSave blockquote,
+#xiusSave th,
+#xiusSave td {
+	margin: 0; 
+	padding: 0;
+} 
+#xiusSave{
+	overflow:hidden;
+	font-size: 12px;
+}
+
+#xiusSave{
+	overflow:hidden;
+	}
+
+#xiusSave div#xiusSaveHeader{
+	border:1px solid #cfcfcf;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #f5f5f5;
+	width:99%;
+	padding:5px 0 5px 5px;
+	font-weight: bold;
+	line-height: 15px;
+	color:#006000;
+	margin-bottom:10px; 	
+}
+
+#xiusSave div.xiusSaveInfo{
+	border-bottom: 1px dotted #666666;
+	overflow: hidden;
+	width: 98%;
+	line-height: 20px;
+	padding:2px;
+}
+
+#xiusSave div.xiusSaveInfo:hover{
+	background:#f5f5f5;
+}
+
+#xiusSave .xiusSavelabel{
+	float:left;
+	width:30%;
+	text-align:left;
+	margin-right:10px;
+	/*margin-bottom:5px;*/
+	font-weight:bold;
+	margin-top:5px;
+}
+
+#xiusSave .xiusSavehtml{
+	float:left;
+	width:50%;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+               
+#xiusSave #xiussubmit{
+	float:left;
+	width:100%;
+	margin-left:31%;
+}
+
+#xiusNewName{
+}
+
+#xiusSave div{
+	margin:0px;
+}
+
+#xiusSave body table.paramlist td.paramlist_key {
+ width:30%;
+ text-align: left;
+ font-weight: bold;
+}
+
+
+/******************************************************************************************************************************************************/
+#xiusSave .paramValue{
+float:left;
+margin-left:1%;
+padding:1px 1px 10px 3px;
+
+}
+
+#xiusSave .paramValue input{
+float:left;
+margin-top: 2px;
+
+
+}
+
+#xiusSave .paramValue select{
+float:left;
+margin-top: 2px;
+}
+
+#xiusSave .paramValue label{
+clear:none;
+float:left;
+margin-top:2px;
+min-width:55px;
+text-align:left;
+}
+
+#xiusSave .hasTip{
+
+display:block;
+float:left;
+cursor:default;
+font-weight:bold;
+text-align:left;
+width:215px
+}

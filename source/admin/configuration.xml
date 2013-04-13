@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>	
+	<!--
+		<param name="xiusUserLimit" type="text" default="2000" label="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY" description="NO OF USER TO PROCESS FOR UPDATE CACHE ENTRY.DESC" />
+	-->
+		<!--  START INTEGRATION PARAMETERS -->
+	<params group="basicXiusTemplate" addpath="/components/com_xius/elements"> 	
+		<param name="xiusTemplates" type="xiusTemplates" default="default" label="COM_XIUS_SELECT_TEMPLATE_LABEL" description="COM_XIUS_SELECT_TEMPLATE_DESC" />	
+		<param name="integrateJomSocial" type="xiradio" default="0" label="COM_XIUS_INTEGRATE_WITH_JOMSOCIAL_LABEL" description="COM_XIUS_INTEGRATE_WITH_JOMSOCIAL_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>					
+	</params>
+	
+	<params group="advXiusTemplate" addpath="/components/com_xius/elements">
+		<param name="xiusReplaceSearch" type="xiradio" default="1" label="COM_XIUS_REPLACE_JOM_SOCIAL_ADVANCE_SEARCH_LABEL" description="COM_XIUS_REPLACE_JOM_SOCIAL_ADVANCE_SEARCH_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="xiusSlideShow" type="xiradio" default="none" label="COM_XIUS_DEFAULT_SLIDER_STATE_LABEL" description="COM_XIUS_DEFAULT_SLIDER_STATE_DESC">
+			<option value="none">No</option>
+			<option value="block">Yes</option>
+		</param>	
+		<param name="xiusLoadJquery" type="xiradio" default="0" label="COM_XIUS_LOAD_JQUERY_LABEL" description="COM_XIUS_LOAD_JQUERY_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+	
+		<!--  END INTEGRATION PARAMETERS -->
+		
+	<params group="basicXiusSearch" addpath="/components/com_xius/elements">
+		<param name="xiusKey" type="text" default="AB2F4" label="COM_XIUS_SECURE_KEY_TO_CHECK_WHILE_UPDATE_CACHE" description="COM_XIUS_SECURE_KEY_TO_CHECK_WHILE_UPDATE_CACHE_DESC" />
+		
+		<param name="xiusDebugMode" type="xiradio" default="0" label="COM_XIUS_ENABLE_DEBUG_MODE" description="COM_XIUS_ENABLE_DEBUG_MODE_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>	
+	</params>		
+	<params group="advXiusSearch">
+		<param name="xiusEnableMatch" type="xiradio" default="1" label="COM_XIUS_SHOW_MATCH_ALL_OR_ANY_LABEL" description="COM_XIUS_SHOW_MATCH_ALL_OR_ANY_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		
+		<param name="xiusDefaultMatch" type="xiradio" default="AND" label="COM_XIUS_DEFAULT_CONDITION_MATCH_ALL_OR_ANY_LABEL" description="COM_XIUS_DEFAULT_CONDITION_MATCH_ALL_OR_ANY_DESC">
+			<option value="AND">Match All</option>
+			<option value="OR">Match Any</option>
+		</param>
+		
+		<param name="xiusJsfieldPrivacy" type="hidden" default="0" label="COM_XIUS_ENABLE_JSFIELDS_PRIVACY" description="COM_XIUS_ENABLE_JSFIELDS_PRIVACY_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+	
+	
+	<params group="advXiusSort" addpath="/components/com_xius/elements" >
+		<param name="xiusSortInfo" type="info" default="0" label="COM_XIUS_DEFAULT_SORTING_INFO" description="COM_XIUS_DEFAULT_SORTING_DESC">
+		</param>
+		
+		<param name="xiusSortOrder" type="xiradio" default="ASC" label="COM_XIUS_DEFAULT_SORTING_ORDER" description="COM_XIUS_DEFAULT_SORTING_ORDER">
+			<option value="ASC">Ascending</option>
+			<option value="DESC">Descending</option>
+		</param>
+	</params>
+	
+	
+	<params group="advXiusLimit" addpath="/components/com_xius/elements">
+	<param name="xiusLimit" type="limit" default="20" label="COM_XIUS_DEFAULT_LIMIT" description="COM_XIUS_DEFAULT_LIMIT_DESC">
+	</param>
+	</params>
+		
+	<params addpath="/components/com_xius/elements"  group="basicXiusList">
+		<param name="xiusListCreator" type="xiusJoomlaUserGroup" default="ALL" label="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_CREATE_LISTS_LABEL" description="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_CREATE_LISTS_DESC"></param>
+	</params>
+	
+	<params group="autoCacheUpdate" addpath="/components/com_xius/elements">
+	
+		<param name="xiusCronJob" type="xiradio" default="0" label="COM_XIUS_AUTOMATIC_CACHE_UPDATE_LABEL" description="COM_XIUS_AUTOMATIC_CACHE_UPDATING_DESC">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	
+		<param	name="xiusCronFrequency" type="xiradio" default="900" label="COM_XIUS_CONFIG_CRON_FREQUENCY_LABEL" description="COM_XIUS_CONFIG_CRON_FREQUENCY_DESC">
+			<option value="3600">Lowest</option>
+		  	<option value="1800">Low</option>
+		  	<option value="900">Normal</option>
+		  	<option value="300">High</option>			
+		</param>
+		<param	name="xiusCronAcessTime" type="hidden" 
+				default="0" label="COM_XIUS_CONFIG_CRON_ACCESSTIME_LABEL" description="COM_XIUS_CONFIG_CRON_ACCESSTIME_DESC">
+		</param>
+	</params>	
+	
+</config>

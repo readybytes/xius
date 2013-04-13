@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>jsuser</name>
+ 		<title>JomSocial User Table</title>
+ 		<description>With this plugin, you can search according to JomSocial User's fields like Avatar,userid etc.</description>
+	</params>
+</config>

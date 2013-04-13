@@ -1,0 +1,70 @@
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+ 
+.xiusMod_available {
+	overflow:hidden;
+	margin:0%;
+	padding:2%;
+}
+.xiusMod_availablemain {
+	float: left;
+	width:45%;
+    margin-top: 5px;
+    margin-right: 3%;
+}
+.xiMod_left {
+	font-weight:bold;
+	margin: 0 0 0 0;
+	float:left;
+	width:30%;
+	}
+
+.xiMod_right {	
+	margin: 0 0 0 1px;
+	width:60%;
+	float:right;
+}
+.xiusMod_available input {
+	width: 90%;
+	margin: 0 0 0 0;
+}
+
+.xiusMod_available select {
+	width: 90%;
+	margin: 0 0 0 0;
+}
+
+.xiusMod_available input[type="checkbox"] {
+	width: 15px;
+}
+
+.xiusMod_available input[type="radio"] {
+	width: 15px;
+	display:inline-table; 
+	
+	
+}
+.xiusModSearch{
+	float:left;
+	}
+.xiusModSearch input{
+	margin-top: 10px;
+	}
+.xiusMod_availablemain label {
+	display: block;
+	padding-left: 0px;
+    margin-left:0px;
+}
+.xiusMod_available .xiusProximityInputbox{
+	border:1px solid #e3e3e3;
+	width:45%;
+}
+.xiusMod_available .xiusProximitySelectbox {
+	width:45%;
+}
+
+body #xiusMod_available .inputbox {
+	border:1px solid #e3e3e3;
+}

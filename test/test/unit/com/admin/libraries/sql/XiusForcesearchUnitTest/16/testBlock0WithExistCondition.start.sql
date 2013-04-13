@@ -1,0 +1,73 @@
+/* XIUS INFO */
+
+TRUNCATE TABLE `#__xius_info`;;
+INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
+(1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '2', '', 'Jsfields', 1, 1),
+(2, 'City', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '11', '', 'Jsfields', 2, 1),
+(3, 'Country', 'isSearchable="1"\nisVisible="0"\nisSortable="1"\nisAccessible="a:1:{i:0;s:3:"All";}"\nisExportable="0"\ntooltip=""', '19', '', 'Jsfields', 15, 1),
+(4, 'Register Date', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'registerDate', '', 'Joomla', 4, 1),
+(5, 'Username', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=1\n\n', 'username', '', 'Joomla', 5, 1),
+(6, 'Name', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'name', '', 'Joomla', 6, 1),
+(7, 'Checkbox1', 'isSearchable=1\nisVisible=0\nisSortable=0\nisExportable=1\n\n', '17', '', 'Jsfields', 7, 1),
+(8, 'Birthday', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '3', '', 'Jsfields', 8, 1),
+(9, 'ID', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'id', '', 'Joomla', 9, 1),
+(10, 'E-mail', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'email', '', 'Joomla', 10, 1),
+(11, 'usertype', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'usertype', '', 'Joomla', 11, 1),
+(12, 'Block', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'block', '', 'Joomla', 12, 1),
+(13, 'lastvisitDate', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'lastvisitDate', '', 'Joomla', 13, 1),
+(14, 'Block should be 0', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '12', 'infoid=12\nvalue=s:1:"0";\noperator==\n\n', 'Forcesearch', 14, 1),
+(15, 'All Female', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '1', 'infoid=1\nvalue=s:6:"Female";\noperator==\n\n', 'Forcesearch', 15, 0);;
+
+TRUNCATE TABLE `#__community_fields`;;
+INSERT INTO `#__community_fields` (`id`, `type`, `ordering`, `published`, `min`, `max`, `name`, `tips`, `visible`, `required`, `searchable`, `registration`, `options`, `fieldcode`, `params`) VALUES
+(1, 'group', 1, 1, 10, 100, 'Basic Information', 'Basic information for user', 1, 0, 1, 1, '', '', ''),
+(2, 'select', 4, 1, 10, 100, 'Gender', 'Select gender', 1, 0, 1, 1, 'Male\nFemale', 'FIELD_GENDER', ''),
+(3, 'date', 5, 1, 10, 100, 'Birthday', 'Enter your date of birth so other users can know when to wish you happy birthday ', 1, 0, 1, 1, '', 'FIELD_BIRTHDAY', ''),
+(4, 'text', 6, 1, 5, 250, 'Hometown', 'Hometown', 1, 0, 1, 1, '', 'FIELD_HOMETOWN', ''),
+(5, 'textarea', 7, 1, 1, 800, 'About me', 'Tell us more about yourself', 1, 0, 1, 1, '', 'FIELD_ABOUTME', ''),
+(6, 'group', 8, 1, 10, 100, 'Contact Information', 'Specify your contact details', 1, 0, 1, 1, '', '', ''),
+(7, 'text', 10, 1, 10, 100, 'Mobile phone', 'Mobile carrier number that other users can contact you.', 1, 0, 1, 1, '', 'FIELD_MOBILE', ''),
+(8, 'text', 11, 1, 10, 100, 'Land phone', 'Contact number that other users can contact you.', 1, 0, 1, 1, '', 'FIELD_LANDPHONE', ''),
+(9, 'textarea', 12, 1, 10, 100, 'Address', 'Address', 1, 0, 1, 1, '', 'FIELD_ADDRESS', ''),
+(10, 'text', 13, 1, 10, 100, 'State', 'State', 1, 0, 1, 1, '', 'FIELD_STATE', ''),
+(11, 'text', 14, 1, 10, 100, 'City / Town', 'City / Town', 1, 0, 1, 1, '', 'FIELD_CITY', ''),
+(13, 'text', 15, 1, 10, 100, 'Website', 'Website', 1, 0, 1, 1, '', 'FIELD_WEBSITE', ''),
+(14, 'group', 16, 1, 10, 100, 'Education', 'Educations', 1, 0, 1, 1, '', '', ''),
+(15, 'text', 17, 1, 10, 200, 'College / University', 'College / University', 1, 0, 1, 1, '', 'FIELD_COLLEGE', ''),
+(16, 'text', 18, 1, 5, 100, 'Graduation Year', 'Graduation year', 1, 0, 1, 1, '', 'FIELD_GRADUATION', ''),
+(17, 'templates', 3, 1, 10, 100, 'Template', 'Template Of User', 1, 1, 1, 1, '', 'XIPT_TEMPLATE', ''),
+(18, 'profiletypes', 2, 1, 10, 100, 'Profiletype', 'Profiletype Of User', 1, 1, 1, 1, '', 'XIPT_PROFILETYPE', ''),
+(19, 'text', 9, 1, 10, 100, 'Country', '', 1, 1, 1, 1, '', '25', '');;
+
+TRUNCATE TABLE `#__community_fields_values`;;
+INSERT INTO `#__community_fields_values` (`id`, `user_id`, `field_id`, `value`, `access`) VALUES
+(1, 62, 17, 'default', 0),
+(2, 62, 18, '1', 0),
+(3, 63, 17, 'blueface', 0),
+(4, 63, 18, '1', 0),
+(5, 63, 2, '', 0),
+(6, 63, 3, '', 0),
+(7, 63, 4, '', 0),
+(8, 63, 5, '', 0),
+(9, 63, 7, '', 0),
+(10, 63, 8, '', 0),
+(11, 63, 9, '', 0),
+(12, 63, 10, '', 0),
+(13, 63, 11, '', 0),
+(14, 63, 12, '', 0),
+(15, 63, 13, '', 0),
+(16, 63, 15, '', 0),
+(17, 63, 16, '', 0),
+(18, 64, 17, 'blueface', 0),
+(19, 64, 18, '2', 0),
+(20, 64, 2, '', 0),
+(21, 64, 3, '', 0),
+(22, 64, 4, '', 0),
+(23, 64, 5, '', 0),
+(24, 64, 7, '', 0),
+(25, 64, 8, '', 0),
+(26, 64, 9, '', 0),
+(27, 64, 10, '', 0),
+(28, 64, 11, '', 0),
+(29, 64, 12, '', 0),
+(30, 64, 13, '', 0);;

@@ -1,0 +1,71 @@
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+#xius_sp{
+	padding:5px;
+	margin:0px;
+	-moz-border-radius:5px;
+}
+
+.xius_spHead{
+	padding:15px 0 5px 15px;
+	font-size:1.5em;
+	color:#275788;
+	margin:15px 0 5px 5px;
+	border-bottom:1px solid #7f7f7f;
+}
+
+.xiusNoInfo{
+	padding:15px 0 5px 15px;
+	font-size: 1.25em;
+	color:#275788;
+}
+	
+#xius_sp .xius_spMain{
+	overflow:hidden;
+	border:1px solid rgb(209,209,209);
+	padding:5px;
+	margin:5px;	
+}
+
+.xius_spLabel{
+	width:22%;
+	float:left;
+	font-weight:bold;
+	margin:0px;
+	padding:0px;
+}
+
+.xius_spInput{
+	width:76%;
+	float:right;
+	margin:0px;
+	padding:0px;
+}
+
+.xius_spInput input{
+/*	margin-left:17px; */	
+	border:1px solid #e3e3e3;
+}
+
+.xius_spInput select{
+/*	margin-left:17px; */	
+}
+
+.xius_spInput label{
+	margin:0px;
+/*	padding-left:17px; */
+	display:block;
+	width:60%;
+	float:left;
+}
+
+.xius_spSubmit{
+	clear:both;
+	padding:5px 0 5px 15px;
+}
+
+body #xius_sp .inputbox{
+border:1px solid #e3e3e3;		
+}

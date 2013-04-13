@@ -1,0 +1,401 @@
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+/** css for result page **/
+
+/* resets */
+
+div#xius_result div,
+div#xius_result dl,
+div#xius_result dt,
+div#xius_result dd,
+div#xius_result ul,
+div#xius_result ol,
+div#xius_result li,
+div#xius_result h1,
+div#xius_result h2,
+div#xius_result h3,
+div#xius_result h4,
+div#xius_result h5,
+div#xius_result h6,
+div#xius_result pre,
+div#xius_result form,
+div#xius_result fieldset,
+div#xius_result input,
+div#xius_result textarea,
+div#xius_result p,
+div#xius_result blockquote,
+div#xius_result th,
+div#xius_result td {
+	margin: 0; 
+	padding: 0;
+}
+div#xius_result {
+	overflow:hidden;
+	clear:both;
+}
+
+div#xius_result .xius_result{
+}
+
+div#xius_result .xius_result fieldset {
+	background-image: none;
+	border: 1px solid #275788;
+}
+
+div#xius_result .xiusListname{
+	color: #275788;
+	margin-left: 10px;
+	font-size: 1.5em;
+	text-decoration: underline;
+	}
+	
+	
+/** css for User Listing  Area **/	
+div#xius_result .xius_ul{
+	/**border:1px solid black;**/
+	padding:0px;
+	margin:2px;
+}
+div#xius_result .xiusMp{
+	border:1px solid #dddddd;
+	margin:5px 3px;
+	overflow:hidden;
+	-moz-border-radius:2px;
+}
+	
+div#xius_result .xiusMp:hover{
+	border:1px solid #bfbfbf;
+	background:#efefef;
+}
+	
+div#xius_result .xiusMpAvatar{
+	border:3px solid #dddddd;
+	padding:3px;
+	width:70px;
+	height: 70px;
+	float:left;
+	margin:3px;
+	cursor: pointer;
+	}
+div#xius_result .xiusMpAvatar img{
+	margin-top:2px;
+	margin-left:1px;
+}
+div#xius_result .xiusMpAvatar:hover{
+	border:3px solid #bfbfbf;
+	}
+div#xius_result .xiusMpOptions{
+	float: right;
+	}
+div#xius_result .xiusHeader{
+	border-bottom:1px solid #dddddd;
+	border-bottom-style:dashed;
+	margin:3px;
+	padding:2px;
+	font-size: 100%;
+	font-weight: bold;
+	}
+	
+div#xius_result .xiusHeaderStatus{
+	font-size: 90%;
+	font-weight: normal;
+	font-style: italic;
+	margin-left:5px;
+}
+	
+div#xius_result .xiusMpMiddle{
+
+	}
+div#xius_result .xiusMpData{
+	float:left;
+	padding:4px;
+	margin:3px 3px 3px 15px;
+	min-height:70px; 
+	width:75%;
+	}
+div#xius_result .xiusMpInfo{
+	float:left;
+	width:49%;
+	}
+div#xius_result .xiusMplabel{
+	float: left;
+	width: 39%;
+	font-weight: bold;
+	}
+div#xius_result .xiusMpValue{
+	float: left;
+	}
+
+/** End of User Listing Area **/
+/** Toolbar**/
+div#xius_result .xiusToolbar {
+	overflow: hidden;
+	border: 1px solid #dddddd;
+	margin: 2px 5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	padding:1px 10px 0 10px;
+}
+
+div#xius_result .xiusToolbar:hover{
+	border:1px solid #bfbfbf;
+	background: #bfbfbf;
+}
+div#xius_result .xiusToolbar img{
+	cursor: pointer;
+	}
+div#xius_result .xiusTbRight{
+	float:right;
+}
+
+div#xius_result .xiusTotal{
+ 	text-align: right;
+	width:100%;
+}
+div#xius_result .xiusTotalText{
+	margin-right: 5px;
+	}
+/** End of Toolbar **/
+
+/** applied info div css**/
+div#xius_result .xiusAppliedinfo{
+	border:1px solid #dddddd;
+	overflow:hidden;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	margin:5px;
+}
+
+div#xius_result .xius_apiHead{
+	padding:-5px 0px 5px 15px;
+	font-size:1.5em;
+	margin:15px 0 5px 5px;
+	border-bottom:1px solid #dddddd;
+	border-bottom-style: dashed;
+}
+
+div#xius_result  .xius_apiHead img{
+float: right;
+margin-top: -10px;
+background-position:center;
+cursor: pointer;
+}
+
+div#xius_result .applied {
+	margin-bottom: 2px;
+}
+
+div#xius_result .applied {
+	float: left;
+	background:#efefef;
+	-moz-border-radius:2px;
+	/*border: 1px solid #275788;*/
+	position: relative;
+	/**width: 18%;**/
+	overflow: hidden;
+	color: 7f7f7f;
+	margin-left: 4px;
+	padding:3px;
+}
+div#xius_result  .applied:hover{
+	background:#bfbfbf;
+	}
+div#xius_result .applied .left {
+	float: left;
+	/*width: 70%;*/
+	margin: 2px;
+}
+
+div#xius_result .applied .right {
+	float: right;
+	margin-top: 5%;
+	width: 22px;
+	cursor: pointer;
+}
+div#xius_result .right img{
+float: right;
+/*margin-top: 10px;*/
+position:relative;
+cursor: pointer;
+}
+
+div#xius_result .xijoin{
+	float: left;
+	/*background:#D8DFEA;*/
+	-moz-border-radius:2px;
+	/*border: 1px solid #275788;*/
+	position: relative;
+	width: 180px;
+	overflow: hidden;
+	color: #7f7f7f;
+	margin-left: 4px;
+	padding:2px;
+}
+/** End of applied info**/
+/** Available info div **/
+
+div#xius_result .xius_ai{
+	border:1px solid #dddddd;
+	padding:2px;
+	margin:5px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	background:#efefef;
+}
+
+div#xius_result .xius_ai_full{
+	border:1px solid #dddddd;
+	padding:2px;
+	margin:5px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+}
+
+div#xius_result .xius_aiHead{
+	font-size:1.5em;
+	margin:5px 0 5px 5px;
+}
+
+div#xius_result .xius_aiMain{
+	border:1px solid #dddddd;
+	overflow:hidden;
+	margin:5px;
+	padding:5px;
+}
+div#xius_result .xius_aiMain:hover{
+background:#efefef;
+}
+div#xius_result .xius_aiLabel{
+	float:left;
+	width:22%;
+	font-weight:bold;
+	padding:0px;
+	margin:0px;
+}
+
+div#xius_result .xius_aiInput{
+	float:left;	
+	width:68%;
+	padding:0px;
+	margin:0px;
+}
+
+div#xius_result .xius_aiInput input{
+/*	margin-left:17px;*/	
+}
+
+div#xius_result .xius_aiInput select{
+/*	margin-left:17px;	*/
+}
+
+div#xius_result .xius_aiImg{
+	float:right;
+	padding:0px;
+	margin:0px;
+	cursor:pointer;
+}
+div#xius_result .xius_aiInput label{
+	margin:0px;
+/*	padding-left:17px;*/
+	display:block;
+	width:60%;
+	float:left;	
+}
+/** End Of Available Info **/
+/** admin option popup box css**/
+div#xius_result .savemainbox {
+	overflow: hidden;
+	border: 1px solid #275788;
+	margin: 3px;
+}
+
+div#xius_result .savemainbox h3 {
+	text-align: center;
+}
+
+div#xius_result .savemainbox .leftbox {
+	width: 45%;
+	border: solid 1px #E5E5E5;
+	float: left;
+	margin: 10px;
+}
+
+div#xius_result .savemainbox .rightbox {
+	width: 45%;
+	border: solid 1px #E5E5E5;
+	float: right;
+	margin: 10px;
+}
+
+div#xius_result .savemainbox .lab {
+	width: 100px;
+	float: left;
+}
+
+div#xius_result .savemainbox input,textarea {
+	padding: 9px;
+	border: solid 1px black;
+	outline: 0;
+	width: 200px;
+	font: normal 13px/ 100% Verdana, Tahoma, sans-serif;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	margin-top: 2px;
+}
+
+div#xius_result .xiusSubmit input {
+	width: auto;
+	padding: 9px 15px;
+	background: #D8DFEA;
+	border: 1px solid #275788;
+	font-size: 14px;
+	color: #275788;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+	text-align: right;
+}
+
+div#xius_result .xiusSlider{
+	display:block;
+}
+
+div#xius_result .xiusSliderHide{
+	display:none;
+}
+
+div#xius_result .xiusSlideImgDown{
+padding-right:25px;
+float:right;
+background-image: url("../images/down.png");
+background-repeat: no-repeat;
+}
+
+div#xius_result .xiusSlideImgUp{
+float:right;
+padding-right:25px;
+background-image: url("../images/up.png");
+background-repeat: no-repeat;
+}
+
+div#xius_result body #xius_result .inputbox{
+border:1px solid #e3e3e3;		
+}
+
+div#xius_result div.xiusfr{
+	float:left;
+}
+div#xius_result div.xiusfr ul li {
+	float: left;
+    margin: 0 5px 0 0;
+    font-size: 10px;
+}
+
+div#xius_result div.xiusfr ul span.pagenav {
+	font-size: 12px;
+    font-weight: bold;
+    line-height: 1.8em;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+		<param name="rangesearchType" type="list" default="date" label="COM_XIUS_INFORMATION_TYPE_LABEL" description="COM_XIUS_INFORMATION_TYPE_DESC">
+			<option value="date">Age-Search</option>
+			<option value="integer">Integer</option>
+			<option value="date-range">Date-Range</option>
+		</param>
+	</params>
+</config>

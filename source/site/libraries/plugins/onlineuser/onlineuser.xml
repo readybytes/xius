@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>onlineuser</name>
+ 		<title>Online Users </title>
+ 		<description>With this plugin, you can find-out either Online Users or Offline Users, and both.</description>
+	</params>
+</config>
