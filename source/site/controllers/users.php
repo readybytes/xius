@@ -121,7 +121,7 @@ class XiussiteControllerUsers extends XiusController
 	function resetfilter()
 	{
 		XiusLibUsersearch::setDataInSession(XIUS_CONDITIONS,'','XIUS');
-		$join = JRequest::getVar('xius_join','AND','POST');
+		$join = JRequest::getVar('xiusjoin','AND','POST');
 		XiusLibUsersearch::setDataInSession(XIUS_JOIN,$join,'XIUS');
 		return $this->_displayResult('search');
 	}	

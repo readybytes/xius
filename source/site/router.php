@@ -71,7 +71,7 @@ function _findXiusMatchCount($menu, $query)
 function XiusBuildRoute( &$query )
 {
 	$segments = array();
-	$menus = _GetXiusMenus();
+	$menus    = (array) _GetXiusMenus();
 
 	//If item id is not set then we need to extract those
 	$selMenu = null;

@@ -6,10 +6,11 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 $document =& JFactory::getDocument();
+$path     = JURI::base().DS.'modules'.DS.'mod_xiussearchpanel'.DS.'css'.DS;
 if ($params->get('xius_layout','horizontal')=='vertical')
-	$document->addStyleSheet('modules/mod_xiussearchpanel/css/mod_xiussearchpanel_ver.css');
+	$document->addStyleSheet($path.'mod_xiussearchpanel_ver.css');
 else
-	$document->addStyleSheet('modules/mod_xiussearchpanel/css/mod_xiussearchpanel_hz.css');
+	$document->addStyleSheet($path.'mod_xiussearchpanel_hz.css');
 
 //for replacing tooltip of js by xius
 $script = "

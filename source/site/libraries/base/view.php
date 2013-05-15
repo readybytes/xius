@@ -102,7 +102,7 @@ class XiusView extends JView
 		//collect confuguration params
 		$xiusSlideShow  		= XiusHelperUtils::getConfigurationParams('xiusSlideShow','none');
 		$joinHtml['enable']  	= XiusHelperUtils::getConfigurationParams('xiusEnableMatch',1);
-		$joinHtml['defultMatch']= XiusHelperUtils::getConfigurationParams('xiusEnableMatch','All');
+		$joinHtml['defultMatch']= XiusHelperUtils::getConfigurationParams('xiusDefaultMatch','AND');
 		$loadJquery				= XiusHelperUtils::getConfigurationParams('xiusLoadJquery',1);
 		// load jquery package
 

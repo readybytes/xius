@@ -7,7 +7,7 @@ jimport('joomla.filesystem.folder');
 
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 	return;
-require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
+//require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
 
 class plgCommunityxius extends JPlugin
 {
@@ -28,6 +28,8 @@ class plgCommunityxius extends JPlugin
 
 	function onCronRun()
 	{
+		self::_includePath();
+		
 		$plgHandler = XiusFactory::getInstance('pluginhandler','lib');
 		//echo " Running XIUS Cron update";
 		return $plgHandler->onCronRun();
@@ -35,6 +37,8 @@ class plgCommunityxius extends JPlugin
 
 	function onSystemStart()
 	{
+		$this->_includePath();
+		
 		$showSearchMenuTab=XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);
 		//$this->params->get('showSearchMenuTab', 0);
 
@@ -45,13 +49,15 @@ class plgCommunityxius extends JPlugin
 		$lang =& JFactory::getLanguage();
 		$user		= CFactory::getUser();
 		$lang->load('com_xius', JPATH_SITE);
-		
-		$tool = CToolbarLibrary::getInstance();
-		$tool->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
+
+		$toolbar  = CFactory::getToolbar();
+		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
 							 'index.php?option=com_community&view=users&task=search&usexius=1');
-		$tool->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), 'index.php?option=com_community&view=users&usexius=1');
-		$tool->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), 'index.php?option=com_community&view=list&task=lists&usexius=1');
-		
+
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_ADVANCEDSEARCH',XiusText::_('ADVANCEDSEARCH'), 'index.php?option=com_community&view=users&usexius=1');
+		$toolbar->addItem('XIUS_SEARCH', 'XIUS_USERLIST', XiusText::_('USERLIST'), 'index.php?option=com_community&view=list&task=lists&usexius=1');
+//		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_SEARCH_FRIENDS');
+//		$toolbar->removeItem(TOOLBAR_FRIEND, 'FRIEND_ADVANCE_SEARCH_FRIENDS');
 		// remove toolbar item(Search and advance search)
 		XiusLibPluginhandler::setJSToolbarState();
 
@@ -96,9 +102,21 @@ class plgCommunityxius extends JPlugin
 		if(empty($saveSuccess)){
 			return true;
 		}
+		
+		self::_includePath();
+		
         //update user data in xius_jsfields_values_table
 		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'fieldtable.php';
 	    return XiusJsfieldTable::updateUserData($userId);	
+	}
+	
+	static function _includePath()
+	{
+		$incldePath = JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'includes.php';
+        if(!JFile::exists($incldePath))
+			return false;
+			
+		require_once $incldePath;
 	}
 
 }
@@ -132,6 +150,8 @@ class CommunityXiusController extends CommunityBaseController
 
 	function doTask()
 	{
+		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
+		
 		$controllerClass = 'XiussiteController'.JString::ucfirst($this->xiusOrigView);
 		$controller = new $controllerClass(true);
 
