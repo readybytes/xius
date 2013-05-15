@@ -90,7 +90,7 @@
 	</target>
 
 	<target name="copy_kit">
-		<copy 	file="${dir.packages}/${file.package}.${build.number}.zip" 
+		<copy 	file="${dir.packages}/${file.package}-${build.number}.zip" 
 				tofile="${joomla.rootpath}/${joomla.folder}/${project.shortform.small}.zip" />
 	</target>
 
