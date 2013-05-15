@@ -50,6 +50,29 @@ class plgCommunityxius extends JPlugin
 		$user		= CFactory::getUser();
 		$lang->load('com_xius', JPATH_SITE);
 
+		//make xius menu active
+		if(JRequest::getVar('usexius',0) == 1){
+			ob_start();
+			?>
+				joms.jQuery(document).ready(function($) {
+					var addclass = 1;
+					$("a[href$='?usexius=1']").each(function(){
+						if($(this).hasClass('active')){
+							addclass = 0;
+						}
+					});
+					
+					if(addclass == 1){
+						$("a[href$='?usexius=1']").addClass('active');
+					}
+				}
+			);
+			
+			<?php $content = ob_get_contents(); 
+			ob_end_clean();
+			JFactory::getDocument()->addScriptDeclaration($content);
+		}
+
 		$toolbar  = CFactory::getToolbar();
 		$toolbar->addGroup('XIUS_SEARCH', XiusText::_('SEARCH'),
 							 'index.php?option=com_community&view=users&task=search&usexius=1');
