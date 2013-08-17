@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<install version="1.5" type="plugin" group="xius" method="upgrade">
+  <name>XIUS JS Privacy Plugin</name>
+  <version>@global.version@.@svn.lastrevision@</version>
+  <creationDate>Mar 2010</creationDate>
+  <author>Team Joomlaxi</author>
+  <authorEmail>shyam@joomlaxi.com</authorEmail>
+  <authorUrl>http://www.joomlaxi.com/</authorUrl>
+  <copyright>@Joomlaxi</copyright>
+  <license>GNU GPL v2.0</license>
+  <description>XIUS JS Privacy Plugin</description>
+  <files>  	
+	<filename plugin="js_privacy">js_privacy.php</filename>
+	<folder>js_privacy</folder>
+  </files>
+</install>

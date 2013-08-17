@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/components/com_xius/elements">		
+		<param name="xiusListViewGroup" type="xiusJoomlaUserGroup" default="ALL" addguest="true" label="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_VIEW_LISTS_LABEL" description="COM_XIUS_ACCESSIBLE_USER_GROUP_WHICH_CAN_VIEW_LISTS_DESC"></param>
+	
+	</params>
+</config>

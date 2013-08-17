@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name> xiusemail </name>>
+ 		<title>XiUS-Email</title>
+ 		<description>With this plugin, user can send mails to searched user(Individual, Selected or All).</description>
+	</params>
+</config>

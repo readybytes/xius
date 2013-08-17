@@ -1,0 +1,85 @@
+@CHARSET "UTF-8";
+
+div#xiusSp div,
+div#xiusSp dl,
+div#xiusSp dt,
+div#xiusSp dd,
+div#xiusSp ul,
+div#xiusSp ol,
+div#xiusSp li,
+div#xiusSp h1,
+div#xiusSp h2,
+div#xiusSp h3,
+div#xiusSp h4,
+div#xiusSp h5,
+div#xiusSp h6,
+div#xiusSp pre,
+div#xiusSp form,
+div#xiusSp fieldset,
+div#xiusSp input,
+div#xiusSp textarea,
+div#xiusSp p,
+div#xiusSp blockquote,
+div#xiusSp th,
+div#xiusSp td {
+	margin: 0px;
+	padding: 0px;
+}
+
+div#xiusSp {
+	overflow: hidden;
+	width:100%;
+}
+
+div#xiusSp div#spHead {
+	border:1px solid #cfcfcf;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #f5f5f5;
+	width:99%;
+	padding:5px 0 5px 5px;
+	font-weight: bold;
+	line-height: 15px;
+	color:#006699;
+	margin-bottom:10px; 
+}
+
+div#xiusSp div.xiusSpMain {
+	border-bottom:1px dotted #666666;
+	width:99%;
+	overflow: hidden;
+	padding:2px 0 2px 5px;
+}
+
+div#xiusSp div.xiusSpMain:hover{
+	background: #ddf0f8;
+}
+
+
+div.xiusSpLabel{
+	float:left;
+	width:30%;
+	font-weight: bold;
+}
+
+div.xiusSpInput{
+	float:right;
+	width:68%;
+}
+
+div#xiusSp div#xiusSpSubmit input{ 
+	color:#006699;
+	background: #f5f5f5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #cfcfcf;
+	margin-left: 32%;
+	padding: 5px;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-size:12px;
+}

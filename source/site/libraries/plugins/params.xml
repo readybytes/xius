@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/components/com_xius/elements" >
+		<param name="isSearchable" type="xiradio" default="1" label="COM_XIUS_IS_SEARCHABLE" description="COM_XIUS_IS_INFORMATION_CAN_BE_USED_AS_SEARCHABLE_FOR_YOUR_SITE_MEMBERS_DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="isVisible" type="xiradio" default="1" label="COM_XIUS_DISPLAY_ON_MINI_PROFILE" description="COM_XIUS_IS_INFORMATION_AVAILABLE_FOR_DISPLAY_ON_MINI_PROFILE_DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="isSortable" type="xiradio" default="1" label="COM_XIUS_IS_SORTABLE" description="COM_XIUS_IS_INFORMATION_CAN_BE_USED_AS_SORTABLE_FOR_YOUR_SITE_MEMBERS_DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="isAccessible" type="xiusJoomlaUserGroup" default="ALL" label="COM_XIUS_ACCESSIBLE_USER_GROUP_LABEL" description="COM_XIUS_ACCESSIBLE_USER_GROUP_DESC"></param>
+		<param name="isExportable" type="xiradio" default="1" label="COM_XIUS_IS_EXPORTABLE" description="COM_XIUS_IS_INFORMATION_CAN_BE_USED_AS_EXPORTABLE_FOR_YOUR_SITE_MEMBERS_DESC">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="tooltip" type="textarea" rows="4" cols="25" label="COM_XIUS_TOOLTIP" description="COM_XIUS_TOOLTIP_DESC">
+		</param>
+		<!--<param name="template" type="text" default="" label="TEMPLATE" description="TEMPLATE.DESC" />-->
+	</params>
+</config>

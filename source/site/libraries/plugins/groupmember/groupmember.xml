@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>groupmember</name>
+ 		<title>Group Member</title>
+ 		<description>Group Member plugin helps you can serach any groups member.</description>
+	</params>
+</config>

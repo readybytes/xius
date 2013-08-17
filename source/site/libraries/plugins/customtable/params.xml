@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params addpath="/components/com_xius/libraries/plugins/customtable/elements" >
+		<param name="customUseridColumn" type="tablecolumns" default="0" label="COM_XIUS_COLUMN_FOR_USERID_LABEL" description="COM_XIUS_COLUMN_FOR_USERID_DESC" />			
+		<param name="customSearchColumn" type="tablecolumns" default="0" label="COM_XIUS_COLUMN_FOR_SEARCH_LABEL" description="COM_XIUS_COLUMN_FOR_SEARCH_DESC" />
+	</params>
+</config>

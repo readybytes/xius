@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>rangesearch</name>
+ 		<title>Range-Search</title>
+ 		<description>Range Search plugin helps, you search through Age-Range, Date-Range, Integer Range or Float Range.</description>
+	</params>
+</config>

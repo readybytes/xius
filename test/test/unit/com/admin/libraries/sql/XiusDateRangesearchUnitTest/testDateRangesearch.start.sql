@@ -1,0 +1,92 @@
+
+TRUNCATE TABLE `#__xius_info`;;
+
+INSERT INTO `#__xius_info` (`id`, `labelName`, `params`, `key`, `pluginParams`, `pluginType`, `ordering`, `published`) VALUES
+(1, 'Gender', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\ntooltip=\n\n', '2', '', 'Jsfields', 1, 1),
+(2, 'City', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '11', '', 'Jsfields', 2, 1),
+(3, 'Country', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', '12', '', 'Jsfields', 3, 1),
+(4, 'Register Date', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=1\n\n', 'registerDate', '', 'Joomla', 4, 1),
+(5, 'Birthday', 'isSearchable=1\nisVisible=0\nisSortable=1\nisExportable=0\ntooltip=\n\n', '3', '', 'Jsfields', 5, 1),
+(6, 'Age', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '5', 'rangesearchType=date\n\n', 'Rangesearch', 6, 1),
+(7, 'ID', 'isSearchable=1\nisVisible=1\nisSortable=1\nisExportable=0\ntooltip=\n\n', 'id', '', 'Joomla', 7, 0),
+(8, 'ID range', 'isSearchable=1\nisVisible=1\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '7', 'rangesearchType=integer\n\n', 'Rangesearch', 8, 1),
+(9, 'Register Date', 'isSearchable=1\nisVisible=0\nisSortable=1\nisAccessible=a:1:{i:0;s:3:"All";}\nisExportable=0\ntooltip=\n\n', '4', 'rangesearchType=date-range\n\n', 'Rangesearch', 9, 1);;
+
+
+DROP TABLE IF EXISTS `#__xius_cache`;;
+
+
+CREATE TABLE IF NOT EXISTS `#__xius_cache` (
+  `userid` int(21) NOT NULL,
+  `jsfields2_0` varchar(250) NOT NULL,
+  `jsfields11_0` varchar(250) NOT NULL,
+  `jsfields12_0` varchar(250) NOT NULL,
+  `joomlaregisterDate_0` datetime NOT NULL,
+  `jsfields3_0` datetime NOT NULL,
+  `rangesearch5_0` int(31) NOT NULL DEFAULT '0',
+  `joomlaid_0` int(21) NOT NULL,
+  `rangesearch7_0` int(31) NOT NULL DEFAULT '0',
+  `rangesearch4_0` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;;
+
+
+INSERT INTO `#__xius_cache` (`userid`, `jsfields2_0`, `jsfields11_0`, `jsfields12_0`, `joomlaregisterDate_0`, `jsfields3_0`, `rangesearch5_0`, `joomlaid_0`, `rangesearch7_0`, `rangesearch4_0`) VALUES
+(62, '', '', '', '2010-01-16 11:12:08', '0000-00-00 00:00:00', 0, 62, 62, '2010-01-16'),
+(63, '', '', '', '2010-05-20 10:31:50', '0000-00-00 00:00:00', 0, 63, 63, '2010-05-20'),
+(64, 'Female', 'Surat', 'Angola', '2010-05-20 10:32:10', '2000-12-25 23:59:59', 9, 64, 64, '2010-05-20'),
+(65, 'Female', 'Ludhiana', 'Andorra', '2010-05-20 10:32:10', '1992-02-09 23:59:59', 18, 65, 65, '2010-05-20'),
+(66, 'Male', 'Chandigarh', 'Andorra', '2010-05-20 10:32:10', '1994-09-22 23:59:59', 15, 66, 66, '2010-05-20'),
+(67, 'Male', 'Indore', 'Algeria', '2010-05-20 10:32:10', '1993-06-20 23:59:59', 17, 67, 67, '2010-05-20'),
+(68, 'Female', 'Noida', 'Andorra', '2010-05-20 10:32:10', '1994-05-21 23:59:59', 16, 68, 68, '2010-05-20'),
+(69, 'Female', 'Shimla', 'Anguilla', '2010-05-20 10:32:10', '1992-09-21 23:59:59', 17, 69, 69, '2010-05-20'),
+(70, 'Female', 'Pune', 'Andorra', '2010-05-20 10:32:10', '1999-01-21 23:59:59', 11, 70, 70, '2010-05-20'),
+(71, 'Female', 'Kolkata', 'American Samoa', '2010-05-20 10:32:10', '1994-01-27 23:59:59', 16, 71, 71, '2010-05-20'),
+(72, 'Female', 'Alwar', 'Anguilla', '2010-05-20 10:32:10', '1996-10-03 23:59:59', 13, 72, 72, '2010-05-20'),
+(73, 'Male', 'Pune', 'Angola', '2010-05-20 10:32:10', '1998-12-21 23:59:59', 11, 73, 73, '2010-05-20'),
+(74, 'Female', 'Noida', 'Algeria', '2010-05-20 10:32:10', '1995-09-18 23:59:59', 14, 74, 74, '2010-05-20'),
+(75, 'Male', 'Ajmer', 'Argentina', '2010-05-20 10:32:10', '1996-07-10 23:59:59', 14, 75, 75, '2010-05-20'),
+(76, 'Male', 'Noida', 'Anguilla', '2010-05-20 10:32:10', '1999-12-20 23:59:59', 10, 76, 76, '2010-05-20'),
+(77, 'Male', 'Ludhiana', 'Antarctica', '2010-05-20 10:32:10', '1994-06-03 23:59:59', 16, 77, 77, '2010-05-20'),
+(78, 'Female', 'Bikaner', 'Algeria', '2010-05-20 10:32:10', '1997-10-23 23:59:59', 12, 78, 78, '2010-05-20'),
+(79, 'Female', 'Nagpur', 'Afghanistan', '2010-05-20 10:32:10', '1990-05-07 23:59:59', 20, 79, 79, '2010-05-20'),
+(80, 'Female', 'chennai', 'Albania', '2010-05-20 10:32:10', '1998-12-20 23:59:59', 11, 80, 80, '2010-05-20'),
+(81, 'Male', 'Ahmedabad', 'Angola', '2010-05-20 10:32:10', '1996-11-20 23:59:59', 13, 81, 81, '2010-05-20'),
+(82, 'Male', 'Coimbatore', 'Andorra', '2010-05-20 10:32:10', '1995-10-13 23:59:59', 14, 82, 82, '2010-05-20'),
+(83, 'Female', 'Nagpur', 'Afghanistan', '2010-05-20 10:32:10', '1997-01-12 23:59:59', 13, 83, 83, '2010-05-20'),
+(84, 'Female', 'Bhilwara', 'Andorra', '2010-05-20 10:32:10', '1994-06-02 23:59:59', 16, 84, 84, '2010-05-20'),
+(85, 'Male', 'Ludhiana', 'Argentina', '2010-05-20 10:32:10', '2000-10-08 23:59:59', 9, 85, 85, '2010-05-20'),
+(86, 'Female', 'Jalandhar', 'Algeria', '2010-05-20 10:32:10', '2000-01-07 23:59:59', 10, 86, 86, '2010-05-20'),
+(87, 'Female', 'Jodhapur', 'Albania', '2010-05-20 10:32:10', '1996-04-14 23:59:59', 14, 87, 87, '2010-05-20'),
+(88, 'Female', 'Ludhiana', 'Armenia', '2010-05-20 10:32:10', '1998-08-24 23:59:59', 12, 88, 88, '2010-05-20'),
+(89, 'Male', 'Alwar', 'Andorra', '2010-05-20 10:32:10', '1994-01-17 23:59:59', 16, 89, 89, '2010-05-20'),
+(90, 'Female', 'Bhilwara', 'Afghanistan', '2010-05-20 10:32:10', '1993-06-09 23:59:59', 17, 90, 90, '2010-05-20'),
+(91, 'Female', 'Indore', 'Argentina', '2010-05-20 10:32:10', '1998-08-19 23:59:59', 12, 91, 91, '2010-05-20'),
+(92, 'Male', 'Noida', 'Armenia', '2010-05-20 10:32:10', '1990-02-03 23:59:59', 20, 92, 92, '2010-05-20'),
+(93, 'Female', 'Indore', 'Anguilla', '2010-05-20 10:32:10', '2000-06-20 23:59:59', 10, 93, 93, '2010-05-20'),
+(94, 'Male', 'Kolkata', 'Angola', '2010-05-20 10:32:10', '1994-06-13 23:59:59', 16, 94, 94, '2010-05-20'),
+(95, 'Female', 'Nagpur', 'Armenia', '2010-05-20 10:32:10', '1998-06-17 23:59:59', 12, 95, 95, '2010-05-20'),
+(96, 'Male', 'Jaipur', 'Anguilla', '2010-05-20 10:32:10', '1998-09-03 23:59:59', 11, 96, 96, '2010-05-20'),
+(97, 'Female', 'Bhopal', 'Algeria', '2010-05-20 10:32:10', '1999-10-25 23:59:59', 10, 97, 97, '2010-05-20'),
+(98, 'Female', 'Mumbai', 'Albania', '2010-05-20 10:32:10', '1992-11-18 23:59:59', 17, 98, 98, '2010-05-20'),
+(99, 'Male', 'Ludhiana', 'Angola', '2010-05-20 10:32:10', '1996-04-22 23:59:59', 14, 99, 99, '2010-05-20'),
+(100, 'Male', 'Ludhiana', 'Anguilla', '2010-05-20 10:32:10', '1998-05-14 23:59:59', 12, 100, 100, '2010-05-20'),
+(101, 'Male', 'Ajmer', 'Aruba', '2010-05-20 10:32:10', '1995-02-18 23:59:59', 15, 101, 101, '2010-05-20'),
+(102, 'Female', 'Coimbatore', 'Aruba', '2010-05-20 10:32:10', '1992-09-23 23:59:59', 17, 102, 102, '2010-05-20'),
+(103, 'Male', 'Pune', 'Antigua and Barbuda', '2010-05-20 10:32:10', '1999-02-27 23:59:59', 11, 103, 103, '2010-05-20'),
+(104, 'Male', 'Vadodara', 'Armenia', '2010-05-20 10:32:10', '1990-06-02 23:59:59', 20, 104, 104, '2010-05-20'),
+(105, 'Female', 'Bikaner', 'Antarctica', '2010-05-20 10:32:10', '1998-04-21 23:59:59', 12, 105, 105, '2010-05-20'),
+(106, 'Male', 'Hyderabad', 'Andorra', '2010-05-20 10:32:10', '1998-09-11 23:59:59', 11, 106, 106, '2010-05-20'),
+(107, 'Male', 'chennai', 'Albania', '2010-05-20 10:32:10', '1997-11-16 23:59:59', 12, 107, 107, '2010-05-20'),
+(108, 'Male', 'Chandigarh', 'Andorra', '2010-05-20 10:32:10', '1993-02-12 23:59:59', 17, 108, 108, '2010-05-20'),
+(109, 'Male', 'Udaipur', 'Angola', '2010-05-20 10:32:10', '1998-04-16 23:59:59', 12, 109, 109, '2010-05-20'),
+(110, 'Male', 'chennai', 'Antigua and Barbuda', '2010-05-20 10:32:10', '1995-04-05 23:59:59', 15, 110, 110, '2010-05-20'),
+(111, 'Male', 'Jaipur', 'Antigua and Barbuda', '2010-05-20 10:32:10', '1990-03-13 23:59:59', 20, 111, 111, '2010-05-20'),
+(112, 'Male', 'Ahmedabad', 'Andorra', '2010-05-20 10:32:10', '1995-01-20 23:59:59', 15, 112, 112, '2010-05-20'),
+(113, 'Male', 'Jalandhar', 'Antigua and Barbuda', '2010-05-20 10:32:10', '1996-04-18 23:59:59', 14, 113, 113, '2010-05-20'),
+(114, 'Female', 'Hyderabad', 'Argentina', '2010-05-20 10:32:10', '1997-06-16 23:59:59', 13, 114, 114, '2010-05-20'),
+(115, 'Female', 'Bhilwara', 'Albania', '2010-05-20 10:32:10', '1994-09-01 23:59:59', 15, 115, 115, '2010-05-20'),
+(116, 'Female', 'Shimla', 'Aruba', '2010-05-20 10:32:10', '1990-01-13 23:59:59', 20, 116, 116, '2010-05-20'),
+(117, 'Female', 'Banglore', 'Albania', '2010-05-20 10:32:10', '1999-08-12 23:59:59', 11, 117, 117, '2010-05-20'),
+(118, 'Female', 'Jaipur', 'American Samoa', '2010-05-20 10:32:10', '1999-10-22 23:59:59', 10, 118, 118, '2010-05-20'),
+(119, 'Male', 'Surat', 'Albania', '2010-05-20 10:32:10', '1999-07-04 23:59:59', 11, 119, 119, '2010-05-20'),
+(120, 'Male', 'Ludhiana', 'Algeria', '2010-05-20 10:32:10', '1990-06-13 23:59:59', 20, 120, 120, '2010-05-20');;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+ 	<params>
+ 		<name>customtable</name>
+ 		<title>Custom Table Plugin</title>
+ 		<description>With this plugin, you can search according to any columns of any Table, but the must have the fields for Userid.
+ 					E.g. You can search the Onwer of any Group etc.</description>
+	</params>
+</config>
