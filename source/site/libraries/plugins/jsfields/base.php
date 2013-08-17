@@ -98,6 +98,7 @@ class JsfieldsBase extends XiusBase
 				$formatedColumn = $this->formatColumn($c, $db); //call parent's function
 				if(  JString::strtolower($fType) == 'text' ||
 					 JString::strtolower($fType) == 'textarea' ||
+					 JString::strtolower($fType) == 'checkbox' ||
 					 $operator == XIUS_LIKE
 					)
 					$conditions =  $formatedColumn.' '.XIUS_LIKE.' '.$db->Quote('%'.$this->formatValue($value).'%');

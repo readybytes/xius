@@ -27,7 +27,7 @@ JFactory::getDocument()->addScriptDeclaration( $output);
 
 	if(isset($displayKeyword['html'])
 	 ||isset($displayProximity['html'])):  ?>
-		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo JRoute::_($link,false);?>"  method=post>
+		<form id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo XiusRoute::_($link,false);?>"  method=post>
 			<div id="xiusKeyword">
 			<div id="keywordHtml"><?php if($displayKeyword['html']) echo $displayKeyword['html'];?></div>
 			</div>
