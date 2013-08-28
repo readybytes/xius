@@ -20,8 +20,8 @@ class plgCommunityxius extends JPlugin
 
 	function plgCommunityxius( &$subject, $params )
 	{
-		$plugin =& JPluginHelper::getPlugin('community', 'xius');
- 		$this->params = new JParameter($plugin->params);
+		$plugin = JPluginHelper::getPlugin('community', 'xius');
+ 		$this->params = new XiusParameter($plugin->params);
 		parent::__construct( $subject, $params );
 
 	}
@@ -39,14 +39,14 @@ class plgCommunityxius extends JPlugin
 	{
 		$this->_includePath();
 		
-		$showSearchMenuTab=XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);
+		$showSearchMenuTab = XiusHelperUtils::getConfigurationParams('integrateJomSocial',0);
 		//$this->params->get('showSearchMenuTab', 0);
 
 			if(!$showSearchMenuTab){
 				return;
 			}
 
-		$lang =& JFactory::getLanguage();
+		$lang = JFactory::getLanguage();
 		$user		= CFactory::getUser();
 		$lang->load('com_xius', JPATH_SITE);
 

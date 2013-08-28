@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<install type="module" version="1.5.0" client="site" method="upgrade">
+<extension type="module" version="2.5" client="site" method="upgrade">
 	<name>Xius Search Panel</name>
  	<version>@global.version@.@svn.lastrevision@</version>
     	<creationDate>Jan 2010</creationDate>
@@ -47,5 +47,5 @@
 			</fieldset>
 		</fields>
 	</config>
-</install> 
+</extension>
 

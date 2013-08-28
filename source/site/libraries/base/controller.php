@@ -10,7 +10,7 @@ defined('_JEXEC') or die();
 
 jimport( 'joomla.application.component.view' );
 
-class XiusController extends JController
+class XiusController extends JControllerLegacy
 {
 	function __construct($options = array())
 	{

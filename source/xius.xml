@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install type="component" version="1.5.0" method="upgrade">
+<extension type="component" version="2.5" method="upgrade">
     <name>XiUS</name>
     <version>@global.version@.@svn.lastrevision@</version>
     <creationDate>Jan 2010</creationDate>
@@ -10,8 +10,8 @@
     <copyrightHolder>JoomlaXi.com</copyrightHolder>
     <license>GNU General Public License v2</license>
     <description>An Supercharged and flexible user search system for Joomla</description>
-    <installfile>install/install.php</installfile>
-    <uninstallfile>install/uninstall.php</uninstallfile>
+
+	<scriptfile>script.php</scriptfile>
 
 	<files folder="site">
 		<file>xius.php</file>
@@ -66,20 +66,22 @@
 			<language tag="en-GB">languages/admin/en-GB.com_xius.ini</language>
 		</languages>
 	</administration>
-	
-	 <install>
-                <sql>
-                        <file driver="mysql" charset="utf8">install/install.sql</file>
-                </sql>
-        </install>
 
-	 <uninstall>
-                <sql>
-                        <file driver="mysql" charset="utf8">install/uninstall.sql</file>
-                </sql>
-        </uninstall>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install/install.sql</file>
+		</sql>
+    </install>
+
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">install/uninstall.sql</file>
+		</sql>
+	</uninstall>
 
 	<plugins>
 		<plugin plugin="xius_system" publish="true" group="system" />
 	</plugins>
-</install>
+
+</extension>

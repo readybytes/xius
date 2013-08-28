@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<install version="1.5" type="plugin" group="xius" method="upgrade">
+<extension version="2.5" type="plugin" group="xius" method="upgrade">
   <name>XiUS Dynamic filtering of XiPT-fields Plugin</name>
   <version>@global.version@.@svn.lastrevision@</version>
   <creationDate>Sept 2010</creationDate>
@@ -32,4 +32,4 @@
    </fieldset>
 </fields>
 </config>
-</install>
+</extension>

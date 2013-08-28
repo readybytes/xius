@@ -6,22 +6,13 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-// Import Joomla! libraries
-jimport( 'joomla.application.component.view');
 
-class XiusViewCpanel extends JView 
+class XiusViewCpanel extends JViewLegacy 
 {
 
 	function display( $tpl = null )
 	{
-		// Load tooltips
-		JHTML::_('behavior.tooltip', '.hasTip');
-		jimport('joomla.html.pane');
-		$pane	=& JPane::getInstance('sliders');
-		
 		$this->setToolbar();
-		
-		$this->assignRef( 'pane'		, $pane );
 		parent::display( $tpl );
 	}
 
@@ -34,25 +25,14 @@ class XiusViewCpanel extends JView
 	 **/
 	function setToolBar()
 	{
-		?>
-		<style type="text/css">
-		#toolbar-aboutus
-		{
-	 		background-image:  url(../administrator/components/com_xius/assets/images/icon-aboutus.png);
-	 		background-repeat:no-repeat;
-	 		background-position: top center;
-	 	}
-		</style>
-		<?php 
 		// Set the titlebar text
 		JToolBarHelper::title( XiusText::_( 'CONTROL_PANEL' ), 'Xius' );
-		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
 		//JToolBarHelper::custom('aboutus','aboutus','',XiusText::_('ABOUT US'),0,0);
 	}
 	
 	function addIcon( $image , $url , $text , $newWindow = false )
 	{
-		$lang		=& JFactory::getLanguage();
+		$lang		= JFactory::getLanguage();
 		
 		$newWindow	= ( $newWindow ) ? ' target="_blank"' : '';
 		?>

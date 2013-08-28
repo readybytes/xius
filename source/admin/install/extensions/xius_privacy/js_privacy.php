@@ -199,10 +199,10 @@ class plgXiusjs_privacy extends JPlugin
     {
 		//XITODO : Cache the results
     	$db      = & JFactory::getDBO();
-        $query   = 'SELECT '. $db->nameQuote('connection_id').'  FROM ' . $db->nameQuote( '#__community_connection')
-        			.' WHERE '. $db->nameQuote('connect_from').'='.$db->Quote($userId)
-                    .' AND '. $db->nameQuote('connect_to').'='.$db->Quote($otherUserId)
-                    .' AND '. $db->nameQuote('status').'='.$db->Quote('1');
+        $query   = 'SELECT '. $db->quoteName('connection_id').'  FROM ' . $db->quoteName( '#__community_connection')
+        			.' WHERE '. $db->quoteName('connect_from').'='.$db->Quote($userId)
+                    .' AND '. $db->quoteName('connect_to').'='.$db->Quote($otherUserId)
+                    .' AND '. $db->quoteName('status').'='.$db->Quote('1');
                                        
         $db->setQuery( $query );
         return $db->loadResult();                

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<install version="1.5" type="plugin" group="system" method="upgrade">
+<extension version="2.5" type="plugin" group="system" method="upgrade">
   <name>XIUS System Plugin</name>
   <version>@global.version@.@svn.lastrevision@</version>
   <creationDate>Mar 2010</creationDate>
@@ -12,4 +12,4 @@
   <files>  	
 	<filename plugin="xius_system">xius_system.php</filename>
   </files>
-</install>
+</extension>

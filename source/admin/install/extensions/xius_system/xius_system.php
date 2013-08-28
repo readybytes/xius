@@ -1,6 +1,11 @@
 <?php
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
+
+if(!defined('DS')){
+	define('DS', DIRECTORY_SEPARATOR);
+}
+
 jimport( 'joomla.plugin.plugin' );
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');

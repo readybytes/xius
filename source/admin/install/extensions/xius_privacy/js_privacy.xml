@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<install version="1.5" type="plugin" group="xius" method="upgrade">
+<extension version="2.5" type="plugin" group="xius" method="upgrade">
   <name>XIUS JS Privacy Plugin</name>
   <version>@global.version@.@svn.lastrevision@</version>
   <creationDate>Mar 2010</creationDate>
@@ -13,4 +13,4 @@
 	<filename plugin="js_privacy">js_privacy.php</filename>
 	<folder>js_privacy</folder>
   </files>
-</install>
+</extension>

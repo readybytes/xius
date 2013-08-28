@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
  
-class XiusControllerConfiguration extends JController 
+class XiusControllerConfiguration extends JControllerLegacy 
 {
     
 	function __construct($config = array())

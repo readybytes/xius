@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install version="1.5" type="plugin" group="search" method="upgrade">
+<extension version="2.5" type="plugin" group="search" method="upgrade">
   <name>XIUS Joomla Integration Plugin</name>
   <version>@global.version@.@svn.lastrevision@</version>
   <creationDate>Mar 2010</creationDate>
@@ -12,4 +12,4 @@
   <files>  	
 	<filename plugin="xius">xius.php</filename>
   </files>
-</install>
+</extension>
