@@ -7,29 +7,14 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 
-class XiusViewCpanel extends JViewLegacy 
+class XiusViewCpanel extends XiusView 
 {
 
 	function display( $tpl = null )
 	{
-		$this->setToolbar();
 		parent::display( $tpl );
 	}
 
-	/**
-	 * Private method to set the toolbar for this view
-	 * 
-	 * @access private
-	 * 
-	 * @return null
-	 **/
-	function setToolBar()
-	{
-		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'CONTROL_PANEL' ), 'Xius' );
-		//JToolBarHelper::custom('aboutus','aboutus','',XiusText::_('ABOUT US'),0,0);
-	}
-	
 	function addIcon( $image , $url , $text , $newWindow = false )
 	{
 		$lang		= JFactory::getLanguage();
@@ -49,7 +34,6 @@ class XiusViewCpanel extends JViewLegacy
 	
 	function updates($tpl = null)
 	{
-		$this->setToolbar();
 		parent::display( $tpl);
 	}
 

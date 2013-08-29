@@ -12,7 +12,7 @@ jimport( 'joomla.application.component.view' );
 /**
  */
 
-class XiusView extends JView
+class XiusView extends JViewLegacy
 {
 	/* Will be set by controller*/
 	public $_model 			= null;
@@ -20,6 +20,11 @@ class XiusView extends JView
 	
 	public $_xiurl 			= null;
 	//public $_isExternalUrl  = false;
+	
+
+	protected $_name = 'cpanel';
+	
+	static $_submenus = array('cpanel', 'configuration', 'info','list');
 
 	/*
 	 * Set default Path Array according to Priority.
@@ -27,6 +32,9 @@ class XiusView extends JView
 	 */
 	function __construct($config = array())
 	{		
+		if(JFactory::getApplication()->isAdmin())
+			return parent::__construct($config);
+		
 		$template	= XiusHelperUtils::getConfigurationParams('xiusTemplates','default');
 
 		if(!isset($config['template_path']))
@@ -184,23 +192,6 @@ class XiusView extends JView
   		return XiusHelperToolbar::addToAdminToolbar();
   	}	
 	
-  	
-  	
-	function display($tmpl = null)
-	{
-		// set proper URI
-		if($this->_xiurl === null)
-		{
-			//then set something we desire
-			// XITODO : if still $this->_xiurl  iss not set then what to do
-			$this->_xiurl = $this->getXiUrl();
-		}
-		// XiTODO:: Clean This
-		$this->assign('submitUrl', $this->_xiurl);
-		return parent::display($tmpl);
-	}
-	
-	
 	public function setXiUrl($vars)
 	{
 		if($this->_xiurl)
@@ -274,4 +265,90 @@ class XiusView extends JView
 		}
 		return true;
 	}
+	
+	
+	/*
+	 * Backend base view 
+	 * 
+	 * 
+	 */
+	static function addSubmenus($menu=null)
+	{
+		if($menu !== null){
+			self::$_submenus[] = $menu;
+		}
+		return self::$_submenus;
+	}
+	
+	static function _addSubMenu($menu, $selMenu,$comName='com_xius')
+	{
+		$selected 	= ($menu==$selMenu);
+		$link 		= "index.php?option=".$comName."&view=$menu";
+		$title 		= XiusText::_(JString::strtoupper($menu));
+		JSubMenuHelper::addEntry($title,$link, $selected);
+	}
+	
+	public function display($tpl = null)
+	{
+		if(JFactory::getApplication()->isSite()){
+			// set proper URI
+			if($this->_xiurl === null)
+			{
+				//then set something we desire
+				// XITODO : if still $this->_xiurl  iss not set then what to do
+				$this->_xiurl = $this->getXiUrl();
+			}
+			// XiTODO:: Clean This
+			$this->assign('submitUrl', $this->_xiurl);
+			return parent::display($tpl);
+		}
+		
+		$this->_setToolBar();
+	
+		foreach(self::$_submenus as $submenu)
+		{
+			self::_addSubMenu($submenu,$this->_name);
+		}
+	
+		$output = $this->loadTemplate($tpl);
+	
+		if ($output instanceof Exception)
+		{
+			return $output;
+		}
+	
+		$header = $this->getHeader();
+		$footer = $this->getFooter();
+	
+		echo "<div id='xius_header' class='clearfix'>".$header."</div><div id='xius_body' class='clearfix'>".$output."</div><div id='xius_footer' class='clearfix'>".$footer."</div>";
+	}
+	
+	function setToolBar()
+	{
+		return true;
+	}
+	
+	function _setToolBar()
+	{
+		// Set the titlebar text
+		JToolBarHelper::title( XiusText::_(strtoupper($this->_name)), $this->_name );
+	
+		$this->setToolBar();
+	}
+	
+	function getHeader()
+	{
+		return '<div></div>';
+	}
+	
+	function getFooter()
+	{
+		ob_start();
+		include_once(XIUS_COMPONENT_PATH_ADMIN.DS.'views'.DS.'cpanel'.DS.'tmpl'.DS.'default_footermenu.php');
+		$footer = ob_get_contents();
+		ob_clean();
+	
+		return $footer;
+	}
+	
 }
