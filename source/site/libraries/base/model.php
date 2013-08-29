@@ -13,7 +13,7 @@ jimport('joomla.application.component.model');
  * XiUS-Model class have all genearal model function. 
  */ 
 
-class XiusModel extends JModel
+class XiusModel extends JModelLegacy
 {
 	var $_table;
 	var $_pagination = null;

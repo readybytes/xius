@@ -2,7 +2,7 @@
 // Check to ensure this file is included in Joomla!
 if(!defined('_JEXEC')) die('Restricted access');
 
-class JElementLimit extends JElement
+class JElementLimit extends XiusElement
 {
 	/**
 	 * Element name

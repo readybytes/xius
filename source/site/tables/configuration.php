@@ -24,10 +24,10 @@ class XiusTableConfiguration extends XiusTable
 	 **/	 	
 	function store()
 	{
-		$db		=& $this->getDBO();
+		$db		= $this->getDBO();
 		
-		$query	= 'SELECT COUNT(*) FROM ' . $db->nameQuote( '#__xius_config') . ' '
-				. 'WHERE ' . $db->nameQuote( 'name' ) . '=' . $db->Quote( $this->name );
+		$query	= 'SELECT COUNT(*) FROM ' . $db->quoteName( '#__xius_config') . ' '
+				. 'WHERE ' . $db->quoteName( 'name' ) . '=' . $db->Quote( $this->name );
 		$db->setQuery( $query );
 		
 		$count	= $db->loadResult();

@@ -60,9 +60,13 @@ XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_HELPER,	'helper');
 XiusLoader::addAutoLoadFolder(XIUS_PATH_SITE_CONTROLLER,'controller',	'Xiussite');
 XiusLoader::addAutoLoadViews (XIUS_PATH_SITE_VIEW,		JRequest::getCmd('format','html'),	'Xiussite');
 
+XiusLoader::addAutoLoadFile('XiusParameter', XIUS_PATH_BASE.DS.'legacy'.DS.'parameter.php');
+XiusLoader::addAutoLoadFile('XiusSimpleXml', XIUS_PATH_BASE.DS.'legacy'.DS.'simplexml.php');
+XiusLoader::addAutoLoadFile('XiusSimpleXmlElement', XIUS_PATH_BASE.DS.'legacy'.DS.'simplexml.php');
+XiusLoader::addAutoLoadFile('XiusElement', XIUS_PATH_BASE.DS.'legacy'.DS.'element.php');
 
 /*Load Langauge file*/
-$lang =& JFactory::getLanguage();
+$lang = JFactory::getLanguage();
 if($lang){
 	$lang->load(XIUS_COMPONENT_NAME);
 	$lang->load( 'com_community' );

@@ -5,7 +5,7 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 require_once XIUS_PLUGINS_PATH.DS.'joomla'.DS.'joomlahelper.php';
-class JElementXiusJoomlaUserGroup extends JElement
+class JElementXiusJoomlaUserGroup extends XiusElement
 {
 	/**
 	 * Element name

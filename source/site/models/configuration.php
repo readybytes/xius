@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 jimport( 'joomla.application.component.model' );
 
-class XiusModelConfiguration extends JModel
+class XiusModelConfiguration extends JModelLegacy
 { 	 	 
 	var $_params;
 	var $_xml	= '';

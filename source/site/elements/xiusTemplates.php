@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 jimport('joomla.filesystem.folder');
 jimport('joomla.filesystem.file');
 
-class JElementXiusTemplates extends JElement
+class JElementXiusTemplates extends XiusElement
 {
 	/**
 	 * Element name

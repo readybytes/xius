@@ -6,21 +6,14 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-// Import Joomla! libraries
-jimport( 'joomla.application.component.view');
-
-class XiusViewConfiguration extends JView 
+class XiusViewConfiguration extends XiusView 
 {
-    
+	protected $_name = 'configuration';
+
 	function display($tpl = null)
 	{
-		self::setToolBar();
 		$cModel = XiusFactory::getInstance ('configuration','model');
 		$params	= $cModel->getParams();
-    	jimport('joomla.html.pane');
-		$pane	=& JPane::getInstance('sliders');
-		
-		$this->assignRef( 'pane', $pane );
 		$this->assign( 'params' , $params );
 		parent::display( $tpl );
     }
@@ -35,17 +28,9 @@ class XiusViewConfiguration extends JView
 	 **/	 	 
 	function setToolBar()
 	{
-
-		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'CONFIGURATION' ), 'configuration' );
-
 		// Add the necessary buttons
-		JToolBarHelper::back(XiusText::_( 'HOME' ) , 'index.php?option=com_xius');
-		JToolBarHelper::divider();
-		JToolBarHelper::save('save','COM_XIUS_SAVE');
-		 
-		JToolBarHelper::custom("runCron",'updateCache','','COM_XIUS_UPDATE_CACHE',0,0); 
-			
+		JToolBarHelper::save('save','COM_XIUS_SAVE');		 
+		JToolBarHelper::custom("runCron",'refresh','','COM_XIUS_UPDATE_CACHE',0,0); 			
 		//JToolBarHelper::custom('reset','reset','','RESET',0,0); 
 	}
 }

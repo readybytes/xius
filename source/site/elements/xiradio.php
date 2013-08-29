@@ -18,7 +18,7 @@ defined('JPATH_BASE') or die;
  * @since		1.5
  */
 
-class JElementXiradio extends JElement
+class JElementXiradio extends XiusElement
 {
 	/**
 	* Element name
