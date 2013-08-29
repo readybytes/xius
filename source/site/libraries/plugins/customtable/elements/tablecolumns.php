@@ -3,7 +3,7 @@
 // Check to ensure this file is included in Joomla!
 if(!defined('_JEXEC')) die('Restricted access');
 
-class JElementTablecolumns extends JElement
+class JElementTablecolumns extends XiusElement
 {
 	/**
 	 * Element name

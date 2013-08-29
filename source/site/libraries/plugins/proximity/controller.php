@@ -7,7 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . 'defines.php');
 
-class XiusPluginControllerProximity extends JController 
+class XiusPluginControllerProximity extends JControllerLegacy 
 {
     
 	function __construct($config = array())

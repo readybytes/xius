@@ -5,19 +5,9 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access'); ?>
 
-<?php JHTML::_('behavior.tooltip'); ?>
-
-<?php 
-JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-JToolBarHelper::divider();
-JToolBarHelper::apply('apply', XiusText::_('APPLY'));
-JToolBarHelper::save('save',XiusText::_('SAVE'));
-JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
-?>
-
 <div id="XIUS">
 <div class="xippElements">
-<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm">
 <div>
 <div class="col width-50" style="width:50%; float:left;">
 	<fieldset class="adminform">
@@ -60,13 +50,8 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 	<fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'GENERAL_PARAMETERS' ); ?></legend>
 	<?php
-		jimport('joomla.html.pane');
-		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
-		echo $pane->startPane('core-pane');
-		//echo $pane->startPanel(XiusText:: _('Core Fields Parameters'), 'coreparam-page');
 		echo $this->paramsHtml;
-		//echo $pane->endPanel();
-		?>
+	?>
 	</fieldset>
 
 
@@ -79,9 +64,6 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 <fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'PLUGIN_PARAMETERS' ); ?></legend>
 	<?php
-		jimport('joomla.html.pane');
-		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
-		echo $pane->startPane('plugin-pane');
 		echo $this->pluginParamsHtml;
 	?>
 	</fieldset>
@@ -95,14 +77,9 @@ JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 <fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'PRIVACY_PARAMETER' ); ?></legend>
 	<?php
-		jimport('joomla.html.pane');
-		$pane = &JPane::getInstance('sliders', array('allowAllClose' => true));
-		echo $pane->startPane('core-pane');
 		foreach ( $this->privacyHtml as $html)
 			echo $html;
-		echo $pane->endPanel();
-		?>
-		
+	?>	
 	</fieldset>
 </div>
 </div>

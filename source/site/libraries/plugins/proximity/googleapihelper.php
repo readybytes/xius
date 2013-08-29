@@ -7,7 +7,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 require_once(dirname(__FILE__) . DS . 'defines.php');
 
-class ProximityGoogleapiHelper extends JController 
+class ProximityGoogleapiHelper extends JControllerLegacy 
 {
 
 	static public function getGoogleAPIContent($url)

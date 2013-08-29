@@ -19,7 +19,7 @@ class XiusCache
 		$this->_updatedTable= '#__xius_updated_cache';
 		$this->_tableName   = '#__xius_cache';
 		$this->_insertQuery = 'INSERT INTO '
-							   .$this->db->nameQuote($this->_updatedTable).' ( ';
+							   .$this->db->quoteName($this->_updatedTable).' ( ';
 		$this->error 	    = XiusFactory::getInstance('error');
 
 	}
@@ -75,7 +75,7 @@ class XiusCache
 		$this->db->setQuery($this->_insertQuery);
 		
 		// clear the insert query
-		$this->_insertQuery = 'INSERT INTO '.$this->db->nameQuote($this->_tableName).' ( ';
+		$this->_insertQuery = 'INSERT INTO '.$this->db->quoteName($this->_tableName).' ( ';
 			
     	if(!$this->db->query()){
 			JFactory::getApplication()->enqueueMessage(XiusText::_('INSERT_IN_DB_FAILED'));
@@ -97,7 +97,7 @@ class XiusCache
 	 */
 	function renameTable()
 	{
-		$this->db->setQuery("RENAME TABLE ".$this->db->nameQuote($this->_updatedTable)." TO ".$this->db->nameQuote($this->_tableName));
+		$this->db->setQuery("RENAME TABLE ".$this->db->quoteName($this->_updatedTable)." TO ".$this->db->quoteName($this->_tableName));
 		return $this->db->query();
 	}
 	/*
@@ -105,7 +105,7 @@ class XiusCache
 	 */
 	function dropTable($tableName='#__xius_cache')
 	{
-		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->nameQuote($tableName);
+		$dropQuery = 'DROP TABLE IF EXISTS '.$this->db->quoteName($tableName);
 		$this->db->setQuery($dropQuery);
 		$this->db->query();
 		return true;
@@ -149,7 +149,7 @@ class XiusCache
 		}
 		
 		$query = new XiusQuery();
-		return $query->create($this->db->nameQuote($this->_updatedTable),$columns);
+		return $query->create($this->db->quoteName($this->_updatedTable),$columns);
 	}
 	
 }

@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
  
-class XiusControllerInfo extends JController 
+class XiusControllerInfo extends JControllerLegacy
 {
     
 	function __construct($config = array())
@@ -43,12 +43,12 @@ class XiusControllerInfo extends JController
 		$viewName	= JRequest::getCmd( 'view' , 'info' );
 		
 		// Get the document object
-		$document	=& JFactory::getDocument();
+		$document	= JFactory::getDocument();
 
 		// Get the view type
 		$viewType	= $document->getType();
 		
-		$view		=& $this->getView( $viewName , $viewType );
+		$view		= $this->getView( $viewName , $viewType );
 		
 		if(!$plugin)
 			$layout		= JRequest::getCmd( 'layout' , 'pluginlist' );
@@ -214,7 +214,7 @@ class XiusControllerInfo extends JController
 		$mainframe = JFactory::getApplication();
 		
 		$data = $this->_processSave();
-		$link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderInfo&editId='.$data['id'], false);
+		$link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$data['id'], false);
 		$mainframe->redirect($link, $data['msg']);				
 	}	
 

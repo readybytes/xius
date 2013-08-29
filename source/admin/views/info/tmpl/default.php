@@ -40,7 +40,7 @@ function submitbutton( action )
 				<?php echo XiusText::_( 'NUM' ); ?>
 			</th>
 			<th width="1%">
-				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->allinfo ); ?>);" />
+				<input type="checkbox" name="toggle" value="" onclick="Joomla.checkAll(this);" />
 			</th>
 			<th width="20%">
 				<?php echo XiusText::_( 'LABEL_NAME' ); ?>
@@ -91,7 +91,7 @@ function submitbutton( action )
 			<td>
 				<?php echo $input; ?>
 			</td>
-			<td>
+			<td align="center" >
 				<span class="editlinktip" title="<?php echo $info->labelName; ?>" id="labelname<?php echo $info->id;?>">
 					<?php $link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$info->id, false); ?>
 						<A HREF="<?php echo $link; ?>"><?php echo $info->labelName; ?></A>

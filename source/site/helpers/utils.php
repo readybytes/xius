@@ -68,7 +68,7 @@ class XiusHelperUtils
 			if(JFile::exists($xmlPath)===false)
 				continue;
 
-			$xml = JFactory::getXMLParser('Simple');
+			$xml = new XiusSimpleXML();
 			if(!$xml->loadFile($xmlPath))
 				continue;
 
@@ -86,9 +86,6 @@ class XiusHelperUtils
 			return false;
 		}
 
-		if(XIUS_JOOMLA_15){
-			return JFactory::getUser($userid)->authorize( 'com_users', 'manage' );
-		}
 		return JFactory::getUser($userid)->authorise('core.login.admin');
 	}
 	
@@ -196,8 +193,8 @@ class XiusHelperUtils
 	
 		$parser->loadFile( $xml );
 	
-		$doc		=& $parser->document;
-		$element	=& $doc->getElementByPath( 'version' );
+		$doc		= $parser->document;
+		$element	= $doc->getElementByPath( 'version' );
 		$version	= $element->data();
 	
 		return $version;

@@ -4,9 +4,6 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!defined('_JEXEC')) die('Restricted access');
-
-JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
 ?>
 
 <div id="XIUS">

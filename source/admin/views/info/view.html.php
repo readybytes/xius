@@ -9,18 +9,16 @@ if(!defined('_JEXEC')) die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class XiusViewInfo extends JView 
+class XiusViewInfo extends XiusView 
 {
+	protected $_name = 'info';
+	
 	function display($tpl = null)
 	{
 		$iModel	= XiusFactory::getInstance ( 'info','Model' );
 		
 		$allInfo	= $iModel->getAllInfo();
 		$pagination	= $iModel->getPagination();
-		
-		$this->setToolbar();
-		// Load tooltips
-		JHTML::_('behavior.tooltip', '.hasTip');
 
 		$this->assignRef( 'allinfo' 		, $allInfo );
 		$this->assignRef( 'pagination'	, $pagination );
@@ -52,7 +50,6 @@ class XiusViewInfo extends JView
 		}
 		//XiTODO:: Why assign this.
 		$this->assign( 'plugins' , $plugins );
-		JToolBarHelper::title( XiusText::_( 'GENERATE_INFO' ), 'info' );
 		parent::display($tpl);
 	}
 	
@@ -67,8 +64,8 @@ class XiusViewInfo extends JView
 		$pluginObject->formatPostForGeneratingInfo($postData);
 		$pluginObject->getHtml($paramsHtml,$pluginParamsHtml);
 
-		$privacy	=array();
-		$dispatcher =  JDispatcher::getInstance();
+		$privacy	= array();
+		$dispatcher = JDispatcher::getInstance();
 		$privacyHtml= $dispatcher->trigger('onBeforeRenderInfoDisplay', array(&$data));
 		
 		$this->assignRef('privacyHtml', $privacyHtml);
@@ -84,7 +81,6 @@ class XiusViewInfo extends JView
 		$this->assign('pluginArray',		$pluginArray);
 		$this->assign('info',$data);
 		$this->assign('infoName',$infoName);
-		JToolBarHelper::title( XiusText::_( 'GENERATE_INFO' ), 'info' );
 		parent::display($tpl);
 	}
 	
@@ -92,16 +88,24 @@ class XiusViewInfo extends JView
 	function setToolBar()
 	{
 
-		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'GENERATE_INFO' ), 'info' );
-
-		// Add the necessary buttons
-		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
-		JToolBarHelper::divider();
-		JToolBarHelper::publishList('publish', XiusText::_( 'PUBLISH' ));
-		JToolBarHelper::unpublishList('unpublish', XiusText::_( 'UNPUBLISH' ));
-		JToolBarHelper::divider();
-		JToolBarHelper::trash('remove', XiusText::_( 'DELETE' ));
-		JToolBarHelper::addNew('add', XiusText::_( 'CREATE_INFO' ));
+		$task = JFactory::getApplication()->input->get('task');
+		
+		if($task != ('add' || 'renderinfo' || 'apply') || $task == "cancel") {
+			JToolBarHelper::addNew('add', XiusText::_( 'CREATE_INFO' ));
+			JToolBarHelper::divider();
+			JToolBarHelper::publishList('publish', XiusText::_( 'PUBLISH' ));
+			JToolBarHelper::unpublishList('unpublish', XiusText::_( 'UNPUBLISH' ));
+			JToolBarHelper::divider();
+			JToolBarHelper::trash('remove', XiusText::_( 'DELETE' ));
+		}
+		if($task == 'renderinfo' || $task == 'apply' )
+		{
+			JToolBarHelper::apply('apply', XiusText::_('APPLY'));
+			JToolBarHelper::save('save',XiusText::_('SAVE_AND_CLOSE'));
+		}
+		if($task != ('cancel') && isset($task) ) {
+			JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
+		}
+		
 	}
 }

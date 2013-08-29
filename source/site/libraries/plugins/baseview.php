@@ -156,6 +156,27 @@ class XiusBaseView extends XiusView
 						break;
 		}
 		return true;
-	}
+	}	
+
+	public function display($tpl = null)
+	{
+		// set proper URI
+		if($this->_xiurl === null)
+		{
+			//then set something we desire
+			// XITODO : if still $this->_xiurl  iss not set then what to do
+			$this->_xiurl = $this->getXiUrl();
+		}
+		// XiTODO:: Clean This
+		$this->assign('submitUrl', $this->_xiurl);
+		
+		$output = $this->loadTemplate($tpl);
+
+		if ($output instanceof Exception)
+		{
+			return $output;
+		}
 	
+		echo "<div class='clearfix'>".$output."</div>";
+	}
 }

@@ -51,10 +51,10 @@ class XiusTableInfo extends XiusTable
 	 **/
 	function store( )
 	{
-		$db		=& $this->getDBO();
+		$db		= $this->getDBO();
 		if( $this->id == 0 )
  		{
- 			$query	= 'SELECT COUNT(' . $db->nameQuote('ordering') . ') FROM ' . $db->nameQuote('#__xius_info');
+ 			$query	= 'SELECT COUNT(' . $db->quoteName('ordering') . ') FROM ' . $db->quoteName('#__xius_info');
 				
  			$db->setQuery( $query );
  			$this->ordering	= $db->loadResult() + 1;
