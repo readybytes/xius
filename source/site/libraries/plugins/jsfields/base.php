@@ -115,7 +115,7 @@ class JsfieldsBase extends XiusBase
 					$count = 0;
 					foreach($value as $v){
 						$conditions .= $count ? ' OR ' : ' ( ';
-						$conditions .= ''.$db->nameQuote($c->cacheColumnName).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
+						$conditions .= ''.$db->quoteName($c->cacheColumnName).' LIKE '.$db->Quote('%'.$this->formatValue($v).'%');
 						$count++;
 						//$query->where($conditions);
 					}

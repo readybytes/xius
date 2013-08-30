@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 class XiusLibInfo
 {
 	
-	public function getInfo($filter = '',$join = 'AND',$reqPagination = false,$limitStart=0 , $limit=0)
+	public static function getInfo($filter = '',$join = 'AND',$reqPagination = false,$limitStart=0 , $limit=0)
 	{
 		$allInfo = self::getAllInfo();
 		if(empty($filter) || count($allInfo) == 0)
@@ -36,7 +36,7 @@ class XiusLibInfo
 	}
 	
 	
-	function getAllInfo($reset=false)
+	public static function getAllInfo($reset=false)
 	{
 		static $allInfo=null;
 		if($reset == true){

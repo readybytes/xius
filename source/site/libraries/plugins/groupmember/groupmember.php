@@ -51,7 +51,7 @@ class Groupmember extends XiusBase
     //format the column
 	function formatColumn($column, $db)
 	{
-		return $db->nameQuote('userid');
+		return $db->quoteName('userid');
 	}
 
 	// Build Sub-Query for getting group member 

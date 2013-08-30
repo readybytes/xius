@@ -44,7 +44,8 @@ foreach($this->xiusToolbar as $tool)
                 //set the default limit for search result
 				$mainframe  	= JFactory::getApplication();
 				$limit 			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-                echo JElementLimit::fetchElement('limit',$limit);
+				$limitObject 	= new JElementLimit;
+				echo $limitObject->fetchElement('limit',$limit);
 ?>
 	</div>
 </div>

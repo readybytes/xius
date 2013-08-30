@@ -11,6 +11,8 @@ jimport( 'joomla.application.component.view');
 
 class XiussiteViewUsers extends XiusView
 {
+	protected  $_name = 'users';
+	
 	function panel($allInfo,$tmpl='panel')
 	{
 		$infohtml = array();
@@ -50,7 +52,7 @@ class XiussiteViewUsers extends XiusView
 
 		$document = JFactory::getDocument();
 		$document->setTitle(XiusText::_('SEARCH_PANEL'));
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplaySearchPanel',array( &$infohtml  ));
 		
 		$joinHtml['enable']  	= XiusHelperUtils::getConfigurationParams('xiusEnableMatch',true);

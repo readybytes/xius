@@ -78,7 +78,7 @@ class Customtable extends XiusBase
    function formatColumn($column , $db)
 	{
 		if(JString::stristr(JString::strtolower($column->cacheSqlSpec),'date'))
-			return "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ";
+			return "DATE_FORMAT(".$db->quoteName($c->cacheColumnName).", '%d-%m-%Y') ";
 
 		 return parent::formatColumn($column, $db);
 	}
@@ -129,7 +129,7 @@ class Customtable extends XiusBase
 	function getCacheSqlSpec($key)
 	{
 		$db 	= JFactory::getDBO();
-		$table =XiusTable::replacePrefix($key);
+		$table  = XiusTable::replacePrefix($key);
 		$column = $this->pluginParams->get('customSearchColumn');
 		
 		static $specs = null;
@@ -140,7 +140,7 @@ class Customtable extends XiusBase
 			return $type.' '.$null.' '.$default;
 		}
 		
-		$query = "SHOW COLUMNS FROM ".$db->nameQuote($table);
+		$query = "SHOW COLUMNS FROM ".$db->quoteName($table);
 		$db->setQuery($query);
 		$specs[$table] = $db->loadObjectList('Field');
 		

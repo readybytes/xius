@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusControllerList extends JController
+class XiusControllerList extends JControllerLegacy
 {
     /**
      * Constructor
@@ -36,7 +36,7 @@ class XiusControllerList extends JController
 
 		$data = $this->_remove();
 
-		$cache = & JFactory::getCache('com_content');
+		$cache = JFactory::getCache('com_content');
 		$cache->clean();
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
 		$mainframe->redirect($link, $data['message']);
@@ -49,12 +49,12 @@ class XiusControllerList extends JController
 		$viewName	= JRequest::getCmd( 'view' , 'list' );
 
 		// Get the document object
-		$document	=& JFactory::getDocument();
+		$document	= JFactory::getDocument();
 
 		// Get the view type
 		$viewType	= $document->getType();
 
-		$view		=& $this->getView( $viewName , $viewType );
+		$view		= $this->getView( $viewName , $viewType );
 
 		if($id){
 			$layout		= JRequest::getCmd( 'layout' , 'list.edit' );
@@ -296,7 +296,7 @@ class XiusControllerList extends JController
 			$id		= (int) $id[0];
 
 			// Load the JTable Object.
-			$table	=& XiusFactory::getInstance( 'list' , 'Table' );
+			$table	= XiusFactory::getInstance( 'list' , 'Table' );
 
 			$table->load( $id );
 

@@ -31,15 +31,14 @@ class XiusRoute
 		return $url."&Itemid=".$query['Itemid'];		
 	}
 	
-	function _($url, $xhtml = true, $ssl = null)
+	public static function _($url, $xhtml = true, $ssl = null)
 	{
 		
-	   $config =& JFactory::getConfig();
+	   $config = JFactory::getConfig();
 	   
 	   if(JFactory::getApplication()->isAdmin())
 			return $url;
-		
-	   if($config->getValue('sef') === '0'){           
+	   if($config->get('sef') === '0'){           
           if(strpos($url, 'com_xius')){
               $url = self::_addItemId($url);
         	    return $url;

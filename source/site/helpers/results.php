@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusHelperResults
 {
-	function _getInitialData(&$data)
+	public static function _getInitialData(&$data)
 	{
 		$conditions 	 = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$sortId 		 = XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
@@ -42,7 +42,7 @@ class XiusHelperResults
 		$data['join']		= $join;
 	}
 
-	function _getUsers(&$data)
+	public static function _getUsers(&$data)
 	{
 		$model 		=  XiusFactory::getInstance ('users', 'model');
 		$users 		= $model->getUsers($data['conditions'],$data['join'],$data['sort'],$data['dir']);
@@ -52,14 +52,14 @@ class XiusHelperResults
         $data['pagination'] = $pagination;
 	}
 
-	function _getTotalUsers(&$data)
+	public static function _getTotalUsers(&$data)
 	{
 		$model 		   = XiusFactory::getInstance('users', 'model','');
 		$data['total'] = $model->getTotal($data['conditions'],$data['join'],$data['sort'],$data['dir']);
 
 	}
 
-	function _createUserProfile(&$data)
+	public static function _createUserProfile(&$data)
 	{
 		$allInfo		= XiusLibInfo::getAllInfo();
         $userprofile 	= array();
@@ -93,7 +93,7 @@ class XiusHelperResults
 		$data['sortableFields'] = $sortableFields;
 	}
 
-	function _getAppliedInfo(&$data)
+	public static function _getAppliedInfo(&$data)
 	{
 	//$availableInfo = $allInfo;
         $appliedInfo = array();
@@ -141,7 +141,7 @@ class XiusHelperResults
         $data['appliedInfo']=$appliedInfo;
 	}
 
-	function _getAvailableInfo(&$data)
+	public static function _getAvailableInfo(&$data)
 	{
         /*XITODO : arrange available info
          * representation array

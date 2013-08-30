@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusHelperProfile
 {
-	function getUserProfileData($users)
+	public static function getUserProfileData($users)
 	{
 		//check configuration and call appropriate function
 		$userData = array();
@@ -22,7 +22,7 @@ class XiusHelperProfile
 		return $userData;
 	}
 
-	function jomSocialProfileData($users, &$userData)
+	public static function jomSocialProfileData($users, &$userData)
 	{
 		$userId = JFactory::getUser()->id;
 		$friendsIds = CFactory::getModel('friends')->getFriendIds($userId);
@@ -36,12 +36,14 @@ class XiusHelperProfile
 			$data->thumbAvatar  = $cuser->getThumbAvatar();
 			$data->status 	    = $cuser->getStatus();
 			$data->profileLink  = XiusRoute::_('index.php?option=com_community&view=profile&userid='.$cuser->id,false);
-			$data->isOnline    = $cuser->isOnline();
+			$data->isOnline     = $cuser->isOnline();
 		    $data->friendReq 	= "";
+		    
+		    $cfriend = new CFriends();
 
 			if(!in_array($user->userid, $friendsIds) && $user->userid!=$userId)
 			{
-		        $data->friendReq = 'onclick="'. CFriends::getPopup($user->userid).'" href="javascript:void(0);"';
+		        $data->friendReq = 'onclick="'. $cfriend->getPopup($user->userid).'" href="javascript:void(0);"';
 			}
 
 			$userData[] = $data;

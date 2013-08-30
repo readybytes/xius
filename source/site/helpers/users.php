@@ -9,19 +9,19 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusHelperUsers 
 {
-	function getSerializedData($what)
+	public static function getSerializedData($what)
 	{
 		return htmlspecialchars(serialize($what),ENT_QUOTES);
 	}
 	
-	function getUnserializedData($what)
+	public static function getUnserializedData($what)
 	{
 		return unserialize(htmlspecialchars_decode($what,ENT_QUOTES));
 	}
 	
     function getJoomlaGroups()
 	{
-		$db= & JFactory::getDBO();
+		$db = JFactory::getDBO();
 		
 		
 		$sql = ' SELECT * FROM '.$db->quoteName('#__usergroups') 

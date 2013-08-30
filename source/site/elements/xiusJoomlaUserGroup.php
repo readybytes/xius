@@ -43,21 +43,13 @@ class JElementXiusJoomlaUserGroup extends XiusElement
 //	{
 //		$db= & JFactory::getDBO();
 //		
-//		if(XIUS_JOOMLA_15){
-//			$sql = ' SELECT * FROM '.$db->nameQuote('#__core_acl_aro_groups') 
-//				.' WHERE '.$db->nameQuote('name').' NOT LIKE "%USERS%"' 
-//				.' AND '.$db->nameQuote('name').' NOT LIKE  "%ROOT%"'
-//				.' AND '.$db->nameQuote('name').' NOT LIKE  "%Public%"' ;
-//		}
-//
-//		else{
-//			$sql = ' SELECT * FROM '.$db->nameQuote('#__usergroups') 
+//			$sql = ' SELECT * FROM '.$db->quoteName('#__usergroups') 
 //				.' WHERE '
 //				//Comment This For Showing Super User
-//				/*.$db->nameQuote('title').' NOT LIKE "%USERS%"'.' AND '*/
-//				.$db->nameQuote('title').' NOT LIKE  "%ROOT%"'
-//				.' AND '.$db->nameQuote('title').' NOT LIKE  "%Public%"' ;
-//		}
+//				/*.$db->quoteName('title').' NOT LIKE "%USERS%"'.' AND '*/
+//				.$db->quoteName('title').' NOT LIKE  "%ROOT%"'
+//				.' AND '.$db->quoteName('title').' NOT LIKE  "%Public%"' ;
+
 //		$db->setQuery($sql);
 //		return $db->loadObjectList(); 		
 //	}

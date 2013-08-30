@@ -78,7 +78,7 @@ class Joomla extends XiusBase
 	function formatColumn($column , $db)
 	{
 		if($this->key == 'registerDate' || $this->key == 'lastvisitDate')
-		  return "DATE_FORMAT(".$db->nameQuote($column->cacheColumnName).", '%d-%m-%Y') ";
+		  return "DATE_FORMAT(".$db->quoteName($column->cacheColumnName).", '%d-%m-%Y') ";
 
 		return parent::formatColumn($column, $db);
 	}

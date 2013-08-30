@@ -62,7 +62,7 @@ class Jsfieldshelper
 				$wheres[] = "`$column` = " . $db->Quote($value); 	
 		}
 			
-		$sql = "SELECT * FROM " . $db->nameQuote('#__community_fields');
+		$sql = "SELECT * FROM " . $db->quoteName('#__community_fields');
 		
 		if(! empty($wheres))
 		   $sql .= " WHERE ".implode(' AND ', $wheres);
@@ -104,7 +104,7 @@ class Jsfieldshelper
 			return $jsFields;
 		//XiTODO:: USe XiusQuery rather than DBO 	
 		$db	=& JFactory::getDBO();
-		$sql = "SELECT * FROM " . $db->nameQuote('#__community_fields');
+		$sql = "SELECT * FROM " . $db->quoteName('#__community_fields');
 		$sql .= " ORDER BY `ordering`";
 		$db->setQuery($sql);
 		$jsFields = $db->loadObjectList();

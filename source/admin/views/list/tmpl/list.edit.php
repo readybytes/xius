@@ -5,16 +5,6 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access'); ?>
 
-<?php JHTML::_('behavior.tooltip'); ?>
-
-<?php 
-JToolBarHelper::back('Home' , 'index.php?option=com_xius&view=info');
-JToolBarHelper::divider();
-JToolBarHelper::apply('apply', XiusText::_('APPLY'));
-JToolBarHelper::save('save',XiusText::_('SAVE'));
-JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
-?>
-
 <div id="XIUS">
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
 	<?php echo $this->list->name;?>

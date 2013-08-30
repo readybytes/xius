@@ -75,7 +75,7 @@ class XiusHelperUsersearch
 		return $returnInfo;
 	}
 
-	function trimWhiteSpace($data)
+	public static function trimWhiteSpace($data)
 	{
 		//Handle object Data
 		if(is_object($data))

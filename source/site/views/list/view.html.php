@@ -11,6 +11,7 @@ jimport( 'joomla.application.component.view');
 
 class XiussiteViewList extends XiusView
 {
+	protected $_name = 'list';
 	
 	function lists($owner = null,$tmpl='lists')
 	{
@@ -75,7 +76,7 @@ class XiussiteViewList extends XiusView
 		//$lists = XiusLibList::getLists($filter,'AND',false);
 				
 		//get editor for description of list
-		$data['editor']		= & JFactory::getEditor();
+		$data['editor']		= JFactory::getEditor();
 		// get required data from session
 		$data['conditions'] = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		$data['sortId'] 	= XiusLibUsersearch::getDataFromSession(XIUS_SORT,false);
@@ -94,7 +95,7 @@ class XiussiteViewList extends XiusView
 			$data['listName'] = $list->name;
 			$data['listDesc'] = $list->description;
 			$tempConfig = new JRegistry('xiuslist');
-			$tempConfig->loadINI($list->params);
+			$tempConfig->loadString($list->params,'INI');
 			$tempParams = $tempConfig->toArray('xiuslist');
 		}
 		
@@ -109,7 +110,7 @@ class XiussiteViewList extends XiusView
 		
 		// triger event for displaying xius privacy html
 		JPluginHelper::importPlugin('xius');
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$data['xiusListPrivacy'] = $dispatcher->trigger( 'xiusOnBeforeDisplayListDetails',array($tempParams));
 				 
 		$this->assign( 'conditionHtml',$conditionHtml);

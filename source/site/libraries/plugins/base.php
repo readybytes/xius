@@ -205,7 +205,7 @@ abstract class XiusBase extends JObject
 		if($isAccessible!=null)
 			return $isAccessible;
 			 
-		$user 		= & JFactory::getUser();		
+		$user 		= JFactory::getUser();		
 		$coreAccessible = $this->isCoreAccessible($user);
 		$infoAccessible = $this->isInfoAccessible();
 		if($coreAccessible && $infoAccessible)
@@ -471,7 +471,7 @@ abstract class XiusBase extends JObject
 			return false;
 
 		foreach($columns as $c){
-			$conditions =  $db->nameQuote($c->cacheColumnName).$operator."'".$this->formatValue($value)."'";
+			$conditions =  $db->quoteName($c->cacheColumnName).$operator."'".$this->formatValue($value)."'";
 			$query->where($conditions,$join);
 		}		
 		return true;	
@@ -505,7 +505,7 @@ abstract class XiusBase extends JObject
 	 */
 	function formatColumn($column , $db)
 	{
-		return $db->nameQuote($column->cacheColumnName);
+		return $db->quoteName($column->cacheColumnName);
 	}
 	
 	/*@ return plugin different - 2 type which can exist
@@ -548,7 +548,7 @@ abstract class XiusBase extends JObject
 		if(empty($columns))
 			return false;
 
-		$db =& JFactory::getDBO();
+		$db = JFactory::getDBO();
 		
 		/**
 		 * XITODO : Add all cache columns if one instance is 
@@ -557,12 +557,12 @@ abstract class XiusBase extends JObject
 		 * */
 		foreach($columns as $c){
 			if(!empty($c->cacheColumnName))
-				$cname = $db->nameQuote($c->cacheColumnName);
+				$cname = $db->quoteName($c->cacheColumnName);
 		}
 		
 		$query = ' SELECT '.$cname
-				.' FROM '  .$db->nameQuote($tname)
-				.' WHERE ' .$db->nameQuote($utname).'='.$db->Quote($userid);
+				.' FROM '  .$db->quoteName($tname)
+				.' WHERE ' .$db->quoteName($utname).'='.$db->Quote($userid);
 		$db->setQuery($query);
 		$result = $db->loadResult();
 		

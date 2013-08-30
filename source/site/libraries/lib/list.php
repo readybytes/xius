@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusLibList
 {	
-	function saveList($data)
+	public static function saveList($data)
 	{
 		if(!isset($data['conditions']))
 			return false;
@@ -25,7 +25,7 @@ class XiusLibList
 	 * @param $join
 	 * @param $reqPagination
 	 */
-	function getLists($filter='', $join = 'AND',$reqPagination=true)
+	public static function getLists($filter='', $join = 'AND',$reqPagination=true)
 	{		
 		return XiusFactory::getInstance ('list','model')
 		 				  ->getLists($filter, $join, $reqPagination);
@@ -36,7 +36,7 @@ class XiusLibList
 	 * get list according list id
 	 * @param unknown_type $id
 	 */
-	function getList($id = 0)
+	public static function getList($id = 0)
 	{
 		if($id === 0){
 			return false;

@@ -9,15 +9,16 @@ if(!defined('_JEXEC')) die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class XiusViewList extends JView 
+class XiusViewList extends XiusView 
 {
+	protected $_name = "list";
+	
     function display($tpl = null)
     {
 		$lModel = XiusFactory::getInstance ('list', 'model');	
 		$lists 	= $lModel->getLists();
 		$pagination = $lModel->getPagination();
 		
-		$this->setToolbar();			
 		$this->assign('lists', $lists);
 		$this->assignRef( 'pagination'	, $pagination );
 		return parent::display($tpl);
@@ -44,7 +45,7 @@ class XiusViewList extends JView
 		$config->bind($list->params);
 
 		//get editor for description of list
-		$editor 		=& JFactory::getEditor();
+		$editor 		= JFactory::getEditor();
 		
 		// get sortable fields
 		$filter = array();
@@ -94,13 +95,17 @@ class XiusViewList extends JView
 	 **/	 	 
 	function setToolBar()
 	{
-
-		// Set the titlebar text
-		JToolBarHelper::title( XiusText::_( 'LIST' ), 'list' );
-
-		// Add the necessary buttons
-		JToolBarHelper::back('Home' , 'index.php?option=com_xius');
-		JToolBarHelper::divider();
+		$task = JFactory::getApplication()->input->get('task');
+		
+		if($task == 'editList')
+		{
+			JToolBarHelper::apply('apply', XiusText::_('APPLY'));
+			JToolBarHelper::save('save',XiusText::_('SAVE'));
+			JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));
+			
+			return true;
+		}
+		
 		JToolBarHelper::publishList('publish', XiusText::_( 'PUBLISH' ));
 		JToolBarHelper::unpublishList('unpublish', XiusText::_( 'UNPUBLISH' ));
 		JToolBarHelper::divider();

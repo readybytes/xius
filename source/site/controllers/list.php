@@ -13,7 +13,7 @@ class XiussiteControllerList extends XiusController
 		parent::__construct($config);
 	}
 	
-	function display()
+	function display($cachable = false, $urlparams = array()) 
 	{
 		return $this->lists();	
 	}
@@ -27,9 +27,9 @@ class XiussiteControllerList extends XiusController
 		}
 		XiusLibUsersearch::setDataInSession(XIUS_LISTID,0,'XIUS');
 		
-		$user =& JFactory::getUser();
+		$user = JFactory::getUser();
 		
-		$view		=& $this->getView();
+		$view = $this->getView();
 
 		// set and reset the vars in current url
 		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'showList',
@@ -39,7 +39,7 @@ class XiussiteControllerList extends XiusController
 	
 	function _displayResult($fromTask,$list='')
 	{
-		$view		=& $this->getView();
+		$view = $this->getView();
 		// set and reset the vars in current url
 		$view->setXiUrl(array('view'=>'users','task'=>'search',
 							'tmpl'=>null,'listid'=>null,'isnew'=>null));
@@ -51,7 +51,7 @@ class XiussiteControllerList extends XiusController
 		$mainframe = JFactory::getApplication();
 		$listId = JRequest::getVar('listid', 0);	 
 		
-		$user =& JFactory::getUser();
+		$user = JFactory::getUser();
 		if($listId == 0)
 			return $this->lists($user->id);			
 			
@@ -67,7 +67,7 @@ class XiussiteControllerList extends XiusController
 	    }
        
 		// when no task is there 
-		$user =& JFactory::getUser();
+		$user = JFactory::getUser();
 
 		// XITODO : check access in function checkAccess		
 		if($list)
@@ -108,7 +108,7 @@ class XiussiteControllerList extends XiusController
 		if(null === $listId)
 			$listId = JRequest::getVar('listid', 0);
 					
-		$user =& JFactory::getUser();
+		$user = JFactory::getUser();
 		if(!$listId)
 			return $this->_showLists($user->id);			
 			
@@ -119,7 +119,7 @@ class XiussiteControllerList extends XiusController
 
 	function saveas()
 	{				
-		$view		=& $this->getView();
+		$view		= $this->getView();
 		// set and reset the vars in current url
 		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'edit',
 							'tmpl'=>null,'listid'=>null,'isnew'=>null));
@@ -137,7 +137,7 @@ class XiussiteControllerList extends XiusController
 		$listId 	= JRequest::getVar('listid', 0);
 		$isNew 	= JRequest::getVar('isnew', 'true');
 		
-		$view		=& $this->getView();
+		$view		= $this->getView();
 		// set and reset the vars in current url
 		$view->setXiUrl(array('view'=>$this->getName(),'task'=>'save',
 							'tmpl'=>null,'listid'=>$listId,'isnew'=>null));
@@ -173,7 +173,7 @@ class XiussiteControllerList extends XiusController
 	function _saveListChecks($new =true, $user = null)
 	{
 		if($user === null)
-			$user =& JFactory::getUser();
+			$user = JFactory::getUser();
 		
 		$returndata = array();
 		
@@ -200,7 +200,7 @@ class XiussiteControllerList extends XiusController
 	function _saveList($new = true, $post=null,$params=null,$user=null)
 	{		
 		if($user === null)
-			$user =& JFactory::getUser();
+			$user = JFactory::getUser();
 		
 		if($post === null)
 			$post = JRequest::get('POST');
@@ -230,7 +230,7 @@ class XiussiteControllerList extends XiusController
 			$list			= XiusFactory::getInstance( 'list' , 'Table' );
 			$list->load($listId);
 			$config 		= new JRegistry('xiuslist');
-			$config->loadINI($list->params);
+			$config->loadString($list->params,'INI');
 			$params 		= $config->toArray('xiuslist');
 		
 			$data['id'] 	= $listId;
@@ -245,7 +245,7 @@ class XiussiteControllerList extends XiusController
 				
 		// trigger event before saving list
 		JPluginHelper::importPlugin( 'xius' );
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		
 		$dispatcher->trigger( 'xiusOnBeforeSaveList', array( $post, &$params ) );
 		$registry	= new JRegistry( 'xius' );		

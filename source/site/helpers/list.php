@@ -9,14 +9,13 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusHelperList 
 {
-	function isAccessibleToUser($user,$allowedGroup,$allowGuest=false)
+	public static function isAccessibleToUser($user,$allowedGroup,$allowGuest=false)
 	{
 		// if guest user are not allowed to access list ( create)
 		// then check allowGuest is false and usertype is also false
-		$condition = !$user->usertype;
-		if(!XIUS_JOOMLA_15){
-			$condition = empty($user->groups);
-		}
+
+		$condition = empty($user->groups);
+
 		if($allowGuest === false && $condition )
 			return false; 
 
@@ -44,7 +43,7 @@ class XiusHelperList
 		return false;
 	} 
 	
-	function filterListPrivacy(&$lists,$user)
+	public static function filterListPrivacy(&$lists,$user)
 	{			
 		$count 	= count($lists);
 		for( $i=0 ; $i < $count ; $i++ ){
@@ -73,7 +72,7 @@ class XiusHelperList
 		return true;
 	}
 	
-	function formatConditions($conditions)
+	public static function formatConditions($conditions)
 	{
 		if(!$conditions || !is_array($conditions))
 			return false;

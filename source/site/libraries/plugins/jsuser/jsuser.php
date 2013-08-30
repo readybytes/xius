@@ -91,7 +91,7 @@ class Jsuser extends XiusBase
     function formatColumn($column , $db)
 	{
 		if($this->key == 'posted_on')
-		   return "DATE_FORMAT(".$db->nameQuote($c->cacheColumnName).", '%d-%m-%Y') ";
+		   return "DATE_FORMAT(".$db->quoteName($c->cacheColumnName).", '%d-%m-%Y') ";
 
 		return parent::formatColumn($column, $db);
 		

@@ -27,7 +27,7 @@ class XiusLibCron
 		return true;
 	}
 	
-	function _checkCronParams($params)
+	static function _checkCronParams($params)
 	{
 	// Check Auto-Cron Job Task Enable or not
 		if(!$params->get("xiusCronJob", 0)){
@@ -44,7 +44,7 @@ class XiusLibCron
 	 * return cron job required or not according to Cron Frequency
 	 * @param unknown_type $param
 	 */
-	function _isRequired($param) {
+	public static function _isRequired($param) {
 		// Get Cron Job frequency and access time
 		$xiusCronFrequency = $param->get("xiusCronFrequency");
 		$xiusCronAcessTime = $param->get("xiusCronAcessTime");

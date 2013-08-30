@@ -32,7 +32,7 @@ class XiusLibPluginhandler
 	function onAfterSearchQuery($query,$sort, $dir)
 	{
 		//currently this code is supposed to handle only for force search
-		$user =& JFactory::getUser();
+		$user = JFactory::getUser();
 
 		// on admin not apply any force search
 		if(XiusHelperUtils::isAdmin($user->id)){
@@ -125,7 +125,7 @@ class XiusLibPluginhandler
 	
 	function xiusOnAfterLoadList(&$lists)
 	{
-		$user  = & JFactory::getUser();
+		$user  = JFactory::getUser();
 		return XiusHelperList::filterListPrivacy($lists,$user);			
 	}
 	
@@ -134,7 +134,7 @@ class XiusLibPluginhandler
 	 * @param unknown_type $state is a boolean value.
 	 */
 	 
-	 function setJSToolbarState($state = 0) {
+	public static function setJSToolbarState($state = 0) {
 	 	
 		$config	   = CFactory::getConfig();
 	 	$queryObj  = new XiusQuery;
@@ -144,10 +144,10 @@ class XiusLibPluginhandler
 		$queryObj->update('#__menu')
 	 			 	->set('published ='. $state)
 					->where("menutype = '". $config->get( 'toolbar_menutype')."'")
-	 			 	->where((XIUS_JOOMLA_15)?'parent <> 0':'client_id = 0')
+	 			 	->where('client_id = 0')
 					->where($condition)	 			 			  
 	 			 	->dbLoadQuery()->query();
 
-		}
+	}
 	
 }

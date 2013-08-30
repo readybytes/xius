@@ -23,7 +23,7 @@ class XiusTable extends JTable
 		parent::__construct($table, $key, $db);
 	}
 	
-	function replacePrefix($table)
+	public static function replacePrefix($table)
 	{ 		
 		if(substr($table,0,2)=='#__')
 		{

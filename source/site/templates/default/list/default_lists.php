@@ -45,7 +45,8 @@ $endLimit = JRequest::getVar('limit',0);
 $limit    = ( !$endLimit ) 
 		      ? XiusHelperUtils::getConfigurationParams('xiusLimit') 
 		      : $endLimit;
-echo JElementLimit::fetchElement('limit',$limit);
+$listObject = new JElementLimit;
+$listObject->fetchElement('limit',$limit);
 ?>
 
 <input type="hidden" name="view" value="list" />

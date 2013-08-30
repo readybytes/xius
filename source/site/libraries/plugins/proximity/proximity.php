@@ -126,9 +126,9 @@ class Proximity extends XiusBase
 			$multiplier = ;
 		*/
 		// XITODO :: Temporary fix for having clause need to fix it
-		$sql="	ROUND(( ".PROXIMITY_QUERY_CONSTANT." * acos( cos($latitude) * cos(radians({$db->nameQuote($columns[0]->cacheColumnName )}) )"
-							." * cos( radians({$db->nameQuote($columns[1]->cacheColumnName )}) - ($longitude)) "
-							." + sin( $latitude ) * sin( radians({$db->nameQuote($columns[0]->cacheColumnName )}) ) ) ) * $multiplier ,3)  ";
+		$sql="	ROUND(( ".PROXIMITY_QUERY_CONSTANT." * acos( cos($latitude) * cos(radians({$db->quoteName($columns[0]->cacheColumnName )}) )"
+							." * cos( radians({$db->quoteName($columns[1]->cacheColumnName )}) - ($longitude)) "
+							." + sin( $latitude ) * sin( radians({$db->quoteName($columns[0]->cacheColumnName )}) ) ) ) * $multiplier ,3)  ";
 			
 		$query->select(" {$sql} AS xius_proximity_distance");		
 		$conditions =  " $sql <= $distance ";

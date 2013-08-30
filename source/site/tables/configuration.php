@@ -22,7 +22,7 @@ class XiusTableConfiguration extends XiusTable
 	/**
 	 * Save the configuration
 	 **/	 	
-	function store()
+	function store($updateNulls = false) 
 	{
 		$db		= $this->getDBO();
 		

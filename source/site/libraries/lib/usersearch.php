@@ -15,7 +15,7 @@ class XiusLibUsersearch
 	 * @param $value:: given value for set
 	 * @param $namespace
 	 */
-	function setDataInSession($what,$value,$namespace='XIUS')
+	public static function setDataInSession($what,$value,$namespace='XIUS')
 	{
 		$mySess = JFactory::getSession();
 		$mySess->set($what,$value,$namespace);
@@ -28,7 +28,7 @@ class XiusLibUsersearch
 	 * @param unknown_type $default:: default value
 	 * @param unknown_type $namespace
 	 */
-	function getDataFromSession($what,$default=false,$namespace='XIUS')
+	public static function getDataFromSession($what,$default=false,$namespace='XIUS')
 	{
 		$mySess = JFactory::getSession();
 		$params = $mySess->get($what,$default,$namespace);
@@ -38,7 +38,7 @@ class XiusLibUsersearch
 	/**
 	 * collect param for sorting and diratiov
 	 */
-	function collectSortParams()
+	public static function collectSortParams()
 	{
 		$sortInfo = array();
 		$sortInfo['sort'] = self::getDataFromSession('sort');
@@ -47,13 +47,13 @@ class XiusLibUsersearch
 	}
 	
 	//XITODO:: Ufff...!!remove this. n Direct call getInfo
-	function getAllInfo($filter = '',$join = 'AND')
+	public static function getAllInfo($filter = '',$join = 'AND')
 	{
 		$info = XiusLibInfo::getInfo($filter,$join);
 		return $info;
 	}
 	
-	function buildInsertUserdataQuery()
+	public static function buildInsertUserdataQuery()
 	{
 		/*XITODO : pass info through parameter */
 		$info = self::getAllInfo();
@@ -90,13 +90,13 @@ class XiusLibUsersearch
 	}
 	
 	//XiTODO:: i think its un-usable
-	function insertUserData(XiusQuery $userInfo)
+	public static function insertUserData(XiusQuery $userInfo)
 	{
 		$cache = XiusFactory::getInstance('cache');
 		return $cache->insertIntoTable($userInfo);
 	}
 	
-	function getMiniProfileDisplayFields($userid,$allInfo=null)
+	public static function getMiniProfileDisplayFields($userid,$allInfo=null)
 	{
 		/*XITODO : pass info
 		 * for admin display all fields , discard publish checking
@@ -135,7 +135,7 @@ class XiusLibUsersearch
 	}
 	
 	
-	function getSortableFields($allInfo=null)
+	public static function getSortableFields($allInfo=null)
 	{
 		/*XITODO : pass info
 		 * for admin display all fields , discard publish checking
@@ -143,7 +143,7 @@ class XiusLibUsersearch
 		$sortableFields = array();
 		if($allInfo == null){
 			$filter = array();
-			$user =& JFactory::getUser();
+			$user = JFactory::getUser();
 			if(!XiusHelperUtils::isAdmin($user->id))
 					$filter['published'] = true;
 			$allInfo = XiusLibInfo::getInfo($filter,'AND');
@@ -195,7 +195,7 @@ class XiusLibUsersearch
 			
 	}*/
 	
-	function processSearchData($post=null)
+	public static function processSearchData($post=null)
 	{
 		if($post==null)
 			$post = JRequest::get('POST');
@@ -249,7 +249,7 @@ class XiusLibUsersearch
 	}
 	
 	
-	function deleteSearchData($conditions = null,$delInfoId = null,$conditionvalue = null)
+	public static function deleteSearchData($conditions = null,$delInfoId = null,$conditionvalue = null)
 	{
 		/*XITODO : only delete same infoid verses value pair
 		 * don't delete all infoid
@@ -287,7 +287,7 @@ class XiusLibUsersearch
 	}
 	
 	
-	function addSearchData($addInfoId = null,$post = null)
+	public static function addSearchData($addInfoId = null,$post = null)
 	{
 		if($addInfoId == null)
 			$addInfoId = JRequest::getCmd('xiusaddinfo',0);
@@ -356,7 +356,7 @@ class XiusLibUsersearch
 	/*$searchArray :- Required to check 
 	 * $inArray :- check existance of searchArray in inArray
 	 */
-	function checkSearchDataExistance(array $searchArray,array $inArray)
+	public static function checkSearchDataExistance(array $searchArray,array $inArray)
 	{
 		if(empty($searchArray) || empty($inArray)
 			|| count($searchArray) == 0 || count($inArray) == 0)
@@ -400,7 +400,7 @@ class XiusLibUsersearch
 	}
 	
 	
-	function processSortData()
+	public static function processSortData()
 	{
 		$sort = JRequest::getVar('xiussort', 'userid', 'POST');
 		$dir = JRequest::getVar('xiussortdir', 'ASC', 'POST');

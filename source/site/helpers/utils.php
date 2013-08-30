@@ -34,7 +34,7 @@ class XiusHelperUtils
 	 * return XiUS Param Value
 	 */
 	
-	function getValueFromXiusParams($paramName,$what,$default='')
+	public static function getValueFromXiusParams($paramName,$what,$default='')
 	{
 			return $paramName->get($what,$default);
 	}
@@ -80,7 +80,7 @@ class XiusHelperUtils
 		return $pluginInfo;
 	}
 	
- 	function isAdmin($userid=null)
+ 	public static function isAdmin($userid=null)
 	{
 		if(!$userid){
 			return false;
@@ -100,7 +100,7 @@ class XiusHelperUtils
 		return $result;
 	}
 	
-	function getConfigurationParams($what,$default=0)
+	public static function getConfigurationParams($what,$default=0)
 	{
 		$cModel = XiusFactory::getInstance ('configuration', 'model');
 		$params	= $cModel->getParams();
@@ -153,7 +153,7 @@ class XiusHelperUtils
 		return true;
 	}
 	
-	function loadJQuery()
+	public static function loadJQuery()
 	{
 		static $loaded=false;
 		
@@ -170,7 +170,7 @@ class XiusHelperUtils
 	/**
 	 * load joms.jquery.js if not loaded 
 	 */
-    function loadJomsJquery()
+    public static function loadJomsJquery()
 	{
 		if(!defined('C_ASSET_JQUERY')){
 			JFactory::getDocument()->addScript( JURI::base() .'components/com_community/assets/joms.jquery.js' );
@@ -179,7 +179,7 @@ class XiusHelperUtils
 		return true;
 	}
 	
-    function getUrlpathFromFilePath($filepath)
+   public static function getUrlpathFromFilePath($filepath)
     {
     	return preg_replace('#[/\\\\]+#', '/', $filepath);
     }
@@ -216,7 +216,7 @@ class XiusHelperUtils
 	/*
 	 *This Function Is Replacement Of utf8_ireplace Because preg_quote not working with joomla 1.6 
 	 */
-	function XIUS_utf8_ireplace($search, $replace, $str, $count = NULL){
+	public static function XIUS_utf8_ireplace($search, $replace, $str, $count = NULL){
 
 	    if ( !is_array($search) ) {
 	

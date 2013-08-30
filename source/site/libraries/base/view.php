@@ -117,7 +117,8 @@ class XiusView extends JViewLegacy
 		$this->assignRef('loadJquery', $loadJquery);
 		$this->assignRef('xiusSlideShow', $xiusSlideShow);
 		$this->assignRef('joinHtml', $joinHtml);
-		$this->assignRef('users', XiusHelperProfile::getUserProfileData($data['users']));
+		$usreProfileData = XiusHelperProfile::getUserProfileData($data['users']);
+		$this->assignRef('users', $usreProfileData);
 		
 		// get the list id for save list
 		$listid=0;
@@ -174,7 +175,7 @@ class XiusView extends JViewLegacy
  		else
 			$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Users";}'));
 		if($option === null){				
-			$option = JRequest::getVar('option','xius','GET');
+			$option = JRequest::getVar('option','com_xius','GET');
 		}
 					
 		/*

@@ -36,7 +36,7 @@ class XiusTableList extends XiusTable
 		parent::__construct('#__xius_list','id');
 	}
 	
-	function load( $id)
+	function load($id = NULL, $reset = true)
 	{
 		if($id)
 			return parent::load( $id );
@@ -63,9 +63,9 @@ class XiusTableList extends XiusTable
 	 * 
 	 * @return boolean true on success
 	 **/
-	function store(  )
+	function store($updateNulls = false)
 	{
-		$db		=& JFactory::getDBO();		
+		$db		= JFactory::getDBO();		
 		if(!$this->owner)
 			return false;
 			
@@ -73,7 +73,7 @@ class XiusTableList extends XiusTable
  		if( $this->id == 0 )
  		{
  			// Set the ordering
- 			$query	= 'SELECT COUNT(' . $db->nameQuote('ordering') . ') FROM ' . $db->nameQuote('#__xius_list');
+ 			$query	= 'SELECT COUNT(' . $db->quoteName('ordering') . ') FROM ' . $db->quoteName('#__xius_list');
 			
  			$db->setQuery( $query );
  			$this->ordering	= $db->loadResult();
@@ -84,7 +84,7 @@ class XiusTableList extends XiusTable
 	}
 
 	
-	function delete($id)
+	function delete($id = null)
 	{
 		return parent::delete($id);
 	}
@@ -93,7 +93,7 @@ class XiusTableList extends XiusTable
 	 * Bind data into object's property
 	 * @param	array	data	The data for this field
 	 **/
-	function bind($data)
+	function bind($data, $ignore = array())
 	{
 		return parent::bind($data);
 	}

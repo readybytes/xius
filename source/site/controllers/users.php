@@ -37,7 +37,7 @@ class XiussiteControllerUsers extends XiusController
 		else
 			$allInfo = XiusLibInfo::getInfo($filter,'AND',true,0,$count);
 		
-		$view		=& $this->getView();
+		$view		= $this->getView();
 		
 		/*
 		 * IMP : Set the URL where the Form must be submitted
@@ -128,7 +128,7 @@ class XiussiteControllerUsers extends XiusController
 	
 	function _displayResult($fromTask,$list='')
 	{
-		$view		=& $this->getView();
+		$view		= $this->getView();
 		
 		if(count(XiusLibInfo::getInfo()) == 0)
 			  return $view->panel('');	
@@ -142,7 +142,7 @@ class XiussiteControllerUsers extends XiusController
 	function export()
 	{
 		$viewType	= 'csv';
-		$view		=& $this->getView();
+		$view		= $this->getView();
 		$layout		= JRequest::getCmd( 'layout' , 'default' );
 		$view->setLayout( $layout );
 		return $view->export();
@@ -151,9 +151,9 @@ class XiussiteControllerUsers extends XiusController
 	function displayAdvanceSearch()
 	{
 		$viewName	= JRequest::getCmd( 'view' , 'users' );
-		$document	=& JFactory::getDocument();
+		$document	= JFactory::getDocument();
 		$viewType	= $document->getType();
-		$view		=& $this->getView( $viewName , $viewType );		
+		$view		= $this->getView( $viewName , $viewType );		
 		$view->setLayout( 'advance_search' );
 		return $view->displayAdvanceSearch();	
 	}

@@ -63,7 +63,7 @@ class XiusController extends JControllerLegacy
 	}
 
 
-	public function getView($name='')
+	public function getView($name = '', $type = '', $prefix = '', $config = array())
 	{
 		static $view = null;
 

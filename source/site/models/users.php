@@ -45,7 +45,7 @@ class XiusModelUsers extends XiusModel
 	 * @param unknown_type $dir
 	 * @return XiusQuery 
 	 */
-	function getQuery($params,$join='AND', $reset=true, $sort='userid', $dir='ASC')
+	function getQuery($params='',$join='AND', $reset=true, $sort='userid', $dir='ASC')
 	{
 		/*XITODO:  provide conditional operator also
 		*/		
@@ -59,8 +59,8 @@ class XiusModelUsers extends XiusModel
 		XiusError::assert($tableName,"NO TABLE TO SEARCH");
 
 		// convert into database formate, table name and column
-		$sort = $this->_db->nameQuote($sort);
-		$tableName = $this->_db->nameQuote($tableName);
+		$sort = $this->_db->quoteName($sort);
+		$tableName = $this->_db->quoteName($tableName);
 			
 		//Build Query
 		$this->_query->select('*')

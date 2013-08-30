@@ -28,7 +28,7 @@ class ProximityHelper
 			$query->select($column);
 			
 		$query->from('#__xius_cache');
-		$conditon= $db->nameQuote('userid').'='.$userId ;
+		$conditon= $db->quoteName('userid').'='.$userId ;
 		$query->where($conditon);
 		$db->setQuery($query);
 		//XITODO:: load row with field name

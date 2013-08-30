@@ -4,10 +4,6 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!defined('_JEXEC')) die('Restricted access');
-
-JHTML::_('behavior.tooltip', '.hasTip');
-jimport('joomla.html.pane');
-		
 ?>
 
 <script type="text/javascript" language="javascript">
@@ -43,7 +39,7 @@ function submitbutton( action )
 				<?php echo XiusText::_( 'NUM' ); ?>
 			</th>
 			<th width="1%">
-				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count( $this->lists ); ?>);" />
+				<input type="checkbox" name="toggle" value="" onclick="Joomla.checkAll(this);" />
 			</th>
 			<th width="25%" class="title">
 					<?php echo XiusText::_( 'LIST_NAME' ); ?>
@@ -73,7 +69,7 @@ function submitbutton( action )
 				<td align="center">
 						<?php echo $checked; ?>
 				</td>
-				<td>
+				<td align="center">
 				<?php 
 				
 					$lname = $list->name;
@@ -82,19 +78,19 @@ function submitbutton( action )
 					 ?>
 					<span class="editlinktip" title="<?php echo $lname; ?>" id="name<?php echo $list->id;?>">
 					<?php $link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$list->id, false); ?>
-						<A HREF="<?php echo $link; ?>"><?php echo $lname; ?></A>
+						<a HREF="<?php echo $link; ?>"><?php echo $lname; ?></a>
 					</span>
 				</td>
 				<td align="center">
 							<a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i-1;?>','<?php echo $list->published ? 'unpublish' : 'publish' ?>')">
 							<?php if($list->published)
 							{ ?>
-								<img src="images/tick.png" width="16" height="16" border="0" alt="Published" />
+								<img src="../components/com_xius/assets/images/tick.png" width="16" height="16" border="0" alt="Published" />
 							<?php 
 							}
 							else 
 							{ ?>
-								<img src="images/publish_x.png" width="16" height="16" border="0" alt="Unpublished" />
+								<img src="../components/com_xius/assets/images/publish_x.png" width="16" height="16" border="0" alt="Unpublished" />
 						<?php 
 							} //echo $published;
 						?>
@@ -124,6 +120,6 @@ function submitbutton( action )
 	<input type="hidden" name="view" value="list" />
 	<input type="hidden" name="boxchecked" value="0" />
 	<input type="hidden" name="task" value="" />
-	<?php echo JHTML::_( 'form.token' ); ?>
+	<?php echo JHtml::_( 'form.token' ); ?>
 </form>
 

@@ -18,7 +18,7 @@ class XiusemailHelper
     		return false;
     	
     	$db = & JFactory::getDBO();	
-    	$where = $db->nameQuote('userid').' IN ('.implode(',',$userid).')' ;
+    	$where = $db->quoteName('userid').' IN ('.implode(',',$userid).')' ;
     		
     	$query = " SELECT {$what} FROM `#__xius_cache` "
     			." WHERE {$where} "; 
@@ -69,7 +69,7 @@ class XiusemailHelper
     		return false;
     	
     	$db = & JFactory::getDBO();	
-    	$where = $db->nameQuote('id').' IN ('.implode(',',$userid).')' ;
+    	$where = $db->quoteName('id').' IN ('.implode(',',$userid).')' ;
     		
     	$query = " SELECT {$what} FROM `#__users` "
     			." WHERE {$where} "; 

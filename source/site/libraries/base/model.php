@@ -38,7 +38,7 @@ class XiusModel extends JModelLegacy
 	/**
 	 * @return table name
 	 */
-	public function getTable()
+	public function getTable($name = '', $prefix = 'Table', $options = array())
 	{
 		return $this->_table;
 	}
