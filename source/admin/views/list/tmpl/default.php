@@ -10,23 +10,13 @@ if(!defined('_JEXEC')) die('Restricted access');
 /**
  * This function needs to be here because, Joomla toolbar calls it
  **/ 
- Joomla.submitbutton = function(action){
-	 	submitbutton( action );
-	 }
-function submitbutton( action )
-{
-	switch( action )
-	{
-		case 'removeList':
-			if( !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOY_WANT_TO_DELETE_THIS_LIST'); ?>' ) )
-			{
-				break;
-			}
-		case 'publish':
-		case 'unpublish':
-		default:
-			submitform( action );
-	}
+Joomla.submitbutton = function(action){
+
+	if(action == 'remove' && !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST'); ?>' ) )
+	 	return true; 
+
+	submitform( action );
+ 	
 }
 </script>
 

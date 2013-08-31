@@ -21,12 +21,13 @@ class XiusViewCpanel extends XiusView
 		
 		$newWindow	= ( $newWindow ) ? ' target="_blank"' : '';
 		?>
-		<div style="float:<?php echo ($lang->isRTL()) ? 'right' : 'left'; ?>;">
+		<div class="xiusAdminCPanel" style="text-align:center; float:<?php echo ($lang->isRTL()) ? 'right' : 'left'; ?>; ">
+			<a href="<?php echo $url; ?>"<?php echo $newWindow; ?>>
 			<div class="icon">
-				<a href="<?php echo $url; ?>"<?php echo $newWindow; ?>>
-					<?php echo JHTML::_('image', 'components/com_xius/assets/images/' . $image , $text ); ?>
-					<span><?php echo $text; ?></span></a>
+				<?php echo JHTML::_('image', 'components/com_xius/assets/images/' . $image , $text ); ?>
 			</div>
+			<div><?php echo $text; ?></div>
+			</a>
 		</div>
 		<?php
 	}

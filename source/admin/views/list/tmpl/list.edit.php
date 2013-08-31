@@ -6,11 +6,8 @@
 if(!defined('_JEXEC')) die('Restricted access'); ?>
 
 <div id="XIUS">
-<div style="background-color: #F9F9F9; border: 1px solid #D5D5D5; margin-bottom: 10px; padding: 5px;font-weight: bold;">
-	<?php echo $this->list->name;?>
-</div>
 <div class="xippElements">
-<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=list" method="post" name="adminForm">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius&view=list" method="post" name="adminForm" id="adminForm">
 <div>
 <div class="col width-40" style="width:40%; float:left;">
 	<fieldset class="adminform">
@@ -48,7 +45,12 @@ if(!defined('_JEXEC')) die('Restricted access'); ?>
 							<?php echo XiusText::_( 'OWNER_TYPE' ); ?>:
 						</label>
 					</div>
-					<div class="paramValue"><?php echo $this->user->usertype; ?></div>
+					<div class="paramValue">
+					<?php 
+						foreach ($this->user->groups as $g)	
+							echo $g."  ";
+					?>
+					</div>
 			</div><!--
 			
 			<div class="elementParams">

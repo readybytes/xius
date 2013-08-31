@@ -138,3 +138,13 @@ padding-right:2px;
 width:150px
 }
 
+.xiusAdminCPanel
+{
+	height:85px; 
+	width:90px; 
+	margin:10px; 
+	border:1px solid #ccc; 
+	border-radius:5px; 
+	padding-top:10px;
+	background-color:#F2F2F2;
+}

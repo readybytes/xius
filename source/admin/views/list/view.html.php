@@ -55,7 +55,16 @@ class XiusViewList extends XiusView
 		//$sortableFields[] 	= array('key' => 'userid','value' => 'userid');
 		
 		// get the user info, who is owner of the list
-		$user = & JFactory::getUser($list->owner);
+		$user =  JFactory::getUser($list->owner);
+		
+		$joomlaGroups =  XiusHelperUsers::getJoomlaGroups();
+				
+		foreach ($joomlaGroups as $group)
+		{
+			if(isset($user->groups[$group->id]))
+				$user->groups[$group->id] = $group->title;
+		}
+		
 		// format the conditions applied		
 		$conditions = unserialize($list->conditions);	
 		//XITODO :: Autoloading form back ens to fron end	
@@ -64,7 +73,7 @@ class XiusViewList extends XiusView
 			
 		// load a temporary params from table, which can be used by other plugins
 		$tempConfig = new JRegistry('xiuslist');
-		$tempConfig->loadINI($list->params);
+		$tempConfig->loadString($list->params,"INI");
 		$tempParams = $tempConfig->toArray('xiuslist');
 
 		// triger event for displaying xius privacy html

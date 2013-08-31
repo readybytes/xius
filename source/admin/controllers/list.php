@@ -113,7 +113,7 @@ class XiusControllerList extends JControllerLegacy
 		$list	= XiusFactory::getInstance( 'list' , 'Table' );
 		$list->load($post['id']);
 		$config = new JRegistry('xiuslist');
-		$config->loadINI($list->params);
+		$config->loadString($list->params,"INI");
 		$params = $config->toArray('xiuslist');
 
 		// trigger evet before saving list
