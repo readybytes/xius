@@ -21,7 +21,8 @@ class JoomlaView extends XiusBaseView
 		$layout  	= 	null;
 		$paramsType	=	$calleObject->get('pluginType');
  		$key		=	$calleObject->get('key');
- 		$infoType	=	Joomla::getCacheSqlSpec($key);
+ 		$joomlaCache =  new Joomla();
+ 		$infoType	=	$joomlaCache->getCacheSqlSpec($key);
  		$formName 	= 	'';
  		
  		if($infoType == 'datetime NOT NULL' ){

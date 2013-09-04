@@ -16,7 +16,7 @@ class OnlineuserView extends XiusBaseView
 		parent::__construct(__FILE__);
 	}	
 	
-	function searchHtml($calleObject)
+	function searchHtml($calleObject, $value = '')
     {
         if(!$calleObject->isAllRequirementSatisfy())
             return false;

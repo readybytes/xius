@@ -36,7 +36,7 @@ class Xiusemail extends XiusBase
 		return $this->isAccessible();	
 	}
 	
-	public function isSortable()
+	public function isSortable($reset = false)
 	{
 		return false;
 	}

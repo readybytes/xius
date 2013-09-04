@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusemailHelper
 {
-    function getUserDataFromCache(Array $userid=array(), $what='all')
+    public static function getUserDataFromCache(Array $userid=array(), $what='all')
     {
     	if(strtolower($what) === 'all')
     		$what = '*';
@@ -17,7 +17,7 @@ class XiusemailHelper
     	if(!is_array($userid) || count($userid)<1)
     		return false;
     	
-    	$db = & JFactory::getDBO();	
+    	$db =  JFactory::getDBO();	
     	$where = $db->quoteName('userid').' IN ('.implode(',',$userid).')' ;
     		
     	$query = " SELECT {$what} FROM `#__xius_cache` "
@@ -32,7 +32,7 @@ class XiusemailHelper
     	$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
     	$join  = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
     	$model = XiusFactory::getInstance ('users', 'model');
-		$users =& $model->getUsers($conditions,$join,'userid','ASC',false);
+		$users = $model->getUsers($conditions,$join,'userid','ASC',false);
 		$userid= array();
 		foreach($users as $u)
 			$userid[] = $u->userid;
@@ -40,7 +40,7 @@ class XiusemailHelper
 		return $userid;
     }
     
-	function showResultMessage($message,$recipient)
+	public static function showResultMessage($message,$recipient)
     {
     	$document = JFactory::getDocument();
     	if($recipient != array()){    		    	
@@ -59,7 +59,7 @@ class XiusemailHelper
  		$document->addScriptDeclaration($js);
     }
     
-    function getUserDataFromUsersTable(Array $userid=array(),$what='all')
+    public static function getUserDataFromUsersTable(Array $userid=array(),$what='all')
     {
     	if(strtolower($what) === 'all')
     		$what = '*';
@@ -68,7 +68,7 @@ class XiusemailHelper
     	if(!is_array($userid) || count($userid)<1)
     		return false;
     	
-    	$db = & JFactory::getDBO();	
+    	$db = JFactory::getDBO();	
     	$where = $db->quoteName('id').' IN ('.implode(',',$userid).')' ;
     		
     	$query = " SELECT {$what} FROM `#__users` "

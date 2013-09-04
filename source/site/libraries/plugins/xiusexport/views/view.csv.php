@@ -45,7 +45,7 @@ class XiusexportView extends XiusBaseView
 
 		$join  = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');
 		$model = XiusFactory::getInstance ('users','model');
-		$users =& $model->getUsers($params,$join,$sort,$dir,false);
+		$users = $model->getUsers($params,$join,$sort,$dir,false);
 
         $userprofile = array();
 

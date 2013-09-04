@@ -11,14 +11,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 // load jquery
 XiusHelperUtils::loadJQuery();
 ?>
-<style type="text/css">
-       #toolbar-refresh
-       {
-           background-image:  url(../components/com_xius/assets/images/icon_update_cache.png);
-           background-repeat:no-repeat;
-           background-position: top center;
-        }     
-</style>
 
 <div id="XIUS">
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm" id="adminForm">

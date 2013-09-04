@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 class Jsfieldshelper
 {
 
-	function getJomsocialFields($filter = '',$reset = false)
+	public static function getJomsocialFields($filter = '',$reset = false)
 	{
 		$result = self::getAllJomsocialFields($reset);
 		
@@ -53,7 +53,7 @@ class Jsfieldshelper
 	
 	/*function getJomsocialFields($filter = '')
 	{
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 			
 		//setting up the search condition is there is any
 		$wheres = array();
@@ -96,14 +96,14 @@ class Jsfieldshelper
 	
 	
 	
-	function getAllJomsocialFields($reset = false)
+	public static function getAllJomsocialFields($reset = false)
 	{
 		static $jsFields;
 		
 		if(!$reset && isset($jsFields))
 			return $jsFields;
 		//XiTODO:: USe XiusQuery rather than DBO 	
-		$db	=& JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		$sql = "SELECT * FROM " . $db->quoteName('#__community_fields');
 		$sql .= " ORDER BY `ordering`";
 		$db->setQuery($sql);
@@ -116,7 +116,7 @@ class Jsfieldshelper
 	/*fieldInfo contain a field information ( like Gender id ,fieldcode etc.
 	 * Function will return that field html
 	 */
-	function getFieldsHTML($fieldInfo)
+	public static function getFieldsHTML($fieldInfo)
 	{
 		require_once( JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'profile.php' );
 		$fieldHTML = '';
@@ -158,7 +158,7 @@ class Jsfieldshelper
 		return $fieldHTML;
 	}
 
-	function getFieldType($fieldId)
+	public static function getFieldType($fieldId)
 	{
 		$filter = array();
 		$filter['id'] = $fieldId;
@@ -171,7 +171,7 @@ class Jsfieldshelper
 	}
 	
 	
-	function changeValueFormat(&$value, $fType)
+	public static function changeValueFormat(&$value, $fType)
 	{
 		if($fType == 'birthdate' && !empty($value) && is_array($value))
 		{		

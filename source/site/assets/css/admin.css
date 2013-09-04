@@ -147,4 +147,27 @@ width:150px
 	border-radius:5px; 
 	padding-top:10px;
 	background-color:#F2F2F2;
+	text-align:center;
+}
+
+.clearfix
+{
+	clear: both;
+}
+
+.icon-48-cpanel
+{
+	 background-image: url("../images/cpanel.png");
+}
+.icon-48-configuration
+{
+	 background-image: url("../images/xius-config.png");
+}
+.icon-48-list
+{
+	 background-image: url("../images/userlist.png");
+}
+.icon-48-info
+{
+	 background-image: url("../images/info.png");
 }

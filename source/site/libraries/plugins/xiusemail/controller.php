@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusPluginControllerXiusemail extends JController 
+class XiusPluginControllerXiusemail extends JControllerLegacy
 {
     
 	function __construct($config = array())
@@ -17,11 +17,6 @@ class XiusPluginControllerXiusemail extends JController
 		//$this->registerTask( 'reset' , 'reset' );
 	}
 	
-    function display() 
-	{
-		parent::display();
-    }
-    
     function emailUser()
     {   		
     	require_once(dirname(__FILE__).DS.'views'.DS.'view.html.php');
@@ -132,7 +127,8 @@ class XiusPluginControllerXiusemail extends JController
     	}
     	
     	// sent email
-    	$sent	 = JUtility::sendMail($senderEmail, $loggedInUser->name,$senderEmail, $post['xiusEmailSubjectEl'], $message,1,null,$recipient );
+    	$mailer  = JFactory::getMailer();
+    	$sent	 = $mailer->sendMail($senderEmail, $loggedInUser->name,$senderEmail, $post['xiusEmailSubjectEl'], $message,1,null,$recipient );
     	
     	if(is_object($sent)){
     		XiusemailHelper::showResultMessage('',array());

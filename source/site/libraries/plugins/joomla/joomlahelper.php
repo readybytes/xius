@@ -14,9 +14,9 @@ class xiusJoomlahelper
 		$db	= JFactory::getDBO();
 			
 		$userTable = new XiusTable('#__users','id', $db);
-		$allColumns = $userTable->get('_db')->getTableFields('#__users');
+		$allColumns = $userTable->get('_db')->getTableColumns('#__users');
 		
-		if(empty($allColumns) || empty($allColumns['#__users']) ){
+		if(empty($allColumns)){
 			return false;
 		}
 			
@@ -24,7 +24,7 @@ class xiusJoomlahelper
 			return $filter;
 		}
 			
-		return $allColumns['#__users'];
+		return $allColumns;
 	}	
 
     //get all usergroups

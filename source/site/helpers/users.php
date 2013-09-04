@@ -19,7 +19,7 @@ class XiusHelperUsers
 		return unserialize(htmlspecialchars_decode($what,ENT_QUOTES));
 	}
 	
-    function getJoomlaGroups()
+    public static function getJoomlaGroups()
 	{
 		$db = JFactory::getDBO();
 		

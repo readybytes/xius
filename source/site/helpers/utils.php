@@ -13,7 +13,7 @@ class XiusHelperUtils
 	 * $comName have componentname.
 	 * $bothReq have true then check Component exists at both-end (front & back)
 	 */
-	function isComponentExist($comName,$bothReq=false)
+	public static function isComponentExist($comName,$bothReq=false)
 	{
 		$frontcompath = JPATH_ROOT.DS.'components'.DS.$comName;
 		$admincompath = JPATH_ADMINISTRATOR.DS.'components'.DS.$comName;
@@ -184,11 +184,11 @@ class XiusHelperUtils
     	return preg_replace('#[/\\\\]+#', '/', $filepath);
     }
        
-	function getJSVersion()
+	public static function getJSVersion()
 	{	
 		$CMP_PATH_ADMIN	= JPATH_ROOT . DS. 'administrator' .DS.'components' . DS . 'com_community';
 	
-		$parser		= JFactory::getXMLParser('Simple');
+		$parser		= new XiusSimpleXML();
 		$xml		= $CMP_PATH_ADMIN . DS . 'community.xml';
 	
 		$parser->loadFile( $xml );

@@ -18,7 +18,7 @@ class XiusexportView extends XiusBaseView
 		return false;
 	}
 	
-	function _setAdminToolbar($id)
+	function _setAdminToolbar($id, $task = 'export', $option = NULL)
 	{
 		/*
  		 * get toolbar option for exporting the list in csv format

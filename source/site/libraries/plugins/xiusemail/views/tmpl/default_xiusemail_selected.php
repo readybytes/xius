@@ -25,7 +25,7 @@ $script = "function xiusCheckUserSelected(){
     		return true;    			
     	}";
 
-$document =& JFactory::getDocument();        				
+$document = JFactory::getDocument();        				
 $document->addScriptDeclaration($script);
 
 ?>

@@ -12,17 +12,17 @@ class Jsuserhelper
 	function getJomsocialFields($filter = '')
 	{
 			//$userTable = new XiusTable('#__community_users','userid');
-		$allColumns = JFactory::getDBO()->getTableFields('#__community_users');
+		$allColumns = JFactory::getDBO()->getTableColumns('#__community_users');
 		
 		if(empty($allColumns))
 			return false;
 			
-		if(empty($allColumns['#__community_users']))
+		if(empty($allColumns))
 			return false;
 			
 		if(!empty($filter))
 			return $filter;
 			
-		return $allColumns['#__community_users'];
+		return $allColumns;
 	}	
 }

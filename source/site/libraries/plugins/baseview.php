@@ -147,7 +147,7 @@ class XiusBaseView extends XiusView
 		}
 		
 		$assetsPath = XiusHelperUtils::XIUS_str_ireplace(JPATH_ROOT,JURI::base(),$assetsPath);
-		$document =& JFactory::getDocument();
+		$document = JFactory::getDocument();
 		
 		switch($type){
 			case 'css':	$document->addStyleSheet($assetsPath);
@@ -177,6 +177,6 @@ class XiusBaseView extends XiusView
 			return $output;
 		}
 	
-		echo "<div class='clearfix'>".$output."</div>";
+		echo $output;
 	}
 }

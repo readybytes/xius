@@ -40,7 +40,7 @@ class XiusemailView extends XiusBaseView
         $data['pluginId']		= $pluginId;
         $data['userId']			= $userId;
         $data['userSelected']	= $userSelected;
-        $data['editor'] 		=& JFactory::getEditor();
+        $data['editor'] 		= JFactory::getEditor();
          
         $this->assignRef('data', $data);
         
@@ -52,7 +52,7 @@ class XiusemailView extends XiusBaseView
 		       		return content;     			
         		}
         	";
-        $document =& JFactory::getDocument();
+        $document = JFactory::getDocument();
 		$document->addScriptDeclaration($js);
 		$contents = ob_get_contents();
  		ob_end_clean();
@@ -75,7 +75,7 @@ class XiusemailView extends XiusBaseView
         return $contents;        
 	}
 	
-	function _setAdminToolbar($id)
+	function _setAdminToolbar($id , $task = 'emailUser', $option = null)
 	{
 		$this->loadAssets('js', 'xiusemail.js');
 		// button for email to selected

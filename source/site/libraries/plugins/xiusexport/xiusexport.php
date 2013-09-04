@@ -46,7 +46,7 @@ function getInfoName()
 	/* 
 	 * Export Info is not sortable 
 	 */
-public function isSortable()
+public function isSortable($reset = false)
 	{
 		return false;
 	}

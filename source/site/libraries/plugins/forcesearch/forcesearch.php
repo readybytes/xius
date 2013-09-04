@@ -41,7 +41,7 @@ class Forcesearch extends XiusBase
 	}
 
 	
-	public function isSearchable()
+	public function isSearchable($reset = false)
 	{
 		return true;
 	}

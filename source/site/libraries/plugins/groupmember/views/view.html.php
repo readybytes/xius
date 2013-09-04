@@ -26,7 +26,7 @@ class GroupmemberView extends XiusBaseView
 	 * Return HTMl data which have all groups
 	 * @param $calleObject have GroupmemberView member object
 	 */
-	function searchHtml($calleObject)
+	function searchHtml($calleObject, $value = '')
     {
         if(!$calleObject->isAllRequirementSatisfy()){
             return false;

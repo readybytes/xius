@@ -6,7 +6,7 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 
-class XiusPluginControllerXiusexport extends JController 
+class XiusPluginControllerXiusexport extends JControllerLegacy
 {
 
 	function __construct($config = array())
