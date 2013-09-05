@@ -18,7 +18,7 @@ defined('JPATH_BASE') or die;
  * @since		1.5
  */
 
-class JElementXiradio extends XiusElement
+class JElementXiusradio extends XiusElement
 {
 	/**
 	* Element name
@@ -26,7 +26,7 @@ class JElementXiradio extends XiusElement
 	* @access	public
 	* @var		string
 	*/
-	public $_name = 'Radio';
+	public $_name = 'xiusradio';
 
 	public function fetchElement($name, $value, &$node, $control_name)
 	{

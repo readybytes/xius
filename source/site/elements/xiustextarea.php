@@ -10,24 +10,24 @@
 defined('JPATH_PLATFORM') or die;
 
 /**
- * Renders a text element
+ * Renders a textarea element
  *
  * @package     Joomla.Platform
  * @subpackage  Parameter
  * @since       11.1
- * @deprecated  12.1   Use JFormFormFieldText instead
+ * @deprecated  12.1   Use JFormFieldTextArea instead
  */
-class JElementXitext extends XiusElement
+class JElementXiusTextarea extends XiusElement
 {
 	/**
 	 * Element name
 	 *
 	 * @var    string
 	 */
-	protected $_name = 'Xitext';
+	protected $_name = 'Xiustextarea';
 
 	/**
-	 * Fetch the text field element
+	 * Fetch the element
 	 *
 	 * @param   string       $name          Element name
 	 * @param   string       $value         Element value
@@ -36,22 +36,21 @@ class JElementXitext extends XiusElement
 	 *
 	 * @return  string
 	 *
-	 * @deprecated  12.1  Use JFormFieldText::getInput instead.
+	 * @deprecated  12.1  Use JFormFieldTextArea::getInput
 	 * @since   11.1
 	 */
 	public function fetchElement($name, $value, &$node, $control_name)
 	{
 		// Deprecation warning.
-		JLog::add('JElementText::_fetchElement() is deprecated.', JLog::WARNING, 'deprecated');
+		JLog::add('JElementTextArea::_fetchElement() is deprecated.', JLog::WARNING, 'deprecated');
 
-		$size = ($node->attributes('size') ? 'size="' . $node->attributes('size') . '"' : '');
+		$rows = $node->attributes('rows');
+		$cols = $node->attributes('cols');
 		$class = ($node->attributes('class') ? 'class="' . $node->attributes('class') . '"' : 'class="text_area"');
+		// Convert <br /> tags so they are not visible when editing
+		$value = str_replace('<br />', "\n", $value);
 
-		// Required to avoid a cycle of encoding &
-
-		$value = htmlspecialchars(htmlspecialchars_decode($value, ENT_QUOTES), ENT_QUOTES, 'UTF-8');
-
-		return '<input type="text" name="' . $control_name . '[' . $name . ']" id="' . $control_name . $name . '" value="' . $value . '" ' . $class
-			. ' ' . $size . ' />';
+		return '<textarea name="' . $control_name . '[' . $name . ']" cols="' . $cols . '" rows="' . $rows . '" ' . $class . ' id="' . $control_name
+			. $name . '" >' . $value . '</textarea>';
 	}
 }

@@ -9,7 +9,7 @@
 		<name>Show List</name>
 		<description>Through this link you will be able to redirect user to a particular list.</description>
 			<url addpath="/components/com_xius/elements">
-			<param name="task" type="hidden" default="showList" label="LIST" description="LIST.DESC" addall="true" />
+			<param name="task" type="xiushidden" default="showList" label="LIST" description="LIST.DESC" addall="true" />
 			<param name="listid" type="xiuslist" default="0" label="LIST" description="LIST.DESC" addall="true" />		
 			</url>
 		</state>

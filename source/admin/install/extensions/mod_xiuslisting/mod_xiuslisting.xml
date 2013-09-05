@@ -19,7 +19,7 @@
 		<file>css/index.html</file>
 	</files>
 	<params>
-		<param name="moduleclass_sfx" type="text" default="" label="COM_XIUS_MODULE_CLASS_SUFFIX" description="COM_XIUS_PARAMXIUSMODULECLASSSUFFIX" />
+		<param name="moduleclass_sfx" type="xiustext" default="" label="COM_XIUS_MODULE_CLASS_SUFFIX" description="COM_XIUS_PARAMXIUSMODULECLASSSUFFIX" />
 	</params>
 	
 <!-- for joomla 1.6-->

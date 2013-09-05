@@ -10,12 +10,12 @@
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		
 		<param name="@spacer" type="spacer" default="Column Names of Geocoding Table" label="" description="" />
-			<param name="xius_proximity_table" type="text" default="" label="TABLE NAME FOR LATITUDE AND LONGITUDE.LABEL" description="TABLE NAME FOR LATITUDE AND LONGITUDE.DESC"/>
-			<param name="xius_proximity_zipcode_column" type="text" default="" label="COLUMN NAME FOR ZIPCODE.LABEL" description="COLUMN NAME FOR ZIPCODE.DESC"/>
-			<param name="xius_proximity_country_column" type="text" default="" label="COLUMN NAME FOR COUNTRY.LABEL" description="COLUMN NAME FOR COUNTRY.DESC"/>
-			<param name="xius_proximity_state_column" type="text" default="" label="COLUMN NAME FOR STATE.LABEL" description="COLUMN NAME FOR STATE.DESC"/>
-			<param name="xius_proximity_city_column" type="text" default="" label="COLUMN NAME FOR CITY.LABEL" description="COLUMN NAME FOR CITY.DESC"/>			
-			<param name="xius_proximity_lat_column" type="text" default="" label="COLUMN NAME FOR LATITUDE.LABEL" description="COLUMN NAME FOR LATITUDE.DESC"/>
-			<param name="xius_proximity_long_column" type="text" default="" label="COLUMN NAME FOR LONGITUDE.LABEL" description="COLUMN NAME FOR LONGITUDE.DESC"/> 
+			<param name="xius_proximity_table" type="xiustext" default="" label="TABLE NAME FOR LATITUDE AND LONGITUDE.LABEL" description="TABLE NAME FOR LATITUDE AND LONGITUDE.DESC"/>
+			<param name="xius_proximity_zipcode_column" type="xiustext" default="" label="COLUMN NAME FOR ZIPCODE.LABEL" description="COLUMN NAME FOR ZIPCODE.DESC"/>
+			<param name="xius_proximity_country_column" type="xiustext" default="" label="COLUMN NAME FOR COUNTRY.LABEL" description="COLUMN NAME FOR COUNTRY.DESC"/>
+			<param name="xius_proximity_state_column" type="xiustext" default="" label="COLUMN NAME FOR STATE.LABEL" description="COLUMN NAME FOR STATE.DESC"/>
+			<param name="xius_proximity_city_column" type="xiustext" default="" label="COLUMN NAME FOR CITY.LABEL" description="COLUMN NAME FOR CITY.DESC"/>			
+			<param name="xius_proximity_lat_column" type="xiustext" default="" label="COLUMN NAME FOR LATITUDE.LABEL" description="COLUMN NAME FOR LATITUDE.DESC"/>
+			<param name="xius_proximity_long_column" type="xiustext" default="" label="COLUMN NAME FOR LONGITUDE.LABEL" description="COLUMN NAME FOR LONGITUDE.DESC"/> 
 	</params>
 </config>

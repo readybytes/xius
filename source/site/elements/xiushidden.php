@@ -17,7 +17,7 @@ defined('JPATH_PLATFORM') or die;
  * @since       11.1
  * @deprecated  12.1     Use JFormFieldHidden instead.
  */
-class JElementXihidden extends XiusElement
+class JElementXiushidden extends XiusElement
 {
 	/**
 	 * Element name
@@ -25,7 +25,7 @@ class JElementXihidden extends XiusElement
 	 * @var    string
 	 * @since  11.1
 	 */
-	protected $_name = 'Xihidden';
+	protected $_name = 'Xiushidden';
 
 	/**
 	 * Fetch a hidden element

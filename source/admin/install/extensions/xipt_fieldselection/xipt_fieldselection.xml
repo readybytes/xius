@@ -15,7 +15,7 @@
  </files>
 
 <params>
-<param name="xiusSetInfo" type="xiradio" default="0" label="Apply Filtering on:" description="Apply filtering on base/dependent/both informations">
+<param name="xiusSetInfo" type="xiusradio" default="0" label="Apply Filtering on:" description="Apply filtering on base/dependent/both informations">
 			<option value="0">Base</option>
 			<option value="1">Dependent</option>
 			<option value="2">Both</option>
