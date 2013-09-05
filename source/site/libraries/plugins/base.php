@@ -336,7 +336,7 @@ abstract class XiusBase extends JObject
 		return $plguinParamsHtml;
 	}
 	
-	public function getPluginParamsFromXml()
+	public function getPluginParamsFromXml($key)
 	{
 		return true;
 	}

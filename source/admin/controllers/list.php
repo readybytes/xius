@@ -22,12 +22,6 @@ class XiusControllerList extends JControllerLegacy
 		$this->registerTask( 'orderdown' , 'saveOrder' );
 	}
 
-//    function display()
-//    {
-//		parent::display();
-//    }
-//
-
 	function remove()
 	{
 		$mainframe = JFactory::getApplication();

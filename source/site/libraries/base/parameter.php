@@ -38,12 +38,12 @@ class XiusParameter extends XiusLegacyParameter
 		<?php endif;?>
 
 		<?php foreach ($params as $param) : ?>
-			<div class="xiusParameter xiRow" >
+			<div class="elementParams" >
 				<?php if ($param[0] && $param[0] != '&nbsp;'): ?>
-					<div class="xiusParameter xiCol xiColKey">
+					<div class="paramTitle">
 						<?php echo $param[0]; ?>
 					</div>
-					<div class="xiusParameter xiCol xiColValue">
+					<div class="paramValue">
 						<?php echo $param[1]; ?>
 					</div>
 				<?php else: ?>
@@ -466,7 +466,7 @@ class XiusLegacyParameter extends JRegistry
 
 		if ($path)
 		{
-			$xml = JFactory::getXMLParser('Simple');
+			$xml = new XiusSimpleXML;
 
 			if ($xml->loadFile($path))
 			{

@@ -64,8 +64,8 @@ class plgSearchxius extends JPlugin
 		
 		//Ignore Css and Js that may affect the result
 		$doc = JFactory::getDocument();
-		$css = $doc->get('_styleSheets');
-		$js = $doc->get('_scripts');
+		$css = $doc->_styleSheets;
+		$js  = $doc->_scripts;
 		$path = JFactory::getURI()->base();
 		$config	= CFactory::getConfig();
 		$newCss = array();
@@ -84,14 +84,15 @@ class plgSearchxius extends JPlugin
 				 $newCss[$key] = $value ;
 		}
 		//set new Css and Js
-		$doc->set("_styleSheets", $newCss);
-		$doc->set("_scripts" , $newJs);
+		$doc->_styleSheets = $newCss;
+		$doc->_scripts = $newJs;
 		
 		//set parameters that are essential for joomla search result 
 		$i = 0;
 		$results = array();
 		foreach ($users as $user)
 		{
+			$results[$i] = new stdClass();
 			$results[$i]->href    	 = $user->profileLink;
 			$results[$i]->section	 = "";
 			$results[$i]->title    	 = $user->name;

@@ -15,7 +15,7 @@ XiusHelperUtils::loadJQuery();
 <div id="XIUS">
 <form action="<?php echo JURI::base();?>index.php?" method="post" name="adminForm" id="adminForm">
 
-<div class="col width-45" style="float:left;">
+<div class="col width-50" style="float:left;width:50%">
 	<fieldset class="adminform">
 	<legend><?php echo XiusText::_( 'BASIC_CONFIGURATION' ); ?></legend>
 		<div>
@@ -26,7 +26,7 @@ XiusHelperUtils::loadJQuery();
 	</fieldset>
 </div>
 
-<div class="col width-50" style="float:left;" >
+<div class="col width-50" style="float:right;width:50%" >
 	<fieldset class="adminform">
 		<legend><?php echo XiusText::_( 'ADVANCE_CONFIGURATION' ); ?></legend>
 		<div id="xiusAdvanceTemplate">

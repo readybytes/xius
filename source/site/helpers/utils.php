@@ -40,7 +40,7 @@ class XiusHelperUtils
 	}
 	
 	
-	function isTableExist($tableName)
+	public static function isTableExist($tableName)
 	{
 		$mainframe = JFactory::getApplication();
 	
@@ -53,7 +53,7 @@ class XiusHelperUtils
 	}
 
 
-	public function getAvailablePlugins()
+	public static function getAvailablePlugins()
 	{
 		//$path	= JPATH_ADMINISTRATOR.DS.'components'.DS.'com_xius'.DS.'libraries'.DS.'plugins';
 	
@@ -91,7 +91,7 @@ class XiusHelperUtils
 	
 	
 	// XiTODO:: Remove it, When implementing automatic cache updation.
-	function getOtherConfigParams($configname , $what , $default = 0)
+	public static function getOtherConfigParams($configname , $what , $default = 0)
 	{
 		$cModel = XiusFactory::getInstance ('configuration', 'model');
 		$params	= $cModel->getOtherParams($configname);
@@ -109,7 +109,7 @@ class XiusHelperUtils
 	}
 	
 	
-	function verifyCronRunRequired($secureKey = null,$currentTime = null)
+	public static function verifyCronRunRequired($secureKey = null,$currentTime = null)
 	{
 		if($secureKey == null)
 			$secureKey=JRequest::getVar('xiuskey', 0, 'GET','string');
@@ -145,7 +145,7 @@ class XiusHelperUtils
 	 * Check Plugin status.
 	 * Here only use XiPT Plugins Enable or not  
 	 */
-	function isPluginInstalledAndEnabled($pluginname,$type,$checkenable = false)
+	public static function isPluginInstalledAndEnabled($pluginname,$type,$checkenable = false)
 	{	
 		if(!JPluginHelper::isEnabled($type,$pluginname))
 			return false;

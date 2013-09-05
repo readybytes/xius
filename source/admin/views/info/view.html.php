@@ -88,7 +88,8 @@ class XiusViewInfo extends XiusView
 	function setToolBar()
 	{
 
-		$task = JFactory::getApplication()->input->get('task');
+		$task   = JFactory::getApplication()->input->get('task');
+		$plugin = JFactory::getApplication()->input->get('plugin', 0 ) ;
 		
 		if($task != ('add' || 'renderinfo' || 'apply') || $task == "cancel") {
 			JToolBarHelper::addNew('add', XiusText::_( 'CREATE_INFO' ));
@@ -102,6 +103,9 @@ class XiusViewInfo extends XiusView
 		{
 			JToolBarHelper::apply('apply', XiusText::_('APPLY'));
 			JToolBarHelper::save('save',XiusText::_('SAVE_AND_CLOSE'));
+		}
+		if($plugin && $task != 'cancel') {
+			JToolbarHelper::back(XiusText::_('BACK'));
 		}
 		if($task != ('cancel') && isset($task) ) {
 			JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));

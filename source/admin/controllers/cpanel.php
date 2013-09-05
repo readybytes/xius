@@ -13,12 +13,6 @@ class XiusControllerCpanel extends XiusController
 	{
 		parent::__construct($config);
 	}
-	
-    function display() 
-	{
-		parent::display();
-    }
-    
 
     function updates()
 	{

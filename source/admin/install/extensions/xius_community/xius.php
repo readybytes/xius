@@ -7,7 +7,7 @@ jimport('joomla.filesystem.folder');
 
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xius'))
 	return;
-//require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
+require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
 
 class plgCommunityxius extends JPlugin
 {
@@ -183,7 +183,7 @@ class CommunityXiusController extends CommunityBaseController
 		JRequest::setVar('view',$this->xiusOrigView);
 	}
 	
-	function getView($viewName ='frontpage', $prefix = '', $viewType = '')
+	function getView($viewName ='frontpage', $prefix = '', $viewType = '', $config = array())
 	{	
 		//just before view
 		$view =  parent::getView('search', $prefix, $viewType);

@@ -18,7 +18,7 @@ class XiusPluginControllerProximity extends JControllerLegacy
 		//$this->registerTask( 'reset' , 'reset' );
 	}
 	
-    function display() 
+    function display($cachable = false, $urlparams = array())
 	{
 		return 'no Display Function';
     }

@@ -41,7 +41,7 @@ class plgXiusxipt_privacy extends JPlugin
 		return true;	
 	}
 	
-	function xiusOnBeforeSaveInfo($postData)
+	function xiusOnBeforeSaveInfo(&$postData)
 	{	
 		if(!$this->_loadXipt())
 			return false;
@@ -58,7 +58,7 @@ class plgXiusxipt_privacy extends JPlugin
 	 * @trigger will return the XiProfileTypes privacy Data to be shown on page
 	 * @where XiProfileTypes data will be filled
 	 */
-	function onBeforeRenderInfoDisplay($params)
+	function onBeforeRenderInfoDisplay(&$params)
 	{
 		if(!$this->_loadXipt())
 			return false;
@@ -108,7 +108,7 @@ class plgXiusxipt_privacy extends JPlugin
         return $config->render(); 
 	}
 	
-	function xiusOnAfterLoadAllInfo($allInfo, $loginuser=null)
+	function xiusOnAfterLoadAllInfo(&$allInfo, &$loginuser=null)
 	{
 		//Don't run when user is  admin or cache upadate time.
 		if(JFactory::getApplication()->isAdmin() ||
@@ -130,7 +130,7 @@ class plgXiusxipt_privacy extends JPlugin
 	 * @trigger will return the privacy html to be shown on page
 	 * @where list data will be filled
 	 */
-	function xiusOnBeforeDisplayListDetails($params)
+	function xiusOnBeforeDisplayListDetails(&$params)
 	{
 		if(!$this->_loadXipt())
 			return false;
@@ -142,7 +142,7 @@ class plgXiusxipt_privacy extends JPlugin
 		return $this->_xiusGetProfileTypes($params);
 	}
 
-	function xiusOnBeforeSaveList($postData, $params)
+	function xiusOnBeforeSaveList(&$postData, &$params)
 	{	
 		if(!$this->_loadXipt())
 			return false;
@@ -158,7 +158,7 @@ class plgXiusxipt_privacy extends JPlugin
 		return true;
 	}
 	
-	function xiusOnAfterLoadList($lists)
+	function xiusOnAfterLoadList(&$lists)
 	{
 		//Don't run in admin
 		if(JFactory::getApplication()->isAdmin())

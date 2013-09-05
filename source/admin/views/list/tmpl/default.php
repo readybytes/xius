@@ -22,7 +22,7 @@ Joomla.submitbutton = function(action){
 
 
 <form action="<?php echo JURI::base();?>index.php" method="post" name="adminForm" id="adminForm">
-<table class="adminlist" cellspacing="1">
+<table class="table table-striped adminlist" cellspacing="1">
 	<thead>
 		<tr>
 			<th width="1%">

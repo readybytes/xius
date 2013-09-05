@@ -17,12 +17,6 @@ class XiusControllerConfiguration extends JControllerLegacy
 		//$this->registerTask( 'reset' , 'reset' );
 	}
 	
-    function display() 
-	{
-		parent::display();
-    }
-
-	
 	function save()
 	{
 		$mainframe = JFactory::getApplication();

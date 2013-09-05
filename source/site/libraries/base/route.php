@@ -11,7 +11,7 @@ require_once JPATH_ROOT.DS.'components'.DS.'com_xius' .DS. 'router.php';
 
 class XiusRoute
 {
-	function _addItemId($url)
+	public static function _addItemId($url)
 	{
 		
 		$Jurl     = new JURI($url);

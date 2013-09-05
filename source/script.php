@@ -246,7 +246,7 @@ class com_xiusInstallerScript
 
 class xiusMigration
 {
-	function isMigrationRequired(){
+	public static function isMigrationRequired(){
 		//if xius_config table is not present it means xius has never been installed
 		//and migration is not required
 		if(self::_isTableExist('xius_config')){
@@ -265,7 +265,7 @@ class xiusMigration
 	}
 
 	//check whether the given table exists or not
-	function _isTableExist($tableName)
+	public static function _isTableExist($tableName)
 	{
 		$database   = JFactory::getDBO();
 		$query 	= "SHOW TABLES LIKE '%".$tableName."%'";
@@ -275,7 +275,7 @@ class xiusMigration
 		return false;
 	}
 
-	function doMigration()
+	public static function doMigration()
 	{
 		self::migrationInConfig();
 		self::migrationInInfoParams();
@@ -283,7 +283,7 @@ class xiusMigration
 
 	}
 
-	function migrationInConfig()
+	public static function migrationInConfig()
 	{
 		//add a version in xius_config table
 		$db 	  = JFactory::getDBO();
@@ -309,7 +309,7 @@ class xiusMigration
 		return true;
 	}
 
-	function migrationInInfoParams()
+	public static function migrationInInfoParams()
 	{
 		$iModel	= XiusFactory::getInstance ( 'info','model' );
 		$allInfo   = $iModel->getAllInfo();
@@ -357,7 +357,7 @@ class xiusMigration
 	}
 
 	//function to change groupname to groupid
-	function convertInGroupId($value)
+	public static function convertInGroupId($value)
 	{
 		$groups    = XiusHelperUsers::getJoomlaGroups();
 		foreach ($groups as $group){
@@ -367,7 +367,7 @@ class xiusMigration
 		return $value;
 	}
 
-	function migrationInListParams()
+	public static function migrationInListParams()
 	{
 		$parameter  = new XiusParameter();
 		$lModel    	= XiusFactory::getInstance ('list', 'model');

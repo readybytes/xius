@@ -224,7 +224,7 @@ class Proximity extends XiusBase
 		
 	}
 	
-	public function isSortable()
+	public function isSortable($reset = false)
 	{
 		$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
 		if(!is_array($conditions) || empty($conditions))

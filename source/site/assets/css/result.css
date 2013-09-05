@@ -400,3 +400,7 @@ div#xius_result div.xiusfr ul span.pagenav {
     font-weight: bold;
     line-height: 1.8em;
 }
+
+div#xius_result select{
+	width:auto !important;
+}

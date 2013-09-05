@@ -55,25 +55,25 @@ class XiusGmap
 	 * Loaded only one time per site (addScript)
 	 */
 	function loadAPI( $src = 'jsapi') {
-		$document	= & JFactory::getDocument();
+		$document	= JFactory::getDocument();
 		$scriptLink	= 'http://www.google.com/'.$src;
 		$document->addScript($scriptLink);
 
 	}
 	
 	/*function loadCoordinatesJS() {
-		$document	= & JFactory::getDocument();
+		$document	= JFactory::getDocument();
 		$document->addScript(JURI::base(true).'/components/com_xiusmaps/assets/js/coordinates.js');
 	}*/
 	
 	/*function loadGeoXMLJS() {
-		$document	= & JFactory::getDocument();
+		$document	= JFactory::getDocument();
 		$document->addScript(JURI::base(true).'/components/com_xiusmaps/assets/js/geoXML3.js');
 		//$document->addScript(JURI::base(true).'/components/com_xiusmaps/assets/js/ProjectedOverlay.js');
 	}*/
 	
 	/*function loadBase64JS() {
-		$document	= & JFactory::getDocument();
+		$document	= JFactory::getDocument();
 		$document->addScript(JURI::base(true).'/components/com_xiusmaps/assets/js/base64.js');
 	}*/
 	

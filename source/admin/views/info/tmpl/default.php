@@ -23,7 +23,7 @@ Joomla.submitbutton = function(action){
 <div id="XIUS">
 <div class="xippElements">
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm">
-<table class="adminlist" cellspacing="1">
+<table class="table table-striped adminlist" cellspacing="1">
 	<thead>
 		<tr class="title">
 			<th width="1%">

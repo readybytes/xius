@@ -34,7 +34,7 @@ class XiusTableInfo extends XiusTable
 	 * 	 
 	 * @return boolean true on success
 	 **/
-	function load( $id )
+	function load($id = NULL, $reset = true)
 	{
 		// ID exist 
 		if($id){
@@ -49,7 +49,7 @@ class XiusTableInfo extends XiusTable
 	 * 
 	 * @return boolean true on success
 	 **/
-	function store( )
+	function store($updateNulls = false)
 	{
 		$db		= $this->getDBO();
 		if( $this->id == 0 )

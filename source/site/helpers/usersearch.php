@@ -11,7 +11,7 @@ class XiusHelperUsersearch
 	/*
 	 * get the dependent information of all the information
 	 */
-	function getDependentInfo($info)
+	public static function getDependentInfo($info)
 	{
 		foreach($info as $i){
 			if(is_array($i))
@@ -28,7 +28,7 @@ class XiusHelperUsersearch
 	/*
 	 * sort the information according to their dependency
 	 */
-	function getSortedInfo($info)
+	public static function getSortedInfo($info)
 	{
 		$returnInfo 	= array();
 		$jsFiledsInfo	= Array(); 
@@ -103,7 +103,7 @@ class XiusHelperUsersearch
 	/*
 	 * return array which contains parent and children of each infomation
 	 */
-    function getParentChild($reset=false)
+   public static  function getParentChild($reset=false)
 	{
 	  	static $parentChild = array();
 	    if($reset == true)	
@@ -126,14 +126,14 @@ class XiusHelperUsersearch
 			
             //for xiusemail type info
 			else if($info->pluginType == 'Xiusemail'){
-			    $registry->loadINI($info->pluginParams);
+			    $registry->loadString($info->pluginParams,"INI");
         	    $params   = $registry->toArray();
         	    $parentChild = self::storeParentChild($params['xius_email'],$info->id ,$parentChild);
 			}
 			
 				//for proximity info
 				elseif( $info->pluginType == 'Proximity'){
-				   $registry->loadINI($info->pluginParams);
+				   $registry->loadString($info->pluginParams,"INI");
 		    	   $params = $registry->toArray();
 		    	   $proximityParams = array( 'xius_proximity_latitude',
 		    	                             'xius_proximity_longitude',
@@ -152,7 +152,7 @@ class XiusHelperUsersearch
 	}
 	
     //stores parent and child for information
-	function storeParentChild($parentid,$childid,$parentChild)
+	public static function storeParentChild($parentid,$childid,$parentChild)
 	{
 		if(!isset($parentChild[$childid]['parent']) || !in_array($parentid, $parentChild[$childid]['parent']))
 		    $parentChild[$childid]['parent'][]  = $parentid;
@@ -162,7 +162,7 @@ class XiusHelperUsersearch
 	}
 	
     //get array of parent type infos
-	function getParents($infoid = null)
+	public static function getParents($infoid = null)
 	{
 		$parents = array();
 		$parentChild = self::getparentChild();
@@ -187,7 +187,7 @@ class XiusHelperUsersearch
 	}
 	
     //get all dependent infos
-	function getChildren($infoid = null)
+	public static function getChildren($infoid = null)
 	{
 		$children = array();
 		$parentChild = self::getparentChild();

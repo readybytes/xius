@@ -30,11 +30,6 @@ class XiusControllerInfo extends JControllerLegacy
 		$this->registerTask( 'unexportable' , 'saveParamDoable' );
 	}
 	
-    function display() 
-	{
-		parent::display();
-    }
-	
  
     function add()
 	{

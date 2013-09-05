@@ -10,9 +10,9 @@ defined('_JEXEC') or die('Restricted access');
 // XITODO:: Change Class name
 class ProximityHelper
 {	
-	function getUserInfo($callObject){
+	public static function getUserInfo($callObject){
 		
-		$userId	 = & JFactory::getUser()->id;
+		$userId	 = JFactory::getUser()->id;
 		$columns = $callObject->getTableMapping();
 		
 		if(!$columns || !is_array($columns) )
@@ -21,7 +21,7 @@ class ProximityHelper
 		foreach($columns as $value )
 		     $columnsName[]= $value->cacheColumnName;
 		  
-		$db	= & JFactory::getDBO();
+		$db	= JFactory::getDBO();
 		$query=new XiusQuery();
 		
 		foreach ($columnsName as $column)
@@ -35,7 +35,7 @@ class ProximityHelper
 		return $db->loadRow();
 	}
 	
-	function setUserLatLong($callObject,& $data)
+	public static function setUserLatLong($callObject,& $data)
 	{
 		
 		$userinfo = self :: getUserInfo($callObject);

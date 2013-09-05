@@ -244,7 +244,7 @@ class Forcesearch extends XiusBase
    	{
    		$db      = JFactory::getDBO();
    		$columns = $instance->getTableMapping();
-   		$value   =  $this->formatValue($instance,$operator, $value);
+   		$value   =  $this->formatValues($instance,$operator, $value);
    		
    		switch($operator)
    		{
@@ -291,7 +291,7 @@ class Forcesearch extends XiusBase
    	}
    	
     //format values according to operator type
-   	function formatValue($instance,$operator, $value)
+   	function formatValues($instance,$operator, $value)
    	{  	
         //For multiselect type info
    		if(is_array($value) && isset($value))  {   
