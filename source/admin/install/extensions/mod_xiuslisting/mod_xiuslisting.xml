@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="module" version="2.5.0" client="site" method="upgrade">
+<extension type="module" version="2.5" client="site" method="upgrade">
 	<name>XiusListing</name>
 	<version>@global.version@.@svn.lastrevision@</version>
     	<creationDate>Jan 2010</creationDate>
@@ -18,7 +18,7 @@
 		<file>index.html</file>		
 		<file>css/index.html</file>
 	</files>
-	<params>
+	<params addpath="/components/com_xius/elements">
 		<param name="moduleclass_sfx" type="xiustext" default="" label="COM_XIUS_MODULE_CLASS_SUFFIX" description="COM_XIUS_PARAMXIUSMODULECLASSSUFFIX" />
 	</params>
 	

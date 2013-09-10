@@ -1,5 +1,4 @@
 <?php ?>
-<script><!--
 jQuery(document).ready(function($){
 	$('div#keywordHtml').children('input.inputbox').attr('value','<?php echo XiusText::_("FIND");?>').css('color','<?php echo $background; ?>');
 	$('div#xiusProxiAddress').children('input#xiusAddress').attr('value','<?php echo XiusText::_("NEAR");?>').css('color','<?php echo $background; ?>');
@@ -56,5 +55,4 @@ jQuery(document).ready(function($){
 	
 
 });
-</script>
 <?php 

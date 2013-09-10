@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class ModXiusProximity
 {
-	function  setModuleParams($tmpParams=null)
+	public static function  setModuleParams($tmpParams=null)
 	{
 		static $params = null;
 		
@@ -18,14 +18,14 @@ class ModXiusProximity
 		return $params;
 	}
 	
-	function getKeywordHtml(){
+	public static function getKeywordHtml(){
 		$filter = array();
 		$filter['published'] = true;
 		$filter['pluginType'] = 'Keyword';
 	    return ModXiusProximity::getSearchHtml($filter);
 	}
 	
-	function getProximityHtml($params){
+	public static function getProximityHtml($params){
 		$filter = array();
 		$filter['published'] = true;
 		$filter['pluginType'] ='Proximity';		
@@ -35,7 +35,7 @@ class ModXiusProximity
 		return  ModXiusProximity::getSearchHtml($filter);		
 	}
 	
-	function getSearchHtml($filter)
+	public static function getSearchHtml($filter)
 	{
 		$info = XiusLibInfo::getInfo($filter,'AND',false);
 	

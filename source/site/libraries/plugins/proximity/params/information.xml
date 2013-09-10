@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<params addpath="/components/com_xius/elements" >
-		<param name="@spacer" type="spacer" default="Select Information of Latitude and Longitude" label="" description="" />
+		<param name="@xiusspacer" type="xiusspacer" default="Select Information of Latitude and Longitude" label="" description="" />
 			<param name="xius_proximity_latitude" type="info" default="0"  label="COM_XIUS_LATITUDE_LABEL" description="COM_XIUS_LATITUDE_DESC" />
 			<param name="xius_proximity_longitude" type="info" default="0"  label="COM_XIUS_LONGITUDE_LABEL" description="COM_XIUS_LONGITUDE_DESC" />
-		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="@xiusspacer" type="xiusspacer" default="" label="" description="" />
 			
-		<param name="@spacer" type="spacer" default="Default Location Configuration" description="" />
+		<param name="@xiusspacer" type="xiusspacer" default="Default Location Configuration" description="" />
 			<param name="xius_default_location" type="xiusradio" label="COM_XIUS_XIUS_PROXIMITY_LOCATION_LABLE" description="COM_XIUS_LOCATION_DES" default="none" >	
 				<option value="none">None</option>				
 				<option value="googlemap">Google Map</option>
@@ -16,11 +16,11 @@
 			<param name="xiusProximityDefaultLat" type="xiustext" default="28.635308" label="COM_XIUS_DEFAULT_GOOGLE_MAP_LATITUDE_FOR_PROXIMITY_SEARCH_LABEL" description="COM_XIUS_DEFAULT_GOOGLE_MAP_LATITUDE_FOR_PROXIMITY_SEARCH_DESC" />
 			<param name="xiusProximityDefaultLong" type="xiustext" default="77.22496" label="COM_XIUS_DEFAULT_GOOGLE_MAP_LONGITUDE_FOR_PROXIMITY_SEARCH_LABEL" description="COM_XIUS_DEFAULT_GOOGLE_MAP_LONGITUDE_FOR_PROXIMITY_SEARCH_DESC" />
 			<param name="xiusDefaultDistance" type="xiustext" label="COM_XIUS_XIUS_PROXIMITY_DEFAULT_DISTANCE_LABLE" description="COM_XIUS_DISTANCE_DES" default="10" />		
-			<param name="xiusDefaultDistanceUnit" type="list" label="COM_XIUS_XIUS_PROXIMITY_DEFAULT_DISTANCE_UNIT_LABLE" description="COM_XIUS_DISTANCE_UNIT_DES" >	
+			<param name="xiusDefaultDistanceUnit" type="xiusselect" label="COM_XIUS_XIUS_PROXIMITY_DEFAULT_DISTANCE_UNIT_LABLE" description="COM_XIUS_DISTANCE_UNIT_DES" >	
 				<option value="miles">Miles</option>				
 				<option value="kms">Kms</option>
 			</param>
-			<param name="xiusProximityGmapZoom" type="list" label="COM_XIUS_DEFAULT_ZOOM_LEVEL_FOR_GOOGLE_MAP_LABEL" description="COM_XIUS_DEFAULT_ZOOM_LEVEL_FOR_ GOOGLE_MAP_DESC">
+			<param name="xiusProximityGmapZoom" type="xiusselect" label="COM_XIUS_DEFAULT_ZOOM_LEVEL_FOR_GOOGLE_MAP_LABEL" description="COM_XIUS_DEFAULT_ZOOM_LEVEL_FOR_ GOOGLE_MAP_DESC">
 				<option value="2">2</option>
 				<option value="4">4</option>
 				<option value="6">6</option>

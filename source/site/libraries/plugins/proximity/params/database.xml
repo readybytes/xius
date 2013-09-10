@@ -2,14 +2,14 @@
 <config>
 	<params addpath="/components/com_xius/elements" >
 			
-		<param name="@spacer" type="spacer" default="Select the respective Information " description="" />
+		<param name="@xiusspacer" type="xiusspacer" default="Select the respective Information " description="" />
 			<param name="xius_proximity_country" type="info" default="0"  label="COUNTRY.LABEL" description="COUNTRY.DESC"/>
 			<param name="xius_proximity_zipcode" type="info" default="-1"  label="ZIPCODE.LABEL" description="ZIPCODE.DESC" addnone="true"/>
 			<param name="xius_proximity_state" type="info" default="-1"  label="STATE.LABEL" description="STATE.DESC" addnone="true"/>
 			<param name="xius_proximity_city" type="info" default="0"  label="CITY.LABEL" description="CITY.DESC" addnone="true"/>
-		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="@spacer" type="xiusspacer" default="" label="" description="" />
 		
-		<param name="@spacer" type="spacer" default="Column Names of Geocoding Table" label="" description="" />
+		<param name="@xiusspacer" type="xiusspacer" default="Column Names of Geocoding Table" label="" description="" />
 			<param name="xius_proximity_table" type="xiustext" default="" label="TABLE NAME FOR LATITUDE AND LONGITUDE.LABEL" description="TABLE NAME FOR LATITUDE AND LONGITUDE.DESC"/>
 			<param name="xius_proximity_zipcode_column" type="xiustext" default="" label="COLUMN NAME FOR ZIPCODE.LABEL" description="COLUMN NAME FOR ZIPCODE.DESC"/>
 			<param name="xius_proximity_country_column" type="xiustext" default="" label="COLUMN NAME FOR COUNTRY.LABEL" description="COLUMN NAME FOR COUNTRY.DESC"/>

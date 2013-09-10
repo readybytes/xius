@@ -48,19 +48,18 @@ div#xiusProximity td {
 }
 
 div#xiusProximity {
-	border: 1px solid <?php echo $border; ?>;
-	width: 600px;
-	padding:5px;
 	overflow:hidden;
 }
 
 div#xiusProximity div#xiusKeyword{
 	float:left;
-	width:100px;
-        margin:3px 15px 0px 0px;
+	color:<?php echo $color; ?>;
+   margin:3px 15px 0px 0px;
 }
 
 div#xiusProximity div#keywordHtml{
+	margin-left:20px;
+	float:left;
 }
 
 div#xiusProximity div#keywordHtml input{
@@ -73,7 +72,6 @@ div#xiusProximity div#keywordHtml input{
 
 div#xiusProximity div#proximityDiv{
 	float:left;
-	width:360px;
 }
 
 div#xiusProximity div#proximityHtml{
@@ -111,7 +109,7 @@ div#xiusProximity div#proximityHtml input#xiusDistance {
 
 div#xiusProximity div#proximityHtml div#xiusProxiMap{
 	margin-top: 4px;
-    margin-left: 5px;
+    margin-left: 17px;
     float:left;
 }
 
@@ -123,7 +121,8 @@ div#xiusProximity div#xiusProxiMap a{
 div#xiusProximity div#xiusProxiAddress{
 	float: left;
 	width:100px;
-	margin-left:5px;
+	margin: 5px 0 5px 17px;
+	
 }
 
 div#xiusProximity div#proximityHtml input#xiusAddress{
@@ -131,14 +130,12 @@ div#xiusProximity div#proximityHtml input#xiusAddress{
 	font-size: 16px;
 	color:<?php echo $color; ?>;
 	padding:2px;
-	width:100px;
+	width:110px;
 }	
 
 div#xiusProximity div#xiusProxiLocation{
 	float:left;
-	margin-top: 5px;
-	margin-left:5px;
-	font-size: 15px;
+	margin: 5px 0 5px 17px;
 }
 
 div#xiusProximity div#searchButton{
@@ -163,6 +160,9 @@ div#xiusProximity div#searchButton input{
 
 div#xiusProximity div#xiusProxiError{
 	color:red;
+}
+div#xiusProximity .float-left{
+	float:left;
 }
 
 </style>

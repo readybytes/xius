@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusListHelper
 {
-	function getListData()
+	public static function getListData()
 	{
 		$user = JFactory::getUser();
 		$filter='';
