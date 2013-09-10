@@ -45,7 +45,7 @@ class com_xiusInstallerScript
 	public function install(JAdapterInstance $adapter)
 	{
 		if(JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_community') == false){
-			JError::raiseError('INSTERR', JText::_("JOMSOCIAL_NOT_FOUND_NOT_ABLE_TO_INSTALL_EXTENSIONS"));
+			JError::raiseError('Installation error', 'Unable to install it, JomSocial should be already installed');
 			return false;
 		}		
 		
@@ -79,7 +79,7 @@ class com_xiusInstallerScript
 	public function uninstall(JAdapterInstance $adapter)
 	{
 		if(JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_community') == false){
-			JError::raiseError('INSTERR', JText::_("JOMSOCIAL_NOT_FOUND_NOT_ABLE_TO_UNINSTALL_EXTENSIONS"));
+			JError::raiseError('Installation error', 'Unable to install it, JomSocial should be already installed');
 			return false;
 		}
 		
