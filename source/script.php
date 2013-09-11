@@ -11,6 +11,8 @@ if(!defined('DS')){
 
 class com_xiusInstallerScript
 {
+	public static $xiusIntallOrUpgrade = 'install';
+	
 	/**
 	 * Constructor
 	 *
@@ -69,6 +71,7 @@ class com_xiusInstallerScript
 	{
 		$this->uninstall($adapter);		
 		$this->install($adapter);
+		self::$xiusIntallOrUpgrade = 'upgrade';
 	}
 
 	/**
@@ -118,6 +121,9 @@ class com_xiusInstallerScript
 		$this->changePluginState('xius_system',true);
 		$this->changePluginState('xius',true);
 		$this->changePluginState('js_privacy',true);
+
+		$this->enableExtension();
+
 		//$this->changePluginState('xipt_privacy',true);
 		//check if migration is required
 		if(xiusMigration::isMigrationRequired()){
@@ -167,19 +173,12 @@ class com_xiusInstallerScript
 
 	function changePluginState($pluginname, $action=1)
 	{
-		$version = new JVersion();
 		$db		= JFactory::getDBO();
 	
-		if ($version->RELEASE == '1.5'){
-			$query	= 'UPDATE ' . $db->quoteName( '#__plugins' )
-			. ' SET '.$db->quoteName('published').'='.$db->Quote($action)
-			.' WHERE '. $db->quoteName('element').'='.$db->Quote($pluginname);
-		}
-		else{
-			$query	= 'UPDATE ' . $db->quoteName( '#__extensions' )
-			. ' SET '.$db->quoteName('enabled').'='.$db->Quote($action)
-			.' WHERE '. $db->quoteName('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
-		}
+		$query	= 'UPDATE ' . $db->quoteName( '#__extensions' )
+		. ' SET '.$db->quoteName('enabled').'='.$db->Quote($action)
+		.' WHERE '. $db->quoteName('element').'='.$db->Quote($pluginname) . "  AND `type`='plugin' ";
+		
 	
 		$db->setQuery($query);
 	
@@ -242,6 +241,66 @@ class com_xiusInstallerScript
 	
 		return true;
 	}
+	
+	//This function is called after intallation complete 
+	function postflight($type, $parent)
+	{
+		
+		ob_start();
+		?>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				setTimeout("location.href = 'index.php?option=com_xius';", 5000);
+			}
+		</script>
+		<iframe scrolling="no" frameborder="0" width="503px" src="http://pub.joomlaxi.com/broadcast/xius/xius.html?action=<?php echo self::$xiusIntallOrUpgrade; ?>&label=<?php echo JVERSION; ?>"></iframe>
+		<?php 
+		$script = ob_get_contents();
+		ob_clean();
+ 		echo $script;
+
+	}
+
+	public function preflight($type, $parent)
+	{
+		if($type == 'install' || $type == 'update'){
+			self::_deleteAdminMenu();
+		}	
+	}
+
+	/**
+	 * Joomla! 1.6+ bugfix for "Can not build admin menus"
+	 */
+	public static function _deleteAdminMenu()
+	{
+		$db    = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		
+		//get all records
+		$query->delete('#__menu')
+			  ->where($db->quoteName('type').' = '.$db->quote('component'))
+			  ->where($db->quoteName('menutype').' = '.$db->quote('main'))
+			  ->where($db->quoteName('link').' LIKE '.$db->quote('%index.php?option=com_xius%'));
+	
+		return $db->setQuery($query)->query();
+	}
+	
+	public static function enableExtension()
+	{
+		$db		= JFactory::getDBO();
+		$query	= 'UPDATE ' . $db->quoteName( '#__extensions' )
+				. ' SET '.$db->quoteName('enabled').'='.$db->Quote('1')
+				.' WHERE '. $db->quoteName('element').'='.$db->Quote('com_xius') . "  AND `type`='component' ";
+		
+		$db->setQuery($query);
+	
+		if(!$db->query())
+			return false;
+	
+		return true;
+	}
+	
 }
 
 class xiusMigration

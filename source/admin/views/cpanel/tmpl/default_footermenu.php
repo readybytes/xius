@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 ?>
 <div style="text-align:center; width:100%; border-top: solid #DDDDDD 1px; margin-top:20px; padding-top: 5px;">
 	<div>
-		<a href='http://www.joomlaxi.com/downloads/joomlaxi-user-search-xius.html' target="_blank"><?php echo XiusText::_('DOWNLOAD');?></a>
+		<a href='http://www.joomlaxi.com/download/category/xius-2.html' target="_blank"><?php echo XiusText::_('DOWNLOAD');?></a>
 		| <a href='http://www.joomlaxi.com/support/forum/allforums/40-joomlaxi-user-search-xius.html' target="_blank"><?php echo XiusText::_('SUPPORT');?></a>
 		| <a href='http://www.joomlaxi.com/support/documentation/category/joomlaxi-user-search.html' target="_blank"><?php echo XiusText::_('DOCUMENTATION');?></a>
 		| <a href='http://www.youtube.com/user/teamjoomlaxi#g/c/1814CBD5B611F6F9' target="_blank"><?php echo XiusText::_('VIDEOS');?></a>
