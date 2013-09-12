@@ -40,7 +40,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		$json = new Services_JSON();
 		$status = $json->decode($content);
 
-		if($status->status != 'OK' && JFactory::getConfig()->getValue('debug') == 1){
+		if($status->status != 'OK' && JFactory::getConfig()->get('debug') == 1){
 			JFactory::getApplication()->enqueueMessage($status->status);
 		}
 

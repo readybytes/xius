@@ -240,7 +240,7 @@ class Rangesearch extends XiusBase
 		if(JString::strtolower($this->pluginParams->get('rangesearchType','date')) === 'date-range'){
 			jimport('joomla.utilities.date');
 			$dateFrom 	= new JDate($value);
-			return $dateFrom->toMySQL(); 
+			return $dateFrom->toSql(); 
 		}
 		return $value;
 	}
