@@ -76,7 +76,7 @@ class XiusLibPluginhandler
 		$addresses	= ProximityGoogleapiHelper::getInvalidAddress($limit);
 		$geocodes 	= ProximityGoogleapiHelper::getGeocodes($addresses);
 
-		if(JFactory::getConfig()->getValue('debug') == 1 && !$geocodes){
+		if(JFactory::getConfig()->get('debug') == 1 && !$geocodes){
 			JError::raiseWarning(1001,XiusText::_('WARNING_FOR_NOT_FOUND_GEOCODE'));
 			return false;
 		}	
