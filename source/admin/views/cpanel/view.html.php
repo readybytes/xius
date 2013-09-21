@@ -38,5 +38,9 @@ class XiusViewCpanel extends XiusView
 		parent::display( $tpl);
 	}
 
+	function setToolBar()
+	{
+		JToolBarHelper::help('JHELP_COMPONENTS_JOOMLA_UPDATE',false,"http://www.joomlaxi.com/support/documentation/category/joomlaxi-user-search.html");
+	}
 }
 ?>

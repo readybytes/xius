@@ -175,7 +175,7 @@ class XiusView extends JViewLegacy
  		else
 			$listCreator = unserialize(XiusHelperUtils::getConfigurationParams('xiusListCreator','a:1:{i:0;s:19:"Super Users";}'));
 		if($option === null){				
-			$option = JRequest::getVar('option','com_xius','GET');
+			$option = JFactory::getApplication()->input->get('option','com_xius');
 		}
 					
 		/*

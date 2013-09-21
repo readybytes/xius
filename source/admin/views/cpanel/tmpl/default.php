@@ -12,13 +12,20 @@ if(!defined('_JEXEC')) die('Restricted access');
 	<?php echo $this->addIcon('xius-config.png','index.php?option=com_xius&view=configuration', XiusText::_('CONFIGURATION'));?>
 	<?php echo $this->addIcon('info.png','index.php?option=com_xius&view=info', XiusText::_('INFO'));?>
 	<?php echo $this->addIcon('userlist.png','index.php?option=com_xius&view=list', XiusText::_('LIST'));?>
-	<?php echo $this->addIcon('icon-updates.gif','index.php?option=com_xius&view=cpanel&task=updates', XiusText::_('UPDATES'));?>
-	<?php echo $this->addIcon('download.png','http://www.joomlaxi.com/download/category/xius-2.html', XiusText::_('DOWNLOAD'));?>
-	<?php echo $this->addIcon('documentation.png','http://www.joomlaxi.com/support/documentation/category/joomlaxi-user-search.html', XiusText::_('DOCUMENTATION'));?>
-	<?php echo $this->addIcon('support.png','http://www.joomlaxi.com/support/forum/40-joomlaxi-user-search-xius.html', XiusText::_('SUPPORT'));?>
-	<?php echo $this->addIcon('gnugpl.png','http://www.gnu.org/licenses/old-licenses/gpl-2.0.html', XiusText::_('LICENSE'));?>				
-	<?php echo $this->addIcon('twitter.jpg','http://twitter.com/joomlaXi', XiusText::_('FOLLOW_TWITTER'));?>
 </div>
+<?php 
+        $version = new JVersion();
+	        $suffix = 'jom=J'.$version->RELEASE.'&utm_campaign=broadcast&pay=XIUS'.XIUS_VERSION.'&dom='.JURI::getInstance()->toString(array('scheme', 'host', 'port'));
+        ob_start();?>
+        <div class ="xiusboardcast">    
+            <iframe src='http://pub.joomlaxi.com/broadcast/xius/broadcast.html?<?php echo $suffix?>' frameborder="0" scrolling="auto" width="100%" height="350px"></iframe>
+         </div>
+        <?php
+   		$return .= ob_get_contents();
+        ob_end_clean();
+        echo $return;
+?>            
+
 
 <input type="hidden" name="view" value="cpanel" />
 <input type="hidden" name="task" value="" />

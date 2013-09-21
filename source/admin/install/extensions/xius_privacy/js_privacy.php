@@ -83,7 +83,7 @@ class plgXiusjs_privacy extends JPlugin
 		if(!$this->_loadXius())
 			return false;
 
-		$loggedinUser = & JFactory::getUser();				
+		$loggedinUser = JFactory::getUser();				
 		$count = count($lists);
 		for($i =0 ; $i < $count ; $i++ ){
 			$params = new XiusParameter('','');
@@ -140,7 +140,7 @@ class plgXiusjs_privacy extends JPlugin
 			return false;
 			
 		if($loginuser==null)
-			$loginuser=& JFactory::getUser();
+			$loginuser= JFactory::getUser();
 			
 		//$userId	 		 =	$loginuser->id;
 		$count = count($allInfo);

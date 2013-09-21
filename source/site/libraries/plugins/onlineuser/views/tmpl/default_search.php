@@ -8,11 +8,16 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 ?>
  <div>
+ 	<div class="left">
       	<input type="radio" id="onlineuser" name="onlineuser"  value="online" title="Online users" /> 
       		<?php echo XiusText::_('WHO_S_ONLINE'); ?>
+     </div><div class="left">
       	<input type="radio" id="onlineuser" name="onlineuser"  value="offline" title="Offline users"/>
       		<?php echo XiusText::_('WHO_S_OFFLINE'); ?>
+      		
+       </div><div class="left">
       	<input type="radio" id="onlineuser" name="onlineuser"  value="all available" title="All Available users" checked />
       		<?php echo XiusText::_('ALL_AVAILABLE'); ?>
+      	</div>
 </div>
-<?php
+<?php 

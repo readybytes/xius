@@ -10,13 +10,12 @@
 .xiusMod_availablemain {
 	float: left;
 	width:100%;
-    margin-top: 5px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    margin-top: 15px;
 }
 .xiMod_left {
     font-weight:bold;
-	margin: 0 0 0 0;
-	}
+	margin: 5px 0 5px 0;
+}
 
 .xiMod_right {
 
@@ -25,12 +24,10 @@
 }
 .xiusMod_available input {
 	width:75%;
-	margin: 0 0 0 0;
 }
 
 .xiusMod_available select {
-	width:75%;
-	margin: 0 0 0 0;
+	width:82%;
 }
 
 .xiusMod_available input[type="checkbox"] {
@@ -45,23 +42,14 @@
 }
 .xiusModSearch input{
 	margin-top: 10px;
-	width : 120px;
+	width : auto;
 	margin-left:10%;
-	}
+}
 .xiusMod_availablemain label {
 	display: block;
 	padding-left:0px;
     margin-left:0px;
 }
-
-.xiusMod_available .xiusProximityInputbox{
-	border:1px solid #e3e3e3;
-	width:40%;
-}
-.xiusMod_available .xiusProximitySelectbox {
-	width:35%;
-}
-
-body #xiusMod_available .inputbox {
-	border:1px solid #e3e3e3;
+.xiusMod_available .left{
+    float:left;
 }

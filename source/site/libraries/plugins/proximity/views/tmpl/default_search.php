@@ -17,12 +17,16 @@ if(!defined('_JEXEC')) die('Restricted access');
 		$userId		= $this->data['userId']
 ?>
       <div>
+      <div class="left">
       	<input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusShowGoogleMap(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $defaultLat ?>&quot;, &quot;<?php echo $defaultLong; ?>&quot;);" value="googlemap"  <?php echo ($location=='googlemap')? "checked": "" ;?> /> 
       		<?php echo XiusText::_('XIUS_MAP'); ?>
+      </div><div class="left">
       	<input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusShowAddressBox(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $defaultLat ?>&quot;, &quot;<?php echo $defaultLong; ?>&quot;);" value="addressbox" <?php echo $location; ?> <?php echo ($location=='addressbox')? "checked": "" ;?> />
-      		<?php echo XiusText::_('XIUS_ADDRESS'); ?>
+      		<?php echo XiusText::_('XIUS_ADDRESS'); ?>  
+      </div><div class="left">
       	 <input type="radio" id="<?php echo $elePrefix; ?>_option" name="<?php echo $elePrefix; ?>_option" onClick="javascript:xiusAddMyLocation(this,&quot;<?php echo $elePrefix; ?>&quot;,&quot;<?php echo $this->data['latitude'] ?>&quot;, &quot;<?php echo $this->data['longitude']; ?>&quot;);" value="mylocation" <?php echo $location; ?> <?php echo ($location=='mylocation')? "checked": "" ;?> <?php echo ($userId == 0) ? "disabled" : ""; ?>/>
       			<?php echo XiusText::_('XIUS_PROXIMITY_MY_LOCATION'); ?>
+      </div>
       </div>
             
       <div id="<?php echo $elePrefix; ?>_gmap_option" style="<?php echo "display:".(($location=='googlemap')? "block": "none;")?>;">
@@ -37,9 +41,8 @@ if(!defined('_JEXEC')) die('Restricted access');
       <input class="inputbox" type="hidden" name="<?php echo $elePrefix; ?>_lat" id="<?php echo $elePrefix; ?>_lat" value=<?php echo $latitude; ?> />
       <input class="inputbox" type="hidden" name="<?php echo $elePrefix; ?>_long" id="<?php echo $elePrefix; ?>_long" value=<?php echo $longitude; ?> />
       
-      <div class="xiusProximityLabel"><?php echo XiusText::_('DISTANCE'); ?></div>
-      
-      <div>
+      <div class="xiusProximityLabel left">
+      	<?php echo XiusText::_('DISTANCE'); ?>
 		<input  class="xiusProximityInputbox" 
 				type="text" size="12" 
 				name="<?php echo $elePrefix; ?>_dis" 

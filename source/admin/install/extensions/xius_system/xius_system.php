@@ -47,10 +47,12 @@ class plgSystemxius_system extends JPlugin
 			return;
 
 	 	// take to xius search if community search is performed
-		$option = JRequest::getCmd('option','','GET');
-		$view   = JRequest::getCmd('view','','GET');
-		$task   = JRequest::getCmd('task','','GET');
-		$user   = JFactory::getSession()->get('tmpUser');
+	 	$input = JFactory::getApplication()->input;
+		
+		$option = $input->get('option','');
+		$view   = $input->get('view','');
+		$task   = $input->get('task','');
+		$user   = JFactory::getUser();
 
 		if($option != 'com_community')
 			return false;	
@@ -194,8 +196,9 @@ class plgSystemxius_system extends JPlugin
 		$config = XiusHelperUtils::getConfigurationParams('xiusDefaultMatch');
 		foreach ($unsetUsers as $userid){
 			$unset = true;
+			$matchAnyOrAll = JFactory::getApplication()->input->get('xiusjoin',$config);
 			//if match any condition then only check these
-			if(JRequest::getVar('xiusjoin',$config) == 'OR'){
+			if($matchAnyOrAll == 'OR'){
 				foreach ($otherInfos as $key=>$value){
 					if( $value['formatvalue'] == XiusText::_('ALL_AVAILABLE') || 
                         $value['formatvalue'] == XiusText::_('ALL_USERS') || 
@@ -284,8 +287,10 @@ class plgSystemxius_system extends JPlugin
 
 		// Run this function when component is XiUS and
 		// task is Search
-		$option = JRequest::getVar('option');
-		$task	= JRequest::getVar('task');
+		$input = JFactory::getApplication()->input;
+		
+		$option = $input->get('option','');
+		$task   = $input->get('task','');
 		
 		if( !(($option === 'com_xius' || $option =='com_community' ) && $task === 'search'))
 	    {  	

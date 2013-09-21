@@ -171,3 +171,13 @@ width:150px
 {
 	 background-image: url("../images/info.png");
 }
+.xiusboardcast
+{
+	float:left;
+	min-width:30%;
+}
+#cpanel
+{
+	float:left;
+	width:70%;	
+}

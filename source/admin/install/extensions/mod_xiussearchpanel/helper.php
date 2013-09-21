@@ -8,7 +8,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class UserSearchHelper
 {				
-	function getSearchHtml($range,$count = XIUS_ALL )
+	public static function getSearchHtml($range,$count = XIUS_ALL )
 	{
 		$filter = array();
 		$filter['published'] = true;
@@ -50,7 +50,7 @@ class UserSearchHelper
 		return $infohtml;		
 	}
 	
-	function getInfoRange( $infoRange)
+	public static function getInfoRange( $infoRange)
 	{
 		if( 'all' === strtolower($infoRange) )
 			$range = $infoRange;

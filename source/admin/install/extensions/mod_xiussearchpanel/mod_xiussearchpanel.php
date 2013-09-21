@@ -6,7 +6,7 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 // set module form name in seesion
-$mySess =& JFactory::getSession();
+$mySess = JFactory::getSession();
 $mySess->set('xiusModuleForm',"xiusMod{$module->id}",'XIUS');
 		
 jimport( 'joomla.filesystem.folder' );

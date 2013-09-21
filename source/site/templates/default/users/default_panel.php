@@ -4,7 +4,7 @@
 * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
 **/
 if(!defined('_JEXEC')) die('Restricted access');
-$this->loadAssets('css', 'panel.css');
+$this->loadAssets('css', 'result.css');
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 //for replacing tooltip of js by xius
@@ -36,10 +36,10 @@ joms.jQuery(document).ready(function($) {
 </script>
 <?php  
 ?>
-<div class="xius_sp" id="xius_sp">
+<div class="xius_result" id="xius_result">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
 
-<div class="xius_spHead">
+<div class="xius_aiHead">
 <?php echo XiusText::_('SEARCH');?>
 </div>
 		<?php
@@ -57,14 +57,14 @@ joms.jQuery(document).ready(function($) {
 		else:
 		foreach($this->infohtml as $data):
 			?>
-			<div class="xius_spMain">
-			<div class="xius_spLabel">
+			<div class="xius_aiMain">
+			<div class="xius_aiLabel">
 			<?php
 			$xiustooltip = $data['tooltip'];
 			echo $data['label'];
 			?>
 			</div>
-			<div class="xius_spInput field<?php echo $data['info']->key?>">
+			<div class="xius_aiInput field<?php echo $data['info']->key?>">
 			<?php if(!empty($xiustooltip) && $data['info']->pluginType != 'Jsfields'): 
 				 echo '<span class="jomNameTips" title="'.$xiustooltip.'">'.$data['html'].'</span>';?>
 		    <?php else: ?>
@@ -79,14 +79,14 @@ joms.jQuery(document).ready(function($) {
 		<div style="display:none;">
 			<?php echo $this->loadTemplate('joinhtml'); ?>
 		</div>
-
-		<div class="xius_spSubmit">
-		<input type="submit" id="xiussearch" name="xiussearch" value="<?php echo XiusText::_("SEARCH_BUTTON");?>" />
+		<hr>
+		<div class="xius_spSubmit text-center">
+		<input class="btn" type="submit" id="xiussearch" name="xiussearch" value="<?php echo XiusText::_("SEARCH_BUTTON");?>" />
 		</div>
 		<?php
 		endif;
 		?>
-
+	
 	<input type="hidden" name="fromPanel" value="true" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>

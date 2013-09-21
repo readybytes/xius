@@ -5,7 +5,7 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 
-$document =& JFactory::getDocument();
+$document = JFactory::getDocument();
 $path     = JURI::base().DS.'modules'.DS.'mod_xiussearchpanel'.DS.'css'.DS;
 if ($params->get('xius_layout','horizontal')=='vertical')
 	$document->addStyleSheet($path.'mod_xiussearchpanel_ver.css');
@@ -62,6 +62,6 @@ joms.jQuery(document).ready(function($) {
 			endforeach;
 			?>
 			<input type="hidden" name="fromPanel" value="true" />			
-			<div class ="xiusModSearch"><input id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" /></div>
+			<div class ="xiusModSearch"><input class="btn" id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" /></div>
 		</form>
 	</div>

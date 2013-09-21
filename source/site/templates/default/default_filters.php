@@ -23,6 +23,7 @@ endforeach; ?><?php
         JFactory::getDocument()->addScriptDeclaration($content);?>
 <script type="text/javascript"> 
 joms.jQuery(document).ready(function($) {
+	xiushidediv()
 	for (i = 0; i < (FieldIds.length); i++) {
 		if(tooltip[FieldIds[i]] !=""){
 			joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);

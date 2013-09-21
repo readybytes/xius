@@ -59,19 +59,18 @@ div#xius_result .xius_ul{
 	margin:2px;
 }
 div#xius_result .xiusMp{
-	border:1px solid #dddddd;
-	margin:5px 3px;
+	margin:10px 3px;
 	overflow:hidden;
-	-moz-border-radius:2px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	box-shadow:0 0 1px rgba(0, 0, 0, 0.2);
 }
 	
 div#xius_result .xiusMp:hover{
-	border:1px solid #bfbfbf;
 	background:#efefef;
 }
 	
 div#xius_result .xiusMpAvatar{
-	border:3px solid #dddddd;
 	padding:3px;
 	width:70px;
 	height: 70px;
@@ -83,9 +82,6 @@ div#xius_result .xiusMpAvatar img{
 	margin-top:2px;
 	margin-left:1px;
 }
-div#xius_result .xiusMpAvatar:hover{
-	border:3px solid #bfbfbf;
-	}
 div#xius_result .xiusMpOptions{
 	float: right;
 	}
@@ -136,7 +132,7 @@ div#xius_result .xiusToolbar {
 	margin: 2px 5px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
-	padding:1px 10px 0 10px;
+	padding:6px 10px 0px 10px;
 }
 
 div#xius_result .xiusToolbar:hover{
@@ -163,8 +159,9 @@ div#xius_result .xiusTotalText{
 div#xius_result .xiusAppliedinfo{
 	border:1px solid #dddddd;
 	overflow:hidden;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 	margin:5px;
 }
 
@@ -190,10 +187,12 @@ div#xius_result .applied {
 div#xius_result .applied {
 	float: left;
 	background:#efefef;
-	-moz-border-radius:2px;
-	/*border: 1px solid #275788;*/
+	-moz-border-radius:3px;
+	border: 1px solid #D4D4D4;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+	border-radius:3px;
 	position: relative;
-	/**width: 18%;**/
+	width: 18%;
 	overflow: hidden;
 	color: 7f7f7f;
 	margin-left: 4px;
@@ -241,17 +240,19 @@ div#xius_result .xius_ai{
 	border:1px solid #dddddd;
 	padding:2px;
 	margin:5px;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 	background:#efefef;
+	border-radius:5px;
 }
 
 div#xius_result .xius_ai_full{
 	border:1px solid #dddddd;
 	padding:2px;
 	margin:5px;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 
 div#xius_result .xius_aiHead{
@@ -260,10 +261,10 @@ div#xius_result .xius_aiHead{
 }
 
 div#xius_result .xius_aiMain{
-	border:1px solid #dddddd;
-	overflow:hidden;
-	margin:5px;
-	padding:5px;
+	border-top	:1px solid #dddddd;
+	overflow	:hidden;
+	margin		:10px;
+	padding		:15px 10px 0;
 }
 div#xius_result .xius_aiMain:hover{
 background:#efefef;
@@ -403,4 +404,7 @@ div#xius_result div.xiusfr ul span.pagenav {
 
 div#xius_result select{
 	width:auto !important;
+}
+div#xius_result .left{
+    float:left;
 }

@@ -7,8 +7,8 @@
 <script type="text/javascript">
 jQuery.noConflict();
 jQuery(document).ready(function($){
-$("img:[title='BackToTop']").click(function(){ 
-	$(window).scrollTop(0);
+	$("#backtotop").click(function(){ 
+		$(window).scrollTop(0);
 	});
 });
 </script>
@@ -34,5 +34,5 @@ echo $this->loadTemplate('profile');
 <input type="hidden" name="view" value="users" />
 <input type="hidden" name="task" value="search" />
 </form>
-<img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" title="BackToTop" style="float:right;"/>
+<img id='backtotop' src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" title="BackToTop" style="float:right;"/>
 </div>

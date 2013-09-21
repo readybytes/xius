@@ -68,3 +68,6 @@
 body #xiusMod_available .inputbox {
 	border:1px solid #e3e3e3;
 }
+.xiusMod_available .left{
+    float:left;
+}

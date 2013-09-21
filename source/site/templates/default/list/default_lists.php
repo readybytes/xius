@@ -17,7 +17,7 @@ else	:
 		?>
 		<div class="listmain">
 		<div class="listtopleft">
-		<h1>
+		<h3>
 		<?php
 		$name = $l->name;
 		if(empty($name)):
@@ -25,7 +25,7 @@ else	:
 		endif;
 		
 		echo '<a href="'.$url.'">'.$name.'</a>'
-		?></h1>
+		?></h3>
 		</div>
 		<div class="listtopright">
 		</div>
