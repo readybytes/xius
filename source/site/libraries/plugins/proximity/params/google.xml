@@ -27,7 +27,7 @@
 				<option value="miles">Miles</option>				
 				<option value="kms">Kms</option>
 			</param>
-			<param name="xiusProximityGmapZoom" type="xiusselect" >
+			<param name="xiusProximityGmapZoom" type="xiusselect" label="COM_XIUS_DEFAULT_ZOOM_LEVEL_FOR_GOOGLE_MAP_LABEL" description="COM_XIUS_DEFAULT_ZOOM_LEVEL_FOR_ GOOGLE_MAP_DESC">
 				<option value="2">2</option>
 				<option value="4">4</option>
 				<option value="6">6</option>

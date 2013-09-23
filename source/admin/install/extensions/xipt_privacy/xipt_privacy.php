@@ -130,7 +130,7 @@ class plgXiusxipt_privacy extends JPlugin
 	 * @trigger will return the privacy html to be shown on page
 	 * @where list data will be filled
 	 */
-	function xiusOnBeforeDisplayListDetails(&$params)
+	function xiusOnBeforeDisplayListDetails($params)
 	{
 		if(!$this->_loadXipt())
 			return false;
