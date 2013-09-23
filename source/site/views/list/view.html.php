@@ -25,8 +25,10 @@ class XiussiteViewList extends XiusView
 		else
 			$user = JFactory::getUser($owner);
 
-		if(!XiusHelperUtils::isAdmin($user->id))
+		if(!XiusHelperUtils::isAdmin($user->id)){
 			$filter['published'] = 1;
+			$filter['owner'] = $user->id;
+		}
 
 		$lists = $lModel->getLists($filter,'AND',true);
 		

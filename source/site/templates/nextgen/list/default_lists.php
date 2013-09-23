@@ -19,7 +19,7 @@ else	:
 			
 			<div class="xiusListsHead">
 				<div class="listtopleft">
-				<h2>
+				<h3>
 				<?php
 				$name = $l->name;
 				if(empty($name)):
@@ -27,7 +27,7 @@ else	:
 				endif;
 				
 				echo '<a href="'.$url.'">'.$name.'</a>'
-				?></h2>
+				?></h3>
 				</div>
 			
 				<div class="listtopright">
@@ -47,7 +47,8 @@ echo $this->pagination->getPagesLinks();
 //set default limit that is already set from backend
 $limit		    = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
 JRequest::setVar('limit', $limit);
-echo JElementLimit::fetchElement('limit',$limit);
+$jlimit = new JElementLimit();
+echo $jlimit->fetchElement('limit',$limit);
 ?>
 
 <input type="hidden" name="option" value="com_xius" />

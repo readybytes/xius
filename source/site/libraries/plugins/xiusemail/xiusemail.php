@@ -29,7 +29,7 @@ class Xiusemail extends XiusBase
 	
 	function isAllRequirementSatisfy()
 	{
-//		$loggedInUser =& JFactory::getUser();
+//		$loggedInUser = JFactory::getUser();
 //		if(XiusHelperUtils::isAdmin($loggedInUser->id)==false)
 //			return false;
 			

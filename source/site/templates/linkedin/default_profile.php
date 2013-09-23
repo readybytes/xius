@@ -58,10 +58,9 @@ endif;?>
 					</div>
 		<?php  endif;?>
 
-
-					<?php if(isset($user->email) && !empty($user->email)): 
-					           echo $user->email;
-						  endif; ?>
+		<?php if(isset($user->email) && !empty($user->email)): 
+		           echo $user->email." Mail";
+			  endif; ?>
 </div>
 </div>
 <?php 

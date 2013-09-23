@@ -17,13 +17,14 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 		<div id="xiusTbButton">
 		<?php
 		foreach($this->xiusToolbar as $tool)
-			echo $tool->value;
+			echo "<div class='left'>".$tool->value."</div>";
 		?>
 		</div>
 	</div>
 <?php endif;?>
 
 <div id="xiusSorting"><span id="sortBYTitle"><?php echo XiusText::_('SORT_BY');?> </span>
+	<span>
 				<?php
 				if(!empty($this->sortableFields))	:
 					$html = '<select id="xiussort" name="xiussort" onchange="xiusApplySort(\'sort\');" >';
@@ -58,9 +59,11 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
                 //set default limit for search result
 				$mainframe  	= JFactory::getApplication();
 				$limit 			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-                echo JElementLimit::fetchElement('limit',$limit);
+                $jlimit = new JElementLimit();
+                echo $jlimit->fetchElement('limit',$limit);
 				echo sprintf(XiusText::_('OF_TOTAL'),$this->total);?>
-	 </div>
+	</span>
+</div>
 
 
 </div>

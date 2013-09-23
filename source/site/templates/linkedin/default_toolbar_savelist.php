@@ -7,7 +7,6 @@
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
-<div id="xiusSave">
 <a 
 	id="<?php echo $this->buttonMap->modalname; ?>" 
 	class="<?php echo $this->buttonMap->modalname; ?>"
@@ -15,6 +14,6 @@ if(!defined('_JEXEC')) die('Restricted access');
 	href="<?php echo $this->buttonMap->link; ?>"
 	rel="<?php echo $this->buttonMap->options; ?>" 
 >
-<?php echo XiusText::_("SAVE_THIS_LIST");?></a></div>
+<?php echo XiusText::_("SAVE_THIS_LIST");?></a>
 <?php 
  

@@ -8,9 +8,8 @@
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
 
-<div id="xiusCsv">
 <a href="<?php echo $this->url;?>"	
 	title='<?php echo XiusText::_('EXPORT_TO_CSV'); ?>' 
 ><?php echo XiusText::_('EXPORT_TO_CSV'); ?>
-</a></div>
+</a>
 <?php 

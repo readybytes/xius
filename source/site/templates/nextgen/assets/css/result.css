@@ -43,6 +43,7 @@ div#xiusProfile div#xiusTbButton{
 		margin:0 0 0 -2px;
 		padding:5px;       
         background:#ffffff;
+        width:135px;
 }
 
 div#xiusProfile #xiusActions {
@@ -147,6 +148,7 @@ div#xiusProfile div.xiusFlData {
         margin-top:7px;
         border:1px solid #e3e3e3;
         padding:2px;
+        overflow:hidden;
 }
 
 div#xiusProfile div.xiusFlLabel {
@@ -402,4 +404,10 @@ div#xiusProfile #xiusEmailToSelected:hover {
 	background: #e3e3e3 url("../../../../assets/images/emailselected.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;
      height: 20px;
+}
+div#xiusProfile select{
+	width:auto !important;
+}
+div#xiusProfile .left{
+    float:left;
 }

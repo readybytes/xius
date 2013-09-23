@@ -32,7 +32,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 						    <span><?php echo XiusText::_('XIUS_EMAIL_MESSAGE');?></span>
 						</div>
 						<div class="xiusEmailControl">
-						     <?php echo $this->data['editor']->display( 'xiusEmailMessageEl', '', '525', '270', '60', '20' ); ?>
+						     <?php echo $this->data['editor']->display( 'xiusEmailMessageEl', '', '525', '270', '60', '20',false ); ?>
 						</div>
 					</div>
 				</div>

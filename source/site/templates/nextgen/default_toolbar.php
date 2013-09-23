@@ -17,7 +17,7 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 		<div id="xiusTbButton">
 		<?php
 		foreach($this->xiusToolbar as $tool)
-			echo $tool->value;
+			echo "<div class='left'>".$tool->value."</div>";
 		?>
 		</div>
 	</div>
@@ -56,6 +56,7 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
                 //set default limit for search result
 				$mainframe  	= JFactory::getApplication();
 				$limit 			= $mainframe->getUserStateFromRequest('global.list.limit', 'limit', $mainframe->getCfg('list_limit'), 'int' );
-                echo JElementLimit::fetchElement('limit',$limit);?>
+                $jlimit = new JElementLimit();
+                echo $jlimit->fetchElement('limit',$limit);?>
 	</div>
 </div><?php 

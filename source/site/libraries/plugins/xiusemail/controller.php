@@ -92,7 +92,7 @@ class XiusPluginControllerXiusemail extends JControllerLegacy
     	
     	$info['to'] 	 = $userId;
     	$info['subject'] = $post['xiusEmailSubjectEl'];
-    	$info['body']	 = $message;
+    	$info['body']	 = strip_tags($message);
     	
     	$inboxModel = CFactory::getModel('inbox');
     	$inboxModel->send($info);

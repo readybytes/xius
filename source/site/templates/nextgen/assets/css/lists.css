@@ -40,7 +40,6 @@ div#xiusLists td {
 }
 
 #xiusLists .xiusListsHead {
-	border-bottom: 1px solid #e3e3e3;
 	padding:2px 5px;
 }
 
@@ -181,7 +180,7 @@ text-align:left;
 display:block;
 float:left;
 cursor:default;
-font-weight:bold;
+font-weight:normal;
 text-align:left;
 width:215px
 }

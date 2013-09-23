@@ -156,8 +156,7 @@ class XiusView extends JViewLegacy
 	 */
 	function _setAdminToolbar($listid, $task, $option = null)
 	{	
-		$args = array();
-		$args[]=& $toolbar;		
+		$args[]= array();
 		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeDisplayResultToolbar', array($args) );
 			

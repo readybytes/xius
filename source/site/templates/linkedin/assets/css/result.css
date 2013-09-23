@@ -179,16 +179,15 @@ div#xiusResult div#xiusToolbar select{
 }
 
 div#xiusResult div#xiusActions{
-	float:left;
-	padding-left:5px;
-	width:20%;
-	margin-top: 2px;
-	color:#006699;
+    color: #006699;
+    float: left;
+    margin-top: 10px;
+    padding-left: 5px;
 }
 
 div#xiusResult div#xiusSorting{
 	float:right;
-	padding-right:5px;
+	padding:5px 5px 0 0;
 }
 
 div#xiusResult span.xiusOptionsImg{
@@ -202,6 +201,7 @@ div#xiusResult div#xiusTbButton {
 		padding: 2px;
 		border: 1px solid #cfcfcf;
 		line-height: 20px;
+		width : 115px;
 }
 
 div#xiusResult span#sortBYTitle{
@@ -229,4 +229,10 @@ div#xiusResult div.xiusfr ul span.pagenav {
 	font-size: 12px;
     font-weight: bold;
     line-height: 1.8em;
+}
+div#xiusResult select{
+	width:auto !important;
+}
+div#xiusResult .left{
+    float:left;
 }

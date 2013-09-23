@@ -5,7 +5,7 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 $this->loadAssets('css', 'panel.css');
-$document =& JFactory::getDocument();
+$document = JFactory::getDocument();
 JHTML::_('behavior.tooltip', '.hasTip');
 jimport('joomla.html.pane');
 //for replacing tooltip of js by xius

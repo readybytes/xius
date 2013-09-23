@@ -177,9 +177,13 @@ class plgXiusxipt_privacy extends JPlugin
 	
 	function _setDisplayData(&$data, $profileId, $list=false)
 	{
-                if(XiusHelperUtils::isAdmin($userid=null))
-                   return true;
+		if(XiusHelperUtils::isAdmin($userid=null))
+			return true;
 
+		if(empty($data)) {
+			return true;
+		}
+                
 		$count = count($data);
 		for($i =0 ; $i < $count ; $i++ ){		
 			$param = new XiusParameter('','');
