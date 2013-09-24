@@ -311,4 +311,15 @@ class plgSystemxius_system extends JPlugin
 		$body = str_replace('</body>', $cron.'</body>', $body);
 		JResponse::setBody($body);
 	}
+	
+	function onAfterProfileTypeChange($ptype,$result,$userid)
+	{		
+		if(!$result){
+			return true;
+		}
+		require_once JPATH_ROOT.DS. 'components'.DS.'com_xius'.DS.'includes.php';
+		//update user data in xius_jsfields_values_table
+		require_once JPATH_ROOT.DS.'components'.DS.'com_xius'.DS.'helpers'.DS.'fieldtable.php';
+	    return XiusJsfieldTable::updateUserData($userid);
+	}
 }
