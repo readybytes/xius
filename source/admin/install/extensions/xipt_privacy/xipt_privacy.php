@@ -186,6 +186,9 @@ class plgXiusxipt_privacy extends JPlugin
                 
 		$count = count($data);
 		for($i =0 ; $i < $count ; $i++ ){		
+			if(!isset($data[$i])) {
+				continue;
+			}
 			$param = new XiusParameter('','');
 			$param->bind($data[$i]->params);
 			$profileTypeInfo= unserialize($param->get($this->_name));

@@ -27,7 +27,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		return false;
 	}
 	
-	public function _getGeocodes($address)
+	public static function _getGeocodes($address)
 	{
 		require_once (dirname(__FILE__).DS.'json.php');
 		$url = XIUS_GEOCODE_URL . 'address='.urlencode($address) .'&sensor=false';

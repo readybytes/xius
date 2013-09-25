@@ -26,8 +26,8 @@ class Jsfields extends JsfieldsBase
 		$field = (array)array_shift($fieldInfo);
 		$field['value'] = $value;
 
-		if($field['type'] == 'date'){
-			$db 	= &JFactory::getDBO(); 
+		if($field['type'] == 'date' || $field['type'] == 'birthdate'){
+			$db 	= JFactory::getDBO(); 
 			$query	= 'SELECT DATE_FORMAT('.$db->Quote($value).', "%d-%m-%Y") AS FORMATED_DATE';
 			$db->setQuery($query);
 			return $db->loadResult();
