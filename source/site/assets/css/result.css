@@ -405,6 +405,9 @@ div#xius_result div.xiusfr ul span.pagenav {
 div#xius_result select{
 	width:auto !important;
 }
-div#xius_result .left{
+div#xius_result .xiusleft{
     float:left;
+}
+div#xius_result textarea{
+	width:100%;
 }

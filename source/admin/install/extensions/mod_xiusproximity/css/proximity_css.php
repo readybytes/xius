@@ -164,5 +164,7 @@ div#xiusProximity div#xiusProxiError{
 div#xiusProximity .float-left{
 	float:left;
 }
-
+div#xiusProximity input[type="submit"] {
+	cursor:pointer;
+}
 </style>

@@ -69,9 +69,9 @@ class com_xiusInstallerScript
 
     public function update(JAdapterInstance $adapter)
 	{
+		self::$xiusIntallOrUpgrade = 'upgrade';
 		$this->uninstall($adapter);		
 		$this->install($adapter);
-		self::$xiusIntallOrUpgrade = 'upgrade';
 	}
 
 	/**
@@ -193,8 +193,12 @@ class com_xiusInstallerScript
 		// disable plugins
 		$this->disable_plugin('xius_system');
 		$this->disable_plugin('xius');
-		$this->changeModuleState('mod_xiuslisting',0);
-		$this->changeModuleState('mod_xiussearchpanel',0);
+		
+		if(self::$xiusIntallOrUpgrade != 'upgrade') {
+			$this->changeModuleState('mod_xiuslisting',0);
+			$this->changeModuleState('mod_xiussearchpanel',0);
+			$this->changeModuleState('mod_xiusproximity',0);
+		}
 	}
 	
 	function disable_plugin($pluginname)

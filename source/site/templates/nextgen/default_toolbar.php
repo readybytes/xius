@@ -17,7 +17,7 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 		<div id="xiusTbButton">
 		<?php
 		foreach($this->xiusToolbar as $tool)
-			echo "<div class='left'>".$tool->value."</div>";
+			echo '<div class="xiusleft">'.$tool->value.'</div>';
 		?>
 		</div>
 	</div>

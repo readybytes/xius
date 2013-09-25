@@ -10,6 +10,9 @@
     	<copyrightHolder>JoomlaXi.com</copyrightHolder>
     	<license>GNU General Public License v2</license>
 	<description>Displays Userlisting</description>
+	<languages>
+		<language tag="en-GB">en-GB.mod_xiuslisting.ini</language>
+	</languages>
 	<files>
 		<file module="mod_xiuslisting">mod_xiuslisting.php</file>
 		<file>helper.php</file>

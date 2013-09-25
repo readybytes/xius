@@ -17,7 +17,7 @@ if(!empty($this->appliedInfo)) : ?>
 		$count++; ?>
 		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 		<?php 
-		echo '<div class="applied"><div class="left"><div><b>'.$a['label'].'</b>';
+		echo '<div class="applied"><div class="xiusleft"><div><b>'.$a['label'].'</b>';
 		if(is_array($a['formatvalue']))	:	
 			foreach($a['formatvalue'] as $a_values) 
 				echo '<div>'.$a_values.'</div>';

@@ -13,9 +13,11 @@ class XiusListHelper
 		$user = JFactory::getUser();
 		$filter='';
 		
-		if(!XiusHelperUtils::isAdmin($user->id))
-			$filter['published'] = 1; 
-			
+		if(!XiusHelperUtils::isAdmin($user->id)) {	
+			$filter['published'] = 1;
+			$filter['owner'] 	 = $user->id;
+		}
+							
 		return XiusLibList::getLists($filter, 'AND', false);
 	}
 }

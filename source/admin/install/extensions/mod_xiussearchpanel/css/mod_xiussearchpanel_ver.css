@@ -50,6 +50,13 @@
 	padding-left:0px;
     margin-left:0px;
 }
-.xiusMod_available .left{
+.xiusMod_available .xiusleft {
     float:left;
+}
+.xiusMod_availablemain textarea {
+	display: block;
+    width:100%;
+}
+.xiusMod_available input[type="submit"] {
+	cursor:pointer;
 }

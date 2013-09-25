@@ -408,6 +408,9 @@ div#xiusProfile #xiusEmailToSelected:hover {
 div#xiusProfile select{
 	width:auto !important;
 }
-div#xiusProfile .left{
+div#xiusProfile .xiusleft{
     float:left;
+}
+div#xiusProfile textarea{
+    width:100%;
 }
