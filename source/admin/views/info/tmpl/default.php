@@ -60,7 +60,7 @@ Joomla.submitbutton = function(action){
 	</thead>
 <?php
 	$count	= 0;
-	$i		= 0;
+	$i		= $this->pagination->get('limitstart',0);
 
 	if(!empty($this->allinfo))
 	foreach($this->allinfo as $info)
