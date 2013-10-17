@@ -7,7 +7,7 @@
 <script type="text/javascript">
 jQuery.noConflict();
 jQuery(document).ready(function($){
-$("img:[title='BackToTop']").click(function(){ 
+	$("#backtotop").click(function(){ 
 	$(window).scrollTop(0);
 	});
 });
@@ -44,7 +44,8 @@ $this->loadAssets('js', 'result.js');
 <?php echo $this->loadTemplate('profile');?>
 <div class="xiusfr pagination">
 <?php echo $this->pagination->getPagesLinks();?>
-<img src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" title="BackToTop" style="float:right;"/>
+<img id='backtotop' src="<?php echo JURI::base().'components/com_xius/assets/images/top.png';?>" title="BackToTop" style="float:right;"/>
+
 </div>
 </div>
 <input type="hidden" name="view" value="users" />

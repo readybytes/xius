@@ -20,10 +20,7 @@ class XiusView extends JViewLegacy
 	
 	public $_xiurl 			= null;
 	//public $_isExternalUrl  = false;
-	
 
-	protected $_name = 'cpanel';
-	
 	static $_submenus = array('cpanel', 'configuration', 'info','list');
 
 	/*

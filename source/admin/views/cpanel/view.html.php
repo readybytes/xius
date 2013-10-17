@@ -10,6 +10,8 @@ if(!defined('_JEXEC')) die('Restricted access');
 class XiusViewCpanel extends XiusView 
 {
 
+	protected $_name = 'cpanel';
+
 	function display( $tpl = null )
 	{
 		parent::display( $tpl );
