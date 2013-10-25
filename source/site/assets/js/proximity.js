@@ -28,6 +28,9 @@ function xiusShowGoogleMap(ele, prefix,lat,long){
 	document.getElementById(longitude).value			= long ;
 	document.getElementById(mapEle).style.display	 = 'block';
 	document.getElementById(addressEle).style.display = 'none';
+	
+	// Xipt can hide this link by JSToolbar privacy
+	document.getElementById(mapEle).getElementsByTagName("a")[0].style.display	 = 'block';
 }
 /*
  * Set default user location
