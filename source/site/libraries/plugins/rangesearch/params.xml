@@ -6,5 +6,8 @@
 			<option value="integer">Integer</option>
 			<option value="date-range">Date-Range</option>
 		</param>
+		
+		<param name="rangesearchstart" type="xiustext" default="0" label="COM_XIUS_DEFAULT_START_RANGE" description="COM_XIUS_DEFAULT_START_RANGE_DESC"/>
+		<param name="rangesearchend" type="xiustext" default="100" label="COM_XIUS_DEFAULT_END_RANGE" description="COM_XIUS_DEFAULT_START_RANGE_DESC"/>
 	</params>
 </config>

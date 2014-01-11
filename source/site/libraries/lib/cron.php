@@ -84,17 +84,10 @@ class XiusLibCron
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeXiusCacheUpdate' );
 		
-		//check if cron is already running or not
-		$xiusConfig = XiusFactory::getInstance ('configuration', 'model');
-		$params		= $xiusConfig->getOtherParams('config');
-		$cron 	    = $params->get("xiusCronRunning",0);
-		if($cron == 0){
-			//set true in database about cron running
-			$configParam = $params->toArray();
-			$configParam['xiusCronRunning']	 = 1;
-			$configParam['xiusListCreator']	 = unserialize($configParam['xiusListCreator']);
-			$xiusConfig->save('config',$configParam);
-			
+		//get database lock to restrict multi cron request
+		$lock =  XiusLock::getInstance('xiusCron');
+		
+		if($lock->getLockResult()){
 			// Set session variable thaht use in privacy plugings.
 			// Check: Not any information unset during cache update 
 			JFactory::getSession()->set('updateCache', true);
@@ -104,9 +97,6 @@ class XiusLibCron
 			$cache = XiusFactory::getInstance('cache');
 			if(!$cache->createTable()){
 				JFactory::getSession()->clear('updateCache');
-				//set false in database about cron running
-				$configParam['xiusCronRunning']	 = 0;
-				$xiusConfig->save('config',$configParam);
 				return false;
 			}
 	
@@ -119,10 +109,6 @@ class XiusLibCron
 			
 			// trigger the event onAfterXiusCacheUpdate		
 			$dispatcher->trigger( 'onAfterXiusCacheUpdate' );
-			
-			//set false in database about cron running
-			$configParam['xiusCronRunning']	 = 0;
-			$xiusConfig->save('config',$configParam);
 			
 			return $result;
 		}

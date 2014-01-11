@@ -189,10 +189,10 @@ class Rangesearch extends XiusBase
 			
 		if(is_array($value)){
 			if((array_key_exists(0,$value) && !($value[0])) || !array_key_exists(0,$value))
-				$value[0]=0;
+				$value[0]= $this->pluginParams->get('rangesearchstart',0);
 
 			if((array_key_exists(1,$value) && !($value[1])) || !array_key_exists(1,$value))
-				$value[1]=0;
+				$value[1] = $this->pluginParams->get('rangesearchend',100);
 			
 			sort($value);						
 		}
