@@ -17,12 +17,12 @@ if(!empty($this->appliedInfo)) : ?>
 		$count++; ?>
 		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 		<?php 
-		echo '<div class="applied"><div class="xiusleft"><div><b>'.$a['label'].'</b>';
+		echo '<div class="applied"><div class="xiusleft"><div><b>'.JText::_($a['label']).'</b>';
 		if(is_array($a['formatvalue']))	:	
 			foreach($a['formatvalue'] as $a_values) 
-				echo '<div>'.$a_values.'</div>';
+				echo '<div>'.JText::_($a_values).'</div>';
 		else	:
-			echo '<div>'.$a['formatvalue'].'</div>';
+			echo '<div>'.JText::_($a['formatvalue']).'</div>';
 		endif;
 		
 		echo '</div></div><div class="right"><img class=\'xius_test_remove_'.$a['formatvalue'].'\'  src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  

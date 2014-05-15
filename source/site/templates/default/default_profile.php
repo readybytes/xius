@@ -72,8 +72,8 @@
 									endif;
 						?>
 					  			<div class="xiusMpInfo">
-						  			<div class="xiusMplabel"><?php echo $up['label'][$i]; ?></div>
-						  			<div class="xiusMpValue"><?php echo $up['value'][$i]; ?></div>
+						  			<div class="xiusMplabel"><?php echo JText::_($up['label'][$i]); ?></div>
+						  			<div class="xiusMpValue"><?php echo JText::_($up['value'][$i]); ?></div>
 					  			</div>
 						<?php
 								endfor;

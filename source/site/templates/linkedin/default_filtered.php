@@ -15,16 +15,16 @@ if(!empty($this->appliedInfo)) : ?>
 		<div class="xiusFdData">
 			<div class="xiusFdLabel">
 				<?php 
-					echo $a['label'];
+					echo JText::_($a['label']);
 					?><span class="clearButton" id="<?php echo $a['infoid']; ?>" onClick="xiusDeleteInfo(this,'delinfovalue_<?php echo $a['infoid'].$count; ?>');"><?php echo XiusText::_('CLEAR');?></span>
 					</div>
 					<div class="xiusFdValue">
 					<?php 
 					if(is_array($a['formatvalue']))	:	
 						foreach($a['formatvalue'] as $a_values) 
-							echo $a_values;
+							echo JText::_($a_values);
 					else	:
-				echo $a['formatvalue'];
+				echo JText::_($a['formatvalue']);
 			endif;
 			
 			//echo '<img class="xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.pg" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
