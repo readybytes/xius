@@ -11,15 +11,15 @@
 		echo XiusText::_('USERID');
 		if(!empty($this->fields))	:
 			foreach($this->fields as $f)	:
-				echo ' , '.$f;
+				echo XIUSEXPORT_DELIMITER.$f;
 			endforeach;
 		endif;
 		foreach($this->users as $u)	:
 			$cuser = CFactory::getUser($u->userid);
-			echo "\n".$u->userid;
+			echo XIUSEXPORT_NEW_LINE_DELIMITER.$u->userid;
 			 if(!empty($this->userprofile)) :
 				foreach($this->userprofile[$u->userid] as $up) :
-					echo ','.$up['value'];
+					echo XIUSEXPORT_DELIMITER.$up['value'];
 				endforeach;
  			endif;
 		endforeach;

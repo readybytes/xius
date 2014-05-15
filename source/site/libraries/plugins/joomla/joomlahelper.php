@@ -28,7 +28,7 @@ class xiusJoomlahelper
 	}	
 
     //get all usergroups
-    static function getUserGroupHtml( $name,$value,$plginstance = null)
+	static function getUserGroupHtml( $name, $value, $plginstance = null, $multiple = true)
     {
     	$groups = XiusHelperUsers::getJoomlaGroups();
 
@@ -42,7 +42,7 @@ class xiusJoomlahelper
     	
     	//if front-end then add 'select below' option
    		$attribs	= null;
-    	if(!JFactory::getApplication()->isAdmin()){
+    	if(!JFactory::getApplication()->isAdmin() || !$multiple){
 			$start 		= new stdClass();
     		$start->id 	= 0;
     		$start->{XIUS_JOOMLA_GROUP_VALUE} = XiusText::_('SELECT_USERTYPE');

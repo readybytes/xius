@@ -5,6 +5,7 @@
 **/
 // no direct access
 if(!defined('_JEXEC')) die('Restricted access');
+require_once(dirname(__FILE__) . DS . 'defines.php');
 
 class Xiusexport extends XiusBase
 {

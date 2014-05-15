@@ -27,5 +27,23 @@ class CustomtableView extends XiusBaseView
 		$contents = ob_get_clean();
 		return $contents;
 	}
+	/*
+     * @since Xius-4.1	
+	 * for multiple value, the by default customtable is only text box type,
+	 * so it need to be overided in case of multiple usergroup
+	 */
+	function searchHtml($calleObject,$value='')
+	{
+		$this->setLayout('search');
+		$this->assign('calleObject' , $calleObject);
+		$this->assign('value' , $value);
+		$this->assign('key' , $calleObject->get('key'));
+		
+		ob_start();
+		$this->display();
+	
+		$contents = ob_get_clean();
+		return $contents;
+	}
 }
 

@@ -8,6 +8,8 @@ if(!defined('_JEXEC')) die('Restricted access');
 //XiTODO:: Change class name
 class Customtable extends XiusBase
 {
+	static  $joomlaGroups = array();
+	
 	function __construct()
 	{
 		$paramsxmlpath = dirname(__FILE__) . DS . 'params.xml';
@@ -83,6 +85,21 @@ class Customtable extends XiusBase
 		 return parent::formatColumn($column, $db);
 	}
 
+	/*
+     * @since Xius-4.1	
+	 */
+	function formatValue($value)
+	{
+		$isMultiple = $this->pluginParams->get('customIsMultiple');
+		
+		if($isMultiple) {
+			$value = strtok($value, ',');
+			return ",$value,";
+		}
+		
+		return $value;
+	}
+	
 	/*function will provide query for getting user info from
 	 * tables. eq :- get info from #__users table 
 	 */
@@ -94,9 +111,14 @@ class Customtable extends XiusBase
 		$tableMapping = $this->getTableMapping();
 		
 		foreach( $tableMapping as $tm){
-			$query->select( " {$tm->tableAliasName}.{$tm->originColumnName} "
+			if($isMultiple) {
+				$query->select( "CONCAT( \",\" ,group_concat({$tm->tableAliasName}.{$tm->originColumnName}), \",\" )"
 							." as {$tm->cacheColumnName} "
-						  );
+				);
+			}
+			else {
+				$query->select( "{$tm->tableAliasName}.{$tm->originColumnName} as {$tm->cacheColumnName} " );
+			}
 			$query->leftJoin( " {$tm->tableName}  as {$tm->tableAliasName}   "
 							 ." ON ( {$tm->tableAliasName}.`{$this->pluginParams->get('customUseridColumn')}` = juser.`id` ) "
 							);
@@ -128,9 +150,16 @@ class Customtable extends XiusBase
 	
 	function getCacheSqlSpec($key)
 	{
-		$db 	= JFactory::getDBO();
-		$table  = XiusTable::replacePrefix($key);
-		$column = $this->pluginParams->get('customSearchColumn');
+		$db 		= JFactory::getDBO();
+		$table  	= XiusTable::replacePrefix($key);
+		$column 	= $this->pluginParams->get('customSearchColumn');
+		$isMultiple = $this->pluginParams->get('customIsMultiple');
+		
+		//if this key can has multiple value for a user than should select multiple
+		//so make the field type to varchar
+		if($isMultiple) {
+			return "varchar(250) not null DEFAULT '0'";
+		}
 		
 		static $specs = null;
 		if(isset($specs[$table])){
@@ -192,4 +221,65 @@ class Customtable extends XiusBase
 //					
 //		return $finalvalue;	
 //	}
+	/*
+     * @since Xius-4.1	
+	 */
+	function _getFormatData($value)
+	{
+		$isMultiple = $this->pluginParams->get('customIsMultiple');
+		
+		//if this key can has multiple value
+		if($isMultiple && stristr($this->key,'user_usergroup_map')) {
+			
+			$value 		= explode(',', $value);
+			array_shift($value);
+			array_pop($value);
+						
+			$newValue 	= array();
+			
+			if(empty(self::$joomlaGroups)) { 
+				$jg = XiusHelperUsers::getJoomlaGroups();
+							
+				foreach ($jg as $group ) {
+	
+					self::$joomlaGroups[$group->id] = $group->title;
+	
+				}
+			}
+			foreach ( $value as $v ) {
+				
+				$newValue[] = self::$joomlaGroups[$v];
+				
+			}	
+
+			return parent::_getFormatData($newValue);
+		}
+		
+		return parent::_getFormatData($value);
+	}
+	/*
+     * @since Xius-4.1	
+	 */
+	function _getFormatAppliedData($value)
+	{
+		$isMultiple = $this->pluginParams->get('customIsMultiple');
+		
+		//if this key can has multiple value
+		if($isMultiple && stristr($this->key,'user_usergroup_map')) {
+
+			if(empty(self::$joomlaGroups)) {
+				$jg = XiusHelperUsers::getJoomlaGroups();
+					
+				foreach ($jg as $group ) {
+			
+					self::$joomlaGroups[$group->id] = $group->title;
+			
+				}
+			}
+					
+			return parent::_getFormatData(self::$joomlaGroups[$value]);
+		}
+		
+		return parent::_getFormatData($value);
+	}
 }

@@ -169,39 +169,28 @@ class Forcesearch extends XiusBase
 	    
 		//arrange information by keys 
         usort($forceSearchInfo, "sortByKey");
-	    
-	    //creating groups of informations with same key 
-	    $forceGrp = array();
-	    for($i=0,$j=0;$i<count($forceSearchInfo);$i++)
-	    {
+	        
+	    $strQuery = null;
 
-	    	if( ($i+1) < count($forceSearchInfo) && $forceSearchInfo[$i]->key == $forceSearchInfo[$i+1]->key){
-	    		 $forceGrp[$j][$i] = $forceSearchInfo[$i]; 
-	    		 $forceGrp[$j][$i+1] = $forceSearchInfo[$i+1];
-	    	}
-	    	else{
-	    		 $forceGrp[$j][$i] = $forceSearchInfo[$i];
-	    		 $j++;
-	    	}
-	    }
-	   $strQuery = null;
-        //make query according to force search groups
-	    foreach ($forceGrp as $group)
-	    {
+	    /*
+	     * @since Xius-4.1
+	     * now the grouping of information is not done because among the group query is executing in OR manner 
+	     * but all force search infos should be attached with AND 
+	     */
+	    foreach ($forceSearchInfo as $forceSearch) {
 	    	$fgQuery = new XiusQuery();
-	        foreach($group as $fg)
-	    	{
-              $forceSearchInstance = XiusFactory::getPluginInstance('',$fg->id);
-	          if(!$forceSearchInstance->checkConfiguration('isSearchable'))
+	    	$forceSearchInstance = XiusFactory::getPluginInstance('',$forceSearch->id);
+          	if(!$forceSearchInstance->checkConfiguration('isSearchable'))
 				continue;
-			  $pluginParams = $forceSearchInstance->getData('pluginParams');
-			  $this->_addSearchToQuery($fgQuery,$pluginParams,'OR');
-		    }
-		    $fgQuery	=	'('.$fgQuery->convertWhereIntoString().')';
-		    if($strQuery!= null)
-		     $strQuery = $strQuery.' AND '.$fgQuery;
-		    else 
-			 $strQuery = $fgQuery;	
+		  	$pluginParams = $forceSearchInstance->getData('pluginParams');
+		  	$this->_addSearchToQuery($fgQuery,$pluginParams,'AND');
+		  	
+		  	$fgQuery	= $fgQuery->convertWhereIntoString();
+		  	if($strQuery!= null)
+		  		$strQuery = $strQuery.' AND '.$fgQuery;
+		  	else
+		  		$strQuery = $fgQuery;
+		  	
 	    }
 				
 		if(!$strQuery){

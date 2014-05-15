@@ -3,5 +3,9 @@
 	<params addpath="/components/com_xius/libraries/plugins/customtable/elements" >
 		<param name="customUseridColumn" type="tablecolumns" default="0" label="COM_XIUS_COLUMN_FOR_USERID_LABEL" description="COM_XIUS_COLUMN_FOR_USERID_DESC" />			
 		<param name="customSearchColumn" type="tablecolumns" default="0" label="COM_XIUS_COLUMN_FOR_SEARCH_LABEL" description="COM_XIUS_COLUMN_FOR_SEARCH_DESC" />
+		<param name="customIsMultiple"   type="xiusradio" 	 default="0" label="COM_XIUS_IS_MULTIPLE_LABLE" 		  description="COM_XIUS_IS_MULTIPLE_DESC">
+			<option value="1">COM_XIUS_YES</option>
+			<option value="0">COM_XIUS_NO</option>
+		</param>
 	</params>
 </config>
