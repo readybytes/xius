@@ -27,7 +27,11 @@ class XiussiteViewList extends XiusView
 
 		if(!XiusHelperUtils::isAdmin($user->id)){
 			$filter['published'] = 1;
-			$filter['owner'] = $user->id;
+
+			$privacy = XiusHelperUtils::getConfigurationParams('xiusListPrivacy',0);
+			if($privacy) {
+				$filter['owner'] = $user->id;
+			}
 		}
 
 		$lists = $lModel->getLists($filter,'AND',true);
@@ -52,7 +56,11 @@ class XiussiteViewList extends XiusView
 
 		if(!XiusHelperUtils::isAdmin($user->id)){
 			$filter['published'] = 1;
-			$filter['owner'] = $user->id;
+
+			$privacy = XiusHelperUtils::getConfigurationParams('xiusListPrivacy',0);
+			if($privacy) {	
+				$filter['owner'] = $user->id;
+			}
 		}
 		
 		$lists = XiusLibList::getLists($filter,'AND',false);

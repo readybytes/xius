@@ -92,7 +92,8 @@ function XiusBuildRoute( &$query )
 	if (!isset($query['Itemid']))
 		return $segments;
 	//finally selected menu is
-	$selMenu = JSite::getMenu()->getItem($query['Itemid']);
+	$site = JFactory::getApplication('site');
+	$selMenu = $site->getMenu()->getItem($query['Itemid']);
 
 	//remove not-required variables, which can be calculated from URL itself
 	$vars = _getXiusUrlVars();

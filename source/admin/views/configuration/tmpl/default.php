@@ -36,6 +36,7 @@ XiusHelperUtils::loadJQuery();
 			<?php echo $this->params->render('xiusparams','advXiusLimit');?>
 			<?php echo $this->params->render('xiusparams','autoCacheUpdate');?>
 			<?php echo $this->params->render('xiusparams','advXiusList');?>
+			<?php echo $this->params->render('xiusparams','expertSetting');?>
 		</div>
 	</fieldset>
 </div>

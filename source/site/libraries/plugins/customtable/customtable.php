@@ -221,6 +221,7 @@ class Customtable extends XiusBase
 //					
 //		return $finalvalue;	
 //	}
+
 	/*
      * @since Xius-4.1	
 	 */
@@ -257,6 +258,7 @@ class Customtable extends XiusBase
 		
 		return parent::_getFormatData($value);
 	}
+
 	/*
      * @since Xius-4.1	
 	 */

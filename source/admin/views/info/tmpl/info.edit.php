@@ -36,6 +36,19 @@ if(!defined('_JEXEC')) die('Restricted access'); ?>
 						</label>
 					</div>
 		</div>
+		
+		<div class="elementParams">
+			<div class="paramTitle">
+				<label for="plugin type">
+					<?php echo XiusText::_( 'INFORMATION_KEY' ); ?>:
+				</label>
+			</div>
+			<div class="paramValue">
+			  <label for="plugin type">
+					<?php echo $this->info['key']; ?>
+				</label>
+			</div>
+		</div>
 				
 		<div class="elementParams">
 					<div class="paramTitle">

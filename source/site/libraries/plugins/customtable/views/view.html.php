@@ -27,6 +27,7 @@ class CustomtableView extends XiusBaseView
 		$contents = ob_get_clean();
 		return $contents;
 	}
+
 	/*
      * @since Xius-4.1	
 	 * for multiple value, the by default customtable is only text box type,

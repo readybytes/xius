@@ -92,5 +92,12 @@
 				default="0" label="COM_XIUS_CONFIG_CRON_ACCESSTIME_LABEL" description="COM_XIUS_CONFIG_CRON_ACCESSTIME_DESC">
 		</param>
 	</params>	
-	
+
+	<!-- Expert Settings -->
+	<params group="expertSetting" addpath="/components/com_xius/elements">
+		<param name="xiusListPrivacy" type="xiusradio" default="0" label="COM_XIUS_LIST_PRIVACY_LABEL" description="COM_XIUS_LIST_PRIVACY_DESC">
+			<option value="0">COM_XIUS_NO</option>
+			<option value="1">COM_XIUS_YES</option>
+		</param>
+	</params>
 </config>

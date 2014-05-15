@@ -15,9 +15,17 @@ class XiusListHelper
 		
 		if(!XiusHelperUtils::isAdmin($user->id)) {	
 			$filter['published'] = 1;
-			$filter['owner'] 	 = $user->id;
+			$privacy = XiusHelperUtils::getConfigurationParams('xiusListPrivacy',0);
+			if($privacy) {
+				$filter['owner'] = $user->id;
+			}
 		}
 							
-		return XiusLibList::getLists($filter, 'AND', false);
+		$list = XiusLibList::getLists($filter, 'AND', false);
+
+		// filter list according to privacy set by joomla
+		XiusHelperList::filterListPrivacy($list,$user);
+
+		return $list;
 	}
 }

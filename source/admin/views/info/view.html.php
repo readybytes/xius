@@ -113,3 +113,4 @@ class XiusViewInfo extends XiusView
 		
 	}
 }
+
