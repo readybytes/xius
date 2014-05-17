@@ -90,7 +90,7 @@ class XiusParameter extends XiusLegacyParameter
 		}
 		
 		//for 1.6 or later Joomla version, we will use our own writer
-		return $this->loadString($data, 'XiusINI', $options);
+		return $this->loadString($data, 'INI', $options);
 	}
 }
 
