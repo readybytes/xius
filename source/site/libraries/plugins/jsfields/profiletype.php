@@ -9,7 +9,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class ProfiletypesHelper
 {
-	function formatData($value=0)
+	public static function formatData($value=0)
 	{
 	  return $value;
 	}
@@ -17,7 +17,7 @@ class ProfiletypesHelper
 	 * Convert stored profileType ID to profileTypeName
 	 *
 	 * */
-	function getFieldData( $value = 0 )
+	public static function getFieldData( $value = 0 )
 	{
 		if(!$value)
 			return '';
@@ -28,7 +28,7 @@ class ProfiletypesHelper
 	/*
 	 * Generate input HTML for field
 	 */
-	function getFieldHTML($field)
+	public static function getFieldHTML($field)
 	{
 		$profileTypeInfoId = JRequest::getVar('profileType',0);
 		$attr   = null;

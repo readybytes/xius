@@ -107,7 +107,9 @@ class Customtable extends XiusBase
 	{
 		$query->select('juser.`id` as userid');
 		$query->from('`#__users` as juser');
-		
+
+		$isMultiple = $this->pluginParams->get('customIsMultiple');
+
 		$tableMapping = $this->getTableMapping();
 		
 		foreach( $tableMapping as $tm){

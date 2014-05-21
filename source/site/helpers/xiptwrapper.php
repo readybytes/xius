@@ -18,7 +18,7 @@ class XiusHelperXiptwrapper
 	 * Get Profile Type Name
 	 * @profileTypeId, Profile Id
 	 */
-	function getProfileTypeName($profileTypeId)
+	public static function getProfileTypeName($profileTypeId)
 	{
 	    if(method_exists('XiptAPI','getProfileTypeName'))
 			return XiptAPI::getProfileTypeName($profileTypeId);
@@ -30,7 +30,7 @@ class XiusHelperXiptwrapper
 	 * return array of all published Profile Type id
 	 * @filter, use for filter Profile Type 
 	 */
-	function getProfileTypeIds($filter= '')
+	public static function getProfileTypeIds($filter= '')
 	{
 		if(method_exists('XiptAPI', 'getProfileTypeIds'))
 				return XiptAPI::getProfileTypeIds($filter);
@@ -41,7 +41,7 @@ class XiusHelperXiptwrapper
 	/*
 	 * return JomSocial Profile Fields
 	 */
-	function getJSProfileFields($fieldId=0)
+	public static function getJSProfileFields($fieldId=0)
 	{
 		if(method_exists('XiptAPI','getJSProfileFields'))
 				return XiptAPI::getJSProfileFields($fieldId);
@@ -53,7 +53,7 @@ class XiusHelperXiptwrapper
 	 * filter Profile-Type fields according to Profile Type
 	 */
 
-	function filterProfileTypeFields(&$fields, $selectedProfiletypeID, $from)
+	public static function filterProfileTypeFields(&$fields, $selectedProfiletypeID, $from)
 	{
 		if(method_exists('XiptAPI','filterProfileTypeFields'))
 				return XiptAPI::filterProfileTypeFields($fields, $selectedProfiletypeID, $from);
@@ -67,7 +67,7 @@ class XiusHelperXiptwrapper
 	 * @param $what : can be 'PROFILETYPE' or 'TEMPLATE'
 	 * @return user information
 	 */
-	function getUserInfo($userid, $what='PROFILETYPE')
+	public static function getUserInfo($userid, $what='PROFILETYPE')
 	{
 		if(method_exists('XiptAPI' ,'getUserInfo'))
 				return XiptAPI::getUserInfo($userid,$what);
