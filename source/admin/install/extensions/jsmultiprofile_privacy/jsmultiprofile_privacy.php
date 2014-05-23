@@ -5,6 +5,12 @@ jimport( 'joomla.plugin.plugin' );
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
+// If Xius System Plugin disabled then do nothing
+$state = JPluginHelper::isEnabled('system', 'xius_system');
+if(!$state){
+    return true;
+} else {
+
 class plgXiusjsmultiprofile_privacy extends JPlugin
 {
 	function plgXiusjsmultiprofile_privacy( &$subject, $params )
@@ -137,4 +143,6 @@ class plgXiusjsmultiprofile_privacy extends JPlugin
 		$lists = array_values($lists);
 		return true;
 	}
+}
+
 }

@@ -5,6 +5,15 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 
+// If Xius System Plugin disabled then do nothing
+$state = JPluginHelper::isEnabled('system', 'xius_system');
+if(!$state){
+    $app = JFactory::getApplication();
+    JToolbarHelper::title(JText::_('COM_XIUS'), 'users user');
+    $app->enqueueMessage(JText::_('COM_XIUS_SYSTEM_PLUGIN_DISABLE'), 'Warning');
+    return true;
+}
+
 require_once  dirname(__FILE__).DS.'includes.php';
 
 //now decide what to do

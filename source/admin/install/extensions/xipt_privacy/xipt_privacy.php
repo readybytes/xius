@@ -5,6 +5,13 @@ jimport( 'joomla.plugin.plugin' );
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
+
+// If Xius System Plugin disabled then do nothing
+$state = JPluginHelper::isEnabled('system', 'xius_system');
+if(!$state){
+    return true;
+} else {
+
 if(!JFolder::exists(JPATH_ROOT.DS.'components'.DS.'com_xipt'))
 	return;
 
@@ -213,4 +220,5 @@ class plgXiusxipt_privacy extends JPlugin
 				|| $ownerId === $userId)
 			return true;
 	}		
+}
 }

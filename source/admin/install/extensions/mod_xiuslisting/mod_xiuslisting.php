@@ -5,6 +5,14 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 jimport( 'joomla.filesystem.folder' );
+
+
+// If Xius System Plugin disabled then do nothing
+$state = JPluginHelper::isEnabled('system', 'xius_system');
+if(!$state){
+    return true;
+}
+
 require_once( JPATH_ROOT . DS . 'components' . DS . 'com_xius'  . DS . 'includes.php');
 require_once( dirname(__FILE__).DS.'helper.php' );
 

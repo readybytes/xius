@@ -5,6 +5,13 @@
 **/
 if(!defined('_JEXEC')) die('Restricted access');
 
+
+// If Xius System Plugin disabled then do nothing
+$state = JPluginHelper::isEnabled('system', 'xius_system');
+if(!$state){
+    return true;
+}
+
 // set module form name in seesion
 $mySess = JFactory::getSession();
 $mySess->set('xiusModuleForm',"xiusMod{$module->id}",'XIUS');

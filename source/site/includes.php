@@ -6,6 +6,12 @@
 
 if(!defined('_JEXEC')) die('Restricted access');
 
+// If Xius System Plugin disabled then do nothing
+$state = JPluginHelper::isEnabled('system', 'xius_system');
+if(!$state){
+    return true;
+}
+
 // If file is already included simply return
 if(defined('XIUS_SITE_INCLUDES')) return;
 
