@@ -153,31 +153,46 @@ class XiusHelperUtils
 		return true;
 	}
 	
-	public static function loadJQuery()
-	{
-		static $loaded=false;
-		
-		$loadJquery	= self::getConfigurationParams('xiusLoadJquery',1);		
-		if($loaded || $loadJquery)
-			return true;
-		
-		JFactory::getDocument()->addScript(JURI::base() .'components/com_xius/assets/js/jquery1.4.2.js');
-		JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
-		$loaded = true;
-		return true;
-	}
-	
 	/**
-	 * load joms.jquery.js if not loaded 
-	 */
+     * load Xius jQuery, but we should load it only when it is set in backend.
+	 * @since Xius4.1
+     */
+   	public static function loadJQuery()
+    {
+        static $loaded=false;
+
+        $loadJquery	= self::getConfigurationParams('xiusLoadJquery',1);
+        if($loaded || !$loadJquery)
+            return true;
+
+        JFactory::getDocument()->addScript(JUri::root() .'components/com_xius/assets/js/jquery1.4.2.js');
+        JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+
+        $loaded = true;
+        return true;
+    }
+
+    /**
+     * load joms.jquery.js if not loaded
+	 * @since Xius4.1
+     */
     public static function loadJomsJquery()
-	{
-		if(!defined('C_ASSET_JQUERY')){
-			JFactory::getDocument()->addScript( JURI::base() .'components/com_community/assets/joms.jquery.js' );
-	    	define('C_ASSET_JQUERY', 1);
-		}
-		return true;
-	}
+    {
+        if(!defined('C_ASSET_JQUERY')){
+
+            $jsVersion = self::getJSVersion();
+            if(version_compare($jsVersion,'3.1') >= 0) {
+                require_once COMMUNITY_COM_PATH . DIRECTORY_SEPARATOR. 'views'.DIRECTORY_SEPARATOR.'views.php';
+                $view = new CommunityView();
+                $view->attachHeaders();
+            } else {
+                JFactory::getDocument()->addScript( JUri::base() .'components/com_community/assets/joms.jquery.js' );
+            }
+
+            define('C_ASSET_JQUERY', 1);
+        }
+        return true;
+    }
 	
    public static function getUrlpathFromFilePath($filepath)
     {
