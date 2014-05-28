@@ -1,10 +1,13 @@
 <?php
 /**
-* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
-* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
-**/
-// no direct access
+ * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
+ * @package		Team Joomlaxi
+ * @subpackage	Frontend
+ * @contact 		support+joomlaxi@readybytes.in
+ */
 if(!defined('_JEXEC')) die('Restricted access');
+
 //XiTODO:: Change class name
 class Customtable extends XiusBase
 {
@@ -80,7 +83,7 @@ class Customtable extends XiusBase
    function formatColumn($column , $db)
 	{
 		if(JString::stristr(JString::strtolower($column->cacheSqlSpec),'date'))
-			return "DATE_FORMAT(".$db->quoteName($c->cacheColumnName).", '%d-%m-%Y') ";
+			return "DATE_FORMAT(".$db->quoteName($column->cacheColumnName).", '%d-%m-%Y') ";
 
 		 return parent::formatColumn($column, $db);
 	}
@@ -270,6 +273,10 @@ class Customtable extends XiusBase
 		
 		//if this key can has multiple value
 		if($isMultiple && stristr($this->key,'user_usergroup_map')) {
+
+		    if($value == 0) {
+		        return parent::_getFormatData('None');
+		    }
 
 			if(empty(self::$joomlaGroups)) {
 				$jg = XiusHelperUsers::getJoomlaGroups();

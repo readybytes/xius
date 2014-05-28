@@ -1,15 +1,17 @@
 <?php
 /**
-* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
-* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
-**/
-// no direct access
-//defined('_JEXEC') or die('Restricted access');
+ * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
+ * @package		Team Joomlaxi
+ * @subpackage	Frontend
+ * @contact 		support+joomlaxi@readybytes.in
+ */
+if(!defined('_JEXEC')) die('Restricted access');
 
 class Jsuserhelper
 {
 
-	function getJomsocialFields($filter = '')
+	public static function getJomsocialFields($filter = '')
 	{
 			//$userTable = new XiusTable('#__community_users','userid');
 		$allColumns = JFactory::getDBO()->getTableColumns('#__community_users');

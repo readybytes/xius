@@ -1,9 +1,5 @@
 <?php
 /**
-* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
-* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
-**/
-/**
  * @version		$Id: databasequery.php 14571 2010-02-04 07:07:47Z eddieajau $
  * @copyright	Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt

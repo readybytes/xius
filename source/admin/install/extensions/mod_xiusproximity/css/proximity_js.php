@@ -1,4 +1,14 @@
-<?php ?>
+<?php
+/**
+ * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
+ * @package		Team Joomlaxi
+ * @subpackage	Frontend
+ * @contact 		support+joomlaxi@readybytes.in
+ */
+if(!defined('_JEXEC')) die('Restricted access');
+?>
+
 jQuery(document).ready(function($){
 	$('div#keywordHtml').children('input.inputbox').attr('value','<?php echo XiusText::_("FIND");?>').css('color','<?php echo $background; ?>');
 	$('div#xiusProxiAddress').children('input#xiusAddress').attr('value','<?php echo XiusText::_("NEAR");?>').css('color','<?php echo $background; ?>');

@@ -1,9 +1,11 @@
 <?php
 /**
-* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
-* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
-**/
-// Disallow direct access to this file
+ * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
+ * @package		Team Joomlaxi
+ * @subpackage	Backend
+ * @contact 		support+joomlaxi@readybytes.in
+ */
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
 <div style="background-color: #F9F9F9; border: 1px solid #D5D5D5;"><?php 
