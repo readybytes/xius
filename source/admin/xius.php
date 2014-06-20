@@ -24,6 +24,11 @@ $view	= JRequest::getCmd('view', 		'cpanel');
 $task 	= JRequest::getCmd('task', 		'display');
 $format	= JRequest::getCmd('format',	'html');
 
+//This only when gzip is enable
+$gzip = JFactory::getConfig()->get('gzip',0);
+if($gzip) {
+	ini_set('zlib.output_compression', 'on');
+}
 
 //we assume that controller name will be after controller in admin
 $controllerClass = 'Xius'.'Controller'.JString::ucfirst(JString::strtolower($view));

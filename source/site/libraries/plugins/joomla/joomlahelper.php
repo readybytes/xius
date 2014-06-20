@@ -11,7 +11,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 class xiusJoomlahelper
 {
 
-	function getJoomlaFields($filter = '')
+	public static function getJoomlaFields($filter = '')
 	{
 		$db	= JFactory::getDBO();
 			
@@ -30,7 +30,7 @@ class xiusJoomlahelper
 	}	
 
     //get all usergroups
-	static function getUserGroupHtml( $name, $value, $plginstance = null, $multiple = true)
+	public static function getUserGroupHtml( $name, $value, $plginstance = null, $multiple = true)
     {
     	$groups = XiusHelperUsers::getJoomlaGroups();
 

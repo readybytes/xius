@@ -10,7 +10,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 class XiusJsfieldTable 
 {	
-	function _buildQuery() 
+	public static function _buildQuery() 
 	{
 		$query['tableAlias'] =	"jsfields_value";
 		$query['leftJoin'] 	 = 	"#__xius_jsfields_value";
@@ -65,12 +65,12 @@ class XiusJsfieldTable
 	/*
 	 * Drop xius_jsfields_value table
 	 */
-	function dropTable()
+	public static function dropTable()
 	{ 
 		self::executeQuery("DROP TABLE IF EXISTS `#__xius_jsfields_value` ");
 	}
 	
-	function executeQuery($query)
+	public static function executeQuery($query)
 	{
 		$db = JFactory::getDbo();
 		$db->setQuery($query);
@@ -80,7 +80,7 @@ class XiusJsfieldTable
 	/*
 	 * update user details whenever profile fields are updated
      */
-	static function updateUserData($userId)
+	public static function updateUserData($userId)
 	{
 		$db 	= JFactory::getDbo();
 		$query 	= "SHOW TABLES LIKE '".$db->getPrefix()."xius_jsfields_value'";
@@ -96,6 +96,10 @@ class XiusJsfieldTable
 		$filter['pluginType'] = "'Jsfields'";	
 		$jsInfo = XiusFactory::getInstance ( 'info', 'model' )->getAllInfo($filter,'AND',false);		
 		
+		//if no information is created of JSFields then do nothing
+		if( empty($jsInfo) ) {
+			return true;
+		}
 
 		/* 
 		 * get jsfields value from community_field_value table 

@@ -39,7 +39,6 @@ class XiusControllerConfiguration extends JControllerLegacy
 			return;
 		}
 		
-		$mainframe	= JFactory::getApplication();		
 		$cModel		= XiusFactory::getInstance ('configuration' , 'model');
 		$xiusparams	= JRequest::getVar('xiusparams','','post');
 		
@@ -61,12 +60,13 @@ class XiusControllerConfiguration extends JControllerLegacy
 		else 
 			$state = 0;
 		XiusLibPluginhandler::setJSToolbarState($state);
-		$mainframe->redirect($link, $message);
+		$this->setRedirect($link, $message);
+		return false;
+		
 	}
 	
 	function runCron()
 	{
-		$mainframe = JFactory::getApplication();
 		$link = XiusRoute::_('index.php?option=com_xius&view=configuration&task=display', false);
 		$message = XiusText::_('CANT_UPDATE_CACHE_NOW');
 		
@@ -74,9 +74,11 @@ class XiusControllerConfiguration extends JControllerLegacy
 		$params	 = $cModel->getParams();
 		$xiusKey = $params->get('xiusKey','AB2F4');
 		
-		if(XiusHelperUtils::verifyCronRunRequired($xiusKey) == false)
-			$mainframe->redirect($link, $message);
-	
+		if(XiusHelperUtils::verifyCronRunRequired($xiusKey) == false) {
+			$this->setRedirect($link, $message);
+			return false;
+		}
+		
 		$time = XiusLibCron::getTimestamp();
 		XiusLibCron::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
@@ -89,7 +91,9 @@ class XiusControllerConfiguration extends JControllerLegacy
 		XiusLibCron::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
 		$message = $msg;
-		$mainframe->redirect($link, $message);		
+		$this->setRedirect($link, $message);
+
+		return false;
 	}
 	
 	/*function reset()

@@ -13,7 +13,7 @@ require_once(dirname(__FILE__) . DS . 'defines.php');
 class ProximityGoogleapiHelper extends JControllerLegacy 
 {
 
-	static public function getGoogleAPIContent($url)
+	public static function getGoogleAPIContent($url)
 	{
 		if (!$url)
 			return false;
@@ -56,7 +56,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		return array('latitude'=>NULL, 'longitude'=>NULL);
 	}
 	
-	public function getGeocodes($addresses)
+	public static function getGeocodes($addresses)
 	{		
 		if(!array($addresses))
 			return false;
@@ -71,7 +71,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		return $data;
 	}
 	
-	function createGeocodeTable()
+	public static function createGeocodeTable()
 	{
 		$query =  " CREATE TABLE IF NOT EXISTS `#__xius_proximity_geocode` ( 
 				 `id` int(10) unsigned NOT NULL auto_increment,
@@ -87,7 +87,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		return $db->query();		
 	}
 	
-	function insertGeocodeRawData($info)
+	public static function insertGeocodeRawData($info)
 	{
 		// create instance of proximity information plugin
 		$instance = XiusFactory::getPluginInstance('',$info[0]->id);
@@ -117,7 +117,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		return $db->query();		
 	}
 	
-	function getInvalidAddress($limit=5)
+	public static function getInvalidAddress($limit=5)
 	{
 		if(!$limit)
 			return false;
@@ -130,7 +130,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 		return $address;
 	}	
 	
-	function updateGeocodesOfInvalidAddress($data)
+	public static function updateGeocodesOfInvalidAddress($data)
 	{
 		$db = JFactory::getDBO();
 		foreach( $data as $key=>$value){
@@ -161,7 +161,7 @@ class ProximityGoogleapiHelper extends JControllerLegacy
 	 * If google does not return the geocode it means there is some mistake in address
 	 * so lat and long can not be determine in any case, that why the entry must be removed
 	 */
-	function deleteInvalidGeocodeAddress($key)
+	public static function deleteInvalidGeocodeAddress($key)
 	{
 		if(!$key)
 			return false;

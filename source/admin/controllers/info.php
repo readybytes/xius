@@ -190,10 +190,11 @@ class XiusControllerInfo extends JControllerLegacy
 			return;
 		}
 		
-		$mainframe = JFactory::getApplication();
 		$data = $this->_processSave();
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
-		$mainframe->redirect($link, $data['msg']);		
+		$this->setRedirect($link, $data['msg']);
+
+		return false;
 		
 	}
 	
@@ -208,16 +209,15 @@ class XiusControllerInfo extends JControllerLegacy
 			return;
 		}
 		
-		$mainframe = JFactory::getApplication();
-		
 		$data = $this->_processSave();
 		$link = XiusRoute::_('index.php?option=com_xius&view=info&task=renderinfo&editId='.$data['id'], false);
-		$mainframe->redirect($link, $data['msg']);				
+		$this->setRedirect($link, $data['msg']);
+		
+		return false;
 	}	
 
 	function remove()
 	{
-		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 
@@ -226,7 +226,9 @@ class XiusControllerInfo extends JControllerLegacy
 		$cache = & JFactory::getCache('com_content');
 		$cache->clean();	
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
-		$mainframe->redirect($link, $data['message']);
+		$this->setRedirect($link, $data['message']);
+		
+		return false;
 	}
 	
 	
@@ -289,7 +291,6 @@ class XiusControllerInfo extends JControllerLegacy
 	
 	function publish()
 	{
-		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
@@ -307,13 +308,12 @@ class XiusControllerInfo extends JControllerLegacy
 		}
 		$msg = $count.XiusText::_('ITEMS_PUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
-		$mainframe->redirect($link, $msg);
-		return true;
+		$this->setRedirect($link, $msg);
+		return false;
 	}
 	
 	function unpublish()
 	{
-		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
@@ -331,8 +331,8 @@ class XiusControllerInfo extends JControllerLegacy
 		}
 		$msg =  $count.XiusText::_('ITEMS_UNPUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);
-		$mainframe->redirect($link, $msg);
-		return true;
+		$this->setRedirect($link, $msg);
+		return false;
 	}
 	
 	
@@ -358,21 +358,22 @@ class XiusControllerInfo extends JControllerLegacy
 			if(!$table->move( $direction ))
 				$mainframe->enqueueMessage($table->getError());
 			
-			$mainframe->redirect( 'index.php?option=com_xius&view=info' );
+			$this->setRedirect( 'index.php?option=com_xius&view=info' );
+			return false;
 		}
 	}
 	
 	
 	function saveParamDoable()
 	{
-		$mainframe = JFactory::getApplication();
-		
 		$link = XiusRoute::_('index.php?option=com_xius&view=info', false);		
 		
 		$id			= JRequest::getVar( 'cid', array(), 'post', 'array' );
 		
-		if( !isset( $id[0] ) )
-			$mainframe->redirect($link, XiusText::_('PLEASE_SELECT_ANY_INFORMATION_TO_UPDATE'));	
+		if( !isset( $id[0] ) ) {
+			$this->setRedirect($link, XiusText::_('PLEASE_SELECT_ANY_INFORMATION_TO_UPDATE'), 'warning');	
+			return false;
+		}
 		
 		$id		= (int) $id[0];
 		
@@ -383,7 +384,9 @@ class XiusControllerInfo extends JControllerLegacy
 		else
 			$msg = XiusText::_('UNABLE_TO_SAVE_PARAMS');
 			
-		$mainframe->redirect($link, $msg);	
+		$this->setRedirect($link, $msg);
+
+		return false;
 	}
 	
 	

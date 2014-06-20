@@ -35,7 +35,7 @@ class XiusHelperSlide extends JObject
 		 *            Slider class
 		 * @return string Slider XHTML
 		 */
-     function startSlider($id, $attributes = '')
+     public static function startSlider($id, $attributes = '')
      {
           // prepare slider JavaScript
           $js = "var ".$id." = new Fx.Slide('".$id."', {mode:
@@ -49,7 +49,7 @@ class XiusHelperSlide extends JObject
       * 
       * @return string Slider XHTML
       */
-	function endSlider()
+	public static function endSlider()
 	{
 	    // end the slide
 	    return '</div>';
@@ -67,7 +67,7 @@ class XiusHelperSlide extends JObject
 	 *            Button type: toggle|slideIn|slideOut|hide
 	 * @return string Slider XHTML action button
 	 */
-	function button($text, $buttonId, $slideId, $type = 'toggle')
+	public static function button($text, $buttonId, $slideId, $type = 'toggle')
 	{
 	    // prepare button JavaScript
 	    $js = "$('".$buttonId."').addEvent('click', function(e){"
@@ -88,7 +88,7 @@ class XiusHelperSlide extends JObject
 	 * @param string
 	 *            JavaScript to add to domready event
 	 */
-	function addScript($script = null)
+	public static function addScript($script = null)
 	{
 	    // domready event handler
 	    static $js;

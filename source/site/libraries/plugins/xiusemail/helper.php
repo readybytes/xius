@@ -29,7 +29,7 @@ class XiusemailHelper
 		return $db->loadObjectList();
     }
     
-    function getResultedUserId()
+    public static function getResultedUserId()
     {
     	$conditions = XiusLibUsersearch::getDataFromSession(XIUS_CONDITIONS,false);
     	$join  = XiusLibUsersearch::getDataFromSession(XIUS_JOIN,'AND');

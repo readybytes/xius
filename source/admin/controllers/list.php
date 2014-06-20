@@ -26,7 +26,6 @@ class XiusControllerList extends JControllerLegacy
 
 	function remove()
 	{
-		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 
@@ -35,7 +34,8 @@ class XiusControllerList extends JControllerLegacy
 		$cache = JFactory::getCache('com_content');
 		$cache->clean();
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-		$mainframe->redirect($link, $data['message']);
+		$this->setRedirect($link, $data['message']);
+		return false;		
 	}
 
 	function editList()
@@ -61,7 +61,8 @@ class XiusControllerList extends JControllerLegacy
 
 		// XITODO : when id is not set then what to do
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-		$mainframe->redirect($link);
+		$this->setRedirect($link);
+		return false;
 	}
 
 	function save()
@@ -73,10 +74,10 @@ class XiusControllerList extends JControllerLegacy
 			return false;
 		}
 
-		$mainframe = JFactory::getApplication();
 		$data = $this->_processSave();
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-		$mainframe->redirect($link, $data['msg']);
+		$this->setRedirect($link, $data['msg']);
+		return false;
 	}
 
 	function apply()
@@ -88,11 +89,10 @@ class XiusControllerList extends JControllerLegacy
 			return;
 		}
 
-		$mainframe = JFactory::getApplication();
-
 		$data = $this->_processSave();
 		$link = XiusRoute::_('index.php?option=com_xius&view=list&task=editList&editId='.$data['id'], false);
-		$mainframe->redirect($link, $data['msg']);
+		$this->setRedirect($link, $data['msg']);
+		return false;
 	}
 
 	function _processSave($post=null)
@@ -215,13 +215,12 @@ class XiusControllerList extends JControllerLegacy
 
 		$msg = $count. ' '. XiusText::_('ITEM_PUBLISHED' );
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-		$mainframe->redirect($link, $msg);
-		return true;
+		$this->setRedirect($link, $msg);
+		return false;
 	}
 
 	function unpublish()
 	{
-		$mainframe = JFactory::getApplication();
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 		// Initialize variables
@@ -240,8 +239,8 @@ class XiusControllerList extends JControllerLegacy
 			$msg = XiusText::_('UNABLE_TO_UNPUBLIS_LIST');
 
 		$link = XiusRoute::_('index.php?option=com_xius&view=list', false);
-		$mainframe->redirect($link, $msg);
-		return true;
+		$this->setRedirect($link, $msg);
+		return false;
 	}
 
 
@@ -271,8 +270,6 @@ class XiusControllerList extends JControllerLegacy
 
 	function saveOrder()
 	{
-		$mainframe = JFactory::getApplication();
-
 		// Determine whether to order it up or down
 		$direction	= ( JRequest::getWord( 'task' , '' ) == 'orderup' ) ? -1 : 1;
 
@@ -281,7 +278,8 @@ class XiusControllerList extends JControllerLegacy
 
  		$result = $this->_saveOrder($id,$direction);
 
-		$mainframe->redirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
+		$this->setRedirect( XiusRoute::_('index.php?option=com_xius&view=list',false),$result['msg']);
+		return false;
 	}
 
 

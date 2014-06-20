@@ -80,9 +80,9 @@ class XiusLibCron
 	/**
 	 *  it return true and false according cache succefully update or not
 	 */
-	function updateCache()
+	public static function updateCache()
 	{		
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger( 'onBeforeXiusCacheUpdate' );
 		
 		//get database lock to restrict multi cron request
@@ -115,7 +115,8 @@ class XiusLibCron
 		}
 		else{
 			if(JFactory::getApplication()->isAdmin()){
-				return JFactory::getApplication()->enqueueMessage(XiusText::_("CACHE_UPDATION_IS_ALREADY_IN_PROGRESS"));
+				JFactory::getApplication()->enqueueMessage(XiusText::_("CACHE_UPDATION_IS_ALREADY_IN_PROGRESS"));
+				return false;
 			} 
 			return true;
 		}
