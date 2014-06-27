@@ -100,7 +100,17 @@ if(JFile::exists(JPATH_ROOT . DS.'plugins'.DS.'system'.DS.'Zend/Loader/Autoloade
 }
 //it must be after Zend_Loader_Autoloader 
 /*JomSocial community files */
-foreach(array('CFactory','CAssets','CConfig','CApplications','CUser','CRoute') as $className)
+//a fix for compatiblity with Jomsocial 3.2.0.6 and onwrod and backword compatibility.
+//they have moves the assets file 
+$jsVersion = XiusHelperUtils::getJSVersion();
+
+if(version_compare($jsVersion,'3.2.0.6') >= 0) {
+	XiusLoader::addAutoLoadFile('CAssets', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'assets.php');
+} else {
+	XiusLoader::addAutoLoadFile('CAssets', XIUS_PATH_LIBRARY.DS.'community.php');
+}
+
+foreach(array('CFactory','CConfig','CApplications','CUser','CRoute') as $className)
 	XiusLoader::addAutoLoadFile($className, XIUS_PATH_LIBRARY.DS.'community.php');
 
 //Explicit JomSocial Dependency

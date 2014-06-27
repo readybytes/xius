@@ -186,7 +186,8 @@ class plgXiusxipt_fieldselection extends JPlugin
 			if (!XIUS_JOOMLA_15)
 				$strPath = "/xipt_fieldselection";
 			$js='plugins/xius/xipt_fieldselection'.$strPath.'/default.js';
-			CAssets::attach($js, 'js' , JURI::base());
+			$cassets = new CAssets();
+			$cassets->attach($js, 'js' , JURI::base());
 					
 			return true;
 		}

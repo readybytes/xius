@@ -190,8 +190,6 @@ class XiusHelperUtils
             } else {
                 JFactory::getDocument()->addScript( JUri::base() .'components/com_community/assets/joms.jquery.js' );
             }
-
-            define('C_ASSET_JQUERY', 1);
         }
         return true;
     }
