@@ -20,7 +20,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 	        $suffix = 'jom=J'.$version->RELEASE.'&utm_campaign=broadcast&pay=XIUS'.XIUS_VERSION.'&dom='.JURI::getInstance()->toString(array('scheme', 'host', 'port'));
         ob_start();?>
         <div class ="xiusboardcast">    
-            <iframe src='http://pub.joomlaxi.com/broadcast/xius/broadcast.html?<?php echo $suffix?>' frameborder="0" scrolling="auto" width="100%" height="250px"></iframe>
+            <iframe src='http://www.readybytes.net/broadcast/xius.html?<?php echo $suffix?>' frameborder="0" scrolling="auto" width="100%" height="250px"></iframe>
          </div>
         <?php
    		$return .= ob_get_contents();

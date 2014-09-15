@@ -261,7 +261,7 @@ class com_xiusInstallerScript
 				setTimeout("location.href = 'index.php?option=com_xius';", 5000);
 			}
 		</script>
-		<iframe scrolling="no" frameborder="0" width="503px" src="http://pub.joomlaxi.com/broadcast/xius/xius.html?action=<?php echo self::$xiusIntallOrUpgrade; ?>&label=<?php echo JVERSION; ?>"></iframe>
+		<iframe scrolling="no" frameborder="0" width="503px" src="http://www.readybytes.net/broadcast/xius-installed.html?action=<?php echo self::$xiusIntallOrUpgrade; ?>&label=<?php echo JVERSION; ?>"></iframe>
 		<?php 
 		$script = ob_get_contents();
 		ob_clean();
