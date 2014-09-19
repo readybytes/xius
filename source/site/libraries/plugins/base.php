@@ -149,7 +149,7 @@ abstract class XiusBase extends JObject
 			$userGroup = $user->usertype;
 		}
 		else{
-			$userGroup = $user->groups; //if J2.5 then usertype is blank so we use group i.e an array
+			$userGroup = JUserHelper::getUserGroups($user->id); //if J2.5 then usertype is blank so we use group i.e an array
 		}
 		
 		if(!$userGroup)

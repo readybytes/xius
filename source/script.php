@@ -252,6 +252,7 @@ class com_xiusInstallerScript
 	//This function is called after intallation complete 
 	function postflight($type, $parent)
 	{
+		$suffix = "action=".self::$xiusIntallOrUpgrade."&label=".JVERSION;
 		
 		ob_start();
 		?>
@@ -261,7 +262,7 @@ class com_xiusInstallerScript
 				setTimeout("location.href = 'index.php?option=com_xius';", 5000);
 			}
 		</script>
-		<iframe scrolling="no" frameborder="0" width="503px" src="http://www.readybytes.net/broadcast/xius-installed.html?action=<?php echo self::$xiusIntallOrUpgrade; ?>&label=<?php echo JVERSION; ?>"></iframe>
+		<iframe scrolling="no" frameborder="0" width="503px" src="http://www.readybytes.net/broadcast/xius-installed.html?<?php echo urlencode($suffix); ?>"></iframe>
 		<?php 
 		$script = ob_get_contents();
 		ob_clean();
