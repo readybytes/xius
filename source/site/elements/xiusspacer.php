@@ -40,7 +40,7 @@ class JElementXiusspacer extends XiusElement
 	 * @deprecated    12.1
 	 * @since   11.1
 	 */
-	public function fetchTooltip($label, $description, &$node, $control_name, $name)
+	public function fetchTooltip($label, $description, &$node, $control_name = '', $name = '')
 	{
 		return '&#160;';
 	}
