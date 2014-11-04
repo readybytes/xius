@@ -32,7 +32,7 @@ class plgXiusjsmultiprofile_privacy extends JPlugin
 		return $config->get('profile_multiprofile');	
 	}
 	
-	function xiusOnBeforeSaveInfo($postData)
+	function xiusOnBeforeSaveInfo(&$postData)
 	{
 	 // if postdata of this plugin is set then, set it on the plugin name
 		if(array_key_exists($this->_name ,$postData['params']))
