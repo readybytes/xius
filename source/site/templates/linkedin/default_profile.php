@@ -38,8 +38,8 @@ if(!empty($this->userprofile))	:
 			endif; ?>
 			
 			<div class="miniProfileInfo">
-				<span class="infoLabel"><?php echo JText::_($up['label'][$i]); ?></span>
-				<span class="infoValue"><?php echo JText::_($up['value'][$i]); ?></span>
+				<span class="infoLabel"><?php echo $up['label'][$i]; ?></span>
+				<span class="infoValue"><?php echo (strpos($up['value'][$i], ',') === false)?  JText::_($up['value'][$i]): $up['value'][$i]; ?></span>
 			</div>
 			<?php
 		endfor;

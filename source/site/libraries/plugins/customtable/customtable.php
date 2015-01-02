@@ -260,6 +260,14 @@ class Customtable extends XiusBase
 
 			return parent::_getFormatData($newValue);
 		}
+
+		if($isMultiple) {
+				
+			$value 		= explode(',', $value);
+			
+			array_shift($value);
+			array_pop($value);
+		}
 		
 		return parent::_getFormatData($value);
 	}
