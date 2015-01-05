@@ -75,23 +75,25 @@ class XiusControllerConfiguration extends JControllerLegacy
 		$xiusKey = $params->get('xiusKey','AB2F4');
 		
 		if(XiusHelperUtils::verifyCronRunRequired($xiusKey) == false) {
-			$this->setRedirect($link, $message);
+			$this->setRedirect($link, $message, 'warning');
 			return false;
 		}
 		
 		$time = XiusLibCron::getTimestamp();
 		XiusLibCron::saveCacheParams(XIUS_CACHE_START_TIME,$time);
 		
-		$msg = xiusText::_('CACHE_UPDATED_SUCCESSFULLY');
+		$message = xiusText::_('CACHE_UPDATED_SUCCESSFULLY');
+		$type 	 = 'message';
+
 		if(!XiusLibCron::updateCache()){
-			$msg = xiusText::_('CACHE_NOT_UPDATE');
+			$message = xiusText::_('CACHE_NOT_UPDATE');
+			$type = 'warning';
 		}
 		
 		$time = XiusLibCron::getTimestamp();
 		XiusLibCron::saveCacheParams(XIUS_CACHE_END_TIME,$time);
 		
-		$message = $msg;
-		$this->setRedirect($link, $message);
+		$this->setRedirect($link, $message, $type);
 
 		return false;
 	}

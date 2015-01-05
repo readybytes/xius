@@ -34,22 +34,40 @@ class XiusCache
 	
 	function createTable()
 	{
-		$this->dropTable($this->_updatedTable);
+		try {
+			$this->dropTable($this->_updatedTable);
+		}
+		catch (Exception $e){
+			JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+			return false;
+		}
 		
-		// Build Query	
-		$createQuery = new XiusQuery();
-		$createQuery = $this->buildCreateTableQuery();
+		try {
+			// Build Query	
+			$createQuery = new XiusQuery();
+			$createQuery = $this->buildCreateTableQuery();
 
-		if(empty($createQuery))
-		{
-			return false;	
+			if(empty($createQuery))
+			{
+				return false;	
+			}
+		
+			// Set query on Data-Base Object and Execute query
+			$createQuery->dbLoadQuery()->query();
 		}
-		// Set query on Data-Base Object and Execute query
-		if(!$createQuery->dbLoadQuery()->query()){
-			JFactory::getApplication()->enqueueMessage($createQuery->dbLoadQuery()->_errorMsg);
- 	  		//die($createQuery->dbLoadQuery()->_errorMsg ); //for testing purpose
+		
+		catch (Exception $e){
+			
+			JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+	 	  	//die($createQuery->dbLoadQuery()->_errorMsg ); //for testing purpose
+
+			$createQuery->clear('create');
+			
+			return false;
 		}
+		
 		$createQuery->clear('create');
+		
 		return true;	
 	}
 
