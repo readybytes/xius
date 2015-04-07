@@ -13,7 +13,7 @@ $this->loadAssets('js', 'result.js');
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
-?><div id="xiusSave">
+?><div id="xiusSave" class="joms-page">
 	<form action="<?php echo XiusRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 	
 	<!--  START HEADER -->

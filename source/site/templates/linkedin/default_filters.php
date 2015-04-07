@@ -24,7 +24,7 @@ if($data['info']->pluginType == 'Jsfields'):
  <?php endif;
 endforeach; ?><?php
 		$content = ob_get_contents();
-		ob_clean();
+		ob_end_clean();
         JFactory::getDocument()->addScriptDeclaration($content);?>
 <script type="text/javascript"> 
 joms.jQuery(document).ready(function($) {

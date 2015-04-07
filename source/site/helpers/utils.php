@@ -183,12 +183,12 @@ class XiusHelperUtils
         if(!defined('C_ASSET_JQUERY')){
 
             $jsVersion = self::getJSVersion();
-            if(version_compare($jsVersion,'3.1') >= 0) {
+            if(version_compare($jsVersion,'4.0') >= 0) {
                 require_once COMMUNITY_COM_PATH . DIRECTORY_SEPARATOR. 'views'.DIRECTORY_SEPARATOR.'views.php';
-                $view = new CommunityView();
-                $view->attachHeaders();
-            } else {
-                JFactory::getDocument()->addScript( JUri::base() .'components/com_community/assets/joms.jquery.js' );
+                //load required assests of jomsocial
+                CAssets::getInstance();
+                JFactory::getDocument()->addStyleSheet(JURI::root().'/components/com_community/assets/pickadate/themes/classic.combined.css');
+                JFactory::getDocument()->addScript(JURI::root().'/components/com_community/assets/pickadate/picker.combined.js');
             }
         }
         return true;
@@ -220,7 +220,7 @@ class XiusHelperUtils
 	 */
 	public static function XIUS_str_ireplace($search, $replace, $str, $count = NULL)
 	{
-		jimport('phputf8.str_ireplace');
+		//jimport('phputf8.str_ireplace');
 		if ( $count === FALSE ) {
 			return self::XIUS_utf8_ireplace($search, $replace, $str);
 		} else {
@@ -267,17 +267,17 @@ class XiusHelperUtils
 	
 	                if ( array_key_exists($k,$replace) ) {
 	
-	                    $str = utf8_ireplace($search[$k], $replace[$k], $str, $count);
+	                    $str = Jstring::str_ireplace($search[$k], $replace[$k], $str, $count);
 	
 	                } else {
 	
-	                    $str = utf8_ireplace($search[$k], '', $str, $count);
+	                    $str =Jstring::str_ireplace($search[$k], '', $str, $count);
 	
 	                }
 	
 	            } else {
 	
-	                $str = utf8_ireplace($search[$k], $replace, $str, $count);
+	                $str = Jstring::str_ireplace($search[$k], $replace, $str, $count);
 	
 	            }
 	        }

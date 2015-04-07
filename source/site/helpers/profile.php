@@ -44,7 +44,7 @@ class XiusHelperProfile
 
 			if(!in_array($user->userid, $friendsIds) && $user->userid!=$userId)
 			{
-		        $data->friendReq = 'onclick="'. $cfriend->getPopup($user->userid).'" href="javascript:void(0);"';
+		        $data->friendReq = 'onclick=" joms.api.friendAdd('.$user->userid.')" href="javascript:void(0);"';
 			}
 
 			$userData[] = $data;

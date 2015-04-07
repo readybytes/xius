@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
 	});
 });
 </script>
-<div class="xius_result" id="xius_result">
+<div class="xius_result joms-page" id="xius_result">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 <?php
 // for jquery not load

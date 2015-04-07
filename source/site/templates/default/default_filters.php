@@ -24,17 +24,20 @@ if($data['info']->pluginType == 'Jsfields'):
  <?php endif;
 endforeach; ?><?php
 		$content = ob_get_contents();
-		ob_clean();
+		ob_end_clean();
         JFactory::getDocument()->addScriptDeclaration($content);?>
 <script type="text/javascript"> 
-joms.jQuery(document).ready(function($) {
-	xiushidediv()
-	for (i = 0; i < (FieldIds.length); i++) {
-		if(tooltip[FieldIds[i]] !=""){
-			joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
-			joms.jQuery('.'+FieldIds[i]).children().children().attr('title',tooltip[FieldIds[i]]);
+window.joms_queue || (joms_queue = []);
+joms_queue.push(function() {
+	joms.jQuery(document).ready(function($) {
+		xiushidediv()
+		for (i = 0; i < (FieldIds.length); i++) {
+			if(tooltip[FieldIds[i]] !=""){
+				$('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
+				$('.'+FieldIds[i]).children().children().attr('title',tooltip[FieldIds[i]]);
+			}
 		}
-	}
+	});
 });
 </script>
 <div class="<?php if($this->xiusSlideShow=='none'){ echo 'xius_ai'; } else{ echo 'xius_ai_full';} ?>" id="xius_ai";>

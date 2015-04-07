@@ -343,7 +343,7 @@ class XiusView extends JViewLegacy
 		ob_start();
 		include_once(XIUS_COMPONENT_PATH_ADMIN.DS.'views'.DS.'cpanel'.DS.'tmpl'.DS.'default_footermenu.php');
 		$footer = ob_get_contents();
-		ob_clean();
+		ob_end_clean();
 	
 		return $footer;
 	}

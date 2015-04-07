@@ -27,21 +27,24 @@ if($data['info']->pluginType == 'Jsfields'):
  <?php endif;
 endforeach; ?><?php
 		$content = ob_get_contents();
-		ob_clean();
+		ob_end_clean();
         JFactory::getDocument()->addScriptDeclaration($content);?>
 <script type="text/javascript"> 
-joms.jQuery(document).ready(function($) {
-	for (i = 0; i < (FieldIds.length); i++) {
-		if(tooltip[FieldIds[i]] !=""){
-			joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
-		    joms.jQuery('.'+FieldIds[i]).children().children().attr('title',tooltip[FieldIds[i]]);
+window.joms_queue || (joms_queue = []);
+joms_queue.push(function() {
+	joms.jQuery(document).ready(function($) {
+		for (i = 0; i < (FieldIds.length); i++) {
+			if(tooltip[FieldIds[i]] !=""){
+				joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
+			    joms.jQuery('.'+FieldIds[i]).children().children().attr('title',tooltip[FieldIds[i]]);
+			}
 		}
-	}
+	})
 });
 </script> 
 <?php 
 ?>
-<div class="xius_sp" id="xiusSp">
+<div class="xius_sp joms-page" id="xiusSp">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
 
 <div id="spHead">
@@ -87,7 +90,7 @@ joms.jQuery(document).ready(function($) {
 		<?php 	echo $this->loadTemplate('joinhtml');	?>
 		</div>
 		
-		<div id="xiusSpSubmit">
+		<div id="xiusSpSubmit" class="text-center">
 		<input type="submit" id="xiussearch" name="xiussearch" value="<?php echo XiusText::_("SEARCH_BUTTON");?>" />
 		</div>
 		<?php

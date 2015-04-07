@@ -35,15 +35,17 @@ if(!defined('_JEXEC')) die('Restricted access');
 	  </div>
 
 	  <div id="<?php echo $elePrefix; ?>_address_option" style="<?php echo "display:".(($location=='addressbox')? "block": "none;")?>;">
-         <div class="xiusProximityLabel"><?php echo XiusText::_('ADDRESS'); ?></div>
-         <div><input type="text" name="<?php echo $elePrefix; ?>_address" id="<?php echo $elePrefix; ?>_address"></div>
+         <div class="xiusProximityLabel">
+         	<label><?php echo XiusText::_('ADDRESS'); ?></label>
+         	<input type="text" name="<?php echo $elePrefix; ?>_address" id="<?php echo $elePrefix; ?>_address">
+         </div>
       </div>
       
       <input class="inputbox" type="hidden" name="<?php echo $elePrefix; ?>_lat" id="<?php echo $elePrefix; ?>_lat" value=<?php echo $latitude; ?> />
       <input class="inputbox" type="hidden" name="<?php echo $elePrefix; ?>_long" id="<?php echo $elePrefix; ?>_long" value=<?php echo $longitude; ?> />
       
       <div class="xiusProximityLabel xiusleft">
-      	<?php echo XiusText::_('DISTANCE'); ?>
+      	<label><?php echo XiusText::_('DISTANCE'); ?></label>
 		<input  class="xiusProximityInputbox" 
 				type="text" size="12" 
 				name="<?php echo $elePrefix; ?>_dis" 

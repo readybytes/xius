@@ -10,7 +10,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 $this->loadAssets('css', 'lists.css');
 require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 ?>
-<div class="">
+<div class="joms-form">
 <form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 <?php
 if(empty($this->lists))	:

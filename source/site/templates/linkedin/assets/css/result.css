@@ -132,12 +132,7 @@ div#xiusResult div#filterForm {
 	-moz-border-radius-bottomleft: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
-	padding:10px;
-}
-
-div#xiusResult div#filterForm input, div#filterForm select {
-	width:90%;	
-	font-size: 12px;
+	padding:2px;
 }
 
 div#xiusResult span.addButton, span.clearButton{
@@ -210,8 +205,8 @@ div#xiusResult span#sortBYTitle{
 }
 	
 div#xiusResult div#xiusToolbar select {
-border:1px solid #efefef;
-background: #efefef;
+/*border:1px solid #efefef;*/
+/*background: #efefef;*/
 color:#006699;
 
 }
@@ -230,12 +225,28 @@ div#xiusResult div.xiusfr ul span.pagenav {
     font-weight: bold;
     line-height: 1.8em;
 }
-div#xiusResult select{
-	width:auto !important;
+div#xiusToolbar select{
+	width:auto;
 }
 div#xiusResult .xiusleft{
     float:left;
 }
 div#xiusResult textarea{
 	width:100%;
+}
+
+div#xiusFilter input:not([type="checkbox"]):not([type="radio"]), 
+div#xiusFilter select{
+	padding : 3px;
+	height:auto;
+	width:95%;		
+}
+
+/*
+* Just like bootstarp clearfix
+*/
+div.xiusFlData{
+	display: table;
+	content: "";
+	clear:both;
 }

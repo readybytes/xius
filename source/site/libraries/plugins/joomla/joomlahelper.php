@@ -46,7 +46,7 @@ class xiusJoomlahelper
    		$attribs	= null;
     	if(!JFactory::getApplication()->isAdmin() || !$multiple){
 			$start 		= new stdClass();
-    		$start->id 	= 0;
+    		$start->id 	= '';
     		$start->{XIUS_JOOMLA_GROUP_VALUE} = XiusText::_('SELECT_USERTYPE');
     		array_unshift($groups,$start);
     		

@@ -48,8 +48,9 @@ div#xiusSp div#spHead {
 div#xiusSp div.xiusSpMain {
 	border-bottom:1px dotted #666666;
 	width:99%;
-	overflow: hidden;
-	padding:2px 0 2px 5px;
+	overflow: visible;
+	padding:10px 0 10px 5px;
+	margin : 0px;
 }
 
 div#xiusSp div.xiusSpMain:hover{
@@ -75,11 +76,28 @@ div#xiusSp div#xiusSpSubmit input{
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: 1px solid #cfcfcf;
-	margin-left: 32%;
+/*	margin-left: 32%;*/
 	padding: 5px;
 	font-weight: bold;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	cursor: pointer;
 	font-size:12px;
+}
+
+div#xiusSp input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
+div#xiusSp select{
+	padding : 7px;
+	height : auto;
+	width :95%;
+}
+
+/*
+* Just like bootstarp clearfix
+*/
+div#xiusSp div.xiusSpMain:after{
+	display: table;
+	content: "";
+	line-height: 0;
+	clear:both;
 }
