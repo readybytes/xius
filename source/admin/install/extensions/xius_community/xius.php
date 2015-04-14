@@ -67,19 +67,21 @@ class plgCommunityxius extends JPlugin
 		if(JRequest::getVar('usexius',0) == 1){
 			ob_start();
 			?>
-				joms.jQuery(document).ready(function($) {
-					var addclass = 1;
-					$("a[href$='?usexius=1']").each(function(){
-						if($(this).hasClass('active')){
-							addclass = 0;
+				window.joms_queue || (joms_queue = []);
+				joms_queue.push(function() {
+					joms.jQuery(document).ready(function(){
+						var addclass = 1;
+						$("a[href$='?usexius=1']").each(function(){
+							if($(this).hasClass('active')){
+								addclass = 0;
+							}
+						});
+						
+						if(addclass == 1){
+							$("a[href$='?usexius=1']").addClass('active');
 						}
-					});
-					
-					if(addclass == 1){
-						$("a[href$='?usexius=1']").addClass('active');
-					}
-				}
-			);
+					})
+				});
 			
 			<?php $content = ob_get_contents(); 
 			ob_end_clean();
