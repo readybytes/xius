@@ -234,12 +234,15 @@ class Customtable extends XiusBase
 	{
 		$isMultiple = $this->pluginParams->get('customIsMultiple');
 		
-		//if this key can has multiple value
-		if($isMultiple && stristr($this->key,'user_usergroup_map')) {
-			
-			$value 		= explode(',', $value);
-			array_shift($value);
-			array_pop($value);
+		//if this key can has multiple value and for usergroup
+		if(stristr($this->key,'user_usergroup_map')) {
+			if($isMultiple){
+				$value 		= explode(',', $value);
+				array_shift($value);
+				array_pop($value);
+			}else{
+				$value = array($value);
+			}
 						
 			$newValue 	= array();
 			
@@ -299,6 +302,6 @@ class Customtable extends XiusBase
 			return parent::_getFormatData(self::$joomlaGroups[$value]);
 		}
 		
-		return parent::_getFormatData($value);
+		return $this->_getFormatData($value);
 	}
 }
