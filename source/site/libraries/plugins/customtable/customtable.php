@@ -117,7 +117,8 @@ class Customtable extends XiusBase
 		
 		foreach( $tableMapping as $tm){
 			if($isMultiple) {
-				$query->select( "CONCAT( \",\" ,group_concat({$tm->tableAliasName}.{$tm->originColumnName}), \",\" )"
+				//comma separated values with descending order, so that user can apply sorting in front end  
+				$query->select( "CONCAT( group_concat({$tm->tableAliasName}.{$tm->originColumnName} ORDER BY {$tm->tableAliasName}.{$tm->originColumnName} DESC ), \",\" )"
 							." as {$tm->cacheColumnName} "
 				);
 			}
