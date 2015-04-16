@@ -10,12 +10,12 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 echo XiusText::_('RANGESEARCH_FROM');?>
 <br/>
-<input class="inputbox" type="text" name="<?php echo $this->pluginType.$this->key; ?>_min"
+<input class="inputbox" type="text" name="<?php echo $this->pluginType.$this->key; ?>[]"
 		id="<?php echo $this->pluginType.$this->key; ?>_min" value="<?php echo $this->value0; ?>" /><br /> 
 
 <?php echo XiusText::_('RANGESEARCH_TO'); ?>
 <br/>
-<input class="inputbox" type="text" name="<?php echo $this->pluginType.$this->key; ?>_max" 
+<input class="inputbox" type="text" name="<?php echo $this->pluginType.$this->key; ?>[]" 
 		id="<?php echo $this->pluginType.$this->key; ?>_max" value="<?php echo $this->value1; ?>" />
 
 
