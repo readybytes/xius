@@ -194,29 +194,37 @@ class XiusView extends JViewLegacy
 		if($this->_xiurl)
 			return true;
 
-		$currentURI = JURI::getInstance();	
+		//$currentURI = JURI::getInstance();
+		$option = Jfactory::getApplication()->input->get('option','com_community');	
+		
+		$newUrl	= 'index.php?option='.$option;
 		
 		foreach($vars as $key => $val){
 		
 			if($val === null){	
 				// del the var from url 
 				// these will not be used as URL for posting the form		
-				$currentURI->delVar($key);
+				//$currentURI->delVar($key);
 				continue;
 			}		
 			/*
 		 	* if external url is true, it means xius is triggred from othe components
 		 	* so set two var xiusview and xiustask
 		 	*/
-			$currentURI->setvar($key,$val);		
+			//$currentURI->setvar($key,$val);	
+			$newUrl .= 	'&'.$key.'='.$val;
 		}
 		
 		/*
 		 * always set usexius to true so that xius will be integrated with jom social 
 		 */
-		$currentURI->setvar('usexius',1);
+		//$currentURI->setvar('usexius',1);
+		if($option == 'com_community'){
+			$newUrl .= '&usexius=1';
+		}
 		
-		$this->_xiurl = $currentURI->toString();
+		//$this->_xiurl = $currentURI->toString();
+		$this->_xiurl = $newUrl;
 		return;
 	}
 	
