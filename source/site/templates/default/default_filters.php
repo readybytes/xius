@@ -30,7 +30,6 @@ endforeach; ?><?php
 window.joms_queue || (joms_queue = []);
 joms_queue.push(function() {
 	joms.jQuery(document).ready(function($) {
-		xiushidediv()
 		for (i = 0; i < (FieldIds.length); i++) {
 			if(tooltip[FieldIds[i]] !=""){
 				$('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
@@ -43,7 +42,7 @@ joms_queue.push(function() {
 <div class="<?php if($this->xiusSlideShow=='none'){ echo 'xius_ai'; } else{ echo 'xius_ai_full';} ?>" id="xius_ai";>
 	<div class="xius_aiHead">
 		<div onclick="javascript:xiushideshowdiv();" style="cursor: pointer;"> <?php echo XiusText::_('AVAILABLE_INFORMATION'); ?>
-		<div id="xiusSliderImg" class="<?php if(!$this->xiusSlideShow=='none'){ echo 'xiusSlideImgUp'; } else{ echo 'xiusSlideImgDown';} ?>">&nbsp;</div>
+		<div id="xiusSliderImg" class="<?php if(!$this->xiusSlideShow=='none'){ echo 'xiusSlideImgDown'; } else{ echo 'xiusSlideImgUp';} ?>">&nbsp;</div>
 	</div></div>
 <div id="xiushide" class="<?php if($this->xiusSlideShow=='none'){ echo 'xiusSliderHide'; } else{ echo 'xiusSlider'; } ?>">
 	<?php
