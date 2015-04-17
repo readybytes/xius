@@ -63,7 +63,7 @@ class XiussiteControllerList extends XiusController
 		if(empty($list))
 		{
 			if(XiusModel::isIdExist('list',$listId))
-				$mainframe->redirect($url,XiusText::_('PERMISSION_DENIED'),false);
+				$mainframe->redirect($url,XiusText::_('DO_NOT_HAVE_ACCESS_RIGHTS'),false);
 			else
 			$mainframe->redirect($url,XiusText::_('INVALID_LIST_ID'),false);
 	    }
@@ -77,7 +77,7 @@ class XiussiteControllerList extends XiusController
 		$noAccess		= false;
 		$params 		= $config->toArray('xiuslist');
 		if(isset($params['xiusListViewGroup']) && !empty($params['xiusListViewGroup'])){
-			$noAccess		= !XiusHelperList::isAccessibleToUser($user,unserialize($params['xiusListViewGroup']),false);
+			$noAccess		= !XiusHelperList::isAccessibleToUser($user,unserialize($params['xiusListViewGroup']),true);
 		}
 		if(!$list->published || $noAccess){					
 			$msg = XiusText::_('DO_NOT_HAVE_ACCESS_RIGHTS');
