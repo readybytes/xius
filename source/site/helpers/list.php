@@ -12,12 +12,8 @@ class XiusHelperList
 {
 	public static function isAccessibleToUser($user,$allowedGroup,$allowGuest=false)
 	{
-		// if guest user are not allowed to access list ( create)
-		// then check allowGuest is false and usertype is also false
-
-		$condition = empty($user->groups);
-
-		if($allowGuest === false && $condition )
+		//guest user can't create list
+		if($allowGuest === false && $user->guest )
 			return false; 
 
 		// if user is not registered then he will  be treated as guest

@@ -6,6 +6,8 @@
 	padding:5px;
 	margin:0px;
 	-moz-border-radius:5px;
+	overflow:hidden;
+	clear:both;
 }
 
 .xius_spHead{
@@ -23,7 +25,7 @@
 }
 	
 #xius_sp .xius_spMain{
-	overflow:hidden;
+	overflow:visible;
 	border:1px solid rgb(209,209,209);
 	padding:5px;
 	margin:5px;	
@@ -44,13 +46,17 @@
 	padding:0px;
 }
 
-.xius_spInput input{
-/*	margin-left:17px; */	
+#xius_sp input:not([type="radio"]):not([type="checkbox"]):not([type="submit"])
+{
+	padding : 6px;
+	height:auto;	
 	border:1px solid #e3e3e3;
+	width:95%;
 }
 
-.xius_spInput select{
-/*	margin-left:17px; */	
+#xius_sp select{
+	padding : 6px;
+	height:auto;
 }
 
 .xius_spInput label{
@@ -66,6 +72,16 @@
 	padding:5px 0 5px 15px;
 }
 
-body #xius_sp .inputbox{
-border:1px solid #e3e3e3;		
+/*body #xius_sp .inputbox{*/
+/*border:1px solid #e3e3e3;		*/
+/*}*/
+
+/*
+* Just like bootstarp clearfix
+*/
+div#xius_sp div.xius_spMain:after{
+	display: table;
+	content: "";
+	line-height: 0;
+	clear:both;
 }

@@ -6,31 +6,31 @@
 
 /* resets */
 
-div#xius_result div,
-div#xius_result dl,
-div#xius_result dt,
-div#xius_result dd,
-div#xius_result ul,
-div#xius_result ol,
-div#xius_result li,
-div#xius_result h1,
-div#xius_result h2,
-div#xius_result h3,
-div#xius_result h4,
-div#xius_result h5,
-div#xius_result h6,
-div#xius_result pre,
-div#xius_result form,
-div#xius_result fieldset,
-div#xius_result input,
-div#xius_result textarea,
-div#xius_result p,
-div#xius_result blockquote,
-div#xius_result th,
-div#xius_result td {
-	margin: 0; 
-	padding: 0;
-}
+/*div#xius_result div,*/
+/*div#xius_result dl,*/
+/*div#xius_result dt,*/
+/*div#xius_result dd,*/
+/*div#xius_result ul,*/
+/*div#xius_result ol,*/
+/*div#xius_result li,*/
+/*div#xius_result h1,*/
+/*div#xius_result h2,*/
+/*div#xius_result h3,*/
+/*div#xius_result h4,*/
+/*div#xius_result h5,*/
+/*div#xius_result h6,*/
+/*div#xius_result pre,*/
+/*div#xius_result form,*/
+/*div#xius_result fieldset,*/
+/*div#xius_result input,*/
+/*div#xius_result textarea,*/
+/*div#xius_result p,*/
+/*div#xius_result blockquote,*/
+/*div#xius_result th,*/
+/*div#xius_result td {*/
+/*	margin: 0; */
+/*	padding: 0;*/
+/*}*/
 div#xius_result {
 	overflow:hidden;
 	clear:both;
@@ -262,8 +262,6 @@ div#xius_result .xius_aiHead{
 
 div#xius_result .xius_aiMain{
 	border-top	:1px solid #dddddd;
-	overflow	:hidden;
-	margin		:10px;
 	padding		:15px 10px 0;
 }
 div#xius_result .xius_aiMain:hover{
@@ -282,14 +280,6 @@ div#xius_result .xius_aiInput{
 	width:68%;
 	padding:0px;
 	margin:0px;
-}
-
-div#xius_result .xius_aiInput input{
-/*	margin-left:17px;*/	
-}
-
-div#xius_result .xius_aiInput select{
-/*	margin-left:17px;	*/
 }
 
 div#xius_result .xius_aiImg{
@@ -410,4 +400,20 @@ div#xius_result .xiusleft{
 }
 div#xius_result textarea{
 	width:100%;
+}
+
+div#xius_result  input, 
+div#xius_result select{
+	padding : 6px;
+	height:auto;		
+}
+
+/*
+* Just like bootstarp clearfix
+*/
+div#xius_result .xius_aiMain:after{
+	display: table;
+	content: "";
+	line-height: 0;
+	clear:both;
 }

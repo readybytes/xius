@@ -43,7 +43,7 @@ div#xiusProfile div#xiusTbButton{
 		margin:0 0 0 -2px;
 		padding:5px;       
         background:#ffffff;
-        width:135px;
+        width:200px;
 }
 
 div#xiusProfile #xiusActions {
@@ -82,8 +82,8 @@ div#xiusProfile div.xiusfr ul span.pagenav {
 /** filters and filtered information**/
 div#xiusProfile div#xiusFilter {
 
-        overflow-y:hidden;
-        overflow-x:auto;   
+/*        overflow-y:hidden;*/
+/*        overflow-x:auto;   */
     	background:#ffffff;
         width:24%;
         border:1px solid #e3e3e3;
@@ -148,7 +148,7 @@ div#xiusProfile div.xiusFlData {
         margin-top:7px;
         border:1px solid #e3e3e3;
         padding:2px;
-        overflow:hidden;
+        overflow:visible;
 }
 
 div#xiusProfile div.xiusFlLabel {
@@ -160,7 +160,9 @@ div#xiusProfile div.xiusFlInput {
 }
 
 div#xiusProfile div.xiusFlInput input{
-        width:150px;
+        width:93%;
+        padding:4px;
+        height : auto;
 }
 
 div#xiusProfile div.xiusFlInput input[type=checkbox]{
@@ -342,11 +344,9 @@ div#xiusProfile .xiusMpActions {
 	display:none;
 	padding:5px;
 	position: absolute;
-	width:100px;
+	width:auto;
     margin-left:-20px
 }
-
-
 
 /** for tool bar buttons */
 div#xiusProfile #xiusCsv {
@@ -405,12 +405,27 @@ div#xiusProfile #xiusEmailToSelected:hover {
     border-bottom: 1px dashed #e3e3e3;
      height: 20px;
 }
+
 div#xiusProfile select{
-	width:auto !important;
+	width:100% !important;
+	padding:5px;
 }
 div#xiusProfile .xiusleft{
     float:left;
 }
 div#xiusProfile textarea{
     width:100%;
+}
+div#profileToolbar select{
+	width:auto !important;
+}
+
+/*
+* Just like bootstarp clearfix
+*/
+div#xiusProfile div.xiusFlData:after{
+	display: table;
+	content: "";
+	line-height: 0;
+	clear:both;
 }

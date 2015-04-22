@@ -99,7 +99,7 @@ class XiusPluginControllerXiusemail extends JControllerLegacy
     	$inboxModel = CFactory::getModel('inbox');
     	$inboxModel->send($info);
     		
-    	XiusemailHelper::showResultMessage(XiusText::_("MESSAGE_SENT_TO_FOLLOWING_USERS"),$this->getUserName($userId));
+    	XiusemailHelper::showResultMessage(sprintf(XiusText::_("MESSAGE_SENT_TO_FOLLOWING_USERS"),count($userId)),$this->getUserName($userId));
     	return true;
     }
     
@@ -137,7 +137,7 @@ class XiusPluginControllerXiusemail extends JControllerLegacy
     		return false;
     	}
 
-    	XiusemailHelper::showResultMessage(XiusText::_("EMAIL_SENT_TO_FOLLOWING_USERS"),$this->getUserName($userId));
+    	XiusemailHelper::showResultMessage(sprintf(XiusText::_("EMAIL_SENT_TO_FOLLOWING_USERS"),count($userId)),$this->getUserName($userId));
     	return true;  
     }
     

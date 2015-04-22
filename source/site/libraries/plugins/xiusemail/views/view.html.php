@@ -25,6 +25,8 @@ class XiusemailView extends XiusBaseView
 	
 	function emailUser( $pluginId=null, $userId=null, $userSelected=null )
 	{
+		require_once(dirname(dirname(__FILE__)).DS.'helper.php');
+		
 		if($pluginId === null)
     		$pluginId = JRequest::getVar('pluginid',0,'GET');
     	
@@ -43,6 +45,7 @@ class XiusemailView extends XiusBaseView
         $data['userId']			= $userId;
         $data['userSelected']	= $userSelected;
         $data['editor'] 		= JFactory::getEditor();
+        $data['resultUsers']	= XiusemailHelper::getResultedUserId();
          
         $this->assignRef('data', $data);
         

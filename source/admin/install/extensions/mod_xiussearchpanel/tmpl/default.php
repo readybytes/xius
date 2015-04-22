@@ -30,11 +30,14 @@ if($data['info']->pluginType == 'Jsfields'):
 endforeach;
 JFactory::getDocument()->addScriptDeclaration($script);?>
 <script type="text/javascript"> 
-joms.jQuery(document).ready(function($) {
-	for (i = 0; i < (FieldIds.length); i++) {
-		if(tooltip[FieldIds[i]] !="")
-			joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
-	}
+window.joms_queue || (joms_queue = []);
+joms_queue.push(function() {
+	joms.jQuery(document).ready(function($) {
+		for (i = 0; i < (FieldIds.length); i++) {
+			if(tooltip[FieldIds[i]] !="")
+				joms.jQuery('.'+FieldIds[i]).children().attr('title',tooltip[FieldIds[i]]);
+		}
+	})
 });
 </script>
 	<div class="xiusMod_available" id="xiusMod_available">

@@ -32,7 +32,7 @@ class JElementLimit extends XiusElement
 		if(JFactory::getApplication()->isAdmin())
 			return JHTML::_('select.genericlist',  $limits, $control_name.'['.$name.']', 'class="inputbox" size="1"', 'value', 'text', $value);
 
-		return JHTML::_('select.genericlist',  $limits, "limit", 'class="inputbox" size="1" onchange="this.form.submit()"', 'value', 'text', $value);
+		return JHTML::_('select.genericlist',  $limits, "limit", 'size="1" onchange="this.form.submit()"', 'value', 'text', $value);
 
 	}
 	

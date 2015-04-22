@@ -13,7 +13,7 @@ $this->loadAssets('js', 'result.js');
 if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 
-?><div id="xiusSave">
+?><div id="xiusSave" class="joms-page">
 	<form action="<?php echo XiusRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
 	
 	<!--  START HEADER -->
@@ -189,7 +189,7 @@ if(!empty($this->msg))
 		</div>
 		<!--  END DESCRIPTION -->
 	<div style="clear:both;"><br/></div>
-<div id="xiussubmit">				
+<div id="xiussubmit" class="text-center">				
 <input type="submit" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE_AS_NEW')?> />	
 </div>
 <input type="hidden" name="listid" value="<?php echo $this->selectedListId; ?>" />

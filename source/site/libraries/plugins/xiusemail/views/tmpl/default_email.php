@@ -14,8 +14,8 @@ if(!defined('_JEXEC')) die('Restricted access');
 		
 			<div  class="xiusEmailHeader"><span><?php echo XiusText::_('XIUS_EMAIL'); ?></span></div>
 			<?php 
-			if($this->data['userSelected'] === 'no') : ?>
-			  <div class="xiusEmailError"><span id="xiusErrorUserNotSelected"><?php echo XiusText::_("YOU_HAVE_NOT_SELECTED_ANY_USER_TO_EMAIL");?> </span>
+			if($this->data['userSelected'] === 'no' || empty($this->data['resultUsers'])) : ?>
+			  <div class="xiusEmailError text-center"><span id="xiusErrorUserNotSelected"><?php echo XiusText::_("YOU_HAVE_NOT_SELECTED_ANY_USER_TO_EMAIL");?> </span>
 			  </div>
 			 <?php else : ?> 	
 				 <div class="xiusEmailBox">
@@ -48,4 +48,4 @@ if(!defined('_JEXEC')) die('Restricted access');
 			 <?php endif;	?>	
 		</form>
 	</div>
-<?php
+<?php 

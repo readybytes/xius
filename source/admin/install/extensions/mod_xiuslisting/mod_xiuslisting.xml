@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" version="2.5" client="site" method="upgrade">
 	<name>XiusListing</name>
-	<version>@global.version@.@svn.lastrevision@</version>
+	<version>@global.version@</version>
     	<creationDate>Jan 2010</creationDate>
     	<author>JoomlaXi.com</author>
     	<authorEmail>shyam@joomlaxi.com</authorEmail>

@@ -27,7 +27,7 @@ $this->loadAssets('js', 'result.js');
 ?>
 
 <?php JHTML::_('behavior.tooltip'); ?>
-<div id="xiusProfile">
+<div id="xiusProfile" class="joms-page xius-result">
 	<form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="userForm" id="userForm" method="post">
 		<div id="xiusFilter">
 			
