@@ -59,7 +59,7 @@ class XiussiteControllerList extends XiusController
 			
 		/*get list */
 		$list = XiusLibList::getList($listId);
-	    $url = XiusRoute::_('index.php?option=com_xius&view=list&task=showList',false);
+	    $url = XiusRoute::_('index.php?option=com_community',false);
 		if(empty($list))
 		{
 			if(XiusModel::isIdExist('list',$listId))
