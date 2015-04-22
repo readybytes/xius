@@ -59,11 +59,11 @@ class XiussiteControllerList extends XiusController
 			
 		/*get list */
 		$list = XiusLibList::getList($listId);
-	    $url = XiusRoute::_('index.php?option=com_user&view=login',false);
+	    $url = XiusRoute::_('index.php?option=com_xius&view=list&task=showList',false);
 		if(empty($list))
 		{
 			if(XiusModel::isIdExist('list',$listId))
-				$mainframe->redirect($url,XiusText::_('PERMISSION_DENIED'),false);
+				$mainframe->redirect($url,XiusText::_('DO_NOT_HAVE_ACCESS_RIGHTS'),false);
 			else
 			$mainframe->redirect($url,XiusText::_('INVALID_LIST_ID'),false);
 	    }
@@ -71,13 +71,19 @@ class XiussiteControllerList extends XiusController
 		// when no task is there 
 		$user = JFactory::getUser();
 
-		// XITODO : check access in function checkAccess		
-		if($list)
-			if(!XiusHelperUtils::isAdmin($user->id) && !$list->published){					
-				$msg = XiusText::_('DO_NOT_HAVE_ACCESS_RIGHTS');
-				$mainframe->redirect($url,$msg,false);
-				break;
-			}
+		//check access 
+		$config 		= new JRegistry('xiuslist');
+		$config->loadString($list->params,'INI');
+		$noAccess		= false;
+		$params 		= $config->toArray('xiuslist');
+		if(isset($params['xiusListViewGroup']) && !empty($params['xiusListViewGroup'])){
+			$noAccess		= !XiusHelperList::isAccessibleToUser($user,unserialize($params['xiusListViewGroup']),true);
+		}
+		if(!$list->published || $noAccess){					
+			$msg = XiusText::_('DO_NOT_HAVE_ACCESS_RIGHTS');
+			$mainframe->redirect($url,$msg,false);
+			break;
+		}
 		//set the default limit in list result		
 		$limit = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
         JFactory::getApplication()->setUserState('global.list.limit',$limit);

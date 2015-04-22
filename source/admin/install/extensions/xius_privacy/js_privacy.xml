@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <extension version="2.5" type="plugin" group="xius" method="upgrade">
   <name>XIUS JS Privacy Plugin</name>
-  <version>@global.version@.@svn.lastrevision@</version>
+  <version>@global.version@</version>
   <creationDate>Mar 2010</creationDate>
   <author>Team Joomlaxi</author>
   <authorEmail>shyam@joomlaxi.com</authorEmail>

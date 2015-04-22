@@ -120,14 +120,12 @@
 }
 
 .xius_email .xiusEmailError {
-	margin-top: 1%;
-	margin-right: 10%;
-	text-align:right;
+	margin-top: 3%;
 	overflow-x: hidden;
 	overflow-y: hidden;
 	width: auto;
 	border: 0;
-	font-size: 12px;
+	font-size: 13px;
 	color: red;	
 }
 	

@@ -167,8 +167,8 @@ class XiusHelperUtils
         if($loaded || !$loadJquery)
             return true;
 
-        JFactory::getDocument()->addScript(JUri::root() .'components/com_xius/assets/js/jquery1.4.2.js');
-        JFactory::getDocument()->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+        //load default jquery supported by joomla 
+      	JHtml::_('jquery.framework');
 
         $loaded = true;
         return true;
