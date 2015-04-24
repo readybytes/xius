@@ -262,7 +262,7 @@ div#xius_result .xius_aiHead{
 
 div#xius_result .xius_aiMain{
 	border-top	:1px solid #dddddd;
-	padding		:15px 10px 0;
+	padding		:15px 10px 15px;
 }
 div#xius_result .xius_aiMain:hover{
 background:#efefef;
@@ -405,7 +405,9 @@ div#xius_result textarea{
 div#xius_result  input, 
 div#xius_result select{
 	padding : 6px;
-	height:auto;		
+	height:auto;
+	display:inline;	
+	margin-bottom :0;	
 }
 
 /*

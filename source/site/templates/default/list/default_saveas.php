@@ -50,7 +50,7 @@ $submitUrl = XiusRoute::_($this->submitUrl,false);
 				</select>
 			</div>
 	
-<div id="xiusPopupSubmit" style="float:right;">
+<div id="xiusPopupSubmit">
 	<input type="submit" name = "xiusListSaveAs" id = "xiusListSaveAs" value="<?php echo XiusText::_('NEXT')?>"/></div>
 </div>
 </form>
