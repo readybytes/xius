@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Show List">
+		<message>
+			<![CDATA[Display User List.]]>
+		</message>
+	</layout>
+	<state>
+		<name>Show List</name>
+		<description>Through this link you will be able to redirect user to a particular list.</description>
+		<url addpath="/components/com_xius/elements">
+		<param name="task" type="xiushidden" default="showList" label="LIST" description="LIST_DESC" addall="true" />
+		<param name="listid" type="xiuslist" default="0" label="LIST" description="LIST_DESC" addall="true" />		
+		</url>
+	</state>
+</metadata>

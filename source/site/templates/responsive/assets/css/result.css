@@ -1,0 +1,267 @@
+@CHARSET "UTF-8";
+
+div#xiusProfile .xius-font-color, div#xiusProfile #limit{
+	color:#7f8c8d;
+}
+
+div#xiusProfile #limit{
+	height: 28px;
+    line-height: 28px;
+    float:right;
+}
+
+div#xiusProfile .xius-add-filter{
+	color: #08c;
+	margin-top:3px;
+}
+
+div#xiusProfile .xius-add-filter:hover{
+	color: #7f8c8d;
+}
+
+div#xiusProfile .xius-pointer{
+	cursor:pointer;
+}
+
+div#xiusProfile .xius-padding{
+	padding:5px;
+}
+
+div#xiusProfile .xius-margin{
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:4px;
+}
+
+div#xiusProfile div#xiusTbButton{
+	width:200px;
+}
+
+div#xiusProfile div.xiusFdValue {
+	margin:5px;
+	border-radius: 3px;
+	margin-left:0px;
+	width:auto;
+}
+
+div#xiusProfile .xius-icon{
+	margin-left:5px;
+	font-size:60%;
+}
+
+div#xiusProfile .xius-icon-bg{
+	background:none;
+}
+
+div#xiusProfile .xius-icon:hover{
+	cursor:pointer;
+}
+
+div#xiusProfile .xius-icon-bg:hover{
+	font-weight:bold;
+}
+
+.xiusFlLabel .accordion{
+	margin-bottom:0px;
+}
+
+.xiusFlLabel .accordion-group{
+	border:none;
+}
+
+.xiusFlLabel .accordion-heading .accordion-toggle, .xiusFlLabel .accordion-inner{
+	padding-left:0px;
+	padding-right:0px;
+	border:none;
+}
+
+div#xiusFlForm{
+	border-right: 1px solid #e3e3e3;
+	padding-right:5px;
+}
+
+div#xiusProfile hr{
+   margin-bottom:5px;
+   margin-top:5px;
+}
+
+div#xiusProfile #xiusFiltered hr{
+	margin-top:20px;
+	margin-bottom:10px;
+}
+
+#xiusProfile #xiusFlForm a{
+	color:#7f8c8d;
+}
+
+#xiusProfile a:hover{
+	text-decoration:none;
+	font-weight:bold;
+}
+
+div.xiusMiniProfile #xius-user-name:hover{
+	color:#7f8c8d;
+	text-decoration:none;
+}
+
+div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile {
+	overflow:hidden;
+	border:1px solid #e3e3e3;
+	margin-top:5px;
+    margin-bottom:5px;
+    border-radius:5px;
+}
+
+div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile h3{
+	margin-top:2px;
+}
+
+div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile:hover{
+	box-shadow: 0 0 10px #7f8c8d;
+	background-color:#ecf0f1;		
+}
+
+div#xiusProfile span.xiusOptionsImg{
+	padding-right:16px;
+	background: url("../../../../assets/images/options.png") no-repeat;
+}
+
+div#xiusProfile div.xiusOnline {
+	padding:0px 5px 2px 20px;
+	margin-top:5px;
+	background: url("../images/status.png") no-repeat 0 1px;	
+	width:auto;
+	float:left;
+}
+
+div#xiusProfile div.xiusOffline {
+	padding:0px 5px 2px 20px;
+	margin-top:5px;
+	background: url("../images/status-offline.png") no-repeat 0 1px;	
+	width:auto;
+	float:left;
+}
+
+div#xiusProfile div.xiusViewProfile {
+	padding:0 0 0 20px;
+	background: url("../../../../assets/images/viewprofile.png") no-repeat;	
+	border-bottom: 1px dashed #e3e3e3;
+	height:20px;
+}
+
+div#xiusProfile div.xiusWriteMsg {
+	padding:0 0 0 20px;
+	background: url("../../../../assets/images/msg.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;	
+	height:20px;
+}
+
+div#xiusProfile div.xiusFriends {
+	padding:0 0 0 20px;
+	background: url("../../../../assets/images/friends.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;	
+	height:20px;
+}
+
+div#xiusProfile .xiusHeaderStatus {
+	float:left;
+	padding:5px;
+	width:100%;
+}
+
+div#xiusProfile div.xius-user-profile{
+	margin-left:-3px;
+}
+
+div#xiusProfile div.xiusMpInfo {
+	margin-bottom:2px;
+	margin-left:0px;
+	word-wrap: break-word;
+	padding:1px;
+}
+
+div#xiusProfile div.xiusProfileAction {
+	cursor: pointer;
+	overflow:hidden;
+	border-bottom: 1px solid #ecf0f1;
+	border-left: 1px solid #ecf0f1;
+	border-right: 1px solid #ecf0f1;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;	
+	padding:2px 10px;
+	margin-right:2px;
+	float:right;
+	background-color:#ecf0f1;
+}
+
+div#xiusProfile .xiusMpActions {
+	border:1px solid #ecf0f1;
+	background:#ffffff;
+	display:none;
+	padding:5px;
+	position: absolute;
+	width:auto;
+    margin-left:-20px
+}
+
+div#xiusProfile div#xiusActions {	
+	border: 1px solid #ecf0f1;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+	margin-left:5px;
+	margin-right:-5px;
+	background-color:#ecf0f1;
+}
+
+
+div#xiusProfile #xiusSave {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/save.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+    height: 20px;
+}
+
+div#xiusProfile #xiusEmailToAll {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/emailall.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+     height: 20px;
+}
+
+div#xiusProfile #xiusEmailToSelected {
+	padding:4px 0 0 25px;
+	background: url("../../../../assets/images/emailselected.png") no-repeat;
+    border-bottom: 1px dashed #e3e3e3;
+     height: 20px;
+}
+
+div#xiusProfile textarea{
+    width:100%;
+}
+
+div#profileToolbar select{
+	width:auto !important;
+}
+
+div#xius-pagination select {
+    width: auto !important;
+}
+
+div#xiusProfile input{
+height : auto;
+}
+
+div#xius-joinhtml .xius-join{
+	width:auto;
+}
+
+div.xiusProximityLabel .xiusProximitySelectbox{
+	margin-left:5px;
+}
+
+div#xiusProfile #backtotop{
+	margin-top:-8px;
+	margin-left:5px;
+}
