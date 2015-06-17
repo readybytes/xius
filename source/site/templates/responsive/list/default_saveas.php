@@ -16,12 +16,13 @@ if(!empty($this->msg))
 $submitUrl = XiusRoute::_($this->submitUrl,false);
 ?>
 
-<div id="xiusPopup" class="container-fluid">
+<div id="xiusPopup" class="container-fluid xiusPopup">
 	<form action="<?php echo $submitUrl; ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusSaveListAs('<?php echo $submitUrl;?>');">
-		<div class="xiusPopupHeader row-fluid">
-  			<span><?php echo XiusText::_("SAVE_LIST"); ?></span>
+		<div class="text-info row-fluid">
+  			<h3><?php echo XiusText::_("SAVE_LIST"); ?></h3>
+  			<hr>
 		</div>
-		<div id="xiusPopupData">
+		<div id="xiusPopupData" class="xiusPopupData">
 			<div class="row-fluid">
 				<input type="radio" id="xiusListSaveAsNew" name="xiusListSaveAs" value="xiussavenew" checked><span class="xius-radio-data"><?php echo XiusText::_('SAVE_AS_NEW_LIST');?></span>
 			</div>
@@ -53,7 +54,7 @@ $submitUrl = XiusRoute::_($this->submitUrl,false);
 				</select>
 			</div>
 			<div id="xiusPopupSubmit" class="pull-right">
-				<input type="submit" name = "xiusListSaveAs" id = "xiusListSaveAs" value="<?php echo XiusText::_('NEXT')?>"/>
+				<input type="submit" name = "xiusListSaveAs" class="joms-button--primary joms-button--full-small" id = "xiusListSaveAs" value="<?php echo XiusText::_('NEXT')?>"/>
 			</div>
 		</div>
 	</form>

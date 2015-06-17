@@ -418,8 +418,6 @@ div#xiusProfile textarea{
 }
 div#profileToolbar select{
 	width:auto !important;
-	display:inline;
-	margin:5px 0 5px 2px;
 }
 
 /*

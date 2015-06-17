@@ -118,5 +118,3 @@ CConfig::getInstance();
 XiusLoader::addAutoLoadFile('CMessaging', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'messaging.php');
 XiusLoader::addAutoLoadFile('CFriends', JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'libraries'.DS.'friends.php');
 require_once JPATH_ROOT.DS.'components'.DS.'com_community'.DS.'defines.community.php';
-
-

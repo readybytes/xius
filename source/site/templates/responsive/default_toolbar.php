@@ -14,12 +14,12 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
         #profileToolbar { zoom: 1; }
     </style>
 <![endif]-->
-<div id="profileToolbar" class="row-fluid">
+<div id="profileToolbar" class="row-fluid profileToolbar">
 <?php if($this->xiusToolbar):?>
-	<div id="xiusActions" class="xius-font-color span3 pull-left xius-padding xius-pointer">
+	<div id="xiusActions" class="span3 pull-left xius-padding xius-pointer xiusActions">
 		<?php echo XiusText::_('OPTION'); ?>
 		<span class="xiusOptionsImg">&nbsp;</span>
-		<div id="xiusTbButton" class="xius-margin xiusMpActions">
+		<div id="xiusTbButton" class="xius-margin xius-mini-profile-actions xius-toolbar-button">
 		<?php
 		foreach($this->xiusToolbar as $tool)
 			echo '<div class="pull-left">'.$tool->value.'</div>';
@@ -38,14 +38,14 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 						$descselected = ' selected=true ';
 					endif;
 
-					$dirhtml = '<select id="xiussortdir" name="xiussortdir" class="xius-font-color pull-right" onchange="xiusApplySort(\'sortdir\');" >';
+					$dirhtml = '<select id="xiussortdir" name="xiussortdir" class="pull-right" onchange="xiusApplySort(\'sortdir\');" >';
 					$dirhtml .= '<option value="ASC" '.$ascselected.'>'.XiusText::_('ASC').'</option>';
 					$dirhtml .= '<option value="DESC" '.$descselected.'>'.XiusText::_('DESC').'</option>';
 					$dirhtml .= '</select>';
 
 					echo $dirhtml;
 				
-					$html = '<select id="xiussort" name="xiussort" class="xius-font-color pull-right" onchange="xiusApplySort(\'sort\');" >';
+					$html = '<select id="xiussort" name="xiussort" class="pull-right" onchange="xiusApplySort(\'sort\');" >';
 					foreach($this->sortableFields as $sfields)	:
 						$selected = '';
 						if($this->sort == $sfields['key']):
@@ -61,6 +61,6 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 					
 				endif;
                ?>
-               <span class="pull-right xius-margin xius-font-color	"><?php echo XiusText::_("SORT_RESULT_ACCORDING_TO")?> &nbsp;	</span>
+               <span class="pull-right xius-margin"><?php echo XiusText::_("SORT_RESULT_ACCORDING_TO")?> &nbsp;	</span>
 	</div>
 </div><?php 

@@ -166,11 +166,8 @@ div#xius_result .xiusAppliedinfo{
 }
 
 div#xius_result .xius_apiHead{
-	padding:-5px 0px 5px 15px;
 	font-size:1.5em;
-	margin:15px 0 5px 5px;
-	border-bottom:1px solid #dddddd;
-	border-bottom-style: dashed;
+	margin-top:15px;
 }
 
 div#xius_result  .xius_apiHead img{
@@ -262,7 +259,7 @@ div#xius_result .xius_aiHead{
 
 div#xius_result .xius_aiMain{
 	border-top	:1px solid #dddddd;
-	padding		:15px 10px 15px;
+	padding		:15px 10px 0;
 }
 div#xius_result .xius_aiMain:hover{
 background:#efefef;
@@ -393,7 +390,7 @@ div#xius_result div.xiusfr ul span.pagenav {
 }
 
 div#xius_result select{
-	width:auto !important;
+	width:auto !important;	
 }
 div#xius_result .xiusleft{
     float:left;
@@ -405,9 +402,7 @@ div#xius_result textarea{
 div#xius_result  input, 
 div#xius_result select{
 	padding : 6px;
-	height:auto;
-	display:inline;	
-	margin-bottom :0;	
+	height:auto;		
 }
 
 /*

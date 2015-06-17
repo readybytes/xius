@@ -46,10 +46,10 @@ joms_queue.push(function() {
 <?php 
 ?>
 
-<div class="container-fluid joms-page" id="xius_sp">
-	<form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm">
+<div class="container-fluid joms-page xius" id="xius_sp">
+	<form action="<?php echo XiusRoute::_($this->submitUrl);?>" method="post" name="userForm" id="userForm" class="form-horizontal xius-search-panel">
 		<div class="row-fluid">
-			<h3><span class="xius-font-color xius-margin"><?php echo XiusText::_('SEARCH');?></span></h3>
+			<h3><span class="xius-margin"><?php echo XiusText::_('SEARCH');?></span></h3>
 			<hr>
 		</div>
 		<?php
@@ -58,23 +58,23 @@ joms_queue.push(function() {
 
 		if(empty($this->infohtml)):
 		?>
-			<!-- <div class="xiusNoInfo"> -->
 			<h3>
 			<?php echo XiusText::_('ALL_SEARCHABLE_INFORMATION_HAS_BEEN_DISABLED_BY_ADMINISTRATOR');?>
 			</h3>
-			<!-- </div> -->
 		<?php
 		else:
 		foreach($this->infohtml as $data):
 			?>
-			<div class="row-fluid xius-font-color xius-margin">
+			<div class="row-fluid xius-margin control-group">
 				<div class="span3">
-					<small><strong><?php
-					$xiustooltip = $data['tooltip'];
-					echo $data['label'];
-					?></strong></small>
+					<label class="control-label">
+						<?php
+						$xiustooltip = $data['tooltip'];
+						echo $data['label'];
+						?>
+					</label>
 				</div>
-				<div class="span9 field<?php echo $data['info']->key?>">
+				<div class="controls span9 field<?php echo $data['info']->key?>">
 					<?php if(!empty($xiustooltip) && $data['info']->pluginType != 'Jsfields'): 
 						 echo '<span class="jomNameTips" title="'.$xiustooltip.'">'.$data['html'].'</span>';?>
 				    <?php else: ?>

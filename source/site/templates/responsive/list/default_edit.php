@@ -14,10 +14,10 @@ if(!empty($this->msg))
 	echo '<div class="xius_error">'.$this->msg.'</div>';
 ?>
 
-<div id="xiusSave" class="jomsocial container-fluid">
-	<form action="<?php echo XiusRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" method="post" onsubmit="return xiusListValidation();" >
+<div id="xiusSave" class="jomsocial container-fluid xiusSave">
+	<form action="<?php echo XiusRoute::_($this->submitUrl.'&isnew='.$this->isNew,false); ?>" name="saveListForm" id="saveListForm" class="form-horizontal" method="post" onsubmit="return xiusListValidation();" >
 		
-		<div class="joms-page xius-font-color">
+		<div class="joms-page">
 			<!--  START HEADER -->
 				<div class="row-fluid joms-page__title">
 					<h3><?php
@@ -28,28 +28,34 @@ if(!empty($this->msg))
 			<!--  END HEADER -->
 			
 			<!--  START NAME -->
-				<div class="row-fluid">
-					<div class="span4"><label><?php echo XiusText::_('NAME'); ?></label></div>
-					<div class="span8"><input type="text" name="xiusListName" id="xiusListName" value="<?php echo $this->data['listName']; ?>"/></div>
+				<div class="row-fluid control-group">
+					<div class="span4"><label class="control-label"><?php echo XiusText::_('NAME'); ?></label></div>
+					<div class="span8 controls"><input type="text" name="xiusListName" id="xiusListName" value="<?php echo $this->data['listName']; ?>"/></div>
 				</div>
 				<hr>
 			<!--  END NAME -->
 			
 			<!--  START PUBLISH -->
-				<div class="row-fluid">
-					<div class="span4"><label><?php echo XiusText::_('PUBLISHED'); ?></label></div>
-					<div class="span8">
-						<input type="radio" name="xiusListPublish" value="0"><span class="xius-radio-data"><?php echo XiusText::_('NO');?></span>
-						<input type="radio" class="xius-radio-data" name="xiusListPublish" value="1" checked="checked"><span class="xius-radio-data"><?php echo XiusText::_('YES');?></span>
+				<div class="row-fluid control-group">
+					<div class="span4"><label label class="control-label"><?php echo XiusText::_('PUBLISHED'); ?></label></div>
+					<div class="span8 controls">
+						<label class="radio">
+							<input type="radio" name="xiusListPublish" value="0">
+							<?php echo XiusText::_('NO');?>
+						</label>
+						<label class="radio">
+							<input type="radio" class="xius-radio-data" name="xiusListPublish" value="1" checked="checked">
+							<?php echo XiusText::_('YES');?>
+						</label>
 					</div>
 				</div>
 				<hr>
 			<!--  END PUBLISH -->
 			
 			<!--  START CONDITION -->		
-				<div class="row-fluid">
-					<div class="span4"><label><?php	echo XiusText::_('SEARCH_CONDITION');?></label></div>
-					<div class="span8">
+				<div class="row-fluid control-group">
+					<div class="span4"><label label class="control-label"><?php	echo XiusText::_('SEARCH_CONDITION');?></label></div>
+					<div class="span8 controls">
 						<?php 
 						if(is_array($this->conditionHtml) && !empty($this->conditionHtml))
 			 				foreach($this->conditionHtml as $condition)							
@@ -63,12 +69,12 @@ if(!empty($this->msg))
 			<!--  END CONDITION -->
 			
 			<!--  START SORTABLE INFORMATION -->
-				<div class="row-fluid">
-					<div class="span4"><label><?php	echo XiusText::_('SORT_RESULT_ACCORDING_TO');?></label></div>
-					<div class="span8">
+				<div class="row-fluid control-group">
+					<div class="span4"><label label class="control-label"><?php	echo XiusText::_('SORT_RESULT_ACCORDING_TO');?></label></div>
+					<div class="span8 controls">
 						<?php 
 							if(!empty($this->data['sortableFields']))	:
-								$html = '<select id="xiussort" name="xiusListSortInfo" class="xius-font-color">';
+								$html = '<select id="xiussort" name="xiusListSortInfo">';
 								foreach($this->data['sortableFields'] as $sfields)	:
 									$selected = '';
 									if($this->data['sortId'] === $sfields['key']):
@@ -90,9 +96,9 @@ if(!empty($this->msg))
 			<!--  END SORTABLE INFORMATION -->
 			
 			<!--  START SORTING ORDER -->
-				<div class="row-fluid">
-					<div class="span4"><label><?php	echo XiusText::_('SORT_RESULT_ACCORDING_TO');?></label></div>
-					<div class="span8">
+				<div class="row-fluid control-group">
+					<div class="span4"><label label class="control-label"><?php	echo XiusText::_('SORT_RESULT_ACCORDING_TO');?></label></div>
+					<div class="span8 controls">
 						<?php
 							if(array_key_exists('dir',$this->data) && $this->data['dir']) : 
 								$ascselected = '';
@@ -103,7 +109,7 @@ if(!empty($this->msg))
 									$descselected = ' selected=true ';
 								endif;
 			
-								$dirhtml = '<select id="xiussortdir" name="xiusListSortDir" class="xius-font-color">';
+								$dirhtml = '<select id="xiussortdir" name="xiusListSortDir">';
 								$dirhtml .= '<option value="ASC" '.$ascselected.'>'.XiusText::_('ASC').'</option>';
 								$dirhtml .= '<option value="DESC" '.$descselected.'>'.XiusText::_('DESC').'</option>';
 								$dirhtml .= '</select>';
@@ -117,9 +123,9 @@ if(!empty($this->msg))
 			<!--  END SORTING ORDER -->
 			
 			<!--  START JOIN WITH -->
-				<div class="row-fluid">
-					<div class="span4"><label for="name"><?php echo XiusText::_( 'JOIN_WITH' ); ?></label></div>
-					<div class="span8">
+				<div class="row-fluid control-group">
+					<div class="span4"><label label class="control-label" for="name"><?php echo XiusText::_( 'JOIN_WITH' ); ?></label></div>
+					<div class="span8 controls">
 						<?php 
 							$orSelected = '';
 							$andSelected = '';
@@ -131,7 +137,7 @@ if(!empty($this->msg))
 								endif;
 							endif;
 						?>
-						<select id="xiusjoin" name="xiusListJoinWith" class="xius-font-color">
+						<select id="xiusjoin" name="xiusListJoinWith">
 						<option value="AND" <?php echo $andSelected; ?> ><?php echo XiusText::_('MATCH_ALL'); ?></option>
 						<option value="OR"  <?php echo $orSelected; ?> ><?php echo XiusText::_('MATCH_ANY'); ?></option>
 						</select>
@@ -141,7 +147,7 @@ if(!empty($this->msg))
 			<!--  END JOIN WITH -->
 			
 			<!-- START PLUGIN PRIVACY -->
-				<div class="row-fluid">					
+				<div class="row-fluid control-group">					
 						<?php 
 							foreach($this->data['xiusListPrivacy'] as $html)
 								if($html)
@@ -152,9 +158,9 @@ if(!empty($this->msg))
 			<!-- END PLUGIN PRIVACY -->
 			
 			<!--  START DESCRIPTION -->
-				<div class="row-fluid">
-					<div class="span4"><label><?php	echo XiusText::_('DESCRIPTION');?></label></div>
-					<div class="span8">
+				<div class="row-fluid control-group">
+					<div class="span4"><label label class="control-label"><?php	echo XiusText::_('DESCRIPTION');?></label></div>
+					<div class="span8 controls">
 						<?php
 						$val = '';	
 							if(array_key_exists('listDesc',$this->data))
@@ -167,7 +173,7 @@ if(!empty($this->msg))
 			<!--  END DESCRIPTION -->
 			
 			<div id="xiussubmit" class="row-fluid text-center">				
-				<input type="submit" class="joms-button--primary joms-button--small" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE_AS_NEW')?> />	
+				<input type="submit" class="joms-button--primary joms-button--small xiusSave" name = "xiussave" id = "xiussave" value=<?php echo XiusText::_('SAVE_AS_NEW')?> />	
 			</div>
 		</div>
 		<input type="hidden" name="listid" value="<?php echo $this->selectedListId; ?>" />

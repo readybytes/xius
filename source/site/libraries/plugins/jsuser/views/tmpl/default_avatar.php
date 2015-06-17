@@ -15,10 +15,10 @@ $value = "All Users";
 ?>
  <div>
       	<label><input type="radio" id="avatar" name="avatar"  value="0" title="Users with avatar" <?php echo ($value == "0")? "checked": "" ;?> />
-      		<?php echo XiusText::_('WITH_AVATAR'); ?></label>
+      		<span class="xius-radio"><?php echo XiusText::_('WITH_AVATAR'); ?></span></label>
       	<label><input type="radio" id="avatar" name="avatar"  value="1" title="Users with default avatar" <?php echo ($value == "1")? "checked": "" ;?>/>
-      		<?php echo XiusText::_('WITHOUT_AVATAR'); ?></label>
+      		<span class="xius-radio"><?php echo XiusText::_('WITHOUT_AVATAR'); ?></span></label>
         <label><input type="radio" id="avatar" name="avatar"  value="All Users" title="All users" <?php echo ($value === 'All Users')? "checked": "" ;?> />
-      		<?php echo XiusText::_('ALL_USERS'); ?></label>
+      		<span class="xius-radio"><?php echo XiusText::_('ALL_USERS'); ?></span></label>
 </div>
 <?php

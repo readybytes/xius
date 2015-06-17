@@ -1,23 +1,23 @@
 
-#xiusLists .xiusListsData {
+.xiusLists .xiusListsPadding {
 	padding:2px 5px;
 }
 
-.xius-margin, #xiusLists #limit{
+.xius-margin, .xiusLists #limit{
 	margin: 5px 2px;
 }
 
-#xiusSave div{
+.xiusSave div{
 	margin:0px;
 }
 	
-#xiusSave .paramValue{
+.xiusSave .paramValue{
 float:left;
 margin-top:-5px;
 }
 
 
-#xiusSave .hasTip{
+.xiusSave .hasTip{
 	display:block;
 	float:left;
 	cursor:default;
@@ -26,22 +26,37 @@ margin-top:-5px;
 	width:32%;
 }
 
-#xiusSave input, 
-#xiusSave select{
+.xiusSave input[type="text"], 
+.xiusSave select{
 	padding : 6px;
 	height:auto;		
 }
 
-#xiusSave hr{
-	margin-top: 5px;
+.xiusSave hr{
+	margin-top: 0px;
 }
 
-.xius-font-color{
-	color:#7f8c8d;
-}
-
-div#xiusPopup .xius-radio-data, div#xiusSave .xius-radio-data{
+div.xiusPopup .xius-radio-data, div.xiusSave .xius-radio-data{
 	margin-left:5px;
 	vertical-align:middle;
 	margin-right:10px;
+}
+
+div.xiusPopup hr{
+	margin:0px;
+}
+
+.xiusSave label#paramsjs_privacy-lbl{
+	float: left;
+    padding-top: 5px;
+    text-align: left;
+    width: 160px;
+}
+
+.xiusSave .xiusParameter .xiRow .xiCol .controls{
+	margin-left:55px;
+}
+
+.xiusSave form.form-horizontal label.control-label{
+	text-align:left;
 }

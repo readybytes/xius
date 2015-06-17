@@ -1,18 +1,8 @@
-.xius_email
-	{
-		
-	}
-	
 .xius_email .xiusEmailHeader
 	{   
 		height: 30px;
 		background-color: #333333;
-		background-image: none;
-		background-repeat: repeat;	
-		background-attachment: scroll;
-		background-position: 0% 0%;
-		overflow-x: hidden;
-		overflow-y: hidden;
+		margin-bottom:20px;
 	}
 	
 .xius_email .xiusEmailHeader span
@@ -24,30 +14,13 @@
 		line-height: 30px;
 		margin-left: 30px;
 		position: absolute;
-		top: 0pt;
 		left: 0pt;
-		z-index: 999;
 	}
 
-.xius_email .xiusEmailBox
-	{
-		margin-left: 2%;
-		margin-top: 4%;
-	}
-
-.xius_email .xiusEmailBox .xiusEmailEntity
-	{
-		
-		margin-top: 1%;
-	}
-
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailLabel
+.xius_email .xiusEmailBox .xiusEmailLabel
 	{
 		float: left;
 		width: 15%;
-		text-align:right;
-		font-size:medium;
-		font-weight: bold;
 		padding-top: 0px;
 		padding-right: 10px;
 		padding-bottom: 0px;
@@ -55,10 +28,10 @@
 		margin-top: 10px;
 		margin-right: 0px;
 		margin-bottom: 0px;
-		margin-left: 0px;
+		margin-left: 10px;
 	}
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl
+.xius_email .xiusEmailBox .xiusEmailControl
 	{
 		witdth : 85 %;
 		padding-top: 0px;
@@ -71,22 +44,22 @@
 		margin-left: 0px;			
 	}
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl a
+.xius_email .xiusEmailBox .xiusEmailControl a
 	{
 		font-size: xx-small;
 	}
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input,textarea
+.xius_email .xiusEmailBox .xiusEmailControl input,textarea
 	{
 		padding: 9px;
 		border: solid 1px #E5E5E5;
 		outline: 0;
-		width: 70%;
+		width: 79%;
 		font: normal 13px/ 100% Verdana, Tahoma, sans-serif;
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 		-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-		margin-top: 2px;
+		margin-top: 5px;
 	}
 	
 .xius_email .xiusEmailFooter
@@ -100,7 +73,7 @@
 	}
 	
 	
-.xius_email .xiusEmailBox .xiusEmailEntity .xiusEmailControl input:hover,input:focus,textarea:focus 
+.xius_email .xiusEmailBox .xiusEmailControl input:hover,input:focus,textarea:focus 
 	{
 		border-color: #C9C9C9;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;

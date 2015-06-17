@@ -13,6 +13,9 @@ if(!defined('_JEXEC')) die('Restricted access');
 // load jquery
 XiusHelperUtils::loadJQuery();
 
+//load bootstrap
+XiusHelperUtils::loadBootstrap();
+
 require_once( JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_css.php');
 $template = JPATH_ROOT . DS . 'modules'. DS .'mod_xiusproximity'. DS .'css'. DS .'proximity_js.php';
 

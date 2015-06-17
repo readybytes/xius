@@ -11,7 +11,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 $this->loadAssets('css', 'lists.css');
 require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 ?>
-<div id="xiusLists" class="jomsocial xius-font-color">
+<div id="xiusLists" class="jomsocial xiusLists">
 	<form action="<?php echo XiusRoute::_($this->submitUrl);?>" name="listForm" id="listForm" method="post">
 		<?php
 		if(empty($this->lists))	:
@@ -21,7 +21,7 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 				$url = XiusRoute::_($this->submitUrl.'&listid='.$l->id,false);
 				?>
 				<div class="xius-margin joms-page">
-					<div class="row-fluid xiusListsData">
+					<div class="row-fluid xiusListsPadding">
 						<h3>
 						<?php
 						$name = $l->name;
@@ -32,7 +32,7 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 						echo '<a href="'.$url.'">'.$name.'</a>'
 						?></h3>
 					</div>
-					<div class="row-fluid xiusListsData">
+					<div class="row-fluid xiusListsPadding">
 						<?php
 						echo $l->description;
 						?>
@@ -40,15 +40,17 @@ require_once XIUS_COMPONENT_PATH_SITE.DS.'elements'.DS.'limit.php';
 				</div>
 		<?php
 			endforeach;
-		endif;
-		echo $this->pagination->getPagesLinks();
-		//set default limit that is already set from backend
-		$limit		    = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
-		JRequest::setVar('limit', $limit);
-		$jlimit = new JElementLimit();
-		echo $jlimit->fetchElement('limit',$limit);
-		?>
-
+		endif;?>
+		<div class="row-fluid text-right">
+			<?php 
+			echo $this->pagination->getPagesLinks();
+			//set default limit that is already set from backend
+			$limit		    = XiusHelperUtils::getConfigurationParams('xiusLimit','20');
+			JRequest::setVar('limit', $limit);
+			$jlimit = new JElementLimit();
+			echo $jlimit->fetchElement('limit',$limit);
+			?>
+		</div>
 	<input type="hidden" name="option" value="com_xius" />
 	<input type="hidden" name="view" value="list" />
 	<input type="hidden" name="task" value="display" />

@@ -10,6 +10,9 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 // load jquery
 XiusHelperUtils::loadJQuery();
+
+//load bootstrap
+XiusHelperUtils::loadBootstrap();
 ?>
 
 <script type="text/javascript">

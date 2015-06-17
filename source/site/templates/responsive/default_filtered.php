@@ -9,13 +9,13 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 if(!empty($this->appliedInfo)){ ?>
-	<div id="xiusFiltered">
-		<div id="xiusFdHead" class="row-fluid xius-font-color xius-margin">
+	<div id="xiusFiltered" class="xius-filtered">
+		<div id="xiusFdHead" class="row-fluid xius-margin">
 			<div class="span3">
 				<div class="pull-left xius-margin">
 					<lead><em>
 					<?php
-					echo XiusText::_('FILTERED_BY');
+					echo XiusText::_('FILTER_BY');
 					?>
 					</em></lead>
 				</div>

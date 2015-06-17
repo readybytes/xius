@@ -10,7 +10,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 
 if($this->joinHtml['enable']):
 ?>
-	<div class="pull-right" id="xius-joinhtml">
+	<div class="pull-right xius-joinhtml" id="xius-joinhtml">
 	<?php
 	$orSelected = '';
 	$andSelected = '';

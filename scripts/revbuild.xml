@@ -200,8 +200,7 @@
         </copy>
 
 		<!-- first Move File -->
-		<move file="${target}/source/admin/install/install.php" tofile="${target}/source/install/install.php" />      
-		<move file="${target}/source/admin/install/uninstall.php" tofile="${target}/source/install/uninstall.php" />
+		
 		<!-- Secondly copy -->
 		<!--<copy todir="${target}/source/install">
 			<fileset dir="${target}/source/admin/install">

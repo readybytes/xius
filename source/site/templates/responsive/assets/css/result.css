@@ -1,110 +1,99 @@
 @CHARSET "UTF-8";
 
-div#xiusProfile .xius-font-color, div#xiusProfile #limit{
-	color:#7f8c8d;
+.xius *, .xius *:before, .xius *:after {
+    box-sizing: border-box;
 }
 
-div#xiusProfile #limit{
+.xius .xi-search-result-inner{
+	border: 1px solid #ecf0f1;
+	border-radius: 10px;
+}
+
+.xius div.xi-search-result-inner #limit{
 	height: 28px;
     line-height: 28px;
     float:right;
 }
 
-div#xiusProfile .xius-add-filter{
+.xius div.xi-search-result-inner .xius-add-filter{
 	color: #08c;
 	margin-top:3px;
 }
 
-div#xiusProfile .xius-add-filter:hover{
+.xius div.xi-search-result-inner .xius-add-filter:hover{
 	color: #7f8c8d;
 }
 
-div#xiusProfile .xius-pointer{
+.xius div.xi-search-result-inner .xius-pointer{
 	cursor:pointer;
 }
 
-div#xiusProfile .xius-padding{
+.xius div.xi-search-result-inner .xius-padding{
 	padding:5px;
 }
 
-div#xiusProfile .xius-margin{
+.xius div.xi-search-result-inner .xius-margin{
 	margin-top:5px;
 	margin-bottom:5px;
 	margin-left:4px;
 }
 
-div#xiusProfile div#xiusTbButton{
+.xius div.xi-search-result-inner div.xius-toolbar-button{
 	width:200px;
 }
 
-div#xiusProfile div.xiusFdValue {
-	margin:5px;
-	border-radius: 3px;
-	margin-left:0px;
-	width:auto;
-}
-
-div#xiusProfile .xius-icon{
+.xius div.xi-search-result-inner .xius-icon{
 	margin-left:5px;
 	font-size:60%;
 }
 
-div#xiusProfile .xius-icon-bg{
+.xius div.xi-search-result-inner .xius-icon-bg{
 	background:none;
 }
 
-div#xiusProfile .xius-icon:hover{
+.xius div.xi-search-result-inner .xius-icon:hover{
 	cursor:pointer;
 }
 
-div#xiusProfile .xius-icon-bg:hover{
+.xius div.xi-search-result-inner .xius-icon-bg:hover{
 	font-weight:bold;
 }
 
-.xiusFlLabel .accordion{
+.xius .xius-field-label .accordion{
 	margin-bottom:0px;
 }
 
-.xiusFlLabel .accordion-group{
+.xius .xius-field-label .accordion-group{
 	border:none;
 }
 
-.xiusFlLabel .accordion-heading .accordion-toggle, .xiusFlLabel .accordion-inner{
+.xius .xius-field-label .accordion-heading .accordion-toggle, .xius-field-label .accordion-inner{
 	padding-left:0px;
 	padding-right:0px;
 	border:none;
 }
 
-div#xiusFlForm{
+.xius div.xius-filter-form{
 	border-right: 1px solid #e3e3e3;
 	padding-right:5px;
 }
 
-div#xiusProfile hr{
+.xius div.xi-search-result-inner hr{
    margin-bottom:5px;
    margin-top:5px;
 }
 
-div#xiusProfile #xiusFiltered hr{
+.xius div.xi-search-result-inner .xius-filtered hr{
 	margin-top:20px;
 	margin-bottom:10px;
 }
 
-#xiusProfile #xiusFlForm a{
-	color:#7f8c8d;
-}
-
-#xiusProfile a:hover{
+.xius .xi-search-result-inner a:hover{
 	text-decoration:none;
 	font-weight:bold;
 }
 
-div.xiusMiniProfile #xius-user-name:hover{
-	color:#7f8c8d;
-	text-decoration:none;
-}
-
-div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile {
+.xius div.xi-search-result-inner div.xius-mini-profiles div.xius-user-profile-info {
 	overflow:hidden;
 	border:1px solid #e3e3e3;
 	margin-top:5px;
@@ -112,21 +101,25 @@ div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile {
     border-radius:5px;
 }
 
-div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile h3{
+.xius div.xi-search-result-inner div.xius-mini-profiles div.xius-user-profile-info h3{
 	margin-top:2px;
 }
 
-div#xiusProfile div#xiusMiniProfiles div.xiusMiniProfile:hover{
+.xius div.xi-search-result-inner div.xius-mini-profiles div.xius-user-profile-info:hover{
 	box-shadow: 0 0 10px #7f8c8d;
 	background-color:#ecf0f1;		
 }
 
-div#xiusProfile span.xiusOptionsImg{
+.xius div.xi-search-result-inner div.xius-user-info{
+	margin:0px;
+}
+
+.xius div.xi-search-result-inner span.xiusOptionsImg{
 	padding-right:16px;
 	background: url("../../../../assets/images/options.png") no-repeat;
 }
 
-div#xiusProfile div.xiusOnline {
+.xius div.xi-search-result-inner div.xiusOnline {
 	padding:0px 5px 2px 20px;
 	margin-top:5px;
 	background: url("../images/status.png") no-repeat 0 1px;	
@@ -134,7 +127,7 @@ div#xiusProfile div.xiusOnline {
 	float:left;
 }
 
-div#xiusProfile div.xiusOffline {
+.xius div.xi-search-result-inner div.xiusOffline {
 	padding:0px 5px 2px 20px;
 	margin-top:5px;
 	background: url("../images/status-offline.png") no-repeat 0 1px;	
@@ -142,45 +135,41 @@ div#xiusProfile div.xiusOffline {
 	float:left;
 }
 
-div#xiusProfile div.xiusViewProfile {
+.xius div.xi-search-result-inner div.xiusViewProfile {
 	padding:0 0 0 20px;
 	background: url("../../../../assets/images/viewprofile.png") no-repeat;	
 	border-bottom: 1px dashed #e3e3e3;
 	height:20px;
 }
 
-div#xiusProfile div.xiusWriteMsg {
+.xius div.xi-search-result-inner div.xiusWriteMsg {
 	padding:0 0 0 20px;
 	background: url("../../../../assets/images/msg.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;	
 	height:20px;
 }
 
-div#xiusProfile div.xiusFriends {
+.xius div.xi-search-result-inner div.xiusFriends {
 	padding:0 0 0 20px;
 	background: url("../../../../assets/images/friends.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;	
 	height:20px;
 }
 
-div#xiusProfile .xiusHeaderStatus {
+.xius div.xi-search-result-inner .xiusHeaderStatus {
 	float:left;
 	padding:5px;
 	width:100%;
 }
 
-div#xiusProfile div.xius-user-profile{
-	margin-left:-3px;
-}
-
-div#xiusProfile div.xiusMpInfo {
-	margin-bottom:2px;
-	margin-left:0px;
+.xius div.xi-search-result-inner div.xiusMpInfo {
+	margin-bottom:10px;
+	margin-left:3px;
 	word-wrap: break-word;
 	padding:1px;
 }
 
-div#xiusProfile div.xiusProfileAction {
+.xius div.xi-search-result-inner div.xi-search-resultAction {
 	cursor: pointer;
 	overflow:hidden;
 	border-bottom: 1px solid #ecf0f1;
@@ -195,17 +184,23 @@ div#xiusProfile div.xiusProfileAction {
 	background-color:#ecf0f1;
 }
 
-div#xiusProfile .xiusMpActions {
+.xius div.xi-search-result-inner .xiusProfileAction{
+	background-color:#ecf0f1;
+	padding:2px;
+	border-radius:5px;
+}
+
+.xius div.xi-search-result-inner .xius-mini-profile-actions {
 	border:1px solid #ecf0f1;
 	background:#ffffff;
 	display:none;
 	padding:5px;
 	position: absolute;
 	width:auto;
-    margin-left:-20px
+    margin-left:-25px
 }
 
-div#xiusProfile div#xiusActions {	
+.xius div.xi-search-result-inner div.xiusActions {	
 	border: 1px solid #ecf0f1;
 	-moz-border-radius:0 0 5px 5px;
 	-webkit-border-radius:0 0 5px 5px;
@@ -216,52 +211,51 @@ div#xiusProfile div#xiusActions {
 }
 
 
-div#xiusProfile #xiusSave {
+.xius div.xi-search-result-inner .xiusSave {
 	padding:4px 0 0 25px;
 	background: url("../../../../assets/images/save.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;
     height: 20px;
 }
 
-div#xiusProfile #xiusEmailToAll {
+.xius div.xi-search-result-inner .xiusEmailToAll {
 	padding:4px 0 0 25px;
 	background: url("../../../../assets/images/emailall.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;
      height: 20px;
 }
 
-div#xiusProfile #xiusEmailToSelected {
+.xius div.xi-search-result-inner .xiusEmailToSelected {
 	padding:4px 0 0 25px;
 	background: url("../../../../assets/images/emailselected.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;
      height: 20px;
 }
 
-div#xiusProfile textarea{
+.xius div.xi-search-result-inner textarea{
     width:100%;
 }
 
-div#profileToolbar select{
+.xius div.profileToolbar select{
 	width:auto !important;
 }
 
-div#xius-pagination select {
+.xius div.xius-pagination select {
     width: auto !important;
 }
 
-div#xiusProfile input{
+.xius div.xi-search-result-inner input{
 height : auto;
 }
 
-div#xius-joinhtml .xius-join{
+.xius div.xius-joinhtml .xius-join{
 	width:auto;
 }
 
-div.xiusProximityLabel .xiusProximitySelectbox{
+.xius div.xiusProximityLabel .xiusProximitySelectbox{
 	margin-left:5px;
 }
 
-div#xiusProfile #backtotop{
-	margin-top:-8px;
-	margin-left:5px;
+.xius .xi-top:hover{
+	background-color:#ababab;
 }

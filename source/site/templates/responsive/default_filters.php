@@ -49,22 +49,22 @@ window.joms_queue.push(function( $ ) {
 
 </script>
 
-<div id="xiusFlForm">
+<div id="xiusFlForm" class="xius-filter-form">
 	<div class="row-fluid text-center">
-		<button type="submit" class="joms-button--primary joms-button--full-small" name="xiussearch" id="xiussearch"><?php echo XiusText::_("APPLY_ALL");?> <i class="icon-chevron-right"></i></button>	
+		<button type="submit" class="joms-button--primary joms-button--full-small" name="xiussearch" id="xiussearch" data-info="applyFilter"><?php echo XiusText::_("APPLY_ALL");?> <i class="icon-chevron-right"></i></button>	
 	</div>
 	<?php
 		if(!empty($this->availableInfo))
 			foreach($this->availableInfo as $data):
 	?> 
 			<div id="xius_Info_Ref<?php echo $data['infoid']; ?>">
-				<div class="xiusFlLabel row-fluid joms-form__group xius-padding">
+				<div class="xius-field-label row-fluid joms-form__group xius-padding">
 					<div class="span12">
 						<div class="accordion" id="accordion-id-<?php echo $data['info']->key;?>">
 							<div class="accordion-group">
-								<div class="accordion-heading xius-font-color">
+								<div class="accordion-heading">
 									
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-id-<?php echo $data['info']->key;?>" href="#accordion-body-id-<?php echo $data['info']->key;?>">
+										<a class="accordion-toggle text-info" data-toggle="collapse" data-parent="#accordion-id-<?php echo $data['info']->key;?>" href="#accordion-body-id-<?php echo $data['info']->key;?>">
 											<i class="icon-chevron-right"></i>
 											<strong><?php
 												//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($data['label']), null, XiusText::_($data['label']));

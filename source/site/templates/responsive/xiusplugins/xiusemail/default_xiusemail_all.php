@@ -9,10 +9,10 @@
 if(!defined('_JEXEC')) die('Restricted access');
 
 ?>
-<div id ="xiusEmailToAll" >
+<div id ="xiusEmailToAll" class="xiusEmailToAll">
 <a 
 	id="<?php echo $this->buttonMapAll->modalname; ?>" 
-	class="<?php echo $this->buttonMapAll->modalname; ?> xius-font-color small"
+	class="<?php echo $this->buttonMapAll->modalname; ?> small"
 	title="<?php echo $this->buttonMapAll->text; ?>" 
 	href="<?php echo $this->buttonMapAll->link; ?>"
 	rel="<?php echo $this->buttonMapAll->options; ?>" 

@@ -85,3 +85,24 @@ div#xius_sp div.xius_spMain:after{
 	line-height: 0;
 	clear:both;
 }
+
+div#xiusProfile .xius-margin, div#xius_sp .xius-margin{
+	margin:10px;
+}
+
+div#xiusProfile .xius-padding, div#xius_sp .xius-padding{
+	padding-right:20px;
+}
+
+div#xiusProfile .xius-radio, div#xius_sp .xius-radio{
+	vertical-align:middle;
+}
+
+div#xius_sp .joms-input[type="text"], div#xius_sp .joms-input[type="password"], div#xius_sp .joms-select, div#xius_sp .joms-textarea {
+	width:95%;
+	color:#7f8c8d;
+}
+
+div.xiusProximityLabel .xiusProximitySelectbox{
+	margin-left:5px;
+}

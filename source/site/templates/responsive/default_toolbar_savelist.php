@@ -8,10 +8,10 @@
  */
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
-<div id="xiusSave">
+<div id="xiusSave" class="xiusSave">
 <a 
 	id="<?php echo $this->buttonMap->modalname; ?>" 
-	class="<?php echo $this->buttonMap->modalname; ?> xius-font-color small"
+	class="<?php echo $this->buttonMap->modalname; ?> small"
  	title="<?php echo $this->buttonMap->text; ?>" 
 	href="<?php echo $this->buttonMap->link; ?>"
 	rel="<?php echo $this->buttonMap->options; ?>" 
