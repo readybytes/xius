@@ -222,14 +222,14 @@
 	padding:4px 0 0 25px;
 	background: url("../../../../assets/images/emailall.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;
-     height: 20px;
+    height: 20px;
 }
 
 .xius div.xi-search-result-inner .xiusEmailToSelected {
 	padding:4px 0 0 25px;
 	background: url("../../../../assets/images/emailselected.png") no-repeat;
     border-bottom: 1px dashed #e3e3e3;
-     height: 20px;
+    height: 20px;
 }
 
 .xius div.xi-search-result-inner textarea{
@@ -244,8 +244,9 @@
     width: auto !important;
 }
 
-.xius div.xi-search-result-inner input{
-height : auto;
+.xius div.xi-search-result-inner input[type="text"]{
+	height : auto;
+	width  : 95%;
 }
 
 .xius div.xius-joinhtml .xius-join{
@@ -258,4 +259,16 @@ height : auto;
 
 .xius .xi-top:hover{
 	background-color:#ababab;
+}
+
+.jomsocial, .jomsocial-wrapper{
+	height:auto;
+}
+
+.xius div.xius-filter-form select{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #ccc;
+    outline: medium none;
+    padding: 0;
+    width: 95%;
 }

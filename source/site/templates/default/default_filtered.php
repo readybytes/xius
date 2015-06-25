@@ -19,7 +19,10 @@ if(!empty($this->appliedInfo)) : ?>
 <?php 
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
-		$count++; ?>
+		$count++; 
+		if(!empty($a['formatvalue']))
+		{
+		?>
 		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 		<?php 
 		echo '<div class="applied"><div class="xiusleft"><div><b>'.JText::_($a['label']).'</b>';
@@ -32,7 +35,8 @@ if(!empty($this->appliedInfo)) : ?>
 		
 		echo '</div></div><div class="right"><img class=\'xius_test_remove_'.$a['formatvalue'].'\'  src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
 								alt="Remove" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"/></div></div>';				
-	endforeach;
+		}
+		endforeach;
 
 echo $this->loadTemplate('joinhtml');
 

@@ -15,7 +15,9 @@ jQuery(document).ready(function($){
 	$("#backtotop").click(function(){ 
 		$(window).scrollTop(0);
 	});
-		
+
+	$('.xius-filter-form').find('select[data-required="true"]').removeClass('joms-select');
+
 	$('button[data-info="filters-sm"]').click(function(){
 		if($('div[data-info="filters"]').hasClass("hidden-phone"))
 		{
@@ -83,7 +85,7 @@ $this->loadAssets('js', 'result.js');
 				<?php echo $this->loadTemplate('filtered');?>
 			</div>
 			<div class="visible-phone xius-pointer xius-margin row-fluid">
-					<button class="btn btn-info" data-info="filters-sm">Filters <i class="icon-filter xius-icon-bg"></i></button>
+					<button type="button" class="btn btn-info" data-info="filters-sm">Filters <i class="icon-filter xius-icon-bg"></i></button>
 				</div>
 			<div class="row-fluid">			
 				<div class="span4 hidden-phone" id="filters" data-info="filters">

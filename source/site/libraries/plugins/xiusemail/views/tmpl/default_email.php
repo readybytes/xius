@@ -7,10 +7,16 @@
  * @contact 		support+joomlaxi@readybytes.in
  */
 if(!defined('_JEXEC')) die('Restricted access');
+
+// for jquery not load
+XiusHelperUtils::loadJQuery();
+
+//load bootstrap
+XiusHelperUtils::loadBootstrap();
 ?>
 
 <div class="container-fluid xius_email">
-	<form action="<?php echo XiusRoute::_('index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$this->data['pluginId'].'&userid='.$this->data['userId'].'&tmpl=component'); ?>" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();">
+	<form class="form-horizontal" action="<?php echo XiusRoute::_('index.php?option=com_xius&task=sendEmail&plugin=xiusemail&pluginid='.$this->data['pluginId'].'&userid='.$this->data['userId'].'&tmpl=component'); ?>" method="POST" id="xiusEmail" onSubmit="javascript: return xiusListSelectUser();">
 		<div class="row-fluid xiusEmailHeader">
 			<span><?php echo XiusText::_('XIUS_EMAIL'); ?></span>
 		</div>
@@ -21,20 +27,16 @@ if(!defined('_JEXEC')) die('Restricted access');
 				</div>
 			<?php else : ?>
 				 <div class="xiusEmailBox">
-				 	<div class="row-fluid">
-				 		<div class="xiusEmailLabel">
-				    		<strong><span><?php echo XiusText::_('XIUS_EMAIL_SUBJECT'); ?></span></strong>
-				 	  	</div>
-				 	  	<div class="xiusEmailControl">
+				 	<div class="row-fluid control-group">
+				 		<label class="control-label" for="xiusEmailSubjectEl"><?php echo XiusText::_('XIUS_EMAIL_SUBJECT'); ?></label>
+				 	  	<div class="span9 controls">
 							<input type="text" name="xiusEmailSubjectEl" id="xiusEmailSubjectEl" value="" class="input_box" size="40" />
 					    </div>
 				 	</div>
 				 	
-				 	<div class="row-fluid">
-						<div class="xiusEmailLabel">
-						    <strong><span><?php echo XiusText::_('XIUS_EMAIL_MESSAGE');?></span></strong>
-						</div>
-						<div class="xiusEmailControl">
+				 	<div class="row-fluid control-group">
+						<label class="control-label" for="xiusEmailSubjectEl"><?php echo XiusText::_('XIUS_EMAIL_MESSAGE');?></label>
+						<div class="span9 controls">
 						     <?php echo $this->data['editor']->display( 'xiusEmailMessageEl', '', '525', '270', '60', '20',false ); ?>
 						</div>
 					</div>
@@ -43,10 +45,10 @@ if(!defined('_JEXEC')) die('Restricted access');
 				 <input type="hidden" name="xiusSelectedUserid" id="xiusSelectedUserid" value="" />
 				 
 				 <div class="row-fluid xiusEmailFooter">
-					<input type="submit" name="send" value="<?php echo XiusText::_('XIUS_EMAIL_SEND'); ?>" />
-					<input type="submit" name="sendmsg" value="<?php echo XiusText::_('XIUS_MSG_SEND'); ?>" />
+					<input class="btn btn-primary pull-right xius-margin-right" type="submit" name="sendmsg" value="<?php echo XiusText::_('XIUS_MSG_SEND'); ?>" />
+					<input class="btn btn-primary pull-right xius-margin-right" type="submit" name="send" value="<?php echo XiusText::_('XIUS_EMAIL_SEND'); ?>" />
 				 </div>
-			<?php endif;	?>
+			<?php endif;?>
 	</form>
 </div>
 <?php 

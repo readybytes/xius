@@ -1,0 +1,14 @@
+
+div.xiusPopup .xiusPopupData{
+	margin-left:30px;
+	line-height: 30px;
+}
+
+div.xiusPopup .xius-radio-data, div.xiusSave .xius-radio-data{
+	margin-left:5px;
+	vertical-align:sub;
+}
+
+div.xiusPopup hr{
+	margin:0px;
+}

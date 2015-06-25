@@ -25,21 +25,30 @@ if(!defined('_JEXEC')) die('Restricted access');
 	 					 	id="<?php echo $elePrefix;?>_long"
 	 					 	value="<?php echo $longitude;?>"/>
 
-	<div class="float-left">
-		<?php echo XiusText::_('WITHIN');?>
-		<input type="text" name="<?php echo $elePrefix;?>_dis"
+	<div class="row-fluid">
+		<div class="span3">
+			<strong><?php echo XiusText::_('WITHIN');?></strong>
+		</div>
+		
+		<div class="span6">
+			<input type="text" name="<?php echo $elePrefix;?>_dis"
 								id="xiusDistanceInput"
 								value="10" />
-		
-		<input 	name="<?php echo $elePrefix;?>_dis_unit" id="xiusDistance" 
-				value="<?php echo $moduleParam->get('xius_distance','miles');?>" readonly="readonly" /> 
+		</div>
+		<div class="span3">
+			<input 	name="<?php echo $elePrefix;?>_dis_unit" id="xiusDistance" 
+					value="<?php echo $moduleParam->get('xius_distance','miles');?>" readonly="readonly" /> 
+		</div>			
+				
 	</div>
 	
-	<div class="float-left">
-		<div class="float-left">
-			<?php echo XiusText::_('FROM'); ?>
-		</div> 
-		<?php echo $this->loadTemplate('mod_'.$location); ?>
+	<div class="row-fluid">
+		<div class="span3">
+			<strong><?php echo XiusText::_('FROM'); ?></strong>
+		</div>
+		<div id="xiusProxiLocation" class="span9">
+			<?php echo $this->loadTemplate('mod_'.$location); ?>
+		</div>		
 	</div>
 
 

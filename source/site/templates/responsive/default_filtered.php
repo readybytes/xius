@@ -25,23 +25,30 @@ if(!empty($this->appliedInfo)){ ?>
 				<?php 
 					$count = 0;
 					foreach($this->appliedInfo as $a) :
-					$count++; 
+					$count++;
+					if(!empty($a['formatvalue']))
+					{
 				?>			
 				<div class="badge xius-margin pull-left">
 					<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 					<?php 
+							
 								if(is_array($a['formatvalue']))	:	
-									foreach($a['formatvalue'] as $a_values) 
-										echo JText::_($a_values);
+									foreach($a['formatvalue'] as $a_values)
+									{
+											echo JText::_($a_values);
+									}
 								else	:
 									echo '<span class="xius-pointer" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');">'.JText::_($a['formatvalue']).'</span>';
 								endif;
-								
-					echo '<i class="icon-remove xius-icon xius-icon-bg xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
+							
+								echo '<i class="icon-remove xius-icon xius-icon-bg xius_test_remove_'.$a['formatvalue'].'"  src="components/com_xius/assets/images/delete.png" id="'.$a['infoid'].'" name="'.$a['infoid'].'"  
 												alt="X" onClick="xiusDeleteInfo(this,\'delinfovalue_'.$a['infoid'].$count.'\');"></i>';
 					?>
 				</div>
-				<?php endforeach;?>
+				<?php 
+					}
+					endforeach;?>
 				<span class="xius-pointer xius-margin badge label-info" onclick="xiusAddSubTask('resetfilter')" >
 						Reset All <i class="icon-remove xius-icon xius-icon-bg xius"></i>
 				</span>

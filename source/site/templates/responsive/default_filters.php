@@ -58,7 +58,7 @@ window.joms_queue.push(function( $ ) {
 			foreach($this->availableInfo as $data):
 	?> 
 			<div id="xius_Info_Ref<?php echo $data['infoid']; ?>">
-				<div class="xius-field-label row-fluid joms-form__group xius-padding">
+				<div class="xius-field-label row-fluid xius-padding">
 					<div class="span12">
 						<div class="accordion" id="accordion-id-<?php echo $data['info']->key;?>">
 							<div class="accordion-group">
@@ -75,8 +75,8 @@ window.joms_queue.push(function( $ ) {
 										</a>
 								</div>
 								<div class="accordion-body collapse in" id="accordion-body-id-<?php echo $data['info']->key;?>">
-									<div class="accordion-inner field joms-form__group row-fluid">
-										<div class="span10">
+									<div class="accordion-inner field row-fluid">
+										<div class="span10 muted">
 											<?php if(!empty($xiustooltip) && $data['info']->pluginType != 'Jsfields'): 
 									 				echo '<span class="jomNameTips" title="'.$xiustooltip.'">'. $data['html'].'</span>';?>
 									    	<?php else: ?>

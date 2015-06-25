@@ -15,7 +15,10 @@ if(!empty($this->appliedInfo)) : ?>
 <?php 
 	$count = 0;
 	foreach($this->appliedInfo as $a) :
-		$count++; ?>
+		$count++; 
+		if(!empty($a['formatvalue']))
+		{?>
+		
 		<input type="hidden" id="delinfovalue_<?php echo $a['infoid'].$count;?>" name="delinfovalue_<?php echo $a['infoid'].$count;?>" value='<?php echo XiusHelperUsers::getSerializedData($a['value']);?>' />
 		<div class="xiusFdData">
 			<div class="xiusFdLabel">
@@ -37,7 +40,9 @@ if(!empty($this->appliedInfo)) : ?>
 			?>
 			</div>
 		</div>	
-		<?php endforeach; 
+		<?php 
+		}
+		endforeach; 
 ?>
 
 
