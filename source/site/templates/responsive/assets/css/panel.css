@@ -1,0 +1,37 @@
+/**
+* @Copyright Ready Bytes Software Labs Pvt. Ltd. (C) 2010- author-Team Joomlaxi
+* @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+
+.xius{
+	border:1px solid #ecf0f1;
+	border-radius:5px;
+}
+
+.xius form.xius-search-panel select, .xius form.xius-search-panel input:not([type="radio"]):not([type="checkbox"]):not([type="submit"])
+{
+	padding : 6px;
+	height:auto;	
+	border:1px solid #e3e3e3;
+	width:95%;
+}
+
+.xius form.xius-search-panel .joms-input[type="text"], .xius form.xius-search-panel .joms-input[type="password"], .xius form.xius-search-panel .joms-select, .xius form.xius-search-panel .joms-textarea {
+	width:98%;
+}
+
+.jomsocial .xius form.xius-search-panel .joms-input[type="text"],.jomsocial .xius form.xius-search-panel .joms-input[type="password"],.jomsocial .xius form.xius-search-panel .joms-select,.jomsocial .xius form.xius-search-panel .joms-textarea {
+	width:95%;
+}
+
+.xius form.xius-search-panel label.control-label{
+	text-align:left;
+}
+
+.xius form.form-horizontal .xiusProximityLabel .controls{
+	margin-left:0px;
+}
+
+.jomsocial, .jomsocial-wrapper{
+	height:auto;
+}

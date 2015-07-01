@@ -25,6 +25,14 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+		<param name="xiusLoadBootstrap" type="xiusradio" default="0" label="COM_XIUS_LOAD_BOOTSTRAP_LABEL" description="COM_XIUS_LOAD_BOOTSTRAP_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</param>
+		<param name="xiusAvatarShape" type="xiusselect" default="0" label="COM_XIUS_AVATAR_SHAPE_LABEL" description="COM_XIUS_AVATAR_SHAPE_DESC">
+			<option value="square">COM_XIUS_AVATAR_SHAPE_SQUARE</option>
+			<option value="circle">COM_XIUS_AVATAR_SHAPE_CIRCLE</option>
+		</param>
 	</params>
 	
 		<!--  END INTEGRATION PARAMETERS -->

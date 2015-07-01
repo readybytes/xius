@@ -31,6 +31,11 @@
 /*	margin: 0; */
 /*	padding: 0;*/
 /*}*/
+
+.jomsocial, .jomsocial-wrapper{
+	height:auto;
+}
+
 div#xius_result {
 	overflow:hidden;
 	clear:both;
@@ -166,11 +171,8 @@ div#xius_result .xiusAppliedinfo{
 }
 
 div#xius_result .xius_apiHead{
-	padding:-5px 0px 5px 15px;
 	font-size:1.5em;
-	margin:15px 0 5px 5px;
-	border-bottom:1px solid #dddddd;
-	border-bottom-style: dashed;
+	margin-top:15px;
 }
 
 div#xius_result  .xius_apiHead img{
@@ -393,7 +395,7 @@ div#xius_result div.xiusfr ul span.pagenav {
 }
 
 div#xius_result select{
-	width:auto !important;
+	width:auto !important;	
 }
 div#xius_result .xiusleft{
     float:left;
@@ -402,10 +404,16 @@ div#xius_result textarea{
 	width:100%;
 }
 
-div#xius_result  input, 
-div#xius_result select{
+div#xius_result  input{
 	padding : 6px;
 	height:auto;		
+}
+
+div#xius_result select{
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #ccc;
+    outline: medium none;
+    padding: 0;
 }
 
 /*
@@ -416,4 +424,8 @@ div#xius_result .xius_aiMain:after{
 	content: "";
 	line-height: 0;
 	clear:both;
+}
+
+.img-circle {
+    	border-radius: 500px;
 }

@@ -46,17 +46,12 @@
 	padding:0px;
 }
 
-#xius_sp input:not([type="radio"]):not([type="checkbox"]):not([type="submit"])
+#xius_sp select, input:not([type="radio"]):not([type="checkbox"]):not([type="submit"])
 {
 	padding : 6px;
 	height:auto;	
 	border:1px solid #e3e3e3;
 	width:95%;
-}
-
-#xius_sp select{
-	padding : 6px;
-	height:auto;
 }
 
 .xius_spInput label{
@@ -85,3 +80,28 @@ div#xius_sp div.xius_spMain:after{
 	line-height: 0;
 	clear:both;
 }
+
+.jomsocial, .jomsocial-wrapper{
+	height:auto;
+}
+
+/*div#xiusProfile .xius-margin, div#xius_sp .xius-margin{*/
+/*	margin:10px;*/
+/*}*/
+/**/
+/*div#xiusProfile .xius-padding, div#xius_sp .xius-padding{*/
+/*	padding-right:20px;*/
+/*}*/
+/**/
+/*div#xiusProfile .xius-radio, div#xius_sp .xius-radio{*/
+/*	vertical-align:middle;*/
+/*}*/
+/**/
+/*div#xius_sp .joms-input[type="text"], div#xius_sp .joms-input[type="password"], div#xius_sp .joms-select, div#xius_sp .joms-textarea {*/
+/*	width:95%;*/
+/*	color:#7f8c8d;*/
+/*}*/
+/**/
+/*div.xiusProximityLabel .xiusProximitySelectbox{*/
+/*	margin-left:5px;*/
+/*}*/

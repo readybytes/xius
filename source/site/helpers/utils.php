@@ -174,6 +174,27 @@ class XiusHelperUtils
         return true;
     }
 
+	/**
+     * load Xius bootstrap, but we should load it only when it is set in backend.
+     */
+   	public static function loadBootstrap()
+    {
+        static $bsLoaded=false;
+
+        $loadBootstrap	= self::getConfigurationParams('xiusLoadBootstrap',1);
+        if($bsLoaded || !$loadBootstrap)
+            return true;
+
+        //load default bootstrap supported by joomla 
+        //for css
+      	JHtmlBootstrap::loadCss();
+      	//for js
+		JHtml::_('bootstrap.framework');
+        $bsLoaded = true;
+        return true;
+    }
+    
+    
     /**
      * load joms.jquery.js if not loaded
 	 * @since Xius4.1

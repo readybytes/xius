@@ -15,7 +15,7 @@ if(defined('XIUS_DEFINE'))
 //in case of multi-site, we need to refer correct files 
 define('XIUS_ROOT_PATH',dirname(dirname(dirname(dirname(__FILE__)))));
 define('XIUS_DEFINE','XIUS_DEFINE');
-define('XIUS_VERSION','@global.version@.@svn.lastrevision@');
+define('XIUS_VERSION','@global.version@');
 //names which will not vary
 define('XIUS_COMPONENT_NAME','com_xius');
 

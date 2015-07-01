@@ -73,15 +73,18 @@ class plgXiusxipt_fieldselection extends JPlugin
 		foreach ($profileTypes as $profileType)
 		{
 			$fieldId=array();
-			foreach($visibleFields[$profileType->id] as $visibleField)
+			$published = array();
+			foreach($visibleFields[$profileType->id] as $visibleField){
 				$fieldId[] = $visibleField->id;
+				$published[$visibleField->id] = ($visibleField->type !== 'profiletypes')?$visibleField->published:1; 
+			}
             //check if base/depentdent or both infos are needed to be hidden
             //$parentOrChild is '0' for Base
             //'1' for dependent
             //'2' for Both
 			foreach ($allInfo as $info)
 			{	
-				if($info->pluginType === 'Jsfields' && false === in_array($info->key, $fieldId)){
+				if($info->pluginType === 'Jsfields' && in_array($info->key, $fieldId) && !$published[$info->key]){
 				 	$parentOrChild = $this->params->get('xiusSetInfo');
 					if($parentOrChild != 0){
 						$dependentInfos = XiusHelperUsersearch::getChildren($info->id);
@@ -94,6 +97,7 @@ class plgXiusxipt_fieldselection extends JPlugin
 				}
 			}
 			unset($fieldId);
+			unset($published);
 		}
 		return $hiddenInfoId;
 	}
@@ -161,14 +165,14 @@ class plgXiusxipt_fieldselection extends JPlugin
 			$profileTypeInfoId = 'field'.$field->id;
 			$visibleFields=array();
 			foreach($profileTypes as $profileType){
-				$visibleFields[$profileType->id] = $jsfields;
+				foreach ($jsfields as &$jsField){
+					$visibleFields[$profileType->id][] = clone $jsField;
+				}
 				if(!(XiusHelperXiptwrapper::filterProfileTypeFields($visibleFields[$profileType->id], $profileType->id,'getViewableProfile')))
 						continue ;	
-				}
-				//Restrict to hide profileType info in dynamic filtering
-				foreach ($visibleFields as $key=>$value){
-					$visibleFields[$key][] = $field; 
-				}		
+
+			}
+		
 			$hiddenInfoId = $this->_setDisplayInfo( $visibleFields, $profileTypes);
 		
 			if(JRequest::getVar('profileType') === null)

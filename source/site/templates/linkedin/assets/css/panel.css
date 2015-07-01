@@ -101,3 +101,7 @@ div#xiusSp div.xiusSpMain:after{
 	line-height: 0;
 	clear:both;
 }
+
+.jomsocial, .jomsocial-wrapper{
+	height:auto;
+}

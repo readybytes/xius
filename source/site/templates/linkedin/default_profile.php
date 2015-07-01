@@ -17,7 +17,15 @@ foreach($this->users as $user) :?>
 						</span>
 					<?php endif; ?>
 <div class="miniProfileAvatar">
-	<img id="avatar_<?php echo $user->id;?>" src="<?php echo $user->thumbAvatar;?>" onclick='location.href="<?php echo $user->profileLink;?>"'/>
+	<?php 
+			$avatarShape=XiusHelperUtils::getConfigurationParams('xiusAvatarShape','square');
+			if($avatarShape == 'circle'){
+				?>
+				<img class="img-circle" id="avatar_<?php echo $user->id;?>" src="<?php echo $user->thumbAvatar;?>" onclick='location.href="<?php echo $user->profileLink;?>"'/>
+				<?php }
+			else{?>
+				<img id="avatar_<?php echo $user->id;?>" src="<?php echo $user->thumbAvatar;?>" onclick='location.href="<?php echo $user->profileLink;?>"'/>
+		<?php }?>
 </div>
 <div class="miniProfileInfos">
 <h2 class=mPName><?php  

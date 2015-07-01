@@ -1,0 +1,66 @@
+
+.xiusLists .xiusListsPadding {
+	padding:2px 5px;
+}
+
+.xius-margin, .xiusLists #limit{
+	margin: 5px 2px;
+}
+
+.xiusLists #limit{
+	width:55px;
+}
+
+.xiusSave div{
+	margin:0px;
+}
+	
+.xiusSave .paramValue{
+float:left;
+margin-top:-5px;
+}
+
+
+.xiusSave .hasTip{
+	display:block;
+	float:left;
+	cursor:default;
+	font-weight:normal;
+	text-align:left;
+	width:32%;
+}
+
+.xiusSave input[type="text"], 
+.xiusSave select{
+	padding : 6px;
+	height:auto;		
+}
+
+.xiusSave hr{
+	margin-top: 0px;
+}
+
+div.xiusPopup .xius-radio-data, div.xiusSave .xius-radio-data{
+	margin-left:5px;
+	vertical-align:middle;
+	margin-right:10px;
+}
+
+div.xiusPopup hr{
+	margin:0px;
+}
+
+.xiusSave label#paramsjs_privacy-lbl{
+	float: left;
+    padding-top: 5px;
+    text-align: left;
+    width: 160px;
+}
+
+.xiusSave .xiusParameter .xiRow .xiCol .controls{
+	margin-left:55px;
+}
+
+.xiusSave form.form-horizontal label.control-label{
+	text-align:left;
+}
