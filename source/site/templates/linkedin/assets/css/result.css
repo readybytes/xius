@@ -260,3 +260,7 @@ div.xiusFlData{
 .jomsocial, .jomsocial-wrapper{
 	height:auto;
 }
+
+.img-circle {
+    	border-radius: 500px;
+}

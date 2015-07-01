@@ -59,7 +59,15 @@ if(!defined('_JEXEC')) die('Restricted access');
 			</div>
 			<div class="xiusMpMiddle">
  				<div class="xiusMpAvatar">
- 					<img id="avatar_<?php echo $user->id;?>" src="<?php echo $user->thumbAvatar;?>" onclick='location.href="<?php echo $user->profileLink;?>"'/>
+ 					<?php 
+							$avatarShape=XiusHelperUtils::getConfigurationParams('xiusAvatarShape','square');
+							if($avatarShape == 'circle'){
+							?>
+	 							<img class="img-circle" id="avatar_<?php echo $user->id;?>" src="<?php echo $user->thumbAvatar;?>" onclick='location.href="<?php echo $user->profileLink;?>"'/>
+	 						<?php }
+	 						else{?>
+	 							<img id="avatar_<?php echo $user->id;?>" src="<?php echo $user->thumbAvatar;?>" onclick='location.href="<?php echo $user->profileLink;?>"'/>
+	 						<?php }?>
 				</div>
 
 				<div class="xiusMpData">

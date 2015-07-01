@@ -425,3 +425,7 @@ div#xius_result .xius_aiMain:after{
 	line-height: 0;
 	clear:both;
 }
+
+.img-circle {
+    	border-radius: 500px;
+}
