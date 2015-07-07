@@ -18,8 +18,7 @@
 		<file>index.html</file>
 		<file>helper.php</file>
 		<file>mod_xiussearchpanel.xml</file>
-		<file>css/mod_xiussearchpanel_ver.css</file>
-		<file>css/mod_xiussearchpanel_hz.css</file>
+		<file>css/mod_xiussearchpanel.css</file>
 		<file>css/index.html</file>
 		<file>tmpl/default.php</file>
 		<file>tmpl/index.html</file>
@@ -30,8 +29,8 @@
 		<param name="xius_layout" type="xiusselect" default="horizontal" label="COM_XIUS_LAYOUT_LABEL" description="COM_XIUS_LAYOUT_DESC">
 			<option value="horizontal">Horizontal</option>
 			<option value="vertical">Vertical</option>
-	</param>
-</params>
+		</param>
+	</params>
 	
 	<!-- for joomla 1.6-->
 	<!-- Add fields to the parameters object for the layout. -->
