@@ -41,7 +41,7 @@ joms_queue.push(function() {
 	if ($params->get('xius_layout','horizontal')!='vertical')
 	{
 ?>
-	<div class="jomsocial">
+	<div>
 		<div class="container-fluid joms-page xiusMod_available" id="xiusMod_available">
 			<form class="xius-search-panel" id="xiusMod<?php echo $module->id;?>" name="xiusMod<?php echo $module->id;?>" action="<?php echo XiusRoute::_($link,false);?>" method=post>
 				<div class="row-fluid">
@@ -73,9 +73,9 @@ joms_queue.push(function() {
 					endforeach;
 				?>
 				<input type="hidden" name="fromPanel" value="true" />
-				<div class="row-fluid">
-					<div class="span3">	</div>			
-					<div class ="span9"><input class="joms-button--primary joms-button--full-small" id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" /></div>
+				<div class="row-fluid xius-margin">
+					<div class="span4">	</div>			
+					<div class ="span8"><input class="joms-button--primary joms-button--full-small" id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" /></div>
 				</div>
 			</form>
 		</div>
@@ -110,7 +110,9 @@ joms_queue.push(function() {
 					endforeach;
 				?>
 				<input type="hidden" name="fromPanel" value="true" />
-				<input class="joms-button--primary joms-button--full-small" id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" />
+				<div class="row-fluid text-center">
+					<input class="joms-button--primary joms-button--full-small" id="xiusMod<?php echo $module->id;?>Search" type="submit" value="<?php echo XiusText::_('Search'); ?>" />
+				</div>
 			</form>
 		</div>
 	<?php }
