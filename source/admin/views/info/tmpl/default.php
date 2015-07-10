@@ -17,7 +17,7 @@ Joomla.submitbutton = function(action){
 	if(action == 'remove' && !confirm( '<?php echo XiusText::_('ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST'); ?>' ) )
 	 	return true; 
 
-	submitform( action );
+	Joomla.submitform( action );
  	
 }
 </script>

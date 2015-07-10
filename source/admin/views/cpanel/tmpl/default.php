@@ -8,7 +8,7 @@
  */
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
-<form action="<?php echo JURI::base();?>index.php?option=com_xius" method="post" name="adminForm">
+<form action="<?php echo JURI::base();?>index.php?option=com_xius" method="post" name="adminForm" id="adminForm">
 
 <div id="cpanel">
 	<?php echo $this->addIcon('xius-config.png','index.php?option=com_xius&view=configuration', XiusText::_('CONFIGURATION'));?>
