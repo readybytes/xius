@@ -107,7 +107,7 @@ class XiusViewInfo extends XiusView
 			JToolBarHelper::save('save',XiusText::_('SAVE_AND_CLOSE'));
 		}
 		if($plugin && $task != 'cancel') {
-			JToolbarHelper::back(XiusText::_('BACK'));
+			JToolbarHelper::back(XiusText::_('BACK') , 'index.php?option=com_xius&view=info&task=renderinfo');
 		}
 		if($task != ('cancel') && isset($task) ) {
 			JToolBarHelper::cancel( 'cancel', XiusText::_('CLOSE' ));

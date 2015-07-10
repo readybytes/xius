@@ -8,7 +8,24 @@
  */
 if(!defined('_JEXEC')) die('Restricted access');
 ?>
-
+<script type="text/javascript">
+Joomla.submitbutton = function(action){
+	var form = document.adminForm;
+	switch(action)
+	{
+		case 'apply' :
+		case 'save' :
+			if( form.labelName.value == 0 )
+			{
+				alert( "<?php echo JText::_('COM_XIUS_YOU_MUST_PROVIDE_AN_INFORMATION_NAME' , true); ?>" );
+				break;
+			} 
+		case 'cancel':
+		default:
+			Joomla.submitform( action );
+	}
+}
+</script>
 <div id="XIUS">
 <div class="xippElements">
 <form action="<?php echo JURI::base();?>index.php?option=com_xius&view=info" method="post" name="adminForm" id="adminForm">
