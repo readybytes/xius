@@ -54,7 +54,7 @@ if(!defined('_JEXEC')) die('Restricted access');
 						id="<?php echo $elePrefix; ?>_dis" 
 						value="<?php echo $this->data['configDist']; ?>" />
 		
-			   <select class= name="<?php echo $elePrefix; ?>_dis_unit" style="width:45%;"
+			   <select  name="<?php echo $elePrefix; ?>_dis_unit" style="width:45%;"
 						id="<?php echo $elePrefix; ?>_dis_unit">
 					   		<option value="miles" <?php echo ($this->data['configUnit']== 'miles') ? "SELECTED" : "" ; ?> >
 		        		    	<?php echo XiusText::_("MILES"); ?> </option>

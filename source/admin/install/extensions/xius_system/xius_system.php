@@ -24,6 +24,13 @@ class plgSystemxius_system extends JPlugin
 	function plgSystemxius_system( &$subject, $params )
 	{
 		parent::__construct( $subject, $params );
+
+		//This only when gzip is enable
+		$gzip = JFactory::getConfig()->get('gzip',0);
+		if($gzip) {
+			ini_set('zlib.output_compression', 'on');
+			ini_set('output_handler', 'ob_gzhandler');
+		}
 	}
 	
 	

@@ -35,7 +35,6 @@
 		<phingcall target="copy_kit" />
 		<phingcall target="copy_testcase" />
 		<phingcall target="copy_revbuild" />
-		<phingcall target="copy_xipt" />
 	</target>
 
 	<target name="copy_revbuild">
@@ -66,11 +65,6 @@
 	</target>
 
 	<!-- Copy latest JomSocial -->
-	<target name="copy_xipt">
-		<copy 	file="${pkg.location}/${pkg.version}/xipt.zip" 
-				tofile="${joomla.rootpath}/${joomla.folder}/xipt.zip" />
-	</target>
-
 	<target name="copy_testcase">
 		<!-- Copy testcases -->
 		<copy todir="${joomla.rootpath}/${joomla.folder}/test" >
@@ -92,7 +86,7 @@
 	</target>
 
 	<target name="copy_kit">
-		<copy 	file="${dir.packages}/${file.package}-${build.number}.zip" 
+		<copy 	file="${dir.packages}/${file.package}-${file.version}.zip" 
 				tofile="${joomla.rootpath}/${joomla.folder}/${project.shortform.small}.zip" />
 	</target>
 
