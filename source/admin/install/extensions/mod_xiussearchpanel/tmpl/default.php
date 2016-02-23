@@ -90,7 +90,7 @@ joms_queue.push(function() {
 					foreach($displayInfo as $info):
 						$count++;
 				?>
-				<div class="row-fluid">
+				<div class="row-fluid xiusMod_availablemain">
 					<div>
 						<?php
 							//echo JHTML::_('tooltip',XiusText::_($xiustooltip), XiusText::_($info['label']), null, XiusText::_($info['label']));
