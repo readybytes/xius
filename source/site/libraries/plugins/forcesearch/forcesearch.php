@@ -133,7 +133,7 @@ class Forcesearch extends XiusBase
 			$pluginParamArray['operatorType'] = $postdata['operatorType'];
 			$registry	= new JRegistry;
 			$registry->loadArray($pluginParamArray,'xius_pluginParams');
-			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
+			$pluginParams =  $registry->toString('INI' , ['xius_pluginParams'] );
 		}
 		//$key = $postdata['key'];
 		return true;
