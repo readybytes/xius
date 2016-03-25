@@ -82,7 +82,7 @@ class XiusModelConfiguration extends JModelLegacy
 		
 		$registry->loadArray($params,'xius_'.$name);
 		// Get the complete INI string
-		$config->params	= $registry->toString( 'INI' , 'xius_'.$name );
+		$config->params	= $registry->toString( 'INI' , ['xius_'.$name] );
 		$config->name = $name;
 		// Save it
 		if(!$config->store() )

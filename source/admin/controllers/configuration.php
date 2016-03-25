@@ -25,7 +25,7 @@ class XiusControllerConfiguration extends JControllerLegacy
 		// Check for request forgeries
 		if(!JRequest::checkToken()) jexit( 'Invalid Token' );
 				
-		$user	=& JFactory::getUser();
+		$user	= JFactory::getUser();
 
 		if ( $user->get('guest')) {
 			JError::raiseError( 403, XiusText::_('ACCESS_FORBIDDEN') );
