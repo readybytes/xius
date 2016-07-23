@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @copyright	Copyright (C) 2009 - 2016 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
  * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
  * @package		Team Joomlaxi
  * @subpackage	Frontend
@@ -82,7 +82,7 @@ class XiusModelConfiguration extends JModelLegacy
 		
 		$registry->loadArray($params,'xius_'.$name);
 		// Get the complete INI string
-		$config->params	= $registry->toString( 'INI' , ['xius_'.$name] );
+		$config->params	= $registry->toString( 'INI' , 'xius_'.$name );
 		$config->name = $name;
 		// Save it
 		if(!$config->store() )
