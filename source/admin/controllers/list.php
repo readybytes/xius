@@ -126,7 +126,7 @@ class XiusControllerList extends JControllerLegacy
 		$registry->loadArray($params,'xius_list_params');
 
 		// Get the complete INI string
-		$data['params']	= $registry->toString('INI' , ['xius_list_params'] );
+		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
 
 		// get the required data
 		$data['id'] 			= $post['id'];

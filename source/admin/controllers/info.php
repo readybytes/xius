@@ -127,7 +127,7 @@ class XiusControllerInfo extends JControllerLegacy
 		$registry->loadArray($post['params'],'xius_params');
 		
 		// Get the complete INI string
-		$data['params']	= $registry->toString('INI' , ['xius_params'] );
+		$data['params']	= $registry->toString('INI' , 'xius_params' );
 		
 		$data['id'] 			= $post['id'];
 		$data['pluginType'] 	= $post['pluginType'];
