@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright	Copyright (C) 2009 - 2016 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
  * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
  * @package		Team Joomlaxi
  * @subpackage	Frontend
@@ -485,7 +485,7 @@ abstract class XiusBase extends JObject
 		if(isset($postdata['pluginParams']) && $postdata['pluginParams']){
 			$registry	= new JRegistry;
 			$registry->loadArray($postdata['pluginParams'],'xius_pluginParams');
-			$pluginParams =  $registry->toString('INI' , 'xius_pluginParams' );
+			$pluginParams =  $registry->toString('INI' , array('xius_pluginParams') );
 		}
 		$key = $postdata['key'];
 		return true;

@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright	Copyright (C) 2009 - 2014 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
+ * @copyright	Copyright (C) 2009 - 2016 Ready Bytes Software Labs Pvt. Ltd. All rights reserved.
  * @license		GNU/GPL, http://www.gnu.org/copyleft/gpl.html
  * @package		Team Joomlaxi
  * @subpackage	Backend
@@ -126,7 +126,7 @@ class XiusControllerList extends JControllerLegacy
 		$registry->loadArray($params,'xius_list_params');
 
 		// Get the complete INI string
-		$data['params']	= $registry->toString('INI' , 'xius_list_params' );
+		$data['params']	= $registry->toString('INI' , array('xius_list_params') );
 
 		// get the required data
 		$data['id'] 			= $post['id'];
